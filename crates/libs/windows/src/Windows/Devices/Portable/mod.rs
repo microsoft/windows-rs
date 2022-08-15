@@ -29,7 +29,6 @@ pub struct IStorageDeviceStatics_Vtbl {
     FromId: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Portable\"`*"]
 pub struct ServiceDevice;
 impl ServiceDevice {
     pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -53,7 +52,6 @@ impl ServiceDevice {
 impl ::windows::core::RuntimeName for ServiceDevice {
     const NAME: &'static str = "Windows.Devices.Portable.ServiceDevice";
 }
-#[doc = "*Required features: `\"Devices_Portable\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ServiceDeviceType(pub i32);
@@ -92,10 +90,8 @@ unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Portable\"`*"]
 pub struct StorageDevice;
 impl StorageDevice {
-    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
         Self::IStorageDeviceStatics(|this| unsafe {

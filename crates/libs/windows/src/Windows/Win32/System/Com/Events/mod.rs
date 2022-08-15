@@ -3,7 +3,6 @@ pub const CEventPublisher: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const CEventSubscription: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);
 pub const CEventSystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMEVENTSYSCHANGEINFO {
     pub cbSize: u32,
@@ -50,15 +49,11 @@ impl ::core::default::Default for COMEVENTSYSCHANGEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EOC_ChangeType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
 impl ::core::marker::Copy for EOC_ChangeType {}
 impl ::core::clone::Clone for EOC_ChangeType {
@@ -81,7 +76,6 @@ impl ::core::fmt::Debug for EOC_ChangeType {
 }
 pub const EventObjectChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
 pub const EventObjectChange2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IDontSupportEventSubscription(::windows::core::IUnknown);
 impl IDontSupportEventSubscription {}
@@ -125,7 +119,6 @@ unsafe impl ::windows::core::Interface for IDontSupportEventSubscription {
 pub struct IDontSupportEventSubscription_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEnumEventObject(::windows::core::IUnknown);
 impl IEnumEventObject {
@@ -187,17 +180,14 @@ pub struct IEnumEventObject_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cskipelem: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventClass(::windows::core::IUnknown);
 impl IEventClass {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventClassID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EventClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventClassID<'a, P0>(&self, bstreventclassid: P0) -> ::windows::core::Result<()>
     where
@@ -205,13 +195,11 @@ impl IEventClass {
     {
         (::windows::core::Interface::vtable(self).SetEventClassID)(::windows::core::Interface::as_raw(self), bstreventclassid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventClassName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EventClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventClassName<'a, P0>(&self, bstreventclassname: P0) -> ::windows::core::Result<()>
     where
@@ -219,13 +207,11 @@ impl IEventClass {
     {
         (::windows::core::Interface::vtable(self).SetEventClassName)(::windows::core::Interface::as_raw(self), bstreventclassname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwnerSID<'a, P0>(&self, bstrownersid: P0) -> ::windows::core::Result<()>
     where
@@ -233,13 +219,11 @@ impl IEventClass {
     {
         (::windows::core::Interface::vtable(self).SetOwnerSID)(::windows::core::Interface::as_raw(self), bstrownersid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FiringInterfaceID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FiringInterfaceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFiringInterfaceID<'a, P0>(&self, bstrfiringinterfaceid: P0) -> ::windows::core::Result<()>
     where
@@ -247,13 +231,11 @@ impl IEventClass {
     {
         (::windows::core::Interface::vtable(self).SetFiringInterfaceID)(::windows::core::Interface::as_raw(self), bstrfiringinterfaceid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, bstrdescription: P0) -> ::windows::core::Result<()>
     where
@@ -261,13 +243,11 @@ impl IEventClass {
     {
         (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CustomConfigCLSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CustomConfigCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCustomConfigCLSID<'a, P0>(&self, bstrcustomconfigclsid: P0) -> ::windows::core::Result<()>
     where
@@ -275,13 +255,11 @@ impl IEventClass {
     {
         (::windows::core::Interface::vtable(self).SetCustomConfigCLSID)(::windows::core::Interface::as_raw(self), bstrcustomconfigclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TypeLib(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TypeLib)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTypeLib<'a, P0>(&self, bstrtypelib: P0) -> ::windows::core::Result<()>
     where
@@ -401,17 +379,14 @@ pub struct IEventClass_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetTypeLib: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventClass2(::windows::core::IUnknown);
 impl IEventClass2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventClassID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EventClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventClassID<'a, P0>(&self, bstreventclassid: P0) -> ::windows::core::Result<()>
     where
@@ -419,13 +394,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetEventClassID)(::windows::core::Interface::as_raw(self), bstreventclassid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventClassName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EventClassName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventClassName<'a, P0>(&self, bstreventclassname: P0) -> ::windows::core::Result<()>
     where
@@ -433,13 +406,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetEventClassName)(::windows::core::Interface::as_raw(self), bstreventclassname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.OwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwnerSID<'a, P0>(&self, bstrownersid: P0) -> ::windows::core::Result<()>
     where
@@ -447,13 +418,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetOwnerSID)(::windows::core::Interface::as_raw(self), bstrownersid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FiringInterfaceID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FiringInterfaceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFiringInterfaceID<'a, P0>(&self, bstrfiringinterfaceid: P0) -> ::windows::core::Result<()>
     where
@@ -461,13 +430,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetFiringInterfaceID)(::windows::core::Interface::as_raw(self), bstrfiringinterfaceid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, bstrdescription: P0) -> ::windows::core::Result<()>
     where
@@ -475,13 +442,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CustomConfigCLSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CustomConfigCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCustomConfigCLSID<'a, P0>(&self, bstrcustomconfigclsid: P0) -> ::windows::core::Result<()>
     where
@@ -489,13 +454,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetCustomConfigCLSID)(::windows::core::Interface::as_raw(self), bstrcustomconfigclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TypeLib(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.TypeLib)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTypeLib<'a, P0>(&self, bstrtypelib: P0) -> ::windows::core::Result<()>
     where
@@ -503,13 +466,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetTypeLib)(::windows::core::Interface::as_raw(self), bstrtypelib.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PublisherID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPublisherID<'a, P0>(&self, bstrpublisherid: P0) -> ::windows::core::Result<()>
     where
@@ -517,13 +478,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).SetPublisherID)(::windows::core::Interface::as_raw(self), bstrpublisherid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MultiInterfacePublisherFilterCLSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MultiInterfacePublisherFilterCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMultiInterfacePublisherFilterCLSID<'a, P0>(&self, bstrpubfilclsid: P0) -> ::windows::core::Result<()>
     where
@@ -531,13 +490,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).SetMultiInterfacePublisherFilterCLSID)(::windows::core::Interface::as_raw(self), bstrpubfilclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AllowInprocActivation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<'a, P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
@@ -545,13 +502,11 @@ impl IEventClass2 {
     {
         (::windows::core::Interface::vtable(self).SetAllowInprocActivation)(::windows::core::Interface::as_raw(self), fallowinprocactivation.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FireInParallel(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FireInParallel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFireInParallel<'a, P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
     where
@@ -662,11 +617,9 @@ pub struct IEventClass2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetFireInParallel: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventControl(::windows::core::IUnknown);
 impl IEventControl {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPublisherFilter<'a, P0, P1>(&self, methodname: P0, ppublisherfilter: P1) -> ::windows::core::Result<()>
     where
@@ -675,13 +628,11 @@ impl IEventControl {
     {
         (::windows::core::Interface::vtable(self).SetPublisherFilter)(::windows::core::Interface::as_raw(self), methodname.into().abi(), ppublisherfilter.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AllowInprocActivation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<'a, P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
@@ -689,7 +640,6 @@ impl IEventControl {
     {
         (::windows::core::Interface::vtable(self).SetAllowInprocActivation)(::windows::core::Interface::as_raw(self), fallowinprocactivation.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSubscriptions<'a, P0, P1>(&self, methodname: P0, optionalcriteria: P1, optionalerrorindex: &i32) -> ::windows::core::Result<IEventObjectCollection>
     where
@@ -699,7 +649,6 @@ impl IEventControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSubscriptions)(::windows::core::Interface::as_raw(self), methodname.into().abi(), optionalcriteria.into().abi(), ::core::mem::transmute(optionalerrorindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEventObjectCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefaultQuery<'a, P0, P1>(&self, methodname: P0, criteria: P1) -> ::windows::core::Result<i32>
     where
@@ -785,11 +734,9 @@ pub struct IEventControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDefaultQuery: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventObjectChange(::windows::core::IUnknown);
 impl IEventObjectChange {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangedSubscription<'a, P0>(&self, changetype: EOC_ChangeType, bstrsubscriptionid: P0) -> ::windows::core::Result<()>
     where
@@ -797,7 +744,6 @@ impl IEventObjectChange {
     {
         (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), changetype, bstrsubscriptionid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangedEventClass<'a, P0>(&self, changetype: EOC_ChangeType, bstreventclassid: P0) -> ::windows::core::Result<()>
     where
@@ -805,7 +751,6 @@ impl IEventObjectChange {
     {
         (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), changetype, bstreventclassid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangedPublisher<'a, P0>(&self, changetype: EOC_ChangeType, bstrpublisherid: P0) -> ::windows::core::Result<()>
     where
@@ -866,16 +811,13 @@ pub struct IEventObjectChange_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ChangedPublisher: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventObjectChange2(::windows::core::IUnknown);
 impl IEventObjectChange2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangedSubscription(&self, pinfo: &COMEVENTSYSCHANGEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ChangedSubscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangedEventClass(&self, pinfo: &COMEVENTSYSCHANGEINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ChangedEventClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo)).ok()
@@ -929,7 +871,6 @@ pub struct IEventObjectChange2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ChangedEventClass: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventObjectCollection(::windows::core::IUnknown);
 impl IEventObjectCollection {
@@ -937,7 +878,6 @@ impl IEventObjectCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, P0>(&self, objectid: P0) -> ::windows::core::Result<super::VARIANT>
     where
@@ -954,7 +894,6 @@ impl IEventObjectCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn Add<'a, P0>(&self, item: &super::VARIANT, objectid: P0) -> ::windows::core::Result<()>
     where
@@ -962,7 +901,6 @@ impl IEventObjectCollection {
     {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(item), objectid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Remove<'a, P0>(&self, objectid: P0) -> ::windows::core::Result<()>
     where
@@ -1041,17 +979,14 @@ pub struct IEventObjectCollection_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Remove: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventProperty(::windows::core::IUnknown);
 impl IEventProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, propertyname: P0) -> ::windows::core::Result<()>
     where
@@ -1059,13 +994,11 @@ impl IEventProperty {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), propertyname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue(&self, propertyvalue: &super::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertyvalue)).ok()
@@ -1142,17 +1075,14 @@ pub struct IEventProperty_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))]
     SetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventPublisher(::windows::core::IUnknown);
 impl IEventPublisher {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PublisherID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPublisherID<'a, P0>(&self, bstrpublisherid: P0) -> ::windows::core::Result<()>
     where
@@ -1160,13 +1090,11 @@ impl IEventPublisher {
     {
         (::windows::core::Interface::vtable(self).SetPublisherID)(::windows::core::Interface::as_raw(self), bstrpublisherid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PublisherName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PublisherName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPublisherName<'a, P0>(&self, bstrpublishername: P0) -> ::windows::core::Result<()>
     where
@@ -1174,13 +1102,11 @@ impl IEventPublisher {
     {
         (::windows::core::Interface::vtable(self).SetPublisherName)(::windows::core::Interface::as_raw(self), bstrpublishername.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PublisherType(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PublisherType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPublisherType<'a, P0>(&self, bstrpublishertype: P0) -> ::windows::core::Result<()>
     where
@@ -1188,13 +1114,11 @@ impl IEventPublisher {
     {
         (::windows::core::Interface::vtable(self).SetPublisherType)(::windows::core::Interface::as_raw(self), bstrpublishertype.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwnerSID<'a, P0>(&self, bstrownersid: P0) -> ::windows::core::Result<()>
     where
@@ -1202,13 +1126,11 @@ impl IEventPublisher {
     {
         (::windows::core::Interface::vtable(self).SetOwnerSID)(::windows::core::Interface::as_raw(self), bstrownersid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, bstrdescription: P0) -> ::windows::core::Result<()>
     where
@@ -1216,7 +1138,6 @@ impl IEventPublisher {
     {
         (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDefaultProperty<'a, P0>(&self, bstrpropertyname: P0) -> ::windows::core::Result<super::VARIANT>
     where
@@ -1225,7 +1146,6 @@ impl IEventPublisher {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn PutDefaultProperty<'a, P0>(&self, bstrpropertyname: P0, propertyvalue: &super::VARIANT) -> ::windows::core::Result<()>
     where
@@ -1233,7 +1153,6 @@ impl IEventPublisher {
     {
         (::windows::core::Interface::vtable(self).PutDefaultProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), ::core::mem::transmute(propertyvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveDefaultProperty<'a, P0>(&self, bstrpropertyname: P0) -> ::windows::core::Result<()>
     where
@@ -1354,17 +1273,14 @@ pub struct IEventPublisher_Vtbl {
     RemoveDefaultProperty: usize,
     pub GetDefaultPropertyCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, collection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventSubscription(::windows::core::IUnknown);
 impl IEventSubscription {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscriptionID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SubscriptionID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubscriptionID<'a, P0>(&self, bstrsubscriptionid: P0) -> ::windows::core::Result<()>
     where
@@ -1372,13 +1288,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetSubscriptionID)(::windows::core::Interface::as_raw(self), bstrsubscriptionid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscriptionName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SubscriptionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubscriptionName<'a, P0>(&self, bstrsubscriptionname: P0) -> ::windows::core::Result<()>
     where
@@ -1386,13 +1300,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetSubscriptionName)(::windows::core::Interface::as_raw(self), bstrsubscriptionname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PublisherID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPublisherID<'a, P0>(&self, bstrpublisherid: P0) -> ::windows::core::Result<()>
     where
@@ -1400,13 +1312,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetPublisherID)(::windows::core::Interface::as_raw(self), bstrpublisherid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventClassID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EventClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventClassID<'a, P0>(&self, bstreventclassid: P0) -> ::windows::core::Result<()>
     where
@@ -1414,13 +1324,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetEventClassID)(::windows::core::Interface::as_raw(self), bstreventclassid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MethodName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MethodName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMethodName<'a, P0>(&self, bstrmethodname: P0) -> ::windows::core::Result<()>
     where
@@ -1428,13 +1336,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetMethodName)(::windows::core::Interface::as_raw(self), bstrmethodname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscriberCLSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SubscriberCLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubscriberCLSID<'a, P0>(&self, bstrsubscriberclsid: P0) -> ::windows::core::Result<()>
     where
@@ -1452,13 +1358,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetSubscriberInterface)(::windows::core::Interface::as_raw(self), psubscriberinterface.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PerUser(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PerUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPerUser<'a, P0>(&self, fperuser: P0) -> ::windows::core::Result<()>
     where
@@ -1466,13 +1370,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetPerUser)(::windows::core::Interface::as_raw(self), fperuser.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OwnerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwnerSID<'a, P0>(&self, bstrownersid: P0) -> ::windows::core::Result<()>
     where
@@ -1480,13 +1382,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetOwnerSID)(::windows::core::Interface::as_raw(self), bstrownersid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<'a, P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
     where
@@ -1494,13 +1394,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, bstrdescription: P0) -> ::windows::core::Result<()>
     where
@@ -1508,13 +1406,11 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MachineName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MachineName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMachineName<'a, P0>(&self, bstrmachinename: P0) -> ::windows::core::Result<()>
     where
@@ -1522,7 +1418,6 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).SetMachineName)(::windows::core::Interface::as_raw(self), bstrmachinename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPublisherProperty<'a, P0>(&self, bstrpropertyname: P0) -> ::windows::core::Result<super::VARIANT>
     where
@@ -1531,7 +1426,6 @@ impl IEventSubscription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPublisherProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn PutPublisherProperty<'a, P0>(&self, bstrpropertyname: P0, propertyvalue: &super::VARIANT) -> ::windows::core::Result<()>
     where
@@ -1539,7 +1433,6 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).PutPublisherProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), ::core::mem::transmute(propertyvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemovePublisherProperty<'a, P0>(&self, bstrpropertyname: P0) -> ::windows::core::Result<()>
     where
@@ -1551,7 +1444,6 @@ impl IEventSubscription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPublisherPropertyCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEventObjectCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn GetSubscriberProperty<'a, P0>(&self, bstrpropertyname: P0) -> ::windows::core::Result<super::VARIANT>
     where
@@ -1560,7 +1452,6 @@ impl IEventSubscription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSubscriberProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn PutSubscriberProperty<'a, P0>(&self, bstrpropertyname: P0, propertyvalue: &super::VARIANT) -> ::windows::core::Result<()>
     where
@@ -1568,7 +1459,6 @@ impl IEventSubscription {
     {
         (::windows::core::Interface::vtable(self).PutSubscriberProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), ::core::mem::transmute(propertyvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveSubscriberProperty<'a, P0>(&self, bstrpropertyname: P0) -> ::windows::core::Result<()>
     where
@@ -1580,13 +1470,11 @@ impl IEventSubscription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSubscriberPropertyCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEventObjectCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InterfaceID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InterfaceID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInterfaceID<'a, P0>(&self, bstrinterfaceid: P0) -> ::windows::core::Result<()>
     where
@@ -1774,11 +1662,9 @@ pub struct IEventSubscription_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetInterfaceID: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IEventSystem(::windows::core::IUnknown);
 impl IEventSystem {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Query<'a, P0, P1>(&self, progid: P0, querycriteria: P1, errorindex: &mut i32, ppinterface: &mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>
     where
@@ -1787,7 +1673,6 @@ impl IEventSystem {
     {
         (::windows::core::Interface::vtable(self).Query)(::windows::core::Interface::as_raw(self), progid.into().abi(), querycriteria.into().abi(), ::core::mem::transmute(errorindex), ::core::mem::transmute(ppinterface)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Store<'a, P0, P1>(&self, progid: P0, pinterface: P1) -> ::windows::core::Result<()>
     where
@@ -1796,7 +1681,6 @@ impl IEventSystem {
     {
         (::windows::core::Interface::vtable(self).Store)(::windows::core::Interface::as_raw(self), progid.into().abi(), pinterface.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Remove<'a, P0, P1>(&self, progid: P0, querycriteria: P1) -> ::windows::core::Result<i32>
     where
@@ -1806,13 +1690,11 @@ impl IEventSystem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), progid.into().abi(), querycriteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventObjectChangeEventClassID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EventObjectChangeEventClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryS<'a, P0, P1>(&self, progid: P0, querycriteria: P1) -> ::windows::core::Result<::windows::core::IUnknown>
     where
@@ -1822,7 +1704,6 @@ impl IEventSystem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryS)(::windows::core::Interface::as_raw(self), progid.into().abi(), querycriteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveS<'a, P0, P1>(&self, progid: P0, querycriteria: P1) -> ::windows::core::Result<()>
     where
@@ -1911,7 +1792,6 @@ pub struct IEventSystem_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RemoveS: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IFiringControl(::windows::core::IUnknown);
 impl IFiringControl {
@@ -1978,7 +1858,6 @@ pub struct IFiringControl_Vtbl {
     pub base__: super::IDispatch_Vtbl,
     pub FireSubscription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, subscription: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IMultiInterfaceEventControl(::windows::core::IUnknown);
 impl IMultiInterfaceEventControl {
@@ -1988,7 +1867,6 @@ impl IMultiInterfaceEventControl {
     {
         (::windows::core::Interface::vtable(self).SetMultiInterfacePublisherFilter)(::windows::core::Interface::as_raw(self), classfilter.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSubscriptions<'a, P0, P1>(&self, eventiid: &::windows::core::GUID, bstrmethodname: P0, optionalcriteria: P1, optionalerrorindex: &i32) -> ::windows::core::Result<IEventObjectCollection>
     where
@@ -1998,7 +1876,6 @@ impl IMultiInterfaceEventControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSubscriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventiid), bstrmethodname.into().abi(), optionalcriteria.into().abi(), ::core::mem::transmute(optionalerrorindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEventObjectCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefaultQuery<'a, P0, P1>(&self, eventiid: &::windows::core::GUID, bstrmethodname: P0, bstrcriteria: P1) -> ::windows::core::Result<i32>
     where
@@ -2008,13 +1885,11 @@ impl IMultiInterfaceEventControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SetDefaultQuery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventiid), bstrmethodname.into().abi(), bstrcriteria.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AllowInprocActivation(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AllowInprocActivation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllowInprocActivation<'a, P0>(&self, fallowinprocactivation: P0) -> ::windows::core::Result<()>
     where
@@ -2022,13 +1897,11 @@ impl IMultiInterfaceEventControl {
     {
         (::windows::core::Interface::vtable(self).SetAllowInprocActivation)(::windows::core::Interface::as_raw(self), fallowinprocactivation.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FireInParallel(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FireInParallel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFireInParallel<'a, P0>(&self, ffireinparallel: P0) -> ::windows::core::Result<()>
     where
@@ -2102,7 +1975,6 @@ pub struct IMultiInterfaceEventControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetFireInParallel: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IMultiInterfacePublisherFilter(::windows::core::IUnknown);
 impl IMultiInterfacePublisherFilter {
@@ -2112,7 +1984,6 @@ impl IMultiInterfacePublisherFilter {
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), peic.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrepareToFire<'a, P0, P1>(&self, iid: &::windows::core::GUID, methodname: P0, firingcontrol: P1) -> ::windows::core::Result<()>
     where
@@ -2167,11 +2038,9 @@ pub struct IMultiInterfacePublisherFilter_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     PrepareToFire: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IPublisherFilter(::windows::core::IUnknown);
 impl IPublisherFilter {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, methodname: P0, dispuserdefined: P1) -> ::windows::core::Result<()>
     where
@@ -2180,7 +2049,6 @@ impl IPublisherFilter {
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), methodname.into().abi(), dispuserdefined.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrepareToFire<'a, P0, P1>(&self, methodname: P0, firingcontrol: P1) -> ::windows::core::Result<()>
     where

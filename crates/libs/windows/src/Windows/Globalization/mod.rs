@@ -8,7 +8,6 @@ pub mod Fonts;
 pub mod NumberFormatting;
 #[cfg(feature = "Globalization_PhoneNumberFormatting")]
 pub mod PhoneNumberFormatting;
-#[doc = "*Required features: `\"Globalization\"`*"]
 pub struct ApplicationLanguages;
 impl ApplicationLanguages {
     pub fn PrimaryLanguageOverride() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -20,7 +19,6 @@ impl ApplicationLanguages {
     pub fn SetPrimaryLanguageOverride(value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         Self::IApplicationLanguagesStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetPrimaryLanguageOverride)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages() -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IApplicationLanguagesStatics(|this| unsafe {
@@ -28,7 +26,6 @@ impl ApplicationLanguages {
             (::windows::core::Interface::vtable(this).Languages)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ManifestLanguages() -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IApplicationLanguagesStatics(|this| unsafe {
@@ -36,7 +33,6 @@ impl ApplicationLanguages {
             (::windows::core::Interface::vtable(this).ManifestLanguages)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
     pub fn GetLanguagesForUser<'a, P0>(user: P0) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>
     where
@@ -61,7 +57,6 @@ impl ApplicationLanguages {
 impl ::windows::core::RuntimeName for ApplicationLanguages {
     const NAME: &'static str = "Windows.Globalization.ApplicationLanguages";
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
 pub struct Calendar(::windows::core::IUnknown);
 impl Calendar {
@@ -87,7 +82,6 @@ impl Calendar {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetToMax)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -129,7 +123,6 @@ impl Calendar {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ChangeClock)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDateTime(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
         let this = self;
@@ -138,7 +131,6 @@ impl Calendar {
             (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDateTime(&self, value: super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
@@ -619,7 +611,6 @@ impl Calendar {
             (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), other.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CompareDateTime(&self, other: super::Foundation::DateTime) -> ::windows::core::Result<i32> {
         let this = self;
@@ -691,7 +682,6 @@ impl Calendar {
             (::windows::core::Interface::vtable(this).IsDaylightSavingTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendarDefaultCalendarAndClock<'a, P0, E0>(languages: P0) -> ::windows::core::Result<Calendar>
     where
@@ -703,7 +693,6 @@ impl Calendar {
             (::windows::core::Interface::vtable(this).CreateCalendarDefaultCalendarAndClock)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendar<'a, P0, E0>(languages: P0, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>
     where
@@ -715,7 +704,6 @@ impl Calendar {
             (::windows::core::Interface::vtable(this).CreateCalendar)(::windows::core::Interface::as_raw(this), languages.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(calendar), ::core::mem::transmute_copy(clock), result__.as_mut_ptr()).from_abi::<Calendar>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCalendarWithTimeZone<'a, P0, E0>(languages: P0, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<Calendar>
     where
@@ -825,7 +813,6 @@ impl ::core::convert::From<&Calendar> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Calendar {}
 unsafe impl ::core::marker::Sync for Calendar {}
-#[doc = "*Required features: `\"Globalization\"`*"]
 pub struct CalendarIdentifiers;
 impl CalendarIdentifiers {
     pub fn Gregorian() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -937,7 +924,6 @@ impl CalendarIdentifiers {
 impl ::windows::core::RuntimeName for CalendarIdentifiers {
     const NAME: &'static str = "Windows.Globalization.CalendarIdentifiers";
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 pub struct ClockIdentifiers;
 impl ClockIdentifiers {
     pub fn TwelveHour() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -961,7 +947,6 @@ impl ClockIdentifiers {
 impl ::windows::core::RuntimeName for ClockIdentifiers {
     const NAME: &'static str = "Windows.Globalization.ClockIdentifiers";
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
 pub struct CurrencyAmount(::windows::core::IUnknown);
 impl CurrencyAmount {
@@ -1053,7 +1038,6 @@ impl ::core::convert::From<&CurrencyAmount> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for CurrencyAmount {}
 unsafe impl ::core::marker::Sync for CurrencyAmount {}
-#[doc = "*Required features: `\"Globalization\"`*"]
 pub struct CurrencyIdentifiers;
 impl CurrencyIdentifiers {
     pub fn AED() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2047,7 +2031,6 @@ impl CurrencyIdentifiers {
 impl ::windows::core::RuntimeName for CurrencyIdentifiers {
     const NAME: &'static str = "Windows.Globalization.CurrencyIdentifiers";
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DayOfWeek(pub i32);
@@ -2086,7 +2069,6 @@ unsafe impl ::windows::core::RuntimeType for DayOfWeek {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
 pub struct GeographicRegion(::windows::core::IUnknown);
 impl GeographicRegion {
@@ -2139,7 +2121,6 @@ impl GeographicRegion {
             (::windows::core::Interface::vtable(this).NativeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CurrenciesInUse(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -3004,7 +2985,6 @@ pub struct ITimeZoneOnCalendar_Vtbl {
     pub TimeZoneAsFullString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub TimeZoneAsString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ideallength: i32, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
 pub struct JapanesePhoneme(::windows::core::IUnknown);
 impl JapanesePhoneme {
@@ -3090,10 +3070,8 @@ impl ::core::convert::From<&JapanesePhoneme> for &::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 pub struct JapanesePhoneticAnalyzer;
 impl JapanesePhoneticAnalyzer {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetWords(input: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
@@ -3101,7 +3079,6 @@ impl JapanesePhoneticAnalyzer {
             (::windows::core::Interface::vtable(this).GetWords)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(input), result__.as_mut_ptr()).from_abi::<super::Foundation::Collections::IVectorView<JapanesePhoneme>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetWordsWithMonoRubyOption(input: &::windows::core::HSTRING, monoruby: bool) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<JapanesePhoneme>> {
         Self::IJapanesePhoneticAnalyzerStatics(|this| unsafe {
@@ -3118,7 +3095,6 @@ impl JapanesePhoneticAnalyzer {
 impl ::windows::core::RuntimeName for JapanesePhoneticAnalyzer {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneticAnalyzer";
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
 pub struct Language(::windows::core::IUnknown);
 impl Language {
@@ -3164,7 +3140,6 @@ impl Language {
             (::windows::core::Interface::vtable(this).AbbreviatedName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetExtensionSubtags(&self, singleton: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<ILanguageExtensionSubtags>(self)?;
@@ -3197,7 +3172,6 @@ impl Language {
             (::windows::core::Interface::vtable(this).TrySetInputMethodLanguageTag)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(languagetag), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMuiCompatibleLanguageListFromLanguageTags<'a, P0, E0>(languagetags: P0) -> ::windows::core::Result<super::Foundation::Collections::IVector<::windows::core::HSTRING>>
     where
@@ -3292,7 +3266,6 @@ impl ::core::convert::From<&Language> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Language {}
 unsafe impl ::core::marker::Sync for Language {}
-#[doc = "*Required features: `\"Globalization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LanguageLayoutDirection(pub i32);
@@ -3328,7 +3301,6 @@ unsafe impl ::windows::core::RuntimeType for LanguageLayoutDirection {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization\"`*"]
 pub struct NumeralSystemIdentifiers;
 impl NumeralSystemIdentifiers {
     pub fn Arab() -> ::windows::core::Result<::windows::core::HSTRING> {

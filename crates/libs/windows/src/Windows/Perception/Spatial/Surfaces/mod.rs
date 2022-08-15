@@ -190,7 +190,6 @@ pub struct ISpatialSurfaceObserverStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceInfo(::windows::core::IUnknown);
 impl SpatialSurfaceInfo {
@@ -201,7 +200,6 @@ impl SpatialSurfaceInfo {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -210,7 +208,6 @@ impl SpatialSurfaceInfo {
             (::windows::core::Interface::vtable(this).UpdateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetBounds<'a, P0>(&self, coordinatesystem: P0) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>
     where
@@ -222,7 +219,6 @@ impl SpatialSurfaceInfo {
             (::windows::core::Interface::vtable(this).TryGetBounds)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryComputeLatestMeshAsync(&self, maxtrianglespercubicmeter: f64) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>> {
         let this = self;
@@ -231,7 +227,6 @@ impl SpatialSurfaceInfo {
             (::windows::core::Interface::vtable(this).TryComputeLatestMeshAsync)(::windows::core::Interface::as_raw(this), maxtrianglespercubicmeter, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryComputeLatestMeshWithOptionsAsync<'a, P0>(&self, maxtrianglespercubicmeter: f64, options: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>
     where
@@ -306,7 +301,6 @@ impl ::core::convert::From<&SpatialSurfaceInfo> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceInfo {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceInfo {}
-#[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceMesh(::windows::core::IUnknown);
 impl SpatialSurfaceMesh {
@@ -338,7 +332,6 @@ impl SpatialSurfaceMesh {
             (::windows::core::Interface::vtable(this).VertexPositions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SpatialSurfaceMeshBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn VertexPositionScale(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -417,11 +410,9 @@ impl ::core::convert::From<&SpatialSurfaceMesh> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMesh {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMesh {}
-#[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceMeshBuffer(::windows::core::IUnknown);
 impl SpatialSurfaceMeshBuffer {
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -444,7 +435,6 @@ impl SpatialSurfaceMeshBuffer {
             (::windows::core::Interface::vtable(this).ElementCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -516,7 +506,6 @@ impl ::core::convert::From<&SpatialSurfaceMeshBuffer> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshBuffer {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshBuffer {}
-#[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceMeshOptions(::windows::core::IUnknown);
 impl SpatialSurfaceMeshOptions {
@@ -527,7 +516,6 @@ impl SpatialSurfaceMeshOptions {
         static SHARED: ::windows::core::FactoryCache<SpatialSurfaceMeshOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn VertexPositionFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -536,13 +524,11 @@ impl SpatialSurfaceMeshOptions {
             (::windows::core::Interface::vtable(this).VertexPositionFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetVertexPositionFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn TriangleIndexFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -551,13 +537,11 @@ impl SpatialSurfaceMeshOptions {
             (::windows::core::Interface::vtable(this).TriangleIndexFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetTriangleIndexFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn VertexNormalFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -566,7 +550,6 @@ impl SpatialSurfaceMeshOptions {
             (::windows::core::Interface::vtable(this).VertexNormalFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetVertexNormalFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
@@ -583,7 +566,6 @@ impl SpatialSurfaceMeshOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIncludeVertexNormals)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub fn SupportedVertexPositionFormats() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
@@ -591,7 +573,6 @@ impl SpatialSurfaceMeshOptions {
             (::windows::core::Interface::vtable(this).SupportedVertexPositionFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub fn SupportedTriangleIndexFormats() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
@@ -599,7 +580,6 @@ impl SpatialSurfaceMeshOptions {
             (::windows::core::Interface::vtable(this).SupportedTriangleIndexFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub fn SupportedVertexNormalFormats() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
@@ -675,7 +655,6 @@ impl ::core::convert::From<&SpatialSurfaceMeshOptions> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for SpatialSurfaceMeshOptions {}
 unsafe impl ::core::marker::Sync for SpatialSurfaceMeshOptions {}
-#[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
 #[repr(transparent)]
 pub struct SpatialSurfaceObserver(::windows::core::IUnknown);
 impl SpatialSurfaceObserver {
@@ -686,7 +665,6 @@ impl SpatialSurfaceObserver {
         static SHARED: ::windows::core::FactoryCache<SpatialSurfaceObserver, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetObservedSurfaces(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, SpatialSurfaceInfo>> {
         let this = self;
@@ -702,7 +680,6 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolume)(::windows::core::Interface::as_raw(this), bounds.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetBoundingVolumes<'a, P0, E0>(&self, bounds: P0) -> ::windows::core::Result<()>
     where
@@ -712,7 +689,6 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolumes)(::windows::core::Interface::as_raw(this), bounds.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ObservedSurfacesChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -724,13 +700,11 @@ impl SpatialSurfaceObserver {
             (::windows::core::Interface::vtable(this).ObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveObservedSurfacesChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
         Self::ISpatialSurfaceObserverStatics(|this| unsafe {

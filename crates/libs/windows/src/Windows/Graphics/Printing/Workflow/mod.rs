@@ -596,11 +596,9 @@ pub struct IPrintWorkflowXpsDataAvailableEventArgs_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     GetDeferral: usize,
 }
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowBackgroundSession(::windows::core::IUnknown);
 impl PrintWorkflowBackgroundSession {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetupRequested<'a, P0>(&self, setupeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -612,13 +610,11 @@ impl PrintWorkflowBackgroundSession {
             (::windows::core::Interface::vtable(this).SetupRequested)(::windows::core::Interface::as_raw(this), setupeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSetupRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSetupRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Submitted<'a, P0>(&self, submittedeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -630,7 +626,6 @@ impl PrintWorkflowBackgroundSession {
             (::windows::core::Interface::vtable(this).Submitted)(::windows::core::Interface::as_raw(this), submittedeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSubmitted(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -710,11 +705,9 @@ impl ::core::convert::From<&PrintWorkflowBackgroundSession> for &::windows::core
 }
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSession {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
@@ -734,7 +727,6 @@ impl PrintWorkflowBackgroundSetupRequestedEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRequiresUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -806,7 +798,6 @@ impl ::core::convert::From<&PrintWorkflowBackgroundSetupRequestedEventArgs> for 
 }
 unsafe impl ::core::marker::Send for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowConfiguration(::windows::core::IUnknown);
 impl PrintWorkflowConfiguration {
@@ -898,11 +889,9 @@ impl ::core::convert::From<&PrintWorkflowConfiguration> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for PrintWorkflowConfiguration {}
 unsafe impl ::core::marker::Sync for PrintWorkflowConfiguration {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSession(::windows::core::IUnknown);
 impl PrintWorkflowForegroundSession {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetupRequested<'a, P0>(&self, setupeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -914,13 +903,11 @@ impl PrintWorkflowForegroundSession {
             (::windows::core::Interface::vtable(this).SetupRequested)(::windows::core::Interface::as_raw(this), setupeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSetupRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSetupRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn XpsDataAvailable<'a, P0>(&self, xpsdataavailableeventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -932,7 +919,6 @@ impl PrintWorkflowForegroundSession {
             (::windows::core::Interface::vtable(this).XpsDataAvailable)(::windows::core::Interface::as_raw(this), xpsdataavailableeventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveXpsDataAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1012,11 +998,9 @@ impl ::core::convert::From<&PrintWorkflowForegroundSession> for &::windows::core
 }
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSession {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowForegroundSetupRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub fn GetUserPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
@@ -1032,7 +1016,6 @@ impl PrintWorkflowForegroundSetupRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Configuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1104,7 +1087,6 @@ impl ::core::convert::From<&PrintWorkflowForegroundSetupRequestedEventArgs> for 
 }
 unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
@@ -1138,11 +1120,9 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobActivatedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobActivatedEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1151,7 +1131,6 @@ impl PrintWorkflowJobActivatedEventArgs {
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1160,7 +1139,6 @@ impl PrintWorkflowJobActivatedEventArgs {
             (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -1169,7 +1147,6 @@ impl PrintWorkflowJobActivatedEventArgs {
             (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -1292,7 +1269,6 @@ impl<'a> ::core::convert::TryFrom<&PrintWorkflowJobActivatedEventArgs> for ::win
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobActivatedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobBackgroundSession(::windows::core::IUnknown);
 impl PrintWorkflowJobBackgroundSession {
@@ -1303,7 +1279,6 @@ impl PrintWorkflowJobBackgroundSession {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowSessionStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn JobStarting<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1315,13 +1290,11 @@ impl PrintWorkflowJobBackgroundSession {
             (::windows::core::Interface::vtable(this).JobStarting)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveJobStarting(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveJobStarting)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PdlModificationRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1333,7 +1306,6 @@ impl PrintWorkflowJobBackgroundSession {
             (::windows::core::Interface::vtable(this).PdlModificationRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePdlModificationRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1406,7 +1378,6 @@ impl ::core::convert::From<&PrintWorkflowJobBackgroundSession> for &::windows::c
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobBackgroundSession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobBackgroundSession {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobNotificationEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobNotificationEventArgs {
@@ -1424,7 +1395,6 @@ impl PrintWorkflowJobNotificationEventArgs {
             (::windows::core::Interface::vtable(this).PrinterJob)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowPrinterJob>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1496,7 +1466,6 @@ impl ::core::convert::From<&PrintWorkflowJobNotificationEventArgs> for &::window
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobNotificationEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobNotificationEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobStartingEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobStartingEventArgs {
@@ -1507,7 +1476,6 @@ impl PrintWorkflowJobStartingEventArgs {
             (::windows::core::Interface::vtable(this).Configuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowConfiguration>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers\"`*"]
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
@@ -1520,7 +1488,6 @@ impl PrintWorkflowJobStartingEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSkipSystemRendering)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1592,7 +1559,6 @@ impl ::core::convert::From<&PrintWorkflowJobStartingEventArgs> for &::windows::c
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobStartingEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobStartingEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobTriggerDetails(::windows::core::IUnknown);
 impl PrintWorkflowJobTriggerDetails {
@@ -1666,7 +1632,6 @@ impl ::core::convert::From<&PrintWorkflowJobTriggerDetails> for &::windows::core
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobTriggerDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowJobUISession(::windows::core::IUnknown);
 impl PrintWorkflowJobUISession {
@@ -1677,7 +1642,6 @@ impl PrintWorkflowJobUISession {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowSessionStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PdlDataAvailable<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1689,13 +1653,11 @@ impl PrintWorkflowJobUISession {
             (::windows::core::Interface::vtable(this).PdlDataAvailable)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePdlDataAvailable(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemovePdlDataAvailable)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn JobNotification<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1707,7 +1669,6 @@ impl PrintWorkflowJobUISession {
             (::windows::core::Interface::vtable(this).JobNotification)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveJobNotification(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1780,11 +1741,9 @@ impl ::core::convert::From<&PrintWorkflowJobUISession> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for PrintWorkflowJobUISession {}
 unsafe impl ::core::marker::Sync for PrintWorkflowJobUISession {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelSourceFileContent(::windows::core::IUnknown);
 impl PrintWorkflowObjectModelSourceFileContent {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateInstance<'a, P0, E0>(xpsstream: P0) -> ::windows::core::Result<PrintWorkflowObjectModelSourceFileContent>
     where
@@ -1864,7 +1823,6 @@ impl ::core::convert::From<&PrintWorkflowObjectModelSourceFileContent> for &::wi
 }
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelSourceFileContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelSourceFileContent {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowObjectModelTargetPackage(::windows::core::IUnknown);
 impl PrintWorkflowObjectModelTargetPackage {}
@@ -1930,7 +1888,6 @@ impl ::core::convert::From<&PrintWorkflowObjectModelTargetPackage> for &::window
 }
 unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
@@ -1965,11 +1922,9 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlConverter(::windows::core::IUnknown);
 impl PrintWorkflowPdlConverter {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
     pub fn ConvertPdlAsync<'a, P0, P1, E1, P2, E2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -2048,7 +2003,6 @@ impl ::core::convert::From<&PrintWorkflowPdlConverter> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlConverter {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlConverter {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlDataAvailableEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowPdlDataAvailableEventArgs {
@@ -2073,7 +2027,6 @@ impl PrintWorkflowPdlDataAvailableEventArgs {
             (::windows::core::Interface::vtable(this).SourceContent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlSourceContent>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2145,7 +2098,6 @@ impl ::core::convert::From<&PrintWorkflowPdlDataAvailableEventArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlDataAvailableEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
@@ -2184,7 +2136,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).CreateJobOnPrinter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(targetcontenttype), result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlTargetStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn CreateJobOnPrinterWithAttributes<'a, P0, E0>(&self, jobattributes: P0, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
     where
@@ -2197,7 +2148,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).CreateJobOnPrinterWithAttributes)(::windows::core::Interface::as_raw(this), jobattributes.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(targetcontenttype), result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlTargetStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateJobOnPrinterWithAttributesBuffer<'a, P0, E0>(&self, jobattributesbuffer: P0, targetcontenttype: &::windows::core::HSTRING) -> ::windows::core::Result<PrintWorkflowPdlTargetStream>
     where
@@ -2217,7 +2167,6 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (::windows::core::Interface::vtable(this).GetPdlConverter)(::windows::core::Interface::as_raw(this), conversiontype, result__.as_mut_ptr()).from_abi::<PrintWorkflowPdlConverter>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2289,7 +2238,6 @@ impl ::core::convert::From<&PrintWorkflowPdlModificationRequestedEventArgs> for 
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlModificationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlSourceContent(::windows::core::IUnknown);
 impl PrintWorkflowPdlSourceContent {
@@ -2300,7 +2248,6 @@ impl PrintWorkflowPdlSourceContent {
             (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -2309,7 +2256,6 @@ impl PrintWorkflowPdlSourceContent {
             (::windows::core::Interface::vtable(this).GetInputStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IInputStream>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn GetContentFileAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
@@ -2381,11 +2327,9 @@ impl ::core::convert::From<&PrintWorkflowPdlSourceContent> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlSourceContent {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPdlTargetStream(::windows::core::IUnknown);
 impl PrintWorkflowPdlTargetStream {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -2461,7 +2405,6 @@ impl ::core::convert::From<&PrintWorkflowPdlTargetStream> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPdlTargetStream {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPdlTargetStream {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowPrinterJob(::windows::core::IUnknown);
 impl PrintWorkflowPrinterJob {
@@ -2472,7 +2415,6 @@ impl PrintWorkflowPrinterJob {
             (::windows::core::Interface::vtable(this).JobId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers\"`*"]
     #[cfg(feature = "Devices_Printers")]
     pub fn Printer(&self) -> ::windows::core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
@@ -2488,7 +2430,6 @@ impl PrintWorkflowPrinterJob {
             (::windows::core::Interface::vtable(this).GetJobStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowPrinterJobStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetJobPrintTicket(&self) -> ::windows::core::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
@@ -2497,7 +2438,6 @@ impl PrintWorkflowPrinterJob {
             (::windows::core::Interface::vtable(this).GetJobPrintTicket)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::PrintTicket::WorkflowPrintTicket>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetJobAttributesAsBuffer<'a, P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer>
     where
@@ -2510,7 +2450,6 @@ impl PrintWorkflowPrinterJob {
             (::windows::core::Interface::vtable(this).GetJobAttributesAsBuffer)(::windows::core::Interface::as_raw(this), attributenames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn GetJobAttributes<'a, P0, E0>(&self, attributenames: P0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
@@ -2523,7 +2462,6 @@ impl PrintWorkflowPrinterJob {
             (::windows::core::Interface::vtable(this).GetJobAttributes)(::windows::core::Interface::as_raw(this), attributenames.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
     pub fn SetJobAttributesFromBuffer<'a, P0, E0>(&self, jobattributesbuffer: P0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
@@ -2536,7 +2474,6 @@ impl PrintWorkflowPrinterJob {
             (::windows::core::Interface::vtable(this).SetJobAttributesFromBuffer)(::windows::core::Interface::as_raw(this), jobattributesbuffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Printers::IppSetAttributesResult>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Printers\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Printers", feature = "Foundation_Collections"))]
     pub fn SetJobAttributes<'a, P0, E0>(&self, jobattributes: P0) -> ::windows::core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
@@ -2612,7 +2549,6 @@ impl ::core::convert::From<&PrintWorkflowPrinterJob> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
@@ -2648,7 +2584,6 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowSessionStatus(pub i32);
@@ -2685,11 +2620,9 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSourceContent(::windows::core::IUnknown);
 impl PrintWorkflowSourceContent {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Printing_PrintTicket"))]
     pub fn GetJobPrintTicketAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
@@ -2775,11 +2708,9 @@ impl ::core::convert::From<&PrintWorkflowSourceContent> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSourceContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSourceContent {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSpoolStreamContent(::windows::core::IUnknown);
 impl PrintWorkflowSpoolStreamContent {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -2851,11 +2782,9 @@ impl ::core::convert::From<&PrintWorkflowSpoolStreamContent> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSpoolStreamContent {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSpoolStreamContent {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowStreamTarget(::windows::core::IUnknown);
 impl PrintWorkflowStreamTarget {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStream(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
@@ -2927,7 +2856,6 @@ impl ::core::convert::From<&PrintWorkflowStreamTarget> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for PrintWorkflowStreamTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowStreamTarget {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowSubmittedEventArgs {
@@ -2938,7 +2866,6 @@ impl PrintWorkflowSubmittedEventArgs {
             (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowSubmittedOperation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Printing_PrintTicket\"`*"]
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
     pub fn GetTarget<'a, P0>(&self, jobprintticket: P0) -> ::windows::core::Result<PrintWorkflowTarget>
     where
@@ -2950,7 +2877,6 @@ impl PrintWorkflowSubmittedEventArgs {
             (::windows::core::Interface::vtable(this).GetTarget)(::windows::core::Interface::as_raw(this), jobprintticket.into().abi(), result__.as_mut_ptr()).from_abi::<PrintWorkflowTarget>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -3022,7 +2948,6 @@ impl ::core::convert::From<&PrintWorkflowSubmittedEventArgs> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowSubmittedOperation(::windows::core::IUnknown);
 impl PrintWorkflowSubmittedOperation {
@@ -3107,7 +3032,6 @@ impl ::core::convert::From<&PrintWorkflowSubmittedOperation> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
@@ -3142,7 +3066,6 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowTarget(::windows::core::IUnknown);
 impl PrintWorkflowTarget {
@@ -3223,7 +3146,6 @@ impl ::core::convert::From<&PrintWorkflowTarget> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for PrintWorkflowTarget {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTarget {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowTriggerDetails(::windows::core::IUnknown);
 impl PrintWorkflowTriggerDetails {
@@ -3297,11 +3219,9 @@ impl ::core::convert::From<&PrintWorkflowTriggerDetails> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for PrintWorkflowTriggerDetails {}
 unsafe impl ::core::marker::Sync for PrintWorkflowTriggerDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowUIActivatedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowUIActivatedEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3310,7 +3230,6 @@ impl PrintWorkflowUIActivatedEventArgs {
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3319,7 +3238,6 @@ impl PrintWorkflowUIActivatedEventArgs {
             (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows::core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -3328,7 +3246,6 @@ impl PrintWorkflowUIActivatedEventArgs {
             (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"System\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "System"))]
     pub fn User(&self) -> ::windows::core::Result<super::super::super::System::User> {
         let this = &::windows::core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
@@ -3451,7 +3368,6 @@ impl<'a> ::core::convert::TryFrom<&PrintWorkflowUIActivatedEventArgs> for ::wind
 }
 unsafe impl ::core::marker::Send for PrintWorkflowUIActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUIActivatedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
@@ -3487,7 +3403,6 @@ unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowUILauncher(::windows::core::IUnknown);
 impl PrintWorkflowUILauncher {
@@ -3498,7 +3413,6 @@ impl PrintWorkflowUILauncher {
             (::windows::core::Interface::vtable(this).IsUILaunchEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchAndCompleteUIAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<PrintWorkflowUICompletionStatus>> {
         let this = self;
@@ -3570,7 +3484,6 @@ impl ::core::convert::From<&PrintWorkflowUILauncher> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for PrintWorkflowUILauncher {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUILauncher {}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
 pub struct PrintWorkflowXpsDataAvailableEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowXpsDataAvailableEventArgs {
@@ -3581,7 +3494,6 @@ impl PrintWorkflowXpsDataAvailableEventArgs {
             (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PrintWorkflowSubmittedOperation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;

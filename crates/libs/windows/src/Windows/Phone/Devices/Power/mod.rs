@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Phone_Devices_Power\"`*"]
 #[repr(transparent)]
 pub struct Battery(::windows::core::IUnknown);
 impl Battery {
@@ -9,7 +8,6 @@ impl Battery {
             (::windows::core::Interface::vtable(this).RemainingChargePercent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingDischargeTime(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -18,7 +16,6 @@ impl Battery {
             (::windows::core::Interface::vtable(this).RemainingDischargeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingChargePercentChanged<'a, P0>(&self, changehandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -30,7 +27,6 @@ impl Battery {
             (::windows::core::Interface::vtable(this).RemainingChargePercentChanged)(::windows::core::Interface::as_raw(this), changehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemainingChargePercentChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;

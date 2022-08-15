@@ -1,6 +1,5 @@
 #[cfg(feature = "Devices_Sensors_Custom")]
 pub mod Custom;
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Accelerometer(::windows::core::IUnknown);
 impl Accelerometer {
@@ -29,7 +28,6 @@ impl Accelerometer {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -41,13 +39,11 @@ impl Accelerometer {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Shaken<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -59,19 +55,16 @@ impl Accelerometer {
             (::windows::core::Interface::vtable(this).Shaken)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShaken(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveShaken)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
@@ -131,7 +124,6 @@ impl Accelerometer {
             (::windows::core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>> {
         Self::IAccelerometerStatics3(|this| unsafe {
@@ -223,7 +215,6 @@ impl ::core::convert::From<&Accelerometer> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Accelerometer {}
 unsafe impl ::core::marker::Sync for Accelerometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct AccelerometerDataThreshold(::windows::core::IUnknown);
 impl AccelerometerDataThreshold {
@@ -323,11 +314,9 @@ impl ::core::convert::From<&AccelerometerDataThreshold> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for AccelerometerDataThreshold {}
 unsafe impl ::core::marker::Sync for AccelerometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct AccelerometerReading(::windows::core::IUnknown);
 impl AccelerometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -357,7 +346,6 @@ impl AccelerometerReading {
             (::windows::core::Interface::vtable(this).AccelerationZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
@@ -366,7 +354,6 @@ impl AccelerometerReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
@@ -438,7 +425,6 @@ impl ::core::convert::From<&AccelerometerReading> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for AccelerometerReading {}
 unsafe impl ::core::marker::Sync for AccelerometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct AccelerometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl AccelerometerReadingChangedEventArgs {
@@ -512,7 +498,6 @@ impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AccelerometerReadingType(pub i32);
@@ -547,11 +532,9 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerReadingType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct AccelerometerShakenEventArgs(::windows::core::IUnknown);
 impl AccelerometerShakenEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -623,11 +606,9 @@ impl ::core::convert::From<&AccelerometerShakenEventArgs> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for AccelerometerShakenEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerShakenEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ActivitySensor(::windows::core::IUnknown);
 impl ActivitySensor {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensorReading>> {
         let this = self;
@@ -636,7 +617,6 @@ impl ActivitySensor {
             (::windows::core::Interface::vtable(this).GetCurrentReadingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensorReading>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SubscribedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ActivityType>> {
         let this = self;
@@ -659,7 +639,6 @@ impl ActivitySensor {
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivityType>> {
         let this = self;
@@ -675,7 +654,6 @@ impl ActivitySensor {
             (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -687,13 +665,11 @@ impl ActivitySensor {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
@@ -707,7 +683,6 @@ impl ActivitySensor {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
         Self::IActivitySensorStatics(|this| unsafe {
@@ -715,7 +690,6 @@ impl ActivitySensor {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
@@ -723,7 +697,6 @@ impl ActivitySensor {
             (::windows::core::Interface::vtable(this).GetSystemHistoryAsync)(::windows::core::Interface::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
         Self::IActivitySensorStatics(|this| unsafe {
@@ -799,11 +772,9 @@ impl ::core::convert::From<&ActivitySensor> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ActivitySensor {}
 unsafe impl ::core::marker::Sync for ActivitySensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ActivitySensorReading(::windows::core::IUnknown);
 impl ActivitySensorReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -889,7 +860,6 @@ impl ::core::convert::From<&ActivitySensorReading> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for ActivitySensorReading {}
 unsafe impl ::core::marker::Sync for ActivitySensorReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangeReport(::windows::core::IUnknown);
 impl ActivitySensorReadingChangeReport {
@@ -963,7 +933,6 @@ impl ::core::convert::From<&ActivitySensorReadingChangeReport> for &::windows::c
 }
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangeReport {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangeReport {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ActivitySensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl ActivitySensorReadingChangedEventArgs {
@@ -1037,7 +1006,6 @@ impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for &::window
 }
 unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ActivitySensorReadingConfidence(pub i32);
@@ -1071,11 +1039,9 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingConfidence {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ActivitySensorTriggerDetails(::windows::core::IUnknown);
 impl ActivitySensorTriggerDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>> {
         let this = self;
@@ -1147,7 +1113,6 @@ impl ::core::convert::From<&ActivitySensorTriggerDetails> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ActivityType(pub i32);
@@ -1187,7 +1152,6 @@ unsafe impl ::windows::core::RuntimeType for ActivityType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Altimeter(::windows::core::IUnknown);
 impl Altimeter {
@@ -1223,7 +1187,6 @@ impl Altimeter {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1235,7 +1198,6 @@ impl Altimeter {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1333,11 +1295,9 @@ impl ::core::convert::From<&Altimeter> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Altimeter {}
 unsafe impl ::core::marker::Sync for Altimeter {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct AltimeterReading(::windows::core::IUnknown);
 impl AltimeterReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1353,7 +1313,6 @@ impl AltimeterReading {
             (::windows::core::Interface::vtable(this).AltitudeChangeInMeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
@@ -1362,7 +1321,6 @@ impl AltimeterReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
@@ -1434,7 +1392,6 @@ impl ::core::convert::From<&AltimeterReading> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for AltimeterReading {}
 unsafe impl ::core::marker::Sync for AltimeterReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct AltimeterReadingChangedEventArgs(::windows::core::IUnknown);
 impl AltimeterReadingChangedEventArgs {
@@ -1508,7 +1465,6 @@ impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for AltimeterReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AltimeterReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Barometer(::windows::core::IUnknown);
 impl Barometer {
@@ -1544,7 +1500,6 @@ impl Barometer {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1556,7 +1511,6 @@ impl Barometer {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1593,7 +1547,6 @@ impl Barometer {
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Barometer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>> {
         Self::IBarometerStatics2(|this| unsafe {
@@ -1680,7 +1633,6 @@ impl ::core::convert::From<&Barometer> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Barometer {}
 unsafe impl ::core::marker::Sync for Barometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct BarometerDataThreshold(::windows::core::IUnknown);
 impl BarometerDataThreshold {
@@ -1758,11 +1710,9 @@ impl ::core::convert::From<&BarometerDataThreshold> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for BarometerDataThreshold {}
 unsafe impl ::core::marker::Sync for BarometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct BarometerReading(::windows::core::IUnknown);
 impl BarometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1778,7 +1728,6 @@ impl BarometerReading {
             (::windows::core::Interface::vtable(this).StationPressureInHectopascals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
@@ -1787,7 +1736,6 @@ impl BarometerReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
@@ -1859,7 +1807,6 @@ impl ::core::convert::From<&BarometerReading> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for BarometerReading {}
 unsafe impl ::core::marker::Sync for BarometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct BarometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl BarometerReadingChangedEventArgs {
@@ -1933,7 +1880,6 @@ impl ::core::convert::From<&BarometerReadingChangedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for BarometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BarometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Compass(::windows::core::IUnknown);
 impl Compass {
@@ -1962,7 +1908,6 @@ impl Compass {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1974,19 +1919,16 @@ impl Compass {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
@@ -2039,7 +1981,6 @@ impl Compass {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>> {
         Self::ICompassStatics2(|this| unsafe {
@@ -2120,7 +2061,6 @@ impl ::core::convert::From<&Compass> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Compass {}
 unsafe impl ::core::marker::Sync for Compass {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct CompassDataThreshold(::windows::core::IUnknown);
 impl CompassDataThreshold {
@@ -2198,11 +2138,9 @@ impl ::core::convert::From<&CompassDataThreshold> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for CompassDataThreshold {}
 unsafe impl ::core::marker::Sync for CompassDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct CompassReading(::windows::core::IUnknown);
 impl CompassReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2218,7 +2156,6 @@ impl CompassReading {
             (::windows::core::Interface::vtable(this).HeadingMagneticNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn HeadingTrueNorth(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -2227,7 +2164,6 @@ impl CompassReading {
             (::windows::core::Interface::vtable(this).HeadingTrueNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
@@ -2236,7 +2172,6 @@ impl CompassReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
@@ -2315,7 +2250,6 @@ impl ::core::convert::From<&CompassReading> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for CompassReading {}
 unsafe impl ::core::marker::Sync for CompassReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct CompassReadingChangedEventArgs(::windows::core::IUnknown);
 impl CompassReadingChangedEventArgs {
@@ -2389,7 +2323,6 @@ impl ::core::convert::From<&CompassReadingChangedEventArgs> for &::windows::core
 }
 unsafe impl ::core::marker::Send for CompassReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for CompassReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Gyrometer(::windows::core::IUnknown);
 impl Gyrometer {
@@ -2418,7 +2351,6 @@ impl Gyrometer {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2430,19 +2362,16 @@ impl Gyrometer {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
@@ -2495,7 +2424,6 @@ impl Gyrometer {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>> {
         Self::IGyrometerStatics2(|this| unsafe {
@@ -2576,7 +2504,6 @@ impl ::core::convert::From<&Gyrometer> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Gyrometer {}
 unsafe impl ::core::marker::Sync for Gyrometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct GyrometerDataThreshold(::windows::core::IUnknown);
 impl GyrometerDataThreshold {
@@ -2676,11 +2603,9 @@ impl ::core::convert::From<&GyrometerDataThreshold> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for GyrometerDataThreshold {}
 unsafe impl ::core::marker::Sync for GyrometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct GyrometerReading(::windows::core::IUnknown);
 impl GyrometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2710,7 +2635,6 @@ impl GyrometerReading {
             (::windows::core::Interface::vtable(this).AngularVelocityZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
@@ -2719,7 +2643,6 @@ impl GyrometerReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
@@ -2791,7 +2714,6 @@ impl ::core::convert::From<&GyrometerReading> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for GyrometerReading {}
 unsafe impl ::core::marker::Sync for GyrometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct GyrometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl GyrometerReadingChangedEventArgs {
@@ -2865,11 +2787,9 @@ impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for GyrometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GyrometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct HingeAngleReading(::windows::core::IUnknown);
 impl HingeAngleReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2885,7 +2805,6 @@ impl HingeAngleReading {
             (::windows::core::Interface::vtable(this).AngleInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = self;
@@ -2957,11 +2876,9 @@ impl ::core::convert::From<&HingeAngleReading> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for HingeAngleReading {}
 unsafe impl ::core::marker::Sync for HingeAngleReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct HingeAngleSensor(::windows::core::IUnknown);
 impl HingeAngleSensor {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleReading>> {
         let this = self;
@@ -2995,7 +2912,6 @@ impl HingeAngleSensor {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3007,7 +2923,6 @@ impl HingeAngleSensor {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -3019,7 +2934,6 @@ impl HingeAngleSensor {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
@@ -3027,7 +2941,6 @@ impl HingeAngleSensor {
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &::windows::core::HSTRING, secondpanelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
@@ -3035,7 +2948,6 @@ impl HingeAngleSensor {
             (::windows::core::Interface::vtable(this).GetRelatedToAdjacentPanelsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(firstpanelid), ::core::mem::transmute_copy(secondpanelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
         Self::IHingeAngleSensorStatics(|this| unsafe {
@@ -3111,7 +3023,6 @@ impl ::core::convert::From<&HingeAngleSensor> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for HingeAngleSensor {}
 unsafe impl ::core::marker::Sync for HingeAngleSensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct HingeAngleSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl HingeAngleSensorReadingChangedEventArgs {
@@ -5274,7 +5185,6 @@ pub struct IProximitySensorStatics2_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetReadingsFromTriggerDetails: usize,
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ISensorDataThreshold(::windows::core::IUnknown);
 impl ISensorDataThreshold {}
@@ -5492,7 +5402,6 @@ pub struct ISimpleOrientationSensorStatics2_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     FromIdAsync: usize,
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Inclinometer(::windows::core::IUnknown);
 impl Inclinometer {
@@ -5521,7 +5430,6 @@ impl Inclinometer {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5533,19 +5441,16 @@ impl Inclinometer {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IInclinometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows::core::Interface::cast::<IInclinometer2>(self)?;
@@ -5617,7 +5522,6 @@ impl Inclinometer {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Inclinometer>> {
         Self::IInclinometerStatics4(|this| unsafe {
@@ -5708,7 +5612,6 @@ impl ::core::convert::From<&Inclinometer> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Inclinometer {}
 unsafe impl ::core::marker::Sync for Inclinometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct InclinometerDataThreshold(::windows::core::IUnknown);
 impl InclinometerDataThreshold {
@@ -5808,11 +5711,9 @@ impl ::core::convert::From<&InclinometerDataThreshold> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for InclinometerDataThreshold {}
 unsafe impl ::core::marker::Sync for InclinometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct InclinometerReading(::windows::core::IUnknown);
 impl InclinometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -5842,7 +5743,6 @@ impl InclinometerReading {
             (::windows::core::Interface::vtable(this).YawDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IInclinometerReading2>(self)?;
@@ -5851,7 +5751,6 @@ impl InclinometerReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IInclinometerReading2>(self)?;
@@ -5930,7 +5829,6 @@ impl ::core::convert::From<&InclinometerReading> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for InclinometerReading {}
 unsafe impl ::core::marker::Sync for InclinometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct InclinometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl InclinometerReadingChangedEventArgs {
@@ -6004,7 +5902,6 @@ impl ::core::convert::From<&InclinometerReadingChangedEventArgs> for &::windows:
 }
 unsafe impl ::core::marker::Send for InclinometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for InclinometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct LightSensor(::windows::core::IUnknown);
 impl LightSensor {
@@ -6033,7 +5930,6 @@ impl LightSensor {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6045,7 +5941,6 @@ impl LightSensor {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -6095,7 +5990,6 @@ impl LightSensor {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LightSensor>> {
         Self::ILightSensorStatics2(|this| unsafe {
@@ -6176,7 +6070,6 @@ impl ::core::convert::From<&LightSensor> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for LightSensor {}
 unsafe impl ::core::marker::Sync for LightSensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct LightSensorDataThreshold(::windows::core::IUnknown);
 impl LightSensorDataThreshold {
@@ -6265,11 +6158,9 @@ impl ::core::convert::From<&LightSensorDataThreshold> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for LightSensorDataThreshold {}
 unsafe impl ::core::marker::Sync for LightSensorDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct LightSensorReading(::windows::core::IUnknown);
 impl LightSensorReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -6285,7 +6176,6 @@ impl LightSensorReading {
             (::windows::core::Interface::vtable(this).IlluminanceInLux)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<ILightSensorReading2>(self)?;
@@ -6294,7 +6184,6 @@ impl LightSensorReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<ILightSensorReading2>(self)?;
@@ -6366,7 +6255,6 @@ impl ::core::convert::From<&LightSensorReading> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for LightSensorReading {}
 unsafe impl ::core::marker::Sync for LightSensorReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct LightSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl LightSensorReadingChangedEventArgs {
@@ -6440,7 +6328,6 @@ impl ::core::convert::From<&LightSensorReadingChangedEventArgs> for &::windows::
 }
 unsafe impl ::core::marker::Send for LightSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for LightSensorReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Magnetometer(::windows::core::IUnknown);
 impl Magnetometer {
@@ -6469,7 +6356,6 @@ impl Magnetometer {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6481,19 +6367,16 @@ impl Magnetometer {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMagnetometer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows::core::Interface::cast::<IMagnetometer2>(self)?;
@@ -6546,7 +6429,6 @@ impl Magnetometer {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Magnetometer>> {
         Self::IMagnetometerStatics2(|this| unsafe {
@@ -6627,7 +6509,6 @@ impl ::core::convert::From<&Magnetometer> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Magnetometer {}
 unsafe impl ::core::marker::Sync for Magnetometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagnetometerAccuracy(pub i32);
@@ -6663,7 +6544,6 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerAccuracy {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct MagnetometerDataThreshold(::windows::core::IUnknown);
 impl MagnetometerDataThreshold {
@@ -6763,11 +6643,9 @@ impl ::core::convert::From<&MagnetometerDataThreshold> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for MagnetometerDataThreshold {}
 unsafe impl ::core::marker::Sync for MagnetometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct MagnetometerReading(::windows::core::IUnknown);
 impl MagnetometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -6804,7 +6682,6 @@ impl MagnetometerReading {
             (::windows::core::Interface::vtable(this).DirectionalAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IMagnetometerReading2>(self)?;
@@ -6813,7 +6690,6 @@ impl MagnetometerReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IMagnetometerReading2>(self)?;
@@ -6885,7 +6761,6 @@ impl ::core::convert::From<&MagnetometerReading> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for MagnetometerReading {}
 unsafe impl ::core::marker::Sync for MagnetometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct MagnetometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl MagnetometerReadingChangedEventArgs {
@@ -6959,7 +6834,6 @@ impl ::core::convert::From<&MagnetometerReadingChangedEventArgs> for &::windows:
 }
 unsafe impl ::core::marker::Send for MagnetometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MagnetometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct OrientationSensor(::windows::core::IUnknown);
 impl OrientationSensor {
@@ -6988,7 +6862,6 @@ impl OrientationSensor {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7000,19 +6873,16 @@ impl OrientationSensor {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows::core::Interface::cast::<IOrientationSensor2>(self)?;
@@ -7089,7 +6959,6 @@ impl OrientationSensor {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithSensorReadingTypeAndSensorOptimizationGoal)(::windows::core::Interface::as_raw(this), readingtype, optimizationgoal, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<OrientationSensor>> {
         Self::IOrientationSensorStatics4(|this| unsafe {
@@ -7180,11 +7049,9 @@ impl ::core::convert::From<&OrientationSensor> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for OrientationSensor {}
 unsafe impl ::core::marker::Sync for OrientationSensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct OrientationSensorReading(::windows::core::IUnknown);
 impl OrientationSensorReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -7207,7 +7074,6 @@ impl OrientationSensorReading {
             (::windows::core::Interface::vtable(this).Quaternion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SensorQuaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = &::windows::core::Interface::cast::<IOrientationSensorReading2>(self)?;
@@ -7216,7 +7082,6 @@ impl OrientationSensorReading {
             (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IOrientationSensorReading2>(self)?;
@@ -7295,7 +7160,6 @@ impl ::core::convert::From<&OrientationSensorReading> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for OrientationSensorReading {}
 unsafe impl ::core::marker::Sync for OrientationSensorReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct OrientationSensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl OrientationSensorReadingChangedEventArgs {
@@ -7369,7 +7233,6 @@ impl ::core::convert::From<&OrientationSensorReadingChangedEventArgs> for &::win
 }
 unsafe impl ::core::marker::Send for OrientationSensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for OrientationSensorReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct Pedometer(::windows::core::IUnknown);
 impl Pedometer {
@@ -7405,7 +7268,6 @@ impl Pedometer {
             (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7417,13 +7279,11 @@ impl Pedometer {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentReadings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>> {
         let this = &::windows::core::Interface::cast::<IPedometer2>(self)?;
@@ -7432,7 +7292,6 @@ impl Pedometer {
             (::windows::core::Interface::vtable(this).GetCurrentReadings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
@@ -7440,7 +7299,6 @@ impl Pedometer {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Pedometer>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Pedometer>> {
         Self::IPedometerStatics(|this| unsafe {
@@ -7454,7 +7312,6 @@ impl Pedometer {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
@@ -7462,7 +7319,6 @@ impl Pedometer {
             (::windows::core::Interface::vtable(this).GetSystemHistoryAsync)(::windows::core::Interface::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>> {
         Self::IPedometerStatics(|this| unsafe {
@@ -7470,7 +7326,6 @@ impl Pedometer {
             (::windows::core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(::windows::core::Interface::as_raw(this), fromtime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetReadingsFromTriggerDetails<'a, P0>(triggerdetails: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PedometerReading>>
     where
@@ -7554,7 +7409,6 @@ impl ::core::convert::From<&Pedometer> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Pedometer {}
 unsafe impl ::core::marker::Sync for Pedometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct PedometerDataThreshold(::windows::core::IUnknown);
 impl PedometerDataThreshold {
@@ -7654,7 +7508,6 @@ impl<'a> ::core::convert::TryFrom<&PedometerDataThreshold> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for PedometerDataThreshold {}
 unsafe impl ::core::marker::Sync for PedometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct PedometerReading(::windows::core::IUnknown);
 impl PedometerReading {
@@ -7672,7 +7525,6 @@ impl PedometerReading {
             (::windows::core::Interface::vtable(this).CumulativeSteps)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -7681,7 +7533,6 @@ impl PedometerReading {
             (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CumulativeStepsDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -7753,7 +7604,6 @@ impl ::core::convert::From<&PedometerReading> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for PedometerReading {}
 unsafe impl ::core::marker::Sync for PedometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct PedometerReadingChangedEventArgs(::windows::core::IUnknown);
 impl PedometerReadingChangedEventArgs {
@@ -7827,7 +7677,6 @@ impl ::core::convert::From<&PedometerReadingChangedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PedometerStepKind(pub i32);
@@ -7862,7 +7711,6 @@ unsafe impl ::windows::core::RuntimeType for PedometerStepKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ProximitySensor(::windows::core::IUnknown);
 impl ProximitySensor {
@@ -7873,7 +7721,6 @@ impl ProximitySensor {
             (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxDistanceInMillimeters(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -7882,7 +7729,6 @@ impl ProximitySensor {
             (::windows::core::Interface::vtable(this).MaxDistanceInMillimeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MinDistanceInMillimeters(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -7898,7 +7744,6 @@ impl ProximitySensor {
             (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ProximitySensorReading>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7910,13 +7755,11 @@ impl ProximitySensor {
             (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateDisplayOnOffController(&self) -> ::windows::core::Result<ProximitySensorDisplayOnOffController> {
         let this = self;
@@ -7937,7 +7780,6 @@ impl ProximitySensor {
             (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(sensorid), result__.as_mut_ptr()).from_abi::<ProximitySensor>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetReadingsFromTriggerDetails<'a, P0>(triggerdetails: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ProximitySensorReading>>
     where
@@ -8021,7 +7863,6 @@ impl ::core::convert::From<&ProximitySensor> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for ProximitySensor {}
 unsafe impl ::core::marker::Sync for ProximitySensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ProximitySensorDataThreshold(::windows::core::IUnknown);
 impl ProximitySensorDataThreshold {
@@ -8121,13 +7962,11 @@ impl<'a> ::core::convert::TryFrom<&ProximitySensorDataThreshold> for ::windows::
 }
 unsafe impl ::core::marker::Send for ProximitySensorDataThreshold {}
 unsafe impl ::core::marker::Sync for ProximitySensorDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct ProximitySensorDisplayOnOffController(::windows::core::IUnknown);
 #[cfg(feature = "Foundation")]
 impl ProximitySensorDisplayOnOffController {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -8233,11 +8072,9 @@ impl<'a> ::core::convert::TryFrom<&ProximitySensorDisplayOnOffController> for ::
 unsafe impl ::core::marker::Send for ProximitySensorDisplayOnOffController {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for ProximitySensorDisplayOnOffController {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ProximitySensorReading(::windows::core::IUnknown);
 impl ProximitySensorReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -8253,7 +8090,6 @@ impl ProximitySensorReading {
             (::windows::core::Interface::vtable(this).IsDetected)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DistanceInMillimeters(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -8325,7 +8161,6 @@ impl ::core::convert::From<&ProximitySensorReading> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for ProximitySensorReading {}
 unsafe impl ::core::marker::Sync for ProximitySensorReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct ProximitySensorReadingChangedEventArgs(::windows::core::IUnknown);
 impl ProximitySensorReadingChangedEventArgs {
@@ -8399,7 +8234,6 @@ impl ::core::convert::From<&ProximitySensorReadingChangedEventArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for ProximitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ProximitySensorReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct SensorDataThresholdTriggerDetails(::windows::core::IUnknown);
 impl SensorDataThresholdTriggerDetails {
@@ -8480,7 +8314,6 @@ impl ::core::convert::From<&SensorDataThresholdTriggerDetails> for &::windows::c
 }
 unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorOptimizationGoal(pub i32);
@@ -8514,7 +8347,6 @@ unsafe impl ::windows::core::RuntimeType for SensorOptimizationGoal {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct SensorQuaternion(::windows::core::IUnknown);
 impl SensorQuaternion {
@@ -8609,7 +8441,6 @@ impl ::core::convert::From<&SensorQuaternion> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for SensorQuaternion {}
 unsafe impl ::core::marker::Sync for SensorQuaternion {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorReadingType(pub i32);
@@ -8643,7 +8474,6 @@ unsafe impl ::windows::core::RuntimeType for SensorReadingType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct SensorRotationMatrix(::windows::core::IUnknown);
 impl SensorRotationMatrix {
@@ -8773,7 +8603,6 @@ impl ::core::convert::From<&SensorRotationMatrix> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for SensorRotationMatrix {}
 unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SensorType(pub i32);
@@ -8819,7 +8648,6 @@ unsafe impl ::windows::core::RuntimeType for SensorType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SimpleOrientation(pub i32);
@@ -8857,7 +8685,6 @@ unsafe impl ::windows::core::RuntimeType for SimpleOrientation {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct SimpleOrientationSensor(::windows::core::IUnknown);
 impl SimpleOrientationSensor {
@@ -8868,7 +8695,6 @@ impl SimpleOrientationSensor {
             (::windows::core::Interface::vtable(this).GetCurrentOrientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleOrientation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OrientationChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -8880,19 +8706,16 @@ impl SimpleOrientationSensor {
             (::windows::core::Interface::vtable(this).OrientationChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOrientationChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveOrientationChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISimpleOrientationSensor2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
     #[cfg(feature = "Graphics_Display")]
     pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
         let this = &::windows::core::Interface::cast::<ISimpleOrientationSensor2>(self)?;
@@ -8920,7 +8743,6 @@ impl SimpleOrientationSensor {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<SimpleOrientationSensor>> {
         Self::ISimpleOrientationSensorStatics2(|this| unsafe {
@@ -9001,11 +8823,9 @@ impl ::core::convert::From<&SimpleOrientationSensor> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for SimpleOrientationSensor {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct SimpleOrientationSensorOrientationChangedEventArgs(::windows::core::IUnknown);
 impl SimpleOrientationSensorOrientationChangedEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;

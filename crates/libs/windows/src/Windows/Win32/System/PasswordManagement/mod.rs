@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CYPHER_BLOCK {
     pub data: [super::super::Foundation::CHAR; 8],
@@ -37,7 +36,6 @@ impl ::core::default::Default for CYPHER_BLOCK {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENCRYPTED_LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
@@ -75,7 +73,6 @@ impl ::core::default::Default for ENCRYPTED_LM_OWF_PASSWORD {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LM_OWF_PASSWORD {
     pub data: [CYPHER_BLOCK; 2],
@@ -112,7 +109,6 @@ impl ::core::default::Default for LM_OWF_PASSWORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword<'a, P0, P1, P2>(servername: P0, username: P1, lmoldpresent: P2, lmoldowfpassword: &LM_OWF_PASSWORD, lmnewowfpassword: &LM_OWF_PASSWORD, ntoldowfpassword: &LM_OWF_PASSWORD, ntnewowfpassword: &LM_OWF_PASSWORD) -> u32
@@ -127,7 +123,6 @@ where
     }
     MSChapSrvChangePassword(servername.into(), username.into(), lmoldpresent.into(), ::core::mem::transmute(lmoldowfpassword), ::core::mem::transmute(lmnewowfpassword), ::core::mem::transmute(ntoldowfpassword), ::core::mem::transmute(ntnewowfpassword))
 }
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MSChapSrvChangePassword2<'a, P0, P1, P2>(servername: P0, username: P1, newpasswordencryptedwitholdnt: &SAMPR_ENCRYPTED_USER_PASSWORD, oldntowfpasswordencryptedwithnewnt: &ENCRYPTED_LM_OWF_PASSWORD, lmpresent: P2, newpasswordencryptedwitholdlm: &SAMPR_ENCRYPTED_USER_PASSWORD, oldlmowfpasswordencryptedwithnewlmornt: &ENCRYPTED_LM_OWF_PASSWORD) -> u32
@@ -143,7 +138,6 @@ where
     MSChapSrvChangePassword2(servername.into(), username.into(), ::core::mem::transmute(newpasswordencryptedwitholdnt), ::core::mem::transmute(oldntowfpasswordencryptedwithnewnt), lmpresent.into(), ::core::mem::transmute(newpasswordencryptedwitholdlm), ::core::mem::transmute(oldlmowfpasswordencryptedwithnewlmornt))
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_PasswordManagement\"`*"]
 pub struct SAMPR_ENCRYPTED_USER_PASSWORD {
     pub Buffer: [u8; 516],
 }

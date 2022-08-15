@@ -1,24 +1,13 @@
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_DONTSHOWIFZERO: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_ENABLEBYDEFAULT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_ENABLEBYDEFAULT_AUTO: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_HASSETTINGS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_OUTOFDISKSPACE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_REMOVEFROMLIST: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_SETTINGSMODE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_SYSTEMAUTORUN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const EVCF_USERCONSENTOBTAINED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IADesktopP2(::windows::core::IUnknown);
 impl IADesktopP2 {
@@ -31,7 +20,6 @@ impl IADesktopP2 {
     pub unsafe fn UpdateAllDesktopSubscriptions(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UpdateAllDesktopSubscriptions)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn MakeDynamicChanges<'a, P0>(&self, poleobj: P0) -> ::windows::core::Result<()>
     where
@@ -87,7 +75,6 @@ pub struct IADesktopP2_Vtbl {
     #[cfg(not(feature = "Win32_System_Ole"))]
     MakeDynamicChanges: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IActiveDesktopP(::windows::core::IUnknown);
 impl IActiveDesktopP {
@@ -151,11 +138,9 @@ pub struct IActiveDesktopP_Vtbl {
     pub SetScheme: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszschemename: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT,
     pub GetScheme: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszschemename: ::windows::core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IBriefcaseInitiator(::windows::core::IUnknown);
 impl IBriefcaseInitiator {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsMonikerInBriefcase<'a, P0>(&self, pmk: P0) -> ::windows::core::Result<()>
     where
@@ -208,11 +193,9 @@ pub struct IBriefcaseInitiator_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     IsMonikerInBriefcase: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IEmptyVolumeCache(::windows::core::IUnknown);
 impl IEmptyVolumeCache {
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: &mut ::windows::core::PWSTR, ppwszdescription: &mut ::windows::core::PWSTR, pdwflags: &mut u32) -> ::windows::core::Result<()>
     where
@@ -233,7 +216,6 @@ impl IEmptyVolumeCache {
     {
         (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowProperties<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
@@ -297,11 +279,9 @@ pub struct IEmptyVolumeCache_Vtbl {
     ShowProperties: usize,
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IEmptyVolumeCache2(::windows::core::IUnknown);
 impl IEmptyVolumeCache2 {
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, hkregkey: P0, pcwszvolume: P1, ppwszdisplayname: &mut ::windows::core::PWSTR, ppwszdescription: &mut ::windows::core::PWSTR, pdwflags: &mut u32) -> ::windows::core::Result<()>
     where
@@ -322,7 +302,6 @@ impl IEmptyVolumeCache2 {
     {
         (::windows::core::Interface::vtable(self).base__.Purge)(::windows::core::Interface::as_raw(self), dwlspacetofree, picb.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowProperties<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
@@ -334,7 +313,6 @@ impl IEmptyVolumeCache2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Deactivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn InitializeEx<'a, P0, P1, P2>(&self, hkregkey: P0, pcwszvolume: P1, pcwszkeyname: P2, ppwszdisplayname: &mut ::windows::core::PWSTR, ppwszdescription: &mut ::windows::core::PWSTR, ppwszbtntext: &mut ::windows::core::PWSTR, pdwflags: &mut u32) -> ::windows::core::Result<()>
     where
@@ -404,7 +382,6 @@ pub struct IEmptyVolumeCache2_Vtbl {
     #[cfg(not(feature = "Win32_System_Registry"))]
     InitializeEx: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IEmptyVolumeCacheCallBack(::windows::core::IUnknown);
 impl IEmptyVolumeCacheCallBack {
@@ -463,11 +440,9 @@ pub struct IEmptyVolumeCacheCallBack_Vtbl {
     pub ScanProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlspaceused: u64, dwflags: u32, pcwszstatus: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub PurgeProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IReconcilableObject(::windows::core::IUnknown);
 impl IReconcilableObject {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Reconcile<'a, P0, P1, P2, P3>(&self, pinitiator: P0, dwflags: u32, hwndowner: P1, hwndprogressfeedback: P2, rgpmkotherinput: &mut [::core::option::Option<super::super::System::Com::IMoniker>], ploutindex: &mut i32, pstgnewresidues: P3, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -528,7 +503,6 @@ pub struct IReconcilableObject_Vtbl {
     Reconcile: usize,
     pub GetProgressFeedbackMaxEstimate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pulprogressmax: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 pub struct IReconcileInitiator(::windows::core::IUnknown);
 impl IReconcileInitiator {
@@ -584,43 +558,25 @@ pub struct IReconcileInitiator_Vtbl {
     pub SetAbortCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkforabort: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetProgressFeedback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_E_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217408i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_E_INEEDTODOTHEUPDATES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217404i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_E_NOCALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217407i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_E_NORESIDUES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217406i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_E_TOODIFFERENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147217405i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_S_IDIDTHEUPDATES: ::windows::core::HRESULT = ::windows::core::HRESULT(266240i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_S_NOTCOMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(266241i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows::core::HRESULT = ::windows::core::HRESULT(266242i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const STATEBITS_FLAT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _reconcilef(pub i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = _reconcilef(1i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const RECONCILEF_FEEDBACKWINDOWVALID: _reconcilef = _reconcilef(2i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const RECONCILEF_NORESIDUESOK: _reconcilef = _reconcilef(4i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const RECONCILEF_OMITSELFRESIDUE: _reconcilef = _reconcilef(8i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = _reconcilef(16i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = _reconcilef(32i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = _reconcilef(64i32);
-#[doc = "*Required features: `\"Win32_UI_LegacyWindowsEnvironmentFeatures\"`*"]
 pub const ALL_RECONCILE_FLAGS: _reconcilef = _reconcilef(127i32);
 impl ::core::marker::Copy for _reconcilef {}
 impl ::core::clone::Clone for _reconcilef {

@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattCharacteristic(::windows::core::IUnknown);
 impl GattCharacteristic {
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetDescriptors(&self, descriptoruuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = self;
@@ -50,7 +48,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
         let this = self;
@@ -59,7 +56,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -68,7 +64,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).ReadValueAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -77,7 +72,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
@@ -90,7 +84,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).WriteValueAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithOptionAsync<'a, P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
@@ -103,7 +96,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).WriteValueWithOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
         let this = self;
@@ -112,7 +104,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
@@ -121,7 +112,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ValueChanged<'a, P0>(&self, valuechangedhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -133,7 +123,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).ValueChanged)(::windows::core::Interface::as_raw(this), valuechangedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValueChanged(&self, valuechangedeventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -146,7 +135,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).Service)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattDeviceService>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllDescriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic2>(self)?;
@@ -155,7 +143,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).GetAllDescriptors)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
@@ -164,7 +151,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).GetDescriptorsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
@@ -173,7 +159,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
@@ -182,7 +167,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).GetDescriptorsForUuidAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
@@ -191,7 +175,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).GetDescriptorsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDescriptorsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithResultAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
@@ -204,7 +187,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithResultAndOptionAsync<'a, P0, E0>(&self, value: P0, writeoption: GattWriteOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
@@ -217,7 +199,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), writeoption, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
         let this = &::windows::core::Interface::cast::<IGattCharacteristic3>(self)?;
@@ -226,7 +207,6 @@ impl GattCharacteristic {
             (::windows::core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(::windows::core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattCharacteristicStatics(|this| unsafe {
@@ -302,7 +282,6 @@ impl ::core::convert::From<&GattCharacteristic> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for GattCharacteristic {}
 unsafe impl ::core::marker::Sync for GattCharacteristic {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattCharacteristicProperties(pub u32);
@@ -373,7 +352,6 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristicProperties {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 pub struct GattCharacteristicUuids;
 impl GattCharacteristicUuids {
     pub fn BatteryLevel() -> ::windows::core::Result<::windows::core::GUID> {
@@ -876,7 +854,6 @@ impl GattCharacteristicUuids {
 impl ::windows::core::RuntimeName for GattCharacteristicUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicUuids";
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattCharacteristicsResult(::windows::core::IUnknown);
 impl GattCharacteristicsResult {
@@ -887,7 +864,6 @@ impl GattCharacteristicsResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -896,7 +872,6 @@ impl GattCharacteristicsResult {
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Characteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = self;
@@ -968,7 +943,6 @@ impl ::core::convert::From<&GattCharacteristicsResult> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
@@ -1003,7 +977,6 @@ unsafe impl ::windows::core::RuntimeType for GattClientCharacteristicConfigurati
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattClientNotificationResult(::windows::core::IUnknown);
 impl GattClientNotificationResult {
@@ -1021,7 +994,6 @@ impl GattClientNotificationResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -1100,7 +1072,6 @@ impl ::core::convert::From<&GattClientNotificationResult> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for GattClientNotificationResult {}
 unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattCommunicationStatus(pub i32);
@@ -1136,7 +1107,6 @@ unsafe impl ::windows::core::RuntimeType for GattCommunicationStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattDescriptor(::windows::core::IUnknown);
 impl GattDescriptor {
@@ -1165,7 +1135,6 @@ impl GattDescriptor {
             (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -1174,7 +1143,6 @@ impl GattDescriptor {
             (::windows::core::Interface::vtable(this).ReadValueAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadResult>> {
         let this = self;
@@ -1183,7 +1151,6 @@ impl GattDescriptor {
             (::windows::core::Interface::vtable(this).ReadValueWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattReadResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>
     where
@@ -1196,7 +1163,6 @@ impl GattDescriptor {
             (::windows::core::Interface::vtable(this).WriteValueAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteValueWithResultAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>
     where
@@ -1209,7 +1175,6 @@ impl GattDescriptor {
             (::windows::core::Interface::vtable(this).WriteValueWithResultAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattWriteResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDescriptorStatics(|this| unsafe {
@@ -1285,7 +1250,6 @@ impl ::core::convert::From<&GattDescriptor> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for GattDescriptor {}
 unsafe impl ::core::marker::Sync for GattDescriptor {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 pub struct GattDescriptorUuids;
 impl GattDescriptorUuids {
     pub fn CharacteristicAggregateFormat() -> ::windows::core::Result<::windows::core::GUID> {
@@ -1333,7 +1297,6 @@ impl GattDescriptorUuids {
 impl ::windows::core::RuntimeName for GattDescriptorUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorUuids";
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattDescriptorsResult(::windows::core::IUnknown);
 impl GattDescriptorsResult {
@@ -1344,7 +1307,6 @@ impl GattDescriptorsResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -1353,7 +1315,6 @@ impl GattDescriptorsResult {
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Descriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDescriptor>> {
         let this = self;
@@ -1425,17 +1386,14 @@ impl ::core::convert::From<&GattDescriptorsResult> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for GattDescriptorsResult {}
 unsafe impl ::core::marker::Sync for GattDescriptorsResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattDeviceService(::windows::core::IUnknown);
 impl GattDeviceService {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCharacteristics(&self, characteristicuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = self;
@@ -1444,7 +1402,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetCharacteristics)(::windows::core::Interface::as_raw(this), characteristicuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetIncludedServices(&self, serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = self;
@@ -1474,7 +1431,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).AttributeHandle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Device(&self) -> ::windows::core::Result<super::BluetoothLEDevice> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
@@ -1483,7 +1439,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothLEDevice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ParentServices(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
@@ -1492,7 +1447,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).ParentServices)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllCharacteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
@@ -1501,7 +1455,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetAllCharacteristics)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattCharacteristic>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetAllIncludedServices(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService2>(self)?;
@@ -1510,7 +1463,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetAllIncludedServices)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1533,7 +1485,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).SharingMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSharingMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1542,7 +1493,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1551,7 +1501,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), sharingmode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattOpenStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1560,7 +1509,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetCharacteristicsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1569,7 +1517,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1578,7 +1525,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1587,7 +1533,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCharacteristicsResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1596,7 +1541,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetIncludedServicesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1605,7 +1549,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(::windows::core::Interface::as_raw(this), cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1614,7 +1557,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(::windows::core::Interface::as_raw(this), serviceuuid, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: ::windows::core::GUID, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &::windows::core::Interface::cast::<IGattDeviceService3>(self)?;
@@ -1623,7 +1565,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(::windows::core::Interface::as_raw(this), serviceuuid, cachemode, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattDeviceServicesResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
@@ -1637,7 +1578,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromUuid)(::windows::core::Interface::as_raw(this), serviceuuid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn GetDeviceSelectorFromShortId(serviceshortid: u16) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
@@ -1645,7 +1585,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromShortId)(::windows::core::Interface::as_raw(this), serviceshortid, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertShortIdToUuid(shortid: u16) -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
@@ -1653,7 +1592,6 @@ impl GattDeviceService {
             (::windows::core::Interface::vtable(this).ConvertShortIdToUuid)(::windows::core::Interface::as_raw(this), shortid, result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdWithSharingModeAsync(deviceid: &::windows::core::HSTRING, sharingmode: GattSharingMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
@@ -1792,7 +1730,6 @@ impl<'a> ::core::convert::TryFrom<&GattDeviceService> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for GattDeviceService {}
 unsafe impl ::core::marker::Sync for GattDeviceService {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattDeviceServicesResult(::windows::core::IUnknown);
 impl GattDeviceServicesResult {
@@ -1803,7 +1740,6 @@ impl GattDeviceServicesResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
@@ -1812,7 +1748,6 @@ impl GattDeviceServicesResult {
             (::windows::core::Interface::vtable(this).ProtocolError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<u8>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Services(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattDeviceService>> {
         let this = self;
@@ -1884,7 +1819,6 @@ impl ::core::convert::From<&GattDeviceServicesResult> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for GattDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for GattDeviceServicesResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattLocalCharacteristic(::windows::core::IUnknown);
 impl GattLocalCharacteristic {
@@ -1895,7 +1829,6 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1925,7 +1858,6 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateDescriptorAsync<'a, P0>(&self, descriptoruuid: ::windows::core::GUID, parameters: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>
     where
@@ -1937,7 +1869,6 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).CreateDescriptorAsync)(::windows::core::Interface::as_raw(this), descriptoruuid, parameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalDescriptorResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Descriptors(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalDescriptor>> {
         let this = self;
@@ -1953,7 +1884,6 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>> {
         let this = self;
@@ -1962,7 +1892,6 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).PresentationFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattPresentationFormat>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SubscribedClients(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>> {
         let this = self;
@@ -1971,7 +1900,6 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).SubscribedClients)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<GattSubscribedClient>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SubscribedClientsChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -1983,13 +1911,11 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).SubscribedClientsChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSubscribedClientsChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSubscribedClientsChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2001,13 +1927,11 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).ReadRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2019,13 +1943,11 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).WriteRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWriteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveWriteRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn NotifyValueAsync<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>
     where
@@ -2038,7 +1960,6 @@ impl GattLocalCharacteristic {
             (::windows::core::Interface::vtable(this).NotifyValueAsync)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GattClientNotificationResult>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn NotifyValueForSubscribedClientAsync<'a, P0, E0, P1>(&self, value: P0, subscribedclient: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattClientNotificationResult>>
     where
@@ -2115,7 +2036,6 @@ impl ::core::convert::From<&GattLocalCharacteristic> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for GattLocalCharacteristic {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristic {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattLocalCharacteristicParameters(::windows::core::IUnknown);
 impl GattLocalCharacteristicParameters {
@@ -2126,7 +2046,6 @@ impl GattLocalCharacteristicParameters {
         static SHARED: ::windows::core::FactoryCache<GattLocalCharacteristicParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2136,7 +2055,6 @@ impl GattLocalCharacteristicParameters {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStaticValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2189,7 +2107,6 @@ impl GattLocalCharacteristicParameters {
             (::windows::core::Interface::vtable(this).UserDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PresentationFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<GattPresentationFormat>> {
         let this = self;
@@ -2261,7 +2178,6 @@ impl ::core::convert::From<&GattLocalCharacteristicParameters> for &::windows::c
 }
 unsafe impl ::core::marker::Send for GattLocalCharacteristicParameters {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicParameters {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattLocalCharacteristicResult(::windows::core::IUnknown);
 impl GattLocalCharacteristicResult {
@@ -2342,7 +2258,6 @@ impl ::core::convert::From<&GattLocalCharacteristicResult> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for GattLocalCharacteristicResult {}
 unsafe impl ::core::marker::Sync for GattLocalCharacteristicResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattLocalDescriptor(::windows::core::IUnknown);
 impl GattLocalDescriptor {
@@ -2353,7 +2268,6 @@ impl GattLocalDescriptor {
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2376,7 +2290,6 @@ impl GattLocalDescriptor {
             (::windows::core::Interface::vtable(this).WriteProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattProtectionLevel>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2388,13 +2301,11 @@ impl GattLocalDescriptor {
             (::windows::core::Interface::vtable(this).ReadRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReadRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReadRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2406,7 +2317,6 @@ impl GattLocalDescriptor {
             (::windows::core::Interface::vtable(this).WriteRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveWriteRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -2475,7 +2385,6 @@ impl ::core::convert::From<&GattLocalDescriptor> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for GattLocalDescriptor {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptor {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattLocalDescriptorParameters(::windows::core::IUnknown);
 impl GattLocalDescriptorParameters {
@@ -2486,7 +2395,6 @@ impl GattLocalDescriptorParameters {
         static SHARED: ::windows::core::FactoryCache<GattLocalDescriptorParameters, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetStaticValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2496,7 +2404,6 @@ impl GattLocalDescriptorParameters {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStaticValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn StaticValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2590,7 +2497,6 @@ impl ::core::convert::From<&GattLocalDescriptorParameters> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for GattLocalDescriptorParameters {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorParameters {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattLocalDescriptorResult(::windows::core::IUnknown);
 impl GattLocalDescriptorResult {
@@ -2671,7 +2577,6 @@ impl ::core::convert::From<&GattLocalDescriptorResult> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for GattLocalDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattLocalDescriptorResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattLocalService(::windows::core::IUnknown);
 impl GattLocalService {
@@ -2682,7 +2587,6 @@ impl GattLocalService {
             (::windows::core::Interface::vtable(this).Uuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateCharacteristicAsync<'a, P0>(&self, characteristicuuid: ::windows::core::GUID, parameters: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>
     where
@@ -2694,7 +2598,6 @@ impl GattLocalService {
             (::windows::core::Interface::vtable(this).CreateCharacteristicAsync)(::windows::core::Interface::as_raw(this), characteristicuuid, parameters.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattLocalCharacteristicResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Characteristics(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<GattLocalCharacteristic>> {
         let this = self;
@@ -2766,7 +2669,6 @@ impl ::core::convert::From<&GattLocalService> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for GattLocalService {}
 unsafe impl ::core::marker::Sync for GattLocalService {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattOpenStatus(pub i32);
@@ -2804,7 +2706,6 @@ unsafe impl ::windows::core::RuntimeType for GattOpenStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattPresentationFormat(::windows::core::IUnknown);
 impl GattPresentationFormat {
@@ -2928,7 +2829,6 @@ impl ::core::convert::From<&GattPresentationFormat> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for GattPresentationFormat {}
 unsafe impl ::core::marker::Sync for GattPresentationFormat {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 pub struct GattPresentationFormatTypes;
 impl GattPresentationFormatTypes {
     pub fn Boolean() -> ::windows::core::Result<u8> {
@@ -3102,7 +3002,6 @@ impl GattPresentationFormatTypes {
 impl ::windows::core::RuntimeName for GattPresentationFormatTypes {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormatTypes";
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattProtectionLevel(pub i32);
@@ -3138,7 +3037,6 @@ unsafe impl ::windows::core::RuntimeType for GattProtectionLevel {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 pub struct GattProtocolError;
 impl GattProtocolError {
     pub fn InvalidHandle() -> ::windows::core::Result<u8> {
@@ -3252,7 +3150,6 @@ impl GattProtocolError {
 impl ::windows::core::RuntimeName for GattProtocolError {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattProtocolError";
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(::windows::core::IUnknown);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
@@ -3270,7 +3167,6 @@ impl GattReadClientCharacteristicConfigurationDescriptorResult {
             (::windows::core::Interface::vtable(this).ClientCharacteristicConfigurationDescriptor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattClientCharacteristicConfigurationDescriptorValue>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &::windows::core::Interface::cast::<IGattReadClientCharacteristicConfigurationDescriptorResult2>(self)?;
@@ -3342,7 +3238,6 @@ impl ::core::convert::From<&GattReadClientCharacteristicConfigurationDescriptorR
 }
 unsafe impl ::core::marker::Send for GattReadClientCharacteristicConfigurationDescriptorResult {}
 unsafe impl ::core::marker::Sync for GattReadClientCharacteristicConfigurationDescriptorResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattReadRequest(::windows::core::IUnknown);
 impl GattReadRequest {
@@ -3367,7 +3262,6 @@ impl GattReadRequest {
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattRequestState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3379,13 +3273,11 @@ impl GattReadRequest {
             (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn RespondWithValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3462,7 +3354,6 @@ impl ::core::convert::From<&GattReadRequest> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for GattReadRequest {}
 unsafe impl ::core::marker::Sync for GattReadRequest {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattReadRequestedEventArgs(::windows::core::IUnknown);
 impl GattReadRequestedEventArgs {
@@ -3473,7 +3364,6 @@ impl GattReadRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSession>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -3482,7 +3372,6 @@ impl GattReadRequestedEventArgs {
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRequestAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattReadRequest>> {
         let this = self;
@@ -3554,7 +3443,6 @@ impl ::core::convert::From<&GattReadRequestedEventArgs> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for GattReadRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattReadRequestedEventArgs {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattReadResult(::windows::core::IUnknown);
 impl GattReadResult {
@@ -3565,7 +3453,6 @@ impl GattReadResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -3574,7 +3461,6 @@ impl GattReadResult {
             (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &::windows::core::Interface::cast::<IGattReadResult2>(self)?;
@@ -3646,7 +3532,6 @@ impl ::core::convert::From<&GattReadResult> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for GattReadResult {}
 unsafe impl ::core::marker::Sync for GattReadResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattReliableWriteTransaction(::windows::core::IUnknown);
 impl GattReliableWriteTransaction {
@@ -3657,7 +3542,6 @@ impl GattReliableWriteTransaction {
         static SHARED: ::windows::core::FactoryCache<GattReliableWriteTransaction, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn WriteValue<'a, P0, P1, E1>(&self, characteristic: P0, value: P1) -> ::windows::core::Result<()>
     where
@@ -3668,7 +3552,6 @@ impl GattReliableWriteTransaction {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WriteValue)(::windows::core::Interface::as_raw(this), characteristic.into().abi(), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CommitAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
@@ -3677,7 +3560,6 @@ impl GattReliableWriteTransaction {
             (::windows::core::Interface::vtable(this).CommitAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<GattCommunicationStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CommitWithResultAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteResult>> {
         let this = &::windows::core::Interface::cast::<IGattReliableWriteTransaction2>(self)?;
@@ -3749,7 +3631,6 @@ impl ::core::convert::From<&GattReliableWriteTransaction> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattRequestState(pub i32);
@@ -3784,7 +3665,6 @@ unsafe impl ::windows::core::RuntimeType for GattRequestState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattRequestStateChangedEventArgs(::windows::core::IUnknown);
 impl GattRequestStateChangedEventArgs {
@@ -3865,7 +3745,6 @@ impl ::core::convert::From<&GattRequestStateChangedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for GattRequestStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattRequestStateChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattServiceProvider(::windows::core::IUnknown);
 impl GattServiceProvider {
@@ -3883,7 +3762,6 @@ impl GattServiceProvider {
             (::windows::core::Interface::vtable(this).AdvertisementStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattServiceProviderAdvertisementStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AdvertisementStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -3895,7 +3773,6 @@ impl GattServiceProvider {
             (::windows::core::Interface::vtable(this).AdvertisementStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdvertisementStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -3916,7 +3793,6 @@ impl GattServiceProvider {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StopAdvertising)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync(serviceuuid: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
@@ -3992,7 +3868,6 @@ impl ::core::convert::From<&GattServiceProvider> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for GattServiceProvider {}
 unsafe impl ::core::marker::Sync for GattServiceProvider {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
@@ -4029,7 +3904,6 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementSta
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(::windows::core::IUnknown);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
@@ -4110,7 +3984,6 @@ impl ::core::convert::From<&GattServiceProviderAdvertisementStatusChangedEventAr
 }
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisingParameters(::windows::core::IUnknown);
 impl GattServiceProviderAdvertisingParameters {
@@ -4143,7 +4016,6 @@ impl GattServiceProviderAdvertisingParameters {
             (::windows::core::Interface::vtable(this).IsDiscoverable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetServiceData<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4153,7 +4025,6 @@ impl GattServiceProviderAdvertisingParameters {
         let this = &::windows::core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetServiceData)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ServiceData(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = &::windows::core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
@@ -4225,7 +4096,6 @@ impl ::core::convert::From<&GattServiceProviderAdvertisingParameters> for &::win
 }
 unsafe impl ::core::marker::Send for GattServiceProviderAdvertisingParameters {}
 unsafe impl ::core::marker::Sync for GattServiceProviderAdvertisingParameters {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattServiceProviderResult(::windows::core::IUnknown);
 impl GattServiceProviderResult {
@@ -4306,7 +4176,6 @@ impl ::core::convert::From<&GattServiceProviderResult> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for GattServiceProviderResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 pub struct GattServiceUuids;
 impl GattServiceUuids {
     pub fn Battery() -> ::windows::core::Result<::windows::core::GUID> {
@@ -4455,11 +4324,9 @@ impl GattServiceUuids {
 impl ::windows::core::RuntimeName for GattServiceUuids {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceUuids";
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattSession(::windows::core::IUnknown);
 impl GattSession {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -4504,7 +4371,6 @@ impl GattSession {
             (::windows::core::Interface::vtable(this).SessionStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSessionStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxPduSizeChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4516,13 +4382,11 @@ impl GattSession {
             (::windows::core::Interface::vtable(this).MaxPduSizeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMaxPduSizeChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMaxPduSizeChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SessionStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4534,13 +4398,11 @@ impl GattSession {
             (::windows::core::Interface::vtable(this).SessionStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSessionStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSessionStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromDeviceIdAsync<'a, P0>(deviceid: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattSession>>
     where
@@ -4641,7 +4503,6 @@ impl<'a> ::core::convert::TryFrom<&GattSession> for ::windows::core::InParam<'a,
 }
 unsafe impl ::core::marker::Send for GattSession {}
 unsafe impl ::core::marker::Sync for GattSession {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattSessionStatus(pub i32);
@@ -4675,7 +4536,6 @@ unsafe impl ::windows::core::RuntimeType for GattSessionStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattSessionStatusChangedEventArgs(::windows::core::IUnknown);
 impl GattSessionStatusChangedEventArgs {
@@ -4756,7 +4616,6 @@ impl ::core::convert::From<&GattSessionStatusChangedEventArgs> for &::windows::c
 }
 unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattSharingMode(pub i32);
@@ -4792,7 +4651,6 @@ unsafe impl ::windows::core::RuntimeType for GattSharingMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattSubscribedClient(::windows::core::IUnknown);
 impl GattSubscribedClient {
@@ -4810,7 +4668,6 @@ impl GattSubscribedClient {
             (::windows::core::Interface::vtable(this).MaxNotificationSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxNotificationSizeChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4822,7 +4679,6 @@ impl GattSubscribedClient {
             (::windows::core::Interface::vtable(this).MaxNotificationSizeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMaxNotificationSizeChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -4891,11 +4747,9 @@ impl ::core::convert::From<&GattSubscribedClient> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for GattSubscribedClient {}
 unsafe impl ::core::marker::Sync for GattSubscribedClient {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattValueChangedEventArgs(::windows::core::IUnknown);
 impl GattValueChangedEventArgs {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CharacteristicValue(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -4904,7 +4758,6 @@ impl GattValueChangedEventArgs {
             (::windows::core::Interface::vtable(this).CharacteristicValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -4976,7 +4829,6 @@ impl ::core::convert::From<&GattValueChangedEventArgs> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GattWriteOption(pub i32);
@@ -5010,11 +4862,9 @@ unsafe impl ::windows::core::RuntimeType for GattWriteOption {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattWriteRequest(::windows::core::IUnknown);
 impl GattWriteRequest {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Value(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -5044,7 +4894,6 @@ impl GattWriteRequest {
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattRequestState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -5056,7 +4905,6 @@ impl GattWriteRequest {
             (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -5133,7 +4981,6 @@ impl ::core::convert::From<&GattWriteRequest> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for GattWriteRequest {}
 unsafe impl ::core::marker::Sync for GattWriteRequest {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattWriteRequestedEventArgs(::windows::core::IUnknown);
 impl GattWriteRequestedEventArgs {
@@ -5144,7 +4991,6 @@ impl GattWriteRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Session)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattSession>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -5153,7 +4999,6 @@ impl GattWriteRequestedEventArgs {
             (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRequestAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<GattWriteRequest>> {
         let this = self;
@@ -5225,7 +5070,6 @@ impl ::core::convert::From<&GattWriteRequestedEventArgs> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for GattWriteRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for GattWriteRequestedEventArgs {}
-#[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
 #[repr(transparent)]
 pub struct GattWriteResult(::windows::core::IUnknown);
 impl GattWriteResult {
@@ -5236,7 +5080,6 @@ impl GattWriteResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GattCommunicationStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtocolError(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;

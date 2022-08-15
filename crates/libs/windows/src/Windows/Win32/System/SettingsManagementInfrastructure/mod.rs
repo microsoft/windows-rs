@@ -1,14 +1,11 @@
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct IItemEnumerator(::windows::core::IUnknown);
 impl IItemEnumerator {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Current(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Current)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -67,11 +64,9 @@ pub struct IItemEnumerator_Vtbl {
     MoveNext: usize,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct ISettingsContext(::windows::core::IUnknown);
 impl ISettingsContext {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<'a, P0, P1>(&self, pstream: P0, ptarget: P1) -> ::windows::core::Result<()>
     where
@@ -80,7 +75,6 @@ impl ISettingsContext {
     {
         (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), pstream.into().abi(), ptarget.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Deserialize<'a, P0, P1>(&self, pstream: P0, ptarget: P1, pppresults: *mut *mut ::core::option::Option<ISettingsResult>, pcresultcount: &mut usize) -> ::windows::core::Result<()>
     where
@@ -167,7 +161,6 @@ pub struct ISettingsContext_Vtbl {
     pub GetStoredSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *mut ::core::ffi::c_void, ppaddedsettings: *mut *mut ::core::ffi::c_void, ppmodifiedsettings: *mut *mut ::core::ffi::c_void, ppdeletedsettings: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RevertSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *mut ::core::ffi::c_void, pwzsetting: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct ISettingsEngine(::windows::core::IUnknown);
 impl ISettingsEngine {
@@ -182,7 +175,6 @@ impl ISettingsEngine {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNamespace)(::windows::core::Interface::as_raw(self), settingsid.into().abi(), access, ::core::mem::transmute(reserved), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISettingsNamespace>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorDescription(&self, hresult: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -202,7 +194,6 @@ impl ISettingsEngine {
     pub unsafe fn UnloadStore(&self, reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnloadStore)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reserved)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RegisterNamespace<'a, P0, P1, P2>(&self, settingsid: P0, stream: P1, pushsettings: P2) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -213,7 +204,6 @@ impl ISettingsEngine {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegisterNamespace)(::windows::core::Interface::as_raw(self), settingsid.into().abi(), stream.into().abi(), pushsettings.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnregisterNamespace<'a, P0, P1>(&self, settingsid: P0, removesettings: P1) -> ::windows::core::Result<()>
     where
@@ -322,11 +312,9 @@ pub struct ISettingsEngine_Vtbl {
     pub ApplySettingsContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingscontext: *mut ::core::ffi::c_void, pppwzidentities: *mut *mut ::windows::core::PWSTR, pcidentities: *mut usize) -> ::windows::core::HRESULT,
     pub GetSettingsContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settingscontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct ISettingsIdentity(::windows::core::IUnknown);
 impl ISettingsIdentity {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttribute<'a, P0>(&self, reserved: *const ::core::ffi::c_void, name: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -397,23 +385,19 @@ pub struct ISettingsIdentity_Vtbl {
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut u32) -> ::windows::core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct ISettingsItem(::windows::core::IUnknown);
 impl ISettingsItem {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue(&self, value: &super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value)).ok()
@@ -432,7 +416,6 @@ impl ISettingsItem {
     pub unsafe fn SetValueRaw(&self, datatype: i32, data: &[u8]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValueRaw)(::windows::core::Interface::as_raw(self), datatype, ::core::mem::transmute(data.as_ptr()), data.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasChild(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -469,12 +452,10 @@ impl ISettingsItem {
     {
         (::windows::core::Interface::vtable(self).RemoveSettingByPath)(::windows::core::Interface::as_raw(self), path.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetListKeyInformation(&self, keyname: &mut super::super::Foundation::BSTR, datatype: &mut WcmDataType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetListKeyInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keyname), ::core::mem::transmute(datatype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateListElement(&self, keydata: &super::Com::VARIANT) -> ::windows::core::Result<ISettingsItem> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -490,7 +471,6 @@ impl ISettingsItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Attributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetAttribute<'a, P0>(&self, name: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -499,7 +479,6 @@ impl ISettingsItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAttribute)(::windows::core::Interface::as_raw(self), name.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -509,13 +488,11 @@ impl ISettingsItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRestrictionFacets)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WcmRestrictionFacets>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetRestriction(&self, restrictionfacet: WcmRestrictionFacets) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRestriction)(::windows::core::Interface::as_raw(self), restrictionfacet, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetKeyValue(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -614,7 +591,6 @@ pub struct ISettingsItem_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetKeyValue: usize,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct ISettingsNamespace(::windows::core::IUnknown);
 impl ISettingsNamespace {
@@ -626,7 +602,6 @@ impl ISettingsNamespace {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save<'a, P0>(&self, pushsettings: P0) -> ::windows::core::Result<ISettingsResult>
     where
@@ -655,7 +630,6 @@ impl ISettingsNamespace {
     {
         (::windows::core::Interface::vtable(self).RemoveSettingByPath)(::windows::core::Interface::as_raw(self), path.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetAttribute<'a, P0>(&self, name: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -718,11 +692,9 @@ pub struct ISettingsNamespace_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAttribute: usize,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct ISettingsResult(::windows::core::IUnknown);
 impl ISettingsResult {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -732,7 +704,6 @@ impl ISettingsResult {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetErrorCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -746,7 +717,6 @@ impl ISettingsResult {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSource(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -808,7 +778,6 @@ pub struct ISettingsResult_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSource: usize,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 pub struct ITargetInfo(::windows::core::IUnknown);
 impl ITargetInfo {
@@ -819,7 +788,6 @@ impl ITargetInfo {
     pub unsafe fn SetTargetMode(&self, targetmode: WcmTargetMode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTargetMode)(::windows::core::Interface::as_raw(self), targetmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTemporaryStoreLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -831,7 +799,6 @@ impl ITargetInfo {
     {
         (::windows::core::Interface::vtable(self).SetTemporaryStoreLocation)(::windows::core::Interface::as_raw(self), temporarystorelocation.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTargetID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -840,7 +807,6 @@ impl ITargetInfo {
     pub unsafe fn SetTargetID(&self, targetid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTargetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(targetid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTargetProcessorArchitecture(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -852,7 +818,6 @@ impl ITargetInfo {
     {
         (::windows::core::Interface::vtable(self).SetTargetProcessorArchitecture)(::windows::core::Interface::as_raw(self), processorarchitecture.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProperty<'a, P0, P1>(&self, offline: P0, property: P1) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -862,7 +827,6 @@ impl ITargetInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), offline.into(), property.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProperty<'a, P0, P1, P2>(&self, offline: P0, property: P1, value: P2) -> ::windows::core::Result<()>
     where
@@ -876,7 +840,6 @@ impl ITargetInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IItemEnumerator>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExpandTarget<'a, P0, P1>(&self, offline: P0, location: P1) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -886,7 +849,6 @@ impl ITargetInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExpandTarget)(::windows::core::Interface::as_raw(self), offline.into(), location.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExpandTargetPath<'a, P0, P1>(&self, offline: P0, location: P1) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -903,7 +865,6 @@ impl ITargetInfo {
     {
         (::windows::core::Interface::vtable(self).SetModulePath)(::windows::core::Interface::as_raw(self), module.into(), path.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadModule<'a, P0>(&self, module: P0) -> ::windows::core::Result<super::super::Foundation::HINSTANCE>
     where
@@ -918,7 +879,6 @@ impl ITargetInfo {
     {
         (::windows::core::Interface::vtable(self).SetWow64Context)(::windows::core::Interface::as_raw(self), installermodule.into(), ::core::mem::transmute(wow64context)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TranslateWow64<'a, P0, P1>(&self, clientarchitecture: P0, value: P1) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -934,7 +894,6 @@ impl ITargetInfo {
     {
         (::windows::core::Interface::vtable(self).SetSchemaHiveLocation)(::windows::core::Interface::as_raw(self), pwzhivedir.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSchemaHiveLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -946,7 +905,6 @@ impl ITargetInfo {
     {
         (::windows::core::Interface::vtable(self).SetSchemaHiveMountName)(::windows::core::Interface::as_raw(self), pwzmountname.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSchemaHiveMountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1047,156 +1005,82 @@ pub struct ITargetInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetSchemaHiveMountName: usize,
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const LIMITED_VALIDATION_MODE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const LINK_STORE_TO_ENGINE_INSTANCE: u32 = 1u32;
 pub const SettingsEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f7d7bb5_20b3_11da_81a5_0030f1642e3c);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_ABORTOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255384i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_ASSERTIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255398i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_ATTRIBUTENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255420i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_ATTRIBUTENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255421i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_CONFLICTINGASSERTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255399i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_CYCLICREFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255389i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_DUPLICATENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255397i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_EXPRESSIONNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255408i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_HANDLERNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255394i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INTERNALERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255424i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDATTRIBUTECOMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255385i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDDATATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255416i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDEXPRESSIONSYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255401i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDHANDLERSYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255393i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDKEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255396i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDLANGUAGEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255410i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDPATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255413i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDPROCESSORFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255382i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDSTREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255395i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255419i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDVALUEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255418i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_INVALIDVERSIONFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255411i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_KEYNOTCHANGEABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255409i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_MANIFESTCOMPILATIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255390i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_MISSINGCONFIGURATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255383i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_MIXTYPEASSERTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255388i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_NAMESPACEALREADYREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255403i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_NAMESPACENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255404i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_NOTIFICATIONNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255400i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_NOTPOSITIONED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255415i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_NOTSUPPORTEDFUNCTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255387i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_READONLYITEM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255414i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_RESTRICTIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255391i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_SOURCEMANEMPTYVALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255381i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_STATENODENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255422i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_STATENODENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255423i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_STORECORRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255402i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_SUBSTITUTIONNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255407i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_TYPENOTSPECIFIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255417i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_UNKNOWNRESULT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145251325i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_USERALREADYREGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255406i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_USERNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255405i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_VALIDATIONFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255392i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_VALUETOOBIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255386i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_E_WRONGESCAPESTRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145255412i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_ARCHITECTURE: &str = "architecture";
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_FLAG_DEFINITION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_FLAG_REFERENCE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_LANGUAGE: &str = "language";
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_NAME: &str = "name";
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_TOKEN: &str = "token";
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_URI: &str = "uri";
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_VERSION: &str = "version";
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_SETTINGS_ID_VERSION_SCOPE: &str = "versionScope";
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_ATTRIBUTENOTALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(2232325i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_ATTRIBUTENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(2232321i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_INTERNALERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(2232320i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_INVALIDATTRIBUTECOMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(2232324i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_LEGACYSETTINGWARNING: ::windows::core::HRESULT = ::windows::core::HRESULT(2232322i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const WCM_S_NAMESPACENOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(2232326i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmDataType(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeByte: WcmDataType = WcmDataType(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeSByte: WcmDataType = WcmDataType(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeUInt16: WcmDataType = WcmDataType(3i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeInt16: WcmDataType = WcmDataType(4i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeUInt32: WcmDataType = WcmDataType(5i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeInt32: WcmDataType = WcmDataType(6i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeUInt64: WcmDataType = WcmDataType(7i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeInt64: WcmDataType = WcmDataType(8i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeBoolean: WcmDataType = WcmDataType(11i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeString: WcmDataType = WcmDataType(12i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const dataTypeFlagArray: WcmDataType = WcmDataType(32768i32);
 impl ::core::marker::Copy for WcmDataType {}
 impl ::core::clone::Clone for WcmDataType {
@@ -1217,13 +1101,10 @@ impl ::core::fmt::Debug for WcmDataType {
         f.debug_tuple("WcmDataType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmNamespaceAccess(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const ReadOnlyAccess: WcmNamespaceAccess = WcmNamespaceAccess(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const ReadWriteAccess: WcmNamespaceAccess = WcmNamespaceAccess(2i32);
 impl ::core::marker::Copy for WcmNamespaceAccess {}
 impl ::core::clone::Clone for WcmNamespaceAccess {
@@ -1244,15 +1125,11 @@ impl ::core::fmt::Debug for WcmNamespaceAccess {
         f.debug_tuple("WcmNamespaceAccess").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmNamespaceEnumerationFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const SharedEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const UserEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const AllEnumeration: WcmNamespaceEnumerationFlags = WcmNamespaceEnumerationFlags(3i32);
 impl ::core::marker::Copy for WcmNamespaceEnumerationFlags {}
 impl ::core::clone::Clone for WcmNamespaceEnumerationFlags {
@@ -1273,17 +1150,12 @@ impl ::core::fmt::Debug for WcmNamespaceEnumerationFlags {
         f.debug_tuple("WcmNamespaceEnumerationFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmRestrictionFacets(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const restrictionFacetMaxLength: WcmRestrictionFacets = WcmRestrictionFacets(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const restrictionFacetEnumeration: WcmRestrictionFacets = WcmRestrictionFacets(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const restrictionFacetMaxInclusive: WcmRestrictionFacets = WcmRestrictionFacets(4i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const restrictionFacetMinInclusive: WcmRestrictionFacets = WcmRestrictionFacets(8i32);
 impl ::core::marker::Copy for WcmRestrictionFacets {}
 impl ::core::clone::Clone for WcmRestrictionFacets {
@@ -1304,15 +1176,11 @@ impl ::core::fmt::Debug for WcmRestrictionFacets {
         f.debug_tuple("WcmRestrictionFacets").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmSettingType(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const settingTypeScalar: WcmSettingType = WcmSettingType(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const settingTypeComplex: WcmSettingType = WcmSettingType(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const settingTypeList: WcmSettingType = WcmSettingType(3i32);
 impl ::core::marker::Copy for WcmSettingType {}
 impl ::core::clone::Clone for WcmSettingType {
@@ -1333,13 +1201,10 @@ impl ::core::fmt::Debug for WcmSettingType {
         f.debug_tuple("WcmSettingType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmTargetMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const OfflineMode: WcmTargetMode = WcmTargetMode(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const OnlineMode: WcmTargetMode = WcmTargetMode(2i32);
 impl ::core::marker::Copy for WcmTargetMode {}
 impl ::core::clone::Clone for WcmTargetMode {
@@ -1360,19 +1225,13 @@ impl ::core::fmt::Debug for WcmTargetMode {
         f.debug_tuple("WcmTargetMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WcmUserStatus(pub i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const UnknownStatus: WcmUserStatus = WcmUserStatus(0i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const UserRegistered: WcmUserStatus = WcmUserStatus(1i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const UserUnregistered: WcmUserStatus = WcmUserStatus(2i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const UserLoaded: WcmUserStatus = WcmUserStatus(3i32);
-#[doc = "*Required features: `\"Win32_System_SettingsManagementInfrastructure\"`*"]
 pub const UserUnloaded: WcmUserStatus = WcmUserStatus(4i32);
 impl ::core::marker::Copy for WcmUserStatus {}
 impl ::core::clone::Clone for WcmUserStatus {

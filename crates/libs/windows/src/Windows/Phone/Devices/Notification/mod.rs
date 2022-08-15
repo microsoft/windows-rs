@@ -28,11 +28,9 @@ pub struct IVibrationDeviceStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Phone_Devices_Notification\"`*"]
 #[repr(transparent)]
 pub struct VibrationDevice(::windows::core::IUnknown);
 impl VibrationDevice {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Vibrate(&self, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;

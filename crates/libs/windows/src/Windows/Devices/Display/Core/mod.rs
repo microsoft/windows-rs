@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayAdapter(::windows::core::IUnknown);
 impl DisplayAdapter {
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Id(&self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId> {
         let this = self;
@@ -53,7 +51,6 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).PciRevision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -62,7 +59,6 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn FromId(id: super::super::super::Graphics::DisplayAdapterId) -> ::windows::core::Result<DisplayAdapter> {
         Self::IDisplayAdapterStatics(|this| unsafe {
@@ -138,7 +134,6 @@ impl ::core::convert::From<&DisplayAdapter> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayAdapter {}
 unsafe impl ::core::marker::Sync for DisplayAdapter {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayBitsPerChannel(pub u32);
@@ -205,7 +200,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayBitsPerChannel {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayDevice(::windows::core::IUnknown);
 impl DisplayDevice {
@@ -237,7 +231,6 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).CreateTaskPool)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayTaskPool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicFence<'a, P0>(&self, target: P0, offsetfromvblank: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<DisplayFence>
     where
@@ -274,7 +267,6 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).IsCapabilitySupported)(::windows::core::Interface::as_raw(this), capability, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
     pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, P0, P1, P2, E2>(&self, source: P0, surface: P1, subresourceindex: u32, syncinterval: u32, dirtyrects: P2, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout>
     where
@@ -352,7 +344,6 @@ impl ::core::convert::From<&DisplayDevice> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayDevice {}
 unsafe impl ::core::marker::Sync for DisplayDevice {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayDeviceCapability(pub i32);
@@ -385,7 +376,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayDeviceCapability {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayFence(::windows::core::IUnknown);
 impl DisplayFence {}
@@ -451,17 +441,14 @@ impl ::core::convert::From<&DisplayFence> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayFence {}
 unsafe impl ::core::marker::Sync for DisplayFence {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManager(::windows::core::IUnknown);
 impl DisplayManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentTargets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
         let this = self;
@@ -470,7 +457,6 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).GetCurrentTargets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentAdapters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>> {
         let this = self;
@@ -503,7 +489,6 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).TryReadCurrentStateForAllTargets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndReadCurrentState<'a, P0, E0>(&self, targets: P0) -> ::windows::core::Result<DisplayManagerResultWithState>
     where
@@ -516,7 +501,6 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).TryAcquireTargetsAndReadCurrentState)(::windows::core::Interface::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateEmptyState<'a, P0, E0>(&self, targets: P0) -> ::windows::core::Result<DisplayManagerResultWithState>
     where
@@ -529,7 +513,6 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).TryAcquireTargetsAndCreateEmptyState)(::windows::core::Interface::as_raw(this), targets.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateSubstate<'a, P0, P1, E1>(&self, existingstate: P0, targets: P1) -> ::windows::core::Result<DisplayManagerResultWithState>
     where
@@ -553,7 +536,6 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).CreateDisplayDevice)(::windows::core::Interface::as_raw(this), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<DisplayDevice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Enabled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -565,13 +547,11 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveEnabled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Disabled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -583,13 +563,11 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisabled(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDisabled)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -601,13 +579,11 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PathsFailedOrInvalidated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -619,7 +595,6 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).PathsFailedOrInvalidated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePathsFailedOrInvalidated(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -729,7 +704,6 @@ impl<'a> ::core::convert::TryFrom<&DisplayManager> for ::windows::core::InParam<
 }
 unsafe impl ::core::marker::Send for DisplayManager {}
 unsafe impl ::core::marker::Sync for DisplayManager {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManagerChangedEventArgs(::windows::core::IUnknown);
 impl DisplayManagerChangedEventArgs {
@@ -744,7 +718,6 @@ impl DisplayManagerChangedEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -816,7 +789,6 @@ impl ::core::convert::From<&DisplayManagerChangedEventArgs> for &::windows::core
 }
 unsafe impl ::core::marker::Send for DisplayManagerChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManagerDisabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerDisabledEventArgs {
@@ -831,7 +803,6 @@ impl DisplayManagerDisabledEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -903,7 +874,6 @@ impl ::core::convert::From<&DisplayManagerDisabledEventArgs> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for DisplayManagerDisabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerDisabledEventArgs {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManagerEnabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerEnabledEventArgs {
@@ -918,7 +888,6 @@ impl DisplayManagerEnabledEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -990,7 +959,6 @@ impl ::core::convert::From<&DisplayManagerEnabledEventArgs> for &::windows::core
 }
 unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayManagerOptions(pub u32);
@@ -1053,7 +1021,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::core::IUnknown);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
@@ -1068,7 +1035,6 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1140,7 +1106,6 @@ impl ::core::convert::From<&DisplayManagerPathsFailedOrInvalidatedEventArgs> for
 }
 unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayManagerResult(pub i32);
@@ -1177,7 +1142,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayManagerResultWithState(::windows::core::IUnknown);
 impl DisplayManagerResultWithState {
@@ -1265,11 +1229,9 @@ impl ::core::convert::From<&DisplayManagerResultWithState> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for DisplayManagerResultWithState {}
 unsafe impl ::core::marker::Sync for DisplayManagerResultWithState {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayModeInfo(::windows::core::IUnknown);
 impl DisplayModeInfo {
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn SourceResolution(&self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32> {
         let this = self;
@@ -1285,7 +1247,6 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).IsStereo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SourcePixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -1294,7 +1255,6 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).SourcePixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn TargetResolution(&self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32> {
         let this = self;
@@ -1303,7 +1263,6 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).TargetResolution)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::SizeInt32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PresentationRate(&self) -> ::windows::core::Result<DisplayPresentationRate> {
         let this = self;
@@ -1336,7 +1295,6 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).IsWireFormatSupported)(::windows::core::Interface::as_raw(this), wireformat.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -1345,7 +1303,6 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PhysicalPresentationRate(&self) -> ::windows::core::Result<DisplayPresentationRate> {
         let this = &::windows::core::Interface::cast::<IDisplayModeInfo2>(self)?;
@@ -1417,7 +1374,6 @@ impl ::core::convert::From<&DisplayModeInfo> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for DisplayModeInfo {}
 unsafe impl ::core::marker::Sync for DisplayModeInfo {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayModeQueryOptions(pub u32);
@@ -1479,7 +1435,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayModeQueryOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayPath(::windows::core::IUnknown);
 impl DisplayPath {
@@ -1504,7 +1459,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayPathStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SourceResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
@@ -1513,7 +1467,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).SourceResolution)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SetSourceResolution<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1523,7 +1476,6 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSourceResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SourcePixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -1532,7 +1484,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).SourcePixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetSourcePixelFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
@@ -1549,7 +1500,6 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsStereo)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn TargetResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
@@ -1558,7 +1508,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).TargetResolution)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SetTargetResolution<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1568,7 +1517,6 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTargetResolution)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = self;
@@ -1577,7 +1525,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).PresentationRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPresentationRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1587,7 +1534,6 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPresentationRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsInterlaced(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -1596,7 +1542,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).IsInterlaced)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsInterlaced<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1642,7 +1587,6 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScaling)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindModes(&self, flags: DisplayModeQueryOptions) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
         let this = self;
@@ -1658,7 +1602,6 @@ impl DisplayPath {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ApplyPropertiesFromMode)(::windows::core::Interface::as_raw(this), moderesult.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -1667,7 +1610,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PhysicalPresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
@@ -1676,7 +1618,6 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).PhysicalPresentationRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPhysicalPresentationRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1749,7 +1690,6 @@ impl ::core::convert::From<&DisplayPath> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayPath {}
 unsafe impl ::core::marker::Sync for DisplayPath {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayPathScaling(pub i32);
@@ -1787,7 +1727,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathScaling {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayPathStatus(pub i32);
@@ -1825,7 +1764,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayPresentStatus(pub i32);
@@ -1864,7 +1802,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayPresentStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_Display_Core\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
@@ -1910,7 +1847,6 @@ impl ::core::default::Default for DisplayPresentationRate {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayPrimaryDescription(::windows::core::IUnknown);
 impl DisplayPrimaryDescription {
@@ -1928,7 +1864,6 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -1937,7 +1872,6 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn ColorSpace(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXColorSpace> {
         let this = self;
@@ -1953,7 +1887,6 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).IsStereo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn MultisampleDescription(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription> {
         let this = self;
@@ -1962,7 +1895,6 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).MultisampleDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -1971,7 +1903,6 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn CreateInstance(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
@@ -1979,7 +1910,6 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), width, height, pixelformat, colorspace, isstereo, multisampledescription, result__.as_mut_ptr()).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_DirectX_Direct3D11\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateWithProperties<'a, P0, E0>(extraproperties: P0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription) -> ::windows::core::Result<DisplayPrimaryDescription>
     where
@@ -2064,7 +1994,6 @@ impl ::core::convert::From<&DisplayPrimaryDescription> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayRotation(pub i32);
@@ -2100,7 +2029,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayRotation {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayScanout(::windows::core::IUnknown);
 impl DisplayScanout {}
@@ -2166,7 +2094,6 @@ impl ::core::convert::From<&DisplayScanout> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayScanout {}
 unsafe impl ::core::marker::Sync for DisplayScanout {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayScanoutOptions(pub u32);
@@ -2228,11 +2155,9 @@ unsafe impl ::windows::core::RuntimeType for DisplayScanoutOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplaySource(::windows::core::IUnknown);
 impl DisplaySource {
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn AdapterId(&self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId> {
         let this = self;
@@ -2248,7 +2173,6 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).SourceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetMetadata(&self, key: ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2264,7 +2188,6 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplaySourceStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -2276,7 +2199,6 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
@@ -2345,7 +2267,6 @@ impl ::core::convert::From<&DisplaySource> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplaySource {}
 unsafe impl ::core::marker::Sync for DisplaySource {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplaySourceStatus(pub i32);
@@ -2382,7 +2303,6 @@ unsafe impl ::windows::core::RuntimeType for DisplaySourceStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayState(::windows::core::IUnknown);
 impl DisplayState {
@@ -2400,7 +2320,6 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).IsStale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
         let this = self;
@@ -2409,7 +2328,6 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).Targets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Views(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayView>> {
         let this = self;
@@ -2418,7 +2336,6 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).Views)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayView>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -2570,7 +2487,6 @@ impl ::core::convert::From<&DisplayState> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayState {}
 unsafe impl ::core::marker::Sync for DisplayState {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayStateApplyOptions(pub u32);
@@ -2634,7 +2550,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateApplyOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
@@ -2697,7 +2612,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateFunctionalizeOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayStateOperationResult(::windows::core::IUnknown);
 impl DisplayStateOperationResult {
@@ -2778,7 +2692,6 @@ impl ::core::convert::From<&DisplayStateOperationResult> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayStateOperationStatus(pub i32);
@@ -2818,7 +2731,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateOperationStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplaySurface(::windows::core::IUnknown);
 impl DisplaySurface {}
@@ -2884,7 +2796,6 @@ impl ::core::convert::From<&DisplaySurface> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplaySurface {}
 unsafe impl ::core::marker::Sync for DisplaySurface {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayTarget(::windows::core::IUnknown);
 impl DisplayTarget {
@@ -2958,7 +2869,6 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).TryGetMonitor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DisplayMonitor>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -3057,7 +2967,6 @@ impl ::core::convert::From<&DisplayTarget> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayTarget {}
 unsafe impl ::core::marker::Sync for DisplayTarget {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayTargetPersistence(pub i32);
@@ -3093,7 +3002,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayTargetPersistence {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayTask(::windows::core::IUnknown);
 impl DisplayTask {
@@ -3181,7 +3089,6 @@ impl ::core::convert::From<&DisplayTask> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayTask {}
 unsafe impl ::core::marker::Sync for DisplayTask {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayTaskPool(::windows::core::IUnknown);
 impl DisplayTaskPool {
@@ -3192,7 +3099,6 @@ impl DisplayTaskPool {
             (::windows::core::Interface::vtable(this).CreateTask)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayTask>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ExecuteTask<'a, P0>(&self, task: P0) -> ::windows::core::Result<()>
     where
@@ -3274,7 +3180,6 @@ impl ::core::convert::From<&DisplayTaskPool> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for DisplayTaskPool {}
 unsafe impl ::core::marker::Sync for DisplayTaskPool {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayTaskResult(::windows::core::IUnknown);
 impl DisplayTaskResult {
@@ -3362,7 +3267,6 @@ impl ::core::convert::From<&DisplayTaskResult> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for DisplayTaskResult {}
 unsafe impl ::core::marker::Sync for DisplayTaskResult {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayTaskSignalKind(pub i32);
@@ -3396,11 +3300,9 @@ unsafe impl ::windows::core::RuntimeType for DisplayTaskSignalKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayView(::windows::core::IUnknown);
 impl DisplayView {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Paths(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayPath>> {
         let this = self;
@@ -3409,7 +3311,6 @@ impl DisplayView {
             (::windows::core::Interface::vtable(this).Paths)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayPath>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn ContentResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
@@ -3418,7 +3319,6 @@ impl DisplayView {
             (::windows::core::Interface::vtable(this).ContentResolution)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SetContentResolution<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3435,7 +3335,6 @@ impl DisplayView {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrimaryPath)(::windows::core::Interface::as_raw(this), path.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -3507,7 +3406,6 @@ impl ::core::convert::From<&DisplayView> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DisplayView {}
 unsafe impl ::core::marker::Sync for DisplayView {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 pub struct DisplayWireFormat(::windows::core::IUnknown);
 impl DisplayWireFormat {
@@ -3546,7 +3444,6 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).HdrMetadata)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DisplayWireFormatHdrMetadata>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -3561,7 +3458,6 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, result__.as_mut_ptr()).from_abi::<DisplayWireFormat>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithProperties<'a, P0, E0>(extraproperties: P0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat>
     where
@@ -3646,7 +3542,6 @@ impl ::core::convert::From<&DisplayWireFormat> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatColorSpace(pub i32);
@@ -3681,7 +3576,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatColorSpace {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatEotf(pub i32);
@@ -3715,7 +3609,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatEotf {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
@@ -3751,7 +3644,6 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatHdrMetadata {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Display_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);

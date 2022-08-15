@@ -7,7 +7,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let underlying_type = gen.type_name(&underlying_type);
     let is_scoped = gen.reader.type_def_is_scoped(def);
     let cfg = gen.reader.type_def_cfg(def, &[]);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     let mut fields: Vec<(TokenStream, TokenStream)> = gen
@@ -41,7 +40,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let mut tokens = if is_scoped || !gen.sys {
         quote! {
-            #doc
             #features
             #[repr(transparent)]
             #eq
@@ -49,7 +47,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         }
     } else {
         quote! {
-            #doc
             #features
             pub type #ident = #underlying_type;
         }
@@ -71,7 +68,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     } else if !gen.sys {
         let fields = fields.iter().map(|(field_name, value)| {
             quote! {
-                #doc
                 #features
                 pub const #field_name: #ident = #ident(#value);
             }
@@ -83,7 +79,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     } else {
         let fields = fields.iter().map(|(field_name, value)| {
             quote! {
-                #doc
                 #features
                 pub const #field_name: #ident = #value;
             }

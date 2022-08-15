@@ -1,12 +1,8 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CreateProcessMethod(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 pub const CpCreateProcess: CreateProcessMethod = CreateProcessMethod(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 pub const CpCreateProcessAsUser: CreateProcessMethod = CreateProcessMethod(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 pub const CpAicLaunchAdminProcess: CreateProcessMethod = CreateProcessMethod(2i32);
 impl ::core::marker::Copy for CreateProcessMethod {}
 impl ::core::clone::Clone for CreateProcessMethod {
@@ -27,11 +23,9 @@ impl ::core::fmt::Debug for CreateProcessMethod {
         f.debug_tuple("CreateProcessMethod").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Shell\"`*"]
 #[repr(transparent)]
 pub struct IDDEInitializer(::windows::core::IUnknown);
 impl IDDEInitializer {
-    #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     #[cfg(feature = "Win32_UI_Shell")]
     pub unsafe fn Initialize<'a, P0, P1, P2, P3, P4, P5, P6, P7>(&self, fileextensionorprotocol: P0, method: CreateProcessMethod, currentdirectory: P1, exectarget: P2, site: P3, application: P4, targetfile: P5, arguments: P6, verb: P7) -> ::windows::core::Result<()>
     where

@@ -16,7 +16,6 @@ pub mod Sockets;
 pub mod Vpn;
 #[cfg(feature = "Networking_XboxLive")]
 pub mod XboxLive;
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DomainNameType(pub i32);
@@ -50,7 +49,6 @@ unsafe impl ::windows::core::RuntimeType for DomainNameType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 pub struct EndpointPair(::windows::core::IUnknown);
 impl EndpointPair {
@@ -182,11 +180,9 @@ impl ::core::convert::From<&EndpointPair> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for EndpointPair {}
 unsafe impl ::core::marker::Sync for EndpointPair {}
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 pub struct HostName(::windows::core::IUnknown);
 impl HostName {
-    #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
     #[cfg(feature = "Networking_Connectivity")]
     pub fn IPInformation(&self) -> ::windows::core::Result<Connectivity::IPInformation> {
         let this = self;
@@ -245,7 +241,6 @@ impl HostName {
             (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value1), ::core::mem::transmute_copy(value2), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::Foundation::IStringable>(self)?;
@@ -349,7 +344,6 @@ impl<'a> ::core::convert::TryFrom<&HostName> for ::windows::core::InParam<'a, su
 }
 unsafe impl ::core::marker::Send for HostName {}
 unsafe impl ::core::marker::Sync for HostName {}
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HostNameSortOptions(pub u32);
@@ -411,7 +405,6 @@ unsafe impl ::windows::core::RuntimeType for HostNameSortOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Networking\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HostNameType(pub i32);

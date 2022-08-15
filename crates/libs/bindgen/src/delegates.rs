@@ -15,7 +15,6 @@ fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
     let signature = gen.reader.method_def_signature(method, &[]);
     let return_type = gen.return_sig(&signature);
     let cfg = gen.reader.type_def_cfg(def, &[]);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     let params = signature.params.iter().map(|p| {
@@ -25,7 +24,6 @@ fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
     });
 
     quote! {
-        #doc
         #features
         pub type #name = ::core::option::Option<unsafe extern "system" fn(#(#params),*) #return_type>;
     }
@@ -60,7 +58,6 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
     let fn_constraint = gen_fn_constraint(gen, def, &signature);
 
     let cfg = gen.reader.type_def_cfg(def, generics);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
@@ -68,7 +65,6 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
     let invoke_upcall = winrt_methods::gen_upcall(gen, &signature, quote! { ((*this).invoke) });
 
     let mut tokens = quote! {
-        #doc
         #features
         #[repr(transparent)]
         pub struct #ident(pub ::windows::core::IUnknown, #phantoms) where #constraints;

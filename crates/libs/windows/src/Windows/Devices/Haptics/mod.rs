@@ -129,7 +129,6 @@ pub struct IVibrationDeviceStatics_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     FindAllAsync: usize,
 }
-#[doc = "*Required features: `\"Devices_Haptics\"`*"]
 pub struct KnownSimpleHapticsControllerWaveforms;
 impl KnownSimpleHapticsControllerWaveforms {
     pub fn Click() -> ::windows::core::Result<u16> {
@@ -236,7 +235,6 @@ impl KnownSimpleHapticsControllerWaveforms {
 impl ::windows::core::RuntimeName for KnownSimpleHapticsControllerWaveforms {
     const NAME: &'static str = "Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms";
 }
-#[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
 pub struct SimpleHapticsController(::windows::core::IUnknown);
 impl SimpleHapticsController {
@@ -247,7 +245,6 @@ impl SimpleHapticsController {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFeedback(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SimpleHapticsControllerFeedback>> {
         let this = self;
@@ -302,7 +299,6 @@ impl SimpleHapticsController {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackWithIntensity)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SendHapticFeedbackForDuration<'a, P0>(&self, feedback: P0, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
     where
@@ -311,7 +307,6 @@ impl SimpleHapticsController {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendHapticFeedbackForDuration)(::windows::core::Interface::as_raw(this), feedback.into().abi(), intensity, playduration).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SendHapticFeedbackForPlayCount<'a, P0>(&self, feedback: P0, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
     where
@@ -383,7 +378,6 @@ impl ::core::convert::From<&SimpleHapticsController> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for SimpleHapticsController {}
 unsafe impl ::core::marker::Sync for SimpleHapticsController {}
-#[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
 pub struct SimpleHapticsControllerFeedback(::windows::core::IUnknown);
 impl SimpleHapticsControllerFeedback {
@@ -394,7 +388,6 @@ impl SimpleHapticsControllerFeedback {
             (::windows::core::Interface::vtable(this).Waveform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -466,7 +459,6 @@ impl ::core::convert::From<&SimpleHapticsControllerFeedback> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
-#[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VibrationAccessStatus(pub i32);
@@ -502,7 +494,6 @@ unsafe impl ::windows::core::RuntimeType for VibrationAccessStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Haptics\"`*"]
 #[repr(transparent)]
 pub struct VibrationDevice(::windows::core::IUnknown);
 impl VibrationDevice {
@@ -520,7 +511,6 @@ impl VibrationDevice {
             (::windows::core::Interface::vtable(this).SimpleHapticsController)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SimpleHapticsController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationAccessStatus>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
@@ -534,7 +524,6 @@ impl VibrationDevice {
             (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
@@ -542,7 +531,6 @@ impl VibrationDevice {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VibrationDevice>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VibrationDevice>> {
         Self::IVibrationDeviceStatics(|this| unsafe {
@@ -550,7 +538,6 @@ impl VibrationDevice {
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<VibrationDevice>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<VibrationDevice>>> {
         Self::IVibrationDeviceStatics(|this| unsafe {

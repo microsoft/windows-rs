@@ -1,12 +1,8 @@
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ALT_BREAKS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ALT_BREAKS_SAME: ALT_BREAKS = ALT_BREAKS(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ALT_BREAKS_UNIQUE: ALT_BREAKS = ALT_BREAKS(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ALT_BREAKS_FULL: ALT_BREAKS = ALT_BREAKS(2i32);
 impl ::core::marker::Copy for ALT_BREAKS {}
 impl ::core::clone::Clone for ALT_BREAKS {
@@ -27,27 +23,16 @@ impl ::core::fmt::Debug for ALT_BREAKS {
         f.debug_tuple("ALT_BREAKS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_ADDSTROKE_FAILED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_INTERRUPTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_PROCESS_FAILED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_RESETCONTEXT_FAILED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_SETCACMODE_FAILED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_SETFACTOID_FAILED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_SETFLAGS_FAILED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_SETGUIDE_FAILED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_SETTEXTCONTEXT_FAILED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ASYNC_RECO_SETWORDLIST_FAILED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn AddStroke<'a, P0>(hrc: P0, ppacketdesc: &PACKET_DESCRIPTION, cbpacket: u32, ppacket: &u8, pxform: &super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()>
@@ -60,7 +45,6 @@ where
     }
     AddStroke(hrc.into(), ::core::mem::transmute(ppacketdesc), cbpacket, ::core::mem::transmute(ppacket), ::core::mem::transmute(pxform)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn AddWordsToWordList<'a, P0, P1>(hwl: P0, pwcwords: P1) -> ::windows::core::Result<()>
 where
@@ -73,7 +57,6 @@ where
     }
     AddWordsToWordList(hwl.into(), pwcwords.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdviseInkChange<'a, P0, P1>(hrc: P0, bnewstroke: P1) -> ::windows::core::Result<()>
@@ -87,13 +70,10 @@ where
     }
     AdviseInkChange(hrc.into(), bnewstroke.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppearanceConstants(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfFlat: AppearanceConstants = AppearanceConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfThreeD: AppearanceConstants = AppearanceConstants(1i32);
 impl ::core::marker::Copy for AppearanceConstants {}
 impl ::core::clone::Clone for AppearanceConstants {
@@ -114,15 +94,11 @@ impl ::core::fmt::Debug for AppearanceConstants {
         f.debug_tuple("AppearanceConstants").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const BEST_COMPLETE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BorderStyleConstants(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfNoBorder: BorderStyleConstants = BorderStyleConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfFixedSingle: BorderStyleConstants = BorderStyleConstants(1i32);
 impl ::core::marker::Copy for BorderStyleConstants {}
 impl ::core::clone::Clone for BorderStyleConstants {
@@ -143,14 +119,10 @@ impl ::core::fmt::Debug for BorderStyleConstants {
         f.debug_tuple("BorderStyleConstants").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CAC_FULL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CAC_PREFIX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CAC_RANDOM: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct CHARACTER_RANGE {
     pub wcLow: u16,
     pub cChars: u16,
@@ -180,15 +152,11 @@ impl ::core::default::Default for CHARACTER_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CONFIDENCE_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CFL_STRONG: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CFL_INTERMEDIATE: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CFL_POOR: CONFIDENCE_LEVEL = CONFIDENCE_LEVEL(2i32);
 impl ::core::marker::Copy for CONFIDENCE_LEVEL {}
 impl ::core::clone::Clone for CONFIDENCE_LEVEL {
@@ -209,17 +177,12 @@ impl ::core::fmt::Debug for CONFIDENCE_LEVEL {
         f.debug_tuple("CONFIDENCE_LEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorrectionMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionMode_NotVisible: CorrectionMode = CorrectionMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionMode_PreInsertion: CorrectionMode = CorrectionMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionMode_PostInsertionCollapsed: CorrectionMode = CorrectionMode(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionMode_PostInsertionExpanded: CorrectionMode = CorrectionMode(3i32);
 impl ::core::marker::Copy for CorrectionMode {}
 impl ::core::clone::Clone for CorrectionMode {
@@ -240,15 +203,11 @@ impl ::core::fmt::Debug for CorrectionMode {
         f.debug_tuple("CorrectionMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CorrectionPosition(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionPosition_Auto: CorrectionPosition = CorrectionPosition(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionPosition_Bottom: CorrectionPosition = CorrectionPosition(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const CorrectionPosition_Top: CorrectionPosition = CorrectionPosition(2i32);
 impl ::core::marker::Copy for CorrectionPosition {}
 impl ::core::clone::Clone for CorrectionPosition {
@@ -269,7 +228,6 @@ impl ::core::fmt::Debug for CorrectionPosition {
         f.debug_tuple("CorrectionPosition").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn CreateContext<'a, P0>(hrec: P0, phrc: &mut HRECOCONTEXT) -> ::windows::core::Result<()>
 where
@@ -281,7 +239,6 @@ where
     }
     CreateContext(hrec.into(), ::core::mem::transmute(phrc)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn CreateRecognizer(pclsid: &mut ::windows::core::GUID, phrec: &mut HRECOGNIZER) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -290,59 +247,33 @@ pub unsafe fn CreateRecognizer(pclsid: &mut ::windows::core::GUID, phrec: &mut H
     }
     CreateRecognizer(::core::mem::transmute(pclsid), ::core::mem::transmute(phrec)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_Ink(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IStrokes: DISPID_Ink = DISPID_Ink(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IExtendedProperties: DISPID_Ink = DISPID_Ink(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IGetBoundingBox: DISPID_Ink = DISPID_Ink(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IDeleteStrokes: DISPID_Ink = DISPID_Ink(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IDeleteStroke: DISPID_Ink = DISPID_Ink(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IExtractStrokes: DISPID_Ink = DISPID_Ink(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IExtractWithRectangle: DISPID_Ink = DISPID_Ink(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IDirty: DISPID_Ink = DISPID_Ink(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICustomStrokes: DISPID_Ink = DISPID_Ink(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IClone: DISPID_Ink = DISPID_Ink(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IHitTestCircle: DISPID_Ink = DISPID_Ink(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IHitTestWithRectangle: DISPID_Ink = DISPID_Ink(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IHitTestWithLasso: DISPID_Ink = DISPID_Ink(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_INearestPoint: DISPID_Ink = DISPID_Ink(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICreateStrokes: DISPID_Ink = DISPID_Ink(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICreateStroke: DISPID_Ink = DISPID_Ink(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IAddStrokesAtRectangle: DISPID_Ink = DISPID_Ink(17i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IClip: DISPID_Ink = DISPID_Ink(18i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISave: DISPID_Ink = DISPID_Ink(19i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ILoad: DISPID_Ink = DISPID_Ink(20i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICreateStrokeFromPoints: DISPID_Ink = DISPID_Ink(21i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IClipboardCopyWithRectangle: DISPID_Ink = DISPID_Ink(22i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IClipboardCopy: DISPID_Ink = DISPID_Ink(23i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICanPaste: DISPID_Ink = DISPID_Ink(24i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IClipboardPaste: DISPID_Ink = DISPID_Ink(25i32);
 impl ::core::marker::Copy for DISPID_Ink {}
 impl ::core::clone::Clone for DISPID_Ink {
@@ -363,87 +294,47 @@ impl ::core::fmt::Debug for DISPID_Ink {
         f.debug_tuple("DISPID_Ink").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCollector(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICEnabled: DISPID_InkCollector = DISPID_InkCollector(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICHwnd: DISPID_InkCollector = DISPID_InkCollector(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICPaint: DISPID_InkCollector = DISPID_InkCollector(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICText: DISPID_InkCollector = DISPID_InkCollector(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICDefaultDrawingAttributes: DISPID_InkCollector = DISPID_InkCollector(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICRenderer: DISPID_InkCollector = DISPID_InkCollector(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICInk: DISPID_InkCollector = DISPID_InkCollector(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICAutoRedraw: DISPID_InkCollector = DISPID_InkCollector(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICCollectingInk: DISPID_InkCollector = DISPID_InkCollector(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSetEventInterest: DISPID_InkCollector = DISPID_InkCollector(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICGetEventInterest: DISPID_InkCollector = DISPID_InkCollector(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOEditingMode: DISPID_InkCollector = DISPID_InkCollector(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOSelection: DISPID_InkCollector = DISPID_InkCollector(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOAttachMode: DISPID_InkCollector = DISPID_InkCollector(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOHitTestSelection: DISPID_InkCollector = DISPID_InkCollector(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IODraw: DISPID_InkCollector = DISPID_InkCollector(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPPicture: DISPID_InkCollector = DISPID_InkCollector(17i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPSizeMode: DISPID_InkCollector = DISPID_InkCollector(18i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPBackColor: DISPID_InkCollector = DISPID_InkCollector(19i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICCursors: DISPID_InkCollector = DISPID_InkCollector(20i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICMarginX: DISPID_InkCollector = DISPID_InkCollector(21i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICMarginY: DISPID_InkCollector = DISPID_InkCollector(22i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSetWindowInputRectangle: DISPID_InkCollector = DISPID_InkCollector(23i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICGetWindowInputRectangle: DISPID_InkCollector = DISPID_InkCollector(24i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICTablet: DISPID_InkCollector = DISPID_InkCollector(25i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSetAllTabletsMode: DISPID_InkCollector = DISPID_InkCollector(26i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSetSingleTabletIntegratedMode: DISPID_InkCollector = DISPID_InkCollector(27i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICCollectionMode: DISPID_InkCollector = DISPID_InkCollector(28i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSetGestureStatus: DISPID_InkCollector = DISPID_InkCollector(29i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICGetGestureStatus: DISPID_InkCollector = DISPID_InkCollector(30i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICDynamicRendering: DISPID_InkCollector = DISPID_InkCollector(31i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICDesiredPacketDescription: DISPID_InkCollector = DISPID_InkCollector(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOEraserMode: DISPID_InkCollector = DISPID_InkCollector(33i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOEraserWidth: DISPID_InkCollector = DISPID_InkCollector(34i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICMouseIcon: DISPID_InkCollector = DISPID_InkCollector(35i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICMousePointer: DISPID_InkCollector = DISPID_InkCollector(36i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPInkEnabled: DISPID_InkCollector = DISPID_InkCollector(37i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSupportHighContrastInk: DISPID_InkCollector = DISPID_InkCollector(38i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOSupportHighContrastSelectionUI: DISPID_InkCollector = DISPID_InkCollector(39i32);
 impl ::core::marker::Copy for DISPID_InkCollector {}
 impl ::core::clone::Clone for DISPID_InkCollector {
@@ -464,91 +355,49 @@ impl ::core::fmt::Debug for DISPID_InkCollector {
         f.debug_tuple("DISPID_InkCollector").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCollectorEvent(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICEStroke: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICECursorDown: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICENewPackets: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICENewInAirPackets: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICECursorButtonDown: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICECursorButtonUp: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICECursorInRange: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICECursorOutOfRange: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICESystemGesture: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICEGesture: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICETabletAdded: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICETabletRemoved: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOEPainting: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOEPainted: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOESelectionChanging: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOESelectionChanged: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOESelectionMoving: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(17i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOESelectionMoved: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(18i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOESelectionResizing: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(19i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOESelectionResized: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(20i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOEStrokesDeleting: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(21i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IOEStrokesDeleted: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(22i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEChangeUICues: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(23i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEClick: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(24i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEDblClick: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(25i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEInvalidated: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(26i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEMouseDown: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(27i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEMouseEnter: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(28i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEMouseHover: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(29i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEMouseLeave: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(30i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEMouseMove: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(31i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEMouseUp: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEMouseWheel: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(33i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPESizeModeChanged: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(34i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEStyleChanged: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(35i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPESystemColorsChanged: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(36i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEKeyDown: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(37i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEKeyPress: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(38i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEKeyUp: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(39i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPEResize: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(40i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IPESizeChanged: DISPID_InkCollectorEvent = DISPID_InkCollectorEvent(41i32);
 impl ::core::marker::Copy for DISPID_InkCollectorEvent {}
 impl ::core::clone::Clone for DISPID_InkCollectorEvent {
@@ -569,21 +418,14 @@ impl ::core::fmt::Debug for DISPID_InkCollectorEvent {
         f.debug_tuple("DISPID_InkCollectorEvent").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursor(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsrName: DISPID_InkCursor = DISPID_InkCursor(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsrId: DISPID_InkCursor = DISPID_InkCursor(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsrDrawingAttributes: DISPID_InkCursor = DISPID_InkCursor(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsrButtons: DISPID_InkCursor = DISPID_InkCursor(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsrInverted: DISPID_InkCursor = DISPID_InkCursor(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsrTablet: DISPID_InkCursor = DISPID_InkCursor(5i32);
 impl ::core::marker::Copy for DISPID_InkCursor {}
 impl ::core::clone::Clone for DISPID_InkCursor {
@@ -604,15 +446,11 @@ impl ::core::fmt::Debug for DISPID_InkCursor {
         f.debug_tuple("DISPID_InkCursor").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursorButton(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBName: DISPID_InkCursorButton = DISPID_InkCursorButton(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBId: DISPID_InkCursorButton = DISPID_InkCursorButton(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBState: DISPID_InkCursorButton = DISPID_InkCursorButton(2i32);
 impl ::core::marker::Copy for DISPID_InkCursorButton {}
 impl ::core::clone::Clone for DISPID_InkCursorButton {
@@ -633,15 +471,11 @@ impl ::core::fmt::Debug for DISPID_InkCursorButton {
         f.debug_tuple("DISPID_InkCursorButton").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursorButtons(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBs_NewEnum: DISPID_InkCursorButtons = DISPID_InkCursorButtons(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBsItem: DISPID_InkCursorButtons = DISPID_InkCursorButtons(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICBsCount: DISPID_InkCursorButtons = DISPID_InkCursorButtons(1i32);
 impl ::core::marker::Copy for DISPID_InkCursorButtons {}
 impl ::core::clone::Clone for DISPID_InkCursorButtons {
@@ -662,15 +496,11 @@ impl ::core::fmt::Debug for DISPID_InkCursorButtons {
         f.debug_tuple("DISPID_InkCursorButtons").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCursors(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICs_NewEnum: DISPID_InkCursors = DISPID_InkCursors(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsItem: DISPID_InkCursors = DISPID_InkCursors(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICsCount: DISPID_InkCursors = DISPID_InkCursors(1i32);
 impl ::core::marker::Copy for DISPID_InkCursors {}
 impl ::core::clone::Clone for DISPID_InkCursors {
@@ -691,21 +521,14 @@ impl ::core::fmt::Debug for DISPID_InkCursors {
         f.debug_tuple("DISPID_InkCursors").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkCustomStrokes(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSs_NewEnum: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSsItem: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSsCount: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSsAdd: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSsRemove: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ICSsClear: DISPID_InkCustomStrokes = DISPID_InkCustomStrokes(4i32);
 impl ::core::marker::Copy for DISPID_InkCustomStrokes {}
 impl ::core::clone::Clone for DISPID_InkCustomStrokes {
@@ -726,17 +549,12 @@ impl ::core::fmt::Debug for DISPID_InkCustomStrokes {
         f.debug_tuple("DISPID_InkCustomStrokes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivider(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivider_Strokes: DISPID_InkDivider = DISPID_InkDivider(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivider_RecognizerContext: DISPID_InkDivider = DISPID_InkDivider(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivider_LineHeight: DISPID_InkDivider = DISPID_InkDivider(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivider_Divide: DISPID_InkDivider = DISPID_InkDivider(4i32);
 impl ::core::marker::Copy for DISPID_InkDivider {}
 impl ::core::clone::Clone for DISPID_InkDivider {
@@ -757,13 +575,10 @@ impl ::core::fmt::Debug for DISPID_InkDivider {
         f.debug_tuple("DISPID_InkDivider").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivisionResult(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionResult_Strokes: DISPID_InkDivisionResult = DISPID_InkDivisionResult(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionResult_ResultByType: DISPID_InkDivisionResult = DISPID_InkDivisionResult(2i32);
 impl ::core::marker::Copy for DISPID_InkDivisionResult {}
 impl ::core::clone::Clone for DISPID_InkDivisionResult {
@@ -784,17 +599,12 @@ impl ::core::fmt::Debug for DISPID_InkDivisionResult {
         f.debug_tuple("DISPID_InkDivisionResult").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivisionUnit(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnit_Strokes: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnit_DivisionType: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnit_RecognizedString: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnit_RotationTransform: DISPID_InkDivisionUnit = DISPID_InkDivisionUnit(4i32);
 impl ::core::marker::Copy for DISPID_InkDivisionUnit {}
 impl ::core::clone::Clone for DISPID_InkDivisionUnit {
@@ -815,15 +625,11 @@ impl ::core::fmt::Debug for DISPID_InkDivisionUnit {
         f.debug_tuple("DISPID_InkDivisionUnit").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDivisionUnits(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnits_NewEnum: DISPID_InkDivisionUnits = DISPID_InkDivisionUnits(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnits_Item: DISPID_InkDivisionUnits = DISPID_InkDivisionUnits(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IInkDivisionUnits_Count: DISPID_InkDivisionUnits = DISPID_InkDivisionUnits(1i32);
 impl ::core::marker::Copy for DISPID_InkDivisionUnits {}
 impl ::core::clone::Clone for DISPID_InkDivisionUnits {
@@ -844,31 +650,19 @@ impl ::core::fmt::Debug for DISPID_InkDivisionUnits {
         f.debug_tuple("DISPID_InkDivisionUnits").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkDrawingAttributes(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAHeight: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAColor: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAWidth: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAFitToCurve: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAIgnorePressure: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAAntiAliased: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DATransparency: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DARasterOperation: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAPenTip: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAClone: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DAExtendedProperties: DISPID_InkDrawingAttributes = DISPID_InkDrawingAttributes(11i32);
 impl ::core::marker::Copy for DISPID_InkDrawingAttributes {}
 impl ::core::clone::Clone for DISPID_InkDrawingAttributes {
@@ -889,81 +683,44 @@ impl ::core::fmt::Debug for DISPID_InkDrawingAttributes {
         f.debug_tuple("DISPID_InkDrawingAttributes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkEdit(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Text: DISPID_InkEdit = DISPID_InkEdit(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_TextRTF: DISPID_InkEdit = DISPID_InkEdit(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Hwnd: DISPID_InkEdit = DISPID_InkEdit(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DisableNoScroll: DISPID_InkEdit = DISPID_InkEdit(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Locked: DISPID_InkEdit = DISPID_InkEdit(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Enabled: DISPID_InkEdit = DISPID_InkEdit(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_MaxLength: DISPID_InkEdit = DISPID_InkEdit(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_MultiLine: DISPID_InkEdit = DISPID_InkEdit(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ScrollBars: DISPID_InkEdit = DISPID_InkEdit(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RTSelStart: DISPID_InkEdit = DISPID_InkEdit(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RTSelLength: DISPID_InkEdit = DISPID_InkEdit(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RTSelText: DISPID_InkEdit = DISPID_InkEdit(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelAlignment: DISPID_InkEdit = DISPID_InkEdit(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelBold: DISPID_InkEdit = DISPID_InkEdit(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelCharOffset: DISPID_InkEdit = DISPID_InkEdit(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelColor: DISPID_InkEdit = DISPID_InkEdit(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelFontName: DISPID_InkEdit = DISPID_InkEdit(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelFontSize: DISPID_InkEdit = DISPID_InkEdit(17i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelItalic: DISPID_InkEdit = DISPID_InkEdit(18i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelRTF: DISPID_InkEdit = DISPID_InkEdit(19i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelUnderline: DISPID_InkEdit = DISPID_InkEdit(20i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DragIcon: DISPID_InkEdit = DISPID_InkEdit(21i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Status: DISPID_InkEdit = DISPID_InkEdit(22i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_UseMouseForInput: DISPID_InkEdit = DISPID_InkEdit(23i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkMode: DISPID_InkEdit = DISPID_InkEdit(24i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkInsertMode: DISPID_InkEdit = DISPID_InkEdit(25i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoTimeout: DISPID_InkEdit = DISPID_InkEdit(26i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_DrawAttr: DISPID_InkEdit = DISPID_InkEdit(27i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Recognizer: DISPID_InkEdit = DISPID_InkEdit(28i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Factoid: DISPID_InkEdit = DISPID_InkEdit(29i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelInk: DISPID_InkEdit = DISPID_InkEdit(30i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SelInksDisplayMode: DISPID_InkEdit = DISPID_InkEdit(31i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Recognize: DISPID_InkEdit = DISPID_InkEdit(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_GetGestStatus: DISPID_InkEdit = DISPID_InkEdit(33i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SetGestStatus: DISPID_InkEdit = DISPID_InkEdit(34i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_Refresh: DISPID_InkEdit = DISPID_InkEdit(35i32);
 impl ::core::marker::Copy for DISPID_InkEdit {}
 impl ::core::clone::Clone for DISPID_InkEdit {
@@ -984,37 +741,22 @@ impl ::core::fmt::Debug for DISPID_InkEdit {
         f.debug_tuple("DISPID_InkEdit").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkEditEvents(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeChange: DISPID_InkEditEvents = DISPID_InkEditEvents(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeSelChange: DISPID_InkEditEvents = DISPID_InkEditEvents(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeKeyDown: DISPID_InkEditEvents = DISPID_InkEditEvents(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeKeyUp: DISPID_InkEditEvents = DISPID_InkEditEvents(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeMouseUp: DISPID_InkEditEvents = DISPID_InkEditEvents(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeMouseDown: DISPID_InkEditEvents = DISPID_InkEditEvents(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeKeyPress: DISPID_InkEditEvents = DISPID_InkEditEvents(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeDblClick: DISPID_InkEditEvents = DISPID_InkEditEvents(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeClick: DISPID_InkEditEvents = DISPID_InkEditEvents(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeMouseMove: DISPID_InkEditEvents = DISPID_InkEditEvents(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeCursorDown: DISPID_InkEditEvents = DISPID_InkEditEvents(21i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeStroke: DISPID_InkEditEvents = DISPID_InkEditEvents(22i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeGesture: DISPID_InkEditEvents = DISPID_InkEditEvents(23i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IeeRecognitionResult: DISPID_InkEditEvents = DISPID_InkEditEvents(24i32);
 impl ::core::marker::Copy for DISPID_InkEditEvents {}
 impl ::core::clone::Clone for DISPID_InkEditEvents {
@@ -1035,13 +777,10 @@ impl ::core::fmt::Debug for DISPID_InkEditEvents {
         f.debug_tuple("DISPID_InkEditEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkEvent(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEInkAdded: DISPID_InkEvent = DISPID_InkEvent(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEInkDeleted: DISPID_InkEvent = DISPID_InkEvent(2i32);
 impl ::core::marker::Copy for DISPID_InkEvent {}
 impl ::core::clone::Clone for DISPID_InkEvent {
@@ -1062,23 +801,15 @@ impl ::core::fmt::Debug for DISPID_InkEvent {
         f.debug_tuple("DISPID_InkEvent").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkExtendedProperties(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPs_NewEnum: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPsItem: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPsCount: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPsAdd: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPsRemove: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPsClear: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPsDoesPropertyExist: DISPID_InkExtendedProperties = DISPID_InkExtendedProperties(5i32);
 impl ::core::marker::Copy for DISPID_InkExtendedProperties {}
 impl ::core::clone::Clone for DISPID_InkExtendedProperties {
@@ -1099,13 +830,10 @@ impl ::core::fmt::Debug for DISPID_InkExtendedProperties {
         f.debug_tuple("DISPID_InkExtendedProperties").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkExtendedProperty(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPGuid: DISPID_InkExtendedProperty = DISPID_InkExtendedProperty(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IEPData: DISPID_InkExtendedProperty = DISPID_InkExtendedProperty(2i32);
 impl ::core::marker::Copy for DISPID_InkExtendedProperty {}
 impl ::core::clone::Clone for DISPID_InkExtendedProperty {
@@ -1126,15 +854,11 @@ impl ::core::fmt::Debug for DISPID_InkExtendedProperty {
         f.debug_tuple("DISPID_InkExtendedProperty").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkGesture(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IGId: DISPID_InkGesture = DISPID_InkGesture(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IGGetHotPoint: DISPID_InkGesture = DISPID_InkGesture(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IGConfidence: DISPID_InkGesture = DISPID_InkGesture(2i32);
 impl ::core::marker::Copy for DISPID_InkGesture {}
 impl ::core::clone::Clone for DISPID_InkGesture {
@@ -1155,39 +879,23 @@ impl ::core::fmt::Debug for DISPID_InkGesture {
         f.debug_tuple("DISPID_InkGesture").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecoAlternate(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_String: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_LineNumber: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_Baseline: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_Midline: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_Ascender: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_Descender: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_Confidence: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_Strokes: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_GetStrokesFromStrokeRanges: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_GetStrokesFromTextRange: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_GetTextRangeFromStrokes: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_GetPropertyValue: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_LineAlternates: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_ConfidenceAlternates: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecoAlternate_AlternatesWithConstantPropertyValues: DISPID_InkRecoAlternate = DISPID_InkRecoAlternate(15i32);
 impl ::core::marker::Copy for DISPID_InkRecoAlternate {}
 impl ::core::clone::Clone for DISPID_InkRecoAlternate {
@@ -1208,43 +916,25 @@ impl ::core::fmt::Debug for DISPID_InkRecoAlternate {
         f.debug_tuple("DISPID_InkRecoAlternate").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecoContext(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Strokes: DISPID_InkRecoContext = DISPID_InkRecoContext(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_CharacterAutoCompletionMode: DISPID_InkRecoContext = DISPID_InkRecoContext(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Factoid: DISPID_InkRecoContext = DISPID_InkRecoContext(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_WordList: DISPID_InkRecoContext = DISPID_InkRecoContext(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Recognizer: DISPID_InkRecoContext = DISPID_InkRecoContext(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Guide: DISPID_InkRecoContext = DISPID_InkRecoContext(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Flags: DISPID_InkRecoContext = DISPID_InkRecoContext(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_PrefixText: DISPID_InkRecoContext = DISPID_InkRecoContext(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_SuffixText: DISPID_InkRecoContext = DISPID_InkRecoContext(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_StopRecognition: DISPID_InkRecoContext = DISPID_InkRecoContext(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Clone: DISPID_InkRecoContext = DISPID_InkRecoContext(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_Recognize: DISPID_InkRecoContext = DISPID_InkRecoContext(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_StopBackgroundRecognition: DISPID_InkRecoContext = DISPID_InkRecoContext(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_EndInkInput: DISPID_InkRecoContext = DISPID_InkRecoContext(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_BackgroundRecognize: DISPID_InkRecoContext = DISPID_InkRecoContext(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_BackgroundRecognizeWithAlternates: DISPID_InkRecoContext = DISPID_InkRecoContext(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx_IsStringSupported: DISPID_InkRecoContext = DISPID_InkRecoContext(17i32);
 impl ::core::marker::Copy for DISPID_InkRecoContext {}
 impl ::core::clone::Clone for DISPID_InkRecoContext {
@@ -1265,11 +955,9 @@ impl ::core::fmt::Debug for DISPID_InkRecoContext {
         f.debug_tuple("DISPID_InkRecoContext").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecoContext2(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecoCtx2_EnabledUnicodeRanges: DISPID_InkRecoContext2 = DISPID_InkRecoContext2(0i32);
 impl ::core::marker::Copy for DISPID_InkRecoContext2 {}
 impl ::core::clone::Clone for DISPID_InkRecoContext2 {
@@ -1290,17 +978,12 @@ impl ::core::fmt::Debug for DISPID_InkRecoContext2 {
         f.debug_tuple("DISPID_InkRecoContext2").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognitionAlternates(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionAlternates_NewEnum: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionAlternates_Item: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionAlternates_Count: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionAlternates_Strokes: DISPID_InkRecognitionAlternates = DISPID_InkRecognitionAlternates(2i32);
 impl ::core::marker::Copy for DISPID_InkRecognitionAlternates {}
 impl ::core::clone::Clone for DISPID_InkRecognitionAlternates {
@@ -1321,13 +1004,10 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionAlternates {
         f.debug_tuple("DISPID_InkRecognitionAlternates").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognitionEvent(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRERecognitionWithAlternates: DISPID_InkRecognitionEvent = DISPID_InkRecognitionEvent(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRERecognition: DISPID_InkRecognitionEvent = DISPID_InkRecognitionEvent(2i32);
 impl ::core::marker::Copy for DISPID_InkRecognitionEvent {}
 impl ::core::clone::Clone for DISPID_InkRecognitionEvent {
@@ -1348,23 +1028,15 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionEvent {
         f.debug_tuple("DISPID_InkRecognitionEvent").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognitionResult(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_TopString: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_TopAlternate: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_Strokes: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_TopConfidence: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_AlternatesFromSelection: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_ModifyTopAlternate: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkRecognitionResult_SetResultOnStrokes: DISPID_InkRecognitionResult = DISPID_InkRecognitionResult(7i32);
 impl ::core::marker::Copy for DISPID_InkRecognitionResult {}
 impl ::core::clone::Clone for DISPID_InkRecognitionResult {
@@ -1385,25 +1057,16 @@ impl ::core::fmt::Debug for DISPID_InkRecognitionResult {
         f.debug_tuple("DISPID_InkRecognitionResult").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizer(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoClsid: DISPID_InkRecognizer = DISPID_InkRecognizer(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoName: DISPID_InkRecognizer = DISPID_InkRecognizer(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoVendor: DISPID_InkRecognizer = DISPID_InkRecognizer(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoCapabilities: DISPID_InkRecognizer = DISPID_InkRecognizer(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoLanguageID: DISPID_InkRecognizer = DISPID_InkRecognizer(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoPreferredPacketDescription: DISPID_InkRecognizer = DISPID_InkRecognizer(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoCreateRecognizerContext: DISPID_InkRecognizer = DISPID_InkRecognizer(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoSupportedProperties: DISPID_InkRecognizer = DISPID_InkRecognizer(8i32);
 impl ::core::marker::Copy for DISPID_InkRecognizer {}
 impl ::core::clone::Clone for DISPID_InkRecognizer {
@@ -1424,13 +1087,10 @@ impl ::core::fmt::Debug for DISPID_InkRecognizer {
         f.debug_tuple("DISPID_InkRecognizer").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizer2(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoId: DISPID_InkRecognizer2 = DISPID_InkRecognizer2(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_RecoUnicodeRanges: DISPID_InkRecognizer2 = DISPID_InkRecognizer2(1i32);
 impl ::core::marker::Copy for DISPID_InkRecognizer2 {}
 impl ::core::clone::Clone for DISPID_InkRecognizer2 {
@@ -1451,21 +1111,14 @@ impl ::core::fmt::Debug for DISPID_InkRecognizer2 {
         f.debug_tuple("DISPID_InkRecognizer2").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizerGuide(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGWritingBox: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGDrawnBox: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGRows: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGColumns: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGMidline: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGGuideData: DISPID_InkRecognizerGuide = DISPID_InkRecognizerGuide(6i32);
 impl ::core::marker::Copy for DISPID_InkRecognizerGuide {}
 impl ::core::clone::Clone for DISPID_InkRecognizerGuide {
@@ -1486,17 +1139,12 @@ impl ::core::fmt::Debug for DISPID_InkRecognizerGuide {
         f.debug_tuple("DISPID_InkRecognizerGuide").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRecognizers(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecos_NewEnum: DISPID_InkRecognizers = DISPID_InkRecognizers(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecosItem: DISPID_InkRecognizers = DISPID_InkRecognizers(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecosCount: DISPID_InkRecognizers = DISPID_InkRecognizers(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRecosGetDefaultRecognizer: DISPID_InkRecognizers = DISPID_InkRecognizers(2i32);
 impl ::core::marker::Copy for DISPID_InkRecognizers {}
 impl ::core::clone::Clone for DISPID_InkRecognizers {
@@ -1517,23 +1165,15 @@ impl ::core::fmt::Debug for DISPID_InkRecognizers {
         f.debug_tuple("DISPID_InkRecognizers").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRectangle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRTop: DISPID_InkRectangle = DISPID_InkRectangle(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRLeft: DISPID_InkRectangle = DISPID_InkRectangle(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRBottom: DISPID_InkRectangle = DISPID_InkRectangle(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRRight: DISPID_InkRectangle = DISPID_InkRectangle(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGetRectangle: DISPID_InkRectangle = DISPID_InkRectangle(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRSetRectangle: DISPID_InkRectangle = DISPID_InkRectangle(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRData: DISPID_InkRectangle = DISPID_InkRectangle(7i32);
 impl ::core::marker::Copy for DISPID_InkRectangle {}
 impl ::core::clone::Clone for DISPID_InkRectangle {
@@ -1554,39 +1194,23 @@ impl ::core::fmt::Debug for DISPID_InkRectangle {
         f.debug_tuple("DISPID_InkRectangle").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkRenderer(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGetViewTransform: DISPID_InkRenderer = DISPID_InkRenderer(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRSetViewTransform: DISPID_InkRenderer = DISPID_InkRenderer(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRGetObjectTransform: DISPID_InkRenderer = DISPID_InkRenderer(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRSetObjectTransform: DISPID_InkRenderer = DISPID_InkRenderer(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRDraw: DISPID_InkRenderer = DISPID_InkRenderer(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRDrawStroke: DISPID_InkRenderer = DISPID_InkRenderer(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRPixelToInkSpace: DISPID_InkRenderer = DISPID_InkRenderer(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRInkSpaceToPixel: DISPID_InkRenderer = DISPID_InkRenderer(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRPixelToInkSpaceFromPoints: DISPID_InkRenderer = DISPID_InkRenderer(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRInkSpaceToPixelFromPoints: DISPID_InkRenderer = DISPID_InkRenderer(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRMeasure: DISPID_InkRenderer = DISPID_InkRenderer(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRMeasureStroke: DISPID_InkRenderer = DISPID_InkRenderer(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRMove: DISPID_InkRenderer = DISPID_InkRenderer(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRRotate: DISPID_InkRenderer = DISPID_InkRenderer(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IRScale: DISPID_InkRenderer = DISPID_InkRenderer(15i32);
 impl ::core::marker::Copy for DISPID_InkRenderer {}
 impl ::core::clone::Clone for DISPID_InkRenderer {
@@ -1607,75 +1231,41 @@ impl ::core::fmt::Debug for DISPID_InkRenderer {
         f.debug_tuple("DISPID_InkRenderer").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkStrokeDisp(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDInkIndex: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDID: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDGetBoundingBox: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDDrawingAttributes: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDFindIntersections: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDGetRectangleIntersections: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDClip: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDHitTestCircle: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDNearestPoint: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDSplit: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDExtendedProperties: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDInk: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDBezierPoints: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDPolylineCusps: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDBezierCusps: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDSelfIntersections: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDPacketCount: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(17i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDPacketSize: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(18i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDPacketDescription: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(19i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDDeleted: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(20i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDGetPacketDescriptionPropertyMetrics: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(21i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDGetPoints: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(22i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDSetPoints: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(23i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDGetPacketData: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(24i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDGetPacketValuesByProperty: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(25i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDSetPacketValuesByProperty: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(26i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDGetFlattenedBezierPoints: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(27i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDScaleToRectangle: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(28i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDTransform: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(29i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDMove: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(30i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDRotate: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(31i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDShear: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISDScale: DISPID_InkStrokeDisp = DISPID_InkStrokeDisp(33i32);
 impl ::core::marker::Copy for DISPID_InkStrokeDisp {}
 impl ::core::clone::Clone for DISPID_InkStrokeDisp {
@@ -1696,51 +1286,29 @@ impl ::core::fmt::Debug for DISPID_InkStrokeDisp {
         f.debug_tuple("DISPID_InkStrokeDisp").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkStrokes(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISs_NewEnum: DISPID_InkStrokes = DISPID_InkStrokes(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsItem: DISPID_InkStrokes = DISPID_InkStrokes(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsCount: DISPID_InkStrokes = DISPID_InkStrokes(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsValid: DISPID_InkStrokes = DISPID_InkStrokes(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsInk: DISPID_InkStrokes = DISPID_InkStrokes(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsAdd: DISPID_InkStrokes = DISPID_InkStrokes(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsAddStrokes: DISPID_InkStrokes = DISPID_InkStrokes(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsRemove: DISPID_InkStrokes = DISPID_InkStrokes(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsRemoveStrokes: DISPID_InkStrokes = DISPID_InkStrokes(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsToString: DISPID_InkStrokes = DISPID_InkStrokes(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsModifyDrawingAttributes: DISPID_InkStrokes = DISPID_InkStrokes(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsGetBoundingBox: DISPID_InkStrokes = DISPID_InkStrokes(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsScaleToRectangle: DISPID_InkStrokes = DISPID_InkStrokes(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsTransform: DISPID_InkStrokes = DISPID_InkStrokes(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsMove: DISPID_InkStrokes = DISPID_InkStrokes(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsRotate: DISPID_InkStrokes = DISPID_InkStrokes(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsShear: DISPID_InkStrokes = DISPID_InkStrokes(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsScale: DISPID_InkStrokes = DISPID_InkStrokes(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsClip: DISPID_InkStrokes = DISPID_InkStrokes(17i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsRecognitionResult: DISPID_InkStrokes = DISPID_InkStrokes(18i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ISsRemoveRecognitionResult: DISPID_InkStrokes = DISPID_InkStrokes(19i32);
 impl ::core::marker::Copy for DISPID_InkStrokes {}
 impl ::core::clone::Clone for DISPID_InkStrokes {
@@ -1761,21 +1329,14 @@ impl ::core::fmt::Debug for DISPID_InkStrokes {
         f.debug_tuple("DISPID_InkStrokes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablet(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITName: DISPID_InkTablet = DISPID_InkTablet(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITPlugAndPlayId: DISPID_InkTablet = DISPID_InkTablet(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITPropertyMetrics: DISPID_InkTablet = DISPID_InkTablet(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITIsPacketPropertySupported: DISPID_InkTablet = DISPID_InkTablet(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITMaximumInputRectangle: DISPID_InkTablet = DISPID_InkTablet(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITHardwareCapabilities: DISPID_InkTablet = DISPID_InkTablet(5i32);
 impl ::core::marker::Copy for DISPID_InkTablet {}
 impl ::core::clone::Clone for DISPID_InkTablet {
@@ -1796,11 +1357,9 @@ impl ::core::fmt::Debug for DISPID_InkTablet {
         f.debug_tuple("DISPID_InkTablet").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablet2(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IT2DeviceKind: DISPID_InkTablet2 = DISPID_InkTablet2(0i32);
 impl ::core::marker::Copy for DISPID_InkTablet2 {}
 impl ::core::clone::Clone for DISPID_InkTablet2 {
@@ -1821,13 +1380,10 @@ impl ::core::fmt::Debug for DISPID_InkTablet2 {
         f.debug_tuple("DISPID_InkTablet2").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablet3(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IT3IsMultiTouch: DISPID_InkTablet3 = DISPID_InkTablet3(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_IT3MaximumCursors: DISPID_InkTablet3 = DISPID_InkTablet3(1i32);
 impl ::core::marker::Copy for DISPID_InkTablet3 {}
 impl ::core::clone::Clone for DISPID_InkTablet3 {
@@ -1848,19 +1404,13 @@ impl ::core::fmt::Debug for DISPID_InkTablet3 {
         f.debug_tuple("DISPID_InkTablet3").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTablets(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITs_NewEnum: DISPID_InkTablets = DISPID_InkTablets(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITsItem: DISPID_InkTablets = DISPID_InkTablets(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITsDefaultTablet: DISPID_InkTablets = DISPID_InkTablets(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITsCount: DISPID_InkTablets = DISPID_InkTablets(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITsIsPacketPropertySupported: DISPID_InkTablets = DISPID_InkTablets(3i32);
 impl ::core::marker::Copy for DISPID_InkTablets {}
 impl ::core::clone::Clone for DISPID_InkTablets {
@@ -1881,39 +1431,23 @@ impl ::core::fmt::Debug for DISPID_InkTablets {
         f.debug_tuple("DISPID_InkTablets").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkTransform(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITReset: DISPID_InkTransform = DISPID_InkTransform(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITTranslate: DISPID_InkTransform = DISPID_InkTransform(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITRotate: DISPID_InkTransform = DISPID_InkTransform(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITReflect: DISPID_InkTransform = DISPID_InkTransform(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITShear: DISPID_InkTransform = DISPID_InkTransform(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITScale: DISPID_InkTransform = DISPID_InkTransform(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITeM11: DISPID_InkTransform = DISPID_InkTransform(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITeM12: DISPID_InkTransform = DISPID_InkTransform(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITeM21: DISPID_InkTransform = DISPID_InkTransform(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITeM22: DISPID_InkTransform = DISPID_InkTransform(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITeDx: DISPID_InkTransform = DISPID_InkTransform(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITeDy: DISPID_InkTransform = DISPID_InkTransform(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITGetTransform: DISPID_InkTransform = DISPID_InkTransform(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITSetTransform: DISPID_InkTransform = DISPID_InkTransform(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_ITData: DISPID_InkTransform = DISPID_InkTransform(15i32);
 impl ::core::marker::Copy for DISPID_InkTransform {}
 impl ::core::clone::Clone for DISPID_InkTransform {
@@ -1934,15 +1468,11 @@ impl ::core::fmt::Debug for DISPID_InkTransform {
         f.debug_tuple("DISPID_InkTransform").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkWordList(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkWordList_AddWord: DISPID_InkWordList = DISPID_InkWordList(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkWordList_RemoveWord: DISPID_InkWordList = DISPID_InkWordList(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkWordList_Merge: DISPID_InkWordList = DISPID_InkWordList(2i32);
 impl ::core::marker::Copy for DISPID_InkWordList {}
 impl ::core::clone::Clone for DISPID_InkWordList {
@@ -1963,11 +1493,9 @@ impl ::core::fmt::Debug for DISPID_InkWordList {
         f.debug_tuple("DISPID_InkWordList").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_InkWordList2(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_InkWordList2_AddWords: DISPID_InkWordList2 = DISPID_InkWordList2(3i32);
 impl ::core::marker::Copy for DISPID_InkWordList2 {}
 impl ::core::clone::Clone for DISPID_InkWordList2 {
@@ -1988,17 +1516,12 @@ impl ::core::fmt::Debug for DISPID_InkWordList2 {
         f.debug_tuple("DISPID_InkWordList2").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_MathInputControlEvents(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_MICInsert: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_MICClose: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_MICPaint: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_MICClear: DISPID_MathInputControlEvents = DISPID_MathInputControlEvents(3i32);
 impl ::core::marker::Copy for DISPID_MathInputControlEvents {}
 impl ::core::clone::Clone for DISPID_MathInputControlEvents {
@@ -2019,43 +1542,25 @@ impl ::core::fmt::Debug for DISPID_MathInputControlEvents {
         f.debug_tuple("DISPID_MathInputControlEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_PenInputPanel(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPAttachedEditWindow: DISPID_PenInputPanel = DISPID_PenInputPanel(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPFactoid: DISPID_PenInputPanel = DISPID_PenInputPanel(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPCurrentPanel: DISPID_PenInputPanel = DISPID_PenInputPanel(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPDefaultPanel: DISPID_PenInputPanel = DISPID_PenInputPanel(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPVisible: DISPID_PenInputPanel = DISPID_PenInputPanel(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPTop: DISPID_PenInputPanel = DISPID_PenInputPanel(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPLeft: DISPID_PenInputPanel = DISPID_PenInputPanel(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPWidth: DISPID_PenInputPanel = DISPID_PenInputPanel(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPHeight: DISPID_PenInputPanel = DISPID_PenInputPanel(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPMoveTo: DISPID_PenInputPanel = DISPID_PenInputPanel(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPCommitPendingInput: DISPID_PenInputPanel = DISPID_PenInputPanel(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPRefresh: DISPID_PenInputPanel = DISPID_PenInputPanel(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPBusy: DISPID_PenInputPanel = DISPID_PenInputPanel(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPVerticalOffset: DISPID_PenInputPanel = DISPID_PenInputPanel(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPHorizontalOffset: DISPID_PenInputPanel = DISPID_PenInputPanel(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPEnableTsf: DISPID_PenInputPanel = DISPID_PenInputPanel(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPAutoShow: DISPID_PenInputPanel = DISPID_PenInputPanel(16i32);
 impl ::core::marker::Copy for DISPID_PenInputPanel {}
 impl ::core::clone::Clone for DISPID_PenInputPanel {
@@ -2076,17 +1581,12 @@ impl ::core::fmt::Debug for DISPID_PenInputPanel {
         f.debug_tuple("DISPID_PenInputPanel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_PenInputPanelEvents(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPEVisibleChanged: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPEPanelChanged: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPEInputFailed: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_PIPEPanelMoving: DISPID_PenInputPanelEvents = DISPID_PenInputPanelEvents(3i32);
 impl ::core::marker::Copy for DISPID_PenInputPanelEvents {}
 impl ::core::clone::Clone for DISPID_PenInputPanelEvents {
@@ -2107,13 +1607,10 @@ impl ::core::fmt::Debug for DISPID_PenInputPanelEvents {
         f.debug_tuple("DISPID_PenInputPanelEvents").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPID_StrokeEvent(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SEStrokesAdded: DISPID_StrokeEvent = DISPID_StrokeEvent(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DISPID_SEStrokesRemoved: DISPID_StrokeEvent = DISPID_StrokeEvent(2i32);
 impl ::core::marker::Copy for DISPID_StrokeEvent {}
 impl ::core::clone::Clone for DISPID_StrokeEvent {
@@ -2135,7 +1632,6 @@ impl ::core::fmt::Debug for DISPID_StrokeEvent {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct DYNAMIC_RENDERER_CACHED_DATA {
     pub strokeId: i32,
     pub dynamicRenderer: ::core::option::Option<IDynamicRenderer>,
@@ -2164,7 +1660,6 @@ impl ::core::default::Default for DYNAMIC_RENDERER_CACHED_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn DestroyContext<'a, P0>(hrc: P0) -> ::windows::core::Result<()>
 where
@@ -2176,7 +1671,6 @@ where
     }
     DestroyContext(hrc.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn DestroyRecognizer<'a, P0>(hrec: P0) -> ::windows::core::Result<()>
 where
@@ -2188,7 +1682,6 @@ where
     }
     DestroyRecognizer(hrec.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn DestroyWordList<'a, P0>(hwl: P0) -> ::windows::core::Result<()>
 where
@@ -2201,59 +1694,32 @@ where
     DestroyWordList(hwl.into()).ok()
 }
 pub const DynamicRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecd32aea_746f_4dcb_bf68_082757faff18);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETDRAWATTR: u32 = 1541u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETFACTOID: u32 = 1549u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETGESTURESTATUS: u32 = 1545u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETINKINSERTMODE: u32 = 1539u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETINKMODE: u32 = 1537u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETMOUSEICON: u32 = 1553u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETMOUSEPOINTER: u32 = 1555u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETRECOGNIZER: u32 = 1547u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETRECOTIMEOUT: u32 = 1543u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETSELINK: u32 = 1551u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETSELINKDISPLAYMODE: u32 = 1562u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETSTATUS: u32 = 1557u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_GETUSEMOUSEFORINPUT: u32 = 1559u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_RECOGNIZE: u32 = 1558u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETDRAWATTR: u32 = 1542u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETFACTOID: u32 = 1550u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETGESTURESTATUS: u32 = 1546u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETINKINSERTMODE: u32 = 1540u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETINKMODE: u32 = 1538u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETMOUSEICON: u32 = 1554u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETMOUSEPOINTER: u32 = 1556u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETRECOGNIZER: u32 = 1548u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETRECOTIMEOUT: u32 = 1544u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETSELINK: u32 = 1552u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETSELINKDISPLAYMODE: u32 = 1561u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EM_SETUSEMOUSEFORINPUT: u32 = 1560u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn EndInkInput<'a, P0>(hrc: P0) -> ::windows::core::Result<()>
 where
@@ -2265,35 +1731,21 @@ where
     }
     EndInkInput(hrc.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EventMask(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InPlaceStateChanging: EventMask = EventMask(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InPlaceStateChanged: EventMask = EventMask(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InPlaceSizeChanging: EventMask = EventMask(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InPlaceSizeChanged: EventMask = EventMask(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InputAreaChanging: EventMask = EventMask(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InputAreaChanged: EventMask = EventMask(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_CorrectionModeChanging: EventMask = EventMask(64i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_CorrectionModeChanged: EventMask = EventMask(128i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InPlaceVisibilityChanging: EventMask = EventMask(256i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_InPlaceVisibilityChanged: EventMask = EventMask(512i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_TextInserting: EventMask = EventMask(1024i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_TextInserted: EventMask = EventMask(2048i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const EventMask_All: EventMask = EventMask(4095i32);
 impl ::core::marker::Copy for EventMask {}
 impl ::core::clone::Clone for EventMask {
@@ -2314,85 +1766,46 @@ impl ::core::fmt::Debug for EventMask {
         f.debug_tuple("EventMask").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACILITY_INK: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_BOPOMOFO: &str = "BOPOMOFO";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_CHINESESIMPLECOMMON: &str = "CHS_COMMON";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_CHINESETRADITIONALCOMMON: &str = "CHT_COMMON";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_CURRENCY: &str = "CURRENCY";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_DATE: &str = "DATE";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_DEFAULT: &str = "DEFAULT";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_DIGIT: &str = "DIGIT";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_EMAIL: &str = "EMAIL";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_FILENAME: &str = "FILENAME";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_HANGULCOMMON: &str = "HANGUL_COMMON";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_HANGULRARE: &str = "HANGUL_RARE";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_HIRAGANA: &str = "HIRAGANA";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_JAMO: &str = "JAMO";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_JAPANESECOMMON: &str = "JPN_COMMON";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_KANJICOMMON: &str = "KANJI_COMMON";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_KANJIRARE: &str = "KANJI_RARE";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_KATAKANA: &str = "KATAKANA";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_KOREANCOMMON: &str = "KOR_COMMON";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_LOWERCHAR: &str = "LOWERCHAR";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_NONE: &str = "NONE";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_NUMBER: &str = "NUMBER";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_NUMBERSIMPLE: &str = "NUMSIMPLE";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_ONECHAR: &str = "ONECHAR";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_PERCENT: &str = "PERCENT";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_POSTALCODE: &str = "POSTALCODE";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_PUNCCHAR: &str = "PUNCCHAR";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_SYSTEMDICTIONARY: &str = "SYSDICT";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_TELEPHONE: &str = "TELEPHONE";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_TIME: &str = "TIME";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_UPPERCHAR: &str = "UPPERCHAR";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_WEB: &str = "WEB";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FACTOID_WORDLIST: &str = "WORDLIST";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLICKACTION_COMMANDCODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKACTION_COMMANDCODE_NULL: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKACTION_COMMANDCODE_SCROLL: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKACTION_COMMANDCODE_APPCOMMAND: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKACTION_COMMANDCODE_CUSTOMKEY: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKACTION_COMMANDCODE_KEYMODIFIER: FLICKACTION_COMMANDCODE = FLICKACTION_COMMANDCODE(4i32);
 impl ::core::marker::Copy for FLICKACTION_COMMANDCODE {}
 impl ::core::clone::Clone for FLICKACTION_COMMANDCODE {
@@ -2413,29 +1826,18 @@ impl ::core::fmt::Debug for FLICKACTION_COMMANDCODE {
         f.debug_tuple("FLICKACTION_COMMANDCODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLICKDIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_MIN: FLICKDIRECTION = FLICKDIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_RIGHT: FLICKDIRECTION = FLICKDIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_UPRIGHT: FLICKDIRECTION = FLICKDIRECTION(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_UP: FLICKDIRECTION = FLICKDIRECTION(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_UPLEFT: FLICKDIRECTION = FLICKDIRECTION(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_LEFT: FLICKDIRECTION = FLICKDIRECTION(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_DOWNLEFT: FLICKDIRECTION = FLICKDIRECTION(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_DOWN: FLICKDIRECTION = FLICKDIRECTION(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_DOWNRIGHT: FLICKDIRECTION = FLICKDIRECTION(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKDIRECTION_INVALID: FLICKDIRECTION = FLICKDIRECTION(8i32);
 impl ::core::marker::Copy for FLICKDIRECTION {}
 impl ::core::clone::Clone for FLICKDIRECTION {
@@ -2456,21 +1858,14 @@ impl ::core::fmt::Debug for FLICKDIRECTION {
         f.debug_tuple("FLICKDIRECTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FLICKMODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKMODE_MIN: FLICKMODE = FLICKMODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKMODE_OFF: FLICKMODE = FLICKMODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKMODE_ON: FLICKMODE = FLICKMODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKMODE_LEARNING: FLICKMODE = FLICKMODE(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKMODE_MAX: FLICKMODE = FLICKMODE(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICKMODE_DEFAULT: FLICKMODE = FLICKMODE(1i32);
 impl ::core::marker::Copy for FLICKMODE {}
 impl ::core::clone::Clone for FLICKMODE {
@@ -2492,7 +1887,6 @@ impl ::core::fmt::Debug for FLICKMODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct FLICK_DATA {
     pub _bitfield: i32,
 }
@@ -2522,7 +1916,6 @@ impl ::core::default::Default for FLICK_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct FLICK_POINT {
     pub _bitfield: i32,
 }
@@ -2551,68 +1944,37 @@ impl ::core::default::Default for FLICK_POINT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const FLICK_WM_HANDLED_MASK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_ARROW_DOWN: u32 = 61497u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_ARROW_LEFT: u32 = 61498u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_ARROW_RIGHT: u32 = 61499u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_ARROW_UP: u32 = 61496u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_ASTERISK: u32 = 61608u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACE_LEFT: u32 = 61674u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACE_OVER: u32 = 61672u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACE_RIGHT: u32 = 61675u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACE_UNDER: u32 = 61673u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACKET_LEFT: u32 = 61670u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACKET_OVER: u32 = 61668u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACKET_RIGHT: u32 = 61671u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BRACKET_UNDER: u32 = 61669u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BULLET: u32 = 61450u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_BULLET_CROSS: u32 = 61451u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CHECK: u32 = 61445u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CHEVRON_DOWN: u32 = 61489u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CHEVRON_LEFT: u32 = 61490u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CHEVRON_RIGHT: u32 = 61491u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CHEVRON_UP: u32 = 61488u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CIRCLE: u32 = 61472u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CIRCLE_CIRCLE: u32 = 61475u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CIRCLE_CROSS: u32 = 61477u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CIRCLE_LINE_HORZ: u32 = 61479u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CIRCLE_LINE_VERT: u32 = 61478u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CIRCLE_TAP: u32 = 61474u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CLOSEUP: u32 = 61455u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CROSS: u32 = 61447u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_CURLICUE: u32 = 61456u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct GESTURE_DATA {
     pub gestureId: i32,
     pub recoConfidence: i32,
@@ -2643,215 +2005,110 @@ impl ::core::default::Default for GESTURE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIAGONAL_LEFTDOWN: u32 = 61534u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIAGONAL_LEFTUP: u32 = 61532u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIAGONAL_RIGHTDOWN: u32 = 61535u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIAGONAL_RIGHTUP: u32 = 61533u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_0: u32 = 61594u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_1: u32 = 61595u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_2: u32 = 61596u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_3: u32 = 61597u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_4: u32 = 61598u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_5: u32 = 61599u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_6: u32 = 61600u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_7: u32 = 61601u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_8: u32 = 61602u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DIGIT_9: u32 = 61603u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOLLAR: u32 = 61607u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_ARROW_DOWN: u32 = 61501u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_ARROW_LEFT: u32 = 61502u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_ARROW_RIGHT: u32 = 61503u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_ARROW_UP: u32 = 61500u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_CIRCLE: u32 = 61473u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_CURLICUE: u32 = 61457u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_DOWN: u32 = 61625u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_LEFT: u32 = 61626u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_RIGHT: u32 = 61627u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_TAP: u32 = 61681u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOUBLE_UP: u32 = 61624u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN: u32 = 61529u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN_ARROW_LEFT: u32 = 61506u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN_ARROW_RIGHT: u32 = 61507u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN_LEFT: u32 = 61546u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN_LEFT_LONG: u32 = 61542u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN_RIGHT: u32 = 61547u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN_RIGHT_LONG: u32 = 61543u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_DOWN_UP: u32 = 61537u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_EXCLAMATION: u32 = 61604u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_INFINITY: u32 = 61446u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LEFT: u32 = 61530u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LEFT_ARROW_DOWN: u32 = 61509u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LEFT_ARROW_UP: u32 = 61508u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LEFT_DOWN: u32 = 61549u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LEFT_RIGHT: u32 = 61538u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LEFT_UP: u32 = 61548u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_A: u32 = 61568u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_B: u32 = 61569u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_C: u32 = 61570u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_D: u32 = 61571u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_E: u32 = 61572u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_F: u32 = 61573u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_G: u32 = 61574u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_H: u32 = 61575u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_I: u32 = 61576u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_J: u32 = 61577u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_K: u32 = 61578u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_L: u32 = 61579u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_M: u32 = 61580u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_N: u32 = 61581u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_O: u32 = 61582u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_P: u32 = 61583u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_Q: u32 = 61584u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_R: u32 = 61585u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_S: u32 = 61586u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_T: u32 = 61587u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_U: u32 = 61588u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_V: u32 = 61589u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_W: u32 = 61590u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_X: u32 = 61591u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_Y: u32 = 61592u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_LETTER_Z: u32 = 61593u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_NULL: u32 = 61440u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_OPENUP: u32 = 61454u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_PARAGRAPH: u32 = 61448u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_PLUS: u32 = 61609u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_QUAD_TAP: u32 = 61683u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_QUESTION: u32 = 61605u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_RECTANGLE: u32 = 61458u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_RIGHT: u32 = 61531u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_RIGHT_ARROW_DOWN: u32 = 61511u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_RIGHT_ARROW_UP: u32 = 61510u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_RIGHT_DOWN: u32 = 61551u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_RIGHT_LEFT: u32 = 61539u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_RIGHT_UP: u32 = 61550u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SCRATCHOUT: u32 = 61441u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SECTION: u32 = 61449u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SEMICIRCLE_LEFT: u32 = 61480u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SEMICIRCLE_RIGHT: u32 = 61481u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SHARP: u32 = 61606u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SQUARE: u32 = 61443u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SQUIGGLE: u32 = 61452u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_STAR: u32 = 61444u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_SWAP: u32 = 61453u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_TAP: u32 = 61680u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_TRIANGLE: u32 = 61442u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_TRIPLE_DOWN: u32 = 61629u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_TRIPLE_LEFT: u32 = 61630u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_TRIPLE_RIGHT: u32 = 61631u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_TRIPLE_TAP: u32 = 61682u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_TRIPLE_UP: u32 = 61628u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP: u32 = 61528u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP_ARROW_LEFT: u32 = 61504u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP_ARROW_RIGHT: u32 = 61505u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP_DOWN: u32 = 61536u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP_LEFT: u32 = 61544u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP_LEFT_LONG: u32 = 61540u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP_RIGHT: u32 = 61545u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const GESTURE_UP_RIGHT_LONG: u32 = 61541u32;
 pub const GUID_DYNAMIC_RENDERER_CACHED_DATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf531b92_25bf_4a95_89ad_0e476b34b4f5);
 pub const GUID_GESTURE_DATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e4ec0f_26aa_455a_9aa5_2cd36cf63fb9);
@@ -2877,7 +2134,6 @@ pub const GUID_PACKETPROPERTY_GUID_YAW_ROTATION: ::windows::core::GUID = ::windo
 pub const GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e932389_1d77_43af_ac00_5b950d6d4b2d);
 pub const GUID_PACKETPROPERTY_GUID_Z: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735adb30_0ebb_4788_a0e4_0f316490055d);
 pub const GestureRecognizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea30c654_c62c_441f_ac00_95f9a196782c);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetAllRecognizers(recognizerclsids: &mut *mut ::windows::core::GUID, count: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2886,7 +2142,6 @@ pub unsafe fn GetAllRecognizers(recognizerclsids: &mut *mut ::windows::core::GUI
     }
     GetAllRecognizers(::core::mem::transmute(recognizerclsids), ::core::mem::transmute(count)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetBestResultString<'a, P0>(hrc: P0, pcsize: &mut u32, pwcbestresult: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
@@ -2898,7 +2153,6 @@ where
     }
     GetBestResultString(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcbestresult)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetLatticePtr<'a, P0>(hrc: P0, pplattice: &mut *mut RECO_LATTICE) -> ::windows::core::Result<()>
 where
@@ -2910,7 +2164,6 @@ where
     }
     GetLatticePtr(hrc.into(), ::core::mem::transmute(pplattice)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetLeftSeparator<'a, P0>(hrc: P0, pcsize: &mut u32, pwcleftseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
@@ -2922,7 +2175,6 @@ where
     }
     GetLeftSeparator(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcleftseparator)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetRecoAttributes<'a, P0>(hrec: P0, precoattrs: &mut RECO_ATTRS) -> ::windows::core::Result<()>
 where
@@ -2934,7 +2186,6 @@ where
     }
     GetRecoAttributes(hrec.into(), ::core::mem::transmute(precoattrs)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetResultPropertyList<'a, P0>(hrec: P0, ppropertycount: &mut u32, ppropertyguid: &mut ::windows::core::GUID) -> ::windows::core::Result<()>
 where
@@ -2946,7 +2197,6 @@ where
     }
     GetResultPropertyList(hrec.into(), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(ppropertyguid)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetRightSeparator<'a, P0>(hrc: P0, pcsize: &mut u32, pwcrightseparator: ::windows::core::PWSTR) -> ::windows::core::Result<()>
 where
@@ -2958,7 +2208,6 @@ where
     }
     GetRightSeparator(hrc.into(), ::core::mem::transmute(pcsize), ::core::mem::transmute(pwcrightseparator)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn GetUnicodeRanges<'a, P0>(hrec: P0, pcranges: &mut u32, pcr: &mut CHARACTER_RANGE) -> ::windows::core::Result<()>
 where
@@ -3131,17 +2380,14 @@ unsafe impl ::windows::core::Abi for HRECOWORDLIST {
     type Abi = Self;
 }
 pub const HandwrittenTextInsertion: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f074ee2_e6e9_4d8a_a047_eb5b5c3c55da);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IDynamicRenderer(::windows::core::IUnknown);
 impl IDynamicRenderer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<'a, P0>(&self, benabled: P0) -> ::windows::core::Result<()>
     where
@@ -3149,13 +2395,11 @@ impl IDynamicRenderer {
     {
         (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), benabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HWND(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE_PTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HWND)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE_PTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHWND<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
@@ -3163,24 +2407,20 @@ impl IDynamicRenderer {
     {
         (::windows::core::Interface::vtable(self).SetHWND)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClipRectangle(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClipRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClipRectangle(&self, prccliprect: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClipRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prccliprect)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClipRegion(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE_PTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClipRegion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE_PTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClipRegion<'a, P0>(&self, hcliprgn: P0) -> ::windows::core::Result<()>
     where
@@ -3188,13 +2428,11 @@ impl IDynamicRenderer {
     {
         (::windows::core::Interface::vtable(self).SetClipRegion)(::windows::core::Interface::as_raw(self), hcliprgn.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DrawingAttributes(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DrawingAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDrawingAttributes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_DrawingAttributes<'a, P0>(&self, pida: P0) -> ::windows::core::Result<()>
     where
@@ -3202,13 +2440,11 @@ impl IDynamicRenderer {
     {
         (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), pida.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DataCacheEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DataCacheEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDataCacheEnabled<'a, P0>(&self, fcachedata: P0) -> ::windows::core::Result<()>
     where
@@ -3222,7 +2458,6 @@ impl IDynamicRenderer {
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Draw<'a, P0>(&self, hdc: P0) -> ::windows::core::Result<()>
     where
@@ -3325,16 +2560,11 @@ pub struct IDynamicRenderer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Draw: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IECN_GESTURE: u32 = 2050u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IECN_RECOGNITIONRESULT: u32 = 2051u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IECN_STROKE: u32 = 2049u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IECN__BASE: u32 = 2048u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Controls"))]
 pub struct IEC_GESTUREINFO {
     pub nmhdr: super::Controls::NMHDR,
@@ -3367,7 +2597,6 @@ impl ::core::default::Default for IEC_GESTUREINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub struct IEC_RECOGNITIONRESULTINFO {
     pub nmhdr: super::Controls::NMHDR,
@@ -3404,7 +2633,6 @@ impl ::core::default::Default for IEC_RECOGNITIONRESULTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Controls\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Controls"))]
 pub struct IEC_STROKEINFO {
     pub nmhdr: super::Controls::NMHDR,
@@ -3441,19 +2669,15 @@ impl ::core::default::Default for IEC_STROKEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEC__BASE: u32 = 1536u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IGestureRecognizer(::windows::core::IUnknown);
 impl IGestureRecognizer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<'a, P0>(&self, fenabled: P0) -> ::windows::core::Result<()>
     where
@@ -3527,11 +2751,9 @@ pub struct IGestureRecognizer_Vtbl {
     pub EnableGestures: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cgestures: u32, pgestures: *const i32) -> ::windows::core::HRESULT,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IHandwrittenTextInsertion(::windows::core::IUnknown);
 impl IHandwrittenTextInsertion {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InsertRecognitionResultsArray<'a, P0>(&self, psaalternates: &super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: P0) -> ::windows::core::Result<()>
     where
@@ -3539,7 +2761,6 @@ impl IHandwrittenTextInsertion {
     {
         (::windows::core::Interface::vtable(self).InsertRecognitionResultsArray)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psaalternates), locale, falternatecontainsautospacinginformation.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InsertInkRecognitionResult<'a, P0, P1>(&self, piinkrecoresult: P0, locale: u32, falternatecontainsautospacinginformation: P1) -> ::windows::core::Result<()>
     where
@@ -3597,7 +2818,6 @@ pub struct IHandwrittenTextInsertion_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     InsertInkRecognitionResult: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInk(::windows::core::IUnknown);
@@ -3670,7 +2890,6 @@ unsafe impl ::windows::core::Interface for IInk {
 pub struct IInk_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkCollector(::windows::core::IUnknown);
@@ -3690,13 +2909,11 @@ impl IInkCollector {
     pub unsafe fn SetEnabled(&self, collecting: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), collecting).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultDrawingAttributes(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDrawingAttributes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_DefaultDrawingAttributes<'a, P0>(&self, newattributes: P0) -> ::windows::core::Result<()>
     where
@@ -3704,13 +2921,11 @@ impl IInkCollector {
     {
         (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Renderer(&self) -> ::windows::core::Result<IInkRenderer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Renderer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRenderer>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Renderer<'a, P0>(&self, newinkrenderer: P0) -> ::windows::core::Result<()>
     where
@@ -3718,13 +2933,11 @@ impl IInkCollector {
     {
         (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Ink(&self) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Ink<'a, P0>(&self, newink: P0) -> ::windows::core::Result<()>
     where
@@ -3757,13 +2970,11 @@ impl IInkCollector {
     pub unsafe fn SetDynamicRendering(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDynamicRendering)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DesiredPacketDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDesiredPacketDescription<'a, P0>(&self, packetguids: P0) -> ::windows::core::Result<()>
     where
@@ -3771,13 +2982,11 @@ impl IInkCollector {
     {
         (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MouseIcon(&self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MouseIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IPictureDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -3785,7 +2994,6 @@ impl IInkCollector {
     {
         (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_MouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -3800,7 +3008,6 @@ impl IInkCollector {
     pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMousePointer)(::windows::core::Interface::as_raw(self), mousepointer).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cursors(&self) -> ::windows::core::Result<IInkCursors> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3820,7 +3027,6 @@ impl IInkCollector {
     pub unsafe fn SetMarginY(&self, marginy: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMarginY)(::windows::core::Interface::as_raw(self), marginy).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tablet(&self) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3840,12 +3046,10 @@ impl IInkCollector {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), gesture, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: &mut ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWindowInputRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(windowinputrectangle)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWindowInputRectangle<'a, P0>(&self, windowinputrectangle: P0) -> ::windows::core::Result<()>
     where
@@ -3856,7 +3060,6 @@ impl IInkCollector {
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllTabletsMode)(::windows::core::Interface::as_raw(self), usemouseforinput).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSingleTabletIntegratedMode<'a, P0>(&self, tablet: P0) -> ::windows::core::Result<()>
     where
@@ -4027,13 +3230,11 @@ pub struct IInkCollector_Vtbl {
     pub GetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut i16) -> ::windows::core::HRESULT,
     pub SetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkCursor(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursor {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4047,13 +3248,11 @@ impl IInkCursor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Inverted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DrawingAttributes(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DrawingAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDrawingAttributes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_DrawingAttributes<'a, P0>(&self, attributes: P0) -> ::windows::core::Result<()>
     where
@@ -4061,13 +3260,11 @@ impl IInkCursor {
     {
         (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), attributes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tablet(&self) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Tablet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkTablet>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Buttons(&self) -> ::windows::core::Result<IInkCursorButtons> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4163,19 +3360,16 @@ pub struct IInkCursor_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Buttons: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkCursorButton(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursorButton {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4262,7 +3456,6 @@ pub struct IInkCursorButton_Vtbl {
     Id: usize,
     pub State: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, currentstate: *mut InkCursorButtonState) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkCursorButtons(::windows::core::IUnknown);
@@ -4276,7 +3469,6 @@ impl IInkCursorButtons {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Item<'a, P0>(&self, identifier: P0) -> ::windows::core::Result<IInkCursorButton>
     where
@@ -4359,7 +3551,6 @@ pub struct IInkCursorButtons_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Item: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkCursors(::windows::core::IUnknown);
@@ -4373,7 +3564,6 @@ impl IInkCursors {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<IInkCursor> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4453,7 +3643,6 @@ pub struct IInkCursors_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkCustomStrokes(::windows::core::IUnknown);
@@ -4467,7 +3656,6 @@ impl IInkCustomStrokes {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Item<'a, P0>(&self, identifier: P0) -> ::windows::core::Result<IInkStrokes>
     where
@@ -4476,7 +3664,6 @@ impl IInkCustomStrokes {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, P0, P1>(&self, name: P0, strokes: P1) -> ::windows::core::Result<()>
     where
@@ -4485,7 +3672,6 @@ impl IInkCustomStrokes {
     {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), name.into().abi(), strokes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, P0>(&self, identifier: P0) -> ::windows::core::Result<()>
     where
@@ -4579,19 +3765,16 @@ pub struct IInkCustomStrokes_Vtbl {
     Remove: usize,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkDisp(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDisp {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Strokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExtendedProperties(&self) -> ::windows::core::Result<IInkExtendedProperties> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4604,19 +3787,16 @@ impl IInkDisp {
     pub unsafe fn SetDirty(&self, dirty: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDirty)(::windows::core::Interface::as_raw(self), dirty).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CustomStrokes(&self) -> ::windows::core::Result<IInkCustomStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CustomStrokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkCustomStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), boundingboxmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeleteStrokes<'a, P0>(&self, strokes: P0) -> ::windows::core::Result<()>
     where
@@ -4624,7 +3804,6 @@ impl IInkDisp {
     {
         (::windows::core::Interface::vtable(self).DeleteStrokes)(::windows::core::Interface::as_raw(self), strokes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeleteStroke<'a, P0>(&self, stroke: P0) -> ::windows::core::Result<()>
     where
@@ -4632,7 +3811,6 @@ impl IInkDisp {
     {
         (::windows::core::Interface::vtable(self).DeleteStroke)(::windows::core::Interface::as_raw(self), stroke.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExtractStrokes<'a, P0>(&self, strokes: P0, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp>
     where
@@ -4641,7 +3819,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExtractStrokes)(::windows::core::Interface::as_raw(self), strokes.into().abi(), extractflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExtractWithRectangle<'a, P0>(&self, rectangle: P0, extractflags: InkExtractFlags) -> ::windows::core::Result<IInkDisp>
     where
@@ -4650,7 +3827,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExtractWithRectangle)(::windows::core::Interface::as_raw(self), rectangle.into().abi(), extractflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clip<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<()>
     where
@@ -4658,19 +3834,16 @@ impl IInkDisp {
     {
         (::windows::core::Interface::vtable(self).Clip)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HitTestCircle)(::windows::core::Interface::as_raw(self), x, y, radius, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HitTestWithRectangle<'a, P0>(&self, selectionrectangle: P0, intersectpercent: f32) -> ::windows::core::Result<IInkStrokes>
     where
@@ -4679,7 +3852,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HitTestWithRectangle)(::windows::core::Interface::as_raw(self), selectionrectangle.into().abi(), intersectpercent, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn HitTestWithLasso<'a, P0>(&self, points: P0, intersectpercent: f32, lassopoints: ::core::option::Option<&mut super::super::System::Com::VARIANT>, strokes: &mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()>
     where
@@ -4687,12 +3859,10 @@ impl IInkDisp {
     {
         (::windows::core::Interface::vtable(self).HitTestWithLasso)(::windows::core::Interface::as_raw(self), points.into().abi(), intersectpercent, ::core::mem::transmute(lassopoints), ::core::mem::transmute(strokes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: &mut f32, distancefrompacket: &mut f32, stroke: &mut ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NearestPoint)(::windows::core::Interface::as_raw(self), x, y, ::core::mem::transmute(pointonstroke), ::core::mem::transmute(distancefrompacket), ::core::mem::transmute(stroke)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateStrokes<'a, P0>(&self, strokeids: P0) -> ::windows::core::Result<IInkStrokes>
     where
@@ -4701,7 +3871,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateStrokes)(::windows::core::Interface::as_raw(self), strokeids.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddStrokesAtRectangle<'a, P0, P1>(&self, sourcestrokes: P0, targetrectangle: P1) -> ::windows::core::Result<()>
     where
@@ -4710,13 +3879,11 @@ impl IInkDisp {
     {
         (::windows::core::Interface::vtable(self).AddStrokesAtRectangle)(::windows::core::Interface::as_raw(self), sourcestrokes.into().abi(), targetrectangle.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), persistenceformat, compressionmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Load<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
     where
@@ -4724,7 +3891,6 @@ impl IInkDisp {
     {
         (::windows::core::Interface::vtable(self).Load)(::windows::core::Interface::as_raw(self), data.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateStroke<'a, P0, P1>(&self, packetdata: P0, packetdescription: P1) -> ::windows::core::Result<IInkStrokeDisp>
     where
@@ -4734,7 +3900,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateStroke)(::windows::core::Interface::as_raw(self), packetdata.into().abi(), packetdescription.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokeDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClipboardCopyWithRectangle<'a, P0>(&self, rectangle: P0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject>
     where
@@ -4743,7 +3908,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClipboardCopyWithRectangle)(::windows::core::Interface::as_raw(self), rectangle.into().abi(), clipboardformats, clipboardmodes, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClipboardCopy<'a, P0>(&self, strokes: P0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> ::windows::core::Result<super::super::System::Com::IDataObject>
     where
@@ -4752,7 +3916,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClipboardCopy)(::windows::core::Interface::as_raw(self), strokes.into().abi(), clipboardformats, clipboardmodes, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CanPaste<'a, P0>(&self, dataobject: P0) -> ::windows::core::Result<i16>
     where
@@ -4761,7 +3924,6 @@ impl IInkDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CanPaste)(::windows::core::Interface::as_raw(self), dataobject.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClipboardPaste<'a, P0>(&self, x: i32, y: i32, dataobject: P0) -> ::windows::core::Result<IInkStrokes>
     where
@@ -4932,19 +4094,16 @@ pub struct IInkDisp_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ClipboardPaste: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkDivider(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivider {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Strokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Strokes<'a, P0>(&self, strokes: P0) -> ::windows::core::Result<()>
     where
@@ -4952,13 +4111,11 @@ impl IInkDivider {
     {
         (::windows::core::Interface::vtable(self).putref_Strokes)(::windows::core::Interface::as_raw(self), strokes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecognizerContext(&self) -> ::windows::core::Result<IInkRecognizerContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RecognizerContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognizerContext>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_RecognizerContext<'a, P0>(&self, recognizercontext: P0) -> ::windows::core::Result<()>
     where
@@ -4973,7 +4130,6 @@ impl IInkDivider {
     pub unsafe fn SetLineHeight(&self, lineheight: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLineHeight)(::windows::core::Interface::as_raw(self), lineheight).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Divide(&self) -> ::windows::core::Result<IInkDivisionResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5069,19 +4225,16 @@ pub struct IInkDivider_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Divide: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkDivisionResult(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionResult {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Strokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ResultByType(&self, divisiontype: InkDivisionType) -> ::windows::core::Result<IInkDivisionUnits> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5163,13 +4316,11 @@ pub struct IInkDivisionResult_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ResultByType: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkDivisionUnit(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionUnit {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5179,13 +4330,11 @@ impl IInkDivisionUnit {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DivisionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkDivisionType>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RecognizedString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RecognizedString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RotationTransform(&self) -> ::windows::core::Result<IInkTransform> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5272,7 +4421,6 @@ pub struct IInkDivisionUnit_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RotationTransform: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkDivisionUnits(::windows::core::IUnknown);
@@ -5286,7 +4434,6 @@ impl IInkDivisionUnits {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<IInkDivisionUnit> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5366,7 +4513,6 @@ pub struct IInkDivisionUnits_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkDrawingAttributes(::windows::core::IUnknown);
@@ -5435,13 +4581,11 @@ impl IInkDrawingAttributes {
     pub unsafe fn SetPenTip(&self, newpentip: InkPenTip) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPenTip)(::windows::core::Interface::as_raw(self), newpentip).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExtendedProperties(&self) -> ::windows::core::Result<IInkExtendedProperties> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExtendedProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperties>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5541,7 +4685,6 @@ pub struct IInkDrawingAttributes_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkEdit(::windows::core::IUnknown);
@@ -5572,13 +4715,11 @@ impl IInkEdit {
     pub unsafe fn SetInkInsertMode(&self, newval: InkInsertMode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInkInsertMode)(::windows::core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DrawingAttributes(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DrawingAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDrawingAttributes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_DrawingAttributes<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
     where
@@ -5593,13 +4734,11 @@ impl IInkEdit {
     pub unsafe fn SetRecognitionTimeout(&self, newval: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRecognitionTimeout)(::windows::core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recognizer(&self) -> ::windows::core::Result<IInkRecognizer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Recognizer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognizer>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Recognizer<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
     where
@@ -5607,13 +4746,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).putref_Recognizer)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Factoid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Factoid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFactoid<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
     where
@@ -5621,13 +4758,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelInks(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelInks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelInks<'a, P0>(&self, selink: P0) -> ::windows::core::Result<()>
     where
@@ -5677,13 +4812,11 @@ impl IInkEdit {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Hwnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Font(&self) -> ::windows::core::Result<super::super::System::Ole::IFontDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Font)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IFontDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Font<'a, P0>(&self, ppfont: P0) -> ::windows::core::Result<()>
     where
@@ -5691,13 +4824,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).putref_Font)(::windows::core::Interface::as_raw(self), ppfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Text(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Text)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText<'a, P0>(&self, pbstrtext: P0) -> ::windows::core::Result<()>
     where
@@ -5705,13 +4836,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), pbstrtext.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MouseIcon(&self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MouseIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IPictureDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -5719,7 +4848,6 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_MouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -5776,13 +4904,11 @@ impl IInkEdit {
     pub unsafe fn SetDisableNoScroll(&self, newval: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDisableNoScroll)(::windows::core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelAlignment(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelAlignment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelAlignment<'a, P0>(&self, pvarselalignment: P0) -> ::windows::core::Result<()>
     where
@@ -5790,13 +4916,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelAlignment)(::windows::core::Interface::as_raw(self), pvarselalignment.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelBold(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelBold)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelBold<'a, P0>(&self, pvarselbold: P0) -> ::windows::core::Result<()>
     where
@@ -5804,13 +4928,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelBold)(::windows::core::Interface::as_raw(self), pvarselbold.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelItalic(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelItalic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelItalic<'a, P0>(&self, pvarselitalic: P0) -> ::windows::core::Result<()>
     where
@@ -5818,13 +4940,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelItalic)(::windows::core::Interface::as_raw(self), pvarselitalic.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelUnderline(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelUnderline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelUnderline<'a, P0>(&self, pvarselunderline: P0) -> ::windows::core::Result<()>
     where
@@ -5832,13 +4952,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelUnderline)(::windows::core::Interface::as_raw(self), pvarselunderline.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelColor(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelColor<'a, P0>(&self, pvarselcolor: P0) -> ::windows::core::Result<()>
     where
@@ -5846,13 +4964,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelColor)(::windows::core::Interface::as_raw(self), pvarselcolor.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelFontName(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelFontName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelFontName<'a, P0>(&self, pvarselfontname: P0) -> ::windows::core::Result<()>
     where
@@ -5860,13 +4976,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelFontName)(::windows::core::Interface::as_raw(self), pvarselfontname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelFontSize(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelFontSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelFontSize<'a, P0>(&self, pvarselfontsize: P0) -> ::windows::core::Result<()>
     where
@@ -5874,13 +4988,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelFontSize)(::windows::core::Interface::as_raw(self), pvarselfontsize.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelCharOffset(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelCharOffset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSelCharOffset<'a, P0>(&self, pvarselcharoffset: P0) -> ::windows::core::Result<()>
     where
@@ -5888,13 +5000,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelCharOffset)(::windows::core::Interface::as_raw(self), pvarselcharoffset.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TextRTF(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TextRTF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTextRTF<'a, P0>(&self, pbstrtextrtf: P0) -> ::windows::core::Result<()>
     where
@@ -5916,13 +5026,11 @@ impl IInkEdit {
     pub unsafe fn SetSelLength(&self, plsellength: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelLength)(::windows::core::Interface::as_raw(self), plsellength).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelText<'a, P0>(&self, pbstrseltext: P0) -> ::windows::core::Result<()>
     where
@@ -5930,13 +5038,11 @@ impl IInkEdit {
     {
         (::windows::core::Interface::vtable(self).SetSelText)(::windows::core::Interface::as_raw(self), pbstrseltext.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelRTF(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SelRTF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelRTF<'a, P0>(&self, pbstrselrtf: P0) -> ::windows::core::Result<()>
     where
@@ -6203,7 +5309,6 @@ pub struct IInkEdit_Vtbl {
     SetSelRTF: usize,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkExtendedProperties(::windows::core::IUnknown);
@@ -6217,7 +5322,6 @@ impl IInkExtendedProperties {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Item<'a, P0>(&self, identifier: P0) -> ::windows::core::Result<IInkExtendedProperty>
     where
@@ -6226,7 +5330,6 @@ impl IInkExtendedProperties {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), identifier.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Add<'a, P0, P1>(&self, guid: P0, data: P1) -> ::windows::core::Result<IInkExtendedProperty>
     where
@@ -6236,7 +5339,6 @@ impl IInkExtendedProperties {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), guid.into().abi(), data.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, P0>(&self, identifier: P0) -> ::windows::core::Result<()>
     where
@@ -6247,7 +5349,6 @@ impl IInkExtendedProperties {
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesPropertyExist<'a, P0>(&self, guid: P0) -> ::windows::core::Result<i16>
     where
@@ -6343,25 +5444,21 @@ pub struct IInkExtendedProperties_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DoesPropertyExist: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkExtendedProperty(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkExtendedProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Guid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Data(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Data)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetData<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
     where
@@ -6449,7 +5546,6 @@ pub struct IInkExtendedProperty_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetData: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkGesture(::windows::core::IUnknown);
@@ -6537,7 +5633,6 @@ pub struct IInkGesture_Vtbl {
     pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut InkApplicationGesture) -> ::windows::core::HRESULT,
     pub GetHotPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: *mut i32, y: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IInkLineInfo(::windows::core::IUnknown);
 impl IInkLineInfo {
@@ -6612,7 +5707,6 @@ pub struct IInkLineInfo_Vtbl {
     pub SetCandidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncandidatenum: u32, strrecogword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Recognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkOverlay(::windows::core::IUnknown);
@@ -6632,13 +5726,11 @@ impl IInkOverlay {
     pub unsafe fn SetEnabled(&self, collecting: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), collecting).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultDrawingAttributes(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDrawingAttributes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_DefaultDrawingAttributes<'a, P0>(&self, newattributes: P0) -> ::windows::core::Result<()>
     where
@@ -6646,13 +5738,11 @@ impl IInkOverlay {
     {
         (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Renderer(&self) -> ::windows::core::Result<IInkRenderer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Renderer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRenderer>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Renderer<'a, P0>(&self, newinkrenderer: P0) -> ::windows::core::Result<()>
     where
@@ -6660,13 +5750,11 @@ impl IInkOverlay {
     {
         (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Ink(&self) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Ink<'a, P0>(&self, newink: P0) -> ::windows::core::Result<()>
     where
@@ -6699,13 +5787,11 @@ impl IInkOverlay {
     pub unsafe fn SetDynamicRendering(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDynamicRendering)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DesiredPacketDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDesiredPacketDescription<'a, P0>(&self, packetguids: P0) -> ::windows::core::Result<()>
     where
@@ -6713,13 +5799,11 @@ impl IInkOverlay {
     {
         (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MouseIcon(&self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MouseIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IPictureDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -6727,7 +5811,6 @@ impl IInkOverlay {
     {
         (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_MouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -6749,13 +5832,11 @@ impl IInkOverlay {
     pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEditingMode)(::windows::core::Interface::as_raw(self), editingmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Selection(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Selection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSelection<'a, P0>(&self, selection: P0) -> ::windows::core::Result<()>
     where
@@ -6784,7 +5865,6 @@ impl IInkOverlay {
     pub unsafe fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttachMode)(::windows::core::Interface::as_raw(self), attachmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cursors(&self) -> ::windows::core::Result<IInkCursors> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6804,7 +5884,6 @@ impl IInkOverlay {
     pub unsafe fn SetMarginY(&self, marginy: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMarginY)(::windows::core::Interface::as_raw(self), marginy).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tablet(&self) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6828,7 +5907,6 @@ impl IInkOverlay {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HitTestSelection)(::windows::core::Interface::as_raw(self), x, y, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SelectionHitResult>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Draw<'a, P0>(&self, rect: P0) -> ::windows::core::Result<()>
     where
@@ -6843,12 +5921,10 @@ impl IInkOverlay {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), gesture, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: &mut ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWindowInputRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(windowinputrectangle)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWindowInputRectangle<'a, P0>(&self, windowinputrectangle: P0) -> ::windows::core::Result<()>
     where
@@ -6859,7 +5935,6 @@ impl IInkOverlay {
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllTabletsMode)(::windows::core::Interface::as_raw(self), usemouseforinput).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSingleTabletIntegratedMode<'a, P0>(&self, tablet: P0) -> ::windows::core::Result<()>
     where
@@ -7053,7 +6128,6 @@ pub struct IInkOverlay_Vtbl {
     pub GetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: *mut i16) -> ::windows::core::HRESULT,
     pub SetEventInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventid: InkCollectorEventInterest, listen: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkPicture(::windows::core::IUnknown);
@@ -7063,13 +6137,11 @@ impl IInkPicture {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).hWnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultDrawingAttributes(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDrawingAttributes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_DefaultDrawingAttributes<'a, P0>(&self, newattributes: P0) -> ::windows::core::Result<()>
     where
@@ -7077,13 +6149,11 @@ impl IInkPicture {
     {
         (::windows::core::Interface::vtable(self).putref_DefaultDrawingAttributes)(::windows::core::Interface::as_raw(self), newattributes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Renderer(&self) -> ::windows::core::Result<IInkRenderer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Renderer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRenderer>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Renderer<'a, P0>(&self, newinkrenderer: P0) -> ::windows::core::Result<()>
     where
@@ -7091,13 +6161,11 @@ impl IInkPicture {
     {
         (::windows::core::Interface::vtable(self).putref_Renderer)(::windows::core::Interface::as_raw(self), newinkrenderer.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Ink(&self) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Ink<'a, P0>(&self, newink: P0) -> ::windows::core::Result<()>
     where
@@ -7130,13 +6198,11 @@ impl IInkPicture {
     pub unsafe fn SetDynamicRendering(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDynamicRendering)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DesiredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DesiredPacketDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDesiredPacketDescription<'a, P0>(&self, packetguids: P0) -> ::windows::core::Result<()>
     where
@@ -7144,13 +6210,11 @@ impl IInkPicture {
     {
         (::windows::core::Interface::vtable(self).SetDesiredPacketDescription)(::windows::core::Interface::as_raw(self), packetguids.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MouseIcon(&self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MouseIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Ole::IPictureDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -7158,7 +6222,6 @@ impl IInkPicture {
     {
         (::windows::core::Interface::vtable(self).SetMouseIcon)(::windows::core::Interface::as_raw(self), mouseicon.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_MouseIcon<'a, P0>(&self, mouseicon: P0) -> ::windows::core::Result<()>
     where
@@ -7180,13 +6243,11 @@ impl IInkPicture {
     pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEditingMode)(::windows::core::Interface::as_raw(self), editingmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Selection(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Selection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSelection<'a, P0>(&self, selection: P0) -> ::windows::core::Result<()>
     where
@@ -7208,7 +6269,6 @@ impl IInkPicture {
     pub unsafe fn SetEraserWidth(&self, neweraserwidth: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEraserWidth)(::windows::core::Interface::as_raw(self), neweraserwidth).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Picture<'a, P0>(&self, ppicture: P0) -> ::windows::core::Result<()>
     where
@@ -7216,7 +6276,6 @@ impl IInkPicture {
     {
         (::windows::core::Interface::vtable(self).putref_Picture)(::windows::core::Interface::as_raw(self), ppicture.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPicture<'a, P0>(&self, ppicture: P0) -> ::windows::core::Result<()>
     where
@@ -7224,7 +6283,6 @@ impl IInkPicture {
     {
         (::windows::core::Interface::vtable(self).SetPicture)(::windows::core::Interface::as_raw(self), ppicture.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Picture(&self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7244,7 +6302,6 @@ impl IInkPicture {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Cursors(&self) -> ::windows::core::Result<IInkCursors> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7264,7 +6321,6 @@ impl IInkPicture {
     pub unsafe fn SetMarginY(&self, marginy: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMarginY)(::windows::core::Interface::as_raw(self), marginy).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Tablet(&self) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7295,12 +6351,10 @@ impl IInkPicture {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGestureStatus)(::windows::core::Interface::as_raw(self), gesture, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: &mut ::core::option::Option<IInkRectangle>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetWindowInputRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(windowinputrectangle)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWindowInputRectangle<'a, P0>(&self, windowinputrectangle: P0) -> ::windows::core::Result<()>
     where
@@ -7311,7 +6365,6 @@ impl IInkPicture {
     pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllTabletsMode)(::windows::core::Interface::as_raw(self), usemouseforinput).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSingleTabletIntegratedMode<'a, P0>(&self, tablet: P0) -> ::windows::core::Result<()>
     where
@@ -7530,13 +6583,11 @@ pub struct IInkPicture_Vtbl {
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbool: *mut i16) -> ::windows::core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vbool: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognitionAlternate(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionAlternate {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn String(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7546,25 +6597,21 @@ impl IInkRecognitionAlternate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Confidence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkRecognitionConfidence>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Baseline(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Baseline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Midline(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Midline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Ascender(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ascender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Descender(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7574,25 +6621,21 @@ impl IInkRecognitionAlternate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LineNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Strokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LineAlternates(&self) -> ::windows::core::Result<IInkRecognitionAlternates> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LineAlternates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognitionAlternates>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ConfidenceAlternates(&self) -> ::windows::core::Result<IInkRecognitionAlternates> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ConfidenceAlternates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognitionAlternates>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStrokesFromStrokeRanges<'a, P0>(&self, strokes: P0) -> ::windows::core::Result<IInkStrokes>
     where
@@ -7601,12 +6644,10 @@ impl IInkRecognitionAlternate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStrokesFromStrokeRanges)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStrokesFromTextRange(&self, selectionstart: &mut i32, selectionlength: &mut i32, getstrokesfromtextrange: &mut ::core::option::Option<IInkStrokes>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStrokesFromTextRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(selectionstart), ::core::mem::transmute(selectionlength), ::core::mem::transmute(getstrokesfromtextrange)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTextRangeFromStrokes<'a, P0>(&self, strokes: P0, selectionstart: &mut i32, selectionlength: &mut i32) -> ::windows::core::Result<()>
     where
@@ -7614,7 +6655,6 @@ impl IInkRecognitionAlternate {
     {
         (::windows::core::Interface::vtable(self).GetTextRangeFromStrokes)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(selectionstart), ::core::mem::transmute(selectionlength)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AlternatesWithConstantPropertyValues<'a, P0>(&self, propertytype: P0) -> ::windows::core::Result<IInkRecognitionAlternates>
     where
@@ -7623,7 +6663,6 @@ impl IInkRecognitionAlternate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternatesWithConstantPropertyValues)(::windows::core::Interface::as_raw(self), propertytype.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognitionAlternates>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPropertyValue<'a, P0>(&self, propertytype: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
@@ -7754,7 +6793,6 @@ pub struct IInkRecognitionAlternate_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetPropertyValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognitionAlternates(::windows::core::IUnknown);
@@ -7768,13 +6806,11 @@ impl IInkRecognitionAlternates {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Strokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<IInkRecognitionAlternate> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7858,19 +6894,16 @@ pub struct IInkRecognitionAlternates_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognitionResult(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionResult {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TopString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TopString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TopAlternate(&self) -> ::windows::core::Result<IInkRecognitionAlternate> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7880,19 +6913,16 @@ impl IInkRecognitionResult {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TopConfidence)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkRecognitionConfidence>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Strokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> ::windows::core::Result<IInkRecognitionAlternates> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AlternatesFromSelection)(::windows::core::Interface::as_raw(self), selectionstart, selectionlength, maximumalternates, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognitionAlternates>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModifyTopAlternate<'a, P0>(&self, alternate: P0) -> ::windows::core::Result<()>
     where
@@ -7993,19 +7023,16 @@ pub struct IInkRecognitionResult_Vtbl {
     ModifyTopAlternate: usize,
     pub SetResultOnStrokes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognizer(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizer {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Vendor(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8015,25 +7042,21 @@ impl IInkRecognizer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Capabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkRecognizerCapabilities>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Languages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Languages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SupportedProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SupportedProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PreferredPacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PreferredPacketDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRecognizerContext(&self) -> ::windows::core::Result<IInkRecognizerContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8132,19 +7155,16 @@ pub struct IInkRecognizer_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateRecognizerContext: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognizer2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizer2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn UnicodeRanges(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8226,19 +7246,16 @@ pub struct IInkRecognizer2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     UnicodeRanges: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognizerContext(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerContext {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Strokes(&self) -> ::windows::core::Result<IInkStrokes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Strokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Strokes<'a, P0>(&self, strokes: P0) -> ::windows::core::Result<()>
     where
@@ -8253,13 +7270,11 @@ impl IInkRecognizerContext {
     pub unsafe fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCharacterAutoCompletionMode)(::windows::core::Interface::as_raw(self), mode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Factoid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Factoid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFactoid<'a, P0>(&self, factoid: P0) -> ::windows::core::Result<()>
     where
@@ -8267,13 +7282,11 @@ impl IInkRecognizerContext {
     {
         (::windows::core::Interface::vtable(self).SetFactoid)(::windows::core::Interface::as_raw(self), factoid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Guide(&self) -> ::windows::core::Result<IInkRecognizerGuide> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Guide)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognizerGuide>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Guide<'a, P0>(&self, recognizerguide: P0) -> ::windows::core::Result<()>
     where
@@ -8281,13 +7294,11 @@ impl IInkRecognizerContext {
     {
         (::windows::core::Interface::vtable(self).putref_Guide)(::windows::core::Interface::as_raw(self), recognizerguide.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrefixText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PrefixText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPrefixText<'a, P0>(&self, prefix: P0) -> ::windows::core::Result<()>
     where
@@ -8295,13 +7306,11 @@ impl IInkRecognizerContext {
     {
         (::windows::core::Interface::vtable(self).SetPrefixText)(::windows::core::Interface::as_raw(self), prefix.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SuffixText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SuffixText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSuffixText<'a, P0>(&self, suffix: P0) -> ::windows::core::Result<()>
     where
@@ -8316,13 +7325,11 @@ impl IInkRecognizerContext {
     pub unsafe fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRecognitionFlags)(::windows::core::Interface::as_raw(self), modes).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WordList(&self) -> ::windows::core::Result<IInkWordList> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WordList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkWordList>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_WordList<'a, P0>(&self, wordlist: P0) -> ::windows::core::Result<()>
     where
@@ -8330,13 +7337,11 @@ impl IInkRecognizerContext {
     {
         (::windows::core::Interface::vtable(self).putref_WordList)(::windows::core::Interface::as_raw(self), wordlist.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recognizer(&self) -> ::windows::core::Result<IInkRecognizer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Recognizer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognizer>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recognize(&self, recognitionstatus: &mut InkRecognitionStatus, recognitionresult: &mut ::core::option::Option<IInkRecognitionResult>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Recognize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(recognitionstatus), ::core::mem::transmute(recognitionresult)).ok()
@@ -8347,7 +7352,6 @@ impl IInkRecognizerContext {
     pub unsafe fn EndInkInput(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndInkInput)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn BackgroundRecognize<'a, P0>(&self, customdata: P0) -> ::windows::core::Result<()>
     where
@@ -8355,7 +7359,6 @@ impl IInkRecognizerContext {
     {
         (::windows::core::Interface::vtable(self).BackgroundRecognize)(::windows::core::Interface::as_raw(self), customdata.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn BackgroundRecognizeWithAlternates<'a, P0>(&self, customdata: P0) -> ::windows::core::Result<()>
     where
@@ -8363,13 +7366,11 @@ impl IInkRecognizerContext {
     {
         (::windows::core::Interface::vtable(self).BackgroundRecognizeWithAlternates)(::windows::core::Interface::as_raw(self), customdata.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IInkRecognizerContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognizerContext>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStringSupported<'a, P0>(&self, string: P0) -> ::windows::core::Result<i16>
     where
@@ -8524,19 +7525,16 @@ pub struct IInkRecognizerContext_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsStringSupported: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognizerContext2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerContext2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EnabledUnicodeRanges(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnabledUnicodeRanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetEnabledUnicodeRanges<'a, P0>(&self, unicoderanges: P0) -> ::windows::core::Result<()>
     where
@@ -8620,19 +7618,16 @@ pub struct IInkRecognizerContext2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetEnabledUnicodeRanges: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognizerGuide(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerGuide {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WritingBox(&self) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WritingBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetWritingBox<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<()>
     where
@@ -8640,13 +7635,11 @@ impl IInkRecognizerGuide {
     {
         (::windows::core::Interface::vtable(self).SetWritingBox)(::windows::core::Interface::as_raw(self), rectangle.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DrawnBox(&self) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DrawnBox)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDrawnBox<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<()>
     where
@@ -8675,13 +7668,11 @@ impl IInkRecognizerGuide {
     pub unsafe fn SetMidline(&self, units: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMidline)(::windows::core::Interface::as_raw(self), units).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GuideData(&self) -> ::windows::core::Result<InkRecoGuide> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GuideData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<InkRecoGuide>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGuideData(&self, recoguide: InkRecoGuide) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetGuideData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(recoguide)).ok()
@@ -8784,7 +7775,6 @@ pub struct IInkRecognizerGuide_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetGuideData: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRecognizers(::windows::core::IUnknown);
@@ -8798,13 +7788,11 @@ impl IInkRecognizers {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDefaultRecognizer(&self, lcid: i32) -> ::windows::core::Result<IInkRecognizer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultRecognizer)(::windows::core::Interface::as_raw(self), lcid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognizer>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<IInkRecognizer> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8888,7 +7876,6 @@ pub struct IInkRecognizers_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Item: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRectangle(::windows::core::IUnknown);
@@ -8922,13 +7909,11 @@ impl IInkRectangle {
     pub unsafe fn SetRight(&self, units: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRight)(::windows::core::Interface::as_raw(self), units).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Data(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Data)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetData(&self, rect: super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rect)).ok()
@@ -9025,13 +8010,11 @@ pub struct IInkRectangle_Vtbl {
     pub GetRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> ::windows::core::HRESULT,
     pub SetRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: i32, left: i32, bottom: i32, right: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkRenderer(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRenderer {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetViewTransform<'a, P0>(&self, viewtransform: P0) -> ::windows::core::Result<()>
     where
@@ -9039,7 +8022,6 @@ impl IInkRenderer {
     {
         (::windows::core::Interface::vtable(self).GetViewTransform)(::windows::core::Interface::as_raw(self), viewtransform.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetViewTransform<'a, P0>(&self, viewtransform: P0) -> ::windows::core::Result<()>
     where
@@ -9047,7 +8029,6 @@ impl IInkRenderer {
     {
         (::windows::core::Interface::vtable(self).SetViewTransform)(::windows::core::Interface::as_raw(self), viewtransform.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetObjectTransform<'a, P0>(&self, objecttransform: P0) -> ::windows::core::Result<()>
     where
@@ -9055,7 +8036,6 @@ impl IInkRenderer {
     {
         (::windows::core::Interface::vtable(self).GetObjectTransform)(::windows::core::Interface::as_raw(self), objecttransform.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetObjectTransform<'a, P0>(&self, objecttransform: P0) -> ::windows::core::Result<()>
     where
@@ -9063,7 +8043,6 @@ impl IInkRenderer {
     {
         (::windows::core::Interface::vtable(self).SetObjectTransform)(::windows::core::Interface::as_raw(self), objecttransform.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Draw<'a, P0>(&self, hdc: isize, strokes: P0) -> ::windows::core::Result<()>
     where
@@ -9071,7 +8050,6 @@ impl IInkRenderer {
     {
         (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), hdc, strokes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DrawStroke<'a, P0, P1>(&self, hdc: isize, stroke: P0, drawingattributes: P1) -> ::windows::core::Result<()>
     where
@@ -9086,17 +8064,14 @@ impl IInkRenderer {
     pub unsafe fn InkSpaceToPixel(&self, hdcdisplay: isize, x: &mut i32, y: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InkSpaceToPixel)(::windows::core::Interface::as_raw(self), hdcdisplay, ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PixelToInkSpaceFromPoints)(::windows::core::Interface::as_raw(self), hdc, ::core::mem::transmute(points)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InkSpaceToPixelFromPoints)(::windows::core::Interface::as_raw(self), hdc, ::core::mem::transmute(points)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Measure<'a, P0>(&self, strokes: P0) -> ::windows::core::Result<IInkRectangle>
     where
@@ -9105,7 +8080,6 @@ impl IInkRenderer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Measure)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MeasureStroke<'a, P0, P1>(&self, stroke: P0, drawingattributes: P1) -> ::windows::core::Result<IInkRectangle>
     where
@@ -9237,7 +8211,6 @@ pub struct IInkRenderer_Vtbl {
     pub Rotate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, degrees: f32, x: f32, y: f32) -> ::windows::core::HRESULT,
     pub ScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkStrokeDisp(::windows::core::IUnknown);
@@ -9247,19 +8220,16 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn BezierPoints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BezierPoints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DrawingAttributes(&self) -> ::windows::core::Result<IInkDrawingAttributes> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DrawingAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDrawingAttributes>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_DrawingAttributes<'a, P0>(&self, drawattrs: P0) -> ::windows::core::Result<()>
     where
@@ -9267,31 +8237,26 @@ impl IInkStrokeDisp {
     {
         (::windows::core::Interface::vtable(self).putref_DrawingAttributes)(::windows::core::Interface::as_raw(self), drawattrs.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Ink(&self) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExtendedProperties(&self) -> ::windows::core::Result<IInkExtendedProperties> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExtendedProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkExtendedProperties>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PolylineCusps(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PolylineCusps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn BezierCusps(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BezierCusps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SelfIntersections(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9305,7 +8270,6 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PacketSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PacketDescription(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9315,13 +8279,11 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Deleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), boundingboxmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn FindIntersections<'a, P0>(&self, strokes: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
@@ -9330,7 +8292,6 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindIntersections)(::windows::core::Interface::as_raw(self), strokes.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetRectangleIntersections<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
@@ -9339,7 +8300,6 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRectangleIntersections)(::windows::core::Interface::as_raw(self), rectangle.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clip<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<()>
     where
@@ -9354,13 +8314,11 @@ impl IInkStrokeDisp {
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, distance: &mut f32, point: &mut f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).NearestPoint)(::windows::core::Interface::as_raw(self), x, y, ::core::mem::transmute(distance), ::core::mem::transmute(point)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Split(&self, splitat: f32) -> ::windows::core::Result<IInkStrokeDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Split)(::windows::core::Interface::as_raw(self), splitat, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokeDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPacketDescriptionPropertyMetrics<'a, P0>(&self, propertyname: P0, minimum: &mut i32, maximum: &mut i32, units: &mut TabletPropertyMetricUnit, resolution: &mut f32) -> ::windows::core::Result<()>
     where
@@ -9368,13 +8326,11 @@ impl IInkStrokeDisp {
     {
         (::windows::core::Interface::vtable(self).GetPacketDescriptionPropertyMetrics)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(minimum), ::core::mem::transmute(maximum), ::core::mem::transmute(units), ::core::mem::transmute(resolution)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPoints(&self, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPoints)(::windows::core::Interface::as_raw(self), index, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPoints<'a, P0>(&self, points: P0, index: i32, count: i32) -> ::windows::core::Result<i32>
     where
@@ -9383,13 +8339,11 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SetPoints)(::windows::core::Interface::as_raw(self), points.into().abi(), index, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPacketData(&self, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPacketData)(::windows::core::Interface::as_raw(self), index, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPacketValuesByProperty<'a, P0>(&self, propertyname: P0, index: i32, count: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
@@ -9398,7 +8352,6 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), index, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPacketValuesByProperty<'a, P0, P1>(&self, bstrpropertyname: P0, packetvalues: P1, index: i32, count: i32) -> ::windows::core::Result<i32>
     where
@@ -9408,13 +8361,11 @@ impl IInkStrokeDisp {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SetPacketValuesByProperty)(::windows::core::Interface::as_raw(self), bstrpropertyname.into().abi(), packetvalues.into().abi(), index, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFlattenedBezierPoints)(::windows::core::Interface::as_raw(self), fittingerror, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Transform<'a, P0>(&self, transform: P0, applyonpenwidth: i16) -> ::windows::core::Result<()>
     where
@@ -9422,7 +8373,6 @@ impl IInkStrokeDisp {
     {
         (::windows::core::Interface::vtable(self).Transform)(::windows::core::Interface::as_raw(self), transform.into().abi(), applyonpenwidth).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ScaleToRectangle<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<()>
     where
@@ -9612,7 +8562,6 @@ pub struct IInkStrokeDisp_Vtbl {
     pub Shear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows::core::HRESULT,
     pub ScaleTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkStrokes(::windows::core::IUnknown);
@@ -9626,31 +8575,26 @@ impl IInkStrokes {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Ink(&self) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RecognitionResult(&self) -> ::windows::core::Result<IInkRecognitionResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RecognitionResult)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRecognitionResult>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ToString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ToString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<IInkStrokeDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkStrokeDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<'a, P0>(&self, inkstroke: P0) -> ::windows::core::Result<()>
     where
@@ -9658,7 +8602,6 @@ impl IInkStrokes {
     {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), inkstroke.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddStrokes<'a, P0>(&self, inkstrokes: P0) -> ::windows::core::Result<()>
     where
@@ -9666,7 +8609,6 @@ impl IInkStrokes {
     {
         (::windows::core::Interface::vtable(self).AddStrokes)(::windows::core::Interface::as_raw(self), inkstrokes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Remove<'a, P0>(&self, inkstroke: P0) -> ::windows::core::Result<()>
     where
@@ -9674,7 +8616,6 @@ impl IInkStrokes {
     {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), inkstroke.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveStrokes<'a, P0>(&self, inkstrokes: P0) -> ::windows::core::Result<()>
     where
@@ -9682,7 +8623,6 @@ impl IInkStrokes {
     {
         (::windows::core::Interface::vtable(self).RemoveStrokes)(::windows::core::Interface::as_raw(self), inkstrokes.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModifyDrawingAttributes<'a, P0>(&self, drawattrs: P0) -> ::windows::core::Result<()>
     where
@@ -9690,13 +8630,11 @@ impl IInkStrokes {
     {
         (::windows::core::Interface::vtable(self).ModifyDrawingAttributes)(::windows::core::Interface::as_raw(self), drawattrs.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBoundingBox)(::windows::core::Interface::as_raw(self), boundingboxmode, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkRectangle>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Transform<'a, P0>(&self, transform: P0, applyonpenwidth: i16) -> ::windows::core::Result<()>
     where
@@ -9704,7 +8642,6 @@ impl IInkStrokes {
     {
         (::windows::core::Interface::vtable(self).Transform)(::windows::core::Interface::as_raw(self), transform.into().abi(), applyonpenwidth).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ScaleToRectangle<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<()>
     where
@@ -9724,7 +8661,6 @@ impl IInkStrokes {
     pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ScaleTransform)(::windows::core::Interface::as_raw(self), horizontalmultiplier, verticalmultiplier).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clip<'a, P0>(&self, rectangle: P0) -> ::windows::core::Result<()>
     where
@@ -9862,25 +8798,21 @@ pub struct IInkStrokes_Vtbl {
     Clip: usize,
     pub RemoveRecognitionResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkTablet(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablet {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlugAndPlayId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PlugAndPlayId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaximumInputRectangle(&self) -> ::windows::core::Result<IInkRectangle> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9890,7 +8822,6 @@ impl IInkTablet {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HardwareCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TabletHardwareCapabilities>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPacketPropertySupported<'a, P0>(&self, packetpropertyname: P0) -> ::windows::core::Result<i16>
     where
@@ -9899,7 +8830,6 @@ impl IInkTablet {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsPacketPropertySupported)(::windows::core::Interface::as_raw(self), packetpropertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyMetrics<'a, P0>(&self, propertyname: P0, minimum: &mut i32, maximum: &mut i32, units: &mut TabletPropertyMetricUnit, resolution: &mut f32) -> ::windows::core::Result<()>
     where
@@ -9996,7 +8926,6 @@ pub struct IInkTablet_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetPropertyMetrics: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkTablet2(::windows::core::IUnknown);
@@ -10075,7 +9004,6 @@ pub struct IInkTablet2_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
     pub DeviceKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut TabletDeviceKind) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkTablet3(::windows::core::IUnknown);
@@ -10159,7 +9087,6 @@ pub struct IInkTablet3_Vtbl {
     pub IsMultiTouch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pismultitouch: *mut i16) -> ::windows::core::HRESULT,
     pub MaximumCursors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmaximumcursors: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkTablets(::windows::core::IUnknown);
@@ -10173,19 +9100,16 @@ impl IInkTablets {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DefaultTablet(&self) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DefaultTablet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkTablet>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkTablet>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPacketPropertySupported<'a, P0>(&self, packetpropertyname: P0) -> ::windows::core::Result<i16>
     where
@@ -10276,7 +9200,6 @@ pub struct IInkTablets_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsPacketPropertySupported: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkTransform(::windows::core::IUnknown);
@@ -10348,13 +9271,11 @@ impl IInkTransform {
     pub unsafe fn SeteDy(&self, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SeteDy)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Data(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::XFORM> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Data)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Graphics::Gdi::XFORM>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetData(&self, xform: super::super::Graphics::Gdi::XFORM) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(xform)).ok()
@@ -10455,13 +9376,11 @@ pub struct IInkTransform_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetData: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkWordList(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddWord<'a, P0>(&self, newword: P0) -> ::windows::core::Result<()>
     where
@@ -10469,7 +9388,6 @@ impl IInkWordList {
     {
         (::windows::core::Interface::vtable(self).AddWord)(::windows::core::Interface::as_raw(self), newword.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveWord<'a, P0>(&self, removeword: P0) -> ::windows::core::Result<()>
     where
@@ -10477,7 +9395,6 @@ impl IInkWordList {
     {
         (::windows::core::Interface::vtable(self).RemoveWord)(::windows::core::Interface::as_raw(self), removeword.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Merge<'a, P0>(&self, mergewordlist: P0) -> ::windows::core::Result<()>
     where
@@ -10565,13 +9482,11 @@ pub struct IInkWordList_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Merge: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IInkWordList2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddWords<'a, P0>(&self, newwords: P0) -> ::windows::core::Result<()>
     where
@@ -10651,7 +9566,6 @@ pub struct IInkWordList2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddWords: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IInputPanelWindowHandle(::windows::core::IUnknown);
 impl IInputPanelWindowHandle {
@@ -10714,7 +9628,6 @@ pub struct IInputPanelWindowHandle_Vtbl {
     pub AttachedEditWindow64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: *mut i64) -> ::windows::core::HRESULT,
     pub SetAttachedEditWindow64: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachededitwindow: i64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMathInputControl(::windows::core::IUnknown);
@@ -10742,7 +9655,6 @@ impl IMathInputControl {
     pub unsafe fn SetCustomPaint(&self, element: i32, paint: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCustomPaint)(::windows::core::Interface::as_raw(self), element, paint).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCaptionText<'a, P0>(&self, captiontext: P0) -> ::windows::core::Result<()>
     where
@@ -10750,7 +9662,6 @@ impl IMathInputControl {
     {
         (::windows::core::Interface::vtable(self).SetCaptionText)(::windows::core::Interface::as_raw(self), captiontext.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadInk<'a, P0>(&self, ink: P0) -> ::windows::core::Result<()>
     where
@@ -10774,7 +9685,6 @@ impl IMathInputControl {
     pub unsafe fn EnableAutoGrow(&self, autogrow: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnableAutoGrow)(::windows::core::Interface::as_raw(self), autogrow).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddFunctionName<'a, P0>(&self, functionname: P0) -> ::windows::core::Result<()>
     where
@@ -10782,7 +9692,6 @@ impl IMathInputControl {
     {
         (::windows::core::Interface::vtable(self).AddFunctionName)(::windows::core::Interface::as_raw(self), functionname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveFunctionName<'a, P0>(&self, functionname: P0) -> ::windows::core::Result<()>
     where
@@ -10790,7 +9699,6 @@ impl IMathInputControl {
     {
         (::windows::core::Interface::vtable(self).RemoveFunctionName)(::windows::core::Interface::as_raw(self), functionname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetHoverIcon(&self) -> ::windows::core::Result<super::super::System::Ole::IPictureDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10896,12 +9804,9 @@ pub struct IMathInputControl_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetHoverIcon: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKEDIT_CLASS: &str = "INKEDIT";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKEDIT_CLASSW: &str = "INKEDIT";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
@@ -10934,31 +9839,18 @@ impl ::core::default::Default for INKMETRIC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_BOXNUMBER: &str = "{2C243E3A-F733-4EB6-B1F8-B5DC5C2C4CDA}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_CONFIDENCELEVEL: &str = "{7DFE11A7-FB5D-4958-8765-154ADF0D833F}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_HOTPOINT: &str = "{CA6F40DC-5292-452a-91FB-2181C0BEC0DE}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_LINEMETRICS: &str = "{8CC24B27-30A9-4b96-9056-2D3A90DA0727}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_LINENUMBER: &str = "{DBF29F2C-5289-4BE8-B3D8-6EF63246253E}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_MAXIMUMSTROKECOUNT: &str = "{BF0EEC4E-4B7D-47a9-8CFA-234DD24BD22A}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_POINTSPERINCH: &str = "{7ED16B76-889C-468e-8276-0021B770187E}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKRECOGNITIONPROPERTY_SEGMENTATION: &str = "{B3C0FE6C-FB51-4164-BA2F-844AF8F983DA}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INK_SERIALIZED_FORMAT: &str = "Ink Serialized Format";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IP_CURSOR_DOWN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IP_INVERTED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IP_MARGIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPenInputPanel(::windows::core::IUnknown);
@@ -10968,13 +9860,11 @@ impl IPenInputPanel {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Busy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Factoid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Factoid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFactoid<'a, P0>(&self, factoid: P0) -> ::windows::core::Result<()>
     where
@@ -11158,17 +10048,14 @@ pub struct IPenInputPanel_Vtbl {
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnableTsf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enable: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IRealTimeStylus(::windows::core::IUnknown);
 impl IRealTimeStylus {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnabled<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -11176,13 +10063,11 @@ impl IRealTimeStylus {
     {
         (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), fenable.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HWND(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE_PTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HWND)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE_PTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHWND<'a, P0>(&self, hwnd: P0) -> ::windows::core::Result<()>
     where
@@ -11190,13 +10075,11 @@ impl IRealTimeStylus {
     {
         (::windows::core::Interface::vtable(self).SetHWND)(::windows::core::Interface::as_raw(self), hwnd.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowInputRectangle(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WindowInputRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWindowInputRectangle(&self, prcwndinputrect: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWindowInputRectangle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcwndinputrect)).ok()
@@ -11257,7 +10140,6 @@ impl IRealTimeStylus {
     pub unsafe fn ClearStylusQueues(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClearStylusQueues)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllTabletsMode<'a, P0>(&self, fusemouseforinput: P0) -> ::windows::core::Result<()>
     where
@@ -11265,7 +10147,6 @@ impl IRealTimeStylus {
     {
         (::windows::core::Interface::vtable(self).SetAllTabletsMode)(::windows::core::Interface::as_raw(self), fusemouseforinput.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSingleTabletMode<'a, P0>(&self, pitablet: P0) -> ::windows::core::Result<()>
     where
@@ -11273,13 +10154,11 @@ impl IRealTimeStylus {
     {
         (::windows::core::Interface::vtable(self).SetSingleTabletMode)(::windows::core::Interface::as_raw(self), pitablet.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTablet(&self) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTablet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkTablet>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTabletContextIdFromTablet<'a, P0>(&self, pitablet: P0) -> ::windows::core::Result<u32>
     where
@@ -11288,7 +10167,6 @@ impl IRealTimeStylus {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTabletContextIdFromTablet)(::windows::core::Interface::as_raw(self), pitablet.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTabletFromTabletContextId(&self, tcid: u32) -> ::windows::core::Result<IInkTablet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11297,13 +10175,11 @@ impl IRealTimeStylus {
     pub unsafe fn GetAllTabletContextIds(&self, pctcidcount: &mut u32, pptcids: *mut *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAllTabletContextIds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pctcidcount), ::core::mem::transmute(pptcids)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStyluses(&self) -> ::windows::core::Result<IInkCursors> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStyluses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkCursors>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStylusForId(&self, sid: u32) -> ::windows::core::Result<IInkCursor> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11429,17 +10305,14 @@ pub struct IRealTimeStylus_Vtbl {
     pub GetDesiredPacketDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcproperties: *mut u32, pppropertyguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetPacketDescriptionData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tcid: u32, pfinktodevicescalex: *mut f32, pfinktodevicescaley: *mut f32, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IRealTimeStylus2(::windows::core::IUnknown);
 impl IRealTimeStylus2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FlicksEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FlicksEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFlicksEnabled<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -11496,17 +10369,14 @@ pub struct IRealTimeStylus2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetFlicksEnabled: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IRealTimeStylus3(::windows::core::IUnknown);
 impl IRealTimeStylus3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MultiTouchEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MultiTouchEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMultiTouchEnabled<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -11563,7 +10433,6 @@ pub struct IRealTimeStylus3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMultiTouchEnabled: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IRealTimeStylusSynchronization(::windows::core::IUnknown);
 impl IRealTimeStylusSynchronization {
@@ -11616,7 +10485,6 @@ pub struct IRealTimeStylusSynchronization_Vtbl {
     pub AcquireLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows::core::HRESULT,
     pub ReleaseLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lock: RealTimeStylusLockType) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISketchInk(::windows::core::IUnknown);
@@ -11689,16 +10557,13 @@ unsafe impl ::windows::core::Interface for ISketchInk {
 pub struct ISketchInk_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IStrokeBuilder(::windows::core::IUnknown);
 impl IStrokeBuilder {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStroke(&self, ppackets: &[i32], ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: &mut ::core::option::Option<IInkStrokeDisp>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateStroke)(::windows::core::Interface::as_raw(self), ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), ppacketproperties.len() as _, ::core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, ::core::mem::transmute(ppiinkstroke)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: &i32, ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: ::core::option::Option<&mut ::core::option::Option<IInkStrokeDisp>>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginStroke)(::windows::core::Interface::as_raw(self), tcid, sid, ::core::mem::transmute(ppacket), ppacketproperties.len() as _, ::core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, ::core::mem::transmute(ppiinkstroke)).ok()
@@ -11706,18 +10571,15 @@ impl IStrokeBuilder {
     pub unsafe fn AppendPackets(&self, tcid: u32, sid: u32, ppackets: &[i32]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AppendPackets)(::windows::core::Interface::as_raw(self), tcid, sid, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr())).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EndStroke(&self, tcid: u32, sid: u32, ppiinkstroke: &mut ::core::option::Option<IInkStrokeDisp>, pdirtyrect: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndStroke)(::windows::core::Interface::as_raw(self), tcid, sid, ::core::mem::transmute(ppiinkstroke), ::core::mem::transmute(pdirtyrect)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Ink(&self) -> ::windows::core::Result<IInkDisp> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Ink)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IInkDisp>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_Ink<'a, P0>(&self, piinkobj: P0) -> ::windows::core::Result<()>
     where
@@ -11787,7 +10649,6 @@ pub struct IStrokeBuilder_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     putref_Ink: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IStylusAsyncPlugin(::windows::core::IUnknown);
 impl IStylusAsyncPlugin {
@@ -11815,7 +10676,6 @@ impl IStylusAsyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), tcid, sid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusDown<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, ppacket: &[i32], ppinoutpkt: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -11823,7 +10683,6 @@ impl IStylusAsyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ::core::mem::transmute(ppinoutpkt)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusUp<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, ppacket: &[i32], ppinoutpkt: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -11831,7 +10690,6 @@ impl IStylusAsyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ::core::mem::transmute(ppinoutpkt)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusButtonDown<'a, P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: &mut super::super::Foundation::POINT) -> ::windows::core::Result<()>
     where
@@ -11839,7 +10697,6 @@ impl IStylusAsyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), sid, ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusButtonUp<'a, P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: &mut super::super::Foundation::POINT) -> ::windows::core::Result<()>
     where
@@ -11847,7 +10704,6 @@ impl IStylusAsyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), sid, ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InAirPackets<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: &mut u32, ppinoutpkts: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -11855,7 +10711,6 @@ impl IStylusAsyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Packets<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: &mut u32, ppinoutpkts: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -11875,7 +10730,6 @@ impl IStylusAsyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), tcid, sid, event, ::core::mem::transmute(eventdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TabletAdded<'a, P0, P1>(&self, pirtssrc: P0, pitablet: P1) -> ::windows::core::Result<()>
     where
@@ -11963,7 +10817,6 @@ unsafe impl ::windows::core::Interface for IStylusAsyncPlugin {
 pub struct IStylusAsyncPlugin_Vtbl {
     pub base__: IStylusPlugin_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IStylusPlugin(::windows::core::IUnknown);
 impl IStylusPlugin {
@@ -11991,7 +10844,6 @@ impl IStylusPlugin {
     {
         (::windows::core::Interface::vtable(self).StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), tcid, sid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusDown<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, ppacket: &[i32], ppinoutpkt: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -11999,7 +10851,6 @@ impl IStylusPlugin {
     {
         (::windows::core::Interface::vtable(self).StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ::core::mem::transmute(ppinoutpkt)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusUp<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, ppacket: &[i32], ppinoutpkt: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -12007,7 +10858,6 @@ impl IStylusPlugin {
     {
         (::windows::core::Interface::vtable(self).StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ::core::mem::transmute(ppinoutpkt)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusButtonDown<'a, P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: &mut super::super::Foundation::POINT) -> ::windows::core::Result<()>
     where
@@ -12015,7 +10865,6 @@ impl IStylusPlugin {
     {
         (::windows::core::Interface::vtable(self).StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), sid, ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusButtonUp<'a, P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: &mut super::super::Foundation::POINT) -> ::windows::core::Result<()>
     where
@@ -12023,7 +10872,6 @@ impl IStylusPlugin {
     {
         (::windows::core::Interface::vtable(self).StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), sid, ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InAirPackets<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: &mut u32, ppinoutpkts: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -12031,7 +10879,6 @@ impl IStylusPlugin {
     {
         (::windows::core::Interface::vtable(self).InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Packets<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: &mut u32, ppinoutpkts: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -12051,7 +10898,6 @@ impl IStylusPlugin {
     {
         (::windows::core::Interface::vtable(self).SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), tcid, sid, event, ::core::mem::transmute(eventdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TabletAdded<'a, P0, P1>(&self, pirtssrc: P0, pitablet: P1) -> ::windows::core::Result<()>
     where
@@ -12162,7 +11008,6 @@ pub struct IStylusPlugin_Vtbl {
     pub UpdateMapping: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pirtssrc: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DataInterest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdatainterest: *mut RealTimeStylusDataInterest) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct IStylusSyncPlugin(::windows::core::IUnknown);
 impl IStylusSyncPlugin {
@@ -12190,7 +11035,6 @@ impl IStylusSyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusOutOfRange)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), tcid, sid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusDown<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, ppacket: &[i32], ppinoutpkt: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -12198,7 +11042,6 @@ impl IStylusSyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ::core::mem::transmute(ppinoutpkt)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusUp<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, ppacket: &[i32], ppinoutpkt: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -12206,7 +11049,6 @@ impl IStylusSyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), ppacket.len() as _, ::core::mem::transmute(ppacket.as_ptr()), ::core::mem::transmute(ppinoutpkt)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusButtonDown<'a, P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: &mut super::super::Foundation::POINT) -> ::windows::core::Result<()>
     where
@@ -12214,7 +11056,6 @@ impl IStylusSyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusButtonDown)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), sid, ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StylusButtonUp<'a, P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: &::windows::core::GUID, pstyluspos: &mut super::super::Foundation::POINT) -> ::windows::core::Result<()>
     where
@@ -12222,7 +11063,6 @@ impl IStylusSyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.StylusButtonUp)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), sid, ::core::mem::transmute(pguidstylusbutton), ::core::mem::transmute(pstyluspos)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InAirPackets<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: &mut u32, ppinoutpkts: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -12230,7 +11070,6 @@ impl IStylusSyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.InAirPackets)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), ::core::mem::transmute(pstylusinfo), cpktcount, ppackets.len() as _, ::core::mem::transmute(ppackets.as_ptr()), ::core::mem::transmute(pcinoutpkts), ::core::mem::transmute(ppinoutpkts)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Packets<'a, P0>(&self, pirtssrc: P0, pstylusinfo: &StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: &mut u32, ppinoutpkts: &mut *mut i32) -> ::windows::core::Result<()>
     where
@@ -12250,7 +11089,6 @@ impl IStylusSyncPlugin {
     {
         (::windows::core::Interface::vtable(self).base__.SystemEvent)(::windows::core::Interface::as_raw(self), pirtssrc.into().abi(), tcid, sid, event, ::core::mem::transmute(eventdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TabletAdded<'a, P0, P1>(&self, pirtssrc: P0, pitablet: P1) -> ::windows::core::Result<()>
     where
@@ -12338,17 +11176,14 @@ unsafe impl ::windows::core::Interface for IStylusSyncPlugin {
 pub struct IStylusSyncPlugin_Vtbl {
     pub base__: IStylusPlugin_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct ITextInputPanel(::windows::core::IUnknown);
 impl ITextInputPanel {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AttachedEditWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AttachedEditWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttachedEditWindow<'a, P0>(&self, attachededitwindow: P0) -> ::windows::core::Result<()>
     where
@@ -12393,13 +11228,11 @@ impl ITextInputPanel {
     pub unsafe fn SetPreferredInPlaceDirection(&self, direction: InPlaceDirection) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPreferredInPlaceDirection)(::windows::core::Interface::as_raw(self), direction).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExpandPostInsertionCorrection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExpandPostInsertionCorrection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExpandPostInsertionCorrection<'a, P0>(&self, expand: P0) -> ::windows::core::Result<()>
     where
@@ -12407,13 +11240,11 @@ impl ITextInputPanel {
     {
         (::windows::core::Interface::vtable(self).SetExpandPostInsertionCorrection)(::windows::core::Interface::as_raw(self), expand.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InPlaceVisibleOnFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InPlaceVisibleOnFocus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInPlaceVisibleOnFocus<'a, P0>(&self, visible: P0) -> ::windows::core::Result<()>
     where
@@ -12421,7 +11252,6 @@ impl ITextInputPanel {
     {
         (::windows::core::Interface::vtable(self).SetInPlaceVisibleOnFocus)(::windows::core::Interface::as_raw(self), visible.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InPlaceBoundingRectangle(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12438,7 +11268,6 @@ impl ITextInputPanel {
     pub unsafe fn CommitPendingInput(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CommitPendingInput)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInPlaceVisibility<'a, P0>(&self, visible: P0) -> ::windows::core::Result<()>
     where
@@ -12554,7 +11383,6 @@ pub struct ITextInputPanel_Vtbl {
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventsink: *mut ::core::ffi::c_void, eventmask: u32) -> ::windows::core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventsink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct ITextInputPanelEventSink(::windows::core::IUnknown);
 impl ITextInputPanelEventSink {
@@ -12564,12 +11392,10 @@ impl ITextInputPanelEventSink {
     pub unsafe fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InPlaceStateChanged)(::windows::core::Interface::as_raw(self), oldinplacestate, newinplacestate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InPlaceSizeChanging(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InPlaceSizeChanging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldboundingrectangle), ::core::mem::transmute(newboundingrectangle)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InPlaceSizeChanged(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InPlaceSizeChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldboundingrectangle), ::core::mem::transmute(newboundingrectangle)).ok()
@@ -12586,7 +11412,6 @@ impl ITextInputPanelEventSink {
     pub unsafe fn CorrectionModeChanged(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CorrectionModeChanged)(::windows::core::Interface::as_raw(self), oldcorrectionmode, newcorrectionmode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InPlaceVisibilityChanging<'a, P0, P1>(&self, oldvisible: P0, newvisible: P1) -> ::windows::core::Result<()>
     where
@@ -12595,7 +11420,6 @@ impl ITextInputPanelEventSink {
     {
         (::windows::core::Interface::vtable(self).InPlaceVisibilityChanging)(::windows::core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InPlaceVisibilityChanged<'a, P0, P1>(&self, oldvisible: P0, newvisible: P1) -> ::windows::core::Result<()>
     where
@@ -12604,12 +11428,10 @@ impl ITextInputPanelEventSink {
     {
         (::windows::core::Interface::vtable(self).InPlaceVisibilityChanged)(::windows::core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TextInserting(&self, ink: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TextInserting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ink)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TextInserted(&self, ink: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TextInserted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ink)).ok()
@@ -12685,11 +11507,9 @@ pub struct ITextInputPanelEventSink_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     TextInserted: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct ITextInputPanelRunInfo(::windows::core::IUnknown);
 impl ITextInputPanelRunInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsTipRunning(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12740,11 +11560,9 @@ pub struct ITextInputPanelRunInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTipRunning: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct ITipAutoCompleteClient(::windows::core::IUnknown);
 impl ITipAutoCompleteClient {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseProvider<'a, P0, P1>(&self, hwndfield: P0, piprovider: P1) -> ::windows::core::Result<()>
     where
@@ -12753,7 +11571,6 @@ impl ITipAutoCompleteClient {
     {
         (::windows::core::Interface::vtable(self).AdviseProvider)(::windows::core::Interface::as_raw(self), hwndfield.into(), piprovider.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnadviseProvider<'a, P0, P1>(&self, hwndfield: P0, piprovider: P1) -> ::windows::core::Result<()>
     where
@@ -12765,12 +11582,10 @@ impl ITipAutoCompleteClient {
     pub unsafe fn UserSelection(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UserSelection)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreferredRects(&self, prcaclist: &super::super::Foundation::RECT, prcfield: &super::super::Foundation::RECT, prcmodifiedaclist: &mut super::super::Foundation::RECT, pfshownabovetip: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PreferredRects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcaclist), ::core::mem::transmute(prcfield), ::core::mem::transmute(prcmodifiedaclist), ::core::mem::transmute(pfshownabovetip)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestShowUI<'a, P0>(&self, hwndlist: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -12837,11 +11652,9 @@ pub struct ITipAutoCompleteClient_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestShowUI: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 pub struct ITipAutoCompleteProvider(::windows::core::IUnknown);
 impl ITipAutoCompleteProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdatePendingText<'a, P0>(&self, bstrpendingtext: P0) -> ::windows::core::Result<()>
     where
@@ -12849,7 +11662,6 @@ impl ITipAutoCompleteProvider {
     {
         (::windows::core::Interface::vtable(self).UpdatePendingText)(::windows::core::Interface::as_raw(self), bstrpendingtext.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -12906,15 +11718,11 @@ pub struct ITipAutoCompleteProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InPlaceDirection(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceDirection_Auto: InPlaceDirection = InPlaceDirection(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceDirection_Bottom: InPlaceDirection = InPlaceDirection(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceDirection_Top: InPlaceDirection = InPlaceDirection(2i32);
 impl ::core::marker::Copy for InPlaceDirection {}
 impl ::core::clone::Clone for InPlaceDirection {
@@ -12935,15 +11743,11 @@ impl ::core::fmt::Debug for InPlaceDirection {
         f.debug_tuple("InPlaceDirection").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InPlaceState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceState_Auto: InPlaceState = InPlaceState(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceState_HoverTarget: InPlaceState = InPlaceState(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlaceState_Expanded: InPlaceState = InPlaceState(2i32);
 impl ::core::marker::Copy for InPlaceState {}
 impl ::core::clone::Clone for InPlaceState {
@@ -12965,97 +11769,52 @@ impl ::core::fmt::Debug for InPlaceState {
     }
 }
 pub const Ink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13de4a42_8d21_4c8e_bf9c_8f69cb068fca);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkApplicationGesture(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_AllGestures: InkApplicationGesture = InkApplicationGesture(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_NoGesture: InkApplicationGesture = InkApplicationGesture(61440i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Scratchout: InkApplicationGesture = InkApplicationGesture(61441i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Triangle: InkApplicationGesture = InkApplicationGesture(61442i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Square: InkApplicationGesture = InkApplicationGesture(61443i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Star: InkApplicationGesture = InkApplicationGesture(61444i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Check: InkApplicationGesture = InkApplicationGesture(61445i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Curlicue: InkApplicationGesture = InkApplicationGesture(61456i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DoubleCurlicue: InkApplicationGesture = InkApplicationGesture(61457i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Circle: InkApplicationGesture = InkApplicationGesture(61472i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DoubleCircle: InkApplicationGesture = InkApplicationGesture(61473i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_SemiCircleLeft: InkApplicationGesture = InkApplicationGesture(61480i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_SemiCircleRight: InkApplicationGesture = InkApplicationGesture(61481i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ChevronUp: InkApplicationGesture = InkApplicationGesture(61488i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ChevronDown: InkApplicationGesture = InkApplicationGesture(61489i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ChevronLeft: InkApplicationGesture = InkApplicationGesture(61490i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ChevronRight: InkApplicationGesture = InkApplicationGesture(61491i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ArrowUp: InkApplicationGesture = InkApplicationGesture(61496i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ArrowDown: InkApplicationGesture = InkApplicationGesture(61497i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ArrowLeft: InkApplicationGesture = InkApplicationGesture(61498i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_ArrowRight: InkApplicationGesture = InkApplicationGesture(61499i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Up: InkApplicationGesture = InkApplicationGesture(61528i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Down: InkApplicationGesture = InkApplicationGesture(61529i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Left: InkApplicationGesture = InkApplicationGesture(61530i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Right: InkApplicationGesture = InkApplicationGesture(61531i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_UpDown: InkApplicationGesture = InkApplicationGesture(61536i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DownUp: InkApplicationGesture = InkApplicationGesture(61537i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_LeftRight: InkApplicationGesture = InkApplicationGesture(61538i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_RightLeft: InkApplicationGesture = InkApplicationGesture(61539i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_UpLeftLong: InkApplicationGesture = InkApplicationGesture(61540i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_UpRightLong: InkApplicationGesture = InkApplicationGesture(61541i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DownLeftLong: InkApplicationGesture = InkApplicationGesture(61542i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DownRightLong: InkApplicationGesture = InkApplicationGesture(61543i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_UpLeft: InkApplicationGesture = InkApplicationGesture(61544i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_UpRight: InkApplicationGesture = InkApplicationGesture(61545i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DownLeft: InkApplicationGesture = InkApplicationGesture(61546i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DownRight: InkApplicationGesture = InkApplicationGesture(61547i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_LeftUp: InkApplicationGesture = InkApplicationGesture(61548i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_LeftDown: InkApplicationGesture = InkApplicationGesture(61549i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_RightUp: InkApplicationGesture = InkApplicationGesture(61550i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_RightDown: InkApplicationGesture = InkApplicationGesture(61551i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Exclamation: InkApplicationGesture = InkApplicationGesture(61604i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_Tap: InkApplicationGesture = InkApplicationGesture(61680i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IAG_DoubleTap: InkApplicationGesture = InkApplicationGesture(61681i32);
 impl ::core::marker::Copy for InkApplicationGesture {}
 impl ::core::clone::Clone for InkApplicationGesture {
@@ -13076,19 +11835,13 @@ impl ::core::fmt::Debug for InkApplicationGesture {
         f.debug_tuple("InkApplicationGesture").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkBoundingBoxMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IBBM_Default: InkBoundingBoxMode = InkBoundingBoxMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IBBM_NoCurveFit: InkBoundingBoxMode = InkBoundingBoxMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IBBM_CurveFit: InkBoundingBoxMode = InkBoundingBoxMode(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IBBM_PointsOnly: InkBoundingBoxMode = InkBoundingBoxMode(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IBBM_Union: InkBoundingBoxMode = InkBoundingBoxMode(4i32);
 impl ::core::marker::Copy for InkBoundingBoxMode {}
 impl ::core::clone::Clone for InkBoundingBoxMode {
@@ -13109,29 +11862,18 @@ impl ::core::fmt::Debug for InkBoundingBoxMode {
         f.debug_tuple("InkBoundingBoxMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkClipboardFormats(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_None: InkClipboardFormats = InkClipboardFormats(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_InkSerializedFormat: InkClipboardFormats = InkClipboardFormats(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_SketchInk: InkClipboardFormats = InkClipboardFormats(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_TextInk: InkClipboardFormats = InkClipboardFormats(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_EnhancedMetafile: InkClipboardFormats = InkClipboardFormats(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_Metafile: InkClipboardFormats = InkClipboardFormats(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_Bitmap: InkClipboardFormats = InkClipboardFormats(64i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_PasteMask: InkClipboardFormats = InkClipboardFormats(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_CopyMask: InkClipboardFormats = InkClipboardFormats(127i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICF_Default: InkClipboardFormats = InkClipboardFormats(127i32);
 impl ::core::marker::Copy for InkClipboardFormats {}
 impl ::core::clone::Clone for InkClipboardFormats {
@@ -13152,19 +11894,13 @@ impl ::core::fmt::Debug for InkClipboardFormats {
         f.debug_tuple("InkClipboardFormats").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkClipboardModes(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICB_Copy: InkClipboardModes = InkClipboardModes(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICB_Cut: InkClipboardModes = InkClipboardModes(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICB_ExtractOnly: InkClipboardModes = InkClipboardModes(48i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICB_DelayedCopy: InkClipboardModes = InkClipboardModes(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICB_Default: InkClipboardModes = InkClipboardModes(0i32);
 impl ::core::marker::Copy for InkClipboardModes {}
 impl ::core::clone::Clone for InkClipboardModes {
@@ -13185,15 +11921,11 @@ impl ::core::fmt::Debug for InkClipboardModes {
         f.debug_tuple("InkClipboardModes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkCollectionMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICM_InkOnly: InkCollectionMode = InkCollectionMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICM_GestureOnly: InkCollectionMode = InkCollectionMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICM_InkAndGesture: InkCollectionMode = InkCollectionMode(2i32);
 impl ::core::marker::Copy for InkCollectionMode {}
 impl ::core::clone::Clone for InkCollectionMode {
@@ -13215,49 +11947,28 @@ impl ::core::fmt::Debug for InkCollectionMode {
     }
 }
 pub const InkCollector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43fb1553_ad74_4ee8_88e4_3e6daac915db);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InkCollectorClipInkToMargin: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InkCollectorDefaultMargin: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkCollectorEventInterest(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_DefaultEvents: InkCollectorEventInterest = InkCollectorEventInterest(-1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_CursorDown: InkCollectorEventInterest = InkCollectorEventInterest(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_Stroke: InkCollectorEventInterest = InkCollectorEventInterest(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_NewPackets: InkCollectorEventInterest = InkCollectorEventInterest(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_NewInAirPackets: InkCollectorEventInterest = InkCollectorEventInterest(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_CursorButtonDown: InkCollectorEventInterest = InkCollectorEventInterest(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_CursorButtonUp: InkCollectorEventInterest = InkCollectorEventInterest(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_CursorInRange: InkCollectorEventInterest = InkCollectorEventInterest(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_CursorOutOfRange: InkCollectorEventInterest = InkCollectorEventInterest(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_SystemGesture: InkCollectorEventInterest = InkCollectorEventInterest(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_TabletAdded: InkCollectorEventInterest = InkCollectorEventInterest(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_TabletRemoved: InkCollectorEventInterest = InkCollectorEventInterest(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_MouseDown: InkCollectorEventInterest = InkCollectorEventInterest(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_MouseMove: InkCollectorEventInterest = InkCollectorEventInterest(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_MouseUp: InkCollectorEventInterest = InkCollectorEventInterest(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_MouseWheel: InkCollectorEventInterest = InkCollectorEventInterest(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_DblClick: InkCollectorEventInterest = InkCollectorEventInterest(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICEI_AllEvents: InkCollectorEventInterest = InkCollectorEventInterest(16i32);
 impl ::core::marker::Copy for InkCollectorEventInterest {}
 impl ::core::clone::Clone for InkCollectorEventInterest {
@@ -13278,15 +11989,11 @@ impl ::core::fmt::Debug for InkCollectorEventInterest {
         f.debug_tuple("InkCollectorEventInterest").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkCursorButtonState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICBS_Unavailable: InkCursorButtonState = InkCursorButtonState(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICBS_Up: InkCursorButtonState = InkCursorButtonState(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ICBS_Down: InkCursorButtonState = InkCursorButtonState(2i32);
 impl ::core::marker::Copy for InkCursorButtonState {}
 impl ::core::clone::Clone for InkCursorButtonState {
@@ -13308,13 +12015,10 @@ impl ::core::fmt::Debug for InkCursorButtonState {
     }
 }
 pub const InkDisp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x937c1a34_151d_4610_9ca6_a8cc9bdb5d83);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkDisplayMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDM_Ink: InkDisplayMode = InkDisplayMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDM_Text: InkDisplayMode = InkDisplayMode(1i32);
 impl ::core::marker::Copy for InkDisplayMode {}
 impl ::core::clone::Clone for InkDisplayMode {
@@ -13336,17 +12040,12 @@ impl ::core::fmt::Debug for InkDisplayMode {
     }
 }
 pub const InkDivider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8854f6a0_4683_4ae7_9191_752fe64612c3);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkDivisionType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDT_Segment: InkDivisionType = InkDivisionType(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDT_Line: InkDivisionType = InkDivisionType(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDT_Paragraph: InkDivisionType = InkDivisionType(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IDT_Drawing: InkDivisionType = InkDivisionType(3i32);
 impl ::core::marker::Copy for InkDivisionType {}
 impl ::core::clone::Clone for InkDivisionType {
@@ -13369,15 +12068,11 @@ impl ::core::fmt::Debug for InkDivisionType {
 }
 pub const InkDrawingAttributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8bf32a2_05a5_44c3_b3aa_5e80ac7d2576);
 pub const InkEdit: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5ca59f5_57c4_4dd8_9bd6_1deeedd27af4);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkEditStatus(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IES_Idle: InkEditStatus = InkEditStatus(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IES_Collecting: InkEditStatus = InkEditStatus(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IES_Recognizing: InkEditStatus = InkEditStatus(2i32);
 impl ::core::marker::Copy for InkEditStatus {}
 impl ::core::clone::Clone for InkEditStatus {
@@ -13398,15 +12093,11 @@ impl ::core::fmt::Debug for InkEditStatus {
         f.debug_tuple("InkEditStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkExtractFlags(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEF_CopyFromOriginal: InkExtractFlags = InkExtractFlags(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEF_RemoveFromOriginal: InkExtractFlags = InkExtractFlags(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEF_Default: InkExtractFlags = InkExtractFlags(1i32);
 impl ::core::marker::Copy for InkExtractFlags {}
 impl ::core::clone::Clone for InkExtractFlags {
@@ -13427,13 +12118,10 @@ impl ::core::fmt::Debug for InkExtractFlags {
         f.debug_tuple("InkExtractFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkInsertMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEM_InsertText: InkInsertMode = InkInsertMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEM_InsertInk: InkInsertMode = InkInsertMode(1i32);
 impl ::core::marker::Copy for InkInsertMode {}
 impl ::core::clone::Clone for InkInsertMode {
@@ -13454,19 +12142,13 @@ impl ::core::fmt::Debug for InkInsertMode {
         f.debug_tuple("InkInsertMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InkMaxTransparencyValue: i32 = 255i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InkMinTransparencyValue: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEM_Disabled: InkMode = InkMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEM_Ink: InkMode = InkMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IEM_InkAndGesture: InkMode = InkMode(2i32);
 impl ::core::marker::Copy for InkMode {}
 impl ::core::clone::Clone for InkMode {
@@ -13487,15 +12169,11 @@ impl ::core::fmt::Debug for InkMode {
         f.debug_tuple("InkMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkMouseButton(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_Left: InkMouseButton = InkMouseButton(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_Right: InkMouseButton = InkMouseButton(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_Middle: InkMouseButton = InkMouseButton(4i32);
 impl ::core::marker::Copy for InkMouseButton {}
 impl ::core::clone::Clone for InkMouseButton {
@@ -13516,41 +12194,24 @@ impl ::core::fmt::Debug for InkMouseButton {
         f.debug_tuple("InkMouseButton").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkMousePointer(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Default: InkMousePointer = InkMousePointer(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Arrow: InkMousePointer = InkMousePointer(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Crosshair: InkMousePointer = InkMousePointer(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Ibeam: InkMousePointer = InkMousePointer(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_SizeNESW: InkMousePointer = InkMousePointer(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_SizeNS: InkMousePointer = InkMousePointer(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_SizeNWSE: InkMousePointer = InkMousePointer(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_SizeWE: InkMousePointer = InkMousePointer(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_UpArrow: InkMousePointer = InkMousePointer(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Hourglass: InkMousePointer = InkMousePointer(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_NoDrop: InkMousePointer = InkMousePointer(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_ArrowHourglass: InkMousePointer = InkMousePointer(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_ArrowQuestion: InkMousePointer = InkMousePointer(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_SizeAll: InkMousePointer = InkMousePointer(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Hand: InkMousePointer = InkMousePointer(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMP_Custom: InkMousePointer = InkMousePointer(99i32);
 impl ::core::marker::Copy for InkMousePointer {}
 impl ::core::clone::Clone for InkMousePointer {
@@ -13572,13 +12233,10 @@ impl ::core::fmt::Debug for InkMousePointer {
     }
 }
 pub const InkOverlay: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65d00646_cde3_4a88_9163_6769f0f1a97d);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkOverlayAttachMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOAM_Behind: InkOverlayAttachMode = InkOverlayAttachMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOAM_InFront: InkOverlayAttachMode = InkOverlayAttachMode(1i32);
 impl ::core::marker::Copy for InkOverlayAttachMode {}
 impl ::core::clone::Clone for InkOverlayAttachMode {
@@ -13599,15 +12257,11 @@ impl ::core::fmt::Debug for InkOverlayAttachMode {
         f.debug_tuple("InkOverlayAttachMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkOverlayEditingMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOEM_Ink: InkOverlayEditingMode = InkOverlayEditingMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOEM_Delete: InkOverlayEditingMode = InkOverlayEditingMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOEM_Select: InkOverlayEditingMode = InkOverlayEditingMode(2i32);
 impl ::core::marker::Copy for InkOverlayEditingMode {}
 impl ::core::clone::Clone for InkOverlayEditingMode {
@@ -13628,13 +12282,10 @@ impl ::core::fmt::Debug for InkOverlayEditingMode {
         f.debug_tuple("InkOverlayEditingMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkOverlayEraserMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOERM_StrokeErase: InkOverlayEraserMode = InkOverlayEraserMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IOERM_PointErase: InkOverlayEraserMode = InkOverlayEraserMode(1i32);
 impl ::core::marker::Copy for InkOverlayEraserMode {}
 impl ::core::clone::Clone for InkOverlayEraserMode {
@@ -13655,13 +12306,10 @@ impl ::core::fmt::Debug for InkOverlayEraserMode {
         f.debug_tuple("InkOverlayEraserMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPenTip(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPT_Ball: InkPenTip = InkPenTip(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPT_Rectangle: InkPenTip = InkPenTip(1i32);
 impl ::core::marker::Copy for InkPenTip {}
 impl ::core::clone::Clone for InkPenTip {
@@ -13682,15 +12330,11 @@ impl ::core::fmt::Debug for InkPenTip {
         f.debug_tuple("InkPenTip").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPersistenceCompressionMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPCM_Default: InkPersistenceCompressionMode = InkPersistenceCompressionMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPCM_MaximumCompression: InkPersistenceCompressionMode = InkPersistenceCompressionMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPCM_NoCompression: InkPersistenceCompressionMode = InkPersistenceCompressionMode(2i32);
 impl ::core::marker::Copy for InkPersistenceCompressionMode {}
 impl ::core::clone::Clone for InkPersistenceCompressionMode {
@@ -13711,17 +12355,12 @@ impl ::core::fmt::Debug for InkPersistenceCompressionMode {
         f.debug_tuple("InkPersistenceCompressionMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPersistenceFormat(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPF_InkSerializedFormat: InkPersistenceFormat = InkPersistenceFormat(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPF_Base64InkSerializedFormat: InkPersistenceFormat = InkPersistenceFormat(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPF_GIF: InkPersistenceFormat = InkPersistenceFormat(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPF_Base64GIF: InkPersistenceFormat = InkPersistenceFormat(3i32);
 impl ::core::marker::Copy for InkPersistenceFormat {}
 impl ::core::clone::Clone for InkPersistenceFormat {
@@ -13743,17 +12382,12 @@ impl ::core::fmt::Debug for InkPersistenceFormat {
     }
 }
 pub const InkPicture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a1e553_fe36_4fde_865e_344194e69424);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkPictureSizeMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPSM_AutoSize: InkPictureSizeMode = InkPictureSizeMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPSM_CenterImage: InkPictureSizeMode = InkPictureSizeMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPSM_Normal: InkPictureSizeMode = InkPictureSizeMode(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IPSM_StretchImage: InkPictureSizeMode = InkPictureSizeMode(3i32);
 impl ::core::marker::Copy for InkPictureSizeMode {}
 impl ::core::clone::Clone for InkPictureSizeMode {
@@ -13774,41 +12408,24 @@ impl ::core::fmt::Debug for InkPictureSizeMode {
         f.debug_tuple("InkPictureSizeMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRasterOperation(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_Black: InkRasterOperation = InkRasterOperation(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_NotMergePen: InkRasterOperation = InkRasterOperation(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_MaskNotPen: InkRasterOperation = InkRasterOperation(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_NotCopyPen: InkRasterOperation = InkRasterOperation(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_MaskPenNot: InkRasterOperation = InkRasterOperation(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_Not: InkRasterOperation = InkRasterOperation(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_XOrPen: InkRasterOperation = InkRasterOperation(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_NotMaskPen: InkRasterOperation = InkRasterOperation(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_MaskPen: InkRasterOperation = InkRasterOperation(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_NotXOrPen: InkRasterOperation = InkRasterOperation(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_NoOperation: InkRasterOperation = InkRasterOperation(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_MergeNotPen: InkRasterOperation = InkRasterOperation(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_CopyPen: InkRasterOperation = InkRasterOperation(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_MergePenNot: InkRasterOperation = InkRasterOperation(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_MergePen: InkRasterOperation = InkRasterOperation(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRO_White: InkRasterOperation = InkRasterOperation(16i32);
 impl ::core::marker::Copy for InkRasterOperation {}
 impl ::core::clone::Clone for InkRasterOperation {
@@ -13830,7 +12447,6 @@ impl ::core::fmt::Debug for InkRasterOperation {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::super::Foundation::RECT,
@@ -13871,15 +12487,11 @@ impl ::core::default::Default for InkRecoGuide {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionAlternatesSelection(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRAS_Start: InkRecognitionAlternatesSelection = InkRecognitionAlternatesSelection(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRAS_DefaultCount: InkRecognitionAlternatesSelection = InkRecognitionAlternatesSelection(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRAS_All: InkRecognitionAlternatesSelection = InkRecognitionAlternatesSelection(-1i32);
 impl ::core::marker::Copy for InkRecognitionAlternatesSelection {}
 impl ::core::clone::Clone for InkRecognitionAlternatesSelection {
@@ -13900,15 +12512,11 @@ impl ::core::fmt::Debug for InkRecognitionAlternatesSelection {
         f.debug_tuple("InkRecognitionAlternatesSelection").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionConfidence(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Strong: InkRecognitionConfidence = InkRecognitionConfidence(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Intermediate: InkRecognitionConfidence = InkRecognitionConfidence(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Poor: InkRecognitionConfidence = InkRecognitionConfidence(2i32);
 impl ::core::marker::Copy for InkRecognitionConfidence {}
 impl ::core::clone::Clone for InkRecognitionConfidence {
@@ -13929,27 +12537,17 @@ impl ::core::fmt::Debug for InkRecognitionConfidence {
         f.debug_tuple("InkRecognitionConfidence").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionModes(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_None: InkRecognitionModes = InkRecognitionModes(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_WordModeOnly: InkRecognitionModes = InkRecognitionModes(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_Coerce: InkRecognitionModes = InkRecognitionModes(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_TopInkBreaksOnly: InkRecognitionModes = InkRecognitionModes(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_PrefixOk: InkRecognitionModes = InkRecognitionModes(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_LineMode: InkRecognitionModes = InkRecognitionModes(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_DisablePersonalization: InkRecognitionModes = InkRecognitionModes(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_AutoSpace: InkRecognitionModes = InkRecognitionModes(64i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRM_Max: InkRecognitionModes = InkRecognitionModes(128i32);
 impl ::core::marker::Copy for InkRecognitionModes {}
 impl ::core::clone::Clone for InkRecognitionModes {
@@ -13970,31 +12568,19 @@ impl ::core::fmt::Debug for InkRecognitionModes {
         f.debug_tuple("InkRecognitionModes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognitionStatus(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_NoError: InkRecognitionStatus = InkRecognitionStatus(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_Interrupted: InkRecognitionStatus = InkRecognitionStatus(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_ProcessFailed: InkRecognitionStatus = InkRecognitionStatus(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_InkAddedFailed: InkRecognitionStatus = InkRecognitionStatus(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_SetAutoCompletionModeFailed: InkRecognitionStatus = InkRecognitionStatus(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_SetStrokesFailed: InkRecognitionStatus = InkRecognitionStatus(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_SetGuideFailed: InkRecognitionStatus = InkRecognitionStatus(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_SetFlagsFailed: InkRecognitionStatus = InkRecognitionStatus(64i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_SetFactoidFailed: InkRecognitionStatus = InkRecognitionStatus(128i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_SetPrefixSuffixFailed: InkRecognitionStatus = InkRecognitionStatus(256i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRS_SetWordListFailed: InkRecognitionStatus = InkRecognitionStatus(512i32);
 impl ::core::marker::Copy for InkRecognitionStatus {}
 impl ::core::clone::Clone for InkRecognitionStatus {
@@ -14015,53 +12601,30 @@ impl ::core::fmt::Debug for InkRecognitionStatus {
         f.debug_tuple("InkRecognitionStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognizerCapabilities(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_DontCare: InkRecognizerCapabilities = InkRecognizerCapabilities(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Object: InkRecognizerCapabilities = InkRecognizerCapabilities(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_FreeInput: InkRecognizerCapabilities = InkRecognizerCapabilities(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_LinedInput: InkRecognizerCapabilities = InkRecognizerCapabilities(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_BoxedInput: InkRecognizerCapabilities = InkRecognizerCapabilities(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_CharacterAutoCompletionInput: InkRecognizerCapabilities = InkRecognizerCapabilities(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_RightAndDown: InkRecognizerCapabilities = InkRecognizerCapabilities(64i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_LeftAndDown: InkRecognizerCapabilities = InkRecognizerCapabilities(128i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_DownAndLeft: InkRecognizerCapabilities = InkRecognizerCapabilities(256i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_DownAndRight: InkRecognizerCapabilities = InkRecognizerCapabilities(512i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_ArbitraryAngle: InkRecognizerCapabilities = InkRecognizerCapabilities(1024i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Lattice: InkRecognizerCapabilities = InkRecognizerCapabilities(2048i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_AdviseInkChange: InkRecognizerCapabilities = InkRecognizerCapabilities(4096i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_StrokeReorder: InkRecognizerCapabilities = InkRecognizerCapabilities(8192i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Personalizable: InkRecognizerCapabilities = InkRecognizerCapabilities(16384i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_PrefersArbitraryAngle: InkRecognizerCapabilities = InkRecognizerCapabilities(32768i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_PrefersParagraphBreaking: InkRecognizerCapabilities = InkRecognizerCapabilities(65536i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_PrefersSegmentation: InkRecognizerCapabilities = InkRecognizerCapabilities(131072i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Cursive: InkRecognizerCapabilities = InkRecognizerCapabilities(262144i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_TextPrediction: InkRecognizerCapabilities = InkRecognizerCapabilities(524288i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Alpha: InkRecognizerCapabilities = InkRecognizerCapabilities(1048576i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRC_Beta: InkRecognizerCapabilities = InkRecognizerCapabilities(2097152i32);
 impl ::core::marker::Copy for InkRecognizerCapabilities {}
 impl ::core::clone::Clone for InkRecognizerCapabilities {
@@ -14082,15 +12645,11 @@ impl ::core::fmt::Debug for InkRecognizerCapabilities {
         f.debug_tuple("InkRecognizerCapabilities").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkRecognizerCharacterAutoCompletionMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRCACM_Full: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRCACM_Prefix: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IRCACM_Random: InkRecognizerCharacterAutoCompletionMode = InkRecognizerCharacterAutoCompletionMode(2i32);
 impl ::core::marker::Copy for InkRecognizerCharacterAutoCompletionMode {}
 impl ::core::clone::Clone for InkRecognizerCharacterAutoCompletionMode {
@@ -14116,13 +12675,10 @@ pub const InkRecognizerGuide: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const InkRecognizers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fd4e808_f6e6_4e65_98d3_aa39054c1255);
 pub const InkRectangle: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b07326_aae0_4b62_a83d_5fd768b7353c);
 pub const InkRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c1cc6e4_d7eb_4eeb_9091_15a7c8791ed9);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkSelectionConstants(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISC_FirstElement: InkSelectionConstants = InkSelectionConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISC_AllElements: InkSelectionConstants = InkSelectionConstants(-1i32);
 impl ::core::marker::Copy for InkSelectionConstants {}
 impl ::core::clone::Clone for InkSelectionConstants {
@@ -14143,15 +12699,11 @@ impl ::core::fmt::Debug for InkSelectionConstants {
         f.debug_tuple("InkSelectionConstants").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkShiftKeyModifierFlags(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IKM_Shift: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IKM_Control: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IKM_Alt: InkShiftKeyModifierFlags = InkShiftKeyModifierFlags(4i32);
 impl ::core::marker::Copy for InkShiftKeyModifierFlags {}
 impl ::core::clone::Clone for InkShiftKeyModifierFlags {
@@ -14173,29 +12725,18 @@ impl ::core::fmt::Debug for InkShiftKeyModifierFlags {
     }
 }
 pub const InkStrokes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f491bc_240e_4860_b079_a1e94d3d2c86);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InkSystemGesture(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_Tap: InkSystemGesture = InkSystemGesture(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_DoubleTap: InkSystemGesture = InkSystemGesture(17i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_RightTap: InkSystemGesture = InkSystemGesture(18i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_Drag: InkSystemGesture = InkSystemGesture(19i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_RightDrag: InkSystemGesture = InkSystemGesture(20i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_HoldEnter: InkSystemGesture = InkSystemGesture(21i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_HoldLeave: InkSystemGesture = InkSystemGesture(22i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_HoverEnter: InkSystemGesture = InkSystemGesture(23i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_HoverLeave: InkSystemGesture = InkSystemGesture(24i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const ISG_Flick: InkSystemGesture = InkSystemGesture(31i32);
 impl ::core::marker::Copy for InkSystemGesture {}
 impl ::core::clone::Clone for InkSystemGesture {
@@ -14219,17 +12760,12 @@ impl ::core::fmt::Debug for InkSystemGesture {
 pub const InkTablets: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e4fcb12_510a_4d40_9304_1da10ae9147c);
 pub const InkTransform: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d5d93c_1663_4a78_a1a7_22375dfebaee);
 pub const InkWordList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9de85094_f71f_44f1_8471_15a2fa76fcf3);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InteractionMode_InPlace: InteractionMode = InteractionMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InteractionMode_Floating: InteractionMode = InteractionMode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InteractionMode_DockedTop: InteractionMode = InteractionMode(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InteractionMode_DockedBottom: InteractionMode = InteractionMode(3i32);
 impl ::core::marker::Copy for InteractionMode {}
 impl ::core::clone::Clone for InteractionMode {
@@ -14250,7 +12786,6 @@ impl ::core::fmt::Debug for InteractionMode {
         f.debug_tuple("InteractionMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn IsStringSupported<'a, P0, P1>(hrc: P0, wcstring: u32, pwcstring: P1) -> ::windows::core::Result<()>
 where
@@ -14263,21 +12798,14 @@ where
     }
     IsStringSupported(hrc.into(), wcstring, pwcstring.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KEYMODIFIER(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const KEYMODIFIER_CONTROL: KEYMODIFIER = KEYMODIFIER(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const KEYMODIFIER_MENU: KEYMODIFIER = KEYMODIFIER(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const KEYMODIFIER_SHIFT: KEYMODIFIER = KEYMODIFIER(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const KEYMODIFIER_WIN: KEYMODIFIER = KEYMODIFIER(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const KEYMODIFIER_ALTGR: KEYMODIFIER = KEYMODIFIER(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const KEYMODIFIER_EXT: KEYMODIFIER = KEYMODIFIER(32i32);
 impl ::core::marker::Copy for KEYMODIFIER {}
 impl ::core::clone::Clone for KEYMODIFIER {
@@ -14299,7 +12827,6 @@ impl ::core::fmt::Debug for KEYMODIFIER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LATTICE_METRICS {
     pub lsBaseline: LINE_SEGMENT,
@@ -14337,17 +12864,12 @@ impl ::core::default::Default for LATTICE_METRICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LINE_METRICS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const LM_BASELINE: LINE_METRICS = LINE_METRICS(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const LM_MIDLINE: LINE_METRICS = LINE_METRICS(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const LM_ASCENDER: LINE_METRICS = LINE_METRICS(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const LM_DESCENDER: LINE_METRICS = LINE_METRICS(3i32);
 impl ::core::marker::Copy for LINE_METRICS {}
 impl ::core::clone::Clone for LINE_METRICS {
@@ -14369,7 +12891,6 @@ impl ::core::fmt::Debug for LINE_METRICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LINE_SEGMENT {
     pub PtA: super::super::Foundation::POINT,
@@ -14407,7 +12928,6 @@ impl ::core::default::Default for LINE_SEGMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes: &mut RECO_ATTRS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -14416,49 +12936,28 @@ pub unsafe fn LoadCachedAttributes(clsid: ::windows::core::GUID, precoattributes
     }
     LoadCachedAttributes(::core::mem::transmute(clsid), ::core::mem::transmute(precoattributes)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_FRIENDLYNAME: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_LANGUAGES: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_PACKET_BUTTON_COUNT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_PACKET_PROPERTY_COUNT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MAX_VENDORNAME: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICROSOFT_PENINPUT_PANEL_PROPERTY_T: &str = "Microsoft PenInputPanel 1.5";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICROSOFT_TIP_COMBOBOXLIST_PROPERTY: &str = "Microsoft TIP ComboBox List Window Identifier";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY: &str = "Microsoft TIP No Insert Option";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICROSOFT_TIP_OPENING_MSG: &str = "TabletInputPanelOpening";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICROSOFT_URL_EXPERIENCE_PROPERTY: &str = "Microsoft TIP URL Experience";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MICUIELEMENT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_WRITE: MICUIELEMENT = MICUIELEMENT(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_ERASE: MICUIELEMENT = MICUIELEMENT(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_CORRECT: MICUIELEMENT = MICUIELEMENT(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_CLEAR: MICUIELEMENT = MICUIELEMENT(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_UNDO: MICUIELEMENT = MICUIELEMENT(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_REDO: MICUIELEMENT = MICUIELEMENT(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_INSERT: MICUIELEMENT = MICUIELEMENT(64i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_BUTTON_CANCEL: MICUIELEMENT = MICUIELEMENT(128i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_INKPANEL_BACKGROUND: MICUIELEMENT = MICUIELEMENT(256i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENT_RESULTPANEL_BACKGROUND: MICUIELEMENT = MICUIELEMENT(512i32);
 impl ::core::marker::Copy for MICUIELEMENT {}
 impl ::core::clone::Clone for MICUIELEMENT {
@@ -14479,17 +12978,12 @@ impl ::core::fmt::Debug for MICUIELEMENT {
         f.debug_tuple("MICUIELEMENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MICUIELEMENTSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENTSTATE_NORMAL: MICUIELEMENTSTATE = MICUIELEMENTSTATE(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENTSTATE_HOT: MICUIELEMENTSTATE = MICUIELEMENTSTATE(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENTSTATE_PRESSED: MICUIELEMENTSTATE = MICUIELEMENTSTATE(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MICUIELEMENTSTATE_DISABLED: MICUIELEMENTSTATE = MICUIELEMENTSTATE(4i32);
 impl ::core::marker::Copy for MICUIELEMENTSTATE {}
 impl ::core::clone::Clone for MICUIELEMENTSTATE {
@@ -14510,7 +13004,6 @@ impl ::core::fmt::Debug for MICUIELEMENTSTATE {
         f.debug_tuple("MICUIELEMENTSTATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn MakeWordList<'a, P0, P1>(hrec: P0, pbuffer: P1, phwl: &mut HRECOWORDLIST) -> ::windows::core::Result<()>
 where
@@ -14524,17 +13017,12 @@ where
     MakeWordList(hrec.into(), pbuffer.into(), ::core::mem::transmute(phwl)).ok()
 }
 pub const MathInputControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc561816c_14d8_4090_830c_98d994b21c7b);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MouseButton(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const NO_BUTTON: MouseButton = MouseButton(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const LEFT_BUTTON: MouseButton = MouseButton(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RIGHT_BUTTON: MouseButton = MouseButton(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const MIDDLE_BUTTON: MouseButton = MouseButton(4i32);
 impl ::core::marker::Copy for MouseButton {}
 impl ::core::clone::Clone for MouseButton {
@@ -14555,10 +13043,8 @@ impl ::core::fmt::Debug for MouseButton {
         f.debug_tuple("MouseButton").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const NUM_FLICK_DIRECTIONS: u32 = 8u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct PACKET_DESCRIPTION {
     pub cbPacketSize: u32,
     pub cPacketProperties: u32,
@@ -14592,7 +13078,6 @@ impl ::core::default::Default for PACKET_DESCRIPTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct PACKET_PROPERTY {
     pub guid: ::windows::core::GUID,
     pub PropertyMetrics: PROPERTY_METRICS,
@@ -14623,7 +13108,6 @@ impl ::core::default::Default for PACKET_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct PROPERTY_METRICS {
     pub nLogicalMin: i32,
     pub nLogicalMax: i32,
@@ -14655,43 +13139,25 @@ impl ::core::default::Default for PROPERTY_METRICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTY_UNITS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_DEFAULT: PROPERTY_UNITS = PROPERTY_UNITS(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_INCHES: PROPERTY_UNITS = PROPERTY_UNITS(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_CENTIMETERS: PROPERTY_UNITS = PROPERTY_UNITS(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_DEGREES: PROPERTY_UNITS = PROPERTY_UNITS(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_RADIANS: PROPERTY_UNITS = PROPERTY_UNITS(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_SECONDS: PROPERTY_UNITS = PROPERTY_UNITS(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_POUNDS: PROPERTY_UNITS = PROPERTY_UNITS(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_GRAMS: PROPERTY_UNITS = PROPERTY_UNITS(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_SILINEAR: PROPERTY_UNITS = PROPERTY_UNITS(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_SIROTATION: PROPERTY_UNITS = PROPERTY_UNITS(9i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_ENGLINEAR: PROPERTY_UNITS = PROPERTY_UNITS(10i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_ENGROTATION: PROPERTY_UNITS = PROPERTY_UNITS(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_SLUGS: PROPERTY_UNITS = PROPERTY_UNITS(12i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_KELVIN: PROPERTY_UNITS = PROPERTY_UNITS(13i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_FAHRENHEIT: PROPERTY_UNITS = PROPERTY_UNITS(14i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_AMPERE: PROPERTY_UNITS = PROPERTY_UNITS(15i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PROPERTY_UNITS_CANDELA: PROPERTY_UNITS = PROPERTY_UNITS(16i32);
 impl ::core::marker::Copy for PROPERTY_UNITS {}
 impl ::core::clone::Clone for PROPERTY_UNITS {
@@ -14712,17 +13178,12 @@ impl ::core::fmt::Debug for PROPERTY_UNITS {
         f.debug_tuple("PROPERTY_UNITS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PanelInputArea(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PanelInputArea_Auto: PanelInputArea = PanelInputArea(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PanelInputArea_Keyboard: PanelInputArea = PanelInputArea(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PanelInputArea_WritingPad: PanelInputArea = PanelInputArea(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PanelInputArea_CharacterPad: PanelInputArea = PanelInputArea(3i32);
 impl ::core::marker::Copy for PanelInputArea {}
 impl ::core::clone::Clone for PanelInputArea {
@@ -14743,17 +13204,12 @@ impl ::core::fmt::Debug for PanelInputArea {
         f.debug_tuple("PanelInputArea").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PanelType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PT_Default: PanelType = PanelType(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PT_Inactive: PanelType = PanelType(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PT_Handwriting: PanelType = PanelType(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const PT_Keyboard: PanelType = PanelType(3i32);
 impl ::core::marker::Copy for PanelType {}
 impl ::core::clone::Clone for PanelType {
@@ -14776,9 +13232,7 @@ impl ::core::fmt::Debug for PanelType {
 }
 pub const PenInputPanel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf744e496_1b5a_489e_81dc_fbd7ac6298a8);
 pub const PenInputPanel_Internal: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x802b1fb9_056b_4720_b0cc_80d23b71171e);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub type PfnRecoCallback = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut u8, param2: HRECOCONTEXT) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process<'a, P0>(hrc: P0, pbpartialprocessing: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
@@ -14791,30 +13245,18 @@ where
     }
     Process(hrc.into(), ::core::mem::transmute(pbpartialprocessing)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOCONF_HIGHCONFIDENCE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOCONF_LOWCONFIDENCE: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOCONF_MEDIUMCONFIDENCE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOCONF_NOTSET: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOFLAG_AUTOSPACE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOFLAG_COERCE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOFLAG_DISABLEPERSONALIZATION: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOFLAG_LINEMODE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOFLAG_PREFIXOK: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOFLAG_SINGLESEG: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECOFLAG_WORDMODE: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_ATTRS {
     pub dwRecoCapabilityFlags: u32,
     pub awcVendorName: [u16; 32],
@@ -14847,7 +13289,6 @@ impl ::core::default::Default for RECO_ATTRS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_GUIDE {
     pub xOrigin: i32,
     pub yOrigin: i32,
@@ -14885,7 +13326,6 @@ impl ::core::default::Default for RECO_GUIDE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_LATTICE {
     pub ulColumnCount: u32,
     pub pLatticeColumns: *mut RECO_LATTICE_COLUMN,
@@ -14921,7 +13361,6 @@ impl ::core::default::Default for RECO_LATTICE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_LATTICE_COLUMN {
     pub key: u32,
     pub cpProp: RECO_LATTICE_PROPERTIES,
@@ -14956,7 +13395,6 @@ impl ::core::default::Default for RECO_LATTICE_COLUMN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_LATTICE_ELEMENT {
     pub score: i32,
     pub r#type: u16,
@@ -14991,7 +13429,6 @@ impl ::core::default::Default for RECO_LATTICE_ELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_LATTICE_PROPERTIES {
     pub cProperties: u32,
     pub apProps: *mut *mut RECO_LATTICE_PROPERTY,
@@ -15022,7 +13459,6 @@ impl ::core::default::Default for RECO_LATTICE_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_LATTICE_PROPERTY {
     pub guidProperty: ::windows::core::GUID,
     pub cbPropertyValue: u16,
@@ -15054,7 +13490,6 @@ impl ::core::default::Default for RECO_LATTICE_PROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct RECO_RANGE {
     pub iwcBegin: u32,
     pub cCount: u32,
@@ -15084,84 +13519,46 @@ impl ::core::default::Default for RECO_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_ADVISEINKCHANGE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_ARBITRARY_ANGLE: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_BOXED_INPUT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_CAC_INPUT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_DONTCARE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_DOWN_AND_LEFT: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_DOWN_AND_RIGHT: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_FREE_INPUT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_LATTICE: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_LEFT_AND_DOWN: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_LINED_INPUT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_OBJECT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_PERFORMSLINEBREAKING: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_PERSONALIZABLE: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_REQUIRESSEGMENTATIONBREAKING: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_RIGHT_AND_DOWN: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RF_STROKEREORDER: i32 = 8192i32;
 pub const RealTimeStylus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe26b366d_f998_43ce_836f_cb6d904432b0);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RealTimeStylusDataInterest(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_AllData: RealTimeStylusDataInterest = RealTimeStylusDataInterest(-1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_None: RealTimeStylusDataInterest = RealTimeStylusDataInterest(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_Error: RealTimeStylusDataInterest = RealTimeStylusDataInterest(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_RealTimeStylusEnabled: RealTimeStylusDataInterest = RealTimeStylusDataInterest(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_RealTimeStylusDisabled: RealTimeStylusDataInterest = RealTimeStylusDataInterest(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_StylusNew: RealTimeStylusDataInterest = RealTimeStylusDataInterest(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_StylusInRange: RealTimeStylusDataInterest = RealTimeStylusDataInterest(16i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_InAirPackets: RealTimeStylusDataInterest = RealTimeStylusDataInterest(32i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_StylusOutOfRange: RealTimeStylusDataInterest = RealTimeStylusDataInterest(64i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_StylusDown: RealTimeStylusDataInterest = RealTimeStylusDataInterest(128i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_Packets: RealTimeStylusDataInterest = RealTimeStylusDataInterest(256i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_StylusUp: RealTimeStylusDataInterest = RealTimeStylusDataInterest(512i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_StylusButtonUp: RealTimeStylusDataInterest = RealTimeStylusDataInterest(1024i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_StylusButtonDown: RealTimeStylusDataInterest = RealTimeStylusDataInterest(2048i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_SystemEvents: RealTimeStylusDataInterest = RealTimeStylusDataInterest(4096i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_TabletAdded: RealTimeStylusDataInterest = RealTimeStylusDataInterest(8192i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_TabletRemoved: RealTimeStylusDataInterest = RealTimeStylusDataInterest(16384i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_CustomStylusDataAdded: RealTimeStylusDataInterest = RealTimeStylusDataInterest(32768i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_UpdateMapping: RealTimeStylusDataInterest = RealTimeStylusDataInterest(65536i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSDI_DefaultEvents: RealTimeStylusDataInterest = RealTimeStylusDataInterest(37766i32);
 impl ::core::marker::Copy for RealTimeStylusDataInterest {}
 impl ::core::clone::Clone for RealTimeStylusDataInterest {
@@ -15182,21 +13579,14 @@ impl ::core::fmt::Debug for RealTimeStylusDataInterest {
         f.debug_tuple("RealTimeStylusDataInterest").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RealTimeStylusLockType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSLT_ObjLock: RealTimeStylusLockType = RealTimeStylusLockType(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSLT_SyncEventLock: RealTimeStylusLockType = RealTimeStylusLockType(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSLT_AsyncEventLock: RealTimeStylusLockType = RealTimeStylusLockType(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSLT_ExcludeCallback: RealTimeStylusLockType = RealTimeStylusLockType(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSLT_SyncObjLock: RealTimeStylusLockType = RealTimeStylusLockType(11i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RTSLT_AsyncObjLock: RealTimeStylusLockType = RealTimeStylusLockType(13i32);
 impl ::core::marker::Copy for RealTimeStylusLockType {}
 impl ::core::clone::Clone for RealTimeStylusLockType {
@@ -15217,15 +13607,11 @@ impl ::core::fmt::Debug for RealTimeStylusLockType {
         f.debug_tuple("RealTimeStylusLockType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SAFE_PARTIAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCROLLDIRECTION(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SCROLLDIRECTION_UP: SCROLLDIRECTION = SCROLLDIRECTION(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SCROLLDIRECTION_DOWN: SCROLLDIRECTION = SCROLLDIRECTION(1i32);
 impl ::core::marker::Copy for SCROLLDIRECTION {}
 impl ::core::clone::Clone for SCROLLDIRECTION {
@@ -15247,7 +13633,6 @@ impl ::core::fmt::Debug for SCROLLDIRECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct STROKE_RANGE {
     pub iStrokeBegin: u32,
     pub iStrokeEnd: u32,
@@ -15277,50 +13662,28 @@ impl ::core::default::Default for STROKE_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_ALTITUDEORIENTATION: &str = "{82DEC5C7-F6BA-4906-894F-66D68DFC456C}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_AZIMUTHORIENTATION: &str = "{029123B4-8828-410B-B250-A0536595E5DC}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_BUTTONPRESSURE: &str = "{8B7FEFC4-96AA-4BFE-AC26-8A5F0BE07BF5}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_DEVICE_CONTACT_ID: &str = "{02585B91-049B-4750-9615-DF8948AB3C9C}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_FINGERCONTACTCONFIDENCE: &str = "{E706C804-57F0-4F00-8A0C-853D57789BE9}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_HEIGHT: &str = "{E61858D2-E447-4218-9D3F-18865C203DF4}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_NORMALPRESSURE: &str = "{7307502D-F9F4-4E18-B3F2-2CE1B1A3610C}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_PAKETSTATUS: &str = "{6E0E07BF-AFE7-4CF7-87D1-AF6446208418}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_PITCHROTATION: &str = "{7F7E57B7-BE37-4BE1-A356-7A84160E1893}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_ROLLROTATION: &str = "{5D5D5E56-6BA9-4C5B-9FB0-851C91714E56}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_SERIALNUMBER: &str = "{78A81B56-0935-4493-BAAE-00541A8A16C4}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_TANGENTPRESSURE: &str = "{6DA4488B-5244-41EC-905B-32D89AB80809}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_TIMERTICK: &str = "{436510C5-FED3-45D1-8B76-71D3EA7A829D}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_TWISTORIENTATION: &str = "{0D324960-13B2-41E4-ACE6-7AE9D43D2D3B}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_WIDTH: &str = "{BAABE94D-2712-48F5-BE9D-8F8B5EA0711A}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_X: &str = "{598A6A8F-52C0-4BA0-93AF-AF357411A561}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_XTILTORIENTATION: &str = "{A8D07B3A-8BF0-40B0-95A9-B80A6BB787BF}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_Y: &str = "{B53F9F75-04E0-4498-A7EE-C30DBB5A9011}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_YAWROTATION: &str = "{6A849980-7C3A-45B7-AA82-90A262950E89}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_YTILTORIENTATION: &str = "{0E932389-1D77-43AF-AC00-5B950D6D4B2D}";
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const STR_GUID_Z: &str = "{735ADB30-0EBB-4788-A0E4-0F316490055D}";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub struct SYSTEM_EVENT_DATA {
     pub bModifier: u8,
     pub wKey: u16,
@@ -15354,17 +13717,12 @@ impl ::core::default::Default for SYSTEM_EVENT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ScrollBarsConstants(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfNone: ScrollBarsConstants = ScrollBarsConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfHorizontal: ScrollBarsConstants = ScrollBarsConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfVertical: ScrollBarsConstants = ScrollBarsConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfBoth: ScrollBarsConstants = ScrollBarsConstants(3i32);
 impl ::core::marker::Copy for ScrollBarsConstants {}
 impl ::core::clone::Clone for ScrollBarsConstants {
@@ -15385,15 +13743,11 @@ impl ::core::fmt::Debug for ScrollBarsConstants {
         f.debug_tuple("ScrollBarsConstants").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelAlignmentConstants(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfLeft: SelAlignmentConstants = SelAlignmentConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfRight: SelAlignmentConstants = SelAlignmentConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const rtfCenter: SelAlignmentConstants = SelAlignmentConstants(2i32);
 impl ::core::marker::Copy for SelAlignmentConstants {}
 impl ::core::clone::Clone for SelAlignmentConstants {
@@ -15414,29 +13768,18 @@ impl ::core::fmt::Debug for SelAlignmentConstants {
         f.debug_tuple("SelAlignmentConstants").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelectionHitResult(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_None: SelectionHitResult = SelectionHitResult(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_NW: SelectionHitResult = SelectionHitResult(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_SE: SelectionHitResult = SelectionHitResult(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_NE: SelectionHitResult = SelectionHitResult(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_SW: SelectionHitResult = SelectionHitResult(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_E: SelectionHitResult = SelectionHitResult(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_W: SelectionHitResult = SelectionHitResult(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_N: SelectionHitResult = SelectionHitResult(7i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_S: SelectionHitResult = SelectionHitResult(8i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SHR_Selection: SelectionHitResult = SelectionHitResult(9i32);
 impl ::core::marker::Copy for SelectionHitResult {}
 impl ::core::clone::Clone for SelectionHitResult {
@@ -15457,7 +13800,6 @@ impl ::core::fmt::Debug for SelectionHitResult {
         f.debug_tuple("SelectionHitResult").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetEnabledUnicodeRanges<'a, P0>(hrc: P0, cranges: u32, pcr: &mut CHARACTER_RANGE) -> ::windows::core::Result<()>
 where
@@ -15469,7 +13811,6 @@ where
     }
     SetEnabledUnicodeRanges(hrc.into(), cranges, ::core::mem::transmute(pcr)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetFactoid<'a, P0, P1>(hrc: P0, cwcfactoid: u32, pwcfactoid: P1) -> ::windows::core::Result<()>
 where
@@ -15482,7 +13823,6 @@ where
     }
     SetFactoid(hrc.into(), cwcfactoid, pwcfactoid.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetFlags<'a, P0>(hrc: P0, dwflags: u32) -> ::windows::core::Result<()>
 where
@@ -15494,7 +13834,6 @@ where
     }
     SetFlags(hrc.into(), dwflags).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetGuide<'a, P0>(hrc: P0, pguide: &RECO_GUIDE, iindex: u32) -> ::windows::core::Result<()>
 where
@@ -15506,7 +13845,6 @@ where
     }
     SetGuide(hrc.into(), ::core::mem::transmute(pguide), iindex).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetTextContext<'a, P0>(hrc: P0, pwcbefore: &[u16], pwcafter: &[u16]) -> ::windows::core::Result<()>
 where
@@ -15518,7 +13856,6 @@ where
     }
     SetTextContext(hrc.into(), pwcbefore.len() as _, ::core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len() as _, ::core::mem::transmute(pwcafter.as_ptr())).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[inline]
 pub unsafe fn SetWordList<'a, P0, P1>(hrc: P0, hwl: P1) -> ::windows::core::Result<()>
 where
@@ -15534,7 +13871,6 @@ where
 pub const SketchInk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0291081_e87c_4e07_97da_a0a03761e586);
 pub const StrokeBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe810cee7_6e51_4cb0_aa3a_0b985b70daf7);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct StylusInfo {
     pub tcid: u32,
@@ -15573,15 +13909,11 @@ impl ::core::default::Default for StylusInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StylusQueue(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const SyncStylusQueue: StylusQueue = StylusQueue(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const AsyncStylusQueueImmediate: StylusQueue = StylusQueue(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const AsyncStylusQueue: StylusQueue = StylusQueue(3i32);
 impl ::core::marker::Copy for StylusQueue {}
 impl ::core::clone::Clone for StylusQueue {
@@ -15602,39 +13934,23 @@ impl ::core::fmt::Debug for StylusQueue {
         f.debug_tuple("StylusQueue").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_FLICKFALLBACKKEYS: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_FLICKS: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_PENBARRELFEEDBACK: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_PENTAPFEEDBACK: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_PRESSANDHOLD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_SMOOTHSCROLLING: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_TOUCHSWITCH: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_TOUCHUIFORCEOFF: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_DISABLE_TOUCHUIFORCEON: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_ENABLE_FLICKLEARNINGMODE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_ENABLE_FLICKSONCONTEXT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TABLET_ENABLE_MULTITOUCHDATA: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabletDeviceKind(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TDK_Mouse: TabletDeviceKind = TabletDeviceKind(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TDK_Pen: TabletDeviceKind = TabletDeviceKind(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TDK_Touch: TabletDeviceKind = TabletDeviceKind(2i32);
 impl ::core::marker::Copy for TabletDeviceKind {}
 impl ::core::clone::Clone for TabletDeviceKind {
@@ -15655,17 +13971,12 @@ impl ::core::fmt::Debug for TabletDeviceKind {
         f.debug_tuple("TabletDeviceKind").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabletHardwareCapabilities(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const THWC_Integrated: TabletHardwareCapabilities = TabletHardwareCapabilities(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const THWC_CursorMustTouch: TabletHardwareCapabilities = TabletHardwareCapabilities(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const THWC_HardProximity: TabletHardwareCapabilities = TabletHardwareCapabilities(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const THWC_CursorsHavePhysicalIds: TabletHardwareCapabilities = TabletHardwareCapabilities(8i32);
 impl ::core::marker::Copy for TabletHardwareCapabilities {}
 impl ::core::clone::Clone for TabletHardwareCapabilities {
@@ -15686,25 +13997,16 @@ impl ::core::fmt::Debug for TabletHardwareCapabilities {
         f.debug_tuple("TabletHardwareCapabilities").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabletPropertyMetricUnit(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Default: TabletPropertyMetricUnit = TabletPropertyMetricUnit(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Inches: TabletPropertyMetricUnit = TabletPropertyMetricUnit(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Centimeters: TabletPropertyMetricUnit = TabletPropertyMetricUnit(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Degrees: TabletPropertyMetricUnit = TabletPropertyMetricUnit(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Radians: TabletPropertyMetricUnit = TabletPropertyMetricUnit(4i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Seconds: TabletPropertyMetricUnit = TabletPropertyMetricUnit(5i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Pounds: TabletPropertyMetricUnit = TabletPropertyMetricUnit(6i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TPMU_Grams: TabletPropertyMetricUnit = TabletPropertyMetricUnit(7i32);
 impl ::core::marker::Copy for TabletPropertyMetricUnit {}
 impl ::core::clone::Clone for TabletPropertyMetricUnit {
@@ -15727,19 +14029,13 @@ impl ::core::fmt::Debug for TabletPropertyMetricUnit {
 }
 pub const TextInputPanel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b189d7_228b_4f2b_8650_b97f59e02c8c);
 pub const TipAutoCompleteClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x807c1e6c_1d00_453f_b920_b61bb7cdd997);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const InPlace: VisualState = VisualState(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const Floating: VisualState = VisualState(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DockedTop: VisualState = VisualState(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const DockedBottom: VisualState = VisualState(3i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const Closed: VisualState = VisualState(4i32);
 impl ::core::marker::Copy for VisualState {}
 impl ::core::clone::Clone for VisualState {
@@ -15760,19 +14056,12 @@ impl ::core::fmt::Debug for VisualState {
         f.debug_tuple("VisualState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const WM_TABLET_ADDED: u32 = 712u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const WM_TABLET_DEFBASE: u32 = 704u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const WM_TABLET_DELETED: u32 = 713u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const WM_TABLET_FLICK: u32 = 715u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const WM_TABLET_MAXOFFSET: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const WM_TABLET_QUERYSYSTEMGESTURESTATUS: u32 = 716u32;
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IInkCollectorEvents(::windows::core::IUnknown);
@@ -15845,7 +14134,6 @@ unsafe impl ::windows::core::Interface for _IInkCollectorEvents {
 pub struct _IInkCollectorEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IInkEditEvents(::windows::core::IUnknown);
@@ -15918,7 +14206,6 @@ unsafe impl ::windows::core::Interface for _IInkEditEvents {
 pub struct _IInkEditEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IInkEvents(::windows::core::IUnknown);
@@ -15991,7 +14278,6 @@ unsafe impl ::windows::core::Interface for _IInkEvents {
 pub struct _IInkEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IInkOverlayEvents(::windows::core::IUnknown);
@@ -16064,7 +14350,6 @@ unsafe impl ::windows::core::Interface for _IInkOverlayEvents {
 pub struct _IInkOverlayEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IInkPictureEvents(::windows::core::IUnknown);
@@ -16137,7 +14422,6 @@ unsafe impl ::windows::core::Interface for _IInkPictureEvents {
 pub struct _IInkPictureEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IInkRecognitionEvents(::windows::core::IUnknown);
@@ -16210,7 +14494,6 @@ unsafe impl ::windows::core::Interface for _IInkRecognitionEvents {
 pub struct _IInkRecognitionEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IInkStrokesEvents(::windows::core::IUnknown);
@@ -16283,7 +14566,6 @@ unsafe impl ::windows::core::Interface for _IInkStrokesEvents {
 pub struct _IInkStrokesEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IMathInputControlEvents(::windows::core::IUnknown);
@@ -16356,7 +14638,6 @@ unsafe impl ::windows::core::Interface for _IMathInputControlEvents {
 pub struct _IMathInputControlEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct _IPenInputPanelEvents(::windows::core::IUnknown);
@@ -16429,13 +14710,10 @@ unsafe impl ::windows::core::Interface for _IPenInputPanelEvents {
 pub struct _IPenInputPanelEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct enumGetCandidateFlags(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TCF_ALLOW_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const TCF_FORCE_RECOGNITION: enumGetCandidateFlags = enumGetCandidateFlags(2i32);
 impl ::core::marker::Copy for enumGetCandidateFlags {}
 impl ::core::clone::Clone for enumGetCandidateFlags {
@@ -16456,15 +14734,11 @@ impl ::core::fmt::Debug for enumGetCandidateFlags {
         f.debug_tuple("enumGetCandidateFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct enumINKMETRIC_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_FONT_SELECTED_IN_HDC: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_ITALIC: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const IMF_BOLD: enumINKMETRIC_FLAGS = enumINKMETRIC_FLAGS(4i32);
 impl ::core::marker::Copy for enumINKMETRIC_FLAGS {}
 impl ::core::clone::Clone for enumINKMETRIC_FLAGS {
@@ -16485,13 +14759,10 @@ impl ::core::fmt::Debug for enumINKMETRIC_FLAGS {
         f.debug_tuple("enumINKMETRIC_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct enumRECO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECO_TYPE_WSTRING: enumRECO_TYPE = enumRECO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const RECO_TYPE_WCHAR: enumRECO_TYPE = enumRECO_TYPE(1i32);
 impl ::core::marker::Copy for enumRECO_TYPE {}
 impl ::core::clone::Clone for enumRECO_TYPE {

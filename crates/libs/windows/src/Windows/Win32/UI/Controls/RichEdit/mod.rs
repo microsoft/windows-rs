@@ -1,29 +1,16 @@
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ATP_CHANGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ATP_NOCHANGE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ATP_NODELIMITER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ATP_REPLACEALLTEXT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const AURL_DISABLEMIXEDLGC: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const AURL_ENABLEDRIVELETTERS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const AURL_ENABLEEA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const AURL_ENABLEEAURLS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const AURL_ENABLEEMAILADDR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const AURL_ENABLETELNO: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const AURL_ENABLEURL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub type AutoCorrectProc = ::core::option::Option<unsafe extern "system" fn(langid: u16, pszbefore: ::windows::core::PCWSTR, pszafter: ::windows::core::PCWSTR, cchafter: i32, pcchreplaced: *mut i32) -> i32>;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct BIDIOPTIONS {
     pub cbSize: u32,
     pub wMask: u16,
@@ -54,51 +41,29 @@ impl ::core::default::Default for BIDIOPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_CONTEXTALIGNMENT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_CONTEXTREADING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_FORCERECALC: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_LEGACYBIDICLASS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_NEUTRALOVERRIDE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_PLAINTEXT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_RTLDIR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOE_UNICODEBIDI: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOM_CONTEXTALIGNMENT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOM_CONTEXTREADING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOM_DEFPARADIR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOM_LEGACYBIDICLASS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOM_NEUTRALOVERRIDE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOM_PLAINTEXT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const BOM_UNICODEBIDI: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CARET_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CARET_NONE: CARET_FLAGS = CARET_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CARET_CUSTOM: CARET_FLAGS = CARET_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CARET_RTL: CARET_FLAGS = CARET_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CARET_ITALIC: CARET_FLAGS = CARET_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CARET_NULL: CARET_FLAGS = CARET_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CARET_ROTATE90: CARET_FLAGS = CARET_FLAGS(128i32);
 impl ::core::marker::Copy for CARET_FLAGS {}
 impl ::core::clone::Clone for CARET_FLAGS {
@@ -120,7 +85,6 @@ impl ::core::fmt::Debug for CARET_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub union CARET_INFO {
     pub hbitmap: super::super::super::Graphics::Gdi::HBITMAP,
@@ -152,63 +116,35 @@ impl ::core::default::Default for CARET_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CERICHEDIT_CLASSA: &str = "RichEditCEA";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CERICHEDIT_CLASSW: &str = "RichEditCEW";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CFE_EFFECTS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_ALLCAPS: CFE_EFFECTS = CFE_EFFECTS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_AUTOBACKCOLOR: CFE_EFFECTS = CFE_EFFECTS(67108864u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_DISABLED: CFE_EFFECTS = CFE_EFFECTS(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_EMBOSS: CFE_EFFECTS = CFE_EFFECTS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_HIDDEN: CFE_EFFECTS = CFE_EFFECTS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_IMPRINT: CFE_EFFECTS = CFE_EFFECTS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_OUTLINE: CFE_EFFECTS = CFE_EFFECTS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_REVISED: CFE_EFFECTS = CFE_EFFECTS(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_SHADOW: CFE_EFFECTS = CFE_EFFECTS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_SMALLCAPS: CFE_EFFECTS = CFE_EFFECTS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_AUTOCOLOR: CFE_EFFECTS = CFE_EFFECTS(1073741824u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_BOLD: CFE_EFFECTS = CFE_EFFECTS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_ITALIC: CFE_EFFECTS = CFE_EFFECTS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_STRIKEOUT: CFE_EFFECTS = CFE_EFFECTS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_UNDERLINE: CFE_EFFECTS = CFE_EFFECTS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_PROTECTED: CFE_EFFECTS = CFE_EFFECTS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_LINK: CFE_EFFECTS = CFE_EFFECTS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_SUBSCRIPT: CFE_EFFECTS = CFE_EFFECTS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_SUPERSCRIPT: CFE_EFFECTS = CFE_EFFECTS(131072u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_FONTBOUND: CFE_EFFECTS = CFE_EFFECTS(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_LINKPROTECTED: CFE_EFFECTS = CFE_EFFECTS(8388608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_EXTENDED: CFE_EFFECTS = CFE_EFFECTS(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_MATHNOBUILDUP: CFE_EFFECTS = CFE_EFFECTS(134217728u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_MATH: CFE_EFFECTS = CFE_EFFECTS(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFE_MATHORDINARY: CFE_EFFECTS = CFE_EFFECTS(536870912u32);
 impl ::core::marker::Copy for CFE_EFFECTS {}
 impl ::core::clone::Clone for CFE_EFFECTS {
@@ -257,95 +193,51 @@ impl ::core::ops::Not for CFE_EFFECTS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CFM_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_SUBSCRIPT: CFM_MASK = CFM_MASK(196608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_SUPERSCRIPT: CFM_MASK = CFM_MASK(196608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_EFFECTS: CFM_MASK = CFM_MASK(1073741887u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_ALL: CFM_MASK = CFM_MASK(4160749631u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_BOLD: CFM_MASK = CFM_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_CHARSET: CFM_MASK = CFM_MASK(134217728u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_COLOR: CFM_MASK = CFM_MASK(1073741824u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_FACE: CFM_MASK = CFM_MASK(536870912u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_ITALIC: CFM_MASK = CFM_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_OFFSET: CFM_MASK = CFM_MASK(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_PROTECTED: CFM_MASK = CFM_MASK(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_SIZE: CFM_MASK = CFM_MASK(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_STRIKEOUT: CFM_MASK = CFM_MASK(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_UNDERLINE: CFM_MASK = CFM_MASK(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_LINK: CFM_MASK = CFM_MASK(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_SMALLCAPS: CFM_MASK = CFM_MASK(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_ALLCAPS: CFM_MASK = CFM_MASK(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_HIDDEN: CFM_MASK = CFM_MASK(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_OUTLINE: CFM_MASK = CFM_MASK(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_SHADOW: CFM_MASK = CFM_MASK(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_EMBOSS: CFM_MASK = CFM_MASK(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_IMPRINT: CFM_MASK = CFM_MASK(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_DISABLED: CFM_MASK = CFM_MASK(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_REVISED: CFM_MASK = CFM_MASK(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_REVAUTHOR: CFM_MASK = CFM_MASK(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_ANIMATION: CFM_MASK = CFM_MASK(262144u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_STYLE: CFM_MASK = CFM_MASK(524288u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_KERNING: CFM_MASK = CFM_MASK(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_SPACING: CFM_MASK = CFM_MASK(2097152u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_WEIGHT: CFM_MASK = CFM_MASK(4194304u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_UNDERLINETYPE: CFM_MASK = CFM_MASK(8388608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_COOKIE: CFM_MASK = CFM_MASK(16777216u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_LCID: CFM_MASK = CFM_MASK(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_BACKCOLOR: CFM_MASK = CFM_MASK(67108864u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_EFFECTS2: CFM_MASK = CFM_MASK(1141080063u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_ALL2: CFM_MASK = CFM_MASK(4294967295u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_FONTBOUND: CFM_MASK = CFM_MASK(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_LINKPROTECTED: CFM_MASK = CFM_MASK(8388608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_EXTENDED: CFM_MASK = CFM_MASK(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_MATHNOBUILDUP: CFM_MASK = CFM_MASK(134217728u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_MATH: CFM_MASK = CFM_MASK(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_MATHORDINARY: CFM_MASK = CFM_MASK(536870912u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CFM_ALLEFFECTS: CFM_MASK = CFM_MASK(2115207167u32);
 impl ::core::marker::Copy for CFM_MASK {}
 impl ::core::clone::Clone for CFM_MASK {
@@ -394,14 +286,10 @@ impl ::core::ops::Not for CFM_MASK {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CF_RETEXTOBJ: &str = "RichEdit Text and Objects";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CF_RTF: &str = "Rich Text Format";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CF_RTFNOOBJS: &str = "Rich Text Format Without Objects";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct CHANGENOTIFY {
     pub dwChangeType: CHANGETYPE,
     pub pvCookieData: *mut ::core::ffi::c_void,
@@ -431,17 +319,12 @@ impl ::core::default::Default for CHANGENOTIFY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CHANGETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CN_GENERIC: CHANGETYPE = CHANGETYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CN_TEXTCHANGED: CHANGETYPE = CHANGETYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CN_NEWUNDO: CHANGETYPE = CHANGETYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CN_NEWREDO: CHANGETYPE = CHANGETYPE(4i32);
 impl ::core::marker::Copy for CHANGETYPE {}
 impl ::core::clone::Clone for CHANGETYPE {
@@ -463,7 +346,6 @@ impl ::core::fmt::Debug for CHANGETYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2A {
     pub __AnonymousBase_richedit_L736_C23: CHARFORMATA,
@@ -506,7 +388,6 @@ impl ::core::default::Default for CHARFORMAT2A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
@@ -539,7 +420,6 @@ impl ::core::default::Default for CHARFORMAT2A_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct CHARFORMAT2W {
     pub __AnonymousBase_richedit_L711_C23: CHARFORMATW,
     pub wWeight: u16,
@@ -575,7 +455,6 @@ impl ::core::default::Default for CHARFORMAT2W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
@@ -601,7 +480,6 @@ impl ::core::default::Default for CHARFORMAT2W_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMATA {
     pub cbSize: u32,
@@ -647,7 +525,6 @@ impl ::core::default::Default for CHARFORMATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct CHARFORMATW {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
@@ -685,7 +562,6 @@ impl ::core::default::Default for CHARFORMATW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct CHARRANGE {
     pub cpMin: i32,
     pub cpMax: i32,
@@ -716,7 +592,6 @@ impl ::core::default::Default for CHARRANGE {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLIPBOARDFORMAT {
     pub nmhdr: super::NMHDR,
@@ -749,7 +624,6 @@ impl ::core::default::Default for CLIPBOARDFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct COMPCOLOR {
     pub crText: u32,
     pub crBackground: u32,
@@ -780,60 +654,33 @@ impl ::core::default::Default for COMPCOLOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_CONVERSATION: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_DATETIME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_FILENAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_FULLWIDTHALPHANUMERIC: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_HALFWIDTHALPHANUMERIC: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_HALFWIDTHKATAKANA: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_HANGUL: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_HIRAGANA: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_KATAKANA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_NAME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_NUMERIC: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const CTFMODEBIAS_READING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECOOP_AND: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECOOP_OR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECOOP_SET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECOOP_XOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_AUTOHSCROLL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_AUTOVSCROLL: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_AUTOWORDSELECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_NOHIDESEL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_READONLY: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_SAVESEL: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_SELECTIONBAR: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_VERTICAL: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECO_WANTRETURN: u32 = 4096u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct EDITSTREAM {
     pub dwCookie: usize,
     pub dwError: u32,
@@ -859,256 +706,131 @@ impl ::core::default::Default for EDITSTREAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub type EDITSTREAMCALLBACK = ::core::option::Option<unsafe extern "system" fn(dwcookie: usize, pbbuff: *mut u8, cb: i32, pcb: *mut i32) -> u32>;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub type EDITWORDBREAKPROCEX = ::core::option::Option<unsafe extern "system" fn(pchtext: ::windows::core::PCSTR, cchtext: i32, bcharset: u8, action: i32) -> i32>;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ELLIPSIS_END: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ELLIPSIS_MASK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ELLIPSIS_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ELLIPSIS_WORD: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_ENTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_EXIT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_EXPAND: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_EXPANDDOCUMENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_EXPANDSELECTION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_GETVIEWMODE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_MOVESELECTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EMO_PROMOTE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_AUTOURLDETECT: u32 = 1115u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_CALLAUTOCORRECTPROC: u32 = 1279u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_CANPASTE: u32 = 1074u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_CANREDO: u32 = 1109u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_CONVPOSITION: u32 = 1132u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_DISPLAYBAND: u32 = 1075u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_EXGETSEL: u32 = 1076u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_EXLIMITTEXT: u32 = 1077u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_EXLINEFROMCHAR: u32 = 1078u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_EXSETSEL: u32 = 1079u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_FINDTEXT: u32 = 1080u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_FINDTEXTEX: u32 = 1103u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_FINDTEXTEXW: u32 = 1148u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_FINDTEXTW: u32 = 1147u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_FINDWORDBREAK: u32 = 1100u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_FORMATRANGE: u32 = 1081u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETAUTOCORRECTPROC: u32 = 1257u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETAUTOURLDETECT: u32 = 1116u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETBIDIOPTIONS: u32 = 1225u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETCHARFORMAT: u32 = 1082u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETCTFMODEBIAS: u32 = 1261u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETCTFOPENSTATUS: u32 = 1264u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETEDITSTYLE: u32 = 1229u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETEDITSTYLEEX: u32 = 1300u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETELLIPSISMODE: u32 = 1329u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETELLIPSISSTATE: u32 = 1346u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETEVENTMASK: u32 = 1083u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETHYPHENATEINFO: u32 = 1254u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETIMECOLOR: u32 = 1129u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETIMECOMPMODE: u32 = 1146u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETIMECOMPTEXT: u32 = 1266u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETIMEMODEBIAS: u32 = 1151u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETIMEOPTIONS: u32 = 1131u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETIMEPROPERTY: u32 = 1268u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETLANGOPTIONS: u32 = 1145u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETOLEINTERFACE: u32 = 1084u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETOPTIONS: u32 = 1102u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETPAGE: u32 = 1252u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETPAGEROTATE: u32 = 1259u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETPARAFORMAT: u32 = 1085u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETPUNCTUATION: u32 = 1125u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETQUERYRTFOBJ: u32 = 1293u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETREDONAME: u32 = 1111u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETSCROLLPOS: u32 = 1245u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETSELTEXT: u32 = 1086u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETSTORYTYPE: u32 = 1314u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETTABLEPARMS: u32 = 1289u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETTEXTEX: u32 = 1118u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETTEXTLENGTHEX: u32 = 1119u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETTEXTMODE: u32 = 1114u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETTEXTRANGE: u32 = 1099u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETTOUCHOPTIONS: u32 = 1334u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETTYPOGRAPHYOPTIONS: u32 = 1227u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETUNDONAME: u32 = 1110u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETVIEWKIND: u32 = 1250u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETWORDBREAKPROCEX: u32 = 1104u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETWORDWRAPMODE: u32 = 1127u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_GETZOOM: u32 = 1248u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_HIDESELECTION: u32 = 1087u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_INSERTIMAGE: u32 = 1338u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_INSERTTABLE: u32 = 1256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_ISIME: u32 = 1267u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_OUTLINE: u32 = 1244u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_PASTESPECIAL: u32 = 1088u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_RECONVERSION: u32 = 1149u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_REDO: u32 = 1108u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_REQUESTRESIZE: u32 = 1089u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SELECTIONTYPE: u32 = 1090u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETAUTOCORRECTPROC: u32 = 1258u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETBIDIOPTIONS: u32 = 1224u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETBKGNDCOLOR: u32 = 1091u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETCHARFORMAT: u32 = 1092u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETCTFMODEBIAS: u32 = 1262u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETCTFOPENSTATUS: u32 = 1265u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETEDITSTYLE: u32 = 1228u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETEDITSTYLEEX: u32 = 1299u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETELLIPSISMODE: u32 = 1330u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETEVENTMASK: u32 = 1093u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETFONTSIZE: u32 = 1247u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETHYPHENATEINFO: u32 = 1255u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETIMECOLOR: u32 = 1128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETIMEMODEBIAS: u32 = 1150u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETIMEOPTIONS: u32 = 1130u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETLANGOPTIONS: u32 = 1144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETOLECALLBACK: u32 = 1094u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETOPTIONS: u32 = 1101u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETPAGE: u32 = 1253u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETPAGEROTATE: u32 = 1260u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETPALETTE: u32 = 1117u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETPARAFORMAT: u32 = 1095u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETPUNCTUATION: u32 = 1124u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETQUERYRTFOBJ: u32 = 1294u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETSCROLLPOS: u32 = 1246u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETSTORYTYPE: u32 = 1315u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETTABLEPARMS: u32 = 1331u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETTARGETDEVICE: u32 = 1096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETTEXTEX: u32 = 1121u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETTEXTMODE: u32 = 1113u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETTOUCHOPTIONS: u32 = 1335u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETTYPOGRAPHYOPTIONS: u32 = 1226u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETUIANAME: u32 = 1344u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETUNDOLIMIT: u32 = 1106u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETVIEWKIND: u32 = 1251u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETWORDBREAKPROCEX: u32 = 1105u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETWORDWRAPMODE: u32 = 1126u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SETZOOM: u32 = 1249u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_SHOWSCROLLBAR: u32 = 1120u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_STOPGROUPTYPING: u32 = 1112u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_STREAMIN: u32 = 1097u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EM_STREAMOUT: u32 = 1098u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENCORRECTTEXT {
     pub nmhdr: super::NMHDR,
@@ -1142,7 +864,6 @@ impl ::core::default::Default for ENCORRECTTEXT {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDCOMPOSITIONNOTIFY {
     pub nmhdr: super::NMHDR,
@@ -1174,13 +895,10 @@ impl ::core::default::Default for ENDCOMPOSITIONNOTIFY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENDCOMPOSITIONNOTIFY_CODE(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECN_ENDCOMPOSITION: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ECN_NEWTEXT: ENDCOMPOSITIONNOTIFY_CODE = ENDCOMPOSITIONNOTIFY_CODE(2u32);
 impl ::core::marker::Copy for ENDCOMPOSITIONNOTIFY_CODE {}
 impl ::core::clone::Clone for ENDCOMPOSITIONNOTIFY_CODE {
@@ -1202,7 +920,6 @@ impl ::core::fmt::Debug for ENDCOMPOSITIONNOTIFY_CODE {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENDROPFILES {
     pub nmhdr: super::NMHDR,
@@ -1237,7 +954,6 @@ impl ::core::default::Default for ENDROPFILES {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLINK {
     pub nmhdr: super::NMHDR,
@@ -1273,7 +989,6 @@ impl ::core::default::Default for ENLINK {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENLOWFIRTF {
     pub nmhdr: super::NMHDR,
@@ -1305,58 +1020,32 @@ impl ::core::default::Default for ENLOWFIRTF {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_CHANGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_CLIPFORMAT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_CORRECTTEXT: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_DRAGDROPDONE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_DROPFILES: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_ENDCOMPOSITION: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_GROUPTYPINGCHANGE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_HIDELINKTOOLTIP: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_IMECHANGE: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_KEYEVENTS: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_LANGCHANGE: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_LINK: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_LOWFIRTF: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_MOUSEEVENTS: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_OBJECTPOSITIONS: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_PAGECHANGE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_PARAGRAPHEXPANDED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_PROTECTED: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_REQUESTRESIZE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_SCROLL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_SCROLLEVENTS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_SELCHANGE: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_STARTCOMPOSITION: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ENM_UPDATE: u32 = 2u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENOLEOPFAILED {
     pub nmhdr: super::NMHDR,
@@ -1391,7 +1080,6 @@ impl ::core::default::Default for ENOLEOPFAILED {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENPROTECTED {
     pub nmhdr: super::NMHDR,
@@ -1427,7 +1115,6 @@ impl ::core::default::Default for ENPROTECTED {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENSAVECLIPBOARD {
     pub nmhdr: super::NMHDR,
@@ -1460,78 +1147,42 @@ impl ::core::default::Default for ENSAVECLIPBOARD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_ALIGNLTR: u32 = 1808u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_ALIGNRTL: u32 = 1809u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_CLIPFORMAT: u32 = 1810u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_CORRECTTEXT: u32 = 1797u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_DRAGDROPDONE: u32 = 1804u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_DROPFILES: u32 = 1795u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_ENDCOMPOSITION: u32 = 1812u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_IMECHANGE: u32 = 1799u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_LINK: u32 = 1803u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_LOWFIRTF: u32 = 1807u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_MSGFILTER: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_OBJECTPOSITIONS: u32 = 1802u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_OLEOPFAILED: u32 = 1801u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_PAGECHANGE: u32 = 1806u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_PARAGRAPHEXPANDED: u32 = 1805u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_PROTECTED: u32 = 1796u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_REQUESTRESIZE: u32 = 1793u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_SAVECLIPBOARD: u32 = 1800u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_SELCHANGE: u32 = 1794u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_STARTCOMPOSITION: u32 = 1811u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EN_STOPNOUNDO: u32 = 1798u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EPR_0: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EPR_180: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EPR_270: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EPR_90: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const EPR_SE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_DISABLENOSCROLL: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_EX_NOCALLOLEINIT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_NOIME: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_NOOLEDRAGDROP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_SAVESEL: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_SELECTIONBAR: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_SELFIME: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_SUNKEN: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ES_VERTICAL: u32 = 4194304u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTA {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows::core::PCSTR,
@@ -1557,7 +1208,6 @@ impl ::core::default::Default for FINDTEXTA {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTEXA {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows::core::PCSTR,
@@ -1584,7 +1234,6 @@ impl ::core::default::Default for FINDTEXTEXA {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTEXW {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows::core::PCWSTR,
@@ -1611,7 +1260,6 @@ impl ::core::default::Default for FINDTEXTEXW {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct FINDTEXTW {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows::core::PCWSTR,
@@ -1637,7 +1285,6 @@ impl ::core::default::Default for FINDTEXTW {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct FORMATRANGE {
     pub hdc: super::super::super::Graphics::Gdi::HDC,
@@ -1672,26 +1319,16 @@ impl ::core::default::Default for FORMATRANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const FR_MATCHALEFHAMZA: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const FR_MATCHDIAC: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const FR_MATCHKASHIDA: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GCMF_GRIPPER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GCMF_MOUSEMENU: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GCMF_SPELLING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GCMF_TOUCHMENU: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GCM_MOUSEMENU: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GCM_TOUCHMENU: u32 = 16384u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GETCONTEXTMENUEX {
     pub chrg: CHARRANGE,
@@ -1726,7 +1363,6 @@ impl ::core::default::Default for GETCONTEXTMENUEX {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct GETTEXTEX {
     pub cb: u32,
     pub flags: GETTEXTEX_FLAGS,
@@ -1754,19 +1390,13 @@ impl ::core::default::Default for GETTEXTEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GETTEXTEX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GT_DEFAULT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GT_NOHIDDENTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GT_RAWTEXT: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GT_SELECTION: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GT_USECRLF: GETTEXTEX_FLAGS = GETTEXTEX_FLAGS(1u32);
 impl ::core::marker::Copy for GETTEXTEX_FLAGS {}
 impl ::core::clone::Clone for GETTEXTEX_FLAGS {
@@ -1788,7 +1418,6 @@ impl ::core::fmt::Debug for GETTEXTEX_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct GETTEXTLENGTHEX {
     pub flags: GETTEXTLENGTHEX_FLAGS,
     pub codepage: u32,
@@ -1818,21 +1447,14 @@ impl ::core::default::Default for GETTEXTLENGTHEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GETTEXTLENGTHEX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GTL_DEFAULT: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GTL_USECRLF: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GTL_PRECISE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GTL_CLOSE: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GTL_NUMCHARS: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GTL_NUMBYTES: GETTEXTLENGTHEX_FLAGS = GETTEXTLENGTHEX_FLAGS(16u32);
 impl ::core::marker::Copy for GETTEXTLENGTHEX_FLAGS {}
 impl ::core::clone::Clone for GETTEXTLENGTHEX_FLAGS {
@@ -1882,7 +1504,6 @@ impl ::core::ops::Not for GETTEXTLENGTHEX_FLAGS {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct HYPHENATEINFO {
     pub cbSize: i16,
     pub dxHyphenateZone: i16,
@@ -1908,20 +1529,13 @@ impl ::core::default::Default for HYPHENATEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICM_CTF: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICM_LEVEL2: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICM_LEVEL2_5: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICM_LEVEL2_SUI: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICM_LEVEL3: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICM_NOTOPEN: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct IMECOMPTEXT {
     pub cb: i32,
     pub flags: IMECOMPTEXT_FLAGS,
@@ -1951,11 +1565,9 @@ impl ::core::default::Default for IMECOMPTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IMECOMPTEXT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ICT_RESULTREADSTR: IMECOMPTEXT_FLAGS = IMECOMPTEXT_FLAGS(1u32);
 impl ::core::marker::Copy for IMECOMPTEXT_FLAGS {}
 impl ::core::clone::Clone for IMECOMPTEXT_FLAGS {
@@ -1976,59 +1588,33 @@ impl ::core::fmt::Debug for IMECOMPTEXT_FLAGS {
         f.debug_tuple("IMECOMPTEXT_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_AUTOFONT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_AUTOFONTSIZEADJUST: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_AUTOKEYBOARD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_CLOSESTATUSWINDOW: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_DUALFONT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_FORCEACTIVE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_FORCEDISABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_FORCEENABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_FORCEINACTIVE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_FORCENONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_FORCEREMEMBER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_IMEALWAYSSENDNOTIFY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_IMECANCELCOMPLETE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_IMEUIINTEGRATION: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_MULTIPLEEDIT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_NOIMPLICITLANG: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_NOKBDLIDFIXUP: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_NORTFFONTSUBSTITUTE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_SMODE_NONE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_SMODE_PLAURALCLAUSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_SPELLCHECKING: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_TKBPREDICTION: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_UIFONTS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const IMF_VERTICAL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct IRichEditOle(::windows::core::IUnknown);
 impl IRichEditOle {
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn GetClientSite(&self) -> ::windows::core::Result<super::super::super::System::Ole::IOleClientSite> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2040,12 +1626,10 @@ impl IRichEditOle {
     pub unsafe fn GetLinkCount(&self) -> i32 {
         (::windows::core::Interface::vtable(self).GetLinkCount)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn GetObject(&self, iob: i32, lpreobject: &mut REOBJECT, dwflags: RICH_EDIT_GET_OBJECT_FLAGS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), iob, ::core::mem::transmute(lpreobject), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
     pub unsafe fn InsertObject(&self, lpreobject: &mut REOBJECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InsertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpreobject)).ok()
@@ -2066,7 +1650,6 @@ impl IRichEditOle {
     {
         (::windows::core::Interface::vtable(self).SetHostNames)(::windows::core::Interface::as_raw(self), lpstrcontainerapp.into(), lpstrcontainerobj.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLinkAvailable<'a, P0>(&self, iob: i32, favailable: P0) -> ::windows::core::Result<()>
     where
@@ -2080,7 +1663,6 @@ impl IRichEditOle {
     pub unsafe fn HandsOffStorage(&self, iob: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandsOffStorage)(::windows::core::Interface::as_raw(self), iob).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn SaveCompleted<'a, P0>(&self, iob: i32, lpstg: P0) -> ::windows::core::Result<()>
     where
@@ -2091,7 +1673,6 @@ impl IRichEditOle {
     pub unsafe fn InPlaceDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InPlaceDeactivate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, P0>(&self, fentermode: P0) -> ::windows::core::Result<()>
     where
@@ -2099,12 +1680,10 @@ impl IRichEditOle {
     {
         (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::windows::core::Interface::as_raw(self), fentermode.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: &mut CHARRANGE, reco: u32, lplpdataobj: &mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClipboardData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpchrg), reco, ::core::mem::transmute(lplpdataobj)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ImportDataObject<'a, P0>(&self, lpdataobj: P0, cf: u16, hmetapict: isize) -> ::windows::core::Result<()>
     where
@@ -2193,22 +1772,18 @@ pub struct IRichEditOle_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ImportDataObject: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct IRichEditOleCallback(::windows::core::IUnknown);
 impl IRichEditOleCallback {
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn GetNewStorage(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::IStorage> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNewStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::IStorage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetInPlaceContext(&self, lplpframe: &mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceFrame>, lplpdoc: &mut ::core::option::Option<super::super::super::System::Ole::IOleInPlaceUIWindow>, lpframeinfo: &mut super::super::super::System::Ole::OIFI) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInPlaceContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lplpframe), ::core::mem::transmute(lplpdoc), ::core::mem::transmute(lpframeinfo)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowContainerUI<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -2216,7 +1791,6 @@ impl IRichEditOleCallback {
     {
         (::windows::core::Interface::vtable(self).ShowContainerUI)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn QueryInsertObject<'a, P0>(&self, lpclsid: &mut ::windows::core::GUID, lpstg: P0, cp: i32) -> ::windows::core::Result<()>
     where
@@ -2224,7 +1798,6 @@ impl IRichEditOleCallback {
     {
         (::windows::core::Interface::vtable(self).QueryInsertObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpclsid), lpstg.into().abi(), cp).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn DeleteObject<'a, P0>(&self, lpoleobj: P0) -> ::windows::core::Result<()>
     where
@@ -2232,7 +1805,6 @@ impl IRichEditOleCallback {
     {
         (::windows::core::Interface::vtable(self).DeleteObject)(::windows::core::Interface::as_raw(self), lpoleobj.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryAcceptData<'a, P0, P1>(&self, lpdataobj: P0, lpcfformat: &mut u16, reco: u32, freally: P1, hmetapict: isize) -> ::windows::core::Result<()>
     where
@@ -2241,7 +1813,6 @@ impl IRichEditOleCallback {
     {
         (::windows::core::Interface::vtable(self).QueryAcceptData)(::windows::core::Interface::as_raw(self), lpdataobj.into().abi(), ::core::mem::transmute(lpcfformat), reco, freally.into(), hmetapict).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ContextSensitiveHelp<'a, P0>(&self, fentermode: P0) -> ::windows::core::Result<()>
     where
@@ -2249,12 +1820,10 @@ impl IRichEditOleCallback {
     {
         (::windows::core::Interface::vtable(self).ContextSensitiveHelp)(::windows::core::Interface::as_raw(self), fentermode.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClipboardData(&self, lpchrg: &mut CHARRANGE, reco: u32, lplpdataobj: &mut ::core::option::Option<super::super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClipboardData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpchrg), reco, ::core::mem::transmute(lplpdataobj)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDragDropEffect<'a, P0>(&self, fdrag: P0, grfkeystate: u32, pdweffect: &mut u32) -> ::windows::core::Result<()>
     where
@@ -2262,7 +1831,6 @@ impl IRichEditOleCallback {
     {
         (::windows::core::Interface::vtable(self).GetDragDropEffect)(::windows::core::Interface::as_raw(self), fdrag.into(), grfkeystate, ::core::mem::transmute(pdweffect)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetContextMenu<'a, P0>(&self, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: P0, lpchrg: &mut CHARRANGE, lphmenu: &mut super::super::WindowsAndMessaging::HMENU) -> ::windows::core::Result<()>
     where
@@ -2351,11 +1919,9 @@ pub struct IRichEditOleCallback_Vtbl {
     #[cfg(not(all(feature = "Win32_System_Ole", feature = "Win32_UI_WindowsAndMessaging")))]
     GetContextMenu: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct IRicheditUiaOverrides(::windows::core::IUnknown);
 impl IRicheditUiaOverrides {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPropertyOverrideValue(&self, propertyid: i32, pretvalue: &mut super::super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyOverrideValue)(::windows::core::Interface::as_raw(self), propertyid, ::core::mem::transmute(pretvalue)).ok()
@@ -2405,7 +1971,6 @@ pub struct IRicheditUiaOverrides_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetPropertyOverrideValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextDisplays(::windows::core::IUnknown);
@@ -2478,19 +2043,16 @@ unsafe impl ::windows::core::Interface for ITextDisplays {
 pub struct ITextDisplays_Vtbl {
     pub base__: super::super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextDocument(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2500,7 +2062,6 @@ impl ITextDocument {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStoryCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStoryRanges(&self) -> ::windows::core::Result<ITextStoryRanges> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2523,12 +2084,10 @@ impl ITextDocument {
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).New)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
@@ -2555,13 +2114,11 @@ impl ITextDocument {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Redo)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Range)(::windows::core::Interface::as_raw(self), cpactive, cpanchor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2675,19 +2232,16 @@ pub struct ITextDocument_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     RangeFromPoint: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextDocument2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2697,7 +2251,6 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStoryCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStoryRanges(&self) -> ::windows::core::Result<ITextStoryRanges> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2720,12 +2273,10 @@ impl ITextDocument2 {
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.New)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
@@ -2752,13 +2303,11 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Redo)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Range)(::windows::core::Interface::as_raw(self), cpactive, cpanchor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2771,19 +2320,16 @@ impl ITextDocument2 {
     pub unsafe fn SetCaretType(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCaretType)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDisplays(&self) -> ::windows::core::Result<ITextDisplays> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDisplays)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextDisplays>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentFont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -2791,13 +2337,11 @@ impl ITextDocument2 {
     {
         (::windows::core::Interface::vtable(self).SetDocumentFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentPara)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -2809,7 +2353,6 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEastAsianFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<tomConstants>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGenerator(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2825,13 +2368,11 @@ impl ITextDocument2 {
     pub unsafe fn SetNotificationMode(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotificationMode)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection2(&self) -> ::windows::core::Result<ITextSelection2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSelection2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextSelection2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStoryRanges2(&self) -> ::windows::core::Result<ITextStoryRanges2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2873,7 +2414,6 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetImmContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, options: i32, curcharrep: i32, curfontsize: i32, pbstr: &mut super::super::super::Foundation::BSTR, ppitchandfamily: &mut i32, pnewfontsize: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPreferredFont)(::windows::core::Interface::as_raw(self), cp, charrep, options, curcharrep, curfontsize, ::core::mem::transmute(pbstr), ::core::mem::transmute(ppitchandfamily), ::core::mem::transmute(pnewfontsize)).ok()
@@ -2882,7 +2422,6 @@ impl ITextDocument2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStrings(&self) -> ::windows::core::Result<ITextStrings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2891,13 +2430,11 @@ impl ITextDocument2 {
     pub unsafe fn Notify(&self, notify: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), notify).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Range2(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Range2)(::windows::core::Interface::as_raw(self), cpactive, cpanchor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RangeFromPoint2(&self, x: i32, y: i32, r#type: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3125,19 +2662,16 @@ pub struct ITextDocument2_Vtbl {
     pub GetNewStory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetStory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, ppstory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextDocument2Old(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextDocument2Old {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3147,7 +2681,6 @@ impl ITextDocument2Old {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStoryCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStoryRanges(&self) -> ::windows::core::Result<ITextStoryRanges> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3170,12 +2703,10 @@ impl ITextDocument2Old {
     pub unsafe fn New(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.New)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Open(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Open)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Save(&self, pvar: &super::super::super::System::Com::VARIANT, flags: i32, codepage: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), flags, codepage).ok()
@@ -3202,13 +2733,11 @@ impl ITextDocument2Old {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Redo)(::windows::core::Interface::as_raw(self), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Range(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Range)(::windows::core::Interface::as_raw(self), cpactive, cpanchor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RangeFromPoint(&self, x: i32, y: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3241,7 +2770,6 @@ impl ITextDocument2Old {
     pub unsafe fn ReleaseImmContext(&self, context: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseImmContext)(::windows::core::Interface::as_raw(self), context).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPreferredFont(&self, cp: i32, charrep: i32, option: i32, charrepcur: i32, curfontsize: i32, pbstr: &mut super::super::super::Foundation::BSTR, ppitchandfamily: &mut i32, pnewfontsize: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPreferredFont)(::windows::core::Interface::as_raw(self), cp, charrep, option, charrepcur, curfontsize, ::core::mem::transmute(pbstr), ::core::mem::transmute(ppitchandfamily), ::core::mem::transmute(pnewfontsize)).ok()
@@ -3256,7 +2784,6 @@ impl ITextDocument2Old {
     pub unsafe fn GetClientRect(&self, r#type: i32, pleft: &mut i32, ptop: &mut i32, pright: &mut i32, pbottom: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClientRect)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(pleft), ::core::mem::transmute(ptop), ::core::mem::transmute(pright), ::core::mem::transmute(pbottom)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection2(&self) -> ::windows::core::Result<ITextSelection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3288,13 +2815,11 @@ impl ITextDocument2Old {
     pub unsafe fn Notify(&self, notify: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), notify).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentFont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3432,19 +2957,16 @@ pub struct ITextDocument2Old_Vtbl {
     pub GetCallManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvoid: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ReleaseCallManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextFont(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -3456,7 +2978,6 @@ impl ITextFont {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CanChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
     where
@@ -3552,13 +3073,11 @@ impl ITextFont {
     pub unsafe fn SetLanguageID(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLanguageID)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -3788,19 +3307,16 @@ pub struct ITextFont_Vtbl {
     pub GetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvalue: *mut i32) -> ::windows::core::HRESULT,
     pub SetWeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextFont2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextFont2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -3812,7 +3328,6 @@ impl ITextFont2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CanChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
     where
@@ -3908,13 +3423,11 @@ impl ITextFont2 {
     pub unsafe fn SetLanguageID(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetLanguageID)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -4066,13 +3579,11 @@ impl ITextFont2 {
     pub unsafe fn SetDoubleStrike(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDoubleStrike)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDuplicate2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -4160,7 +3671,6 @@ impl ITextFont2 {
     pub unsafe fn GetPropertyInfo(&self, index: i32, ptype: &mut i32, pvalue: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyInfo)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(ptype), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<i32>
     where
@@ -4319,16 +3829,13 @@ pub struct ITextFont2_Vtbl {
     pub SetEffects2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, mask: i32) -> ::windows::core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct ITextHost(::windows::core::IUnknown);
 impl ITextHost {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC {
         (::windows::core::Interface::vtable(self).TxGetDC)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxReleaseDC<'a, P0>(&self, hdc: P0) -> i32
     where
@@ -4336,7 +3843,6 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxShowScrollBar<'a, P0>(&self, fnbar: i32, fshow: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4344,12 +3850,10 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxShowScrollBar)(::windows::core::Interface::as_raw(self), fnbar, fshow.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags, fuarrowflags)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetScrollRange<'a, P0>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4357,7 +3861,6 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxSetScrollRange)(::windows::core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetScrollPos<'a, P0>(&self, fnbar: i32, npos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4365,7 +3868,6 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxSetScrollPos)(::windows::core::Interface::as_raw(self), fnbar, npos, fredraw.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxInvalidateRect<'a, P0>(&self, prc: &mut super::super::super::Foundation::RECT, fmode: P0)
     where
@@ -4373,7 +3875,6 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxInvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), fmode.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxViewChange<'a, P0>(&self, fupdate: P0)
     where
@@ -4381,7 +3882,6 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxViewChange)(::windows::core::Interface::as_raw(self), fupdate.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn TxCreateCaret<'a, P0>(&self, hbmp: P0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL
     where
@@ -4389,7 +3889,6 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), xwidth, yheight)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxShowCaret<'a, P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4397,12 +3896,10 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).TxSetCaretPos)(::windows::core::Interface::as_raw(self), x, y)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).TxSetTimer)(::windows::core::Interface::as_raw(self), idtimer, utimeout)
@@ -4410,7 +3907,6 @@ impl ITextHost {
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
         (::windows::core::Interface::vtable(self).TxKillTimer)(::windows::core::Interface::as_raw(self), idtimer)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxScrollWindowEx<'a, P0>(&self, dx: i32, dy: i32, lprcscroll: &mut super::super::super::Foundation::RECT, lprcclip: &mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: &mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
     where
@@ -4418,7 +3914,6 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxScrollWindowEx)(::windows::core::Interface::as_raw(self), dx, dy, ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetCapture<'a, P0>(&self, fcapture: P0)
     where
@@ -4429,7 +3924,6 @@ impl ITextHost {
     pub unsafe fn TxSetFocus(&self) {
         (::windows::core::Interface::vtable(self).TxSetFocus)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxSetCursor<'a, P0, P1>(&self, hcur: P0, ftext: P1)
     where
@@ -4438,12 +3932,10 @@ impl ITextHost {
     {
         (::windows::core::Interface::vtable(self).TxSetCursor)(::windows::core::Interface::as_raw(self), hcur.into(), ftext.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxScreenToClient(&self, lppt: &mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).TxScreenToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxClientToScreen(&self, lppt: &mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).TxClientToScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
@@ -4454,12 +3946,10 @@ impl ITextHost {
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxDeactivate)(::windows::core::Interface::as_raw(self), lnewstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetClientRect(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetClientRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetViewInset(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetViewInset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
@@ -4489,7 +3979,6 @@ impl ITextHost {
     pub unsafe fn TxGetAcceleratorPos(&self, pcp: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetAcceleratorPos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcp)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetExtent(&self, lpextent: &mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpextent)).ok()
@@ -4506,12 +3995,10 @@ impl ITextHost {
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxNotify)(::windows::core::Interface::as_raw(self), inotify, ::core::mem::transmute(pv)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC {
         (::windows::core::Interface::vtable(self).TxImmGetContext)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn TxImmReleaseContext<'a, P0>(&self, himc: P0)
     where
@@ -4668,16 +4155,13 @@ pub struct ITextHost_Vtbl {
     TxImmReleaseContext: usize,
     pub TxGetSelectionBarWidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lselbarwidth: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct ITextHost2(::windows::core::IUnknown);
 impl ITextHost2 {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetDC(&self) -> super::super::super::Graphics::Gdi::HDC {
         (::windows::core::Interface::vtable(self).base__.TxGetDC)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxReleaseDC<'a, P0>(&self, hdc: P0) -> i32
     where
@@ -4685,7 +4169,6 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxReleaseDC)(::windows::core::Interface::as_raw(self), hdc.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxShowScrollBar<'a, P0>(&self, fnbar: i32, fshow: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4693,12 +4176,10 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxShowScrollBar)(::windows::core::Interface::as_raw(self), fnbar, fshow.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxEnableScrollBar(&self, fusbflags: super::super::WindowsAndMessaging::SCROLLBAR_CONSTANTS, fuarrowflags: super::ENABLE_SCROLL_BAR_ARROWS) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).base__.TxEnableScrollBar)(::windows::core::Interface::as_raw(self), fusbflags, fuarrowflags)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetScrollRange<'a, P0>(&self, fnbar: i32, nminpos: i32, nmaxpos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4706,7 +4187,6 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxSetScrollRange)(::windows::core::Interface::as_raw(self), fnbar, nminpos, nmaxpos, fredraw.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetScrollPos<'a, P0>(&self, fnbar: i32, npos: i32, fredraw: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4714,7 +4194,6 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxSetScrollPos)(::windows::core::Interface::as_raw(self), fnbar, npos, fredraw.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxInvalidateRect<'a, P0>(&self, prc: &mut super::super::super::Foundation::RECT, fmode: P0)
     where
@@ -4722,7 +4201,6 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxInvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), fmode.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxViewChange<'a, P0>(&self, fupdate: P0)
     where
@@ -4730,7 +4208,6 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxViewChange)(::windows::core::Interface::as_raw(self), fupdate.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn TxCreateCaret<'a, P0>(&self, hbmp: P0, xwidth: i32, yheight: i32) -> super::super::super::Foundation::BOOL
     where
@@ -4738,7 +4215,6 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxCreateCaret)(::windows::core::Interface::as_raw(self), hbmp.into(), xwidth, yheight)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxShowCaret<'a, P0>(&self, fshow: P0) -> super::super::super::Foundation::BOOL
     where
@@ -4746,12 +4222,10 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxShowCaret)(::windows::core::Interface::as_raw(self), fshow.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetCaretPos(&self, x: i32, y: i32) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).base__.TxSetCaretPos)(::windows::core::Interface::as_raw(self), x, y)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetTimer(&self, idtimer: u32, utimeout: u32) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).base__.TxSetTimer)(::windows::core::Interface::as_raw(self), idtimer, utimeout)
@@ -4759,7 +4233,6 @@ impl ITextHost2 {
     pub unsafe fn TxKillTimer(&self, idtimer: u32) {
         (::windows::core::Interface::vtable(self).base__.TxKillTimer)(::windows::core::Interface::as_raw(self), idtimer)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxScrollWindowEx<'a, P0>(&self, dx: i32, dy: i32, lprcscroll: &mut super::super::super::Foundation::RECT, lprcclip: &mut super::super::super::Foundation::RECT, hrgnupdate: P0, lprcupdate: &mut super::super::super::Foundation::RECT, fuscroll: super::super::WindowsAndMessaging::SHOW_WINDOW_CMD)
     where
@@ -4767,7 +4240,6 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxScrollWindowEx)(::windows::core::Interface::as_raw(self), dx, dy, ::core::mem::transmute(lprcscroll), ::core::mem::transmute(lprcclip), hrgnupdate.into(), ::core::mem::transmute(lprcupdate), fuscroll)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSetCapture<'a, P0>(&self, fcapture: P0)
     where
@@ -4778,7 +4250,6 @@ impl ITextHost2 {
     pub unsafe fn TxSetFocus(&self) {
         (::windows::core::Interface::vtable(self).base__.TxSetFocus)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxSetCursor<'a, P0, P1>(&self, hcur: P0, ftext: P1)
     where
@@ -4787,12 +4258,10 @@ impl ITextHost2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxSetCursor)(::windows::core::Interface::as_raw(self), hcur.into(), ftext.into())
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxScreenToClient(&self, lppt: &mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).base__.TxScreenToClient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxClientToScreen(&self, lppt: &mut super::super::super::Foundation::POINT) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).base__.TxClientToScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lppt))
@@ -4803,12 +4272,10 @@ impl ITextHost2 {
     pub unsafe fn TxDeactivate(&self, lnewstate: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxDeactivate)(::windows::core::Interface::as_raw(self), lnewstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetClientRect(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetClientRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetViewInset(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetViewInset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
@@ -4838,7 +4305,6 @@ impl ITextHost2 {
     pub unsafe fn TxGetAcceleratorPos(&self, pcp: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetAcceleratorPos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcp)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetExtent(&self, lpextent: &mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpextent)).ok()
@@ -4855,12 +4321,10 @@ impl ITextHost2 {
     pub unsafe fn TxNotify(&self, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxNotify)(::windows::core::Interface::as_raw(self), inotify, ::core::mem::transmute(pv)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn TxImmGetContext(&self) -> super::super::super::Globalization::HIMC {
         (::windows::core::Interface::vtable(self).base__.TxImmGetContext)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
     pub unsafe fn TxImmReleaseContext<'a, P0>(&self, himc: P0)
     where
@@ -4871,12 +4335,10 @@ impl ITextHost2 {
     pub unsafe fn TxGetSelectionBarWidth(&self, lselbarwidth: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetSelectionBarWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lselbarwidth)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxIsDoubleClickPending(&self) -> super::super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).TxIsDoubleClickPending)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetWindow(&self, phwnd: &mut super::super::super::Foundation::HWND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phwnd)).ok()
@@ -4884,7 +4346,6 @@ impl ITextHost2 {
     pub unsafe fn TxSetForegroundWindow(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxSetForegroundWindow)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn TxGetPalette(&self) -> super::super::super::Graphics::Gdi::HPALETTE {
         (::windows::core::Interface::vtable(self).TxGetPalette)(::windows::core::Interface::as_raw(self))
@@ -4892,7 +4353,6 @@ impl ITextHost2 {
     pub unsafe fn TxGetEastAsianFlags(&self, pflags: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetEastAsianFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pflags)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TxSetCursor2<'a, P0, P1>(&self, hcur: P0, btext: P1) -> super::super::WindowsAndMessaging::HCURSOR
     where
@@ -4910,7 +4370,6 @@ impl ITextHost2 {
     pub unsafe fn TxGetWindowStyles(&self, pdwstyle: &mut u32, pdwexstyle: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetWindowStyles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstyle), ::core::mem::transmute(pdwexstyle)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn TxShowDropCaret<'a, P0, P1>(&self, fshow: P0, hdc: P1, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>
     where
@@ -5008,19 +4467,16 @@ pub struct ITextHost2_Vtbl {
     pub TxDestroyCaret: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TxGetHorzExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plhorzextent: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextPara(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -5032,7 +4488,6 @@ impl ITextPara {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CanChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
     where
@@ -5319,19 +4774,16 @@ pub struct ITextPara_Vtbl {
     pub DeleteTab: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tbpos: f32) -> ::windows::core::HRESULT,
     pub GetTab: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itab: i32, ptbpos: *mut f32, ptbalign: *mut i32, ptbleader: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextPara2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextPara2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -5343,7 +4795,6 @@ impl ITextPara2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CanChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
     where
@@ -5509,13 +4960,11 @@ impl ITextPara2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBorders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDuplicate2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDuplicate2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -5558,7 +5007,6 @@ impl ITextPara2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<i32>
     where
@@ -5684,19 +5132,16 @@ pub struct ITextPara2_Vtbl {
     pub SetEffects: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, mask: i32) -> ::windows::core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextRange(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRange {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -5711,19 +5156,16 @@ impl ITextRange {
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetChar)(::windows::core::Interface::as_raw(self), char).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFormattedText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
@@ -5745,13 +5187,11 @@ impl ITextRange {
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnd)(::windows::core::Interface::as_raw(self), cplim).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -5759,13 +5199,11 @@ impl ITextRange {
     {
         (::windows::core::Interface::vtable(self).SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPara)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -5798,7 +5236,6 @@ impl ITextRange {
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRange)(::windows::core::Interface::as_raw(self), cpanchor, cpactive).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -5807,7 +5244,6 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -5816,7 +5252,6 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -5848,43 +5283,36 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveEnd)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveStartWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveEndWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveStartUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -5893,7 +5321,6 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextStart<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -5902,7 +5329,6 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextEnd<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -5915,24 +5341,20 @@ impl ITextRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Cut)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Paste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Paste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CanPaste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6152,19 +5574,16 @@ pub struct ITextRange_Vtbl {
     pub ScrollIntoView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub GetEmbeddedObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextRange2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextRange2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -6179,19 +5598,16 @@ impl ITextRange2 {
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetChar)(::windows::core::Interface::as_raw(self), char).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetFormattedText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
@@ -6213,13 +5629,11 @@ impl ITextRange2 {
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetEnd)(::windows::core::Interface::as_raw(self), cplim).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetFont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -6227,13 +5641,11 @@ impl ITextRange2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPara)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -6266,7 +5678,6 @@ impl ITextRange2 {
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetRange)(::windows::core::Interface::as_raw(self), cpanchor, cpactive).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -6275,7 +5686,6 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -6284,7 +5694,6 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -6316,43 +5725,36 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveEnd)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveStartWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveEndWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveStartUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -6361,7 +5763,6 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextStart<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -6370,7 +5771,6 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextEnd<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -6383,24 +5783,20 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Delete)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Cut)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Paste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Paste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CanPaste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6461,7 +5857,6 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EndKey)(::windows::core::Interface::as_raw(self), unit, extend, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TypeText<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -6485,19 +5880,16 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDuplicate2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont2(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFont2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -6505,13 +5897,11 @@ impl ITextRange2 {
     {
         (::windows::core::Interface::vtable(self).SetFont2)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFormattedText2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText2<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
@@ -6526,13 +5916,11 @@ impl ITextRange2 {
     pub unsafe fn SetGravity(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetGravity)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara2(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPara2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -6540,7 +5928,6 @@ impl ITextRange2 {
     {
         (::windows::core::Interface::vtable(self).SetPara2)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRow(&self) -> ::windows::core::Result<ITextRow> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6554,13 +5941,11 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -6577,7 +5962,6 @@ impl ITextRange2 {
     pub unsafe fn DeleteSubrange(&self, cpfirst: i32, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteSubrange)(::windows::core::Interface::as_raw(self), cpfirst, cplim).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Find<'a, P0>(&self, prange: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -6605,7 +5989,6 @@ impl ITextRange2 {
     pub unsafe fn GetSubrange(&self, isubrange: i32, pcpfirst: &mut i32, pcplim: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSubrange)(::windows::core::Interface::as_raw(self), isubrange, ::core::mem::transmute(pcpfirst), ::core::mem::transmute(pcplim)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText2(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6629,7 +6012,6 @@ impl ITextRange2 {
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), r#type, value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText2<'a, P0>(&self, flags: i32, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -6643,7 +6025,6 @@ impl ITextRange2 {
     pub unsafe fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInlineObject)(::windows::core::Interface::as_raw(self), r#type, align, char, char1, char2, count, texstyle, ccol).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMathFunctionType<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<i32>
     where
@@ -6652,7 +6033,6 @@ impl ITextRange2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn InsertImage<'a, P0, P1>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: P0, pstream: P1) -> ::windows::core::Result<()>
     where
@@ -6850,7 +6230,6 @@ pub struct ITextRange2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com")))]
     InsertImage: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextRow(::windows::core::IUnknown);
@@ -7005,7 +6384,6 @@ impl ITextRow {
     pub unsafe fn Insert(&self, crow: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Insert)(::windows::core::Interface::as_raw(self), crow).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, prow: P0) -> ::windows::core::Result<i32>
     where
@@ -7137,19 +6515,16 @@ pub struct ITextRow_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: i32, value: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextSelection(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextSelection {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -7164,19 +6539,16 @@ impl ITextSelection {
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetChar)(::windows::core::Interface::as_raw(self), char).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFormattedText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
@@ -7198,13 +6570,11 @@ impl ITextSelection {
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnd)(::windows::core::Interface::as_raw(self), cplim).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -7212,13 +6582,11 @@ impl ITextSelection {
     {
         (::windows::core::Interface::vtable(self).base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPara)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -7251,7 +6619,6 @@ impl ITextSelection {
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetRange)(::windows::core::Interface::as_raw(self), cpanchor, cpactive).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -7260,7 +6627,6 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -7269,7 +6635,6 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -7301,43 +6666,36 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveEnd)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveStartWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveEndWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveStartUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -7346,7 +6704,6 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextStart<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -7355,7 +6712,6 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextEnd<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -7368,24 +6724,20 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Cut)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Paste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Paste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CanPaste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7446,7 +6798,6 @@ impl ITextSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EndKey)(::windows::core::Interface::as_raw(self), unit, extend, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TypeText<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -7553,19 +6904,16 @@ pub struct ITextSelection_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     TypeText: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextSelection2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextSelection2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -7580,19 +6928,16 @@ impl ITextSelection2 {
     pub unsafe fn SetChar(&self, char: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetChar)(::windows::core::Interface::as_raw(self), char).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetDuplicate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetFormattedText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
@@ -7614,13 +6959,11 @@ impl ITextSelection2 {
     pub unsafe fn SetEnd(&self, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetEnd)(::windows::core::Interface::as_raw(self), cplim).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont(&self) -> ::windows::core::Result<ITextFont> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetFont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -7628,13 +6971,11 @@ impl ITextSelection2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetFont)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara(&self) -> ::windows::core::Result<ITextPara> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPara)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -7667,7 +7008,6 @@ impl ITextSelection2 {
     pub unsafe fn SetRange(&self, cpanchor: i32, cpactive: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetRange)(::windows::core::Interface::as_raw(self), cpanchor, cpactive).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -7676,7 +7016,6 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.InRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InStory<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -7685,7 +7024,6 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.InStory)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IsEqual<'a, P0>(&self, prange: P0) -> ::windows::core::Result<i32>
     where
@@ -7717,43 +7055,36 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveEnd)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveStartWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndWhile(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveEndWhile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveStartUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveStartUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveEndUntil(&self, cset: &super::super::super::System::Com::VARIANT, count: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.MoveEndUntil)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cset), count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindText<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -7762,7 +7093,6 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.FindText)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextStart<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -7771,7 +7101,6 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.FindTextStart)(::windows::core::Interface::as_raw(self), bstr.into().abi(), count, flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindTextEnd<'a, P0>(&self, bstr: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -7784,24 +7113,20 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Delete)(::windows::core::Interface::as_raw(self), unit, count, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Cut(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Cut)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Copy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Paste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Paste)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvar), format).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CanPaste(&self, pvar: &super::super::super::System::Com::VARIANT, format: i32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7862,7 +7187,6 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EndKey)(::windows::core::Interface::as_raw(self), unit, extend, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TypeText<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -7886,19 +7210,16 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDuplicate2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDuplicate2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFont2(&self) -> ::windows::core::Result<ITextFont2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFont2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextFont2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFont2<'a, P0>(&self, pfont: P0) -> ::windows::core::Result<()>
     where
@@ -7906,13 +7227,11 @@ impl ITextSelection2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetFont2)(::windows::core::Interface::as_raw(self), pfont.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText2(&self) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFormattedText2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText2<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
@@ -7927,13 +7246,11 @@ impl ITextSelection2 {
     pub unsafe fn SetGravity(&self, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetGravity)(::windows::core::Interface::as_raw(self), value).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPara2(&self) -> ::windows::core::Result<ITextPara2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPara2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextPara2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPara2<'a, P0>(&self, ppara: P0) -> ::windows::core::Result<()>
     where
@@ -7941,7 +7258,6 @@ impl ITextSelection2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetPara2)(::windows::core::Interface::as_raw(self), ppara.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRow(&self) -> ::windows::core::Result<ITextRow> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7955,13 +7271,11 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetURL(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -7978,7 +7292,6 @@ impl ITextSelection2 {
     pub unsafe fn DeleteSubrange(&self, cpfirst: i32, cplim: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DeleteSubrange)(::windows::core::Interface::as_raw(self), cpfirst, cplim).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Find<'a, P0>(&self, prange: P0, count: i32, flags: i32) -> ::windows::core::Result<i32>
     where
@@ -8006,7 +7319,6 @@ impl ITextSelection2 {
     pub unsafe fn GetSubrange(&self, isubrange: i32, pcpfirst: &mut i32, pcplim: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetSubrange)(::windows::core::Interface::as_raw(self), isubrange, ::core::mem::transmute(pcpfirst), ::core::mem::transmute(pcplim)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText2(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8030,7 +7342,6 @@ impl ITextSelection2 {
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetProperty)(::windows::core::Interface::as_raw(self), r#type, value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText2<'a, P0>(&self, flags: i32, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -8044,7 +7355,6 @@ impl ITextSelection2 {
     pub unsafe fn SetInlineObject(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetInlineObject)(::windows::core::Interface::as_raw(self), r#type, align, char, char1, char2, count, texstyle, ccol).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMathFunctionType<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<i32>
     where
@@ -8053,7 +7363,6 @@ impl ITextSelection2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetMathFunctionType)(::windows::core::Interface::as_raw(self), bstr.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn InsertImage<'a, P0, P1>(&self, width: i32, height: i32, ascent: i32, r#type: super::super::super::Graphics::Gdi::TEXT_ALIGN_OPTIONS, bstralttext: P0, pstream: P1) -> ::windows::core::Result<()>
     where
@@ -8184,11 +7493,9 @@ unsafe impl ::windows::core::Interface for ITextSelection2 {
 pub struct ITextSelection2_Vtbl {
     pub base__: ITextRange2_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct ITextServices(::windows::core::IUnknown);
 impl ITextServices {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSendMessage<'a, P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: &mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
@@ -8197,7 +7504,6 @@ impl ITextServices {
     {
         (::windows::core::Interface::vtable(self).TxSendMessage)(::windows::core::Interface::as_raw(self), msg, wparam.into(), lparam.into(), ::core::mem::transmute(plresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxDraw<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: &mut super::super::super::Foundation::RECTL, lprcwbounds: &mut super::super::super::Foundation::RECTL, lprcupdate: &mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
     where
@@ -8206,17 +7512,14 @@ impl ITextServices {
     {
         (::windows::core::Interface::vtable(self).TxDraw)(::windows::core::Interface::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), pfncontinue, dwcontinue, lviewid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetHScroll(&self, plmin: &mut i32, plmax: &mut i32, plpos: &mut i32, plpage: &mut i32, pfenabled: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetHScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetVScroll(&self, plmin: &mut i32, plmax: &mut i32, plpos: &mut i32, plpage: &mut i32, pfenabled: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetVScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn OnTxSetCursor<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: &mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
     where
@@ -8225,7 +7528,6 @@ impl ITextServices {
     {
         (::windows::core::Interface::vtable(self).OnTxSetCursor)(::windows::core::Interface::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxQueryHitPoint<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: &mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: &mut u32) -> ::windows::core::Result<()>
     where
@@ -8234,7 +7536,6 @@ impl ITextServices {
     {
         (::windows::core::Interface::vtable(self).TxQueryHitPoint)(::windows::core::Interface::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y, ::core::mem::transmute(phitresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnTxInPlaceActivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcclient)).ok()
@@ -8248,7 +7549,6 @@ impl ITextServices {
     pub unsafe fn OnTxUIDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnTxUIDeactivate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetText(&self, pbstrtext: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
@@ -8265,7 +7565,6 @@ impl ITextServices {
     pub unsafe fn TxGetBaseLinePos(&self, param0: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetBaseLinePos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxGetNaturalSize<'a, P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: &super::super::super::Foundation::SIZE, pwidth: &mut i32, pheight: &mut i32) -> ::windows::core::Result<()>
     where
@@ -8274,7 +7573,6 @@ impl ITextServices {
     {
         (::windows::core::Interface::vtable(self).TxGetNaturalSize)(::windows::core::Interface::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), dwmode, ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn TxGetDropTarget(&self) -> ::windows::core::Result<super::super::super::System::Ole::IDropTarget> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8375,11 +7673,9 @@ pub struct ITextServices_Vtbl {
     pub OnTxPropertyBitsChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmask: u32, dwbits: u32) -> ::windows::core::HRESULT,
     pub TxGetCachedSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwwidth: *mut u32, pdwheight: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct ITextServices2(::windows::core::IUnknown);
 impl ITextServices2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxSendMessage<'a, P0, P1>(&self, msg: u32, wparam: P0, lparam: P1, plresult: &mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
@@ -8388,7 +7684,6 @@ impl ITextServices2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxSendMessage)(::windows::core::Interface::as_raw(self), msg, wparam.into(), lparam.into(), ::core::mem::transmute(plresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxDraw<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcbounds: &mut super::super::super::Foundation::RECTL, lprcwbounds: &mut super::super::super::Foundation::RECTL, lprcupdate: &mut super::super::super::Foundation::RECT, pfncontinue: isize, dwcontinue: u32, lviewid: i32) -> ::windows::core::Result<()>
     where
@@ -8397,17 +7692,14 @@ impl ITextServices2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxDraw)(::windows::core::Interface::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcbounds), ::core::mem::transmute(lprcwbounds), ::core::mem::transmute(lprcupdate), pfncontinue, dwcontinue, lviewid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetHScroll(&self, plmin: &mut i32, plmax: &mut i32, plpos: &mut i32, plpage: &mut i32, pfenabled: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetHScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetVScroll(&self, plmin: &mut i32, plmax: &mut i32, plpos: &mut i32, plpage: &mut i32, pfenabled: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetVScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmin), ::core::mem::transmute(plmax), ::core::mem::transmute(plpos), ::core::mem::transmute(plpage), ::core::mem::transmute(pfenabled)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn OnTxSetCursor<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: &mut super::super::super::Foundation::RECT, x: i32, y: i32) -> ::windows::core::Result<()>
     where
@@ -8416,7 +7708,6 @@ impl ITextServices2 {
     {
         (::windows::core::Interface::vtable(self).base__.OnTxSetCursor)(::windows::core::Interface::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxQueryHitPoint<'a, P0, P1>(&self, dwdrawaspect: super::super::super::System::Com::DVASPECT, lindex: i32, pvaspect: *mut ::core::ffi::c_void, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, hdcdraw: P0, hictargetdev: P1, lprcclient: &mut super::super::super::Foundation::RECT, x: i32, y: i32, phitresult: &mut u32) -> ::windows::core::Result<()>
     where
@@ -8425,7 +7716,6 @@ impl ITextServices2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxQueryHitPoint)(::windows::core::Interface::as_raw(self), dwdrawaspect, lindex, ::core::mem::transmute(pvaspect), ::core::mem::transmute(ptd), hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(lprcclient), x, y, ::core::mem::transmute(phitresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTxInPlaceActivate(&self, prcclient: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnTxInPlaceActivate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcclient)).ok()
@@ -8439,7 +7729,6 @@ impl ITextServices2 {
     pub unsafe fn OnTxUIDeactivate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnTxUIDeactivate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetText(&self, pbstrtext: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
@@ -8456,7 +7745,6 @@ impl ITextServices2 {
     pub unsafe fn TxGetBaseLinePos(&self, param0: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetBaseLinePos)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxGetNaturalSize<'a, P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: &super::super::super::Foundation::SIZE, pwidth: &mut i32, pheight: &mut i32) -> ::windows::core::Result<()>
     where
@@ -8465,7 +7753,6 @@ impl ITextServices2 {
     {
         (::windows::core::Interface::vtable(self).base__.TxGetNaturalSize)(::windows::core::Interface::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), dwmode, ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn TxGetDropTarget(&self) -> ::windows::core::Result<super::super::super::System::Ole::IDropTarget> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8477,7 +7764,6 @@ impl ITextServices2 {
     pub unsafe fn TxGetCachedSize(&self, pdwwidth: &mut u32, pdwheight: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetCachedSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwwidth), ::core::mem::transmute(pdwheight)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
     pub unsafe fn TxGetNaturalSize2<'a, P0, P1>(&self, dwaspect: u32, hdcdraw: P0, hictargetdev: P1, ptd: &mut super::super::super::System::Com::DVTARGETDEVICE, dwmode: u32, psizelextent: &super::super::super::Foundation::SIZE, pwidth: &mut i32, pheight: &mut i32, pascent: &mut i32) -> ::windows::core::Result<()>
     where
@@ -8486,7 +7772,6 @@ impl ITextServices2 {
     {
         (::windows::core::Interface::vtable(self).TxGetNaturalSize2)(::windows::core::Interface::as_raw(self), dwaspect, hdcdraw.into(), hictargetdev.into(), ::core::mem::transmute(ptd), dwmode, ::core::mem::transmute(psizelextent), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight), ::core::mem::transmute(pascent)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D"))]
     pub unsafe fn TxDrawD2D<'a, P0>(&self, prendertarget: P0, lprcbounds: &mut super::super::super::Foundation::RECTL, lprcupdate: &mut super::super::super::Foundation::RECT, lviewid: i32) -> ::windows::core::Result<()>
     where
@@ -8558,7 +7843,6 @@ pub struct ITextServices2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D")))]
     TxDrawD2D: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 pub struct ITextStory(::windows::core::IUnknown);
 impl ITextStory {
@@ -8588,13 +7872,11 @@ impl ITextStory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRange(&self, cpactive: i32, cpanchor: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRange)(::windows::core::Interface::as_raw(self), cpactive, cpanchor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITextRange2>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self, flags: i32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8609,7 +7891,6 @@ impl ITextStory {
     pub unsafe fn SetProperty(&self, r#type: i32, value: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), r#type, value).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetText<'a, P0>(&self, flags: i32, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -8679,7 +7960,6 @@ pub struct ITextStory_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetText: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextStoryRanges(::windows::core::IUnknown);
@@ -8689,7 +7969,6 @@ impl ITextStoryRanges {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8773,7 +8052,6 @@ pub struct ITextStoryRanges_Vtbl {
     Item: usize,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextStoryRanges2(::windows::core::IUnknown);
@@ -8783,7 +8061,6 @@ impl ITextStoryRanges2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8793,7 +8070,6 @@ impl ITextStoryRanges2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item2(&self, index: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8889,13 +8165,11 @@ pub struct ITextStoryRanges2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Item2: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITextStrings(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITextStrings {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<ITextRange2> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8905,7 +8179,6 @@ impl ITextStrings {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Add<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -8913,7 +8186,6 @@ impl ITextStrings {
     {
         (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Append<'a, P0>(&self, prange: P0, istring: i32) -> ::windows::core::Result<()>
     where
@@ -8924,7 +8196,6 @@ impl ITextStrings {
     pub unsafe fn Cat2(&self, istring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Cat2)(::windows::core::Interface::as_raw(self), istring).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CatTop2<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -8932,7 +8203,6 @@ impl ITextStrings {
     {
         (::windows::core::Interface::vtable(self).CatTop2)(::windows::core::Interface::as_raw(self), bstr.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeleteRange<'a, P0>(&self, prange: P0) -> ::windows::core::Result<()>
     where
@@ -8940,7 +8210,6 @@ impl ITextStrings {
     {
         (::windows::core::Interface::vtable(self).DeleteRange)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EncodeFunction<'a, P0>(&self, r#type: i32, align: i32, char: i32, char1: i32, char2: i32, count: i32, texstyle: i32, ccol: i32, prange: P0) -> ::windows::core::Result<()>
     where
@@ -8958,7 +8227,6 @@ impl ITextStrings {
     pub unsafe fn MoveBoundary(&self, istring: i32, cch: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MoveBoundary)(::windows::core::Interface::as_raw(self), istring, cch).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrefixTop<'a, P0>(&self, bstr: P0) -> ::windows::core::Result<()>
     where
@@ -8969,7 +8237,6 @@ impl ITextStrings {
     pub unsafe fn Remove(&self, istring: i32, cstring: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), istring, cstring).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormattedText<'a, P0, P1>(&self, pranged: P0, pranges: P1) -> ::windows::core::Result<()>
     where
@@ -8981,7 +8248,6 @@ impl ITextStrings {
     pub unsafe fn SetOpCp(&self, istring: i32, cp: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOpCp)(::windows::core::Interface::as_raw(self), istring, cp).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SuffixTop<'a, P0, P1>(&self, bstr: P0, prange: P1) -> ::windows::core::Result<()>
     where
@@ -9105,23 +8371,15 @@ pub struct ITextStrings_Vtbl {
     SuffixTop: usize,
     pub Swap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct KHYPH(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphNil: KHYPH = KHYPH(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphNormal: KHYPH = KHYPH(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphAddBefore: KHYPH = KHYPH(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphChangeBefore: KHYPH = KHYPH(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphDeleteBefore: KHYPH = KHYPH(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphChangeAfter: KHYPH = KHYPH(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const khyphDelAndChange: KHYPH = KHYPH(6i32);
 impl ::core::marker::Copy for KHYPH {}
 impl ::core::clone::Clone for KHYPH {
@@ -9142,41 +8400,24 @@ impl ::core::fmt::Debug for KHYPH {
         f.debug_tuple("KHYPH").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MANCODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MBOLD: MANCODE = MANCODE(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MITAL: MANCODE = MANCODE(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MGREEK: MANCODE = MANCODE(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MROMN: MANCODE = MANCODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MSCRP: MANCODE = MANCODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MFRAK: MANCODE = MANCODE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MOPEN: MANCODE = MANCODE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MSANS: MANCODE = MANCODE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MMONO: MANCODE = MANCODE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MMATH: MANCODE = MANCODE(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MISOL: MANCODE = MANCODE(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MINIT: MANCODE = MANCODE(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MTAIL: MANCODE = MANCODE(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MSTRCH: MANCODE = MANCODE(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MLOOP: MANCODE = MANCODE(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MOPENA: MANCODE = MANCODE(12i32);
 impl ::core::marker::Copy for MANCODE {}
 impl ::core::clone::Clone for MANCODE {
@@ -9197,14 +8438,10 @@ impl ::core::fmt::Debug for MANCODE {
         f.debug_tuple("MANCODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MAX_TABLE_CELLS: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MAX_TAB_STOPS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const MSFTEDIT_CLASS: &str = "RICHEDIT50W";
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSGFILTER {
     pub nmhdr: super::NMHDR,
@@ -9239,7 +8476,6 @@ impl ::core::default::Default for MSGFILTER {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OBJECTPOSITIONS {
     pub nmhdr: super::NMHDR,
@@ -9272,71 +8508,39 @@ impl ::core::default::Default for OBJECTPOSITIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJECTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSimpleText: OBJECTTYPE = OBJECTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRuby: OBJECTTYPE = OBJECTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHorzVert: OBJECTTYPE = OBJECTTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWarichu: OBJECTTYPE = OBJECTTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEq: OBJECTTYPE = OBJECTTYPE(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMath: OBJECTTYPE = OBJECTTYPE(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAccent: OBJECTTYPE = OBJECTTYPE(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBox: OBJECTTYPE = OBJECTTYPE(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxedFormula: OBJECTTYPE = OBJECTTYPE(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBrackets: OBJECTTYPE = OBJECTTYPE(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBracketsWithSeps: OBJECTTYPE = OBJECTTYPE(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEquationArray: OBJECTTYPE = OBJECTTYPE(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFraction: OBJECTTYPE = OBJECTTYPE(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFunctionApply: OBJECTTYPE = OBJECTTYPE(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLeftSubSup: OBJECTTYPE = OBJECTTYPE(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLowerLimit: OBJECTTYPE = OBJECTTYPE(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatrix: OBJECTTYPE = OBJECTTYPE(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNary: OBJECTTYPE = OBJECTTYPE(21i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOpChar: OBJECTTYPE = OBJECTTYPE(22i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOverbar: OBJECTTYPE = OBJECTTYPE(23i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantom: OBJECTTYPE = OBJECTTYPE(24i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRadical: OBJECTTYPE = OBJECTTYPE(25i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSlashedFraction: OBJECTTYPE = OBJECTTYPE(26i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStack: OBJECTTYPE = OBJECTTYPE(27i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStretchStack: OBJECTTYPE = OBJECTTYPE(28i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSubscript: OBJECTTYPE = OBJECTTYPE(29i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSubSup: OBJECTTYPE = OBJECTTYPE(30i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSuperscript: OBJECTTYPE = OBJECTTYPE(31i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnderbar: OBJECTTYPE = OBJECTTYPE(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUpperLimit: OBJECTTYPE = OBJECTTYPE(33i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomObjectMax: OBJECTTYPE = OBJECTTYPE(33i32);
 impl ::core::marker::Copy for OBJECTTYPE {}
 impl ::core::clone::Clone for OBJECTTYPE {
@@ -9357,10 +8561,8 @@ impl ::core::fmt::Debug for OBJECTTYPE {
         f.debug_tuple("OBJECTTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const OLEOP_DOVERB: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct PARAFORMAT {
     pub cbSize: u32,
     pub dwMask: PARAFORMAT_MASK,
@@ -9394,7 +8596,6 @@ impl ::core::default::Default for PARAFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub union PARAFORMAT_0 {
     pub wReserved: u16,
     pub wEffects: u16,
@@ -9420,7 +8621,6 @@ impl ::core::default::Default for PARAFORMAT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct PARAFORMAT2 {
     pub __AnonymousBase_richedit_L1149_C22: PARAFORMAT,
     pub dySpaceBefore: i32,
@@ -9458,15 +8658,11 @@ impl ::core::default::Default for PARAFORMAT2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_ALIGNMENT(pub u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_CENTER: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(3u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_LEFT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(1u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_RIGHT: PARAFORMAT_ALIGNMENT = PARAFORMAT_ALIGNMENT(2u16);
 impl ::core::marker::Copy for PARAFORMAT_ALIGNMENT {}
 impl ::core::clone::Clone for PARAFORMAT_ALIGNMENT {
@@ -9487,23 +8683,15 @@ impl ::core::fmt::Debug for PARAFORMAT_ALIGNMENT {
         f.debug_tuple("PARAFORMAT_ALIGNMENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_BORDERS(pub u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_LEFT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(1u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_RIGHT: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(2u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_TOP: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(4u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_BOTTOM: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(8u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_INSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(16u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_OUTSIDE: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(32u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_BORDERS_AUTOCOLOR: PARAFORMAT_BORDERS = PARAFORMAT_BORDERS(64u16);
 impl ::core::marker::Copy for PARAFORMAT_BORDERS {}
 impl ::core::clone::Clone for PARAFORMAT_BORDERS {
@@ -9552,25 +8740,16 @@ impl ::core::ops::Not for PARAFORMAT_BORDERS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_MASK(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_ALIGNMENT: PARAFORMAT_MASK = PARAFORMAT_MASK(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_NUMBERING: PARAFORMAT_MASK = PARAFORMAT_MASK(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_OFFSET: PARAFORMAT_MASK = PARAFORMAT_MASK(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_OFFSETINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_RIGHTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_RTLPARA: PARAFORMAT_MASK = PARAFORMAT_MASK(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_STARTINDENT: PARAFORMAT_MASK = PARAFORMAT_MASK(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_TABSTOPS: PARAFORMAT_MASK = PARAFORMAT_MASK(16u32);
 impl ::core::marker::Copy for PARAFORMAT_MASK {}
 impl ::core::clone::Clone for PARAFORMAT_MASK {
@@ -9619,21 +8798,14 @@ impl ::core::ops::Not for PARAFORMAT_MASK {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_NUMBERING_STYLE(pub u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFNS_PAREN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(0u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFNS_PARENS: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(256u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFNS_PERIOD: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(512u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFNS_PLAIN: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(768u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFNS_NONUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(1024u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFNS_NEWNUMBER: PARAFORMAT_NUMBERING_STYLE = PARAFORMAT_NUMBERING_STYLE(32768u16);
 impl ::core::marker::Copy for PARAFORMAT_NUMBERING_STYLE {}
 impl ::core::clone::Clone for PARAFORMAT_NUMBERING_STYLE {
@@ -9654,35 +8826,21 @@ impl ::core::fmt::Debug for PARAFORMAT_NUMBERING_STYLE {
         f.debug_tuple("PARAFORMAT_NUMBERING_STYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PARAFORMAT_SHADING_STYLE(pub u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_NONE: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(0u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_DARK_HORIZ: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(1u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_DARK_VERT: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(2u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_DARK_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(3u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_DARK_UP_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(4u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_DARK_GRID: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(5u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_DARK_TRELLIS: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(6u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_HORZ: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(7u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_VERT: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(8u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_DOWN_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(9u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_UP_DIAG: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(10u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_GRID: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(11u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PARAFORMAT_SHADING_STYLE_LIGHT_TRELLIS: PARAFORMAT_SHADING_STYLE = PARAFORMAT_SHADING_STYLE(12u16);
 impl ::core::marker::Copy for PARAFORMAT_SHADING_STYLE {}
 impl ::core::clone::Clone for PARAFORMAT_SHADING_STYLE {
@@ -9703,90 +8861,48 @@ impl ::core::fmt::Debug for PARAFORMAT_SHADING_STYLE {
         f.debug_tuple("PARAFORMAT_SHADING_STYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PC_DELIMITER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PC_FOLLOWING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PC_LEADING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PC_OVERFLOW: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub type PCreateTextServices = ::core::option::Option<unsafe extern "system" fn(punkouter: ::core::option::Option<::windows::core::IUnknown>, pitexthost: ::core::option::Option<ITextHost>, ppunk: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_FULL_GLYPHS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_FULL_INTERLETTER: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_FULL_INTERWORD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_FULL_NEWSPAPER: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_FULL_SCALED: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFA_JUSTIFY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_BORDER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_BOX: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_COLLAPSED: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_DONOTHYPHEN: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_KEEP: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_KEEPNEXT: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_LINESPACING: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_NOLINENUMBER: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_NOWIDOWCONTROL: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_NUMBERINGSTART: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_NUMBERINGSTYLE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_NUMBERINGTAB: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_OUTLINELEVEL: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_PAGEBREAKBEFORE: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_RESERVED2: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_SHADING: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_SIDEBYSIDE: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_SPACEAFTER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_SPACEBEFORE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_STYLE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_TABLE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_TABLEROWDELIMITER: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFM_TEXTWRAPPINGBREAK: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFN_ARABIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFN_BULLET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFN_LCLETTER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFN_LCROMAN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFN_UCLETTER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const PFN_UCROMAN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub type PShutdownTextServices = ::core::option::Option<unsafe extern "system" fn(ptextservices: ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::HRESULT>;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct PUNCTUATION {
     pub iSize: u32,
     pub szPunctuation: ::windows::core::PSTR,
@@ -9811,18 +8927,12 @@ impl ::core::default::Default for PUNCTUATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RECO_COPY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RECO_CUT: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RECO_DRAG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RECO_DROP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RECO_PASTE: i32 = 0i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 pub struct REOBJECT {
     pub cbStruct: u32,
@@ -9877,47 +8987,27 @@ impl ::core::default::Default for REOBJECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REOBJECT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_ALIGNTORIGHT: REOBJECT_FLAGS = REOBJECT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_BELOWBASELINE: REOBJECT_FLAGS = REOBJECT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_BLANK: REOBJECT_FLAGS = REOBJECT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_CANROTATE: REOBJECT_FLAGS = REOBJECT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_DONTNEEDPALETTE: REOBJECT_FLAGS = REOBJECT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_DYNAMICSIZE: REOBJECT_FLAGS = REOBJECT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_GETMETAFILE: REOBJECT_FLAGS = REOBJECT_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_HILITED: REOBJECT_FLAGS = REOBJECT_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_INPLACEACTIVE: REOBJECT_FLAGS = REOBJECT_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_INVERTEDSELECT: REOBJECT_FLAGS = REOBJECT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_LINK: REOBJECT_FLAGS = REOBJECT_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_LINKAVAILABLE: REOBJECT_FLAGS = REOBJECT_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_OPEN: REOBJECT_FLAGS = REOBJECT_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_OWNERDRAWSELECT: REOBJECT_FLAGS = REOBJECT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_RESIZABLE: REOBJECT_FLAGS = REOBJECT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_SELECTED: REOBJECT_FLAGS = REOBJECT_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_STATIC: REOBJECT_FLAGS = REOBJECT_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_USEASBACKGROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_WRAPTEXTAROUND: REOBJECT_FLAGS = REOBJECT_FLAGS(512u32);
 impl ::core::marker::Copy for REOBJECT_FLAGS {}
 impl ::core::clone::Clone for REOBJECT_FLAGS {
@@ -9966,12 +9056,9 @@ impl ::core::ops::Not for REOBJECT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_NULL: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_READWRITEMASK: i32 = 2047i32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct REPASTESPECIAL {
     pub dwAspect: super::super::super::System::Com::DVASPECT,
@@ -10004,7 +9091,6 @@ impl ::core::default::Default for REPASTESPECIAL {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REQRESIZE {
     pub nmhdr: super::NMHDR,
@@ -10036,18 +9122,12 @@ impl ::core::default::Default for REQRESIZE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RICHEDIT60_CLASS: &str = "RICHEDIT60W";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RICHEDIT_CLASS: &str = "RichEdit20W";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RICHEDIT_CLASS10A: &str = "RICHEDIT";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RICHEDIT_CLASSA: &str = "RichEdit20A";
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RICHEDIT_CLASSW: &str = "RichEdit20W";
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 pub struct RICHEDIT_IMAGE_PARAMETERS {
     pub xWidth: i32,
@@ -10075,21 +9155,14 @@ impl ::core::default::Default for RICHEDIT_IMAGE_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(pub u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SEL_EMPTY: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(0u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SEL_TEXT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(1u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SEL_OBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(2u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SEL_MULTICHAR: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(4u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SEL_MULTIOBJECT: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(8u16);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const GCM_RIGHTMOUSEDROP: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE = RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE(32768u16);
 impl ::core::marker::Copy for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {}
 impl ::core::clone::Clone for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
@@ -10138,19 +9211,13 @@ impl ::core::ops::Not for RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RICH_EDIT_GET_OBJECT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_GETOBJ_POLEOBJ: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_GETOBJ_PSTG: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_GETOBJ_POLESITE: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_GETOBJ_NO_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const REO_GETOBJ_ALL_INTERFACES: RICH_EDIT_GET_OBJECT_FLAGS = RICH_EDIT_GET_OBJECT_FLAGS(7u32);
 impl ::core::marker::Copy for RICH_EDIT_GET_OBJECT_FLAGS {}
 impl ::core::clone::Clone for RICH_EDIT_GET_OBJECT_FLAGS {
@@ -10199,34 +9266,20 @@ impl ::core::ops::Not for RICH_EDIT_GET_OBJECT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RTO_DISABLEHANDLES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RTO_READINGMODE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const RTO_SHOWHANDLES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_ALL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_ASSOCIATEFONT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_ASSOCIATEFONT2: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_CHARREPFROMLCID: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_NOKBUPDATE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_SELECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_SMARTFONT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_USEUIRULES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SCF_WORD: u32 = 2u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SELCHANGE {
     pub nmhdr: super::NMHDR,
@@ -10259,94 +9312,50 @@ impl ::core::default::Default for SELCHANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_ALLOWBEEPS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_BEEPONMAXTEXT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_BIDI: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_CTFALLOWEMBED: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_CTFALLOWPROOFING: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_CTFALLOWSMARTTAG: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_CTFNOLOCK: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_CUSTOMLOOK: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_DEFAULTLATINLIGA: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_DRAFTMODE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EMULATE10: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EMULATESYSEDIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EXTENDBACKCOLOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_HANDLEFRIENDLYURL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_HIDETEMPFORMAT: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_MULTITOUCH: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_NOACETATESELECTION: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_NOMATH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_NOTABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_NOTHEMING: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_USEMOUSEWPARAM: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_EX_USESINGLELINE: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_HIDEGRIDLINES: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_HYPERLINKTOOLTIPS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_LBSCROLLNOTIFY: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_LOGICALCARET: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_LOWERCASE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_MAPCPS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_MAX: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_MULTISELECT: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_NOEALINEHEIGHTADJUST: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_NOFOCUSLINKNOTIFY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_NOIME: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_NOINPUTSEQUENCECHK: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_SCROLLONKILLFOCUS: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_SMARTDRAGDROP: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_UPPERCASE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_USEAIMM: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_USEATFONT: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_USECRLF: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_USECTF: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_WORDDRAGDROP: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SES_XLTCRCRLFTOCR: u32 = 16384u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct SETTEXTEX {
     pub flags: u32,
     pub codepage: u32,
@@ -10376,52 +9385,29 @@ impl ::core::default::Default for SETTEXTEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SFF_KEEPDOCINFO: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SFF_PERSISTVIEWSCALE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SFF_PLAINRTF: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SFF_PWD: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SFF_SELECTION: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SFF_WRITEXTRAPAR: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_NCRFORNONASCII: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_RTF: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_RTFNOOBJS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_RTFVAL: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_TEXT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_TEXTIZED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_UNICODE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SF_USECODEPAGE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SPF_DONTSETDEFAULT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const SPF_SETDEFAULT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ST_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ST_KEEPUNDO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ST_NEWCHARS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ST_SELECTION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const ST_UNICODE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const S_MSG_KEY_IGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(262657i32);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,
     pub _bitfield: u16,
@@ -10477,7 +9463,6 @@ impl ::core::default::Default for TABLECELLPARMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TABLEROWPARMS {
     pub cbRow: u8,
     pub cbCell: u8,
@@ -10516,21 +9501,14 @@ impl ::core::default::Default for TABLEROWPARMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTMODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TM_PLAINTEXT: TEXTMODE = TEXTMODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TM_RICHTEXT: TEXTMODE = TEXTMODE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TM_SINGLELEVELUNDO: TEXTMODE = TEXTMODE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TM_MULTILEVELUNDO: TEXTMODE = TEXTMODE(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TM_SINGLECODEPAGE: TEXTMODE = TEXTMODE(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TM_MULTICODEPAGE: TEXTMODE = TEXTMODE(32i32);
 impl ::core::marker::Copy for TEXTMODE {}
 impl ::core::clone::Clone for TEXTMODE {
@@ -10552,7 +9530,6 @@ impl ::core::fmt::Debug for TEXTMODE {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TEXTRANGEA {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows::core::PSTR,
@@ -10578,7 +9555,6 @@ impl ::core::default::Default for TEXTRANGEA {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct TEXTRANGEW {
     pub chrg: CHARRANGE,
     pub lpstrText: ::windows::core::PWSTR,
@@ -10603,23 +9579,15 @@ impl ::core::default::Default for TEXTRANGEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TO_ADVANCEDLAYOUT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TO_ADVANCEDTYPOGRAPHY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TO_DISABLECUSTOMTEXTOUT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TO_SIMPLELINEBREAK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXES_ISDIALOG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTBACKSTYLE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBACK_TRANSPARENT: TXTBACKSTYLE = TXTBACKSTYLE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBACK_OPAQUE: TXTBACKSTYLE = TXTBACKSTYLE(1i32);
 impl ::core::marker::Copy for TXTBACKSTYLE {}
 impl ::core::clone::Clone for TXTBACKSTYLE {
@@ -10640,77 +9608,42 @@ impl ::core::fmt::Debug for TXTBACKSTYLE {
         f.debug_tuple("TXTBACKSTYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_ADVANCEDINPUT: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_ALLOWBEEP: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_AUTOWORDSEL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_BACKSTYLECHANGE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_CHARFORMATCHANGE: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_CLIENTRECTCHANGE: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_D2DDWRITE: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_D2DPIXELSNAPPED: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_D2DSIMPLETYPOGRAPHY: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_D2DSUBPIXELLINES: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_DISABLEDRAG: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_EXTENTCHANGE: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_FLASHLASTPASSWORDCHAR: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_HIDESELECTION: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_MAXLENGTHCHANGE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_MULTILINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_NOTHREADREFCOUNT: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_PARAFORMATCHANGE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_READONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_RICHTEXT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_SAVESELECTION: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_SCROLLBARCHANGE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_SELBARCHANGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_SHOWACCELERATOR: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_SHOWPASSWORD: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_USECURRENTBKG: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_USEPASSWORD: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_VERTICAL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_VIEWINSETCHANGE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTBIT_WORDWRAP: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTHITRESULT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTHITRESULT_NOHIT: TXTHITRESULT = TXTHITRESULT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTHITRESULT_TRANSPARENT: TXTHITRESULT = TXTHITRESULT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTHITRESULT_CLOSE: TXTHITRESULT = TXTHITRESULT(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTHITRESULT_HIT: TXTHITRESULT = TXTHITRESULT(3i32);
 impl ::core::marker::Copy for TXTHITRESULT {}
 impl ::core::clone::Clone for TXTHITRESULT {
@@ -10731,23 +9664,15 @@ impl ::core::fmt::Debug for TXTHITRESULT {
         f.debug_tuple("TXTHITRESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTNATURALSIZE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_FITTOCONTENT2: TXTNATURALSIZE = TXTNATURALSIZE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_FITTOCONTENT: TXTNATURALSIZE = TXTNATURALSIZE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_ROUNDTOLINE: TXTNATURALSIZE = TXTNATURALSIZE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_FITTOCONTENT3: TXTNATURALSIZE = TXTNATURALSIZE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_FITTOCONTENTWSP: TXTNATURALSIZE = TXTNATURALSIZE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_INCLUDELASTLINE: TXTNATURALSIZE = TXTNATURALSIZE(1073741824i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTNS_EMU: TXTNATURALSIZE = TXTNATURALSIZE(-2147483648i32);
 impl ::core::marker::Copy for TXTNATURALSIZE {}
 impl ::core::clone::Clone for TXTNATURALSIZE {
@@ -10768,13 +9693,10 @@ impl ::core::fmt::Debug for TXTNATURALSIZE {
         f.debug_tuple("TXTNATURALSIZE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXTVIEW(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTVIEW_ACTIVE: TXTVIEW = TXTVIEW(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const TXTVIEW_INACTIVE: TXTVIEW = TXTVIEW(-1i32);
 impl ::core::marker::Copy for TXTVIEW {}
 impl ::core::clone::Clone for TXTVIEW {
@@ -10795,23 +9717,15 @@ impl ::core::fmt::Debug for TXTVIEW {
         f.debug_tuple("TXTVIEW").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UNDONAMEID(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_UNKNOWN: UNDONAMEID = UNDONAMEID(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_TYPING: UNDONAMEID = UNDONAMEID(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_DELETE: UNDONAMEID = UNDONAMEID(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_DRAGDROP: UNDONAMEID = UNDONAMEID(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_CUT: UNDONAMEID = UNDONAMEID(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_PASTE: UNDONAMEID = UNDONAMEID(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const UID_AUTOTABLE: UNDONAMEID = UNDONAMEID(6i32);
 impl ::core::marker::Copy for UNDONAMEID {}
 impl ::core::clone::Clone for UNDONAMEID {
@@ -10832,34 +9746,20 @@ impl ::core::fmt::Debug for UNDONAMEID {
         f.debug_tuple("UNDONAMEID").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const VM_NORMAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const VM_OUTLINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const VM_PAGE: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WBF_CUSTOM: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WBF_LEVEL1: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WBF_LEVEL2: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WBF_OVERFLOW: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WBF_WORDBREAK: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WBF_WORDWRAP: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WB_MOVEWORDNEXT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WB_MOVEWORDPREV: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WB_NEXTBREAK: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const WB_PREVBREAK: u32 = 6u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct _grouptypingchange {
     pub nmhdr: super::NMHDR,
@@ -10891,10 +9791,8 @@ impl ::core::default::Default for _grouptypingchange {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const cchTextLimitDefault: u32 = 32767u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct hyphresult {
     pub khyph: KHYPH,
     pub ichHyph: i32,
@@ -10925,1179 +9823,593 @@ impl ::core::default::Default for hyphresult {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const lDefaultTab: u32 = 720u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct tomConstants(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFalse: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTrue: tomConstants = tomConstants(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUndefined: tomConstants = tomConstants(-9999999i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomToggle: tomConstants = tomConstants(-9999998i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoColor: tomConstants = tomConstants(-9999997i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDefault: tomConstants = tomConstants(-9999996i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSuspend: tomConstants = tomConstants(-9999995i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomResume: tomConstants = tomConstants(-9999994i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomApplyNow: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomApplyLater: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTrackParms: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCacheParms: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomApplyTmp: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDisableSmartFont: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEnableSmartFont: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUsePoints: tomConstants = tomConstants(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUseTwips: tomConstants = tomConstants(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBackward: tomConstants = tomConstants(-1073741823i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomForward: tomConstants = tomConstants(1073741823i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMove: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomExtend: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoSelection: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionIP: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionNormal: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionFrame: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionColumn: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionRow: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionBlock: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionInlineShape: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelectionShape: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelStartActive: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelAtEOL: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelOvertype: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelActive: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelReplace: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEnd: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStart: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCollapseEnd: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCollapseStart: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomClientCoord: tomConstants = tomConstants(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAllowOffClient: tomConstants = tomConstants(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTransform: tomConstants = tomConstants(1024i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomObjectArg: tomConstants = tomConstants(2048i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAtEnd: tomConstants = tomConstants(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNone: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSingle: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWords: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDouble: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDotted: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDash: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDashDot: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDashDotDot: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWave: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThick: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHair: tomConstants = tomConstants(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDoubleWave: tomConstants = tomConstants(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHeavyWave: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLongDash: tomConstants = tomConstants(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThickDash: tomConstants = tomConstants(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThickDashDot: tomConstants = tomConstants(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThickDashDotDot: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThickDotted: tomConstants = tomConstants(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThickLongDash: tomConstants = tomConstants(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLineSpaceSingle: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLineSpace1pt5: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLineSpaceDouble: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLineSpaceAtLeast: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLineSpaceExactly: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLineSpaceMultiple: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLineSpacePercent: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignLeft: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignCenter: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignRight: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignJustify: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignDecimal: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignBar: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDefaultTab: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignInterWord: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignNewspaper: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignInterLetter: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignScaled: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaces: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDots: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDashes: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLines: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThickLines: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEquals: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTabBack: tomConstants = tomConstants(-3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTabNext: tomConstants = tomConstants(-2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTabHere: tomConstants = tomConstants(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNone: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListBullet: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberAsArabic: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberAsLCLetter: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberAsUCLetter: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberAsLCRoman: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberAsUCRoman: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberAsSequence: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedCircle: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedBlackCircleWingding: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedWhiteCircleWingding: tomConstants = tomConstants(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedArabicWide: tomConstants = tomConstants(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedChS: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedChT: tomConstants = tomConstants(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedJpnChS: tomConstants = tomConstants(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedJpnKor: tomConstants = tomConstants(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedArabic1: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedArabic2: tomConstants = tomConstants(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedHebrew: tomConstants = tomConstants(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedThaiAlpha: tomConstants = tomConstants(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedThaiNum: tomConstants = tomConstants(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedHindiAlpha: tomConstants = tomConstants(21i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedHindiAlpha1: tomConstants = tomConstants(22i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNumberedHindiNum: tomConstants = tomConstants(23i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListParentheses: tomConstants = tomConstants(65536i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListPeriod: tomConstants = tomConstants(131072i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListPlain: tomConstants = tomConstants(196608i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListNoNumber: tomConstants = tomConstants(262144i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomListMinus: tomConstants = tomConstants(524288i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomIgnoreNumberStyle: tomConstants = tomConstants(16777216i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleNormal: tomConstants = tomConstants(-1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading1: tomConstants = tomConstants(-2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading2: tomConstants = tomConstants(-3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading3: tomConstants = tomConstants(-4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading4: tomConstants = tomConstants(-5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading5: tomConstants = tomConstants(-6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading6: tomConstants = tomConstants(-7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading7: tomConstants = tomConstants(-8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading8: tomConstants = tomConstants(-9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaStyleHeading9: tomConstants = tomConstants(-10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCharacter: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWord: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSentence: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParagraph: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLine: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStory: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomScreen: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSection: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTableColumn: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomColumn: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRow: tomConstants = tomConstants(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWindow: tomConstants = tomConstants(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCell: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCharFormat: tomConstants = tomConstants(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaFormat: tomConstants = tomConstants(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTable: tomConstants = tomConstants(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomObject: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPage: tomConstants = tomConstants(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHardParagraph: tomConstants = tomConstants(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCluster: tomConstants = tomConstants(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomInlineObject: tomConstants = tomConstants(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomInlineObjectArg: tomConstants = tomConstants(21i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLeafLine: tomConstants = tomConstants(22i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLayoutColumn: tomConstants = tomConstants(23i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomProcessId: tomConstants = tomConstants(1073741825i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatchWord: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatchCase: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatchPattern: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnknownStory: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMainTextStory: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFootnotesStory: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEndnotesStory: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCommentsStory: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTextFrameStory: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEvenPagesHeaderStory: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPrimaryHeaderStory: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEvenPagesFooterStory: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPrimaryFooterStory: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFirstPageHeaderStory: tomConstants = tomConstants(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFirstPageFooterStory: tomConstants = tomConstants(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomScratchStory: tomConstants = tomConstants(127i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFindStory: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomReplaceStory: tomConstants = tomConstants(129i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStoryInactive: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStoryActiveDisplay: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStoryActiveUI: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStoryActiveDisplayUI: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoAnimation: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLasVegasLights: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBlinkingBackground: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSparkleText: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMarchingBlackAnts: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMarchingRedAnts: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShimmer: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWipeDown: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWipeRight: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAnimationMax: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLowerCase: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUpperCase: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTitleCase: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSentenceCase: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomToggleCase: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomReadOnly: tomConstants = tomConstants(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShareDenyRead: tomConstants = tomConstants(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShareDenyWrite: tomConstants = tomConstants(1024i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPasteFile: tomConstants = tomConstants(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCreateNew: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCreateAlways: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOpenExisting: tomConstants = tomConstants(48i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOpenAlways: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTruncateExisting: tomConstants = tomConstants(80i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRTF: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomText: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHTML: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomWordDocument: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBold: tomConstants = tomConstants(-2147483647i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomItalic: tomConstants = tomConstants(-2147483646i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnderline: tomConstants = tomConstants(-2147483644i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStrikeout: tomConstants = tomConstants(-2147483640i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomProtected: tomConstants = tomConstants(-2147483632i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLink: tomConstants = tomConstants(-2147483616i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSmallCaps: tomConstants = tomConstants(-2147483584i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAllCaps: tomConstants = tomConstants(-2147483520i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHidden: tomConstants = tomConstants(-2147483392i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOutline: tomConstants = tomConstants(-2147483136i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShadow: tomConstants = tomConstants(-2147482624i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEmboss: tomConstants = tomConstants(-2147481600i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomImprint: tomConstants = tomConstants(-2147479552i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDisabled: tomConstants = tomConstants(-2147475456i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRevised: tomConstants = tomConstants(-2147467264i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSubscriptCF: tomConstants = tomConstants(-2147418112i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSuperscriptCF: tomConstants = tomConstants(-2147352576i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontBound: tomConstants = tomConstants(-2146435072i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLinkProtected: tomConstants = tomConstants(-2139095040i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomInlineObjectStart: tomConstants = tomConstants(-2130706432i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomExtendedChar: tomConstants = tomConstants(-2113929216i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoBackColor: tomConstants = tomConstants(-2080374784i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathZoneNoBuildUp: tomConstants = tomConstants(-2013265920i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathZone: tomConstants = tomConstants(-1879048192i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathZoneOrdinary: tomConstants = tomConstants(-1610612736i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoTextColor: tomConstants = tomConstants(-1073741824i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathZoneDisplay: tomConstants = tomConstants(262144i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectRTL: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectKeep: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectKeepNext: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectPageBreakBefore: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectNoLineNumber: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectNoWidowControl: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectDoNotHyphen: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectSideBySide: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectCollapsed: tomConstants = tomConstants(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectOutlineLevel: tomConstants = tomConstants(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectBox: tomConstants = tomConstants(1024i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectTableRowDelimiter: tomConstants = tomConstants(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaEffectTable: tomConstants = tomConstants(16384i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomModWidthPairs: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomModWidthSpace: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoSpaceAlpha: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoSpaceNumeric: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoSpaceParens: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEmbeddedFont: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDoublestrike: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOverlapping: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNormalCaret: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomKoreanBlockCaret: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNullCaret: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomIncludeInset: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnicodeBiDi: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathCFCheck: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnlink: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnhide: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCheckTextLimit: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomIgnoreCurrentFont: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatchCharRep: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatchFontSignature: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatchAscii: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGetHeightOnly: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatchMathFont: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCharset: tomConstants = tomConstants(-2147483648i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCharRepFromLcid: tomConstants = tomConstants(1073741824i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAnsi: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEastEurope: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCyrillic: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGreek: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTurkish: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHebrew: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomArabic: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBaltic: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomVietnamese: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDefaultCharRep: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSymbol: tomConstants = tomConstants(10i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThai: tomConstants = tomConstants(11i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShiftJIS: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGB2312: tomConstants = tomConstants(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHangul: tomConstants = tomConstants(14i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBIG5: tomConstants = tomConstants(15i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPC437: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOEM: tomConstants = tomConstants(17i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMac: tomConstants = tomConstants(18i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomArmenian: tomConstants = tomConstants(19i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSyriac: tomConstants = tomConstants(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomThaana: tomConstants = tomConstants(21i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDevanagari: tomConstants = tomConstants(22i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBengali: tomConstants = tomConstants(23i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGurmukhi: tomConstants = tomConstants(24i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGujarati: tomConstants = tomConstants(25i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOriya: tomConstants = tomConstants(26i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTamil: tomConstants = tomConstants(27i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTelugu: tomConstants = tomConstants(28i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomKannada: tomConstants = tomConstants(29i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMalayalam: tomConstants = tomConstants(30i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSinhala: tomConstants = tomConstants(31i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLao: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTibetan: tomConstants = tomConstants(33i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMyanmar: tomConstants = tomConstants(34i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGeorgian: tomConstants = tomConstants(35i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomJamo: tomConstants = tomConstants(36i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEthiopic: tomConstants = tomConstants(37i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCherokee: tomConstants = tomConstants(38i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAboriginal: tomConstants = tomConstants(39i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOgham: tomConstants = tomConstants(40i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRunic: tomConstants = tomConstants(41i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomKhmer: tomConstants = tomConstants(42i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMongolian: tomConstants = tomConstants(43i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBraille: tomConstants = tomConstants(44i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomYi: tomConstants = tomConstants(45i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimbu: tomConstants = tomConstants(46i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTaiLe: tomConstants = tomConstants(47i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNewTaiLue: tomConstants = tomConstants(48i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSylotiNagri: tomConstants = tomConstants(49i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomKharoshthi: tomConstants = tomConstants(50i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomKayahli: tomConstants = tomConstants(51i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUsymbol: tomConstants = tomConstants(52i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEmoji: tomConstants = tomConstants(53i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGlagolitic: tomConstants = tomConstants(54i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLisu: tomConstants = tomConstants(55i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomVai: tomConstants = tomConstants(56i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNKo: tomConstants = tomConstants(57i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomOsmanya: tomConstants = tomConstants(58i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhagsPa: tomConstants = tomConstants(59i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGothic: tomConstants = tomConstants(60i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDeseret: tomConstants = tomConstants(61i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTifinagh: tomConstants = tomConstants(62i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCharRepMax: tomConstants = tomConstants(63i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRE10Mode: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUseAtFont: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTextFlowMask: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTextFlowES: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTextFlowSW: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTextFlowWN: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTextFlowNE: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoIME: tomConstants = tomConstants(524288i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelfIME: tomConstants = tomConstants(262144i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoUpScroll: tomConstants = tomConstants(65536i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoVpScroll: tomConstants = tomConstants(262144i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoLink: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomClientLink: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFriendlyLinkName: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFriendlyLinkAddress: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoLinkURL: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoLinkEmail: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoLinkPhone: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAutoLinkPath: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCompressNone: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCompressPunctuation: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCompressPunctuationAndKana: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCompressMax: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnderlinePositionAuto: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnderlinePositionBelow: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnderlinePositionAbove: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUnderlinePositionMax: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontAlignmentAuto: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontAlignmentTop: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontAlignmentBaseline: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontAlignmentBottom: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontAlignmentCenter: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontAlignmentMax: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRubyBelow: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRubyAlignCenter: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRubyAlign010: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRubyAlign121: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRubyAlignLeft: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRubyAlignRight: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitsDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitsUnderOver: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitsSubSup: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUpperLimitAsSuperScript: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitsOpposite: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShowLLimPlaceHldr: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShowULimPlaceHldr: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDontGrowWithContent: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGrowWithContent: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSubSupAlign: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitAlignMask: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitAlignCenter: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitAlignLeft: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLimitAlignRight: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShowDegPlaceHldr: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAlignMatchAscentDescent: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathVariant: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleScriptScriptCramped: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleScriptScript: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleScriptCramped: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleScript: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleTextCramped: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleText: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleDisplayCramped: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStyleDisplay: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathRelSize: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDecDecSize: tomConstants = tomConstants(254i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDecSize: tomConstants = tomConstants(255i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomIncSize: tomConstants = tomConstants(65i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomIncIncSize: tomConstants = tomConstants(66i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGravityUI: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGravityBack: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGravityFore: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGravityIn: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGravityOut: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGravityBackward: tomConstants = tomConstants(536870912i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomGravityForward: tomConstants = tomConstants(1073741824i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAdjustCRLF: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUseCRLF: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTextize: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAllowFinalEOP: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFoldMathAlpha: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoHidden: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomIncludeNumbering: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTranslateTableCell: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoMathZoneBrackets: tomConstants = tomConstants(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomConvertMathChar: tomConstants = tomConstants(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoUCGreekItalic: tomConstants = tomConstants(1024i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomAllowMathBold: tomConstants = tomConstants(2048i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomLanguageTag: tomConstants = tomConstants(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomConvertRTF: tomConstants = tomConstants(8192i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomApplyRtfDocProps: tomConstants = tomConstants(16384i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomShow: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomZeroWidth: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomZeroAscent: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomZeroDescent: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomTransparent: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomASmash: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomDSmash: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomHSmash: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomSmash: tomConstants = tomConstants(13i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomHorz: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomPhantomVert: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxHideTop: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxHideBottom: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxHideLeft: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxHideRight: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxStrikeH: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxStrikeV: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxStrikeTLBR: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxStrikeBLTR: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomBoxAlignCenter: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceMask: tomConstants = tomConstants(28i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceUnary: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceBinary: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceRelational: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceSkip: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceOrd: tomConstants = tomConstants(20i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSpaceDifferential: tomConstants = tomConstants(24i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSizeText: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSizeScript: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSizeScriptScript: tomConstants = tomConstants(96i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomNoBreak: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTransparentForPositioning: tomConstants = tomConstants(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomTransparentForSpacing: tomConstants = tomConstants(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStretchCharBelow: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStretchCharAbove: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStretchBaseBelow: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomStretchBaseAbove: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatrixAlignMask: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatrixAlignCenter: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatrixAlignTopRow: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMatrixAlignBottomRow: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomShowMatPlaceHldr: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEqArrayLayoutWidth: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEqArrayAlignMask: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEqArrayAlignCenter: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEqArrayAlignTopRow: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEqArrayAlignBottomRow: tomConstants = tomConstants(12i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathManualBreakMask: tomConstants = tomConstants(127i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBreakLeft: tomConstants = tomConstants(125i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBreakCenter: tomConstants = tomConstants(126i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBreakRight: tomConstants = tomConstants(127i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathEqAlign: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathArgShadingStart: tomConstants = tomConstants(593i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathArgShadingEnd: tomConstants = tomConstants(594i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathObjShadingStart: tomConstants = tomConstants(595i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathObjShadingEnd: tomConstants = tomConstants(596i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFunctionTypeNone: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFunctionTypeTakesArg: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFunctionTypeTakesLim: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFunctionTypeTakesLim2: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFunctionTypeIsLim: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathParaAlignDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathParaAlignCenterGroup: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathParaAlignCenter: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathParaAlignLeft: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathParaAlignRight: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispAlignMask: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispAlignCenterGroup: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispAlignCenter: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispAlignLeft: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispAlignRight: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispIntUnderOver: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispFracTeX: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispNaryGrow: tomConstants = tomConstants(16i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocEmptyArgMask: tomConstants = tomConstants(96i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocEmptyArgAuto: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocEmptyArgAlways: tomConstants = tomConstants(32i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocEmptyArgNever: tomConstants = tomConstants(64i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocSbSpOpUnchanged: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocDiffMask: tomConstants = tomConstants(768i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocDiffDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocDiffUpright: tomConstants = tomConstants(256i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocDiffItalic: tomConstants = tomConstants(512i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDocDiffOpenItalic: tomConstants = tomConstants(768i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispNarySubSup: tomConstants = tomConstants(1024i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathDispDef: tomConstants = tomConstants(2048i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathEnableRtl: tomConstants = tomConstants(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinMask: tomConstants = tomConstants(196608i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinBefore: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinAfter: tomConstants = tomConstants(65536i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinDup: tomConstants = tomConstants(131072i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinSubMask: tomConstants = tomConstants(786432i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinSubMM: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinSubPM: tomConstants = tomConstants(262144i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathBrkBinSubMP: tomConstants = tomConstants(524288i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomSelRange: tomConstants = tomConstants(597i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHstring: tomConstants = tomConstants(596i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontPropTeXStyle: tomConstants = tomConstants(828i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontPropAlign: tomConstants = tomConstants(829i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretch: tomConstants = tomConstants(830i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStyle: tomConstants = tomConstants(831i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStyleUpright: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStyleOblique: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStyleItalic: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchUltraCondensed: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchExtraCondensed: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchCondensed: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchSemiCondensed: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchNormal: tomConstants = tomConstants(5i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchSemiExpanded: tomConstants = tomConstants(6i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchExpanded: tomConstants = tomConstants(7i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchExtraExpanded: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontStretchUltraExpanded: tomConstants = tomConstants(9i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightThin: tomConstants = tomConstants(100i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightExtraLight: tomConstants = tomConstants(200i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightLight: tomConstants = tomConstants(300i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightNormal: tomConstants = tomConstants(400i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightRegular: tomConstants = tomConstants(400i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightMedium: tomConstants = tomConstants(500i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightSemiBold: tomConstants = tomConstants(600i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightBold: tomConstants = tomConstants(700i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightExtraBold: tomConstants = tomConstants(800i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightBlack: tomConstants = tomConstants(900i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightHeavy: tomConstants = tomConstants(900i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomFontWeightExtraBlack: tomConstants = tomConstants(950i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomParaPropMathAlign: tomConstants = tomConstants(1079i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDocMathBuild: tomConstants = tomConstants(128i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathLMargin: tomConstants = tomConstants(129i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathRMargin: tomConstants = tomConstants(130i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathWrapIndent: tomConstants = tomConstants(131i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathWrapRight: tomConstants = tomConstants(132i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathPostSpace: tomConstants = tomConstants(134i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathPreSpace: tomConstants = tomConstants(133i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathInterSpace: tomConstants = tomConstants(135i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomMathIntraSpace: tomConstants = tomConstants(136i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCanCopy: tomConstants = tomConstants(137i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCanRedo: tomConstants = tomConstants(138i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCanUndo: tomConstants = tomConstants(139i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomUndoLimit: tomConstants = tomConstants(140i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomDocAutoLink: tomConstants = tomConstants(141i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEllipsisMode: tomConstants = tomConstants(142i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEllipsisState: tomConstants = tomConstants(143i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEllipsisNone: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEllipsisEnd: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEllipsisWord: tomConstants = tomConstants(3i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomEllipsisPresent: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomVTopCell: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomVLowCell: tomConstants = tomConstants(2i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHStartCell: tomConstants = tomConstants(4i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomHContCell: tomConstants = tomConstants(8i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRowUpdate: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRowApplyDefault: tomConstants = tomConstants(0i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomCellStructureChangeOnly: tomConstants = tomConstants(1i32);
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const tomRowHeightActual: tomConstants = tomConstants(2059i32);
 impl ::core::marker::Copy for tomConstants {}
 impl ::core::clone::Clone for tomConstants {
@@ -12118,7 +10430,6 @@ impl ::core::fmt::Debug for tomConstants {
         f.debug_tuple("tomConstants").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const yHeightCharPtsMost: u32 = 1638u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,7 +1,5 @@
-#[doc = "*Required features: `\"Gaming_Input_Preview\"`*"]
 pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
-    #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetParentProviderId<'a, P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -13,7 +11,6 @@ impl GameControllerProviderInfo {
             (::windows::core::Interface::vtable(this).GetParentProviderId)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]
     pub fn GetProviderId<'a, P0, E0>(provider: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where

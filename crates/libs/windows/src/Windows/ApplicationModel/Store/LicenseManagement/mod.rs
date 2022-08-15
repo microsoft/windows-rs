@@ -70,10 +70,8 @@ pub struct ILicenseSatisfactionResult_Vtbl {
     LicenseSatisfactionInfos: usize,
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 pub struct LicenseManager;
 impl LicenseManager {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn AddLicenseAsync<'a, P0, E0>(license: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -85,7 +83,6 @@ impl LicenseManager {
             (::windows::core::Interface::vtable(this).AddLicenseAsync)(::windows::core::Interface::as_raw(this), license.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSatisfactionInfosAsync<'a, P0, E0, P1, E1>(contentids: P0, keyids: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>
     where
@@ -99,7 +96,6 @@ impl LicenseManager {
             (::windows::core::Interface::vtable(this).GetSatisfactionInfosAsync)(::windows::core::Interface::as_raw(this), contentids.try_into().map_err(|e| e.into())?.abi(), keyids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<LicenseSatisfactionResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RefreshLicensesAsync(refreshoption: LicenseRefreshOption) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ILicenseManagerStatics2(|this| unsafe {
@@ -121,7 +117,6 @@ impl LicenseManager {
 impl ::windows::core::RuntimeName for LicenseManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.LicenseManagement.LicenseManager";
 }
-#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LicenseRefreshOption(pub i32);
@@ -155,7 +150,6 @@ unsafe impl ::windows::core::RuntimeType for LicenseRefreshOption {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
 pub struct LicenseSatisfactionInfo(::windows::core::IUnknown);
 impl LicenseSatisfactionInfo {
@@ -271,11 +265,9 @@ impl ::core::convert::From<&LicenseSatisfactionInfo> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for LicenseSatisfactionInfo {}
 unsafe impl ::core::marker::Sync for LicenseSatisfactionInfo {}
-#[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
 #[repr(transparent)]
 pub struct LicenseSatisfactionResult(::windows::core::IUnknown);
 impl LicenseSatisfactionResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LicenseSatisfactionInfos(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, LicenseSatisfactionInfo>> {
         let this = self;

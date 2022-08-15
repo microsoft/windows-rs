@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AddContactResult(pub i32);
@@ -33,11 +32,9 @@ unsafe impl ::windows::core::RuntimeType for AddContactResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
 pub struct ContactPickerUI(::windows::core::IUnknown);
 impl ContactPickerUI {
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn AddContact<'a, P0>(&self, id: &::windows::core::HSTRING, contact: P0) -> ::windows::core::Result<AddContactResult>
     where
@@ -60,7 +57,6 @@ impl ContactPickerUI {
             (::windows::core::Interface::vtable(this).ContainsContact)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn DesiredFields(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -76,7 +72,6 @@ impl ContactPickerUI {
             (::windows::core::Interface::vtable(this).SelectionMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ContactSelectionMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContactRemoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -88,7 +83,6 @@ impl ContactPickerUI {
             (::windows::core::Interface::vtable(this).ContactRemoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContactRemoved(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -104,7 +98,6 @@ impl ContactPickerUI {
             (::windows::core::Interface::vtable(this).AddContact)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<AddContactResult>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DesiredFieldsWithContactFieldType(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::ContactFieldType>> {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
@@ -174,7 +167,6 @@ impl ::core::convert::From<&ContactPickerUI> for &::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
 #[repr(transparent)]
 pub struct ContactRemovedEventArgs(::windows::core::IUnknown);
 impl ContactRemovedEventArgs {

@@ -4,14 +4,12 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
     let name = to_ident(gen.reader.field_name(def));
     let ty = gen.reader.field_type(def, None).to_const();
     let cfg = gen.reader.field_cfg(def);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     if let Some(constant) = gen.reader.field_constant(def) {
         if ty == gen.reader.constant_type(constant) {
             let value = gen.typed_value(&gen.reader.constant_value(constant));
             quote! {
-                #doc
                 #features
                 pub const #name: #value;
             }
@@ -27,13 +25,11 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
 
             if !gen.sys && gen.reader.type_has_replacement(&ty) {
                 quote! {
-                    #doc
                     #features
                     pub const #name: #kind = #kind(#value);
                 }
             } else {
                 quote! {
-                    #doc
                     #features
                     pub const #name: #kind = #value;
                 }
@@ -47,7 +43,6 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
         let kind = gen.type_default_name(&ty);
         let guid = gen.guid(&guid);
         quote! {
-            #doc
             #features
             pub const #name: #kind = #kind {
                 fmtid: #guid,

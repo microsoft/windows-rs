@@ -1,6 +1,5 @@
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
 pub mod Direct3D11;
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXAlphaMode(pub i32);
@@ -36,7 +35,6 @@ unsafe impl ::windows::core::RuntimeType for DirectXAlphaMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXColorSpace(pub i32);
@@ -93,7 +91,6 @@ unsafe impl ::windows::core::RuntimeType for DirectXColorSpace {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXPixelFormat(pub i32);
@@ -246,7 +243,6 @@ unsafe impl ::windows::core::RuntimeType for DirectXPixelFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_DirectX\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DirectXPrimitiveTopology(pub i32);

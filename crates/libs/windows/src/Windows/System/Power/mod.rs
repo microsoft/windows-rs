@@ -1,11 +1,9 @@
 #[cfg(feature = "System_Power_Diagnostics")]
 pub mod Diagnostics;
-#[doc = "*Required features: `\"System_Power\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 pub struct BackgroundEnergyManager;
 #[cfg(feature = "deprecated")]
 impl BackgroundEnergyManager {
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn LowUsageLevel() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -13,7 +11,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).LowUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn NearMaxAcceptableUsageLevel() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -21,7 +18,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).NearMaxAcceptableUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn MaxAcceptableUsageLevel() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -29,7 +25,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).MaxAcceptableUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ExcessiveUsageLevel() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -37,7 +32,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).ExcessiveUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn NearTerminationUsageLevel() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -45,7 +39,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).NearTerminationUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn TerminationUsageLevel() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -53,7 +46,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).TerminationUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsage() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -61,7 +53,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageLevel() -> ::windows::core::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
@@ -69,7 +60,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RecentEnergyUsageIncreased<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -80,12 +70,10 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsageIncreased)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRecentEnergyUsageIncreased(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRecentEnergyUsageIncreased)(::windows::core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RecentEnergyUsageReturnedToLow<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -96,7 +84,6 @@ impl BackgroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsageReturnedToLow)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRecentEnergyUsageReturnedToLow(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -112,7 +99,6 @@ impl BackgroundEnergyManager {
 impl ::windows::core::RuntimeName for BackgroundEnergyManager {
     const NAME: &'static str = "Windows.System.Power.BackgroundEnergyManager";
 }
-#[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BatteryStatus(pub i32);
@@ -148,7 +134,6 @@ unsafe impl ::windows::core::RuntimeType for BatteryStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EnergySaverStatus(pub i32);
@@ -183,12 +168,10 @@ unsafe impl ::windows::core::RuntimeType for EnergySaverStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Power\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 pub struct ForegroundEnergyManager;
 #[cfg(feature = "deprecated")]
 impl ForegroundEnergyManager {
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn LowUsageLevel() -> ::windows::core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -196,7 +179,6 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).LowUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn NearMaxAcceptableUsageLevel() -> ::windows::core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -204,7 +186,6 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).NearMaxAcceptableUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn MaxAcceptableUsageLevel() -> ::windows::core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -212,7 +193,6 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).MaxAcceptableUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ExcessiveUsageLevel() -> ::windows::core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -220,7 +200,6 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).ExcessiveUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsage() -> ::windows::core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -228,7 +207,6 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn RecentEnergyUsageLevel() -> ::windows::core::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
@@ -236,7 +214,6 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsageLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RecentEnergyUsageIncreased<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -247,12 +224,10 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsageIncreased)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRecentEnergyUsageIncreased(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRecentEnergyUsageIncreased)(::windows::core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RecentEnergyUsageReturnedToLow<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -263,7 +238,6 @@ impl ForegroundEnergyManager {
             (::windows::core::Interface::vtable(this).RecentEnergyUsageReturnedToLow)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRecentEnergyUsageReturnedToLow(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -457,7 +431,6 @@ pub struct IPowerManagerStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveRemainingDischargeTimeChanged: usize,
 }
-#[doc = "*Required features: `\"System_Power\"`*"]
 pub struct PowerManager;
 impl PowerManager {
     pub fn EnergySaverStatus() -> ::windows::core::Result<EnergySaverStatus> {
@@ -466,7 +439,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).EnergySaverStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EnergySaverStatus>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnergySaverStatusChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -477,7 +449,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).EnergySaverStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnergySaverStatusChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveEnergySaverStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -488,7 +459,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).BatteryStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BatteryStatus>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BatteryStatusChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -499,7 +469,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).BatteryStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBatteryStatusChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveBatteryStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -510,7 +479,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).PowerSupplyStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PowerSupplyStatus>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PowerSupplyStatusChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -521,7 +489,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).PowerSupplyStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePowerSupplyStatusChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePowerSupplyStatusChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -532,7 +499,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).RemainingChargePercent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingChargePercentChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -543,12 +509,10 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).RemainingChargePercentChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemainingChargePercentChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRemainingChargePercentChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingDischargeTime() -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         Self::IPowerManagerStatics(|this| unsafe {
@@ -556,7 +520,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).RemainingDischargeTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingDischargeTimeChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -567,7 +530,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).RemainingDischargeTimeChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemainingDischargeTimeChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRemainingDischargeTimeChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -581,7 +543,6 @@ impl PowerManager {
 impl ::windows::core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.System.Power.PowerManager";
 }
-#[doc = "*Required features: `\"System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PowerSupplyStatus(pub i32);

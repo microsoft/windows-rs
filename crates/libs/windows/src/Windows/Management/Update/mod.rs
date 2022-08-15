@@ -47,7 +47,6 @@ pub struct IPreviewBuildsState_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
-#[doc = "*Required features: `\"Management_Update\"`*"]
 #[repr(transparent)]
 pub struct PreviewBuildsManager(::windows::core::IUnknown);
 impl PreviewBuildsManager {
@@ -69,7 +68,6 @@ impl PreviewBuildsManager {
             (::windows::core::Interface::vtable(this).GetCurrentState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PreviewBuildsState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -158,11 +156,9 @@ impl ::core::convert::From<&PreviewBuildsManager> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for PreviewBuildsManager {}
 unsafe impl ::core::marker::Sync for PreviewBuildsManager {}
-#[doc = "*Required features: `\"Management_Update\"`*"]
 #[repr(transparent)]
 pub struct PreviewBuildsState(::windows::core::IUnknown);
 impl PreviewBuildsState {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;

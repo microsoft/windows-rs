@@ -1,11 +1,8 @@
 pub const AdSyncTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ae64751_b728_4d6b_97a0_b2da2e7d2a3b);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrClientDisplayFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientDisplayFlags_AllowEmailRequests: AdrClientDisplayFlags = AdrClientDisplayFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientDisplayFlags_ShowDeviceTroubleshooting: AdrClientDisplayFlags = AdrClientDisplayFlags(2i32);
 impl ::core::marker::Copy for AdrClientDisplayFlags {}
 impl ::core::clone::Clone for AdrClientDisplayFlags {
@@ -26,15 +23,11 @@ impl ::core::fmt::Debug for AdrClientDisplayFlags {
         f.debug_tuple("AdrClientDisplayFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrClientErrorType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientErrorType_Unknown: AdrClientErrorType = AdrClientErrorType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientErrorType_AccessDenied: AdrClientErrorType = AdrClientErrorType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientErrorType_FileNotFound: AdrClientErrorType = AdrClientErrorType(2i32);
 impl ::core::marker::Copy for AdrClientErrorType {}
 impl ::core::clone::Clone for AdrClientErrorType {
@@ -55,17 +48,12 @@ impl ::core::fmt::Debug for AdrClientErrorType {
         f.debug_tuple("AdrClientErrorType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrClientFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientFlags_None: AdrClientFlags = AdrClientFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientFlags_FailForLocalPaths: AdrClientFlags = AdrClientFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientFlags_FailIfNotSupportedByServer: AdrClientFlags = AdrClientFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrClientFlags_FailIfNotDomainJoined: AdrClientFlags = AdrClientFlags(4i32);
 impl ::core::marker::Copy for AdrClientFlags {}
 impl ::core::clone::Clone for AdrClientFlags {
@@ -86,19 +74,13 @@ impl ::core::fmt::Debug for AdrClientFlags {
         f.debug_tuple("AdrClientFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdrEmailFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrEmailFlags_PutDataOwnerOnToLine: AdrEmailFlags = AdrEmailFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrEmailFlags_PutAdminOnToLine: AdrEmailFlags = AdrEmailFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrEmailFlags_IncludeDeviceClaims: AdrEmailFlags = AdrEmailFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrEmailFlags_IncludeUserInfo: AdrEmailFlags = AdrEmailFlags(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const AdrEmailFlags_GenerateEventLog: AdrEmailFlags = AdrEmailFlags(16i32);
 impl ::core::marker::Copy for AdrEmailFlags {}
 impl ::core::clone::Clone for AdrEmailFlags {
@@ -119,7 +101,6 @@ impl ::core::fmt::Debug for AdrEmailFlags {
         f.debug_tuple("AdrEmailFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct DIFsrmClassificationEvents(::windows::core::IUnknown);
@@ -192,310 +173,159 @@ unsafe impl ::windows::core::Interface for DIFsrmClassificationEvents {
 pub struct DIFsrmClassificationEvents_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_CLASSIFICATION: u32 = 83886080u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_FILESCREEN: u32 = 50331648u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_GENERAL: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_MASK: u32 = 251658240u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_PIPELINE: u32 = 100663296u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_QUOTA: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_FEATURE_REPORTS: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_INTERFACE_A_MASK: u32 = 15728640u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_INTERFACE_B_MASK: u32 = 983040u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_INTERFACE_C_MASK: u32 = 61440u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_INTERFACE_D_MASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_IS_PROPERTY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_DISPID_METHOD_NUM_MASK: u32 = 127u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_ADR_MAX_EMAILS_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200130i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_ADR_NOT_DOMAIN_JOINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200110i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_ADR_PATH_IS_LOCAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200111i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_ADR_SRV_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200112i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200253i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_AUTO_QUOTA: ::windows::core::HRESULT = ::windows::core::HRESULT(283419i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CACHE_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200187i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CACHE_MODULE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200186i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_AGGREGATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200201i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_ALLOW_REPARSE_POINT_TAG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200170i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_CHANGE_PROPERTY_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200197i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_CREATE_TEMP_COPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200132i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_DELETE_SYSTEM_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200135i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_REMOVE_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200109i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_RENAME_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200198i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_STORE_PROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200171i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_USE_DELETED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200143i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CANNOT_USE_DEPRECATED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200145i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CLASSIFICATION_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200195i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CLASSIFICATION_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200141i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CLASSIFICATION_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200194i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CLASSIFICATION_PARTIAL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200136i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CLASSIFICATION_SCAN_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200148i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CLASSIFICATION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200137i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CLUSTER_NOT_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200210i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_CSC_PATH_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200106i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_DIFFERENT_CLUSTER_GROUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200207i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_DRIVER_NOT_READY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200237i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_DUPLICATE_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200240i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_EMAIL_NOT_SENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200228i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_ENUM_PROPERTIES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200173i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_ERROR_NOT_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200133i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_EXPIRATION_PATH_NOT_WRITEABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200105i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_EXPIRATION_PATH_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200104i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_EXPIRATION_VOLUME_NOT_NTFS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200103i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FAIL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200247i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_ENCRYPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200156i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200134i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_ACTION_GET_EXITCODE_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200152i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_ACTION_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200153i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_EXPIRATION_DIR_IN_SCOPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200185i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200184i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200193i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_CUSTOM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200191i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_DEPRECATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200102i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_EXPIRATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200192i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_INVALID_CONTINUOUS_CONFIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200108i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_MAX_FILE_CONDITIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200146i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_NOTIFICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200190i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_NOT_LEGACY_ACCESSIBLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200147i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_MANAGEMENT_JOB_RMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200120i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_OPEN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200189i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_FILE_SYSTEM_CORRUPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200225i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INCOMPATIBLE_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200157i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INPROC_MODULE_BLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200174i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INSECURE_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200233i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INSUFFICIENT_DISK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200236i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_AD_CLAIM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200142i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_COMBINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200241i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_DATASCREEN_DEFINITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200220i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_EMAIL_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200226i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_FILEGROUP_DEFINITION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200223i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_FILENAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200214i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_FOLDER_PROPERTY_STORE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200140i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_IMPORT_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200245i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_LIMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200249i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200248i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_PATH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200250i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_REPORT_DESC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200215i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_REPORT_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200216i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_SCHEDULER_ARGUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200254i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_SMTP_SERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200232i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_TEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200246i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_INVALID_USER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200251i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_LAST_ACCESS_UPDATE_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200176i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_LEGACY_SCHEDULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200107i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_LOADING_DISABLED_MODULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200202i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_LONG_CMDLINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200224i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_MAX_PROPERTY_DEFINITIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200196i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_MESSAGE_LIMIT_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200200i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_MODULE_INITIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200150i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_MODULE_INVALID_PARAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200151i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_MODULE_SESSION_INITIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200149i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_MODULE_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200101i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_NOT_CLUSTER_VOLUME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200208i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200255i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200239i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_NO_EMAIL_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200131i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_NO_PROPERTY_VALUE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200175i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_OBJECT_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200199i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200243i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PARTIAL_CLASSIFICATION_PROPERTY_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200169i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PATH_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200252i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PATH_NOT_IN_NAMESPACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200129i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PERSIST_PROPERTIES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200155i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PERSIST_PROPERTIES_FAILED_ENCRYPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200166i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PROPERTY_DELETED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200183i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FILES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200138i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PROPERTY_MUST_APPLY_TO_FOLDERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200124i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PROPERTY_MUST_BE_GLOBAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200122i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_PROPERTY_MUST_BE_SECURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200123i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_REBUILDING_FODLER_TYPE_INDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200139i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_REPORT_GENERATION_ERR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200204i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_REPORT_JOB_ALREADY_RUNNING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200205i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_REPORT_TASK_TRIGGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200203i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_REPORT_TYPE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200206i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_REQD_PARAM_MISSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200242i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_RMS_NO_PROTECTORS_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200126i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_RMS_NO_PROTECTOR_INSTALLED_FOR_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200125i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_RMS_TEMPLATE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200128i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_SECURE_PROPERTIES_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200127i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_SET_PROPERTY_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200172i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_SHADOW_COPY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200212i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_STORE_NOT_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200209i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_SYNC_TASK_HAD_ERRORS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200119i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_SYNC_TASK_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200144i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_TEXTREADER_FILENAME_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200158i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_TEXTREADER_IFILTER_CLSID_MALFORMED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200160i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_TEXTREADER_IFILTER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200167i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_TEXTREADER_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200168i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_TEXTREADER_STREAM_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200159i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200234i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_UNSECURE_LINK_TO_HOSTED_MODULE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200188i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_VOLUME_OFFLINE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200154i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_VOLUME_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200235i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_WMI_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200121i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_E_XML_CORRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147200211i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_S_CLASSIFICATION_SCAN_FAILURES: ::windows::core::HRESULT = ::windows::core::HRESULT(283398i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_S_PARTIAL_BATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(283396i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FSRM_S_PARTIAL_CLASSIFICATION: ::windows::core::HRESULT = ::windows::core::HRESULT(283397i32);
 pub const FsrmAccessDeniedRemediationClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x100b4fc8_74c1_470f_b1b7_dd7b6bae79bd);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmAccountType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_Unknown: FsrmAccountType = FsrmAccountType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_NetworkService: FsrmAccountType = FsrmAccountType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_LocalService: FsrmAccountType = FsrmAccountType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_LocalSystem: FsrmAccountType = FsrmAccountType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_InProc: FsrmAccountType = FsrmAccountType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_External: FsrmAccountType = FsrmAccountType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmAccountType_Automatic: FsrmAccountType = FsrmAccountType(500i32);
 impl ::core::marker::Copy for FsrmAccountType {}
 impl ::core::clone::Clone for FsrmAccountType {
@@ -516,19 +346,13 @@ impl ::core::fmt::Debug for FsrmAccountType {
         f.debug_tuple("FsrmAccountType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmActionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmActionType_Unknown: FsrmActionType = FsrmActionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmActionType_EventLog: FsrmActionType = FsrmActionType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmActionType_Email: FsrmActionType = FsrmActionType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmActionType_Command: FsrmActionType = FsrmActionType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmActionType_Report: FsrmActionType = FsrmActionType(4i32);
 impl ::core::marker::Copy for FsrmActionType {}
 impl ::core::clone::Clone for FsrmActionType {
@@ -549,19 +373,13 @@ impl ::core::fmt::Debug for FsrmActionType {
         f.debug_tuple("FsrmActionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmClassificationLoggingFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmClassificationLoggingFlags_None: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmClassificationLoggingFlags_ClassificationsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmClassificationLoggingFlags_ErrorsInLogFile: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmClassificationLoggingFlags_ClassificationsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmClassificationLoggingFlags_ErrorsInSystemLog: FsrmClassificationLoggingFlags = FsrmClassificationLoggingFlags(8i32);
 impl ::core::marker::Copy for FsrmClassificationLoggingFlags {}
 impl ::core::clone::Clone for FsrmClassificationLoggingFlags {
@@ -583,17 +401,12 @@ impl ::core::fmt::Debug for FsrmClassificationLoggingFlags {
     }
 }
 pub const FsrmClassificationManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb15c0e47_c391_45b9_95c8_eb596c853f3a);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmCollectionState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCollectionState_Fetching: FsrmCollectionState = FsrmCollectionState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCollectionState_Committing: FsrmCollectionState = FsrmCollectionState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCollectionState_Complete: FsrmCollectionState = FsrmCollectionState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCollectionState_Cancelled: FsrmCollectionState = FsrmCollectionState(4i32);
 impl ::core::marker::Copy for FsrmCollectionState {}
 impl ::core::clone::Clone for FsrmCollectionState {
@@ -614,13 +427,10 @@ impl ::core::fmt::Debug for FsrmCollectionState {
         f.debug_tuple("FsrmCollectionState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmCommitOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCommitOptions_None: FsrmCommitOptions = FsrmCommitOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmCommitOptions_Asynchronous: FsrmCommitOptions = FsrmCommitOptions(1i32);
 impl ::core::marker::Copy for FsrmCommitOptions {}
 impl ::core::clone::Clone for FsrmCommitOptions {
@@ -641,21 +451,14 @@ impl ::core::fmt::Debug for FsrmCommitOptions {
         f.debug_tuple("FsrmCommitOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmDaysNotSpecified: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmEnumOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEnumOptions_None: FsrmEnumOptions = FsrmEnumOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEnumOptions_Asynchronous: FsrmEnumOptions = FsrmEnumOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEnumOptions_CheckRecycleBin: FsrmEnumOptions = FsrmEnumOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEnumOptions_IncludeClusterNodes: FsrmEnumOptions = FsrmEnumOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEnumOptions_IncludeDeprecatedObjects: FsrmEnumOptions = FsrmEnumOptions(8i32);
 impl ::core::marker::Copy for FsrmEnumOptions {}
 impl ::core::clone::Clone for FsrmEnumOptions {
@@ -676,17 +479,12 @@ impl ::core::fmt::Debug for FsrmEnumOptions {
         f.debug_tuple("FsrmEnumOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmEventType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEventType_Unknown: FsrmEventType = FsrmEventType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEventType_Information: FsrmEventType = FsrmEventType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEventType_Warning: FsrmEventType = FsrmEventType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmEventType_Error: FsrmEventType = FsrmEventType(3i32);
 impl ::core::marker::Copy for FsrmEventType {}
 impl ::core::clone::Clone for FsrmEventType {
@@ -707,17 +505,12 @@ impl ::core::fmt::Debug for FsrmEventType {
         f.debug_tuple("FsrmEventType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmExecutionOption(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmExecutionOption_Unknown: FsrmExecutionOption = FsrmExecutionOption(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmExecutionOption_EvaluateUnset: FsrmExecutionOption = FsrmExecutionOption(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmExecutionOption_ReEvaluate_ConsiderExistingValue: FsrmExecutionOption = FsrmExecutionOption(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmExecutionOption_ReEvaluate_IgnoreExistingValue: FsrmExecutionOption = FsrmExecutionOption(3i32);
 impl ::core::marker::Copy for FsrmExecutionOption {}
 impl ::core::clone::Clone for FsrmExecutionOption {
@@ -739,13 +532,10 @@ impl ::core::fmt::Debug for FsrmExecutionOption {
     }
 }
 pub const FsrmExportImport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1482dc37_fae9_4787_9025_8ce4e024ab56);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileConditionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileConditionType_Unknown: FsrmFileConditionType = FsrmFileConditionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileConditionType_Property: FsrmFileConditionType = FsrmFileConditionType(1i32);
 impl ::core::marker::Copy for FsrmFileConditionType {}
 impl ::core::clone::Clone for FsrmFileConditionType {
@@ -768,17 +558,12 @@ impl ::core::fmt::Debug for FsrmFileConditionType {
 }
 pub const FsrmFileGroupManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1363f6_656f_4496_9226_13aecbd7718f);
 pub const FsrmFileManagementJobManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb18f9b2_4c3a_4321_b203_205120cff614);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileManagementLoggingFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementLoggingFlags_None: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementLoggingFlags_Error: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementLoggingFlags_Information: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementLoggingFlags_Audit: FsrmFileManagementLoggingFlags = FsrmFileManagementLoggingFlags(4i32);
 impl ::core::marker::Copy for FsrmFileManagementLoggingFlags {}
 impl ::core::clone::Clone for FsrmFileManagementLoggingFlags {
@@ -799,17 +584,12 @@ impl ::core::fmt::Debug for FsrmFileManagementLoggingFlags {
         f.debug_tuple("FsrmFileManagementLoggingFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileManagementType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementType_Unknown: FsrmFileManagementType = FsrmFileManagementType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementType_Expiration: FsrmFileManagementType = FsrmFileManagementType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementType_Custom: FsrmFileManagementType = FsrmFileManagementType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileManagementType_Rms: FsrmFileManagementType = FsrmFileManagementType(3i32);
 impl ::core::marker::Copy for FsrmFileManagementType {}
 impl ::core::clone::Clone for FsrmFileManagementType {
@@ -830,11 +610,9 @@ impl ::core::fmt::Debug for FsrmFileManagementType {
         f.debug_tuple("FsrmFileManagementType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileScreenFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileScreenFlags_Enforce: FsrmFileScreenFlags = FsrmFileScreenFlags(1i32);
 impl ::core::marker::Copy for FsrmFileScreenFlags {}
 impl ::core::clone::Clone for FsrmFileScreenFlags {
@@ -857,15 +635,11 @@ impl ::core::fmt::Debug for FsrmFileScreenFlags {
 }
 pub const FsrmFileScreenManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95941183_db53_4c5f_b37b_7d0921cf9dc7);
 pub const FsrmFileScreenTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x243111df_e474_46aa_a054_eaa33edc292a);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileStreamingInterfaceType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingInterfaceType_Unknown: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingInterfaceType_ILockBytes: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingInterfaceType_IStream: FsrmFileStreamingInterfaceType = FsrmFileStreamingInterfaceType(2i32);
 impl ::core::marker::Copy for FsrmFileStreamingInterfaceType {}
 impl ::core::clone::Clone for FsrmFileStreamingInterfaceType {
@@ -886,15 +660,11 @@ impl ::core::fmt::Debug for FsrmFileStreamingInterfaceType {
         f.debug_tuple("FsrmFileStreamingInterfaceType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileStreamingMode(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingMode_Unknown: FsrmFileStreamingMode = FsrmFileStreamingMode(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingMode_Read: FsrmFileStreamingMode = FsrmFileStreamingMode(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileStreamingMode_Write: FsrmFileStreamingMode = FsrmFileStreamingMode(2i32);
 impl ::core::marker::Copy for FsrmFileStreamingMode {}
 impl ::core::clone::Clone for FsrmFileStreamingMode {
@@ -915,21 +685,14 @@ impl ::core::fmt::Debug for FsrmFileStreamingMode {
         f.debug_tuple("FsrmFileStreamingMode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmFileSystemPropertyId(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileSystemPropertyId_Undefined: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileSystemPropertyId_FileName: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileSystemPropertyId_DateCreated: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileSystemPropertyId_DateLastAccessed: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileSystemPropertyId_DateLastModified: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmFileSystemPropertyId_DateNow: FsrmFileSystemPropertyId = FsrmFileSystemPropertyId(5i32);
 impl ::core::marker::Copy for FsrmFileSystemPropertyId {}
 impl ::core::clone::Clone for FsrmFileSystemPropertyId {
@@ -950,19 +713,13 @@ impl ::core::fmt::Debug for FsrmFileSystemPropertyId {
         f.debug_tuple("FsrmFileSystemPropertyId").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmGetFilePropertyOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmGetFilePropertyOptions_None: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmGetFilePropertyOptions_NoRuleEvaluation: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmGetFilePropertyOptions_Persistent: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmGetFilePropertyOptions_FailOnPersistErrors: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmGetFilePropertyOptions_SkipOrphaned: FsrmGetFilePropertyOptions = FsrmGetFilePropertyOptions(8i32);
 impl ::core::marker::Copy for FsrmGetFilePropertyOptions {}
 impl ::core::clone::Clone for FsrmGetFilePropertyOptions {
@@ -983,29 +740,19 @@ impl ::core::fmt::Debug for FsrmGetFilePropertyOptions {
         f.debug_tuple("FsrmGetFilePropertyOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmMaxExcludeFolders: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmMaxNumberPropertyDefinitions: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmMaxNumberThresholds: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmMaxThresholdValue: u32 = 250u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmMinQuotaLimit: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmMinThresholdValue: u32 = 1u32;
 pub const FsrmPathMapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3be42bd_8ac2_409e_bbd8_faf9b6b41feb);
 pub const FsrmPipelineModuleConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7643375_1eb5_44de_a062_623547d933bc);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPipelineModuleType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPipelineModuleType_Unknown: FsrmPipelineModuleType = FsrmPipelineModuleType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPipelineModuleType_Storage: FsrmPipelineModuleType = FsrmPipelineModuleType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPipelineModuleType_Classifier: FsrmPipelineModuleType = FsrmPipelineModuleType(2i32);
 impl ::core::marker::Copy for FsrmPipelineModuleType {}
 impl ::core::clone::Clone for FsrmPipelineModuleType {
@@ -1026,13 +773,10 @@ impl ::core::fmt::Debug for FsrmPipelineModuleType {
         f.debug_tuple("FsrmPipelineModuleType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyBagField(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagField_AccessVolume: FsrmPropertyBagField = FsrmPropertyBagField(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagField_VolumeGuidName: FsrmPropertyBagField = FsrmPropertyBagField(1i32);
 impl ::core::marker::Copy for FsrmPropertyBagField {}
 impl ::core::clone::Clone for FsrmPropertyBagField {
@@ -1053,17 +797,12 @@ impl ::core::fmt::Debug for FsrmPropertyBagField {
         f.debug_tuple("FsrmPropertyBagField").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyBagFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagFlags_UpdatedByClassifier: FsrmPropertyBagFlags = FsrmPropertyBagFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagFlags_FailedLoadingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagFlags_FailedSavingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyBagFlags_FailedClassifyingProperties: FsrmPropertyBagFlags = FsrmPropertyBagFlags(8i32);
 impl ::core::marker::Copy for FsrmPropertyBagFlags {}
 impl ::core::clone::Clone for FsrmPropertyBagFlags {
@@ -1084,37 +823,22 @@ impl ::core::fmt::Debug for FsrmPropertyBagFlags {
         f.debug_tuple("FsrmPropertyBagFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyConditionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_Unknown: FsrmPropertyConditionType = FsrmPropertyConditionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_Equal: FsrmPropertyConditionType = FsrmPropertyConditionType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_NotEqual: FsrmPropertyConditionType = FsrmPropertyConditionType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_GreaterThan: FsrmPropertyConditionType = FsrmPropertyConditionType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_LessThan: FsrmPropertyConditionType = FsrmPropertyConditionType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_Contain: FsrmPropertyConditionType = FsrmPropertyConditionType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_Exist: FsrmPropertyConditionType = FsrmPropertyConditionType(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_NotExist: FsrmPropertyConditionType = FsrmPropertyConditionType(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_StartWith: FsrmPropertyConditionType = FsrmPropertyConditionType(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_EndWith: FsrmPropertyConditionType = FsrmPropertyConditionType(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_ContainedIn: FsrmPropertyConditionType = FsrmPropertyConditionType(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_PrefixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_SuffixOf: FsrmPropertyConditionType = FsrmPropertyConditionType(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyConditionType_MatchesPattern: FsrmPropertyConditionType = FsrmPropertyConditionType(13i32);
 impl ::core::marker::Copy for FsrmPropertyConditionType {}
 impl ::core::clone::Clone for FsrmPropertyConditionType {
@@ -1135,13 +859,10 @@ impl ::core::fmt::Debug for FsrmPropertyConditionType {
         f.debug_tuple("FsrmPropertyConditionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyDefinitionAppliesTo(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionAppliesTo_Files: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionAppliesTo_Folders: FsrmPropertyDefinitionAppliesTo = FsrmPropertyDefinitionAppliesTo(2i32);
 impl ::core::marker::Copy for FsrmPropertyDefinitionAppliesTo {}
 impl ::core::clone::Clone for FsrmPropertyDefinitionAppliesTo {
@@ -1162,15 +883,11 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionAppliesTo {
         f.debug_tuple("FsrmPropertyDefinitionAppliesTo").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyDefinitionFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionFlags_Global: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionFlags_Deprecated: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionFlags_Secure: FsrmPropertyDefinitionFlags = FsrmPropertyDefinitionFlags(4i32);
 impl ::core::marker::Copy for FsrmPropertyDefinitionFlags {}
 impl ::core::clone::Clone for FsrmPropertyDefinitionFlags {
@@ -1191,27 +908,17 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionFlags {
         f.debug_tuple("FsrmPropertyDefinitionFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyDefinitionType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_Unknown: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_OrderedList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_MultiChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_SingleChoiceList: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_String: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_MultiString: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_Int: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_Bool: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyDefinitionType_Date: FsrmPropertyDefinitionType = FsrmPropertyDefinitionType(8i32);
 impl ::core::marker::Copy for FsrmPropertyDefinitionType {}
 impl ::core::clone::Clone for FsrmPropertyDefinitionType {
@@ -1232,49 +939,28 @@ impl ::core::fmt::Debug for FsrmPropertyDefinitionType {
         f.debug_tuple("FsrmPropertyDefinitionType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_None: FsrmPropertyFlags = FsrmPropertyFlags(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_Orphaned: FsrmPropertyFlags = FsrmPropertyFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_RetrievedFromCache: FsrmPropertyFlags = FsrmPropertyFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_RetrievedFromStorage: FsrmPropertyFlags = FsrmPropertyFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_SetByClassifier: FsrmPropertyFlags = FsrmPropertyFlags(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_Deleted: FsrmPropertyFlags = FsrmPropertyFlags(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_Reclassified: FsrmPropertyFlags = FsrmPropertyFlags(32i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_AggregationFailed: FsrmPropertyFlags = FsrmPropertyFlags(64i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_Existing: FsrmPropertyFlags = FsrmPropertyFlags(128i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_FailedLoadingProperties: FsrmPropertyFlags = FsrmPropertyFlags(256i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_FailedClassifyingProperties: FsrmPropertyFlags = FsrmPropertyFlags(512i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_FailedSavingProperties: FsrmPropertyFlags = FsrmPropertyFlags(1024i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_Secure: FsrmPropertyFlags = FsrmPropertyFlags(2048i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_PolicyDerived: FsrmPropertyFlags = FsrmPropertyFlags(4096i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_Inherited: FsrmPropertyFlags = FsrmPropertyFlags(8192i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_Manual: FsrmPropertyFlags = FsrmPropertyFlags(16384i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_ExplicitValueDeleted: FsrmPropertyFlags = FsrmPropertyFlags(32768i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_PropertyDeletedFromClear: FsrmPropertyFlags = FsrmPropertyFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_PropertySourceMask: FsrmPropertyFlags = FsrmPropertyFlags(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyFlags_PersistentMask: FsrmPropertyFlags = FsrmPropertyFlags(20480i32);
 impl ::core::marker::Copy for FsrmPropertyFlags {}
 impl ::core::clone::Clone for FsrmPropertyFlags {
@@ -1295,15 +981,11 @@ impl ::core::fmt::Debug for FsrmPropertyFlags {
         f.debug_tuple("FsrmPropertyFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmPropertyValueType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyValueType_Undefined: FsrmPropertyValueType = FsrmPropertyValueType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyValueType_Literal: FsrmPropertyValueType = FsrmPropertyValueType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmPropertyValueType_DateOffset: FsrmPropertyValueType = FsrmPropertyValueType(2i32);
 impl ::core::marker::Copy for FsrmPropertyValueType {}
 impl ::core::clone::Clone for FsrmPropertyValueType {
@@ -1324,17 +1006,12 @@ impl ::core::fmt::Debug for FsrmPropertyValueType {
         f.debug_tuple("FsrmPropertyValueType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmQuotaFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmQuotaFlags_Enforce: FsrmQuotaFlags = FsrmQuotaFlags(256i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmQuotaFlags_Disable: FsrmQuotaFlags = FsrmQuotaFlags(512i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmQuotaFlags_StatusIncomplete: FsrmQuotaFlags = FsrmQuotaFlags(65536i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmQuotaFlags_StatusRebuilding: FsrmQuotaFlags = FsrmQuotaFlags(131072i32);
 impl ::core::marker::Copy for FsrmQuotaFlags {}
 impl ::core::clone::Clone for FsrmQuotaFlags {
@@ -1357,25 +1034,16 @@ impl ::core::fmt::Debug for FsrmQuotaFlags {
 }
 pub const FsrmQuotaManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90dcab7f_347c_4bfc_b543_540326305fbe);
 pub const FsrmQuotaTemplateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97d3d443_251c_4337_81e7_b32e8f4ee65e);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportFilter(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_MinSize: FsrmReportFilter = FsrmReportFilter(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_MinAgeDays: FsrmReportFilter = FsrmReportFilter(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_MaxAgeDays: FsrmReportFilter = FsrmReportFilter(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_MinQuotaUsage: FsrmReportFilter = FsrmReportFilter(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_FileGroups: FsrmReportFilter = FsrmReportFilter(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_Owners: FsrmReportFilter = FsrmReportFilter(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_NamePattern: FsrmReportFilter = FsrmReportFilter(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFilter_Property: FsrmReportFilter = FsrmReportFilter(8i32);
 impl ::core::marker::Copy for FsrmReportFilter {}
 impl ::core::clone::Clone for FsrmReportFilter {
@@ -1396,21 +1064,14 @@ impl ::core::fmt::Debug for FsrmReportFilter {
         f.debug_tuple("FsrmReportFilter").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportFormat(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFormat_Unknown: FsrmReportFormat = FsrmReportFormat(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFormat_DHtml: FsrmReportFormat = FsrmReportFormat(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFormat_Html: FsrmReportFormat = FsrmReportFormat(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFormat_Txt: FsrmReportFormat = FsrmReportFormat(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFormat_Csv: FsrmReportFormat = FsrmReportFormat(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportFormat_Xml: FsrmReportFormat = FsrmReportFormat(5i32);
 impl ::core::marker::Copy for FsrmReportFormat {}
 impl ::core::clone::Clone for FsrmReportFormat {
@@ -1431,17 +1092,12 @@ impl ::core::fmt::Debug for FsrmReportFormat {
         f.debug_tuple("FsrmReportFormat").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportGenerationContext(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportGenerationContext_Undefined: FsrmReportGenerationContext = FsrmReportGenerationContext(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportGenerationContext_ScheduledReport: FsrmReportGenerationContext = FsrmReportGenerationContext(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportGenerationContext_InteractiveReport: FsrmReportGenerationContext = FsrmReportGenerationContext(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportGenerationContext_IncidentReport: FsrmReportGenerationContext = FsrmReportGenerationContext(4i32);
 impl ::core::marker::Copy for FsrmReportGenerationContext {}
 impl ::core::clone::Clone for FsrmReportGenerationContext {
@@ -1462,33 +1118,20 @@ impl ::core::fmt::Debug for FsrmReportGenerationContext {
         f.debug_tuple("FsrmReportGenerationContext").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportLimit(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFiles: FsrmReportLimit = FsrmReportLimit(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFileGroups: FsrmReportLimit = FsrmReportLimit(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxOwners: FsrmReportLimit = FsrmReportLimit(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFilesPerFileGroup: FsrmReportLimit = FsrmReportLimit(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFilesPerOwner: FsrmReportLimit = FsrmReportLimit(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFilesPerDuplGroup: FsrmReportLimit = FsrmReportLimit(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxDuplicateGroups: FsrmReportLimit = FsrmReportLimit(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxQuotas: FsrmReportLimit = FsrmReportLimit(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFileScreenEvents: FsrmReportLimit = FsrmReportLimit(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxPropertyValues: FsrmReportLimit = FsrmReportLimit(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFilesPerPropertyValue: FsrmReportLimit = FsrmReportLimit(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportLimit_MaxFolders: FsrmReportLimit = FsrmReportLimit(12i32);
 impl ::core::marker::Copy for FsrmReportLimit {}
 impl ::core::clone::Clone for FsrmReportLimit {
@@ -1510,17 +1153,12 @@ impl ::core::fmt::Debug for FsrmReportLimit {
     }
 }
 pub const FsrmReportManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0058ef37_aa66_4c48_bd5b_2fce432ab0c8);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportRunningStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportRunningStatus_Unknown: FsrmReportRunningStatus = FsrmReportRunningStatus(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportRunningStatus_NotRunning: FsrmReportRunningStatus = FsrmReportRunningStatus(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportRunningStatus_Queued: FsrmReportRunningStatus = FsrmReportRunningStatus(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportRunningStatus_Running: FsrmReportRunningStatus = FsrmReportRunningStatus(3i32);
 impl ::core::marker::Copy for FsrmReportRunningStatus {}
 impl ::core::clone::Clone for FsrmReportRunningStatus {
@@ -1542,37 +1180,22 @@ impl ::core::fmt::Debug for FsrmReportRunningStatus {
     }
 }
 pub const FsrmReportScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea25f1b8_1b8d_4290_8ee8_e17c12c2fe20);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmReportType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_Unknown: FsrmReportType = FsrmReportType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_LargeFiles: FsrmReportType = FsrmReportType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_FilesByType: FsrmReportType = FsrmReportType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_LeastRecentlyAccessed: FsrmReportType = FsrmReportType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_MostRecentlyAccessed: FsrmReportType = FsrmReportType(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_QuotaUsage: FsrmReportType = FsrmReportType(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_FilesByOwner: FsrmReportType = FsrmReportType(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_ExportReport: FsrmReportType = FsrmReportType(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_DuplicateFiles: FsrmReportType = FsrmReportType(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_FileScreenAudit: FsrmReportType = FsrmReportType(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_FilesByProperty: FsrmReportType = FsrmReportType(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_AutomaticClassification: FsrmReportType = FsrmReportType(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_Expiration: FsrmReportType = FsrmReportType(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmReportType_FoldersByProperty: FsrmReportType = FsrmReportType(13i32);
 impl ::core::marker::Copy for FsrmReportType {}
 impl ::core::clone::Clone for FsrmReportType {
@@ -1593,17 +1216,12 @@ impl ::core::fmt::Debug for FsrmReportType {
         f.debug_tuple("FsrmReportType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmRuleFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleFlags_Disabled: FsrmRuleFlags = FsrmRuleFlags(256i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleFlags_ClearAutomaticallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(1024i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleFlags_ClearManuallyClassifiedProperty: FsrmRuleFlags = FsrmRuleFlags(2048i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleFlags_Invalid: FsrmRuleFlags = FsrmRuleFlags(4096i32);
 impl ::core::marker::Copy for FsrmRuleFlags {}
 impl ::core::clone::Clone for FsrmRuleFlags {
@@ -1624,15 +1242,11 @@ impl ::core::fmt::Debug for FsrmRuleFlags {
         f.debug_tuple("FsrmRuleFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmRuleType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleType_Unknown: FsrmRuleType = FsrmRuleType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleType_Classification: FsrmRuleType = FsrmRuleType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmRuleType_Generic: FsrmRuleType = FsrmRuleType(2i32);
 impl ::core::marker::Copy for FsrmRuleType {}
 impl ::core::clone::Clone for FsrmRuleType {
@@ -1654,19 +1268,13 @@ impl ::core::fmt::Debug for FsrmRuleType {
     }
 }
 pub const FsrmSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf556d708_6d4d_4594_9c61_7dbb0dae2a46);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmStorageModuleCaps(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleCaps_Unknown: FsrmStorageModuleCaps = FsrmStorageModuleCaps(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleCaps_CanGet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleCaps_CanSet: FsrmStorageModuleCaps = FsrmStorageModuleCaps(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleCaps_CanHandleDirectories: FsrmStorageModuleCaps = FsrmStorageModuleCaps(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleCaps_CanHandleFiles: FsrmStorageModuleCaps = FsrmStorageModuleCaps(8i32);
 impl ::core::marker::Copy for FsrmStorageModuleCaps {}
 impl ::core::clone::Clone for FsrmStorageModuleCaps {
@@ -1687,19 +1295,13 @@ impl ::core::fmt::Debug for FsrmStorageModuleCaps {
         f.debug_tuple("FsrmStorageModuleCaps").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmStorageModuleType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleType_Unknown: FsrmStorageModuleType = FsrmStorageModuleType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleType_Cache: FsrmStorageModuleType = FsrmStorageModuleType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleType_InFile: FsrmStorageModuleType = FsrmStorageModuleType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleType_Database: FsrmStorageModuleType = FsrmStorageModuleType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmStorageModuleType_System: FsrmStorageModuleType = FsrmStorageModuleType(100i32);
 impl ::core::marker::Copy for FsrmStorageModuleType {}
 impl ::core::clone::Clone for FsrmStorageModuleType {
@@ -1720,13 +1322,10 @@ impl ::core::fmt::Debug for FsrmStorageModuleType {
         f.debug_tuple("FsrmStorageModuleType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FsrmTemplateApplyOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmTemplateApplyOptions_ApplyToDerivedMatching: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const FsrmTemplateApplyOptions_ApplyToDerivedAll: FsrmTemplateApplyOptions = FsrmTemplateApplyOptions(2i32);
 impl ::core::marker::Copy for FsrmTemplateApplyOptions {}
 impl ::core::clone::Clone for FsrmTemplateApplyOptions {
@@ -1747,13 +1346,11 @@ impl ::core::fmt::Debug for FsrmTemplateApplyOptions {
         f.debug_tuple("FsrmTemplateApplyOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmAccessDeniedRemediationClient(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmAccessDeniedRemediationClient {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0, P1, P2>(&self, parentwnd: usize, accesspath: P0, errortype: AdrClientErrorType, flags: i32, windowtitle: P1, windowmessage: P2) -> ::windows::core::Result<i32>
     where
@@ -1836,7 +1433,6 @@ pub struct IFsrmAccessDeniedRemediationClient_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmAction(::windows::core::IUnknown);
@@ -1933,7 +1529,6 @@ pub struct IFsrmAction_Vtbl {
     pub SetRunLimitInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, minutes: i32) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmActionCommand(::windows::core::IUnknown);
@@ -1957,13 +1552,11 @@ impl IFsrmActionCommand {
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutablePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExecutablePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutablePath<'a, P0>(&self, executablepath: P0) -> ::windows::core::Result<()>
     where
@@ -1971,13 +1564,11 @@ impl IFsrmActionCommand {
     {
         (::windows::core::Interface::vtable(self).SetExecutablePath)(::windows::core::Interface::as_raw(self), executablepath.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Arguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Arguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArguments<'a, P0>(&self, arguments: P0) -> ::windows::core::Result<()>
     where
@@ -1992,13 +1583,11 @@ impl IFsrmActionCommand {
     pub unsafe fn SetAccount(&self, account: FsrmAccountType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), account).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WorkingDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWorkingDirectory<'a, P0>(&self, workingdirectory: P0) -> ::windows::core::Result<()>
     where
@@ -2145,7 +1734,6 @@ pub struct IFsrmActionCommand_Vtbl {
     pub LogResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logresults: *mut i16) -> ::windows::core::HRESULT,
     pub SetLogResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, logresults: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmActionEmail(::windows::core::IUnknown);
@@ -2169,13 +1757,11 @@ impl IFsrmActionEmail {
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailFrom(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailFrom<'a, P0>(&self, mailfrom: P0) -> ::windows::core::Result<()>
     where
@@ -2183,13 +1769,11 @@ impl IFsrmActionEmail {
     {
         (::windows::core::Interface::vtable(self).SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailReplyTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailReplyTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailReplyTo<'a, P0>(&self, mailreplyto: P0) -> ::windows::core::Result<()>
     where
@@ -2197,13 +1781,11 @@ impl IFsrmActionEmail {
     {
         (::windows::core::Interface::vtable(self).SetMailReplyTo)(::windows::core::Interface::as_raw(self), mailreplyto.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailTo<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -2211,13 +1793,11 @@ impl IFsrmActionEmail {
     {
         (::windows::core::Interface::vtable(self).SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailCc(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailCc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailCc<'a, P0>(&self, mailcc: P0) -> ::windows::core::Result<()>
     where
@@ -2225,13 +1805,11 @@ impl IFsrmActionEmail {
     {
         (::windows::core::Interface::vtable(self).SetMailCc)(::windows::core::Interface::as_raw(self), mailcc.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailBcc(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailBcc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailBcc<'a, P0>(&self, mailbcc: P0) -> ::windows::core::Result<()>
     where
@@ -2239,13 +1817,11 @@ impl IFsrmActionEmail {
     {
         (::windows::core::Interface::vtable(self).SetMailBcc)(::windows::core::Interface::as_raw(self), mailbcc.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailSubject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailSubject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailSubject<'a, P0>(&self, mailsubject: P0) -> ::windows::core::Result<()>
     where
@@ -2253,13 +1829,11 @@ impl IFsrmActionEmail {
     {
         (::windows::core::Interface::vtable(self).SetMailSubject)(::windows::core::Interface::as_raw(self), mailsubject.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MessageText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MessageText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMessageText<'a, P0>(&self, messagetext: P0) -> ::windows::core::Result<()>
     where
@@ -2409,7 +1983,6 @@ pub struct IFsrmActionEmail_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMessageText: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmActionEmail2(::windows::core::IUnknown);
@@ -2433,13 +2006,11 @@ impl IFsrmActionEmail2 {
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailFrom(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MailFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailFrom<'a, P0>(&self, mailfrom: P0) -> ::windows::core::Result<()>
     where
@@ -2447,13 +2018,11 @@ impl IFsrmActionEmail2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailReplyTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MailReplyTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailReplyTo<'a, P0>(&self, mailreplyto: P0) -> ::windows::core::Result<()>
     where
@@ -2461,13 +2030,11 @@ impl IFsrmActionEmail2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetMailReplyTo)(::windows::core::Interface::as_raw(self), mailreplyto.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MailTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailTo<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -2475,13 +2042,11 @@ impl IFsrmActionEmail2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetMailTo)(::windows::core::Interface::as_raw(self), mailto.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailCc(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MailCc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailCc<'a, P0>(&self, mailcc: P0) -> ::windows::core::Result<()>
     where
@@ -2489,13 +2054,11 @@ impl IFsrmActionEmail2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetMailCc)(::windows::core::Interface::as_raw(self), mailcc.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailBcc(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MailBcc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailBcc<'a, P0>(&self, mailbcc: P0) -> ::windows::core::Result<()>
     where
@@ -2503,13 +2066,11 @@ impl IFsrmActionEmail2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetMailBcc)(::windows::core::Interface::as_raw(self), mailbcc.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailSubject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MailSubject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailSubject<'a, P0>(&self, mailsubject: P0) -> ::windows::core::Result<()>
     where
@@ -2517,13 +2078,11 @@ impl IFsrmActionEmail2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetMailSubject)(::windows::core::Interface::as_raw(self), mailsubject.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MessageText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MessageText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMessageText<'a, P0>(&self, messagetext: P0) -> ::windows::core::Result<()>
     where
@@ -2644,7 +2203,6 @@ pub struct IFsrmActionEmail2_Vtbl {
     pub AttachmentFileListSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachmentfilelistsize: *mut i32) -> ::windows::core::HRESULT,
     pub SetAttachmentFileListSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attachmentfilelistsize: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmActionEventLog(::windows::core::IUnknown);
@@ -2675,13 +2233,11 @@ impl IFsrmActionEventLog {
     pub unsafe fn SetEventType(&self, eventtype: FsrmEventType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEventType)(::windows::core::Interface::as_raw(self), eventtype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MessageText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MessageText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMessageText<'a, P0>(&self, messagetext: P0) -> ::windows::core::Result<()>
     where
@@ -2785,7 +2341,6 @@ pub struct IFsrmActionEventLog_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMessageText: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmActionReport(::windows::core::IUnknown);
@@ -2809,24 +2364,20 @@ impl IFsrmActionReport {
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReportTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ReportTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetReportTypes(&self, reporttypes: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetReportTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(reporttypes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailTo<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -2936,7 +2487,6 @@ pub struct IFsrmActionReport_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMailTo: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmAutoApplyQuota(::windows::core::IUnknown);
@@ -2946,13 +2496,11 @@ impl IFsrmAutoApplyQuota {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -2966,13 +2514,11 @@ impl IFsrmAutoApplyQuota {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, quotalimit: P0) -> ::windows::core::Result<()>
     where
@@ -2987,7 +2533,6 @@ impl IFsrmAutoApplyQuota {
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3002,37 +2547,31 @@ impl IFsrmAutoApplyQuota {
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserSid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UserSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UserAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3042,7 +2581,6 @@ impl IFsrmAutoApplyQuota {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MatchesSourceTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyTemplate<'a, P0>(&self, quotatemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -3050,18 +2588,15 @@ impl IFsrmAutoApplyQuota {
     {
         (::windows::core::Interface::vtable(self).base__.ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExcludeFolders(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExcludeFolders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetExcludeFolders(&self, folders: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExcludeFolders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(folders)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3201,19 +2736,16 @@ pub struct IFsrmAutoApplyQuota_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitAndUpdateDerived: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmClassificationManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassificationReportFormats(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClassificationReportFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassificationReportFormats(&self, formats: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClassificationReportFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(formats)).ok()
@@ -3225,13 +2757,11 @@ impl IFsrmClassificationManager {
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLogging)(::windows::core::Interface::as_raw(self), logging).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClassificationReportMailTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClassificationReportMailTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClassificationReportMailTo<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -3246,13 +2776,11 @@ impl IFsrmClassificationManager {
     pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClassificationReportEnabled)(::windows::core::Interface::as_raw(self), reportenabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClassificationLastReportPathWithoutExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClassificationLastError(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3262,19 +2790,16 @@ impl IFsrmClassificationManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ClassificationRunningStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmReportRunningStatus>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyDefinition(&self) -> ::windows::core::Result<IFsrmPropertyDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePropertyDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPropertyDefinition<'a, P0>(&self, propertyname: P0) -> ::windows::core::Result<IFsrmPropertyDefinition>
     where
@@ -3283,19 +2808,16 @@ impl IFsrmClassificationManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyDefinition)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumRules)(::windows::core::Interface::as_raw(self), ruletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRule)(::windows::core::Interface::as_raw(self), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetRule<'a, P0>(&self, rulename: P0, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule>
     where
@@ -3304,19 +2826,16 @@ impl IFsrmClassificationManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), moduletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateModuleDefinition)(::windows::core::Interface::as_raw(self), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetModuleDefinition<'a, P0>(&self, modulename: P0, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition>
     where
@@ -3325,7 +2844,6 @@ impl IFsrmClassificationManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunClassification<'a, P0>(&self, context: FsrmReportGenerationContext, reserved: P0) -> ::windows::core::Result<()>
     where
@@ -3340,7 +2858,6 @@ impl IFsrmClassificationManager {
     pub unsafe fn CancelClassification(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CancelClassification)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumFileProperties<'a, P0>(&self, filepath: P0, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmCollection>
     where
@@ -3349,7 +2866,6 @@ impl IFsrmClassificationManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileProperty<'a, P0, P1>(&self, filepath: P0, propertyname: P1, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmProperty>
     where
@@ -3359,7 +2875,6 @@ impl IFsrmClassificationManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileProperty<'a, P0, P1, P2>(&self, filepath: P0, propertyname: P1, propertyvalue: P2) -> ::windows::core::Result<()>
     where
@@ -3369,7 +2884,6 @@ impl IFsrmClassificationManager {
     {
         (::windows::core::Interface::vtable(self).SetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), propertyvalue.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearFileProperty<'a, P0, P1>(&self, filepath: P0, property: P1) -> ::windows::core::Result<()>
     where
@@ -3533,19 +3047,16 @@ pub struct IFsrmClassificationManager_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ClearFileProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmClassificationManager2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationManager2 {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassificationReportFormats(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ClassificationReportFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassificationReportFormats(&self, formats: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetClassificationReportFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(formats)).ok()
@@ -3557,13 +3068,11 @@ impl IFsrmClassificationManager2 {
     pub unsafe fn SetLogging(&self, logging: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetLogging)(::windows::core::Interface::as_raw(self), logging).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClassificationReportMailTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ClassificationReportMailTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClassificationReportMailTo<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -3578,13 +3087,11 @@ impl IFsrmClassificationManager2 {
     pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetClassificationReportEnabled)(::windows::core::Interface::as_raw(self), reportenabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ClassificationLastReportPathWithoutExtension)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClassificationLastError(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3594,19 +3101,16 @@ impl IFsrmClassificationManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ClassificationRunningStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmReportRunningStatus>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumPropertyDefinitions)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyDefinition(&self) -> ::windows::core::Result<IFsrmPropertyDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePropertyDefinition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetPropertyDefinition<'a, P0>(&self, propertyname: P0) -> ::windows::core::Result<IFsrmPropertyDefinition>
     where
@@ -3615,19 +3119,16 @@ impl IFsrmClassificationManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPropertyDefinition)(::windows::core::Interface::as_raw(self), propertyname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumRules)(::windows::core::Interface::as_raw(self), ruletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateRule)(::windows::core::Interface::as_raw(self), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetRule<'a, P0>(&self, rulename: P0, ruletype: FsrmRuleType) -> ::windows::core::Result<IFsrmRule>
     where
@@ -3636,19 +3137,16 @@ impl IFsrmClassificationManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRule)(::windows::core::Interface::as_raw(self), rulename.into().abi(), ruletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmRule>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumModuleDefinitions)(::windows::core::Interface::as_raw(self), moduletype, options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateModuleDefinition)(::windows::core::Interface::as_raw(self), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetModuleDefinition<'a, P0>(&self, modulename: P0, moduletype: FsrmPipelineModuleType) -> ::windows::core::Result<IFsrmPipelineModuleDefinition>
     where
@@ -3657,7 +3155,6 @@ impl IFsrmClassificationManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetModuleDefinition)(::windows::core::Interface::as_raw(self), modulename.into().abi(), moduletype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunClassification<'a, P0>(&self, context: FsrmReportGenerationContext, reserved: P0) -> ::windows::core::Result<()>
     where
@@ -3672,7 +3169,6 @@ impl IFsrmClassificationManager2 {
     pub unsafe fn CancelClassification(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CancelClassification)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumFileProperties<'a, P0>(&self, filepath: P0, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmCollection>
     where
@@ -3681,7 +3177,6 @@ impl IFsrmClassificationManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumFileProperties)(::windows::core::Interface::as_raw(self), filepath.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileProperty<'a, P0, P1>(&self, filepath: P0, propertyname: P1, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<IFsrmProperty>
     where
@@ -3691,7 +3186,6 @@ impl IFsrmClassificationManager2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileProperty<'a, P0, P1, P2>(&self, filepath: P0, propertyname: P1, propertyvalue: P2) -> ::windows::core::Result<()>
     where
@@ -3701,7 +3195,6 @@ impl IFsrmClassificationManager2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), propertyname.into().abi(), propertyvalue.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClearFileProperty<'a, P0, P1>(&self, filepath: P0, property: P1) -> ::windows::core::Result<()>
     where
@@ -3710,7 +3203,6 @@ impl IFsrmClassificationManager2 {
     {
         (::windows::core::Interface::vtable(self).base__.ClearFileProperty)(::windows::core::Interface::as_raw(self), filepath.into().abi(), property.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassifyFiles(&self, filepaths: &super::super::System::Com::SAFEARRAY, propertynames: &super::super::System::Com::SAFEARRAY, propertyvalues: &super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClassifyFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filepaths), ::core::mem::transmute(propertynames), ::core::mem::transmute(propertyvalues), options).ok()
@@ -3805,7 +3297,6 @@ pub struct IFsrmClassificationManager2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ClassifyFiles: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmClassificationRule(::windows::core::IUnknown);
@@ -3815,13 +3306,11 @@ impl IFsrmClassificationRule {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -3835,13 +3324,11 @@ impl IFsrmClassificationRule {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -3853,13 +3340,11 @@ impl IFsrmClassificationRule {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RuleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmRuleType>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModuleDefinitionName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ModuleDefinitionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModuleDefinitionName<'a, P0>(&self, moduledefinitionname: P0) -> ::windows::core::Result<()>
     where
@@ -3867,13 +3352,11 @@ impl IFsrmClassificationRule {
     {
         (::windows::core::Interface::vtable(self).base__.SetModuleDefinitionName)(::windows::core::Interface::as_raw(self), moduledefinitionname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetNamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
@@ -3885,18 +3368,15 @@ impl IFsrmClassificationRule {
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetRuleFlags)(::windows::core::Interface::as_raw(self), ruleflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LastModified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3909,13 +3389,11 @@ impl IFsrmClassificationRule {
     pub unsafe fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetExecutionOption)(::windows::core::Interface::as_raw(self), executionoption).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PropertyAffected(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropertyAffected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPropertyAffected<'a, P0>(&self, property: P0) -> ::windows::core::Result<()>
     where
@@ -3923,13 +3401,11 @@ impl IFsrmClassificationRule {
     {
         (::windows::core::Interface::vtable(self).SetPropertyAffected)(::windows::core::Interface::as_raw(self), property.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4059,7 +3535,6 @@ pub struct IFsrmClassificationRule_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmClassifierModuleDefinition(::windows::core::IUnknown);
@@ -4069,13 +3544,11 @@ impl IFsrmClassifierModuleDefinition {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -4089,13 +3562,11 @@ impl IFsrmClassifierModuleDefinition {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModuleClsid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ModuleClsid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModuleClsid<'a, P0>(&self, moduleclsid: P0) -> ::windows::core::Result<()>
     where
@@ -4103,13 +3574,11 @@ impl IFsrmClassifierModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).base__.SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -4117,13 +3586,11 @@ impl IFsrmClassifierModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Company(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Company)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCompany<'a, P0>(&self, company: P0) -> ::windows::core::Result<()>
     where
@@ -4131,13 +3598,11 @@ impl IFsrmClassifierModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).base__.SetCompany)(::windows::core::Interface::as_raw(self), company.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVersion<'a, P0>(&self, version: P0) -> ::windows::core::Result<()>
     where
@@ -4170,46 +3635,38 @@ impl IFsrmClassifierModuleDefinition {
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedExtensions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SupportedExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetSupportedExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(supportedextensions)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PropertiesAffected(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropertiesAffected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertiesAffected(&self, propertiesaffected: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPropertiesAffected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertiesaffected)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PropertiesUsed(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropertiesUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertiesUsed(&self, propertiesused: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPropertiesUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propertiesused)).ok()
@@ -4343,13 +3800,11 @@ pub struct IFsrmClassifierModuleDefinition_Vtbl {
     pub NeedsExplicitValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, needsexplicitvalue: *mut i16) -> ::windows::core::HRESULT,
     pub SetNeedsExplicitValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, needsexplicitvalue: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmClassifierModuleImplementation(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassifierModuleImplementation {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnLoad<'a, P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
     where
@@ -4361,13 +3816,11 @@ impl IFsrmClassifierModuleImplementation {
     pub unsafe fn OnUnload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnUnload)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LastModified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UseRulesAndDefinitions<'a, P0, P1>(&self, rules: P0, propertydefinitions: P1) -> ::windows::core::Result<()>
     where
@@ -4376,7 +3829,6 @@ impl IFsrmClassifierModuleImplementation {
     {
         (::windows::core::Interface::vtable(self).UseRulesAndDefinitions)(::windows::core::Interface::as_raw(self), rules.into().abi(), propertydefinitions.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnBeginFile<'a, P0>(&self, propertybag: P0, arrayruleids: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -4384,7 +3836,6 @@ impl IFsrmClassifierModuleImplementation {
     {
         (::windows::core::Interface::vtable(self).OnBeginFile)(::windows::core::Interface::as_raw(self), propertybag.into().abi(), ::core::mem::transmute(arrayruleids)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesPropertyValueApply<'a, P0, P1>(&self, property: P0, value: P1, applyvalue: &mut i16, idrule: ::windows::core::GUID, idpropdef: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
@@ -4393,7 +3844,6 @@ impl IFsrmClassifierModuleImplementation {
     {
         (::windows::core::Interface::vtable(self).DoesPropertyValueApply)(::windows::core::Interface::as_raw(self), property.into().abi(), value.into().abi(), ::core::mem::transmute(applyvalue), ::core::mem::transmute(idrule), ::core::mem::transmute(idpropdef)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyValueToApply<'a, P0>(&self, property: P0, value: &mut super::super::Foundation::BSTR, idrule: ::windows::core::GUID, idpropdef: ::windows::core::GUID) -> ::windows::core::Result<()>
     where
@@ -4511,7 +3961,6 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
     GetPropertyValueToApply: usize,
     pub OnEndFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmCollection(::windows::core::IUnknown);
@@ -4521,7 +3970,6 @@ impl IFsrmCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4542,7 +3990,6 @@ impl IFsrmCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4629,7 +4076,6 @@ pub struct IFsrmCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetById: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmCommittableCollection(::windows::core::IUnknown);
@@ -4639,7 +4085,6 @@ impl IFsrmCommittableCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4660,13 +4105,11 @@ impl IFsrmCommittableCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Add<'a, P0>(&self, item: P0) -> ::windows::core::Result<()>
     where
@@ -4680,13 +4123,11 @@ impl IFsrmCommittableCollection {
     pub unsafe fn RemoveById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RemoveById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Commit(&self, options: FsrmCommitOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4800,19 +4241,16 @@ pub struct IFsrmCommittableCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Commit: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmDerivedObjectsResult(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmDerivedObjectsResult {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DerivedObjects(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DerivedObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Results(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4894,13 +4332,11 @@ pub struct IFsrmDerivedObjectsResult_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Results: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmExportImport(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmExportImport {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExportFileGroups<'a, P0, P1>(&self, filepath: P0, filegroupnamessafearray: &super::super::System::Com::VARIANT, remotehost: P1) -> ::windows::core::Result<()>
     where
@@ -4909,7 +4345,6 @@ impl IFsrmExportImport {
     {
         (::windows::core::Interface::vtable(self).ExportFileGroups)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportFileGroups<'a, P0, P1>(&self, filepath: P0, filegroupnamessafearray: &super::super::System::Com::VARIANT, remotehost: P1) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -4919,7 +4354,6 @@ impl IFsrmExportImport {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ImportFileGroups)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(filegroupnamessafearray), remotehost.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExportFileScreenTemplates<'a, P0, P1>(&self, filepath: P0, templatenamessafearray: &super::super::System::Com::VARIANT, remotehost: P1) -> ::windows::core::Result<()>
     where
@@ -4928,7 +4362,6 @@ impl IFsrmExportImport {
     {
         (::windows::core::Interface::vtable(self).ExportFileScreenTemplates)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportFileScreenTemplates<'a, P0, P1>(&self, filepath: P0, templatenamessafearray: &super::super::System::Com::VARIANT, remotehost: P1) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -4938,7 +4371,6 @@ impl IFsrmExportImport {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ImportFileScreenTemplates)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExportQuotaTemplates<'a, P0, P1>(&self, filepath: P0, templatenamessafearray: &super::super::System::Com::VARIANT, remotehost: P1) -> ::windows::core::Result<()>
     where
@@ -4947,7 +4379,6 @@ impl IFsrmExportImport {
     {
         (::windows::core::Interface::vtable(self).ExportQuotaTemplates)(::windows::core::Interface::as_raw(self), filepath.into().abi(), ::core::mem::transmute(templatenamessafearray), remotehost.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportQuotaTemplates<'a, P0, P1>(&self, filepath: P0, templatenamessafearray: &super::super::System::Com::VARIANT, remotehost: P1) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -5049,7 +4480,6 @@ pub struct IFsrmExportImport_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ImportQuotaTemplates: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileCondition(::windows::core::IUnknown);
@@ -5132,7 +4562,6 @@ pub struct IFsrmFileCondition_Vtbl {
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut FsrmFileConditionType) -> ::windows::core::HRESULT,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileConditionProperty(::windows::core::IUnknown);
@@ -5145,13 +4574,11 @@ impl IFsrmFileConditionProperty {
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PropertyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropertyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPropertyName<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
     where
@@ -5180,13 +4607,11 @@ impl IFsrmFileConditionProperty {
     pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValueType)(::windows::core::Interface::as_raw(self), newval).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
     where
@@ -5302,7 +4727,6 @@ pub struct IFsrmFileConditionProperty_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileGroup(::windows::core::IUnknown);
@@ -5312,13 +4736,11 @@ impl IFsrmFileGroup {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -5332,13 +4754,11 @@ impl IFsrmFileGroup {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -5346,13 +4766,11 @@ impl IFsrmFileGroup {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Members)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMembers<'a, P0>(&self, members: P0) -> ::windows::core::Result<()>
     where
@@ -5360,13 +4778,11 @@ impl IFsrmFileGroup {
     {
         (::windows::core::Interface::vtable(self).SetMembers)(::windows::core::Interface::as_raw(self), members.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NonMembers(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NonMembers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNonMembers<'a, P0>(&self, nonmembers: P0) -> ::windows::core::Result<()>
     where
@@ -5484,7 +4900,6 @@ pub struct IFsrmFileGroup_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetNonMembers: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileGroupImported(::windows::core::IUnknown);
@@ -5494,13 +4909,11 @@ impl IFsrmFileGroupImported {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -5514,13 +4927,11 @@ impl IFsrmFileGroupImported {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -5528,13 +4939,11 @@ impl IFsrmFileGroupImported {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Members)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMembers<'a, P0>(&self, members: P0) -> ::windows::core::Result<()>
     where
@@ -5542,13 +4951,11 @@ impl IFsrmFileGroupImported {
     {
         (::windows::core::Interface::vtable(self).base__.SetMembers)(::windows::core::Interface::as_raw(self), members.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NonMembers(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NonMembers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNonMembers<'a, P0>(&self, nonmembers: P0) -> ::windows::core::Result<()>
     where
@@ -5669,19 +5076,16 @@ pub struct IFsrmFileGroupImported_Vtbl {
     pub OverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: *mut i16) -> ::windows::core::HRESULT,
     pub SetOverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileGroupManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileGroupManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileGroup(&self) -> ::windows::core::Result<IFsrmFileGroup> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateFileGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileGroup>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileGroup<'a, P0>(&self, name: P0) -> ::windows::core::Result<IFsrmFileGroup>
     where
@@ -5690,19 +5094,16 @@ impl IFsrmFileGroupManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileGroup)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileGroup>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumFileGroups)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExportFileGroups(&self, filegroupnamesarray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExportFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filegroupnamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportFileGroups<'a, P0>(&self, serializedfilegroups: P0, filegroupnamesarray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -5799,7 +5200,6 @@ pub struct IFsrmFileGroupManager_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ImportFileGroups: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileManagementJob(::windows::core::IUnknown);
@@ -5809,13 +5209,11 @@ impl IFsrmFileManagementJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -5829,13 +5227,11 @@ impl IFsrmFileManagementJob {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -5843,13 +5239,11 @@ impl IFsrmFileManagementJob {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
@@ -5868,13 +5262,11 @@ impl IFsrmFileManagementJob {
     pub unsafe fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOperationType)(::windows::core::Interface::as_raw(self), operationtype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExpirationDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExpirationDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExpirationDirectory<'a, P0>(&self, expirationdirectory: P0) -> ::windows::core::Result<()>
     where
@@ -5882,13 +5274,11 @@ impl IFsrmFileManagementJob {
     {
         (::windows::core::Interface::vtable(self).SetExpirationDirectory)(::windows::core::Interface::as_raw(self), expirationdirectory.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CustomAction(&self) -> ::windows::core::Result<IFsrmActionCommand> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CustomAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmActionCommand>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Notifications(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5908,24 +5298,20 @@ impl IFsrmFileManagementJob {
     pub unsafe fn SetReportEnabled(&self, reportenabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetReportEnabled)(::windows::core::Interface::as_raw(self), reportenabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Formats(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Formats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormats(&self, formats: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(formats)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailTo<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -5954,7 +5340,6 @@ impl IFsrmFileManagementJob {
     pub unsafe fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDaysSinceFileLastModified)(::windows::core::Interface::as_raw(self), dayssincemodify).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PropertyConditions(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5967,13 +5352,11 @@ impl IFsrmFileManagementJob {
     pub unsafe fn SetFromDate(&self, fromdate: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFromDate)(::windows::core::Interface::as_raw(self), fromdate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Task(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Task)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTask<'a, P0>(&self, taskname: P0) -> ::windows::core::Result<()>
     where
@@ -5981,13 +5364,11 @@ impl IFsrmFileManagementJob {
     {
         (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), taskname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
@@ -5996,13 +5377,11 @@ impl IFsrmFileManagementJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RunningStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmReportRunningStatus>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastError(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastReportPathWithoutExtension(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6012,13 +5391,11 @@ impl IFsrmFileManagementJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastRun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileNamePattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FileNamePattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileNamePattern<'a, P0>(&self, filenamepattern: P0) -> ::windows::core::Result<()>
     where
@@ -6045,19 +5422,16 @@ impl IFsrmFileManagementJob {
     pub unsafe fn ModifyNotification(&self, days: i32, newdays: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ModifyNotification)(::windows::core::Interface::as_raw(self), days, newdays).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateNotificationAction)(::windows::core::Interface::as_raw(self), days, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumNotificationActions(&self, days: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumNotificationActions)(::windows::core::Interface::as_raw(self), days, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePropertyCondition<'a, P0>(&self, name: P0) -> ::windows::core::Result<IFsrmPropertyCondition>
     where
@@ -6066,7 +5440,6 @@ impl IFsrmFileManagementJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePropertyCondition)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPropertyCondition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateCustomAction(&self) -> ::windows::core::Result<IFsrmActionCommand> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6282,37 +5655,31 @@ pub struct IFsrmFileManagementJob_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateCustomAction: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileManagementJobManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileManagementJobManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ActionVariables)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ActionVariableDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumFileManagementJobs)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileManagementJob(&self) -> ::windows::core::Result<IFsrmFileManagementJob> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateFileManagementJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileManagementJob>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileManagementJob<'a, P0>(&self, name: P0) -> ::windows::core::Result<IFsrmFileManagementJob>
     where
@@ -6409,7 +5776,6 @@ pub struct IFsrmFileManagementJobManager_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetFileManagementJob: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileScreen(::windows::core::IUnknown);
@@ -6419,13 +5785,11 @@ impl IFsrmFileScreen {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -6439,13 +5803,11 @@ impl IFsrmFileScreen {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.BlockedFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
@@ -6460,25 +5822,21 @@ impl IFsrmFileScreen {
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6488,19 +5846,16 @@ impl IFsrmFileScreen {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MatchesSourceTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserSid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UserSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UserAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyTemplate<'a, P0>(&self, filescreentemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -6633,7 +5988,6 @@ pub struct IFsrmFileScreen_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ApplyTemplate: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileScreenBase(::windows::core::IUnknown);
@@ -6643,13 +5997,11 @@ impl IFsrmFileScreenBase {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -6663,13 +6015,11 @@ impl IFsrmFileScreenBase {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).BlockedFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
@@ -6684,13 +6034,11 @@ impl IFsrmFileScreenBase {
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6800,7 +6148,6 @@ pub struct IFsrmFileScreenBase_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumActions: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileScreenException(::windows::core::IUnknown);
@@ -6810,13 +6157,11 @@ impl IFsrmFileScreenException {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -6830,19 +6175,16 @@ impl IFsrmFileScreenException {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AllowedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AllowedFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAllowedFileGroups<'a, P0>(&self, allowlist: P0) -> ::windows::core::Result<()>
     where
@@ -6948,25 +6290,21 @@ pub struct IFsrmFileScreenException_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetAllowedFileGroups: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileScreenManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ActionVariables)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ActionVariableDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateFileScreen<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmFileScreen>
     where
@@ -6975,7 +6313,6 @@ impl IFsrmFileScreenManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateFileScreen)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreen>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileScreen<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmFileScreen>
     where
@@ -6984,7 +6321,6 @@ impl IFsrmFileScreenManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileScreen)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreen>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumFileScreens<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -6993,7 +6329,6 @@ impl IFsrmFileScreenManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumFileScreens)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateFileScreenException<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmFileScreenException>
     where
@@ -7002,7 +6337,6 @@ impl IFsrmFileScreenManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateFileScreenException)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenException>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileScreenException<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmFileScreenException>
     where
@@ -7011,7 +6345,6 @@ impl IFsrmFileScreenManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileScreenException)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenException>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumFileScreenExceptions<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -7020,7 +6353,6 @@ impl IFsrmFileScreenManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumFileScreenExceptions)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFileScreenCollection(&self) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7130,7 +6462,6 @@ pub struct IFsrmFileScreenManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateFileScreenCollection: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileScreenTemplate(::windows::core::IUnknown);
@@ -7140,13 +6471,11 @@ impl IFsrmFileScreenTemplate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -7160,13 +6489,11 @@ impl IFsrmFileScreenTemplate {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.BlockedFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
@@ -7181,25 +6508,21 @@ impl IFsrmFileScreenTemplate {
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -7207,7 +6530,6 @@ impl IFsrmFileScreenTemplate {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTemplate<'a, P0>(&self, filescreentemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -7215,7 +6537,6 @@ impl IFsrmFileScreenTemplate {
     {
         (::windows::core::Interface::vtable(self).CopyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7341,7 +6662,6 @@ pub struct IFsrmFileScreenTemplate_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitAndUpdateDerived: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileScreenTemplateImported(::windows::core::IUnknown);
@@ -7351,13 +6671,11 @@ impl IFsrmFileScreenTemplateImported {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -7371,13 +6689,11 @@ impl IFsrmFileScreenTemplateImported {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn BlockedFileGroups(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.BlockedFileGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmMutableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetBlockedFileGroups<'a, P0>(&self, blocklist: P0) -> ::windows::core::Result<()>
     where
@@ -7392,25 +6708,21 @@ impl IFsrmFileScreenTemplateImported {
     pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetFileScreenFlags)(::windows::core::Interface::as_raw(self), filescreenflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateAction)(::windows::core::Interface::as_raw(self), actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumActions(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnumActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -7418,7 +6730,6 @@ impl IFsrmFileScreenTemplateImported {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTemplate<'a, P0>(&self, filescreentemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -7426,7 +6737,6 @@ impl IFsrmFileScreenTemplateImported {
     {
         (::windows::core::Interface::vtable(self).base__.CopyTemplate)(::windows::core::Interface::as_raw(self), filescreentemplatename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7563,19 +6873,16 @@ pub struct IFsrmFileScreenTemplateImported_Vtbl {
     pub OverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: *mut i16) -> ::windows::core::HRESULT,
     pub SetOverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmFileScreenTemplateManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenTemplateManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTemplate(&self) -> ::windows::core::Result<IFsrmFileScreenTemplate> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenTemplate>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetTemplate<'a, P0>(&self, name: P0) -> ::windows::core::Result<IFsrmFileScreenTemplate>
     where
@@ -7584,19 +6891,16 @@ impl IFsrmFileScreenTemplateManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmFileScreenTemplate>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExportTemplates(&self, filescreentemplatenamesarray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExportTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filescreentemplatenamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportTemplates<'a, P0>(&self, serializedfilescreentemplates: P0, filescreentemplatenamesarray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -7693,7 +6997,6 @@ pub struct IFsrmFileScreenTemplateManager_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ImportTemplates: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmMutableCollection(::windows::core::IUnknown);
@@ -7703,7 +7006,6 @@ impl IFsrmMutableCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7724,13 +7026,11 @@ impl IFsrmMutableCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.WaitForCompletion)(::windows::core::Interface::as_raw(self), waitseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Add<'a, P0>(&self, item: P0) -> ::windows::core::Result<()>
     where
@@ -7744,7 +7044,6 @@ impl IFsrmMutableCollection {
     pub unsafe fn RemoveById(&self, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IFsrmMutableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7846,7 +7145,6 @@ pub struct IFsrmMutableCollection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Clone: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmObject(::windows::core::IUnknown);
@@ -7856,13 +7154,11 @@ impl IFsrmObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -7955,13 +7251,11 @@ pub struct IFsrmObject_Vtbl {
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPathMapper(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPathMapper {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSharePathsForLocalPath<'a, P0>(&self, localpath: P0) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY>
     where
@@ -8042,25 +7336,21 @@ pub struct IFsrmPathMapper_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetSharePathsForLocalPath: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPipelineModuleConnector(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleConnector {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ModuleImplementation(&self) -> ::windows::core::Result<IFsrmPipelineModuleImplementation> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ModuleImplementation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmPipelineModuleImplementation>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModuleName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ModuleName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HostingUserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8070,7 +7360,6 @@ impl IFsrmPipelineModuleConnector {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HostingProcessPid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Bind<'a, P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> ::windows::core::Result<()>
     where
@@ -8164,7 +7453,6 @@ pub struct IFsrmPipelineModuleConnector_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Bind: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPipelineModuleDefinition(::windows::core::IUnknown);
@@ -8174,13 +7462,11 @@ impl IFsrmPipelineModuleDefinition {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -8194,13 +7480,11 @@ impl IFsrmPipelineModuleDefinition {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModuleClsid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ModuleClsid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModuleClsid<'a, P0>(&self, moduleclsid: P0) -> ::windows::core::Result<()>
     where
@@ -8208,13 +7492,11 @@ impl IFsrmPipelineModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -8222,13 +7504,11 @@ impl IFsrmPipelineModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Company(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Company)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCompany<'a, P0>(&self, company: P0) -> ::windows::core::Result<()>
     where
@@ -8236,13 +7516,11 @@ impl IFsrmPipelineModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).SetCompany)(::windows::core::Interface::as_raw(self), company.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVersion<'a, P0>(&self, version: P0) -> ::windows::core::Result<()>
     where
@@ -8275,24 +7553,20 @@ impl IFsrmPipelineModuleDefinition {
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedExtensions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SupportedExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSupportedExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(supportedextensions)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
@@ -8438,13 +7712,11 @@ pub struct IFsrmPipelineModuleDefinition_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetParameters: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPipelineModuleImplementation(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleImplementation {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnLoad<'a, P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
     where
@@ -8529,25 +7801,21 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
     OnLoad: usize,
     pub OnUnload: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmProperty(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sources(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8638,31 +7906,26 @@ pub struct IFsrmProperty_Vtbl {
     Sources: usize,
     pub PropertyFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPropertyBag(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyBag {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RelativePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RelativePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).VolumeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RelativeNamespaceRoot(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8672,43 +7935,36 @@ impl IFsrmPropertyBag {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).VolumeIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn FileId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FileId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ParentDirectoryId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ParentDirectoryId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Size(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SizeAllocated(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SizeAllocated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreationTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LastAccessTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastAccessTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LastModificationTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8718,19 +7974,16 @@ impl IFsrmPropertyBag {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Attributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OwnerSid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OwnerSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilePropertyNames(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FilePropertyNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Messages(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8740,7 +7993,6 @@ impl IFsrmPropertyBag {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropertyBagFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileProperty<'a, P0>(&self, name: P0) -> ::windows::core::Result<IFsrmProperty>
     where
@@ -8749,7 +8001,6 @@ impl IFsrmPropertyBag {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileProperty<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
@@ -8758,7 +8009,6 @@ impl IFsrmPropertyBag {
     {
         (::windows::core::Interface::vtable(self).SetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddMessage<'a, P0>(&self, message: P0) -> ::windows::core::Result<()>
     where
@@ -8766,7 +8016,6 @@ impl IFsrmPropertyBag {
     {
         (::windows::core::Interface::vtable(self).AddMessage)(::windows::core::Interface::as_raw(self), message.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8915,31 +8164,26 @@ pub struct IFsrmPropertyBag_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetFileStreamInterface: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPropertyBag2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyBag2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RelativePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.RelativePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.VolumeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RelativeNamespaceRoot(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8949,43 +8193,36 @@ impl IFsrmPropertyBag2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.VolumeIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn FileId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FileId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ParentDirectoryId(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ParentDirectoryId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Size(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SizeAllocated(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SizeAllocated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreationTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LastAccessTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.LastAccessTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LastModificationTime(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8995,19 +8232,16 @@ impl IFsrmPropertyBag2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Attributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OwnerSid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.OwnerSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilePropertyNames(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FilePropertyNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Messages(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9017,7 +8251,6 @@ impl IFsrmPropertyBag2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PropertyBagFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFileProperty<'a, P0>(&self, name: P0) -> ::windows::core::Result<IFsrmProperty>
     where
@@ -9026,7 +8259,6 @@ impl IFsrmPropertyBag2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileProperty<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<()>
     where
@@ -9035,7 +8267,6 @@ impl IFsrmPropertyBag2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetFileProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddMessage<'a, P0>(&self, message: P0) -> ::windows::core::Result<()>
     where
@@ -9043,19 +8274,16 @@ impl IFsrmPropertyBag2 {
     {
         (::windows::core::Interface::vtable(self).base__.AddMessage)(::windows::core::Interface::as_raw(self), message.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetFileStreamInterface)(::windows::core::Interface::as_raw(self), accessmode, interfacetype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFieldValue)(::windows::core::Interface::as_raw(self), field, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUntrustedInFileProperties(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9155,19 +8383,16 @@ pub struct IFsrmPropertyBag2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetUntrustedInFileProperties: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPropertyCondition(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyCondition {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -9182,13 +8407,11 @@ impl IFsrmPropertyCondition {
     pub unsafe fn SetType(&self, r#type: FsrmPropertyConditionType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -9286,7 +8509,6 @@ pub struct IFsrmPropertyCondition_Vtbl {
     SetValue: usize,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPropertyDefinition(::windows::core::IUnknown);
@@ -9296,13 +8518,11 @@ impl IFsrmPropertyDefinition {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -9316,13 +8536,11 @@ impl IFsrmPropertyDefinition {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -9337,35 +8555,29 @@ impl IFsrmPropertyDefinition {
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleValues(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PossibleValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPossibleValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(possiblevalues)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValueDescriptions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ValueDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValueDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(valuedescriptions)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
@@ -9490,7 +8702,6 @@ pub struct IFsrmPropertyDefinition_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetParameters: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPropertyDefinition2(::windows::core::IUnknown);
@@ -9500,13 +8711,11 @@ impl IFsrmPropertyDefinition2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -9520,13 +8729,11 @@ impl IFsrmPropertyDefinition2 {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -9541,35 +8748,29 @@ impl IFsrmPropertyDefinition2 {
     pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetType)(::windows::core::Interface::as_raw(self), r#type).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PossibleValues(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.PossibleValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPossibleValues(&self, possiblevalues: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetPossibleValues)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(possiblevalues)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValueDescriptions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ValueDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetValueDescriptions(&self, valuedescriptions: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetValueDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(valuedescriptions)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
@@ -9578,13 +8779,11 @@ impl IFsrmPropertyDefinition2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PropertyDefinitionFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplayName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -9596,7 +8795,6 @@ impl IFsrmPropertyDefinition2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AppliesTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValueDefinitions(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9720,31 +8918,26 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ValueDefinitions: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmPropertyDefinitionValue(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyDefinitionValue {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UniqueID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9834,7 +9027,6 @@ pub struct IFsrmPropertyDefinitionValue_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     UniqueID: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuota(::windows::core::IUnknown);
@@ -9844,13 +9036,11 @@ impl IFsrmQuota {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -9864,13 +9054,11 @@ impl IFsrmQuota {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, quotalimit: P0) -> ::windows::core::Result<()>
     where
@@ -9885,7 +9073,6 @@ impl IFsrmQuota {
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9900,37 +9087,31 @@ impl IFsrmQuota {
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserSid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UserSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.UserAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9940,7 +9121,6 @@ impl IFsrmQuota {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MatchesSourceTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyTemplate<'a, P0>(&self, quotatemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -9948,13 +9128,11 @@ impl IFsrmQuota {
     {
         (::windows::core::Interface::vtable(self).base__.ApplyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaUsed(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QuotaUsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaPeakUsage(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10103,7 +9281,6 @@ pub struct IFsrmQuota_Vtbl {
     pub ResetPeakUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RefreshUsageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuotaBase(::windows::core::IUnknown);
@@ -10113,13 +9290,11 @@ impl IFsrmQuotaBase {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -10133,13 +9308,11 @@ impl IFsrmQuotaBase {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, quotalimit: P0) -> ::windows::core::Result<()>
     where
@@ -10154,7 +9327,6 @@ impl IFsrmQuotaBase {
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10169,13 +9341,11 @@ impl IFsrmQuotaBase {
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10292,25 +9462,21 @@ pub struct IFsrmQuotaBase_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumThresholdActions: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuotaManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ActionVariables)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ActionVariableDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmQuota>
     where
@@ -10319,7 +9485,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateAutoApplyQuota<'a, P0, P1>(&self, quotatemplatename: P0, path: P1) -> ::windows::core::Result<IFsrmAutoApplyQuota>
     where
@@ -10329,7 +9494,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateAutoApplyQuota)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi(), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmQuota>
     where
@@ -10338,7 +9502,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAutoApplyQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmAutoApplyQuota>
     where
@@ -10347,7 +9510,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAutoApplyQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetRestrictiveQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmQuota>
     where
@@ -10356,7 +9518,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRestrictiveQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumQuotas<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -10365,7 +9526,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumAutoApplyQuotas<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -10374,7 +9534,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumEffectiveQuotas<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -10383,7 +9542,6 @@ impl IFsrmQuotaManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scan<'a, P0>(&self, strpath: P0) -> ::windows::core::Result<()>
     where
@@ -10391,7 +9549,6 @@ impl IFsrmQuotaManager {
     {
         (::windows::core::Interface::vtable(self).Scan)(::windows::core::Interface::as_raw(self), strpath.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuotaCollection(&self) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10513,25 +9670,21 @@ pub struct IFsrmQuotaManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateQuotaCollection: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuotaManagerEx(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaManagerEx {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariables(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ActionVariables)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActionVariableDescriptions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ActionVariableDescriptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmQuota>
     where
@@ -10540,7 +9693,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateAutoApplyQuota<'a, P0, P1>(&self, quotatemplatename: P0, path: P1) -> ::windows::core::Result<IFsrmAutoApplyQuota>
     where
@@ -10550,7 +9702,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateAutoApplyQuota)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi(), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmQuota>
     where
@@ -10559,7 +9710,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAutoApplyQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmAutoApplyQuota>
     where
@@ -10568,7 +9718,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAutoApplyQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAutoApplyQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetRestrictiveQuota<'a, P0>(&self, path: P0) -> ::windows::core::Result<IFsrmQuota>
     where
@@ -10577,7 +9726,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRestrictiveQuota)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuota>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumQuotas<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -10586,7 +9734,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumAutoApplyQuotas<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -10595,7 +9742,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumAutoApplyQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn EnumEffectiveQuotas<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -10604,7 +9750,6 @@ impl IFsrmQuotaManagerEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumEffectiveQuotas)(::windows::core::Interface::as_raw(self), path.into().abi(), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Scan<'a, P0>(&self, strpath: P0) -> ::windows::core::Result<()>
     where
@@ -10612,13 +9757,11 @@ impl IFsrmQuotaManagerEx {
     {
         (::windows::core::Interface::vtable(self).base__.Scan)(::windows::core::Interface::as_raw(self), strpath.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateQuotaCollection(&self) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateQuotaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAffectedByQuota<'a, P0>(&self, path: P0, options: FsrmEnumOptions) -> ::windows::core::Result<i16>
     where
@@ -10717,7 +9860,6 @@ pub struct IFsrmQuotaManagerEx_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsAffectedByQuota: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuotaObject(::windows::core::IUnknown);
@@ -10727,13 +9869,11 @@ impl IFsrmQuotaObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -10747,13 +9887,11 @@ impl IFsrmQuotaObject {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, quotalimit: P0) -> ::windows::core::Result<()>
     where
@@ -10768,7 +9906,6 @@ impl IFsrmQuotaObject {
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10783,37 +9920,31 @@ impl IFsrmQuotaObject {
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserSid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UserSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).UserAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SourceTemplateName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10823,7 +9954,6 @@ impl IFsrmQuotaObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MatchesSourceTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ApplyTemplate<'a, P0>(&self, quotatemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -10956,7 +10086,6 @@ pub struct IFsrmQuotaObject_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ApplyTemplate: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuotaTemplate(::windows::core::IUnknown);
@@ -10966,13 +10095,11 @@ impl IFsrmQuotaTemplate {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -10986,13 +10113,11 @@ impl IFsrmQuotaTemplate {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, quotalimit: P0) -> ::windows::core::Result<()>
     where
@@ -11007,7 +10132,6 @@ impl IFsrmQuotaTemplate {
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11022,25 +10146,21 @@ impl IFsrmQuotaTemplate {
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -11048,7 +10168,6 @@ impl IFsrmQuotaTemplate {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTemplate<'a, P0>(&self, quotatemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -11056,7 +10175,6 @@ impl IFsrmQuotaTemplate {
     {
         (::windows::core::Interface::vtable(self).CopyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11182,7 +10300,6 @@ pub struct IFsrmQuotaTemplate_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CommitAndUpdateDerived: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuotaTemplateImported(::windows::core::IUnknown);
@@ -11192,13 +10309,11 @@ impl IFsrmQuotaTemplateImported {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -11212,13 +10327,11 @@ impl IFsrmQuotaTemplateImported {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn QuotaLimit(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.QuotaLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, quotalimit: P0) -> ::windows::core::Result<()>
     where
@@ -11233,7 +10346,6 @@ impl IFsrmQuotaTemplateImported {
     pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetQuotaFlags)(::windows::core::Interface::as_raw(self), quotaflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Thresholds(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11248,25 +10360,21 @@ impl IFsrmQuotaTemplateImported {
     pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.ModifyThreshold)(::windows::core::Interface::as_raw(self), threshold, newthreshold).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> ::windows::core::Result<IFsrmAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateThresholdAction)(::windows::core::Interface::as_raw(self), threshold, actiontype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.EnumThresholdActions)(::windows::core::Interface::as_raw(self), threshold, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -11274,7 +10382,6 @@ impl IFsrmQuotaTemplateImported {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTemplate<'a, P0>(&self, quotatemplatename: P0) -> ::windows::core::Result<()>
     where
@@ -11282,7 +10389,6 @@ impl IFsrmQuotaTemplateImported {
     {
         (::windows::core::Interface::vtable(self).base__.CopyTemplate)(::windows::core::Interface::as_raw(self), quotatemplatename.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> ::windows::core::Result<IFsrmDerivedObjectsResult> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11419,19 +10525,16 @@ pub struct IFsrmQuotaTemplateImported_Vtbl {
     pub OverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: *mut i16) -> ::windows::core::HRESULT,
     pub SetOverwriteOnCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overwrite: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmQuotaTemplateManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaTemplateManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTemplate(&self) -> ::windows::core::Result<IFsrmQuotaTemplate> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuotaTemplate>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetTemplate<'a, P0>(&self, name: P0) -> ::windows::core::Result<IFsrmQuotaTemplate>
     where
@@ -11440,19 +10543,16 @@ impl IFsrmQuotaTemplateManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmQuotaTemplate>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCommittableCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumTemplates)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCommittableCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ExportTemplates(&self, quotatemplatenamesarray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ExportTemplates)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(quotatemplatenamesarray), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportTemplates<'a, P0>(&self, serializedquotatemplates: P0, quotatemplatenamesarray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<IFsrmCommittableCollection>
     where
@@ -11549,7 +10649,6 @@ pub struct IFsrmQuotaTemplateManager_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ImportTemplates: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmReport(::windows::core::IUnknown);
@@ -11559,13 +10658,11 @@ impl IFsrmReport {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmReportType>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -11573,13 +10670,11 @@ impl IFsrmReport {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -11587,19 +10682,16 @@ impl IFsrmReport {
     {
         (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastGeneratedFileNamePrefix(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastGeneratedFileNamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFilter)(::windows::core::Interface::as_raw(self), filter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetFilter<'a, P0>(&self, filter: FsrmReportFilter, filtervalue: P0) -> ::windows::core::Result<()>
     where
@@ -11708,7 +10800,6 @@ pub struct IFsrmReport_Vtbl {
     SetFilter: usize,
     pub Delete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmReportJob(::windows::core::IUnknown);
@@ -11718,13 +10809,11 @@ impl IFsrmReportJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -11738,13 +10827,11 @@ impl IFsrmReportJob {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Task(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Task)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTask<'a, P0>(&self, taskname: P0) -> ::windows::core::Result<()>
     where
@@ -11752,35 +10839,29 @@ impl IFsrmReportJob {
     {
         (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), taskname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Formats(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Formats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFormats(&self, formats: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFormats)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(formats)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailTo<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -11796,25 +10877,21 @@ impl IFsrmReportJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastRun)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastError(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastGeneratedInDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LastGeneratedInDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumReports(&self) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumReports)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReport(&self, reporttype: FsrmReportType) -> ::windows::core::Result<IFsrmReport> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11969,25 +11046,21 @@ pub struct IFsrmReportJob_Vtbl {
     pub WaitForCompletion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, waitseconds: i32, completed: *mut i16) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmReportManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportManager {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumReportJobs(&self, options: FsrmEnumOptions) -> ::windows::core::Result<IFsrmCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumReportJobs)(::windows::core::Interface::as_raw(self), options, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReportJob(&self) -> ::windows::core::Result<IFsrmReportJob> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateReportJob)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReportJob>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetReportJob<'a, P0>(&self, taskname: P0) -> ::windows::core::Result<IFsrmReportJob>
     where
@@ -11996,13 +11069,11 @@ impl IFsrmReportManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetReportJob)(::windows::core::Interface::as_raw(self), taskname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFsrmReportJob>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetOutputDirectory)(::windows::core::Interface::as_raw(self), context, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOutputDirectory<'a, P0>(&self, context: FsrmReportGenerationContext, path: P0) -> ::windows::core::Result<()>
     where
@@ -12014,13 +11085,11 @@ impl IFsrmReportManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsFilterValidForReportType)(::windows::core::Interface::as_raw(self), reporttype, filter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultFilter)(::windows::core::Interface::as_raw(self), reporttype, filter, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDefaultFilter<'a, P0>(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: P0) -> ::windows::core::Result<()>
     where
@@ -12028,13 +11097,11 @@ impl IFsrmReportManager {
     {
         (::windows::core::Interface::vtable(self).SetDefaultFilter)(::windows::core::Interface::as_raw(self), reporttype, filter, filtervalue.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetReportSizeLimit)(::windows::core::Interface::as_raw(self), limit, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetReportSizeLimit<'a, P0>(&self, limit: FsrmReportLimit, limitvalue: P0) -> ::windows::core::Result<()>
     where
@@ -12147,18 +11214,15 @@ pub struct IFsrmReportManager_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetReportSizeLimit: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmReportScheduler(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportScheduler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VerifyNamespaces(&self, namespacessafearray: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).VerifyNamespaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespacessafearray)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateScheduleTask<'a, P0, P1>(&self, taskname: P0, namespacessafearray: &super::super::System::Com::VARIANT, serializedtask: P1) -> ::windows::core::Result<()>
     where
@@ -12167,7 +11231,6 @@ impl IFsrmReportScheduler {
     {
         (::windows::core::Interface::vtable(self).CreateScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into().abi(), ::core::mem::transmute(namespacessafearray), serializedtask.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ModifyScheduleTask<'a, P0, P1>(&self, taskname: P0, namespacessafearray: &super::super::System::Com::VARIANT, serializedtask: P1) -> ::windows::core::Result<()>
     where
@@ -12176,7 +11239,6 @@ impl IFsrmReportScheduler {
     {
         (::windows::core::Interface::vtable(self).ModifyScheduleTask)(::windows::core::Interface::as_raw(self), taskname.into().abi(), ::core::mem::transmute(namespacessafearray), serializedtask.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteScheduleTask<'a, P0>(&self, taskname: P0) -> ::windows::core::Result<()>
     where
@@ -12268,7 +11330,6 @@ pub struct IFsrmReportScheduler_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     DeleteScheduleTask: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmRule(::windows::core::IUnknown);
@@ -12278,13 +11339,11 @@ impl IFsrmRule {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -12298,13 +11357,11 @@ impl IFsrmRule {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -12316,13 +11373,11 @@ impl IFsrmRule {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RuleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<FsrmRuleType>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModuleDefinitionName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ModuleDefinitionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModuleDefinitionName<'a, P0>(&self, moduledefinitionname: P0) -> ::windows::core::Result<()>
     where
@@ -12330,13 +11385,11 @@ impl IFsrmRule {
     {
         (::windows::core::Interface::vtable(self).SetModuleDefinitionName)(::windows::core::Interface::as_raw(self), moduledefinitionname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NamespaceRoots(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNamespaceRoots(&self, namespaceroots: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNamespaceRoots)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(namespaceroots)).ok()
@@ -12348,18 +11401,15 @@ impl IFsrmRule {
     pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRuleFlags)(::windows::core::Interface::as_raw(self), ruleflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LastModified(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12490,19 +11540,16 @@ pub struct IFsrmRule_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LastModified: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmSetting(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmSetting {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SmtpServer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SmtpServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSmtpServer<'a, P0>(&self, smtpserver: P0) -> ::windows::core::Result<()>
     where
@@ -12510,13 +11557,11 @@ impl IFsrmSetting {
     {
         (::windows::core::Interface::vtable(self).SetSmtpServer)(::windows::core::Interface::as_raw(self), smtpserver.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MailFrom(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MailFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMailFrom<'a, P0>(&self, mailfrom: P0) -> ::windows::core::Result<()>
     where
@@ -12524,13 +11569,11 @@ impl IFsrmSetting {
     {
         (::windows::core::Interface::vtable(self).SetMailFrom)(::windows::core::Interface::as_raw(self), mailfrom.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdminEmail(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AdminEmail)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAdminEmail<'a, P0>(&self, adminemail: P0) -> ::windows::core::Result<()>
     where
@@ -12552,7 +11595,6 @@ impl IFsrmSetting {
     pub unsafe fn SetEnableScreeningAudit(&self, enablescreeningaudit: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnableScreeningAudit)(::windows::core::Interface::as_raw(self), enablescreeningaudit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EmailTest<'a, P0>(&self, mailto: P0) -> ::windows::core::Result<()>
     where
@@ -12669,7 +11711,6 @@ pub struct IFsrmSetting_Vtbl {
     pub SetActionRunLimitInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actiontype: FsrmActionType, delaytimeminutes: i32) -> ::windows::core::HRESULT,
     pub GetActionRunLimitInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, actiontype: FsrmActionType, delaytimeminutes: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmStorageModuleDefinition(::windows::core::IUnknown);
@@ -12679,13 +11720,11 @@ impl IFsrmStorageModuleDefinition {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -12699,13 +11738,11 @@ impl IFsrmStorageModuleDefinition {
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModuleClsid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ModuleClsid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModuleClsid<'a, P0>(&self, moduleclsid: P0) -> ::windows::core::Result<()>
     where
@@ -12713,13 +11750,11 @@ impl IFsrmStorageModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).base__.SetModuleClsid)(::windows::core::Interface::as_raw(self), moduleclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -12727,13 +11762,11 @@ impl IFsrmStorageModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Company(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Company)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCompany<'a, P0>(&self, company: P0) -> ::windows::core::Result<()>
     where
@@ -12741,13 +11774,11 @@ impl IFsrmStorageModuleDefinition {
     {
         (::windows::core::Interface::vtable(self).base__.SetCompany)(::windows::core::Interface::as_raw(self), company.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVersion<'a, P0>(&self, version: P0) -> ::windows::core::Result<()>
     where
@@ -12780,24 +11811,20 @@ impl IFsrmStorageModuleDefinition {
     pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetAccount)(::windows::core::Interface::as_raw(self), retrievalaccount).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SupportedExtensions(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.SupportedExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSupportedExtensions(&self, supportedextensions: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetSupportedExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(supportedextensions)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetParameters(&self, parameters: &super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(parameters)).ok()
@@ -12933,13 +11960,11 @@ pub struct IFsrmStorageModuleDefinition_Vtbl {
     pub UpdatesFileContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatesfilecontent: *mut i16) -> ::windows::core::HRESULT,
     pub SetUpdatesFileContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatesfilecontent: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IFsrmStorageModuleImplementation(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmStorageModuleImplementation {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnLoad<'a, P0>(&self, moduledefinition: P0) -> ::windows::core::Result<IFsrmPipelineModuleConnector>
     where
@@ -12951,7 +11976,6 @@ impl IFsrmStorageModuleImplementation {
     pub unsafe fn OnUnload(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnUnload)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn UseDefinitions<'a, P0>(&self, propertydefinitions: P0) -> ::windows::core::Result<()>
     where
@@ -12959,7 +11983,6 @@ impl IFsrmStorageModuleImplementation {
     {
         (::windows::core::Interface::vtable(self).UseDefinitions)(::windows::core::Interface::as_raw(self), propertydefinitions.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadProperties<'a, P0>(&self, propertybag: P0) -> ::windows::core::Result<()>
     where
@@ -12967,7 +11990,6 @@ impl IFsrmStorageModuleImplementation {
     {
         (::windows::core::Interface::vtable(self).LoadProperties)(::windows::core::Interface::as_raw(self), propertybag.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveProperties<'a, P0>(&self, propertybag: P0) -> ::windows::core::Result<()>
     where
@@ -13073,7 +12095,6 @@ pub struct IFsrmStorageModuleImplementation_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SaveProperties: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileServerResourceManager\"`*"]
 pub const MessageSizeLimit: u32 = 4096u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

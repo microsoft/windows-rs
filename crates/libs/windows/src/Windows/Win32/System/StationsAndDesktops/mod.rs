@@ -1,28 +1,16 @@
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
 impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_FLAGS {}
 impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
@@ -71,15 +59,11 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
 impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
 impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
@@ -129,7 +113,6 @@ impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BSMINFO {
     pub cbSize: u32,
@@ -169,7 +152,6 @@ impl ::core::default::Default for BSMINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageA<'a, P0, P1>(flags: u32, lpinfo: ::core::option::Option<&mut u32>, msg: u32, wparam: P0, lparam: P1) -> i32
@@ -183,7 +165,6 @@ where
     }
     BroadcastSystemMessageA(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageExA<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: ::core::option::Option<&mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1, pbsminfo: ::core::option::Option<&mut BSMINFO>) -> i32
@@ -197,7 +178,6 @@ where
     }
     BroadcastSystemMessageExA(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo))
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageExW<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: ::core::option::Option<&mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1, pbsminfo: ::core::option::Option<&mut BSMINFO>) -> i32
@@ -211,7 +191,6 @@ where
     }
     BroadcastSystemMessageExW(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into(), ::core::mem::transmute(pbsminfo))
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BroadcastSystemMessageW<'a, P0, P1>(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: ::core::option::Option<&mut BROADCAST_SYSTEM_MESSAGE_INFO>, msg: u32, wparam: P0, lparam: P1) -> i32
@@ -225,7 +204,6 @@ where
     }
     BroadcastSystemMessageW(flags, ::core::mem::transmute(lpinfo), msg, wparam.into(), lparam.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseDesktop<'a, P0>(hdesktop: P0) -> super::super::Foundation::BOOL
@@ -238,7 +216,6 @@ where
     }
     CloseDesktop(hdesktop.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseWindowStation<'a, P0>(hwinsta: P0) -> super::super::Foundation::BOOL
@@ -251,7 +228,6 @@ where
     }
     CloseWindowStation(hwinsta.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HDESK>
@@ -266,7 +242,6 @@ where
     let result__ = CreateDesktopA(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopExA<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEA, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
@@ -281,7 +256,6 @@ where
     let result__ = CreateDesktopExA(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa), ulheapsize, ::core::mem::transmute(pvoid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopExW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, ulheapsize: u32, pvoid: *mut ::core::ffi::c_void) -> ::windows::core::Result<HDESK>
@@ -296,7 +270,6 @@ where
     let result__ = CreateDesktopExW(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa), ulheapsize, ::core::mem::transmute(pvoid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDesktopW<'a, P0, P1>(lpszdesktop: P0, lpszdevice: P1, pdevmode: &mut super::super::Graphics::Gdi::DEVMODEW, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HDESK>
@@ -311,7 +284,6 @@ where
     let result__ = CreateDesktopW(lpszdesktop.into(), lpszdevice.into(), ::core::mem::transmute(pdevmode), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateWindowStationA<'a, P0>(lpwinsta: P0, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HWINSTA>
@@ -325,7 +297,6 @@ where
     let result__ = CreateWindowStationA(lpwinsta.into(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateWindowStationW<'a, P0>(lpwinsta: P0, dwflags: u32, dwdesiredaccess: u32, lpsa: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<HWINSTA>
@@ -339,13 +310,10 @@ where
     let result__ = CreateWindowStationW(lpwinsta.into(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DESKTOPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn EnumDesktopWindows<'a, P0, P1>(hdesktop: P0, lpfn: super::super::UI::WindowsAndMessaging::WNDENUMPROC, lparam: P1) -> super::super::Foundation::BOOL
@@ -359,7 +327,6 @@ where
     }
     EnumDesktopWindows(hdesktop.into(), ::core::mem::transmute(lpfn), lparam.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDesktopsA<'a, P0, P1>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCA, lparam: P1) -> super::super::Foundation::BOOL
@@ -373,7 +340,6 @@ where
     }
     EnumDesktopsA(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDesktopsW<'a, P0, P1>(hwinsta: P0, lpenumfunc: DESKTOPENUMPROCW, lparam: P1) -> super::super::Foundation::BOOL
@@ -387,7 +353,6 @@ where
     }
     EnumDesktopsW(hwinsta.into(), ::core::mem::transmute(lpenumfunc), lparam.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumWindowStationsA<'a, P0>(lpenumfunc: WINSTAENUMPROCA, lparam: P0) -> super::super::Foundation::BOOL
@@ -400,7 +365,6 @@ where
     }
     EnumWindowStationsA(::core::mem::transmute(lpenumfunc), lparam.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumWindowStationsW<'a, P0>(lpenumfunc: WINSTAENUMPROCW, lparam: P0) -> super::super::Foundation::BOOL
@@ -413,7 +377,6 @@ where
     }
     EnumWindowStationsW(::core::mem::transmute(lpenumfunc), lparam.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[inline]
 pub unsafe fn GetProcessWindowStation() -> ::windows::core::Result<HWINSTA> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -423,7 +386,6 @@ pub unsafe fn GetProcessWindowStation() -> ::windows::core::Result<HWINSTA> {
     let result__ = GetProcessWindowStation();
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[inline]
 pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> ::windows::core::Result<HDESK> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -433,7 +395,6 @@ pub unsafe fn GetThreadDesktop(dwthreadid: u32) -> ::windows::core::Result<HDESK
     let result__ = GetThreadDesktop(dwthreadid);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserObjectInformationA<'a, P0>(hobj: P0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: ::core::option::Option<&mut [u8]>, lpnlengthneeded: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -446,7 +407,6 @@ where
     }
     GetUserObjectInformationA(hobj.into(), nindex, ::core::mem::transmute(pvinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvinfo.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserObjectInformationW<'a, P0>(hobj: P0, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: ::core::option::Option<&mut [u8]>, lpnlengthneeded: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -523,7 +483,6 @@ impl ::core::convert::From<::core::option::Option<HWINSTA>> for HWINSTA {
 unsafe impl ::windows::core::Abi for HWINSTA {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenDesktopA<'a, P0, P1>(lpszdesktop: P0, dwflags: u32, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
@@ -538,7 +497,6 @@ where
     let result__ = OpenDesktopA(lpszdesktop.into(), dwflags, finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenDesktopW<'a, P0, P1>(lpszdesktop: P0, dwflags: u32, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
@@ -553,7 +511,6 @@ where
     let result__ = OpenDesktopW(lpszdesktop.into(), dwflags, finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenInputDesktop<'a, P0>(dwflags: u32, finherit: P0, dwdesiredaccess: u32) -> ::windows::core::Result<HDESK>
@@ -567,7 +524,6 @@ where
     let result__ = OpenInputDesktop(dwflags, finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenWindowStationA<'a, P0, P1>(lpszwinsta: P0, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HWINSTA>
@@ -582,7 +538,6 @@ where
     let result__ = OpenWindowStationA(lpszwinsta.into(), finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenWindowStationW<'a, P0, P1>(lpszwinsta: P0, finherit: P1, dwdesiredaccess: u32) -> ::windows::core::Result<HWINSTA>
@@ -597,7 +552,6 @@ where
     let result__ = OpenWindowStationW(lpszwinsta.into(), finherit.into(), dwdesiredaccess);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetProcessWindowStation<'a, P0>(hwinsta: P0) -> super::super::Foundation::BOOL
@@ -610,7 +564,6 @@ where
     }
     SetProcessWindowStation(hwinsta.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetThreadDesktop<'a, P0>(hdesktop: P0) -> super::super::Foundation::BOOL
@@ -623,7 +576,6 @@ where
     }
     SetThreadDesktop(hdesktop.into())
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserObjectInformationA<'a, P0>(hobj: P0, nindex: i32, pvinfo: &[u8]) -> super::super::Foundation::BOOL
@@ -636,7 +588,6 @@ where
     }
     SetUserObjectInformationA(hobj.into(), nindex, ::core::mem::transmute(pvinfo.as_ptr()), pvinfo.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserObjectInformationW<'a, P0>(hobj: P0, nindex: i32, pvinfo: &[u8]) -> super::super::Foundation::BOOL
@@ -649,7 +600,6 @@ where
     }
     SetUserObjectInformationW(hobj.into(), nindex, ::core::mem::transmute(pvinfo.as_ptr()), pvinfo.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SwitchDesktop<'a, P0>(hdesktop: P0) -> super::super::Foundation::BOOL
@@ -663,7 +613,6 @@ where
     SwitchDesktop(hdesktop.into())
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USEROBJECTFLAGS {
     pub fInherit: super::super::Foundation::BOOL,
@@ -702,21 +651,14 @@ impl ::core::default::Default for USEROBJECTFLAGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct USER_OBJECT_INFORMATION_INDEX(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
 pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4u32);
 impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
 impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
@@ -737,10 +679,8 @@ impl ::core::fmt::Debug for USER_OBJECT_INFORMATION_INDEX {
         f.debug_tuple("USER_OBJECT_INFORMATION_INDEX").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]

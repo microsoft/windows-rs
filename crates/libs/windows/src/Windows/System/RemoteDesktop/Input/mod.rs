@@ -28,11 +28,9 @@ pub struct IRemoteTextConnectionFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionid: ::windows::core::GUID, pduforwarder: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
 #[repr(transparent)]
 pub struct RemoteTextConnection(::windows::core::IUnknown);
 impl RemoteTextConnection {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -160,7 +158,6 @@ impl<'a> ::core::convert::TryFrom<&RemoteTextConnection> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for RemoteTextConnection {}
 unsafe impl ::core::marker::Sync for RemoteTextConnection {}
-#[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
 #[repr(transparent)]
 pub struct RemoteTextConnectionDataHandler(pub ::windows::core::IUnknown);
 impl RemoteTextConnectionDataHandler {

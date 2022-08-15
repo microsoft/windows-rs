@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 pub struct II2cControllerProvider(::windows::core::IUnknown);
 impl II2cControllerProvider {
@@ -76,7 +75,6 @@ pub struct II2cControllerProvider_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 pub struct II2cDeviceProvider(::windows::core::IUnknown);
 impl II2cDeviceProvider {
@@ -120,7 +118,6 @@ impl II2cDeviceProvider {
             (::windows::core::Interface::vtable(this).WriteReadPartial)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<ProviderI2cTransferResult>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -218,11 +215,9 @@ pub struct II2cDeviceProvider_Vtbl {
     pub WriteRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub WriteReadPartial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8, result__: *mut ProviderI2cTransferResult) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 pub struct II2cProvider(::windows::core::IUnknown);
 impl II2cProvider {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
@@ -316,7 +311,6 @@ pub struct IProviderI2cConnectionSettings_Vtbl {
     pub SharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ProviderI2cSharingMode) -> ::windows::core::HRESULT,
     pub SetSharingMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ProviderI2cSharingMode) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderI2cBusSpeed(pub i32);
@@ -350,7 +344,6 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cBusSpeed {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 pub struct ProviderI2cConnectionSettings(::windows::core::IUnknown);
 impl ProviderI2cConnectionSettings {
@@ -450,7 +443,6 @@ impl ::core::convert::From<&ProviderI2cConnectionSettings> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for ProviderI2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderI2cConnectionSettings {}
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderI2cSharingMode(pub i32);
@@ -485,7 +477,6 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cSharingMode {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,
@@ -522,7 +513,6 @@ impl ::core::default::Default for ProviderI2cTransferResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Devices_I2c_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderI2cTransferStatus(pub i32);

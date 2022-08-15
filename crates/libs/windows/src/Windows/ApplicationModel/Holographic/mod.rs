@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"ApplicationModel_Holographic\"`*"]
 #[repr(transparent)]
 pub struct HolographicKeyboard(::windows::core::IUnknown);
 impl HolographicKeyboard {
-    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetPlacementOverride<'a, P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()>
     where
@@ -11,7 +9,6 @@ impl HolographicKeyboard {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverride)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), topcenterposition, orientation).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn SetPlacementOverrideWithMaxSize<'a, P0>(&self, coordinatesystem: P0, topcenterposition: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>
     where

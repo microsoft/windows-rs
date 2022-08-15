@@ -1,5 +1,4 @@
 pub const CLSID_SoftwareBitmapNativeFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct ISoftwareBitmapNative(::windows::core::IUnknown);
 impl ISoftwareBitmapNative {
@@ -67,11 +66,9 @@ pub struct ISoftwareBitmapNative_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub GetData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct ISoftwareBitmapNativeFactory(::windows::core::IUnknown);
 impl ISoftwareBitmapNativeFactory {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateFromWICBitmap<'a, P0, P1, T>(&self, data: P0, forcereadonly: P1) -> ::windows::core::Result<T>
     where
@@ -82,7 +79,6 @@ impl ISoftwareBitmapNativeFactory {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateFromWICBitmap)(::windows::core::Interface::as_raw(self), data.into().abi(), forcereadonly.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMF2DBuffer2<'a, P0, P1, T>(&self, data: P0, subtype: &::windows::core::GUID, width: u32, height: u32, forcereadonly: P1, mindisplayaperture: ::core::option::Option<&super::super::super::super::Media::MediaFoundation::MFVideoArea>) -> ::windows::core::Result<T>
     where

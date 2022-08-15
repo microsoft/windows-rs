@@ -40,7 +40,6 @@ pub struct ISceneLightingEffect2_Vtbl {
     pub ReflectanceModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SceneLightingEffectReflectanceModel) -> ::windows::core::HRESULT,
     pub SetReflectanceModel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: SceneLightingEffectReflectanceModel) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
 #[repr(transparent)]
 pub struct SceneLightingEffect(::windows::core::IUnknown);
 impl SceneLightingEffect {
@@ -51,7 +50,6 @@ impl SceneLightingEffect {
         static SHARED: ::windows::core::FactoryCache<SceneLightingEffect, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
@@ -60,7 +58,6 @@ impl SceneLightingEffect {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetName(&self, name: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
@@ -88,7 +85,6 @@ impl SceneLightingEffect {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDiffuseAmount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn NormalMapSource(&self) -> ::windows::core::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let this = self;
@@ -97,7 +93,6 @@ impl SceneLightingEffect {
             (::windows::core::Interface::vtable(this).NormalMapSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Graphics::Effects::IGraphicsEffectSource>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetNormalMapSource<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -247,7 +242,6 @@ impl<'a> ::core::convert::TryFrom<&SceneLightingEffect> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for SceneLightingEffect {}
 unsafe impl ::core::marker::Sync for SceneLightingEffect {}
-#[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SceneLightingEffectReflectanceModel(pub i32);

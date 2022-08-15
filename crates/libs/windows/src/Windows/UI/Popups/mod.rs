@@ -70,7 +70,6 @@ pub struct IPopupMenu_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     ShowAsyncWithRectAndPlacement: usize,
 }
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct IUICommand(::windows::core::IUnknown);
 impl IUICommand {
@@ -197,7 +196,6 @@ pub struct IUICommandFactory_Vtbl {
     pub CreateWithHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateWithHandlerAndId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, label: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, action: *mut ::core::ffi::c_void, commandid: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct MessageDialog(::windows::core::IUnknown);
 impl MessageDialog {
@@ -212,7 +210,6 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
@@ -254,7 +251,6 @@ impl MessageDialog {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -352,7 +348,6 @@ impl ::core::convert::From<&MessageDialog> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MessageDialogOptions(pub u32);
@@ -414,7 +409,6 @@ unsafe impl ::windows::core::RuntimeType for MessageDialogOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Placement(pub i32);
@@ -451,7 +445,6 @@ unsafe impl ::windows::core::RuntimeType for Placement {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct PopupMenu(::windows::core::IUnknown);
 impl PopupMenu {
@@ -462,7 +455,6 @@ impl PopupMenu {
         static SHARED: ::windows::core::FactoryCache<PopupMenu, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Commands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IUICommand>> {
         let this = self;
@@ -471,7 +463,6 @@ impl PopupMenu {
             (::windows::core::Interface::vtable(this).Commands)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsync(&self, invocationpoint: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -480,7 +471,6 @@ impl PopupMenu {
             (::windows::core::Interface::vtable(this).ShowAsync)(::windows::core::Interface::as_raw(this), invocationpoint, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsyncWithRect(&self, selection: super::super::Foundation::Rect) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -489,7 +479,6 @@ impl PopupMenu {
             (::windows::core::Interface::vtable(this).ShowAsyncWithRect)(::windows::core::Interface::as_raw(this), selection, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IUICommand>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowAsyncWithRectAndPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: Placement) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IUICommand>> {
         let this = self;
@@ -559,7 +548,6 @@ impl ::core::convert::From<&PopupMenu> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct UICommand(::windows::core::IUnknown);
 impl UICommand {
@@ -721,7 +709,6 @@ impl<'a> ::core::convert::TryFrom<&UICommand> for ::windows::core::InParam<'a, I
 }
 unsafe impl ::core::marker::Send for UICommand {}
 unsafe impl ::core::marker::Sync for UICommand {}
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct UICommandInvokedHandler(pub ::windows::core::IUnknown);
 impl UICommandInvokedHandler {
@@ -809,7 +796,6 @@ pub struct UICommandInvokedHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, command: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Popups\"`*"]
 #[repr(transparent)]
 pub struct UICommandSeparator(::windows::core::IUnknown);
 impl UICommandSeparator {

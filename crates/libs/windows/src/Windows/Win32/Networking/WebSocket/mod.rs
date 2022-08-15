@@ -1,16 +1,10 @@
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_NO_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SEND_TO_NETWORK_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_INDICATE_SEND_COMPLETE_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_RECEIVE_FROM_NETWORK_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_INDICATE_RECEIVE_COMPLETE_ACTION: WEB_SOCKET_ACTION = WEB_SOCKET_ACTION(4i32);
 impl ::core::marker::Copy for WEB_SOCKET_ACTION {}
 impl ::core::clone::Clone for WEB_SOCKET_ACTION {
@@ -31,15 +25,11 @@ impl ::core::fmt::Debug for WEB_SOCKET_ACTION {
         f.debug_tuple("WEB_SOCKET_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_ACTION_QUEUE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SEND_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = WEB_SOCKET_ACTION_QUEUE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_RECEIVE_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = WEB_SOCKET_ACTION_QUEUE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_ALL_ACTION_QUEUE: WEB_SOCKET_ACTION_QUEUE = WEB_SOCKET_ACTION_QUEUE(3i32);
 impl ::core::marker::Copy for WEB_SOCKET_ACTION_QUEUE {}
 impl ::core::clone::Clone for WEB_SOCKET_ACTION_QUEUE {
@@ -61,7 +51,6 @@ impl ::core::fmt::Debug for WEB_SOCKET_ACTION_QUEUE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub union WEB_SOCKET_BUFFER {
     pub Data: WEB_SOCKET_BUFFER_1,
     pub CloseStatus: WEB_SOCKET_BUFFER_0,
@@ -87,7 +76,6 @@ impl ::core::default::Default for WEB_SOCKET_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbReason: *mut u8,
     pub ulReasonLength: u32,
@@ -119,7 +107,6 @@ impl ::core::default::Default for WEB_SOCKET_BUFFER_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbBuffer: *mut u8,
     pub ulBufferLength: u32,
@@ -149,23 +136,15 @@ impl ::core::default::Default for WEB_SOCKET_BUFFER_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_BUFFER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483647i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483646i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483645i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_CLOSE_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483644i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_PING_PONG_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483643i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_UNSOLICITED_PONG_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = WEB_SOCKET_BUFFER_TYPE(-2147483642i32);
 impl ::core::marker::Copy for WEB_SOCKET_BUFFER_TYPE {}
 impl ::core::clone::Clone for WEB_SOCKET_BUFFER_TYPE {
@@ -186,33 +165,20 @@ impl ::core::fmt::Debug for WEB_SOCKET_BUFFER_TYPE {
         f.debug_tuple("WEB_SOCKET_BUFFER_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_CLOSE_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SUCCESS_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1000i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_ENDPOINT_UNAVAILABLE_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1001i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1002i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1003i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_EMPTY_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1005i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_ABORTED_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1006i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1007i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1008i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1009i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1010i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1011i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = WEB_SOCKET_CLOSE_STATUS(1015i32);
 impl ::core::marker::Copy for WEB_SOCKET_CLOSE_STATUS {}
 impl ::core::clone::Clone for WEB_SOCKET_CLOSE_STATUS {
@@ -266,7 +232,6 @@ unsafe impl ::windows::core::Abi for WEB_SOCKET_HANDLE {
     type Abi = Self;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: ::windows::core::PSTR,
     pub ulNameLength: u32,
@@ -298,10 +263,8 @@ impl ::core::default::Default for WEB_SOCKET_HTTP_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: u32 = 123u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut ::core::ffi::c_void,
@@ -332,23 +295,15 @@ impl ::core::default::Default for WEB_SOCKET_PROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEB_SOCKET_PROPERTY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_RECEIVE_BUFFER_SIZE_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SEND_BUFFER_SIZE_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_DISABLE_MASKING_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_ALLOCATED_BUFFER_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_DISABLE_UTF8_VERIFICATION_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_KEEPALIVE_INTERVAL_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 pub const WEB_SOCKET_SUPPORTED_VERSIONS_PROPERTY_TYPE: WEB_SOCKET_PROPERTY_TYPE = WEB_SOCKET_PROPERTY_TYPE(6i32);
 impl ::core::marker::Copy for WEB_SOCKET_PROPERTY_TYPE {}
 impl ::core::clone::Clone for WEB_SOCKET_PROPERTY_TYPE {
@@ -369,7 +324,6 @@ impl ::core::fmt::Debug for WEB_SOCKET_PROPERTY_TYPE {
         f.debug_tuple("WEB_SOCKET_PROPERTY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketAbortHandle<'a, P0>(hwebsocket: P0)
 where
@@ -381,7 +335,6 @@ where
     }
     WebSocketAbortHandle(hwebsocket.into())
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketBeginClientHandshake<'a, P0>(hwebsocket: P0, pszsubprotocols: ::core::option::Option<&[::windows::core::PSTR]>, pszextensions: ::core::option::Option<&[::windows::core::PSTR]>, pinitialheaders: ::core::option::Option<&[WEB_SOCKET_HTTP_HEADER]>, padditionalheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, puladditionalheadercount: &mut u32) -> ::windows::core::Result<()>
 where
@@ -404,7 +357,6 @@ where
     )
     .ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketBeginServerHandshake<'a, P0, P1>(hwebsocket: P0, pszsubprotocolselected: P1, pszextensionselected: ::core::option::Option<&[::windows::core::PSTR]>, prequestheaders: &[WEB_SOCKET_HTTP_HEADER], presponseheaders: *mut *mut WEB_SOCKET_HTTP_HEADER, pulresponseheadercount: &mut u32) -> ::windows::core::Result<()>
 where
@@ -417,7 +369,6 @@ where
     }
     WebSocketBeginServerHandshake(hwebsocket.into(), pszsubprotocolselected.into(), ::core::mem::transmute(pszextensionselected.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len() as _, ::core::mem::transmute(presponseheaders), ::core::mem::transmute(pulresponseheadercount)).ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketCompleteAction<'a, P0>(hwebsocket: P0, pvactioncontext: *const ::core::ffi::c_void, ulbytestransferred: u32)
 where
@@ -429,7 +380,6 @@ where
     }
     WebSocketCompleteAction(hwebsocket.into(), ::core::mem::transmute(pvactioncontext), ulbytestransferred)
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -439,7 +389,6 @@ pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WebSocketCreateClientHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WEB_SOCKET_HANDLE>(result__)
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -> ::windows::core::Result<WEB_SOCKET_HANDLE> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -449,7 +398,6 @@ pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WebSocketCreateServerHandle(::core::mem::transmute(pproperties.as_ptr()), pproperties.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WEB_SOCKET_HANDLE>(result__)
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketDeleteHandle<'a, P0>(hwebsocket: P0)
 where
@@ -461,7 +409,6 @@ where
     }
     WebSocketDeleteHandle(hwebsocket.into())
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketEndClientHandshake<'a, P0>(hwebsocket: P0, presponseheaders: &[WEB_SOCKET_HTTP_HEADER], pulselectedextensions: *mut u32, pulselectedextensioncount: ::core::option::Option<&mut u32>, pulselectedsubprotocol: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
 where
@@ -473,7 +420,6 @@ where
     }
     WebSocketEndClientHandshake(hwebsocket.into(), ::core::mem::transmute(presponseheaders.as_ptr()), presponseheaders.len() as _, ::core::mem::transmute(pulselectedextensions), ::core::mem::transmute(pulselectedextensioncount), ::core::mem::transmute(pulselectedsubprotocol)).ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketEndServerHandshake<'a, P0>(hwebsocket: P0) -> ::windows::core::Result<()>
 where
@@ -485,7 +431,6 @@ where
     }
     WebSocketEndServerHandshake(hwebsocket.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketGetAction<'a, P0>(hwebsocket: P0, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: *mut WEB_SOCKET_BUFFER, puldatabuffercount: &mut u32, paction: &mut WEB_SOCKET_ACTION, pbuffertype: &mut WEB_SOCKET_BUFFER_TYPE, pvapplicationcontext: *mut *mut ::core::ffi::c_void, pvactioncontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -497,7 +442,6 @@ where
     }
     WebSocketGetAction(hwebsocket.into(), eactionqueue, ::core::mem::transmute(pdatabuffers), ::core::mem::transmute(puldatabuffercount), ::core::mem::transmute(paction), ::core::mem::transmute(pbuffertype), ::core::mem::transmute(pvapplicationcontext), ::core::mem::transmute(pvactioncontext)).ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: *mut ::core::ffi::c_void, ulsize: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -506,7 +450,6 @@ pub unsafe fn WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalu
     }
     WebSocketGetGlobalProperty(etype, ::core::mem::transmute(pvvalue), ::core::mem::transmute(ulsize)).ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketReceive<'a, P0>(hwebsocket: P0, pbuffer: ::core::option::Option<&WEB_SOCKET_BUFFER>, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -518,7 +461,6 @@ where
     }
     WebSocketReceive(hwebsocket.into(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pvcontext)).ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_WebSocket\"`*"]
 #[inline]
 pub unsafe fn WebSocketSend<'a, P0>(hwebsocket: P0, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: ::core::option::Option<&WEB_SOCKET_BUFFER>, context: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
 where

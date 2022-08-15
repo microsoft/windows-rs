@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Phone_Speech_Recognition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SpeechRecognitionUIStatus(pub i32);

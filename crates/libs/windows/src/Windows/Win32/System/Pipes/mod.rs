@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallNamedPipeA<'a, P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: &mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
@@ -11,7 +10,6 @@ where
     }
     CallNamedPipeA(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread), ntimeout)
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallNamedPipeW<'a, P0>(lpnamedpipename: P0, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: &mut u32, ntimeout: u32) -> super::super::Foundation::BOOL
@@ -24,7 +22,6 @@ where
     }
     CallNamedPipeW(lpnamedpipename.into(), ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread), ntimeout)
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ConnectNamedPipe<'a, P0>(hnamedpipe: P0, lpoverlapped: ::core::option::Option<&mut super::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
@@ -37,7 +34,6 @@ where
     }
     ConnectNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CreateNamedPipeA<'a, P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -51,7 +47,6 @@ where
     let result__ = CreateNamedPipeA(lpname.into(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_FileSystem\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn CreateNamedPipeW<'a, P0>(lpname: P0, dwopenmode: super::super::Storage::FileSystem::FILE_FLAGS_AND_ATTRIBUTES, dwpipemode: NAMED_PIPE_MODE, nmaxinstances: u32, noutbuffersize: u32, ninbuffersize: u32, ndefaulttimeout: u32, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::HANDLE
@@ -64,7 +59,6 @@ where
     }
     CreateNamedPipeW(lpname.into(), dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreatePipe(hreadpipe: &mut super::super::Foundation::HANDLE, hwritepipe: &mut super::super::Foundation::HANDLE, lppipeattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, nsize: u32) -> super::super::Foundation::BOOL {
@@ -74,7 +68,6 @@ pub unsafe fn CreatePipe(hreadpipe: &mut super::super::Foundation::HANDLE, hwrit
     }
     CreatePipe(::core::mem::transmute(hreadpipe), ::core::mem::transmute(hwritepipe), ::core::mem::transmute(lppipeattributes), nsize)
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DisconnectNamedPipe<'a, P0>(hnamedpipe: P0) -> super::super::Foundation::BOOL
@@ -87,7 +80,6 @@ where
     }
     DisconnectNamedPipe(hnamedpipe.into())
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeClientComputerNameA<'a, P0>(pipe: P0, clientcomputername: &mut [u8]) -> super::super::Foundation::BOOL
@@ -100,7 +92,6 @@ where
     }
     GetNamedPipeClientComputerNameA(pipe.into(), ::core::mem::transmute(clientcomputername.as_ptr()), clientcomputername.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeClientComputerNameW<'a, P0>(pipe: P0, clientcomputername: &mut [u8]) -> super::super::Foundation::BOOL
@@ -113,7 +104,6 @@ where
     }
     GetNamedPipeClientComputerNameW(pipe.into(), ::core::mem::transmute(clientcomputername.as_ptr()), clientcomputername.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeClientProcessId<'a, P0>(pipe: P0, clientprocessid: &mut u32) -> super::super::Foundation::BOOL
@@ -126,7 +116,6 @@ where
     }
     GetNamedPipeClientProcessId(pipe.into(), ::core::mem::transmute(clientprocessid))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeClientSessionId<'a, P0>(pipe: P0, clientsessionid: &mut u32) -> super::super::Foundation::BOOL
@@ -139,7 +128,6 @@ where
     }
     GetNamedPipeClientSessionId(pipe.into(), ::core::mem::transmute(clientsessionid))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeHandleStateA<'a, P0>(hnamedpipe: P0, lpstate: ::core::option::Option<&mut NAMED_PIPE_MODE>, lpcurinstances: ::core::option::Option<&mut u32>, lpmaxcollectioncount: ::core::option::Option<&mut u32>, lpcollectdatatimeout: ::core::option::Option<&mut u32>, lpusername: ::core::option::Option<&mut [u8]>) -> super::super::Foundation::BOOL
@@ -152,7 +140,6 @@ where
     }
     GetNamedPipeHandleStateA(hnamedpipe.into(), ::core::mem::transmute(lpstate), ::core::mem::transmute(lpcurinstances), ::core::mem::transmute(lpmaxcollectioncount), ::core::mem::transmute(lpcollectdatatimeout), ::core::mem::transmute(lpusername.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpusername.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeHandleStateW<'a, P0>(hnamedpipe: P0, lpstate: ::core::option::Option<&mut NAMED_PIPE_MODE>, lpcurinstances: ::core::option::Option<&mut u32>, lpmaxcollectioncount: ::core::option::Option<&mut u32>, lpcollectdatatimeout: ::core::option::Option<&mut u32>, lpusername: ::core::option::Option<&mut [u16]>) -> super::super::Foundation::BOOL
@@ -165,7 +152,6 @@ where
     }
     GetNamedPipeHandleStateW(hnamedpipe.into(), ::core::mem::transmute(lpstate), ::core::mem::transmute(lpcurinstances), ::core::mem::transmute(lpmaxcollectioncount), ::core::mem::transmute(lpcollectdatatimeout), ::core::mem::transmute(lpusername.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpusername.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeInfo<'a, P0>(hnamedpipe: P0, lpflags: ::core::option::Option<&mut NAMED_PIPE_MODE>, lpoutbuffersize: ::core::option::Option<&mut u32>, lpinbuffersize: ::core::option::Option<&mut u32>, lpmaxinstances: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -178,7 +164,6 @@ where
     }
     GetNamedPipeInfo(hnamedpipe.into(), ::core::mem::transmute(lpflags), ::core::mem::transmute(lpoutbuffersize), ::core::mem::transmute(lpinbuffersize), ::core::mem::transmute(lpmaxinstances))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeServerProcessId<'a, P0>(pipe: P0, serverprocessid: &mut u32) -> super::super::Foundation::BOOL
@@ -191,7 +176,6 @@ where
     }
     GetNamedPipeServerProcessId(pipe.into(), ::core::mem::transmute(serverprocessid))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNamedPipeServerSessionId<'a, P0>(pipe: P0, serversessionid: &mut u32) -> super::super::Foundation::BOOL
@@ -204,7 +188,6 @@ where
     }
     GetNamedPipeServerSessionId(pipe.into(), ::core::mem::transmute(serversessionid))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImpersonateNamedPipeClient<'a, P0>(hnamedpipe: P0) -> super::super::Foundation::BOOL
@@ -217,29 +200,18 @@ where
     }
     ImpersonateNamedPipeClient(hnamedpipe.into())
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NAMED_PIPE_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_WAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_NOWAIT: NAMED_PIPE_MODE = NAMED_PIPE_MODE(1u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_READMODE_BYTE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_READMODE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(2u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_CLIENT_END: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_SERVER_END: NAMED_PIPE_MODE = NAMED_PIPE_MODE(1u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_TYPE_BYTE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_TYPE_MESSAGE: NAMED_PIPE_MODE = NAMED_PIPE_MODE(4u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_ACCEPT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_REJECT_REMOTE_CLIENTS: NAMED_PIPE_MODE = NAMED_PIPE_MODE(8u32);
 impl ::core::marker::Copy for NAMED_PIPE_MODE {}
 impl ::core::clone::Clone for NAMED_PIPE_MODE {
@@ -288,15 +260,10 @@ impl ::core::ops::Not for NAMED_PIPE_MODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const NMPWAIT_NOWAIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const NMPWAIT_USE_DEFAULT_WAIT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const NMPWAIT_WAIT_FOREVER: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_Pipes\"`*"]
 pub const PIPE_UNLIMITED_INSTANCES: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PeekNamedPipe<'a, P0>(hnamedpipe: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: ::core::option::Option<&mut u32>, lptotalbytesavail: ::core::option::Option<&mut u32>, lpbytesleftthismessage: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -309,7 +276,6 @@ where
     }
     PeekNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread), ::core::mem::transmute(lptotalbytesavail), ::core::mem::transmute(lpbytesleftthismessage))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetNamedPipeHandleState<'a, P0>(hnamedpipe: P0, lpmode: ::core::option::Option<&NAMED_PIPE_MODE>, lpmaxcollectioncount: ::core::option::Option<&u32>, lpcollectdatatimeout: ::core::option::Option<&u32>) -> super::super::Foundation::BOOL
@@ -322,7 +288,6 @@ where
     }
     SetNamedPipeHandleState(hnamedpipe.into(), ::core::mem::transmute(lpmode), ::core::mem::transmute(lpmaxcollectioncount), ::core::mem::transmute(lpcollectdatatimeout))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TransactNamedPipe<'a, P0>(hnamedpipe: P0, lpinbuffer: ::core::option::Option<&[u8]>, lpoutbuffer: ::core::option::Option<&mut [u8]>, lpbytesread: &mut u32, lpoverlapped: ::core::option::Option<&mut super::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
@@ -335,7 +300,6 @@ where
     }
     TransactNamedPipe(hnamedpipe.into(), ::core::mem::transmute(lpinbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoutbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoutbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbytesread), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitNamedPipeA<'a, P0>(lpnamedpipename: P0, ntimeout: u32) -> super::super::Foundation::BOOL
@@ -348,7 +312,6 @@ where
     }
     WaitNamedPipeA(lpnamedpipename.into(), ntimeout)
 }
-#[doc = "*Required features: `\"Win32_System_Pipes\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitNamedPipeW<'a, P0>(lpnamedpipename: P0, ntimeout: u32) -> super::super::Foundation::BOOL

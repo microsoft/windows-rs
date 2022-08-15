@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct CoreAppWindowPreview(::windows::core::IUnknown);
 impl CoreAppWindowPreview {
-    #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetIdFromWindow<'a, P0>(window: P0) -> ::windows::core::Result<i32>
     where
@@ -160,7 +158,6 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(::windows::core::IUnknown);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
@@ -175,7 +172,6 @@ impl SystemNavigationCloseRequestedPreviewEventArgs {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -247,11 +243,9 @@ impl ::core::convert::From<&SystemNavigationCloseRequestedPreviewEventArgs> for 
 }
 unsafe impl ::core::marker::Send for SystemNavigationCloseRequestedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
-#[doc = "*Required features: `\"UI_Core_Preview\"`*"]
 #[repr(transparent)]
 pub struct SystemNavigationManagerPreview(::windows::core::IUnknown);
 impl SystemNavigationManagerPreview {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CloseRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -263,7 +257,6 @@ impl SystemNavigationManagerPreview {
             (::windows::core::Interface::vtable(this).CloseRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCloseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;

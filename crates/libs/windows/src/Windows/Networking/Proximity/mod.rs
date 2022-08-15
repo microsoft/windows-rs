@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct ConnectionRequestedEventArgs(::windows::core::IUnknown);
 impl ConnectionRequestedEventArgs {
@@ -72,7 +71,6 @@ impl ::core::convert::From<&ConnectionRequestedEventArgs> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for ConnectionRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ConnectionRequestedEventArgs {}
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct DeviceArrivedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceArrivedEventHandler {
@@ -159,7 +157,6 @@ pub struct DeviceArrivedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct DeviceDepartedEventHandler(pub ::windows::core::IUnknown);
 impl DeviceDepartedEventHandler {
@@ -537,7 +534,6 @@ pub struct ITriggeredConnectionStateChangedEventArgs_Vtbl {
     #[cfg(not(feature = "Networking_Sockets"))]
     Socket: usize,
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct MessageReceivedHandler(pub ::windows::core::IUnknown);
 impl MessageReceivedHandler {
@@ -625,7 +621,6 @@ pub struct MessageReceivedHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct MessageTransmittedHandler(pub ::windows::core::IUnknown);
 impl MessageTransmittedHandler {
@@ -712,7 +707,6 @@ pub struct MessageTransmittedHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, messageid: i64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeerDiscoveryTypes(pub u32);
@@ -775,7 +769,6 @@ unsafe impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 pub struct PeerFinder;
 impl PeerFinder {
     pub fn AllowBluetooth() -> ::windows::core::Result<bool> {
@@ -820,7 +813,6 @@ impl PeerFinder {
             (::windows::core::Interface::vtable(this).SupportedDiscoveryTypes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PeerDiscoveryTypes>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AlternateIdentities() -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         Self::IPeerFinderStatics(|this| unsafe {
@@ -837,7 +829,6 @@ impl PeerFinder {
     pub fn Stop() -> ::windows::core::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TriggeredConnectionStateChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -848,12 +839,10 @@ impl PeerFinder {
             (::windows::core::Interface::vtable(this).TriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTriggeredConnectionStateChanged(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTriggeredConnectionStateChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ConnectionRequested<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -864,12 +853,10 @@ impl PeerFinder {
             (::windows::core::Interface::vtable(this).ConnectionRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveConnectionRequested(cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveConnectionRequested)(::windows::core::Interface::as_raw(this), cookie).ok() })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllPeersAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>> {
         Self::IPeerFinderStatics(|this| unsafe {
@@ -877,7 +864,6 @@ impl PeerFinder {
             (::windows::core::Interface::vtable(this).FindAllPeersAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Sockets\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))]
     pub fn ConnectAsync<'a, P0>(peerinformation: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>>
     where
@@ -897,7 +883,6 @@ impl PeerFinder {
     pub fn SetRole(value: PeerRole) -> ::windows::core::Result<()> {
         Self::IPeerFinderStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).SetRole)(::windows::core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DiscoveryData() -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::IPeerFinderStatics2(|this| unsafe {
@@ -905,7 +890,6 @@ impl PeerFinder {
             (::windows::core::Interface::vtable(this).DiscoveryData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetDiscoveryData<'a, P0, E0>(value: P0) -> ::windows::core::Result<()>
     where
@@ -934,7 +918,6 @@ impl PeerFinder {
 impl ::windows::core::RuntimeName for PeerFinder {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerFinder";
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct PeerInformation(::windows::core::IUnknown);
 impl PeerInformation {
@@ -952,7 +935,6 @@ impl PeerInformation {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DiscoveryData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::core::Interface::cast::<IPeerInformation3>(self)?;
@@ -1038,7 +1020,6 @@ impl ::core::convert::From<&PeerInformation> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for PeerInformation {}
 unsafe impl ::core::marker::Sync for PeerInformation {}
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeerRole(pub i32);
@@ -1073,11 +1054,9 @@ unsafe impl ::windows::core::RuntimeType for PeerRole {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct PeerWatcher(::windows::core::IUnknown);
 impl PeerWatcher {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1089,13 +1068,11 @@ impl PeerWatcher {
             (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1107,13 +1084,11 @@ impl PeerWatcher {
             (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1125,13 +1100,11 @@ impl PeerWatcher {
             (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1143,13 +1116,11 @@ impl PeerWatcher {
             (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1161,7 +1132,6 @@ impl PeerWatcher {
             (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1245,7 +1215,6 @@ impl ::core::convert::From<&PeerWatcher> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PeerWatcher {}
 unsafe impl ::core::marker::Sync for PeerWatcher {}
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeerWatcherStatus(pub i32);
@@ -1283,7 +1252,6 @@ unsafe impl ::windows::core::RuntimeType for PeerWatcherStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct ProximityDevice(::windows::core::IUnknown);
 impl ProximityDevice {
@@ -1314,7 +1282,6 @@ impl ProximityDevice {
             (::windows::core::Interface::vtable(this).PublishMessageWithCallback)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), ::core::mem::transmute_copy(message), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PublishBinaryMessage<'a, P0, E0>(&self, messagetype: &::windows::core::HSTRING, message: P0) -> ::windows::core::Result<i64>
     where
@@ -1327,7 +1294,6 @@ impl ProximityDevice {
             (::windows::core::Interface::vtable(this).PublishBinaryMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), message.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PublishBinaryMessageWithCallback<'a, P0, E0, P1>(&self, messagetype: &::windows::core::HSTRING, message: P0, messagetransmittedhandler: P1) -> ::windows::core::Result<i64>
     where
@@ -1341,7 +1307,6 @@ impl ProximityDevice {
             (::windows::core::Interface::vtable(this).PublishBinaryMessageWithCallback)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetype), message.try_into().map_err(|e| e.into())?.abi(), messagetransmittedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PublishUriMessage<'a, P0>(&self, message: P0) -> ::windows::core::Result<i64>
     where
@@ -1353,7 +1318,6 @@ impl ProximityDevice {
             (::windows::core::Interface::vtable(this).PublishUriMessage)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PublishUriMessageWithCallback<'a, P0, P1>(&self, message: P0, messagetransmittedhandler: P1) -> ::windows::core::Result<i64>
     where
@@ -1374,7 +1338,6 @@ impl ProximityDevice {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StopPublishingMessage)(::windows::core::Interface::as_raw(this), messageid).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeviceArrived<'a, P0>(&self, arrivedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1386,13 +1349,11 @@ impl ProximityDevice {
             (::windows::core::Interface::vtable(this).DeviceArrived)(::windows::core::Interface::as_raw(this), arrivedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeviceArrived(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDeviceArrived)(::windows::core::Interface::as_raw(this), cookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeviceDeparted<'a, P0>(&self, departedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1404,7 +1365,6 @@ impl ProximityDevice {
             (::windows::core::Interface::vtable(this).DeviceDeparted)(::windows::core::Interface::as_raw(this), departedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeviceDeparted(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1517,7 +1477,6 @@ impl ::core::convert::From<&ProximityDevice> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for ProximityDevice {}
 unsafe impl ::core::marker::Sync for ProximityDevice {}
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct ProximityMessage(::windows::core::IUnknown);
 impl ProximityMessage {
@@ -1535,7 +1494,6 @@ impl ProximityMessage {
             (::windows::core::Interface::vtable(this).SubscriptionId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1614,7 +1572,6 @@ impl ::core::convert::From<&ProximityMessage> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for ProximityMessage {}
 unsafe impl ::core::marker::Sync for ProximityMessage {}
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TriggeredConnectState(pub i32);
@@ -1652,7 +1609,6 @@ unsafe impl ::windows::core::RuntimeType for TriggeredConnectState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Networking_Proximity\"`*"]
 #[repr(transparent)]
 pub struct TriggeredConnectionStateChangedEventArgs(::windows::core::IUnknown);
 impl TriggeredConnectionStateChangedEventArgs {
@@ -1670,7 +1626,6 @@ impl TriggeredConnectionStateChangedEventArgs {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn Socket(&self) -> ::windows::core::Result<super::Sockets::StreamSocket> {
         let this = self;

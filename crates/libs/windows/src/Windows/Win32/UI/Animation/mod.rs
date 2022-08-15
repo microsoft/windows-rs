@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationInterpolator(::windows::core::IUnknown);
 impl IUIAnimationInterpolator {
@@ -75,7 +74,6 @@ pub struct IUIAnimationInterpolator_Vtbl {
     pub InterpolateVelocity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: f64, velocity: *mut f64) -> ::windows::core::HRESULT,
     pub GetDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationInterpolator2(::windows::core::IUnknown);
 impl IUIAnimationInterpolator2 {
@@ -161,7 +159,6 @@ pub struct IUIAnimationInterpolator2_Vtbl {
     pub GetPrimitiveInterpolation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolation: *mut ::core::ffi::c_void, cdimension: u32) -> ::windows::core::HRESULT,
     pub GetDependencies: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, initialvaluedependencies: *mut UI_ANIMATION_DEPENDENCIES, initialvelocitydependencies: *mut UI_ANIMATION_DEPENDENCIES, durationdependencies: *mut UI_ANIMATION_DEPENDENCIES) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationLoopIterationChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationLoopIterationChangeHandler2 {
@@ -213,7 +210,6 @@ pub struct IUIAnimationLoopIterationChangeHandler2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnLoopIterationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, id: usize, newiterationcount: u32, olditerationcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationManager(::windows::core::IUnknown);
 impl IUIAnimationManager {
@@ -365,7 +361,6 @@ pub struct IUIAnimationManager_Vtbl {
     pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationManager2(::windows::core::IUnknown);
 impl IUIAnimationManager2 {
@@ -429,7 +424,6 @@ impl IUIAnimationManager2 {
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManagerEventHandler<'a, P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> ::windows::core::Result<()>
     where
@@ -533,7 +527,6 @@ pub struct IUIAnimationManager2_Vtbl {
     pub SetDefaultLongestAcceptableDelay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, delay: f64) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationManagerEventHandler(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler {
@@ -582,7 +575,6 @@ pub struct IUIAnimationManagerEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnManagerStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationManagerEventHandler2(::windows::core::IUnknown);
 impl IUIAnimationManagerEventHandler2 {
@@ -631,7 +623,6 @@ pub struct IUIAnimationManagerEventHandler2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnManagerStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_MANAGER_STATUS, previousstatus: UI_ANIMATION_MANAGER_STATUS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationPrimitiveInterpolation(::windows::core::IUnknown);
 impl IUIAnimationPrimitiveInterpolation {
@@ -684,7 +675,6 @@ pub struct IUIAnimationPrimitiveInterpolation_Vtbl {
     pub AddCubic: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, constantcoefficient: f32, linearcoefficient: f32, quadraticcoefficient: f32, cubiccoefficient: f32) -> ::windows::core::HRESULT,
     pub AddSinusoidal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dimension: u32, beginoffset: f64, bias: f32, amplitude: f32, frequency: f32, phase: f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationPriorityComparison(::windows::core::IUnknown);
 impl IUIAnimationPriorityComparison {
@@ -737,7 +727,6 @@ pub struct IUIAnimationPriorityComparison_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub HasPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheduledstoryboard: *mut ::core::ffi::c_void, newstoryboard: *mut ::core::ffi::c_void, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationPriorityComparison2(::windows::core::IUnknown);
 impl IUIAnimationPriorityComparison2 {
@@ -790,7 +779,6 @@ pub struct IUIAnimationPriorityComparison2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub HasPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scheduledstoryboard: *mut ::core::ffi::c_void, newstoryboard: *mut ::core::ffi::c_void, priorityeffect: UI_ANIMATION_PRIORITY_EFFECT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboard(::windows::core::IUnknown);
 impl IUIAnimationStoryboard {
@@ -942,7 +930,6 @@ pub struct IUIAnimationStoryboard_Vtbl {
     pub GetElapsedTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, elapsedtime: *mut f64) -> ::windows::core::HRESULT,
     pub SetStoryboardEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboard2(::windows::core::IUnknown);
 impl IUIAnimationStoryboard2 {
@@ -984,7 +971,6 @@ impl IUIAnimationStoryboard2 {
     {
         (::windows::core::Interface::vtable(self).AddTransitionBetweenKeyframes)(::windows::core::Interface::as_raw(self), variable.into().abi(), transition.into().abi(), startkeyframe.into(), endkeyframe.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RepeatBetweenKeyframes<'a, P0, P1, P2, P3>(&self, startkeyframe: P0, endkeyframe: P1, crepetition: f64, repeatmode: UI_ANIMATION_REPEAT_MODE, piterationchangehandler: P2, id: usize, fregisterfornextanimationevent: P3) -> ::windows::core::Result<()>
     where
@@ -1037,7 +1023,6 @@ impl IUIAnimationStoryboard2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetElapsedTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStoryboardEventHandler<'a, P0, P1, P2>(&self, handler: P0, fregisterstatuschangefornextanimationevent: P1, fregisterupdatefornextanimationevent: P2) -> ::windows::core::Result<()>
     where
@@ -1112,7 +1097,6 @@ pub struct IUIAnimationStoryboard2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetStoryboardEventHandler: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboardEventHandler(::windows::core::IUnknown);
 impl IUIAnimationStoryboardEventHandler {
@@ -1171,7 +1155,6 @@ pub struct IUIAnimationStoryboardEventHandler_Vtbl {
     pub OnStoryboardStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT,
     pub OnStoryboardUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationStoryboardEventHandler2(::windows::core::IUnknown);
 impl IUIAnimationStoryboardEventHandler2 {
@@ -1230,7 +1213,6 @@ pub struct IUIAnimationStoryboardEventHandler2_Vtbl {
     pub OnStoryboardStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_STORYBOARD_STATUS, previousstatus: UI_ANIMATION_STORYBOARD_STATUS) -> ::windows::core::HRESULT,
     pub OnStoryboardUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimer(::windows::core::IUnknown);
 impl IUIAnimationTimer {
@@ -1310,7 +1292,6 @@ pub struct IUIAnimationTimer_Vtbl {
     pub GetTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, seconds: *mut f64) -> ::windows::core::HRESULT,
     pub SetFrameRateThreshold: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimerClientEventHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerClientEventHandler {
@@ -1359,7 +1340,6 @@ pub struct IUIAnimationTimerClientEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnTimerClientStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstatus: UI_ANIMATION_TIMER_CLIENT_STATUS, previousstatus: UI_ANIMATION_TIMER_CLIENT_STATUS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimerEventHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerEventHandler {
@@ -1416,7 +1396,6 @@ pub struct IUIAnimationTimerEventHandler_Vtbl {
     pub OnPostUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnRenderingTooSlow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, framespersecond: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTimerUpdateHandler(::windows::core::IUnknown);
 impl IUIAnimationTimerUpdateHandler {
@@ -1477,7 +1456,6 @@ pub struct IUIAnimationTimerUpdateHandler_Vtbl {
     pub SetTimerClientEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ClearTimerClientEventHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransition(::windows::core::IUnknown);
 impl IUIAnimationTransition {
@@ -1539,7 +1517,6 @@ pub struct IUIAnimationTransition_Vtbl {
     pub IsDurationKnown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransition2(::windows::core::IUnknown);
 impl IUIAnimationTransition2 {
@@ -1614,7 +1591,6 @@ pub struct IUIAnimationTransition2_Vtbl {
     pub IsDurationKnown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: *mut f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionFactory(::windows::core::IUnknown);
 impl IUIAnimationTransitionFactory {
@@ -1667,7 +1643,6 @@ pub struct IUIAnimationTransitionFactory_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CreateTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolator: *mut ::core::ffi::c_void, transition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionFactory2(::windows::core::IUnknown);
 impl IUIAnimationTransitionFactory2 {
@@ -1720,7 +1695,6 @@ pub struct IUIAnimationTransitionFactory2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CreateTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolator: *mut ::core::ffi::c_void, transition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionLibrary(::windows::core::IUnknown);
 impl IUIAnimationTransitionLibrary {
@@ -1825,7 +1799,6 @@ pub struct IUIAnimationTransitionLibrary_Vtbl {
     pub CreateSmoothStopTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maximumduration: f64, finalvalue: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateParabolicTransitionFromAcceleration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, finalvalue: f64, finalvelocity: f64, acceleration: f64, transition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationTransitionLibrary2(::windows::core::IUnknown);
 impl IUIAnimationTransitionLibrary2 {
@@ -1965,7 +1938,6 @@ pub struct IUIAnimationTransitionLibrary2_Vtbl {
     pub CreateCubicBezierLinearTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: f64, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateCubicBezierLinearVectorTransition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, duration: f64, finalvalue: *const f64, cdimension: u32, x1: f64, y1: f64, x2: f64, y2: f64, pptransition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariable(::windows::core::IUnknown);
 impl IUIAnimationVariable {
@@ -2082,7 +2054,6 @@ pub struct IUIAnimationVariable_Vtbl {
     pub SetVariableChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetVariableIntegerChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariable2(::windows::core::IUnknown);
 impl IUIAnimationVariable2 {
@@ -2097,7 +2068,6 @@ impl IUIAnimationVariable2 {
     pub unsafe fn GetVectorValue(&self, value: &mut [f64]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVectorValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value.as_ptr()), value.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
     pub unsafe fn GetCurve<'a, P0>(&self, animation: P0) -> ::windows::core::Result<()>
     where
@@ -2105,7 +2075,6 @@ impl IUIAnimationVariable2 {
     {
         (::windows::core::Interface::vtable(self).GetCurve)(::windows::core::Interface::as_raw(self), animation.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_DirectComposition\"`*"]
     #[cfg(feature = "Win32_Graphics_DirectComposition")]
     pub unsafe fn GetVectorCurve(&self, animation: &[::core::option::Option<super::super::Graphics::DirectComposition::IDCompositionAnimation>]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVectorCurve)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(animation.as_ptr()), animation.len() as _).ok()
@@ -2173,7 +2142,6 @@ impl IUIAnimationVariable2 {
     pub unsafe fn GetTag(&self, object: ::core::option::Option<&mut ::core::option::Option<::windows::core::IUnknown>>, id: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(object), ::core::mem::transmute(id)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVariableChangeHandler<'a, P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> ::windows::core::Result<()>
     where
@@ -2182,7 +2150,6 @@ impl IUIAnimationVariable2 {
     {
         (::windows::core::Interface::vtable(self).SetVariableChangeHandler)(::windows::core::Interface::as_raw(self), handler.into().abi(), fregisterfornextanimationevent.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVariableIntegerChangeHandler<'a, P0, P1>(&self, handler: P0, fregisterfornextanimationevent: P1) -> ::windows::core::Result<()>
     where
@@ -2276,7 +2243,6 @@ pub struct IUIAnimationVariable2_Vtbl {
     SetVariableIntegerChangeHandler: usize,
     pub SetVariableCurveChangeHandler: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableChangeHandler(::windows::core::IUnknown);
 impl IUIAnimationVariableChangeHandler {
@@ -2329,7 +2295,6 @@ pub struct IUIAnimationVariableChangeHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: f64, previousvalue: f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableChangeHandler2 {
@@ -2382,7 +2347,6 @@ pub struct IUIAnimationVariableChangeHandler2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: *const f64, previousvalue: *const f64, cdimension: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableCurveChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableCurveChangeHandler2 {
@@ -2434,7 +2398,6 @@ pub struct IUIAnimationVariableCurveChangeHandler2_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnCurveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableIntegerChangeHandler(::windows::core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler {
@@ -2487,7 +2450,6 @@ pub struct IUIAnimationVariableIntegerChangeHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnIntegerValueChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storyboard: *mut ::core::ffi::c_void, variable: *mut ::core::ffi::c_void, newvalue: i32, previousvalue: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 pub struct IUIAnimationVariableIntegerChangeHandler2(::windows::core::IUnknown);
 impl IUIAnimationVariableIntegerChangeHandler2 {
@@ -2547,19 +2509,13 @@ pub const UIAnimationTransitionFactory: ::windows::core::GUID = ::windows::core:
 pub const UIAnimationTransitionFactory2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84302f97_7f7b_4040_b190_72ac9d18e420);
 pub const UIAnimationTransitionLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
 pub const UIAnimationTransitionLibrary2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_DEPENDENCIES(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_DEPENDENCY_NONE: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(0u32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_DEPENDENCY_INTERMEDIATE_VALUES: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(1u32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VALUE: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(2u32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(4u32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_DEPENDENCY_DURATION: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(8u32);
 impl ::core::marker::Copy for UI_ANIMATION_DEPENDENCIES {}
 impl ::core::clone::Clone for UI_ANIMATION_DEPENDENCIES {
@@ -2608,13 +2564,10 @@ impl ::core::ops::Not for UI_ANIMATION_DEPENDENCIES {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_IDLE_BEHAVIOR(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE: UI_ANIMATION_IDLE_BEHAVIOR = UI_ANIMATION_IDLE_BEHAVIOR(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_IDLE_BEHAVIOR_DISABLE: UI_ANIMATION_IDLE_BEHAVIOR = UI_ANIMATION_IDLE_BEHAVIOR(1i32);
 impl ::core::marker::Copy for UI_ANIMATION_IDLE_BEHAVIOR {}
 impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
@@ -2662,13 +2615,10 @@ impl ::core::convert::From<::core::option::Option<UI_ANIMATION_KEYFRAME>> for UI
 unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_MANAGER_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_MANAGER_BUSY: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(1i32);
 impl ::core::marker::Copy for UI_ANIMATION_MANAGER_STATUS {}
 impl ::core::clone::Clone for UI_ANIMATION_MANAGER_STATUS {
@@ -2689,15 +2639,11 @@ impl ::core::fmt::Debug for UI_ANIMATION_MANAGER_STATUS {
         f.debug_tuple("UI_ANIMATION_MANAGER_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_MODE_DISABLED: UI_ANIMATION_MODE = UI_ANIMATION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_MODE_SYSTEM_DEFAULT: UI_ANIMATION_MODE = UI_ANIMATION_MODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_MODE_ENABLED: UI_ANIMATION_MODE = UI_ANIMATION_MODE(2i32);
 impl ::core::marker::Copy for UI_ANIMATION_MODE {}
 impl ::core::clone::Clone for UI_ANIMATION_MODE {
@@ -2718,13 +2664,10 @@ impl ::core::fmt::Debug for UI_ANIMATION_MODE {
         f.debug_tuple("UI_ANIMATION_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_PRIORITY_EFFECT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_PRIORITY_EFFECT_FAILURE: UI_ANIMATION_PRIORITY_EFFECT = UI_ANIMATION_PRIORITY_EFFECT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_PRIORITY_EFFECT_DELAY: UI_ANIMATION_PRIORITY_EFFECT = UI_ANIMATION_PRIORITY_EFFECT(1i32);
 impl ::core::marker::Copy for UI_ANIMATION_PRIORITY_EFFECT {}
 impl ::core::clone::Clone for UI_ANIMATION_PRIORITY_EFFECT {
@@ -2745,19 +2688,13 @@ impl ::core::fmt::Debug for UI_ANIMATION_PRIORITY_EFFECT {
         f.debug_tuple("UI_ANIMATION_PRIORITY_EFFECT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_REPEAT_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_REPEAT_MODE_NORMAL: UI_ANIMATION_REPEAT_MODE = UI_ANIMATION_REPEAT_MODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_REPEAT_MODE_ALTERNATE: UI_ANIMATION_REPEAT_MODE = UI_ANIMATION_REPEAT_MODE(1i32);
 impl ::core::marker::Copy for UI_ANIMATION_REPEAT_MODE {}
 impl ::core::clone::Clone for UI_ANIMATION_REPEAT_MODE {
@@ -2778,15 +2715,11 @@ impl ::core::fmt::Debug for UI_ANIMATION_REPEAT_MODE {
         f.debug_tuple("UI_ANIMATION_REPEAT_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_ROUNDING_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_ROUNDING_NEAREST: UI_ANIMATION_ROUNDING_MODE = UI_ANIMATION_ROUNDING_MODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_ROUNDING_FLOOR: UI_ANIMATION_ROUNDING_MODE = UI_ANIMATION_ROUNDING_MODE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_ROUNDING_CEILING: UI_ANIMATION_ROUNDING_MODE = UI_ANIMATION_ROUNDING_MODE(2i32);
 impl ::core::marker::Copy for UI_ANIMATION_ROUNDING_MODE {}
 impl ::core::clone::Clone for UI_ANIMATION_ROUNDING_MODE {
@@ -2807,19 +2740,13 @@ impl ::core::fmt::Debug for UI_ANIMATION_ROUNDING_MODE {
         f.debug_tuple("UI_ANIMATION_ROUNDING_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_SCHEDULING_RESULT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SCHEDULING_UNEXPECTED_FAILURE: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SCHEDULING_INSUFFICIENT_PRIORITY: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SCHEDULING_ALREADY_SCHEDULED: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(2i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SCHEDULING_SUCCEEDED: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(3i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SCHEDULING_DEFERRED: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(4i32);
 impl ::core::marker::Copy for UI_ANIMATION_SCHEDULING_RESULT {}
 impl ::core::clone::Clone for UI_ANIMATION_SCHEDULING_RESULT {
@@ -2840,17 +2767,12 @@ impl ::core::fmt::Debug for UI_ANIMATION_SCHEDULING_RESULT {
         f.debug_tuple("UI_ANIMATION_SCHEDULING_RESULT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SECONDS_INFINITE: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_SLOPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SLOPE_INCREASING: UI_ANIMATION_SLOPE = UI_ANIMATION_SLOPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_SLOPE_DECREASING: UI_ANIMATION_SLOPE = UI_ANIMATION_SLOPE(1i32);
 impl ::core::marker::Copy for UI_ANIMATION_SLOPE {}
 impl ::core::clone::Clone for UI_ANIMATION_SLOPE {
@@ -2871,25 +2793,16 @@ impl ::core::fmt::Debug for UI_ANIMATION_SLOPE {
         f.debug_tuple("UI_ANIMATION_SLOPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_STORYBOARD_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_BUILDING: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_SCHEDULED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_CANCELLED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_PLAYING: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_TRUNCATED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_FINISHED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_READY: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_STORYBOARD_INSUFFICIENT_PRIORITY: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(7i32);
 impl ::core::marker::Copy for UI_ANIMATION_STORYBOARD_STATUS {}
 impl ::core::clone::Clone for UI_ANIMATION_STORYBOARD_STATUS {
@@ -2910,13 +2823,10 @@ impl ::core::fmt::Debug for UI_ANIMATION_STORYBOARD_STATUS {
         f.debug_tuple("UI_ANIMATION_STORYBOARD_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_TIMER_CLIENT_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_ANIMATION_TIMER_CLIENT_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_TIMER_CLIENT_BUSY: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_ANIMATION_TIMER_CLIENT_STATUS(1i32);
 impl ::core::marker::Copy for UI_ANIMATION_TIMER_CLIENT_STATUS {}
 impl ::core::clone::Clone for UI_ANIMATION_TIMER_CLIENT_STATUS {
@@ -2937,13 +2847,10 @@ impl ::core::fmt::Debug for UI_ANIMATION_TIMER_CLIENT_STATUS {
         f.debug_tuple("UI_ANIMATION_TIMER_CLIENT_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_ANIMATION_UPDATE_RESULT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Animation\"`*"]
 pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(1i32);
 impl ::core::marker::Copy for UI_ANIMATION_UPDATE_RESULT {}
 impl ::core::clone::Clone for UI_ANIMATION_UPDATE_RESULT {

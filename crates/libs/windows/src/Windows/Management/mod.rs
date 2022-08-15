@@ -84,7 +84,6 @@ pub struct IMdmSessionManagerStatics_Vtbl {
     pub DeleteSessionById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub GetSessionById: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sessionid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmAlert(::windows::core::IUnknown);
 impl MdmAlert {
@@ -229,7 +228,6 @@ impl ::core::convert::From<&MdmAlert> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MdmAlertDataType(pub i32);
@@ -265,7 +263,6 @@ unsafe impl ::windows::core::RuntimeType for MdmAlertDataType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MdmAlertMark(pub i32);
@@ -302,11 +299,9 @@ unsafe impl ::windows::core::RuntimeType for MdmAlertMark {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 pub struct MdmSession(::windows::core::IUnknown);
 impl MdmSession {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Alerts(&self) -> ::windows::core::Result<super::Foundation::Collections::IVectorView<MdmAlert>> {
         let this = self;
@@ -336,7 +331,6 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MdmSessionState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
@@ -349,7 +343,6 @@ impl MdmSession {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Delete)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::Foundation::IAsyncAction> {
         let this = self;
@@ -358,7 +351,6 @@ impl MdmSession {
             (::windows::core::Interface::vtable(this).StartAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StartWithAlertsAsync<'a, P0, E0>(&self, alerts: P0) -> ::windows::core::Result<super::Foundation::IAsyncAction>
     where
@@ -432,10 +424,8 @@ impl ::core::convert::From<&MdmSession> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Management\"`*"]
 pub struct MdmSessionManager;
 impl MdmSessionManager {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SessionIds() -> ::windows::core::Result<super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::IMdmSessionManagerStatics(|this| unsafe {
@@ -467,7 +457,6 @@ impl MdmSessionManager {
 impl ::windows::core::RuntimeName for MdmSessionManager {
     const NAME: &'static str = "Windows.Management.MdmSessionManager";
 }
-#[doc = "*Required features: `\"Management\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MdmSessionState(pub i32);

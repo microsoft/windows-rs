@@ -141,7 +141,6 @@ pub struct IPdfPageRenderOptions_Vtbl {
     pub BitmapEncoderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetBitmapEncoderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
 pub struct PdfDocument(::windows::core::IUnknown);
 impl PdfDocument {
@@ -166,7 +165,6 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).IsPasswordProtected)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileAsync<'a, P0, E0>(file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -178,7 +176,6 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).LoadFromFileAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileWithPasswordAsync<'a, P0, E0>(file: P0, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -190,7 +187,6 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).LoadFromFileWithPasswordAsync)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(password), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadFromStreamAsync<'a, P0, E0>(inputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -202,7 +198,6 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).LoadFromStreamAsync)(::windows::core::Interface::as_raw(this), inputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadFromStreamWithPasswordAsync<'a, P0, E0>(inputstream: P0, password: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>>
     where
@@ -282,17 +277,14 @@ impl ::core::convert::From<&PdfDocument> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PdfDocument {}
 unsafe impl ::core::marker::Sync for PdfDocument {}
-#[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
 pub struct PdfPage(::windows::core::IUnknown);
 impl PdfPage {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RenderToStreamAsync<'a, P0, E0>(&self, outputstream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -305,7 +297,6 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).RenderToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RenderWithOptionsToStreamAsync<'a, P0, E0, P1>(&self, outputstream: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -319,7 +310,6 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).RenderWithOptionsToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PreparePageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -335,7 +325,6 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).Index)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -450,11 +439,9 @@ impl<'a> ::core::convert::TryFrom<&PdfPage> for ::windows::core::InParam<'a, sup
 }
 unsafe impl ::core::marker::Send for PdfPage {}
 unsafe impl ::core::marker::Sync for PdfPage {}
-#[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
 pub struct PdfPageDimensions(::windows::core::IUnknown);
 impl PdfPageDimensions {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MediaBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -463,7 +450,6 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).MediaBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CropBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -472,7 +458,6 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).CropBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BleedBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -481,7 +466,6 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).BleedBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -490,7 +474,6 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).TrimBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ArtBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -562,7 +545,6 @@ impl ::core::convert::From<&PdfPageDimensions> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for PdfPageDimensions {}
 unsafe impl ::core::marker::Sync for PdfPageDimensions {}
-#[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
 pub struct PdfPageRenderOptions(::windows::core::IUnknown);
 impl PdfPageRenderOptions {
@@ -573,7 +555,6 @@ impl PdfPageRenderOptions {
         static SHARED: ::windows::core::FactoryCache<PdfPageRenderOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SourceRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -582,7 +563,6 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).SourceRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSourceRect(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
@@ -610,7 +590,6 @@ impl PdfPageRenderOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDestinationHeight)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -619,7 +598,6 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
@@ -710,7 +688,6 @@ impl ::core::convert::From<&PdfPageRenderOptions> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
-#[doc = "*Required features: `\"Data_Pdf\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PdfPageRotation(pub i32);

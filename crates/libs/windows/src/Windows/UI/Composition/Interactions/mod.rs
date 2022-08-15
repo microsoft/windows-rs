@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct CompositionConditionalValue(::windows::core::IUnknown);
 impl CompositionConditionalValue {
@@ -9,7 +8,6 @@ impl CompositionConditionalValue {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -59,7 +57,6 @@ impl CompositionConditionalValue {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -127,7 +124,6 @@ impl CompositionConditionalValue {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -267,7 +263,6 @@ impl<'a> ::core::convert::From<&CompositionConditionalValue> for ::windows::core
 }
 unsafe impl ::core::marker::Send for CompositionConditionalValue {}
 unsafe impl ::core::marker::Sync for CompositionConditionalValue {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct CompositionInteractionSourceCollection(::windows::core::IUnknown);
 impl CompositionInteractionSourceCollection {
@@ -278,7 +273,6 @@ impl CompositionInteractionSourceCollection {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -318,7 +312,6 @@ impl CompositionInteractionSourceCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -386,7 +379,6 @@ impl CompositionInteractionSourceCollection {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -402,7 +394,6 @@ impl CompositionInteractionSourceCollection {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>>(self)?;
@@ -597,7 +588,6 @@ pub struct ICompositionConditionalValueStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, compositor: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct ICompositionInteractionSource(::windows::core::IUnknown);
 impl ICompositionInteractionSource {}
@@ -1121,7 +1111,6 @@ pub struct IInteractionTrackerInteractingStateEnteredArgs2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub IsFromBinding: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct IInteractionTrackerOwner(::windows::core::IUnknown);
 impl IInteractionTrackerOwner {
@@ -1487,7 +1476,6 @@ pub struct IVisualInteractionSourceStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFromIVisualElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, source: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionBindingAxisModes(pub u32);
@@ -1551,7 +1539,6 @@ unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionChainingMode(pub i32);
@@ -1586,7 +1573,6 @@ unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionSourceConfiguration(::windows::core::IUnknown);
 impl InteractionSourceConfiguration {
@@ -1597,7 +1583,6 @@ impl InteractionSourceConfiguration {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -1610,7 +1595,6 @@ impl InteractionSourceConfiguration {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -1678,7 +1662,6 @@ impl InteractionSourceConfiguration {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -1846,7 +1829,6 @@ impl<'a> ::core::convert::From<&InteractionSourceConfiguration> for ::windows::c
 }
 unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
 unsafe impl ::core::marker::Sync for InteractionSourceConfiguration {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionSourceMode(pub i32);
@@ -1881,7 +1863,6 @@ unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionSourceRedirectionMode(pub i32);
@@ -1915,7 +1896,6 @@ unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTracker(::windows::core::IUnknown);
 impl InteractionTracker {
@@ -1926,7 +1906,6 @@ impl InteractionTracker {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -1939,7 +1918,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -2007,7 +1985,6 @@ impl InteractionTracker {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -2037,7 +2014,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).IsPositionRoundingSuggested)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn MaxPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2046,7 +2022,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).MaxPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMaxPosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -2063,7 +2038,6 @@ impl InteractionTracker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn MinPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2072,7 +2046,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).MinPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMinPosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -2089,7 +2062,6 @@ impl InteractionTracker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMinScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn NaturalRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2112,7 +2084,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).Owner)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IInteractionTrackerOwner>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2121,7 +2092,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PositionInertiaDecayRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
@@ -2130,7 +2100,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).PositionInertiaDecayRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetPositionInertiaDecayRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2140,7 +2109,6 @@ impl InteractionTracker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPositionInertiaDecayRate)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PositionVelocityInPixelsPerSecond(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -2156,7 +2124,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScaleInertiaDecayRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -2165,7 +2132,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).ScaleInertiaDecayRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetScaleInertiaDecayRate<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2190,7 +2156,6 @@ impl InteractionTracker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AdjustPositionYIfGreaterThanThreshold)(::windows::core::Interface::as_raw(this), adjustment, positionthreshold).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigurePositionXInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
@@ -2200,7 +2165,6 @@ impl InteractionTracker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ConfigurePositionXInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigurePositionYInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
@@ -2210,7 +2174,6 @@ impl InteractionTracker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ConfigurePositionYInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureScaleInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
@@ -2220,7 +2183,6 @@ impl InteractionTracker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureScaleInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2229,7 +2191,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).TryUpdatePosition)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdatePositionBy(&self, amount: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2248,7 +2209,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).TryUpdatePositionWithAnimation)(::windows::core::Interface::as_raw(this), animation.into().abi(), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdatePositionWithAdditionalVelocity(&self, velocityinpixelspersecond: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2257,7 +2217,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).TryUpdatePositionWithAdditionalVelocity)(::windows::core::Interface::as_raw(this), velocityinpixelspersecond, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdateScale(&self, value: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2266,7 +2225,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).TryUpdateScale)(::windows::core::Interface::as_raw(this), value, centerpoint, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdateScaleWithAnimation<'a, P0>(&self, animation: P0, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32>
     where
@@ -2278,7 +2236,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).TryUpdateScaleWithAnimation)(::windows::core::Interface::as_raw(this), animation.into().abi(), centerpoint, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdateScaleWithAdditionalVelocity(&self, velocityinpercentpersecond: f32, centerpoint: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2287,7 +2244,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).TryUpdateScaleWithAdditionalVelocity)(::windows::core::Interface::as_raw(this), velocityinpercentpersecond, centerpoint, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointXInertiaModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
@@ -2297,7 +2253,6 @@ impl InteractionTracker {
         let this = &::windows::core::Interface::cast::<IInteractionTracker2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointXInertiaModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointYInertiaModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
@@ -2307,7 +2262,6 @@ impl InteractionTracker {
         let this = &::windows::core::Interface::cast::<IInteractionTracker2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointYInertiaModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureVector2PositionInertiaModifiers<'a, P0, E0>(&self, modifiers: P0) -> ::windows::core::Result<()>
     where
@@ -2317,7 +2271,6 @@ impl InteractionTracker {
         let this = &::windows::core::Interface::cast::<IInteractionTracker3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureVector2PositionInertiaModifiers)(::windows::core::Interface::as_raw(this), modifiers.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdatePositionWithOption(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
@@ -2326,7 +2279,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::windows::core::Interface::as_raw(this), value, option, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdatePositionByWithOption(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker4>(self)?;
@@ -2342,7 +2294,6 @@ impl InteractionTracker {
             (::windows::core::Interface::vtable(this).IsInertiaFromImpulse)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryUpdatePositionWithOption2(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posupdateoption: InteractionTrackerPositionUpdateOption) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IInteractionTracker5>(self)?;
@@ -2517,7 +2468,6 @@ impl<'a> ::core::convert::From<&InteractionTracker> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for InteractionTracker {}
 unsafe impl ::core::marker::Sync for InteractionTracker {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionTrackerClampingOption(pub i32);
@@ -2551,7 +2501,6 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerCustomAnimationStateEnteredArgs {
@@ -2632,7 +2581,6 @@ impl ::core::convert::From<&InteractionTrackerCustomAnimationStateEnteredArgs> f
 }
 unsafe impl ::core::marker::Send for InteractionTrackerCustomAnimationStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerCustomAnimationStateEnteredArgs {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerIdleStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerIdleStateEnteredArgs {
@@ -2713,7 +2661,6 @@ impl ::core::convert::From<&InteractionTrackerIdleStateEnteredArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for InteractionTrackerIdleStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerIdleStateEnteredArgs {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerInertiaModifier {
@@ -2724,7 +2671,6 @@ impl InteractionTrackerInertiaModifier {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -2737,7 +2683,6 @@ impl InteractionTrackerInertiaModifier {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -2805,7 +2750,6 @@ impl InteractionTrackerInertiaModifier {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -2940,7 +2884,6 @@ impl<'a> ::core::convert::From<&InteractionTrackerInertiaModifier> for ::windows
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaModifier {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaModifier {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaMotion {
@@ -2951,7 +2894,6 @@ impl InteractionTrackerInertiaMotion {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -2964,7 +2906,6 @@ impl InteractionTrackerInertiaMotion {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -3032,7 +2973,6 @@ impl InteractionTrackerInertiaMotion {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -3224,7 +3164,6 @@ impl<'a> ::core::convert::From<&InteractionTrackerInertiaMotion> for ::windows::
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaMotion {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaMotion {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerInertiaNaturalMotion {
@@ -3235,7 +3174,6 @@ impl InteractionTrackerInertiaNaturalMotion {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -3248,7 +3186,6 @@ impl InteractionTrackerInertiaNaturalMotion {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -3316,7 +3253,6 @@ impl InteractionTrackerInertiaNaturalMotion {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -3508,7 +3444,6 @@ impl<'a> ::core::convert::From<&InteractionTrackerInertiaNaturalMotion> for ::wi
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaNaturalMotion {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaNaturalMotion {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaRestingValue(::windows::core::IUnknown);
 impl InteractionTrackerInertiaRestingValue {
@@ -3519,7 +3454,6 @@ impl InteractionTrackerInertiaRestingValue {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -3532,7 +3466,6 @@ impl InteractionTrackerInertiaRestingValue {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -3600,7 +3533,6 @@ impl InteractionTrackerInertiaRestingValue {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -3792,11 +3724,9 @@ impl<'a> ::core::convert::From<&InteractionTrackerInertiaRestingValue> for ::win
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaRestingValue {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaRestingValue {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInertiaStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerInertiaStateEnteredArgs {
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ModifiedRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>> {
         let this = self;
@@ -3805,7 +3735,6 @@ impl InteractionTrackerInertiaStateEnteredArgs {
             (::windows::core::Interface::vtable(this).ModifiedRestingPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ModifiedRestingScale(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -3814,7 +3743,6 @@ impl InteractionTrackerInertiaStateEnteredArgs {
             (::windows::core::Interface::vtable(this).ModifiedRestingScale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn NaturalRestingPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -3830,7 +3758,6 @@ impl InteractionTrackerInertiaStateEnteredArgs {
             (::windows::core::Interface::vtable(this).NaturalRestingScale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PositionVelocityInPixelsPerSecond(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -3930,7 +3857,6 @@ impl ::core::convert::From<&InteractionTrackerInertiaStateEnteredArgs> for &::wi
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInertiaStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInertiaStateEnteredArgs {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerInteractingStateEnteredArgs(::windows::core::IUnknown);
 impl InteractionTrackerInteractingStateEnteredArgs {
@@ -4011,7 +3937,6 @@ impl ::core::convert::From<&InteractionTrackerInteractingStateEnteredArgs> for &
 }
 unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
@@ -4045,7 +3970,6 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOpt
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerRequestIgnoredArgs(::windows::core::IUnknown);
 impl InteractionTrackerRequestIgnoredArgs {
@@ -4119,11 +4043,9 @@ impl ::core::convert::From<&InteractionTrackerRequestIgnoredArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for InteractionTrackerRequestIgnoredArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerRequestIgnoredArgs {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerValuesChangedArgs(::windows::core::IUnknown);
 impl InteractionTrackerValuesChangedArgs {
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -4209,7 +4131,6 @@ impl ::core::convert::From<&InteractionTrackerValuesChangedArgs> for &::windows:
 }
 unsafe impl ::core::marker::Send for InteractionTrackerValuesChangedArgs {}
 unsafe impl ::core::marker::Sync for InteractionTrackerValuesChangedArgs {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerVector2InertiaModifier(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaModifier {
@@ -4220,7 +4141,6 @@ impl InteractionTrackerVector2InertiaModifier {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -4233,7 +4153,6 @@ impl InteractionTrackerVector2InertiaModifier {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -4301,7 +4220,6 @@ impl InteractionTrackerVector2InertiaModifier {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -4436,7 +4354,6 @@ impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaModifier> for ::
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaModifier {}
 unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaModifier {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerVector2InertiaNaturalMotion(::windows::core::IUnknown);
 impl InteractionTrackerVector2InertiaNaturalMotion {
@@ -4447,7 +4364,6 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -4460,7 +4376,6 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -4528,7 +4443,6 @@ impl InteractionTrackerVector2InertiaNaturalMotion {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -4720,7 +4634,6 @@ impl<'a> ::core::convert::From<&InteractionTrackerVector2InertiaNaturalMotion> f
 }
 unsafe impl ::core::marker::Send for InteractionTrackerVector2InertiaNaturalMotion {}
 unsafe impl ::core::marker::Sync for InteractionTrackerVector2InertiaNaturalMotion {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct VisualInteractionSource(::windows::core::IUnknown);
 impl VisualInteractionSource {
@@ -4731,7 +4644,6 @@ impl VisualInteractionSource {
         let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -4744,7 +4656,6 @@ impl VisualInteractionSource {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
@@ -4812,7 +4723,6 @@ impl VisualInteractionSource {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
@@ -4934,7 +4844,6 @@ impl VisualInteractionSource {
             (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Visual>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Input\"`*"]
     #[cfg(feature = "UI_Input")]
     pub fn TryRedirectForManipulation<'a, P0>(&self, pointerpoint: P0) -> ::windows::core::Result<()>
     where
@@ -4943,7 +4852,6 @@ impl VisualInteractionSource {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).TryRedirectForManipulation)(::windows::core::Interface::as_raw(this), pointerpoint.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn DeltaPosition(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4959,7 +4867,6 @@ impl VisualInteractionSource {
             (::windows::core::Interface::vtable(this).DeltaScale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4968,7 +4875,6 @@ impl VisualInteractionSource {
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PositionVelocity(&self) -> ::windows::core::Result<super::super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
@@ -4991,7 +4897,6 @@ impl VisualInteractionSource {
             (::windows::core::Interface::vtable(this).ScaleVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointXModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
@@ -5001,7 +4906,6 @@ impl VisualInteractionSource {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointXModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureCenterPointYModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
@@ -5011,7 +4915,6 @@ impl VisualInteractionSource {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureCenterPointYModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureDeltaPositionXModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
@@ -5021,7 +4924,6 @@ impl VisualInteractionSource {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaPositionXModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureDeltaPositionYModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
@@ -5031,7 +4933,6 @@ impl VisualInteractionSource {
         let this = &::windows::core::Interface::cast::<IVisualInteractionSource2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ConfigureDeltaPositionYModifiers)(::windows::core::Interface::as_raw(this), conditionalvalues.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConfigureDeltaScaleModifiers<'a, P0, E0>(&self, conditionalvalues: P0) -> ::windows::core::Result<()>
     where
@@ -5215,7 +5116,6 @@ impl<'a> ::core::convert::From<&VisualInteractionSource> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for VisualInteractionSource {}
 unsafe impl ::core::marker::Sync for VisualInteractionSource {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);

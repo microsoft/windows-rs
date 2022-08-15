@@ -85,7 +85,6 @@ pub struct IPrepareTranscodeResult_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     TranscodeAsync: usize,
 }
-#[doc = "*Required features: `\"Media_Transcoding\"`*"]
 #[repr(transparent)]
 pub struct MediaTranscoder(::windows::core::IUnknown);
 impl MediaTranscoder {
@@ -96,13 +95,11 @@ impl MediaTranscoder {
         static SHARED: ::windows::core::FactoryCache<MediaTranscoder, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTrimStartTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTrimStartTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimStartTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -111,13 +108,11 @@ impl MediaTranscoder {
             (::windows::core::Interface::vtable(this).TrimStartTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTrimStopTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTrimStopTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimStopTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -152,7 +147,6 @@ impl MediaTranscoder {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddAudioEffect)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddAudioEffectWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectrequired: bool, configuration: P0) -> ::windows::core::Result<()>
     where
@@ -166,7 +160,6 @@ impl MediaTranscoder {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AddVideoEffect)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activatableclassid)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddVideoEffectWithSettings<'a, P0, E0>(&self, activatableclassid: &::windows::core::HSTRING, effectrequired: bool, configuration: P0) -> ::windows::core::Result<()>
     where
@@ -180,7 +173,6 @@ impl MediaTranscoder {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ClearEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))]
     pub fn PrepareFileTranscodeAsync<'a, P0, E0, P1, E1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
@@ -196,7 +188,6 @@ impl MediaTranscoder {
             (::windows::core::Interface::vtable(this).PrepareFileTranscodeAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareStreamTranscodeAsync<'a, P0, E0, P1, E1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
@@ -212,7 +203,6 @@ impl MediaTranscoder {
             (::windows::core::Interface::vtable(this).PrepareStreamTranscodeAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), profile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Media_Core\"`, `\"Media_MediaProperties\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
     pub fn PrepareMediaStreamSourceTranscodeAsync<'a, P0, E0, P1, E1, P2>(&self, source: P0, destination: P1, profile: P2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>>
     where
@@ -302,7 +292,6 @@ impl ::core::convert::From<&MediaTranscoder> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for MediaTranscoder {}
 unsafe impl ::core::marker::Sync for MediaTranscoder {}
-#[doc = "*Required features: `\"Media_Transcoding\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
@@ -336,7 +325,6 @@ unsafe impl ::windows::core::RuntimeType for MediaVideoProcessingAlgorithm {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Media_Transcoding\"`*"]
 #[repr(transparent)]
 pub struct PrepareTranscodeResult(::windows::core::IUnknown);
 impl PrepareTranscodeResult {
@@ -354,7 +342,6 @@ impl PrepareTranscodeResult {
             (::windows::core::Interface::vtable(this).FailureReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TranscodeFailureReason>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TranscodeAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncActionWithProgress<f64>> {
         let this = self;
@@ -426,7 +413,6 @@ impl ::core::convert::From<&PrepareTranscodeResult> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
-#[doc = "*Required features: `\"Media_Transcoding\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TranscodeFailureReason(pub i32);

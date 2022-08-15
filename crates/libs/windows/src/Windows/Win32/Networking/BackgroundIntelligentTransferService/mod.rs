@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct AsyncIBackgroundCopyCallback(::windows::core::IUnknown);
 impl AsyncIBackgroundCopyCallback {
@@ -78,7 +77,6 @@ pub struct AsyncIBackgroundCopyCallback_Vtbl {
     pub Finish_JobModification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct BG_AUTH_CREDENTIALS {
     pub Target: BG_AUTH_TARGET,
     pub Scheme: BG_AUTH_SCHEME,
@@ -105,7 +103,6 @@ impl ::core::default::Default for BG_AUTH_CREDENTIALS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub union BG_AUTH_CREDENTIALS_UNION {
     pub Basic: BG_BASIC_CREDENTIALS,
 }
@@ -129,19 +126,13 @@ impl ::core::default::Default for BG_AUTH_CREDENTIALS_UNION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_AUTH_SCHEME(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_AUTH_SCHEME_BASIC: BG_AUTH_SCHEME = BG_AUTH_SCHEME(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_AUTH_SCHEME_DIGEST: BG_AUTH_SCHEME = BG_AUTH_SCHEME(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_AUTH_SCHEME_NTLM: BG_AUTH_SCHEME = BG_AUTH_SCHEME(3i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_AUTH_SCHEME_NEGOTIATE: BG_AUTH_SCHEME = BG_AUTH_SCHEME(4i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_AUTH_SCHEME_PASSPORT: BG_AUTH_SCHEME = BG_AUTH_SCHEME(5i32);
 impl ::core::marker::Copy for BG_AUTH_SCHEME {}
 impl ::core::clone::Clone for BG_AUTH_SCHEME {
@@ -162,13 +153,10 @@ impl ::core::fmt::Debug for BG_AUTH_SCHEME {
         f.debug_tuple("BG_AUTH_SCHEME").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_AUTH_TARGET(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = BG_AUTH_TARGET(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = BG_AUTH_TARGET(2i32);
 impl ::core::marker::Copy for BG_AUTH_TARGET {}
 impl ::core::clone::Clone for BG_AUTH_TARGET {
@@ -190,7 +178,6 @@ impl ::core::fmt::Debug for BG_AUTH_TARGET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct BG_BASIC_CREDENTIALS {
     pub UserName: ::windows::core::PWSTR,
     pub Password: ::windows::core::PWSTR,
@@ -220,25 +207,16 @@ impl ::core::default::Default for BG_BASIC_CREDENTIALS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_CERT_STORE_LOCATION(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_CURRENT_USER: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(0i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_CURRENT_SERVICE: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_SERVICES: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(3i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_USERS: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(4i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_CURRENT_USER_GROUP_POLICY: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(5i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_GROUP_POLICY: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(6i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_CERT_STORE_LOCATION_LOCAL_MACHINE_ENTERPRISE: BG_CERT_STORE_LOCATION = BG_CERT_STORE_LOCATION(7i32);
 impl ::core::marker::Copy for BG_CERT_STORE_LOCATION {}
 impl ::core::clone::Clone for BG_CERT_STORE_LOCATION {
@@ -259,43 +237,25 @@ impl ::core::fmt::Debug for BG_CERT_STORE_LOCATION {
         f.debug_tuple("BG_CERT_STORE_LOCATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_COPY_FILE_ALL: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_COPY_FILE_DACL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_COPY_FILE_GROUP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_COPY_FILE_OWNER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_COPY_FILE_SACL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_DISABLE_BRANCH_CACHE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_ERROR_CONTEXT(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_NONE: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(0i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_UNKNOWN: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_GENERAL_QUEUE_MANAGER: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_QUEUE_MANAGER_NOTIFICATION: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(3i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_LOCAL_FILE: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(4i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_REMOTE_FILE: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(5i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_GENERAL_TRANSPORT: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(6i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_REMOTE_APPLICATION: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(7i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK: BG_ERROR_CONTEXT = BG_ERROR_CONTEXT(8i32);
 impl ::core::marker::Copy for BG_ERROR_CONTEXT {}
 impl ::core::clone::Clone for BG_ERROR_CONTEXT {
@@ -316,262 +276,134 @@ impl ::core::fmt::Debug for BG_ERROR_CONTEXT {
         f.debug_tuple("BG_ERROR_CONTEXT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_APP_PACKAGE_NOT_FOUND: i32 = -2145386390i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_APP_PACKAGE_SCENARIO_NOT_SUPPORTED: i32 = -2145386389i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BLOCKED_BY_BACKGROUND_ACCESS_POLICY: i32 = -2145386386i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BLOCKED_BY_BATTERY_POLICY: i32 = -2145386393i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BLOCKED_BY_BATTERY_SAVER: i32 = -2145386392i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BLOCKED_BY_COST_TRANSFER_POLICY: i32 = -2145386407i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BLOCKED_BY_GAME_MODE: i32 = -2145386385i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BLOCKED_BY_POLICY: i32 = -2145386434i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BLOCKED_BY_SYSTEM_POLICY: i32 = -2145386384i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_BUSYCACHERECORD: i32 = -2145386424i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_CLIENT_SERVER_PROTOCOL_MISMATCH: i32 = -2145386462i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_COMMIT_IN_PROGRESS: i32 = -2145386429i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_CONNECTION_CLOSED: i32 = -2145386450i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_CONNECT_FAILURE: i32 = -2145386451i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_DATABASE_CORRUPT: i32 = -2145386388i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_DESTINATION_LOCKED: i32 = -2145386483i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_DISCOVERY_IN_PROGRESS: i32 = -2145386428i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_EMPTY: i32 = -2145386493i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_GENERAL_QUEUE_MANAGER: i32 = -2145386488i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_GENERAL_TRANSPORT: i32 = -2145386485i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_LOCAL_FILE: i32 = -2145386487i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_QUEUE_MANAGER_NOTIFICATION: i32 = -2145386484i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_REMOTE_APPLICATION: i32 = -2145386466i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_REMOTE_FILE: i32 = -2145386486i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_SERVER_CERTIFICATE_CALLBACK: i32 = -2145386378i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_CONTEXT_UNKNOWN: i32 = -2145386489i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_ERROR_INFORMATION_UNAVAILABLE: i32 = -2145386481i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_FILE_NOT_AVAILABLE: i32 = -2145386492i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_FILE_NOT_FOUND: i32 = -2145386455i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_100: i32 = -2145845148i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_101: i32 = -2145845147i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_200: i32 = -2145845048i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_201: i32 = -2145845047i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_202: i32 = -2145845046i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_203: i32 = -2145845045i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_204: i32 = -2145845044i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_205: i32 = -2145845043i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_206: i32 = -2145845042i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_300: i32 = -2145844948i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_301: i32 = -2145844947i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_302: i32 = -2145844946i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_303: i32 = -2145844945i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_304: i32 = -2145844944i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_305: i32 = -2145844943i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_307: i32 = -2145844941i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_400: i32 = -2145844848i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_401: i32 = -2145844847i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_402: i32 = -2145844846i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_403: i32 = -2145844845i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_404: i32 = -2145844844i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_405: i32 = -2145844843i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_406: i32 = -2145844842i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_407: i32 = -2145844841i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_408: i32 = -2145844840i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_409: i32 = -2145844839i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_410: i32 = -2145844838i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_411: i32 = -2145844837i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_412: i32 = -2145844836i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_413: i32 = -2145844835i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_414: i32 = -2145844834i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_415: i32 = -2145844833i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_416: i32 = -2145844832i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_417: i32 = -2145844831i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_449: i32 = -2145844799i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_500: i32 = -2145844748i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_501: i32 = -2145844747i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_502: i32 = -2145844746i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_503: i32 = -2145844745i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_504: i32 = -2145844744i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_HTTP_ERROR_505: i32 = -2145844743i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INSUFFICIENT_HTTP_SUPPORT: i32 = -2145386478i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INSUFFICIENT_RANGE_SUPPORT: i32 = -2145386477i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_AUTH_SCHEME: i32 = -2145386456i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_AUTH_TARGET: i32 = -2145386457i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_CREDENTIALS: i32 = -2145386432i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_HASH_ALGORITHM: i32 = -2145386431i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_PROXY_INFO: i32 = -2145386433i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_RANGE: i32 = -2145386453i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_SERVER_RESPONSE: i32 = -2145386469i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_INVALID_STATE: i32 = -2145386494i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_LOCAL_FILE_CHANGED: i32 = -2145386467i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_MAXDOWNLOAD_TIMEOUT: i32 = -2145386412i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_MAX_DOWNLOAD_SIZE_INVALID_VALUE: i32 = -2145386397i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_MAX_DOWNLOAD_SIZE_LIMIT_REACHED: i32 = -2145386396i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_MISSING_FILE_SIZE: i32 = -2145386479i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_NETWORK_DISCONNECTED: i32 = -2145386480i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_NEW_OWNER_DIFF_MAPPING: i32 = -2145386475i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_NEW_OWNER_NO_FILE_ACCESS: i32 = -2145386474i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_NOT_FOUND: i32 = -2145386495i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_NOT_SUPPORTED_WITH_CUSTOM_HTTP_METHOD: i32 = -2145386383i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_NO_PROGRESS: i32 = -2145386460i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_OVERLAPPING_RANGES: i32 = -2145386452i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_PASSWORD_TOO_LARGE: i32 = -2145386458i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_PEERCACHING_DISABLED: i32 = -2145386425i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_PROPERTY_SUPPORTED_FOR_DOWNLOAD_JOBS_ONLY: i32 = -2145386400i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_PROTOCOL_NOT_AVAILABLE: i32 = -2145386491i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_PROXY_BYPASS_LIST_TOO_LARGE: i32 = -2145386471i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_PROXY_LIST_TOO_LARGE: i32 = -2145386472i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_RANDOM_ACCESS_NOT_SUPPORTED: i32 = -2145386387i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_READ_ONLY_PROPERTY: i32 = -2145386408i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_READ_ONLY_PROPERTY_AFTER_ADDFILE: i32 = -2145386399i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_READ_ONLY_PROPERTY_AFTER_RESUME: i32 = -2145386398i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_READ_ONLY_WHEN_JOB_ACTIVE: i32 = -2145386379i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_RECORD_DELETED: i32 = -2145386430i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_REMOTE_FILE_CHANGED: i32 = -2145386381i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_REMOTE_NOT_SUPPORTED: i32 = -2145386476i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_SERVER_CERT_VALIDATION_INTERFACE_REQUIRED: i32 = -2145386380i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_SERVER_EXECUTE_ENABLE: i32 = -2145386461i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_SESSION_NOT_FOUND: i32 = -2145386465i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_STANDBY_MODE: i32 = -2145386395i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_STRING_TOO_LONG: i32 = -2145386463i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TEST_OPTION_BLOCKED_DOWNLOAD: i32 = -2145386426i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TOKEN_REQUIRED: i32 = -2145386410i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TOO_LARGE: i32 = -2145386464i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TOO_MANY_FILES: i32 = -2145386468i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TOO_MANY_FILES_IN_JOB: i32 = -2145386415i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TOO_MANY_JOBS_PER_MACHINE: i32 = -2145386416i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TOO_MANY_JOBS_PER_USER: i32 = -2145386423i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_TOO_MANY_RANGES_IN_FILE: i32 = -2145386414i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_UNKNOWN_PROPERTY_ID: i32 = -2145386409i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_UNSUPPORTED_JOB_CONFIGURATION: i32 = -2145386382i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_UPNP_ERROR: i32 = -2145386427i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_USERNAME_TOO_LARGE: i32 = -2145386459i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_USE_STORED_CREDENTIALS_NOT_SUPPORTED: i32 = -2145386394i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_VALIDATION_FAILED: i32 = -2145386413i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_VOLUME_CHANGED: i32 = -2145386482i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_E_WATCHDOG_TIMEOUT: i32 = -2145386391i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct BG_FILE_INFO {
     pub RemoteName: ::windows::core::PWSTR,
     pub LocalName: ::windows::core::PWSTR,
@@ -602,7 +434,6 @@ impl ::core::default::Default for BG_FILE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_FILE_PROGRESS {
     pub BytesTotal: u64,
@@ -642,7 +473,6 @@ impl ::core::default::Default for BG_FILE_PROGRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct BG_FILE_RANGE {
     pub InitialOffset: u64,
     pub Length: u64,
@@ -672,35 +502,21 @@ impl ::core::default::Default for BG_FILE_RANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_HTTPS_TO_HTTP: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_REPORT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_HTTP_REDIRECT_POLICY_ALLOW_SILENT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_HTTP_REDIRECT_POLICY_DISALLOW: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_HTTP_REDIRECT_POLICY_MASK: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_DISABLE_BRANCH_CACHE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_ENABLE_PEERCACHING_CLIENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_ENABLE_PEERCACHING_SERVER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_ENUM_ALL_USERS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_JOB_PRIORITY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PRIORITY_FOREGROUND: BG_JOB_PRIORITY = BG_JOB_PRIORITY(0i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = BG_JOB_PRIORITY(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = BG_JOB_PRIORITY(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = BG_JOB_PRIORITY(3i32);
 impl ::core::marker::Copy for BG_JOB_PRIORITY {}
 impl ::core::clone::Clone for BG_JOB_PRIORITY {
@@ -722,7 +538,6 @@ impl ::core::fmt::Debug for BG_JOB_PRIORITY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct BG_JOB_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
@@ -754,17 +569,12 @@ impl ::core::default::Default for BG_JOB_PROGRESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_JOB_PROXY_USAGE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_PROXY_USAGE_AUTODETECT: BG_JOB_PROXY_USAGE = BG_JOB_PROXY_USAGE(3i32);
 impl ::core::marker::Copy for BG_JOB_PROXY_USAGE {}
 impl ::core::clone::Clone for BG_JOB_PROXY_USAGE {
@@ -786,7 +596,6 @@ impl ::core::fmt::Debug for BG_JOB_PROXY_USAGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub struct BG_JOB_REPLY_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
@@ -816,27 +625,17 @@ impl ::core::default::Default for BG_JOB_REPLY_PROGRESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_JOB_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_QUEUED: BG_JOB_STATE = BG_JOB_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_CONNECTING: BG_JOB_STATE = BG_JOB_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = BG_JOB_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_SUSPENDED: BG_JOB_STATE = BG_JOB_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_ERROR: BG_JOB_STATE = BG_JOB_STATE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = BG_JOB_STATE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_TRANSFERRED: BG_JOB_STATE = BG_JOB_STATE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_ACKNOWLEDGED: BG_JOB_STATE = BG_JOB_STATE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_STATE_CANCELLED: BG_JOB_STATE = BG_JOB_STATE(8i32);
 impl ::core::marker::Copy for BG_JOB_STATE {}
 impl ::core::clone::Clone for BG_JOB_STATE {
@@ -858,7 +657,6 @@ impl ::core::fmt::Debug for BG_JOB_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::super::Foundation::FILETIME,
@@ -897,15 +695,11 @@ impl ::core::default::Default for BG_JOB_TIMES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_JOB_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_TYPE_DOWNLOAD: BG_JOB_TYPE = BG_JOB_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_TYPE_UPLOAD: BG_JOB_TYPE = BG_JOB_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_JOB_TYPE_UPLOAD_REPLY: BG_JOB_TYPE = BG_JOB_TYPE(2i32);
 impl ::core::marker::Copy for BG_JOB_TYPE {}
 impl ::core::clone::Clone for BG_JOB_TYPE {
@@ -926,45 +720,26 @@ impl ::core::fmt::Debug for BG_JOB_TYPE {
         f.debug_tuple("BG_JOB_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_NOTIFY_DISABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_NOTIFY_FILE_RANGES_TRANSFERRED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_NOTIFY_FILE_TRANSFERRED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_NOTIFY_JOB_ERROR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_NOTIFY_JOB_MODIFICATION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_NOTIFY_JOB_TRANSFERRED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_SSL_ENABLE_CRL_CHECK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_SSL_IGNORE_CERT_CN_INVALID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_SSL_IGNORE_CERT_DATE_INVALID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_SSL_IGNORE_CERT_WRONG_USAGE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_SSL_IGNORE_UNKNOWN_CA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_S_ERROR_CONTEXT_NONE: i32 = 2097158i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_S_OVERRIDDEN_BY_POLICY: i32 = 2097237i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_S_PARTIAL_COMPLETE: i32 = 2097175i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_S_PROXY_CHANGED: i32 = 2097194i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_S_UNABLE_TO_DELETE_FILES: i32 = 2097178i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BG_TOKEN(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_TOKEN_LOCAL_FILE: BG_TOKEN = BG_TOKEN(1u32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BG_TOKEN_NETWORK: BG_TOKEN = BG_TOKEN(2u32);
 impl ::core::marker::Copy for BG_TOKEN {}
 impl ::core::clone::Clone for BG_TOKEN {
@@ -986,31 +761,19 @@ impl ::core::fmt::Debug for BG_TOKEN {
     }
 }
 pub const BITSExtensionSetupFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefbbab68_7286_4783_94bf_9461d8b7e7e9);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_OPTION_IGNORE_CONGESTION: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_BELOW_CAP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_CAPPED_USAGE_UNKNOWN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_NEAR_CAP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_OVERCAP_CHARGED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_OVERCAP_THROTTLED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_RESERVED: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_ROAMING: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_UNRESTRICTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_COST_STATE_USAGE_BASED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BITS_FILE_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_FILE_PROPERTY_ID_HTTP_RESPONSE_HEADERS: BITS_FILE_PROPERTY_ID = BITS_FILE_PROPERTY_ID(1i32);
 impl ::core::marker::Copy for BITS_FILE_PROPERTY_ID {}
 impl ::core::clone::Clone for BITS_FILE_PROPERTY_ID {
@@ -1032,7 +795,6 @@ impl ::core::fmt::Debug for BITS_FILE_PROPERTY_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub union BITS_FILE_PROPERTY_VALUE {
     pub String: ::windows::core::PWSTR,
 }
@@ -1056,25 +818,16 @@ impl ::core::default::Default for BITS_FILE_PROPERTY_VALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BITS_JOB_PROPERTY_ID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_ID_COST_FLAGS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_NOTIFICATION_CLSID: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_DYNAMIC_CONTENT: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(3i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_HIGH_PERFORMANCE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(4i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_MAX_DOWNLOAD_SIZE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(5i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_USE_STORED_CREDENTIALS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(7i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_MINIMUM_NOTIFICATION_INTERVAL_MS: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(9i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_PROPERTY_ON_DEMAND_MODE: BITS_JOB_PROPERTY_ID = BITS_JOB_PROPERTY_ID(10i32);
 impl ::core::marker::Copy for BITS_JOB_PROPERTY_ID {}
 impl ::core::clone::Clone for BITS_JOB_PROPERTY_ID {
@@ -1096,7 +849,6 @@ impl ::core::fmt::Debug for BITS_JOB_PROPERTY_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union BITS_JOB_PROPERTY_VALUE {
     pub Dword: u32,
@@ -1131,19 +883,13 @@ impl ::core::default::Default for BITS_JOB_PROPERTY_VALUE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BITS_JOB_TRANSFER_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_TRANSFER_POLICY_ALWAYS: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483393i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_TRANSFER_POLICY_NOT_ROAMING: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483521i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_TRANSFER_POLICY_NO_SURCHARGE: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483537i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_TRANSFER_POLICY_STANDARD: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483545i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_JOB_TRANSFER_POLICY_UNRESTRICTED: BITS_JOB_TRANSFER_POLICY = BITS_JOB_TRANSFER_POLICY(-2147483615i32);
 impl ::core::marker::Copy for BITS_JOB_TRANSFER_POLICY {}
 impl ::core::clone::Clone for BITS_JOB_TRANSFER_POLICY {
@@ -1164,29 +910,17 @@ impl ::core::fmt::Debug for BITS_JOB_TRANSFER_POLICY {
         f.debug_tuple("BITS_JOB_TRANSFER_POLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_FAILED_TO_START: i32 = -2145828856i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_FATAL_IGD_ERROR: i32 = -2145828855i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_FILE_DELETION_FAILED: i32 = -2145828863i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_FILE_DELETION_FAILED_MORE: i32 = -2145828862i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_JOB_CANCELLED: i32 = -2145828864i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_JOB_NOTIFICATION_FAILURE: i32 = -2145828858i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_JOB_PROPERTY_CHANGE: i32 = -2145828861i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_JOB_SCAVENGED: i32 = -2145828859i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_JOB_TAKE_OWNERSHIP: i32 = -2145828860i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_PEERCACHING_PORT: i32 = -2145828854i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_STATE_FILE_CORRUPT: i32 = -2145828857i32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const BITS_MC_WSD_PORT: i32 = -2145828853i32;
 pub const BackgroundCopyManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4991d34b_80a1_4291_83b6_3328366b9097);
 pub const BackgroundCopyManager10_1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bd3e4e1_7bd4_4a2b_9964_496400de5193);
@@ -1200,7 +934,6 @@ pub const BackgroundCopyManager4_0: ::windows::core::GUID = ::windows::core::GUI
 pub const BackgroundCopyManager5_0: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ecca34c_e88a_44e3_8d6a_8921bde9e452);
 pub const BackgroundCopyQMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69ad4aee_51be_439b_a92c_86ae490e8b30);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILESETINFO {
     pub bstrRemoteFile: super::super::Foundation::BSTR,
@@ -1237,35 +970,21 @@ impl ::core::default::Default for FILESETINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GROUPPROP(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_PRIORITY: GROUPPROP = GROUPPROP(0i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_REMOTEUSERID: GROUPPROP = GROUPPROP(1i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_REMOTEUSERPWD: GROUPPROP = GROUPPROP(2i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_LOCALUSERID: GROUPPROP = GROUPPROP(3i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_LOCALUSERPWD: GROUPPROP = GROUPPROP(4i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_PROTOCOLFLAGS: GROUPPROP = GROUPPROP(5i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_NOTIFYFLAGS: GROUPPROP = GROUPPROP(6i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_NOTIFYCLSID: GROUPPROP = GROUPPROP(7i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_PROGRESSSIZE: GROUPPROP = GROUPPROP(8i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_PROGRESSPERCENT: GROUPPROP = GROUPPROP(9i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_PROGRESSTIME: GROUPPROP = GROUPPROP(10i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_DISPLAYNAME: GROUPPROP = GROUPPROP(11i32);
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const GROUPPROP_DESCRIPTION: GROUPPROP = GROUPPROP(12i32);
 impl ::core::marker::Copy for GROUPPROP {}
 impl ::core::clone::Clone for GROUPPROP {
@@ -1286,7 +1005,6 @@ impl ::core::fmt::Debug for GROUPPROP {
         f.debug_tuple("GROUPPROP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IBITSExtensionSetup(::windows::core::IUnknown);
@@ -1298,7 +1016,6 @@ impl IBITSExtensionSetup {
     pub unsafe fn DisableBITSUploads(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisableBITSUploads)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCleanupTaskName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1383,13 +1100,11 @@ pub struct IBITSExtensionSetup_Vtbl {
     GetCleanupTaskName: usize,
     pub GetCleanupTask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IBITSExtensionSetupFactory(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IBITSExtensionSetupFactory {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetObject<'a, P0>(&self, path: P0) -> ::windows::core::Result<IBITSExtensionSetup>
     where
@@ -1470,7 +1185,6 @@ pub struct IBITSExtensionSetupFactory_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetObject: usize,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback(::windows::core::IUnknown);
 impl IBackgroundCopyCallback {
@@ -1537,7 +1251,6 @@ pub struct IBackgroundCopyCallback_Vtbl {
     pub JobError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, perror: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub JobModification: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback1(::windows::core::IUnknown);
 impl IBackgroundCopyCallback1 {
@@ -1606,7 +1319,6 @@ pub struct IBackgroundCopyCallback1_Vtbl {
     pub OnProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progresstype: u32, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwprogressvalue: u32) -> ::windows::core::HRESULT,
     pub OnProgressEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, progresstype: u32, pgroup: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, dwfileindex: u32, dwprogressvalue: u32, dwbytearraysize: u32, pbyte: *const u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback2(::windows::core::IUnknown);
 impl IBackgroundCopyCallback2 {
@@ -1693,7 +1405,6 @@ pub struct IBackgroundCopyCallback2_Vtbl {
     pub base__: IBackgroundCopyCallback_Vtbl,
     pub FileTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pjob: *mut ::core::ffi::c_void, pfile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyCallback3(::windows::core::IUnknown);
 impl IBackgroundCopyCallback3 {
@@ -1802,7 +1513,6 @@ pub struct IBackgroundCopyCallback3_Vtbl {
     pub base__: IBackgroundCopyCallback2_Vtbl,
     pub FileRangesTransferred: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, job: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyError(::windows::core::IUnknown);
 impl IBackgroundCopyError {
@@ -1871,7 +1581,6 @@ pub struct IBackgroundCopyError_Vtbl {
     pub GetErrorContextDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageid: u32, pcontextdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetProtocol: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotocol: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyFile(::windows::core::IUnknown);
 impl IBackgroundCopyFile {
@@ -1883,7 +1592,6 @@ impl IBackgroundCopyFile {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLocalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1936,7 +1644,6 @@ pub struct IBackgroundCopyFile_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetProgress: usize,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyFile2(::windows::core::IUnknown);
 impl IBackgroundCopyFile2 {
@@ -1948,7 +1655,6 @@ impl IBackgroundCopyFile2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetLocalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2021,7 +1727,6 @@ pub struct IBackgroundCopyFile2_Vtbl {
     pub GetFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::HRESULT,
     pub SetRemoteName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, val: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyFile3(::windows::core::IUnknown);
 impl IBackgroundCopyFile3 {
@@ -2033,7 +1738,6 @@ impl IBackgroundCopyFile3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetLocalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2052,7 +1756,6 @@ impl IBackgroundCopyFile3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTemporaryName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
@@ -2060,13 +1763,11 @@ impl IBackgroundCopyFile3 {
     {
         (::windows::core::Interface::vtable(self).SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValidationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValidationState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDownloadedFromPeer(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2156,7 +1857,6 @@ pub struct IBackgroundCopyFile3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsDownloadedFromPeer: usize,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyFile4(::windows::core::IUnknown);
 impl IBackgroundCopyFile4 {
@@ -2168,7 +1868,6 @@ impl IBackgroundCopyFile4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetLocalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2187,7 +1886,6 @@ impl IBackgroundCopyFile4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTemporaryName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
@@ -2195,13 +1893,11 @@ impl IBackgroundCopyFile4 {
     {
         (::windows::core::Interface::vtable(self).base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValidationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetValidationState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDownloadedFromPeer(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2297,7 +1993,6 @@ pub struct IBackgroundCopyFile4_Vtbl {
     pub base__: IBackgroundCopyFile3_Vtbl,
     pub GetPeerDownloadStats: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfromorigin: *mut u64, pfrompeers: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyFile5(::windows::core::IUnknown);
 impl IBackgroundCopyFile5 {
@@ -2309,7 +2004,6 @@ impl IBackgroundCopyFile5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetLocalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2328,7 +2022,6 @@ impl IBackgroundCopyFile5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetTemporaryName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
@@ -2336,13 +2029,11 @@ impl IBackgroundCopyFile5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValidationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetValidationState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDownloadedFromPeer(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2461,7 +2152,6 @@ pub struct IBackgroundCopyFile5_Vtbl {
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> ::windows::core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: *mut BITS_FILE_PROPERTY_VALUE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyFile6(::windows::core::IUnknown);
 impl IBackgroundCopyFile6 {
@@ -2473,7 +2163,6 @@ impl IBackgroundCopyFile6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetLocalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProgress(&self) -> ::windows::core::Result<BG_FILE_PROGRESS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2492,7 +2181,6 @@ impl IBackgroundCopyFile6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetTemporaryName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValidationState<'a, P0>(&self, state: P0) -> ::windows::core::Result<()>
     where
@@ -2500,13 +2188,11 @@ impl IBackgroundCopyFile6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetValidationState)(::windows::core::Interface::as_raw(self), state.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValidationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetValidationState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDownloadedFromPeer(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2650,17 +2336,14 @@ pub struct IBackgroundCopyFile6_Vtbl {
     pub RequestFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangecount: u32, ranges: *const BG_FILE_RANGE) -> ::windows::core::HRESULT,
     pub GetFilledFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rangecount: *mut u32, ranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyGroup(::windows::core::IUnknown);
 impl IBackgroundCopyGroup {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProp(&self, propid: GROUPPROP) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProp)(::windows::core::Interface::as_raw(self), propid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetProp(&self, propid: GROUPPROP, pvarval: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProp)(::windows::core::Interface::as_raw(self), propid, ::core::mem::transmute(pvarval)).ok()
@@ -2776,7 +2459,6 @@ pub struct IBackgroundCopyGroup_Vtbl {
     pub QueryNewJobInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetNotificationPointer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJob(::windows::core::IUnknown);
 impl IBackgroundCopyJob {
@@ -2818,7 +2500,6 @@ impl IBackgroundCopyJob {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BG_JOB_PROGRESS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2987,7 +2668,6 @@ pub struct IBackgroundCopyJob_Vtbl {
     pub GetProxySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pproxyusage: *mut BG_JOB_PROXY_USAGE, pproxylist: *mut ::windows::core::PWSTR, pproxybypasslist: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub TakeOwnership: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJob1(::windows::core::IUnknown);
 impl IBackgroundCopyJob1 {
@@ -3001,12 +2681,10 @@ impl IBackgroundCopyJob1 {
     pub unsafe fn GetStatus(&self, pdwstatus: &mut u32, pdwwin32result: &mut u32, pdwtransportresult: &mut u32, pdwnumofretries: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwstatus), ::core::mem::transmute(pdwwin32result), ::core::mem::transmute(pdwtransportresult), ::core::mem::transmute(pdwnumofretries)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddFiles(&self, ppfileset: &[*const FILESETINFO]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddFiles)(::windows::core::Interface::as_raw(self), ppfileset.len() as _, ::core::mem::transmute(ppfileset.as_ptr())).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFile(&self, cfileindex: u32) -> ::windows::core::Result<FILESETINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3078,7 +2756,6 @@ pub struct IBackgroundCopyJob1_Vtbl {
     pub SwitchToForeground: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub JobID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidjobid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJob2(::windows::core::IUnknown);
 impl IBackgroundCopyJob2 {
@@ -3120,7 +2797,6 @@ impl IBackgroundCopyJob2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BG_JOB_PROGRESS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3309,7 +2985,6 @@ pub struct IBackgroundCopyJob2_Vtbl {
     pub SetCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, credentials: *const BG_AUTH_CREDENTIALS) -> ::windows::core::HRESULT,
     pub RemoveCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: BG_AUTH_TARGET, scheme: BG_AUTH_SCHEME) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJob3(::windows::core::IUnknown);
 impl IBackgroundCopyJob3 {
@@ -3351,7 +3026,6 @@ impl IBackgroundCopyJob3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BG_JOB_PROGRESS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3572,7 +3246,6 @@ pub struct IBackgroundCopyJob3_Vtbl {
     pub SetFileACLFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetFileACLFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJob4(::windows::core::IUnknown);
 impl IBackgroundCopyJob4 {
@@ -3614,7 +3287,6 @@ impl IBackgroundCopyJob4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BG_JOB_PROGRESS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3771,7 +3443,6 @@ impl IBackgroundCopyJob4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetOwnerIntegrityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOwnerElevationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3879,7 +3550,6 @@ pub struct IBackgroundCopyJob4_Vtbl {
     pub SetMaximumDownloadTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: u32) -> ::windows::core::HRESULT,
     pub GetMaximumDownloadTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimeout: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJob5(::windows::core::IUnknown);
 impl IBackgroundCopyJob5 {
@@ -3921,7 +3591,6 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BG_JOB_PROGRESS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimes(&self) -> ::windows::core::Result<BG_JOB_TIMES> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4078,7 +3747,6 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetOwnerIntegrityLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOwnerElevationState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4091,12 +3759,10 @@ impl IBackgroundCopyJob5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetMaximumDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), propertyid, ::core::mem::transmute(propertyvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> ::windows::core::Result<BITS_JOB_PROPERTY_VALUE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4211,7 +3877,6 @@ pub struct IBackgroundCopyJob5_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions {
@@ -4300,7 +3965,6 @@ pub struct IBackgroundCopyJobHttpOptions_Vtbl {
     pub SetSecurityFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::HRESULT,
     pub GetSecurityFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions2(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions2 {
@@ -4408,7 +4072,6 @@ pub struct IBackgroundCopyJobHttpOptions2_Vtbl {
     pub SetHttpMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetHttpMethod: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, method: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyJobHttpOptions3(::windows::core::IUnknown);
 impl IBackgroundCopyJobHttpOptions3 {
@@ -4540,7 +4203,6 @@ pub struct IBackgroundCopyJobHttpOptions3_Vtbl {
     pub SetServerCertificateValidationInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, certvalidationcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub MakeCustomHeadersWriteOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyManager(::windows::core::IUnknown);
 impl IBackgroundCopyManager {
@@ -4607,7 +4269,6 @@ pub struct IBackgroundCopyManager_Vtbl {
     pub EnumJobs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetErrorDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, languageid: u32, perrordescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyQMgr(::windows::core::IUnknown);
 impl IBackgroundCopyQMgr {
@@ -4667,7 +4328,6 @@ pub struct IBackgroundCopyQMgr_Vtbl {
     pub GetGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, groupid: ::windows::core::GUID, ppgroup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumGroups: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, ppenumgroups: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBackgroundCopyServerCertificateValidationCallback(::windows::core::IUnknown);
 impl IBackgroundCopyServerCertificateValidationCallback {
@@ -4720,7 +4380,6 @@ pub struct IBackgroundCopyServerCertificateValidationCallback_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ValidateServerCertificate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, job: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, certlength: u32, certdata: *const u8, certencodingtype: u32, certstorelength: u32, certstoredata: *const u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBitsPeer(::windows::core::IUnknown);
 impl IBitsPeer {
@@ -4728,13 +4387,11 @@ impl IBitsPeer {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPeerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAuthenticated(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsAuthenticated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsAvailable(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4790,7 +4447,6 @@ pub struct IBitsPeer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsAvailable: usize,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBitsPeerCacheAdministration(::windows::core::IUnknown);
 impl IBitsPeerCacheAdministration {
@@ -4900,7 +4556,6 @@ pub struct IBitsPeerCacheAdministration_Vtbl {
     pub ClearPeers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DiscoverPeers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBitsPeerCacheRecord(::windows::core::IUnknown);
 impl IBitsPeerCacheRecord {
@@ -4916,13 +4571,11 @@ impl IBitsPeerCacheRecord {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFileModificationTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFileModificationTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastAccessTime(&self) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4988,7 +4641,6 @@ pub struct IBitsPeerCacheRecord_Vtbl {
     pub IsFileValidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFileRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prangecount: *mut u32, ppranges: *mut *mut BG_FILE_RANGE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IBitsTokenOptions(::windows::core::IUnknown);
 impl IBitsTokenOptions {
@@ -5055,7 +4707,6 @@ pub struct IBitsTokenOptions_Vtbl {
     pub ClearHelperToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetHelperTokenSid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyFiles(::windows::core::IUnknown);
 impl IEnumBackgroundCopyFiles {
@@ -5122,7 +4773,6 @@ pub struct IEnumBackgroundCopyFiles_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyGroups(::windows::core::IUnknown);
 impl IEnumBackgroundCopyGroups {
@@ -5189,7 +4839,6 @@ pub struct IEnumBackgroundCopyGroups_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyJobs(::windows::core::IUnknown);
 impl IEnumBackgroundCopyJobs {
@@ -5256,7 +4905,6 @@ pub struct IEnumBackgroundCopyJobs_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IEnumBackgroundCopyJobs1(::windows::core::IUnknown);
 impl IEnumBackgroundCopyJobs1 {
@@ -5323,7 +4971,6 @@ pub struct IEnumBackgroundCopyJobs1_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IEnumBitsPeerCacheRecords(::windows::core::IUnknown);
 impl IEnumBitsPeerCacheRecords {
@@ -5390,7 +5037,6 @@ pub struct IEnumBitsPeerCacheRecords_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 #[repr(transparent)]
 pub struct IEnumBitsPeers(::windows::core::IUnknown);
 impl IEnumBitsPeers {
@@ -5457,59 +5103,32 @@ pub struct IEnumBitsPeers_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pucount: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_E_DOWNLOADER_UNAVAILABLE: u32 = 2164264963u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_E_INVALID_STATE: u32 = 2164264961u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_E_ITEM_NOT_FOUND: u32 = 2164264964u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_E_SERVICE_UNAVAILABLE: u32 = 2164264962u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_NOTIFY_DISABLE_NOTIFY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_NOTIFY_FILE_DONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_NOTIFY_GROUP_DONE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_NOTIFY_JOB_DONE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_NOTIFY_USE_PROGRESSEX: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_PROGRESS_PERCENT_DONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_PROGRESS_SIZE_DONE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_PROGRESS_TIME_DONE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_PROTOCOL_CUSTOM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_PROTOCOL_FTP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_PROTOCOL_HTTP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_PROTOCOL_SMB: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_FILE_COMPLETE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_FILE_INCOMPLETE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_GROUP_COMPLETE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_GROUP_ERROR: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_GROUP_FOREGROUND: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_GROUP_INCOMPLETE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_GROUP_SUSPENDED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_JOB_COMPLETE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_JOB_ERROR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_JOB_FOREGROUND: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_BackgroundIntelligentTransferService\"`*"]
 pub const QM_STATUS_JOB_INCOMPLETE: u32 = 8u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

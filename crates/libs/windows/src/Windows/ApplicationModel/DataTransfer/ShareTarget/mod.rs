@@ -80,7 +80,6 @@ pub struct IShareOperation3_Vtbl {
     #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))]
     Contacts: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
 pub struct QuickLink(::windows::core::IUnknown);
 impl QuickLink {
@@ -102,7 +101,6 @@ impl QuickLink {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
@@ -111,7 +109,6 @@ impl QuickLink {
             (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -131,7 +128,6 @@ impl QuickLink {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedDataFormats(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -140,7 +136,6 @@ impl QuickLink {
             (::windows::core::Interface::vtable(this).SupportedDataFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -210,7 +205,6 @@ impl ::core::convert::From<&QuickLink> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer_ShareTarget\"`*"]
 #[repr(transparent)]
 pub struct ShareOperation(::windows::core::IUnknown);
 impl ShareOperation {
@@ -263,7 +257,6 @@ impl ShareOperation {
         let this = &::windows::core::Interface::cast::<IShareOperation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).DismissUI)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))]
     pub fn Contacts(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>> {
         let this = &::windows::core::Interface::cast::<IShareOperation3>(self)?;

@@ -1,6 +1,5 @@
 #[cfg(feature = "UI_Text_Core")]
 pub mod Core;
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CaretType(pub i32);
@@ -34,7 +33,6 @@ unsafe impl ::windows::core::RuntimeType for CaretType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct ContentLinkInfo(::windows::core::IUnknown);
 impl ContentLinkInfo {
@@ -78,7 +76,6 @@ impl ContentLinkInfo {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSecondaryText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -87,7 +84,6 @@ impl ContentLinkInfo {
             (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -170,7 +166,6 @@ impl ::core::convert::From<&ContentLinkInfo> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for ContentLinkInfo {}
 unsafe impl ::core::marker::Sync for ContentLinkInfo {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindOptions(pub u32);
@@ -233,7 +228,6 @@ unsafe impl ::windows::core::RuntimeType for FindOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FontStretch(pub i32);
@@ -275,7 +269,6 @@ unsafe impl ::windows::core::RuntimeType for FontStretch {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FontStyle(pub i32);
@@ -311,7 +304,6 @@ unsafe impl ::windows::core::RuntimeType for FontStyle {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"UI_Text\"`*"]
 pub struct FontWeight {
     pub Weight: u16,
 }
@@ -347,7 +339,6 @@ impl ::core::default::Default for FontWeight {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct FontWeights(::windows::core::IUnknown);
 impl FontWeights {
@@ -485,7 +476,6 @@ impl ::core::convert::From<&FontWeights> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for FontWeights {}
 unsafe impl ::core::marker::Sync for FontWeights {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FormatEffect(pub i32);
@@ -521,7 +511,6 @@ unsafe impl ::windows::core::RuntimeType for FormatEffect {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HorizontalCharacterAlignment(pub i32);
@@ -633,7 +622,6 @@ pub struct IRichEditTextRange_Vtbl {
     pub ContentLinkInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetContentLinkInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct ITextCharacterFormat(::windows::core::IUnknown);
 impl ITextCharacterFormat {
@@ -1056,7 +1044,6 @@ pub struct ITextConstantsStatics_Vtbl {
     pub UndefinedFontStretch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FontStretch) -> ::windows::core::HRESULT,
     pub UndefinedFontStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FontStyle) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct ITextDocument(::windows::core::IUnknown);
 impl ITextDocument {
@@ -1171,7 +1158,6 @@ impl ITextDocument {
             (::windows::core::Interface::vtable(this).GetRange)(::windows::core::Interface::as_raw(this), startposition, endposition, result__.as_mut_ptr()).from_abi::<ITextRange>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ::windows::core::Result<ITextRange> {
         let this = self;
@@ -1184,7 +1170,6 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -1198,7 +1183,6 @@ impl ITextDocument {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Redo)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -1375,7 +1359,6 @@ pub struct ITextDocument4_Vtbl {
     pub GetMath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetMathMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: RichEditMathMode) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct ITextParagraphFormat(::windows::core::IUnknown);
 impl ITextParagraphFormat {
@@ -1762,7 +1745,6 @@ pub struct ITextParagraphFormat_Vtbl {
     pub SetIndents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, start: f32, left: f32, right: f32) -> ::windows::core::HRESULT,
     pub SetLineSpacing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rule: LineSpacingRule, spacing: f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct ITextRange(::windows::core::IUnknown);
 impl ITextRange {
@@ -1960,13 +1942,11 @@ impl ITextRange {
             (::windows::core::Interface::vtable(this).GetIndex)(::windows::core::Interface::as_raw(this), unit, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()> {
         let this = self;
@@ -1976,7 +1956,6 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -1997,7 +1976,6 @@ impl ITextRange {
             (::windows::core::Interface::vtable(this).InRange)(::windows::core::Interface::as_raw(this), range.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<'a, P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
@@ -2066,7 +2044,6 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows::core::Result<()> {
         let this = self;
@@ -2080,7 +2057,6 @@ impl ITextRange {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText2)(::windows::core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -2230,7 +2206,6 @@ pub struct ITextRange_Vtbl {
     SetTextViaStream: usize,
     pub StartOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextRangeUnit, extend: bool, result__: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct ITextSelection(::windows::core::IUnknown);
 impl ITextSelection {
@@ -2492,13 +2467,11 @@ impl ITextSelection {
             (::windows::core::Interface::vtable(this).GetIndex)(::windows::core::Interface::as_raw(this), unit, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -2508,7 +2481,6 @@ impl ITextSelection {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -2529,7 +2501,6 @@ impl ITextSelection {
             (::windows::core::Interface::vtable(this).InRange)(::windows::core::Interface::as_raw(this), range.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<'a, P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
@@ -2598,7 +2569,6 @@ impl ITextSelection {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
@@ -2612,7 +2582,6 @@ impl ITextSelection {
         let this = &::windows::core::Interface::cast::<ITextRange>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetText2)(::windows::core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -2721,7 +2690,6 @@ pub struct ITextSelection_Vtbl {
     pub MoveUp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unit: TextRangeUnit, count: i32, extend: bool, result__: *mut i32) -> ::windows::core::HRESULT,
     pub TypeText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LetterCase(pub i32);
@@ -2755,7 +2723,6 @@ unsafe impl ::windows::core::RuntimeType for LetterCase {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineSpacingRule(pub i32);
@@ -2795,7 +2762,6 @@ unsafe impl ::windows::core::RuntimeType for LineSpacingRule {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LinkType(pub i32);
@@ -2836,7 +2802,6 @@ unsafe impl ::windows::core::RuntimeType for LinkType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarkerAlignment(pub i32);
@@ -2872,7 +2837,6 @@ unsafe impl ::windows::core::RuntimeType for MarkerAlignment {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarkerStyle(pub i32);
@@ -2911,7 +2875,6 @@ unsafe impl ::windows::core::RuntimeType for MarkerStyle {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarkerType(pub i32);
@@ -2968,7 +2931,6 @@ unsafe impl ::windows::core::RuntimeType for MarkerType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ParagraphAlignment(pub i32);
@@ -3005,7 +2967,6 @@ unsafe impl ::windows::core::RuntimeType for ParagraphAlignment {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ParagraphStyle(pub i32);
@@ -3049,7 +3010,6 @@ unsafe impl ::windows::core::RuntimeType for ParagraphStyle {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PointOptions(pub u32);
@@ -3117,7 +3077,6 @@ unsafe impl ::windows::core::RuntimeType for PointOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RangeGravity(pub i32);
@@ -3154,7 +3113,6 @@ unsafe impl ::windows::core::RuntimeType for RangeGravity {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RichEditMathMode(pub i32);
@@ -3188,7 +3146,6 @@ unsafe impl ::windows::core::RuntimeType for RichEditMathMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct RichEditTextDocument(::windows::core::IUnknown);
 impl RichEditTextDocument {
@@ -3303,7 +3260,6 @@ impl RichEditTextDocument {
             (::windows::core::Interface::vtable(this).GetRange)(::windows::core::Interface::as_raw(this), startposition, endposition, result__.as_mut_ptr()).from_abi::<ITextRange>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRangeFromPoint(&self, point: super::super::Foundation::Point, options: PointOptions) -> ::windows::core::Result<ITextRange> {
         let this = self;
@@ -3316,7 +3272,6 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LoadFromStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -3330,7 +3285,6 @@ impl RichEditTextDocument {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Redo)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SaveToStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -3484,7 +3438,6 @@ impl<'a> ::core::convert::TryFrom<&RichEditTextDocument> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for RichEditTextDocument {}
 unsafe impl ::core::marker::Sync for RichEditTextDocument {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 pub struct RichEditTextRange(::windows::core::IUnknown);
 impl RichEditTextRange {
@@ -3696,13 +3649,11 @@ impl RichEditTextRange {
             (::windows::core::Interface::vtable(this).GetIndex)(::windows::core::Interface::as_raw(this), unit, result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPoint(&self, horizontalalign: HorizontalCharacterAlignment, verticalalign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), horizontalalign, verticalalign, options, point).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> ::windows::core::Result<()> {
         let this = self;
@@ -3712,7 +3663,6 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).GetText)(::windows::core::Interface::as_raw(this), options, value as *mut _ as _).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetTextViaStream<'a, P0, E0>(&self, options: TextGetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -3733,7 +3683,6 @@ impl RichEditTextRange {
             (::windows::core::Interface::vtable(this).InRange)(::windows::core::Interface::as_raw(this), range.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn InsertImage<'a, P0, E0>(&self, width: i32, height: i32, ascent: i32, verticalalign: VerticalCharacterAlignment, alternatetext: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<()>
     where
@@ -3802,7 +3751,6 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), unit, index, extend).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPoint(&self, point: super::super::Foundation::Point, options: PointOptions, extend: bool) -> ::windows::core::Result<()> {
         let this = self;
@@ -3816,7 +3764,6 @@ impl RichEditTextRange {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText2)(::windows::core::Interface::as_raw(this), options, ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetTextViaStream<'a, P0, E0>(&self, options: TextSetOptions, value: P0) -> ::windows::core::Result<()>
     where
@@ -3915,7 +3862,6 @@ impl<'a> ::core::convert::TryFrom<&RichEditTextRange> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for RichEditTextRange {}
 unsafe impl ::core::marker::Sync for RichEditTextRange {}
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelectionOptions(pub u32);
@@ -3980,7 +3926,6 @@ unsafe impl ::windows::core::RuntimeType for SelectionOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SelectionType(pub i32);
@@ -4017,7 +3962,6 @@ unsafe impl ::windows::core::RuntimeType for SelectionType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabAlignment(pub i32);
@@ -4054,7 +3998,6 @@ unsafe impl ::windows::core::RuntimeType for TabAlignment {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TabLeader(pub i32);
@@ -4092,7 +4035,6 @@ unsafe impl ::windows::core::RuntimeType for TabLeader {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 pub struct TextConstants;
 impl TextConstants {
     pub fn AutoColor() -> ::windows::core::Result<super::Color> {
@@ -4152,7 +4094,6 @@ impl TextConstants {
 impl ::windows::core::RuntimeName for TextConstants {
     const NAME: &'static str = "Windows.UI.Text.TextConstants";
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextDecorations(pub u32);
@@ -4215,7 +4156,6 @@ unsafe impl ::windows::core::RuntimeType for TextDecorations {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextGetOptions(pub u32);
@@ -4284,7 +4224,6 @@ unsafe impl ::windows::core::RuntimeType for TextGetOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextRangeUnit(pub i32);
@@ -4349,7 +4288,6 @@ unsafe impl ::windows::core::RuntimeType for TextRangeUnit {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextScript(pub i32);
@@ -4445,7 +4383,6 @@ unsafe impl ::windows::core::RuntimeType for TextScript {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TextSetOptions(pub u32);
@@ -4512,7 +4449,6 @@ unsafe impl ::windows::core::RuntimeType for TextSetOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnderlineType(pub i32);
@@ -4564,7 +4500,6 @@ unsafe impl ::windows::core::RuntimeType for UnderlineType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Text\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VerticalCharacterAlignment(pub i32);

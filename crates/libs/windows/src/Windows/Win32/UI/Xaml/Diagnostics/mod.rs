@@ -1,36 +1,20 @@
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BaseValueSource(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const BaseValueSourceUnknown: BaseValueSource = BaseValueSource(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const BaseValueSourceDefault: BaseValueSource = BaseValueSource(1i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const BaseValueSourceBuiltInStyle: BaseValueSource = BaseValueSource(2i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const BaseValueSourceStyle: BaseValueSource = BaseValueSource(3i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const BaseValueSourceLocal: BaseValueSource = BaseValueSource(4i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const Inherited: BaseValueSource = BaseValueSource(5i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const DefaultStyleTrigger: BaseValueSource = BaseValueSource(6i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const TemplateTrigger: BaseValueSource = BaseValueSource(7i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const StyleTrigger: BaseValueSource = BaseValueSource(8i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ImplicitStyleReference: BaseValueSource = BaseValueSource(9i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ParentTemplate: BaseValueSource = BaseValueSource(10i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ParentTemplateTrigger: BaseValueSource = BaseValueSource(11i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const Animation: BaseValueSource = BaseValueSource(12i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const Coercion: BaseValueSource = BaseValueSource(13i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const BaseValueSourceVisualState: BaseValueSource = BaseValueSource(14i32);
 impl ::core::marker::Copy for BaseValueSource {}
 impl ::core::clone::Clone for BaseValueSource {
@@ -52,7 +36,6 @@ impl ::core::fmt::Debug for BaseValueSource {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub struct BitmapDescription {
     pub Width: u32,
@@ -93,7 +76,6 @@ impl ::core::default::Default for BitmapDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CollectionElementValue {
     pub Index: u32,
@@ -131,10 +113,8 @@ impl ::core::default::Default for CollectionElementValue {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const E_UNKNOWNTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144665560i32);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct EnumType {
     pub Name: super::super::super::Foundation::BSTR,
@@ -171,7 +151,6 @@ impl ::core::default::Default for EnumType {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct IBitmapData(::windows::core::IUnknown);
 impl IBitmapData {
@@ -182,13 +161,11 @@ impl IBitmapData {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStride)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetBitmapDescription(&self) -> ::windows::core::Result<BitmapDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBitmapDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<BitmapDescription>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi_Common\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetSourceBitmapDescription(&self) -> ::windows::core::Result<BitmapDescription> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -245,7 +222,6 @@ pub struct IBitmapData_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))]
     GetSourceBitmapDescription: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct IVisualTreeService(::windows::core::IUnknown);
 impl IVisualTreeService {
@@ -261,12 +237,10 @@ impl IVisualTreeService {
     {
         (::windows::core::Interface::vtable(self).UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEnums(&self, pcount: &mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEnums)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount), ::core::mem::transmute(ppenums)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateInstance<'a, P0, P1>(&self, typename: P0, value: P1) -> ::windows::core::Result<u64>
     where
@@ -276,7 +250,6 @@ impl IVisualTreeService {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateInstance)(::windows::core::Interface::as_raw(self), typename.into().abi(), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: &mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: &mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
@@ -291,7 +264,6 @@ impl IVisualTreeService {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: &mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
@@ -370,7 +342,6 @@ pub struct IVisualTreeService_Vtbl {
     pub RemoveChild: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64, index: u32) -> ::windows::core::HRESULT,
     pub ClearChildren: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parent: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct IVisualTreeService2(::windows::core::IUnknown);
 impl IVisualTreeService2 {
@@ -386,12 +357,10 @@ impl IVisualTreeService2 {
     {
         (::windows::core::Interface::vtable(self).base__.UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEnums(&self, pcount: &mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetEnums)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount), ::core::mem::transmute(ppenums)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateInstance<'a, P0, P1>(&self, typename: P0, value: P1) -> ::windows::core::Result<u64>
     where
@@ -401,7 +370,6 @@ impl IVisualTreeService2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateInstance)(::windows::core::Interface::as_raw(self), typename.into().abi(), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: &mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: &mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
@@ -416,7 +384,6 @@ impl IVisualTreeService2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: &mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
@@ -508,7 +475,6 @@ pub struct IVisualTreeService2_Vtbl {
     pub ReplaceResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourcedictionary: u64, key: u64, newvalue: u64) -> ::windows::core::HRESULT,
     pub RenderTargetBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, options: RenderTargetBitmapOptions, maxpixelwidth: u32, maxpixelheight: u32, ppbitmapdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct IVisualTreeService3(::windows::core::IUnknown);
 impl IVisualTreeService3 {
@@ -524,12 +490,10 @@ impl IVisualTreeService3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.UnadviseVisualTreeChange)(::windows::core::Interface::as_raw(self), pcallback.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEnums(&self, pcount: &mut u32, ppenums: *mut *mut EnumType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetEnums)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount), ::core::mem::transmute(ppenums)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateInstance<'a, P0, P1>(&self, typename: P0, value: P1) -> ::windows::core::Result<u64>
     where
@@ -539,7 +503,6 @@ impl IVisualTreeService3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.CreateInstance)(::windows::core::Interface::as_raw(self), typename.into().abi(), value.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPropertyValuesChain(&self, instancehandle: u64, psourcecount: &mut u32, pppropertysources: *mut *mut PropertyChainSource, ppropertycount: &mut u32, pppropertyvalues: *mut *mut PropertyChainValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetPropertyValuesChain)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(psourcecount), ::core::mem::transmute(pppropertysources), ::core::mem::transmute(ppropertycount), ::core::mem::transmute(pppropertyvalues)).ok()
@@ -554,7 +517,6 @@ impl IVisualTreeService3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetCollectionCount)(::windows::core::Interface::as_raw(self), instancehandle, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCollectionElements(&self, instancehandle: u64, startindex: u32, pelementcount: &mut u32, ppelementvalues: *mut *mut CollectionElementValue) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetCollectionElements)(::windows::core::Interface::as_raw(self), instancehandle, startindex, ::core::mem::transmute(pelementcount), ::core::mem::transmute(ppelementvalues)).ok()
@@ -592,7 +554,6 @@ impl IVisualTreeService3 {
     {
         (::windows::core::Interface::vtable(self).ResolveResource)(::windows::core::Interface::as_raw(self), resourcecontext, resourcename.into(), resourcetype, propertyindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDictionaryItem<'a, P0, P1>(&self, dictionaryhandle: u64, resourcename: P0, resourceisimplicitstyle: P1) -> ::windows::core::Result<u64>
     where
@@ -686,11 +647,9 @@ pub struct IVisualTreeService3_Vtbl {
     pub AddDictionaryItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcekey: u64, resourcehandle: u64) -> ::windows::core::HRESULT,
     pub RemoveDictionaryItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionaryhandle: u64, resourcekey: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct IVisualTreeServiceCallback(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnVisualTreeChange<'a, P0>(&self, relation: ParentChildRelation, element: P0, mutationtype: VisualMutationType) -> ::windows::core::Result<()>
     where
@@ -743,11 +702,9 @@ pub struct IVisualTreeServiceCallback_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnVisualTreeChange: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct IVisualTreeServiceCallback2(::windows::core::IUnknown);
 impl IVisualTreeServiceCallback2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnVisualTreeChange<'a, P0>(&self, relation: ParentChildRelation, element: P0, mutationtype: VisualMutationType) -> ::windows::core::Result<()>
     where
@@ -818,7 +775,6 @@ pub struct IVisualTreeServiceCallback2_Vtbl {
     pub base__: IVisualTreeServiceCallback_Vtbl,
     pub OnElementStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: u64, elementstate: VisualElementState, context: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct IXamlDiagnostics(::windows::core::IUnknown);
 impl IXamlDiagnostics {
@@ -845,7 +801,6 @@ impl IXamlDiagnostics {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetHandleFromIInspectable)(::windows::core::Interface::as_raw(self), pinstance.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HitTest(&self, rect: super::super::super::Foundation::RECT, pcount: &mut u32, ppinstancehandles: *mut *mut u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HitTest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rect), ::core::mem::transmute(pcount), ::core::mem::transmute(ppinstancehandles)).ok()
@@ -857,7 +812,6 @@ impl IXamlDiagnostics {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegisterInstance)(::windows::core::Interface::as_raw(self), pinstance.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInitializationData(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -918,7 +872,6 @@ pub struct IXamlDiagnostics_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetInitializationData: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[inline]
 pub unsafe fn InitializeXamlDiagnostic<'a, P0, P1, P2>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID) -> ::windows::core::Result<()>
 where
@@ -932,7 +885,6 @@ where
     }
     InitializeXamlDiagnostic(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[inline]
 pub unsafe fn InitializeXamlDiagnosticsEx<'a, P0, P1, P2, P3>(endpointname: P0, pid: u32, wszdllxamldiagnostics: P1, wsztapdllname: P2, tapclsid: ::windows::core::GUID, wszinitializationdata: P3) -> ::windows::core::Result<()>
 where
@@ -947,7 +899,6 @@ where
     }
     InitializeXamlDiagnosticsEx(endpointname.into(), pid, wszdllxamldiagnostics.into(), wsztapdllname.into(), ::core::mem::transmute(tapclsid), wszinitializationdata.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MetadataBit(pub i32);
@@ -981,7 +932,6 @@ impl ::core::fmt::Debug for MetadataBit {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub struct ParentChildRelation {
     pub Parent: u64,
     pub Child: u64,
@@ -1013,7 +963,6 @@ impl ::core::default::Default for ParentChildRelation {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PropertyChainSource {
     pub Handle: u64,
@@ -1053,7 +1002,6 @@ impl ::core::default::Default for PropertyChainSource {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PropertyChainValue {
     pub Index: u32,
@@ -1108,13 +1056,10 @@ impl ::core::default::Default for PropertyChainValue {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RenderTargetBitmapOptions(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const RenderTarget: RenderTargetBitmapOptions = RenderTargetBitmapOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const RenderTargetAndChildren: RenderTargetBitmapOptions = RenderTargetBitmapOptions(1i32);
 impl ::core::marker::Copy for RenderTargetBitmapOptions {}
 impl ::core::clone::Clone for RenderTargetBitmapOptions {
@@ -1135,13 +1080,10 @@ impl ::core::fmt::Debug for RenderTargetBitmapOptions {
         f.debug_tuple("RenderTargetBitmapOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ResourceType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ResourceTypeStatic: ResourceType = ResourceType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ResourceTypeTheme: ResourceType = ResourceType(1i32);
 impl ::core::marker::Copy for ResourceType {}
 impl ::core::clone::Clone for ResourceType {
@@ -1163,7 +1105,6 @@ impl ::core::fmt::Debug for ResourceType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SourceInfo {
     pub FileName: super::super::super::Foundation::BSTR,
@@ -1209,7 +1150,6 @@ impl ::core::default::Default for SourceInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VisualElement {
     pub Handle: u64,
@@ -1248,15 +1188,11 @@ impl ::core::default::Default for VisualElement {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualElementState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ErrorResolved: VisualElementState = VisualElementState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ErrorResourceNotFound: VisualElementState = VisualElementState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const ErrorInvalidResource: VisualElementState = VisualElementState(2i32);
 impl ::core::marker::Copy for VisualElementState {}
 impl ::core::clone::Clone for VisualElementState {
@@ -1277,13 +1213,10 @@ impl ::core::fmt::Debug for VisualElementState {
         f.debug_tuple("VisualElementState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VisualMutationType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const Add: VisualMutationType = VisualMutationType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
 pub const Remove: VisualMutationType = VisualMutationType(1i32);
 impl ::core::marker::Copy for VisualMutationType {}
 impl ::core::clone::Clone for VisualMutationType {

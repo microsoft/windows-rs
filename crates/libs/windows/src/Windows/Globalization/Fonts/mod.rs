@@ -60,7 +60,6 @@ pub struct ILanguageFontGroupFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateLanguageFontGroup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languagetag: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_Fonts\"`*"]
 #[repr(transparent)]
 pub struct LanguageFont(::windows::core::IUnknown);
 impl LanguageFont {
@@ -71,7 +70,6 @@ impl LanguageFont {
             (::windows::core::Interface::vtable(this).FontFamily)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Text\"`*"]
     #[cfg(feature = "UI_Text")]
     pub fn FontWeight(&self) -> ::windows::core::Result<super::super::UI::Text::FontWeight> {
         let this = self;
@@ -80,7 +78,6 @@ impl LanguageFont {
             (::windows::core::Interface::vtable(this).FontWeight)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Text::FontWeight>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Text\"`*"]
     #[cfg(feature = "UI_Text")]
     pub fn FontStretch(&self) -> ::windows::core::Result<super::super::UI::Text::FontStretch> {
         let this = self;
@@ -89,7 +86,6 @@ impl LanguageFont {
             (::windows::core::Interface::vtable(this).FontStretch)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Text::FontStretch>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Text\"`*"]
     #[cfg(feature = "UI_Text")]
     pub fn FontStyle(&self) -> ::windows::core::Result<super::super::UI::Text::FontStyle> {
         let this = self;
@@ -168,7 +164,6 @@ impl ::core::convert::From<&LanguageFont> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for LanguageFont {}
 unsafe impl ::core::marker::Sync for LanguageFont {}
-#[doc = "*Required features: `\"Globalization_Fonts\"`*"]
 #[repr(transparent)]
 pub struct LanguageFontGroup(::windows::core::IUnknown);
 impl LanguageFontGroup {

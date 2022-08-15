@@ -27,7 +27,6 @@ pub mod WebUI;
 #[cfg(feature = "UI_WindowManagement")]
 pub mod WindowManagement;
 #[repr(C)]
-#[doc = "*Required features: `\"UI\"`*"]
 pub struct Color {
     pub A: u8,
     pub R: u8,
@@ -66,7 +65,6 @@ impl ::core::default::Default for Color {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 pub struct ColorHelper(::windows::core::IUnknown);
 impl ColorHelper {
@@ -155,7 +153,6 @@ impl ::core::convert::From<&ColorHelper> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ColorHelper {}
 unsafe impl ::core::marker::Sync for ColorHelper {}
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 pub struct Colors(::windows::core::IUnknown);
 impl Colors {
@@ -1301,7 +1298,6 @@ unsafe impl ::windows::core::Interface for IUIContext {
 pub struct IUIContext_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
 }
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 pub struct UIContentRoot(::windows::core::IUnknown);
 impl UIContentRoot {
@@ -1375,7 +1371,6 @@ impl ::core::convert::From<&UIContentRoot> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for UIContentRoot {}
 unsafe impl ::core::marker::Sync for UIContentRoot {}
-#[doc = "*Required features: `\"UI\"`*"]
 #[repr(transparent)]
 pub struct UIContext(::windows::core::IUnknown);
 impl UIContext {}
@@ -1442,7 +1437,6 @@ impl ::core::convert::From<&UIContext> for &::windows::core::IInspectable {
 unsafe impl ::core::marker::Send for UIContext {}
 unsafe impl ::core::marker::Sync for UIContext {}
 #[repr(C)]
-#[doc = "*Required features: `\"UI\"`*"]
 pub struct WindowId {
     pub Value: u64,
 }

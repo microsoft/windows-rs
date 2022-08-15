@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DYNAMIC_TIME_ZONE_INFORMATION {
     pub Bias: i32,
@@ -44,7 +43,6 @@ impl ::core::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation: &mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32 {
@@ -54,7 +52,6 @@ pub unsafe fn EnumDynamicTimeZoneInformation(dwindex: u32, lptimezoneinformation
     }
     EnumDynamicTimeZoneInformation(dwindex, ::core::mem::transmute(lptimezoneinformation))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileTimeToSystemTime(lpfiletime: &super::super::Foundation::FILETIME, lpsystemtime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -64,7 +61,6 @@ pub unsafe fn FileTimeToSystemTime(lpfiletime: &super::super::Foundation::FILETI
     }
     FileTimeToSystemTime(::core::mem::transmute(lpfiletime), ::core::mem::transmute(lpsystemtime))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDynamicTimeZoneInformation(ptimezoneinformation: &mut DYNAMIC_TIME_ZONE_INFORMATION) -> u32 {
@@ -74,7 +70,6 @@ pub unsafe fn GetDynamicTimeZoneInformation(ptimezoneinformation: &mut DYNAMIC_T
     }
     GetDynamicTimeZoneInformation(::core::mem::transmute(ptimezoneinformation))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: &DYNAMIC_TIME_ZONE_INFORMATION, firstyear: &mut u32, lastyear: &mut u32) -> u32 {
@@ -84,7 +79,6 @@ pub unsafe fn GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation:
     }
     GetDynamicTimeZoneInformationEffectiveYears(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(firstyear), ::core::mem::transmute(lastyear))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: &mut TIME_ZONE_INFORMATION) -> u32 {
@@ -94,7 +88,6 @@ pub unsafe fn GetTimeZoneInformation(lptimezoneinformation: &mut TIME_ZONE_INFOR
     }
     GetTimeZoneInformation(::core::mem::transmute(lptimezoneinformation))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: ::core::option::Option<&DYNAMIC_TIME_ZONE_INFORMATION>, ptzi: &mut TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL {
@@ -104,7 +97,6 @@ pub unsafe fn GetTimeZoneInformationForYear(wyear: u16, pdtzi: ::core::option::O
     }
     GetTimeZoneInformationForYear(wyear, ::core::mem::transmute(pdtzi), ::core::mem::transmute(ptzi))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalFileTimeToLocalSystemTime(timezoneinformation: ::core::option::Option<&TIME_ZONE_INFORMATION>, localfiletime: &super::super::Foundation::FILETIME, localsystemtime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -114,7 +106,6 @@ pub unsafe fn LocalFileTimeToLocalSystemTime(timezoneinformation: ::core::option
     }
     LocalFileTimeToLocalSystemTime(::core::mem::transmute(timezoneinformation), ::core::mem::transmute(localfiletime), ::core::mem::transmute(localsystemtime))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalSystemTimeToLocalFileTime(timezoneinformation: ::core::option::Option<&TIME_ZONE_INFORMATION>, localsystemtime: &super::super::Foundation::SYSTEMTIME, localfiletime: &mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -124,7 +115,6 @@ pub unsafe fn LocalSystemTimeToLocalFileTime(timezoneinformation: ::core::option
     }
     LocalSystemTimeToLocalFileTime(::core::mem::transmute(timezoneinformation), ::core::mem::transmute(localsystemtime), ::core::mem::transmute(localfiletime))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDynamicTimeZoneInformation(lptimezoneinformation: &DYNAMIC_TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL {
@@ -134,7 +124,6 @@ pub unsafe fn SetDynamicTimeZoneInformation(lptimezoneinformation: &DYNAMIC_TIME
     }
     SetDynamicTimeZoneInformation(::core::mem::transmute(lptimezoneinformation))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTimeZoneInformation(lptimezoneinformation: &TIME_ZONE_INFORMATION) -> super::super::Foundation::BOOL {
@@ -144,7 +133,6 @@ pub unsafe fn SetTimeZoneInformation(lptimezoneinformation: &TIME_ZONE_INFORMATI
     }
     SetTimeZoneInformation(::core::mem::transmute(lptimezoneinformation))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemTimeToFileTime(lpsystemtime: &super::super::Foundation::SYSTEMTIME, lpfiletime: &mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -154,7 +142,6 @@ pub unsafe fn SystemTimeToFileTime(lpsystemtime: &super::super::Foundation::SYST
     }
     SystemTimeToFileTime(::core::mem::transmute(lpsystemtime), ::core::mem::transmute(lpfiletime))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation: ::core::option::Option<&TIME_ZONE_INFORMATION>, lpuniversaltime: &super::super::Foundation::SYSTEMTIME, lplocaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -164,7 +151,6 @@ pub unsafe fn SystemTimeToTzSpecificLocalTime(lptimezoneinformation: ::core::opt
     }
     SystemTimeToTzSpecificLocalTime(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lpuniversaltime), ::core::mem::transmute(lplocaltime))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: ::core::option::Option<&DYNAMIC_TIME_ZONE_INFORMATION>, lpuniversaltime: &super::super::Foundation::SYSTEMTIME, lplocaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -175,7 +161,6 @@ pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: ::core::o
     SystemTimeToTzSpecificLocalTimeEx(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lpuniversaltime), ::core::mem::transmute(lplocaltime))
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TIME_ZONE_INFORMATION {
     pub Bias: i32,
@@ -218,15 +203,10 @@ impl ::core::default::Default for TIME_ZONE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_Authenticated: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_Hardware: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_IPv6: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const TSF_SignatureAuthenticated: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: ::core::option::Option<&TIME_ZONE_INFORMATION>, lplocaltime: &super::super::Foundation::SYSTEMTIME, lpuniversaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -236,7 +216,6 @@ pub unsafe fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: ::core::opt
     }
     TzSpecificLocalTimeToSystemTime(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: ::core::option::Option<&DYNAMIC_TIME_ZONE_INFORMATION>, lplocaltime: &super::super::Foundation::SYSTEMTIME, lpuniversaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
@@ -246,17 +225,11 @@ pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: ::core::o
     }
     TzSpecificLocalTimeToSystemTimeEx(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime))
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const wszW32TimeRegKeyPolicyTimeProviders: &str = "Software\\Policies\\Microsoft\\W32Time\\TimeProviders";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const wszW32TimeRegKeyTimeProviders: &str = "System\\CurrentControlSet\\Services\\W32Time\\TimeProviders";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const wszW32TimeRegValueDllName: &str = "DllName";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const wszW32TimeRegValueEnabled: &str = "Enabled";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const wszW32TimeRegValueInputProvider: &str = "InputProvider";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
 pub const wszW32TimeRegValueMetaDataProvider: &str = "MetaDataProvider";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

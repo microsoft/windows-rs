@@ -8,7 +8,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
     let where_clause = gen.where_clause(&signature.params);
     let mut cfg = gen.reader.signature_cfg(&signature);
     cfg.add_feature(gen.reader.type_def_namespace(def));
-    let doc = gen.cfg_method_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     if kind == InterfaceKind::None {
@@ -30,7 +29,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<T> #where_clause {
                     let mut result__ = ::core::option::Option::None;
@@ -45,7 +43,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
@@ -60,7 +57,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let return_type_tokens = gen.type_name(&return_type);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -74,7 +70,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let params = gen.win32_params(&signature.params, kind);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> ::windows::core::Result<()> #where_clause {
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args).ok()
@@ -87,7 +82,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let return_type = gen.type_name(&signature.return_type.unwrap());
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) -> #return_type #where_clause {
                     let mut result__: #return_type = :: core::mem::zeroed();
@@ -102,7 +96,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let return_type = gen.return_sig(&signature);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #return_type #where_clause {
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)
@@ -114,7 +107,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
             let params = gen.win32_params(&signature.params, kind);
 
             quote! {
-                #doc
                 #features
                 pub unsafe fn #name<#generics>(&self, #params) #where_clause {
                     (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args)

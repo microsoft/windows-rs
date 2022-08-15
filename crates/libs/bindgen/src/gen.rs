@@ -341,49 +341,6 @@ impl<'a> Gen<'a> {
     //
     // Cfg
     //
-
-    /// Generates doc comments for types, free functions, and constants.
-    pub(crate) fn cfg_doc(&self, cfg: &Cfg) -> TokenStream {
-        if !self.doc {
-            quote! {}
-        } else {
-            let mut tokens = format!(r#"`\"{}\"`"#, to_feature(self.namespace));
-
-            let mut features = cfg_features(cfg, self.namespace);
-            if self.windows_extern {
-                features.retain(|f| !f.starts_with("Windows."));
-            }
-            for features in features {
-                write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
-            }
-
-            format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
-        }
-    }
-
-    /// Generates doc comments for member functions (methods) and avoids redundantly declaring the
-    /// enclosing module feature required by the method's type.
-    pub(crate) fn cfg_method_doc(&self, cfg: &Cfg) -> TokenStream {
-        if !self.doc {
-            quote! {}
-        } else {
-            let mut features = cfg_features(cfg, self.namespace);
-            if features.is_empty() {
-                quote! {}
-            } else {
-                if self.windows_extern {
-                    features.retain(|f| !f.starts_with("Windows."));
-                }
-                let mut tokens = String::new();
-                for features in features {
-                    write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
-                }
-                tokens.truncate(tokens.len() - 2);
-                format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
-            }
-        }
-    }
-
     pub(crate) fn cfg_features(&self, cfg: &Cfg) -> TokenStream {
         if !self.cfg {
             quote! {}

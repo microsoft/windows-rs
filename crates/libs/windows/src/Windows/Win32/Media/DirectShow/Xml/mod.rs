@@ -1,9 +1,7 @@
 pub const CLSID_XMLGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb05961_5fbf_11d2_a521_44df07c10000);
-#[doc = "*Required features: `\"Win32_Media_DirectShow_Xml\"`*"]
 #[repr(transparent)]
 pub struct IXMLGraphBuilder(::windows::core::IUnknown);
 impl IXMLGraphBuilder {
-    #[doc = "*Required features: `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn BuildFromXML<'a, P0, P1>(&self, pgraph: P0, pxml: P1) -> ::windows::core::Result<()>
     where
@@ -12,7 +10,6 @@ impl IXMLGraphBuilder {
     {
         (::windows::core::Interface::vtable(self).BuildFromXML)(::windows::core::Interface::as_raw(self), pgraph.into().abi(), pxml.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SaveToXML<'a, P0>(&self, pgraph: P0, pbstrxml: &mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()>
     where

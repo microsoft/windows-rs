@@ -30,17 +30,14 @@ pub struct IPalmRejectionDelayZonePreviewStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "UI_Composition")))]
     CreateForVisualWithViewportClip: usize,
 }
-#[doc = "*Required features: `\"UI_Input_Inking_Preview\"`*"]
 #[repr(transparent)]
 pub struct PalmRejectionDelayZonePreview(::windows::core::IUnknown);
 impl PalmRejectionDelayZonePreview {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Composition\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub fn CreateForVisual<'a, P0>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
     where
@@ -51,7 +48,6 @@ impl PalmRejectionDelayZonePreview {
             (::windows::core::Interface::vtable(this).CreateForVisual)(::windows::core::Interface::as_raw(this), inputpanelvisual.into().abi(), inputpanelrect, result__.as_mut_ptr()).from_abi::<PalmRejectionDelayZonePreview>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Composition\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub fn CreateForVisualWithViewportClip<'a, P0, P1>(inputpanelvisual: P0, inputpanelrect: super::super::super::super::Foundation::Rect, viewportvisual: P1, viewportrect: super::super::super::super::Foundation::Rect) -> ::windows::core::Result<PalmRejectionDelayZonePreview>
     where

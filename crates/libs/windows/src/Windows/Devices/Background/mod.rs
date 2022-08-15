@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_Background\"`*"]
 #[repr(transparent)]
 pub struct DeviceServicingDetails(::windows::core::IUnknown);
 impl DeviceServicingDetails {
@@ -16,7 +15,6 @@ impl DeviceServicingDetails {
             (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpectedDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -88,7 +86,6 @@ impl ::core::convert::From<&DeviceServicingDetails> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for DeviceServicingDetails {}
 unsafe impl ::core::marker::Sync for DeviceServicingDetails {}
-#[doc = "*Required features: `\"Devices_Background\"`*"]
 #[repr(transparent)]
 pub struct DeviceUseDetails(::windows::core::IUnknown);
 impl DeviceUseDetails {

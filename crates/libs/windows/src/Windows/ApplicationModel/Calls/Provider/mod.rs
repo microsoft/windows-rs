@@ -94,7 +94,6 @@ pub struct IPhoneCallOriginManagerStatics3_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallOrigin(::windows::core::IUnknown);
 impl PhoneCallOrigin {
@@ -149,7 +148,6 @@ impl PhoneCallOrigin {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn DisplayPicture(&self) -> ::windows::core::Result<super::super::super::Storage::StorageFile> {
         let this = &::windows::core::Interface::cast::<IPhoneCallOrigin3>(self)?;
@@ -158,7 +156,6 @@ impl PhoneCallOrigin {
             (::windows::core::Interface::vtable(this).DisplayPicture)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::StorageFile>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn SetDisplayPicture<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -230,7 +227,6 @@ impl ::core::convert::From<&PhoneCallOrigin> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for PhoneCallOrigin {}
 unsafe impl ::core::marker::Sync for PhoneCallOrigin {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
 pub struct PhoneCallOriginManager;
 impl PhoneCallOriginManager {
     pub fn IsCurrentAppActiveCallOriginApp() -> ::windows::core::Result<bool> {
@@ -248,7 +244,6 @@ impl PhoneCallOriginManager {
     {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetCallOrigin)(::windows::core::Interface::as_raw(this), requestid, callorigin.into().abi()).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSetAsActiveCallOriginAppAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         Self::IPhoneCallOriginManagerStatics2(|this| unsafe {

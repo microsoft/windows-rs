@@ -1,12 +1,7 @@
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const DISPID_EVENT_ON_CONTEXT_DATA: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const DISPID_EVENT_ON_SEND_ERROR: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const DISPID_EVENT_ON_STATE_CHANGED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const DISPID_EVENT_ON_TERMINATION: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct DRendezvousSessionEvents(::windows::core::IUnknown);
@@ -79,7 +74,6 @@ unsafe impl ::windows::core::Interface for DRendezvousSessionEvents {
 pub struct DRendezvousSessionEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
 pub struct IRendezvousApplication(::windows::core::IUnknown);
 impl IRendezvousApplication {
@@ -131,7 +125,6 @@ pub struct IRendezvousApplication_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub SetRendezvousSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendezvoussession: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
 pub struct IRendezvousSession(::windows::core::IUnknown);
 impl IRendezvousSession {
@@ -139,7 +132,6 @@ impl IRendezvousSession {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<RENDEZVOUS_SESSION_STATE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoteUser(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -149,7 +141,6 @@ impl IRendezvousSession {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendContextData<'a, P0>(&self, bstrdata: P0) -> ::windows::core::Result<()>
     where
@@ -157,7 +148,6 @@ impl IRendezvousSession {
     {
         (::windows::core::Interface::vtable(self).SendContextData)(::windows::core::Interface::as_raw(self), bstrdata.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Terminate<'a, P0>(&self, hr: ::windows::core::HRESULT, bstrappdata: P0) -> ::windows::core::Result<()>
     where
@@ -220,21 +210,14 @@ pub struct IRendezvousSession_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Terminate: usize,
 }
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSF_NONE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSF_INVITER: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSF_INVITEE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSF_ORIGINAL_INVITER: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSF_REMOTE_LEGACYSESSION: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSF_REMOTE_WIN7SESSION: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(16i32);
 impl ::core::marker::Copy for RENDEZVOUS_SESSION_FLAGS {}
 impl ::core::clone::Clone for RENDEZVOUS_SESSION_FLAGS {
@@ -255,25 +238,16 @@ impl ::core::fmt::Debug for RENDEZVOUS_SESSION_FLAGS {
         f.debug_tuple("RENDEZVOUS_SESSION_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RENDEZVOUS_SESSION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_READY: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_INVITATION: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_ACCEPTED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_CONNECTED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_CANCELLED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_DECLINED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteAssistance\"`*"]
 pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(7i32);
 impl ::core::marker::Copy for RENDEZVOUS_SESSION_STATE {}
 impl ::core::clone::Clone for RENDEZVOUS_SESSION_STATE {

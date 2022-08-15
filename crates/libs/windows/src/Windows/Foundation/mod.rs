@@ -6,7 +6,6 @@ pub mod Diagnostics;
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct AsyncActionCompletedHandler(pub ::windows::core::IUnknown);
 impl AsyncActionCompletedHandler {
@@ -94,7 +93,6 @@ pub struct AsyncActionCompletedHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct AsyncActionProgressHandler<TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TProgress>)
 where
@@ -193,7 +191,6 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, progressinfo: <TProgress as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct AsyncActionWithProgressCompletedHandler<TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TProgress>)
 where
@@ -291,7 +288,6 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct AsyncOperationCompletedHandler<TResult>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TResult>)
 where
@@ -389,7 +385,6 @@ where
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, asyncinfo: *mut ::core::ffi::c_void, asyncstatus: AsyncStatus) -> ::windows::core::HRESULT,
     pub TResult: ::core::marker::PhantomData<TResult>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct AsyncOperationProgressHandler<TResult, TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
 where
@@ -493,7 +488,6 @@ where
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
 where
@@ -596,7 +590,6 @@ where
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AsyncStatus(pub i32);
@@ -633,7 +626,6 @@ unsafe impl ::windows::core::RuntimeType for AsyncStatus {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -669,7 +661,6 @@ impl ::core::default::Default for DateTime {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct Deferral(::windows::core::IUnknown);
 impl Deferral {
@@ -777,7 +768,6 @@ impl<'a> ::core::convert::TryFrom<&Deferral> for ::windows::core::InParam<'a, IC
 }
 unsafe impl ::core::marker::Send for Deferral {}
 unsafe impl ::core::marker::Sync for Deferral {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct DeferralCompletedHandler(pub ::windows::core::IUnknown);
 impl DeferralCompletedHandler {
@@ -861,7 +851,6 @@ pub struct DeferralCompletedHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct EventHandler<T>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -960,7 +949,6 @@ where
     pub T: ::core::marker::PhantomData<T>,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct EventRegistrationToken {
     pub Value: i64,
 }
@@ -996,7 +984,6 @@ impl ::core::default::Default for EventRegistrationToken {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct GuidHelper;
 impl GuidHelper {
     pub fn CreateNewGuid() -> ::windows::core::Result<::windows::core::GUID> {
@@ -1026,7 +1013,6 @@ impl GuidHelper {
 impl ::windows::core::RuntimeName for GuidHelper {
     const NAME: &'static str = "Windows.Foundation.GuidHelper";
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IAsyncAction(::windows::core::IUnknown);
 impl IAsyncAction {
@@ -1193,7 +1179,6 @@ pub struct IAsyncAction_Vtbl {
     pub Completed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IAsyncActionWithProgress<TProgress>(::windows::core::IUnknown, ::core::marker::PhantomData<TProgress>)
 where
@@ -1382,7 +1367,6 @@ where
     pub GetResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IAsyncInfo(::windows::core::IUnknown);
 impl IAsyncInfo {
@@ -1483,7 +1467,6 @@ pub struct IAsyncInfo_Vtbl {
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IAsyncOperation<TResult>(::windows::core::IUnknown, ::core::marker::PhantomData<TResult>)
 where
@@ -1659,7 +1642,6 @@ where
     pub GetResults: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut <TResult as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub TResult: ::core::marker::PhantomData<TResult>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IAsyncOperationWithProgress<TResult, TProgress>(::windows::core::IUnknown, ::core::marker::PhantomData<TResult>, ::core::marker::PhantomData<TProgress>)
 where
@@ -1854,7 +1836,6 @@ where
     pub TResult: ::core::marker::PhantomData<TResult>,
     pub TProgress: ::core::marker::PhantomData<TProgress>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IClosable(::windows::core::IUnknown);
 impl IClosable {
@@ -1952,7 +1933,6 @@ pub struct IDeferralFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IGetActivationFactory(::windows::core::IUnknown);
 impl IGetActivationFactory {
@@ -2042,7 +2022,6 @@ pub struct IGuidHelperStatics_Vtbl {
     pub Empty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub Equals: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: &::windows::core::GUID, value: &::windows::core::GUID, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IMemoryBuffer(::windows::core::IUnknown);
 impl IMemoryBuffer {
@@ -2153,7 +2132,6 @@ pub struct IMemoryBufferFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capacity: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IMemoryBufferReference(::windows::core::IUnknown);
 impl IMemoryBufferReference {
@@ -2267,7 +2245,6 @@ pub struct IMemoryBufferReference_Vtbl {
     pub Closed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut EventRegistrationToken) -> ::windows::core::HRESULT,
     pub RemoveClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: EventRegistrationToken) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IPropertyValue(::windows::core::IUnknown);
 impl IPropertyValue {
@@ -2640,7 +2617,6 @@ pub struct IPropertyValueStatics_Vtbl {
     pub CreateSizeArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateRectArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IReference<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -2956,7 +2932,6 @@ where
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IReferenceArray<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -3272,7 +3247,6 @@ where
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IStringable(::windows::core::IUnknown);
 impl IStringable {
@@ -3418,7 +3392,6 @@ pub struct IUriRuntimeClassWithAbsoluteCanonicalUri_Vtbl {
     pub AbsoluteCanonicalUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DisplayIri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct IWwwFormUrlDecoderEntry(::windows::core::IUnknown);
 impl IWwwFormUrlDecoderEntry {
@@ -3527,7 +3500,6 @@ pub struct IWwwFormUrlDecoderRuntimeClassFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateWwwFormUrlDecoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, query: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct MemoryBuffer(::windows::core::IUnknown);
 impl MemoryBuffer {
@@ -3655,7 +3627,6 @@ impl<'a> ::core::convert::TryFrom<&MemoryBuffer> for ::windows::core::InParam<'a
 unsafe impl ::core::marker::Send for MemoryBuffer {}
 unsafe impl ::core::marker::Sync for MemoryBuffer {}
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct Point {
     pub X: f32,
     pub Y: f32,
@@ -3692,7 +3663,6 @@ impl ::core::default::Default for Point {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PropertyType(pub i32);
@@ -3765,7 +3735,6 @@ unsafe impl ::windows::core::RuntimeType for PropertyType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct PropertyValue;
 impl PropertyValue {
     pub fn CreateEmpty() -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -4015,7 +3984,6 @@ impl ::windows::core::RuntimeName for PropertyValue {
     const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,
@@ -4055,7 +4023,6 @@ impl ::core::default::Default for Rect {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct Size {
     pub Width: f32,
     pub Height: f32,
@@ -4093,7 +4060,6 @@ impl ::core::default::Default for Size {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Foundation\"`*"]
 pub struct TimeSpan {
     pub Duration: i64,
 }
@@ -4139,7 +4105,6 @@ impl ::core::convert::From<TimeSpan> for ::core::time::Duration {
         ::core::time::Duration::from_nanos((value.Duration * 100) as u64)
     }
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct TypedEventHandler<TSender, TResult>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<TSender>, ::core::marker::PhantomData<TResult>)
 where
@@ -4242,7 +4207,6 @@ where
     pub TSender: ::core::marker::PhantomData<TSender>,
     pub TResult: ::core::marker::PhantomData<TResult>,
 }
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct Uri(::windows::core::IUnknown);
 impl Uri {
@@ -4505,11 +4469,9 @@ impl<'a> ::core::convert::TryFrom<&Uri> for ::windows::core::InParam<'a, IString
 }
 unsafe impl ::core::marker::Send for Uri {}
 unsafe impl ::core::marker::Sync for Uri {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct WwwFormUrlDecoder(::windows::core::IUnknown);
 impl WwwFormUrlDecoder {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &::windows::core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4518,7 +4480,6 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Collections::IIterator<IWwwFormUrlDecoderEntry>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<IWwwFormUrlDecoderEntry> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4527,7 +4488,6 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<IWwwFormUrlDecoderEntry>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4536,7 +4496,6 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0, E0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -4549,7 +4508,6 @@ impl WwwFormUrlDecoder {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IWwwFormUrlDecoderEntry>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
@@ -4699,7 +4657,6 @@ impl<'a> ::core::convert::TryFrom<&WwwFormUrlDecoder> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for WwwFormUrlDecoder {}
 unsafe impl ::core::marker::Sync for WwwFormUrlDecoder {}
-#[doc = "*Required features: `\"Foundation\"`*"]
 #[repr(transparent)]
 pub struct WwwFormUrlDecoderEntry(::windows::core::IUnknown);
 impl WwwFormUrlDecoderEntry {

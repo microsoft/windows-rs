@@ -1,10 +1,8 @@
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaActionableInsights(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl CortanaActionableInsights {
-    #[doc = "*Required features: `\"System\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "System", feature = "deprecated"))]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
@@ -13,7 +11,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn IsAvailableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -22,7 +19,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).IsAvailableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn ShowInsightsForImageAsync<'a, P0, E0>(&self, imagestream: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -35,7 +31,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).ShowInsightsForImageAsync)(::windows::core::Interface::as_raw(this), imagestream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
     pub fn ShowInsightsForImageWithOptionsAsync<'a, P0, E0, P1>(&self, imagestream: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -49,7 +44,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).ShowInsightsForImageWithOptionsAsync)(::windows::core::Interface::as_raw(this), imagestream.try_into().map_err(|e| e.into())?.abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ShowInsightsForTextAsync(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -58,7 +52,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).ShowInsightsForTextAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ShowInsightsForTextWithOptionsAsync<'a, P0>(&self, text: &::windows::core::HSTRING, options: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -70,7 +63,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).ShowInsightsForTextWithOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
     pub fn ShowInsightsAsync<'a, P0>(&self, datapackage: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -82,7 +74,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).ShowInsightsAsync)(::windows::core::Interface::as_raw(this), datapackage.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
     pub fn ShowInsightsWithOptionsAsync<'a, P0, P1>(&self, datapackage: P0, options: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -95,7 +86,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).ShowInsightsWithOptionsAsync)(::windows::core::Interface::as_raw(this), datapackage.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn GetDefault() -> ::windows::core::Result<CortanaActionableInsights> {
         Self::ICortanaActionableInsightsStatics(|this| unsafe {
@@ -103,7 +93,6 @@ impl CortanaActionableInsights {
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CortanaActionableInsights>(result__)
         })
     }
-    #[doc = "*Required features: `\"System\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "System", feature = "deprecated"))]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<CortanaActionableInsights>
     where
@@ -198,7 +187,6 @@ impl ::core::convert::From<&CortanaActionableInsights> for &::windows::core::IIn
 unsafe impl ::core::marker::Send for CortanaActionableInsights {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaActionableInsights {}
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaActionableInsightsOptions(::windows::core::IUnknown);
@@ -211,7 +199,6 @@ impl CortanaActionableInsightsOptions {
         static SHARED: ::windows::core::FactoryCache<CortanaActionableInsightsOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ContentSourceWebLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -220,7 +207,6 @@ impl CortanaActionableInsightsOptions {
             (::windows::core::Interface::vtable(this).ContentSourceWebLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetContentSourceWebLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -229,7 +215,6 @@ impl CortanaActionableInsightsOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentSourceWebLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SurroundingText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -238,7 +223,6 @@ impl CortanaActionableInsightsOptions {
             (::windows::core::Interface::vtable(this).SurroundingText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetSurroundingText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
@@ -322,7 +306,6 @@ impl ::core::convert::From<&CortanaActionableInsightsOptions> for &::windows::co
 unsafe impl ::core::marker::Send for CortanaActionableInsightsOptions {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaActionableInsightsOptions {}
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -373,7 +356,6 @@ unsafe impl ::windows::core::RuntimeType for CortanaPermission {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -416,13 +398,11 @@ unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaPermissionsManager(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl CortanaPermissionsManager {
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -431,7 +411,6 @@ impl CortanaPermissionsManager {
             (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ArePermissionsGrantedAsync<'a, P0, E0>(&self, permissions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -444,7 +423,6 @@ impl CortanaPermissionsManager {
             (::windows::core::Interface::vtable(this).ArePermissionsGrantedAsync)(::windows::core::Interface::as_raw(this), permissions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GrantPermissionsAsync<'a, P0, E0>(&self, permissions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>
     where
@@ -457,7 +435,6 @@ impl CortanaPermissionsManager {
             (::windows::core::Interface::vtable(this).GrantPermissionsAsync)(::windows::core::Interface::as_raw(this), permissions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RevokePermissionsAsync<'a, P0, E0>(&self, permissions: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>
     where
@@ -470,7 +447,6 @@ impl CortanaPermissionsManager {
             (::windows::core::Interface::vtable(this).RevokePermissionsAsync)(::windows::core::Interface::as_raw(this), permissions.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CortanaPermissionsChangeResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn GetDefault() -> ::windows::core::Result<CortanaPermissionsManager> {
         Self::ICortanaPermissionsManagerStatics(|this| unsafe {
@@ -562,13 +538,11 @@ impl ::core::convert::From<&CortanaPermissionsManager> for &::windows::core::IIn
 unsafe impl ::core::marker::Send for CortanaPermissionsManager {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaPermissionsManager {}
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct CortanaSettings(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl CortanaSettings {
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn HasUserConsentToVoiceActivation(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -577,7 +551,6 @@ impl CortanaSettings {
             (::windows::core::Interface::vtable(this).HasUserConsentToVoiceActivation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsVoiceActivationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -586,13 +559,11 @@ impl CortanaSettings {
             (::windows::core::Interface::vtable(this).IsVoiceActivationEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetIsVoiceActivationEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVoiceActivationEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::ICortanaSettingsStatics(|this| unsafe {
@@ -600,7 +571,6 @@ impl CortanaSettings {
             (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn GetDefault() -> ::windows::core::Result<CortanaSettings> {
         Self::ICortanaSettingsStatics(|this| unsafe {

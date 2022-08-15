@@ -27,7 +27,6 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
     let mut method_names = MethodNames::new();
 
     let cfg = gen.reader.type_def_cfg(def, &[]);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     for interface in &interfaces {
@@ -94,7 +93,6 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         };
 
         let mut tokens = quote! {
-            #doc
             #features
             #[repr(transparent)]
             pub struct #name(::windows::core::IUnknown);
@@ -117,7 +115,6 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens
     } else {
         let mut tokens = quote! {
-            #doc
             #features
             pub struct #name;
             #features

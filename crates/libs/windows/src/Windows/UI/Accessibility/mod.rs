@@ -36,11 +36,9 @@ pub struct IScreenReaderService_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveScreenReaderPositionChanged: usize,
 }
-#[doc = "*Required features: `\"UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct ScreenReaderPositionChangedEventArgs(::windows::core::IUnknown);
 impl ScreenReaderPositionChangedEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenPositionInRawPixels(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -119,7 +117,6 @@ impl ::core::convert::From<&ScreenReaderPositionChangedEventArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for ScreenReaderPositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ScreenReaderPositionChangedEventArgs {}
-#[doc = "*Required features: `\"UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct ScreenReaderService(::windows::core::IUnknown);
 impl ScreenReaderService {
@@ -137,7 +134,6 @@ impl ScreenReaderService {
             (::windows::core::Interface::vtable(this).CurrentScreenReaderPosition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ScreenReaderPositionChangedEventArgs>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenReaderPositionChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -149,7 +145,6 @@ impl ScreenReaderService {
             (::windows::core::Interface::vtable(this).ScreenReaderPositionChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveScreenReaderPositionChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;

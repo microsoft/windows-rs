@@ -92,7 +92,6 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
     pub VoicemailCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub OperatorMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneCallBlockedReason(pub i32);
@@ -127,7 +126,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallBlockedTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallBlockedTriggerDetails {
@@ -215,7 +213,6 @@ impl ::core::convert::From<&PhoneCallBlockedTriggerDetails> for &::windows::core
 }
 unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallOriginDataRequestTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallOriginDataRequestTriggerDetails {
@@ -296,7 +293,6 @@ impl ::core::convert::From<&PhoneCallOriginDataRequestTriggerDetails> for &::win
 }
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
@@ -332,7 +328,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(::windows::core::IUnknown);
 impl PhoneIncomingCallDismissedTriggerDetails {
@@ -357,7 +352,6 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DismissalTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -443,7 +437,6 @@ impl ::core::convert::From<&PhoneIncomingCallDismissedTriggerDetails> for &::win
 }
 unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallDismissedTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(::windows::core::IUnknown);
 impl PhoneIncomingCallNotificationTriggerDetails {
@@ -524,7 +517,6 @@ impl ::core::convert::From<&PhoneIncomingCallNotificationTriggerDetails> for &::
 }
 unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneLineChangeKind(pub i32);
@@ -559,7 +551,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineChangeKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 pub struct PhoneLineChangedTriggerDetails(::windows::core::IUnknown);
 impl PhoneLineChangedTriggerDetails {
@@ -647,7 +638,6 @@ impl ::core::convert::From<&PhoneLineChangedTriggerDetails> for &::windows::core
 }
 unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneLineProperties(pub u32);
@@ -717,7 +707,6 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineProperties {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(::windows::core::IUnknown);
 impl PhoneNewVoicemailMessageTriggerDetails {
@@ -805,7 +794,6 @@ impl ::core::convert::From<&PhoneNewVoicemailMessageTriggerDetails> for &::windo
 }
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Calls_Background\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PhoneTriggerType(pub i32);

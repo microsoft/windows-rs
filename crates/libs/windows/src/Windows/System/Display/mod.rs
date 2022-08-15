@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"System_Display\"`*"]
 #[repr(transparent)]
 pub struct DisplayRequest(::windows::core::IUnknown);
 impl DisplayRequest {

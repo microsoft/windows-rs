@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 pub struct ApiInformation;
 impl ApiInformation {
     pub fn IsTypePresent(typename: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
@@ -70,7 +69,6 @@ impl ApiInformation {
 impl ::windows::core::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AttributeTargets(pub u32);
@@ -143,7 +141,6 @@ unsafe impl ::windows::core::RuntimeType for AttributeTargets {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionType(pub i32);
@@ -177,7 +174,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DeprecationType(pub i32);
@@ -211,7 +207,6 @@ unsafe impl ::windows::core::RuntimeType for DeprecationType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FeatureStage(pub i32);
@@ -247,7 +242,6 @@ unsafe impl ::windows::core::RuntimeType for FeatureStage {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GCPressureAmount(pub i32);
@@ -304,7 +298,6 @@ pub struct IApiInformationStatics_Vtbl {
     pub IsApiContractPresentByMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
     pub IsApiContractPresentByMajorAndMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contractname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MarshalingType(pub i32);
@@ -340,7 +333,6 @@ unsafe impl ::windows::core::RuntimeType for MarshalingType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Platform(pub i32);
@@ -374,7 +366,6 @@ unsafe impl ::windows::core::RuntimeType for Platform {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation_Metadata\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ThreadingModel(pub i32);

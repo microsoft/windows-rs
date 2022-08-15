@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct EyesPose(::windows::core::IUnknown);
 impl EyesPose {
@@ -9,7 +8,6 @@ impl EyesPose {
             (::windows::core::Interface::vtable(this).IsCalibrationValid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn Gaze(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>> {
         let this = self;
@@ -31,7 +29,6 @@ impl EyesPose {
             (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Input\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Input"))]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
@@ -107,7 +104,6 @@ impl ::core::convert::From<&EyesPose> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
-#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HandJointKind(pub i32);
@@ -165,11 +161,9 @@ unsafe impl ::windows::core::RuntimeType for HandJointKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct HandMeshObserver(::windows::core::IUnknown);
 impl HandMeshObserver {
-    #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     #[cfg(feature = "UI_Input_Spatial")]
     pub fn Source(&self) -> ::windows::core::Result<super::super::UI::Input::Spatial::SpatialInteractionSource> {
         let this = self;
@@ -291,7 +285,6 @@ impl ::core::convert::From<&HandMeshObserver> for &::windows::core::IInspectable
 unsafe impl ::core::marker::Send for HandMeshObserver {}
 unsafe impl ::core::marker::Sync for HandMeshObserver {}
 #[repr(C)]
-#[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct HandMeshVertex {
     pub Position: super::super::Foundation::Numerics::Vector3,
@@ -337,11 +330,9 @@ impl ::core::default::Default for HandMeshVertex {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct HandMeshVertexState(::windows::core::IUnknown);
 impl HandMeshVertexState {
-    #[doc = "*Required features: `\"Perception_Spatial\"`*"]
     #[cfg(feature = "Perception_Spatial")]
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<super::Spatial::SpatialCoordinateSystem> {
         let this = self;
@@ -350,7 +341,6 @@ impl HandMeshVertexState {
             (::windows::core::Interface::vtable(this).CoordinateSystem)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Spatial::SpatialCoordinateSystem>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> ::windows::core::Result<()> {
         let this = self;
@@ -426,11 +416,9 @@ impl ::core::convert::From<&HandMeshVertexState> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for HandMeshVertexState {}
 unsafe impl ::core::marker::Sync for HandMeshVertexState {}
-#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct HandPose(::windows::core::IUnknown);
 impl HandPose {
-    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetJoint<'a, P0>(&self, coordinatesystem: P0, joint: HandJointKind, jointpose: &mut JointPose) -> ::windows::core::Result<bool>
     where
@@ -442,7 +430,6 @@ impl HandPose {
             (::windows::core::Interface::vtable(this).TryGetJoint)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joint, jointpose, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
     pub fn TryGetJoints<'a, P0>(&self, coordinatesystem: P0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<bool>
     where
@@ -454,7 +441,6 @@ impl HandPose {
             (::windows::core::Interface::vtable(this).TryGetJoints)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), joints.len() as u32, joints.as_ptr(), jointposes.len() as u32, jointposes.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetRelativeJoint(&self, joint: HandJointKind, referencejoint: HandJointKind) -> ::windows::core::Result<JointPose> {
         let this = self;
@@ -463,7 +449,6 @@ impl HandPose {
             (::windows::core::Interface::vtable(this).GetRelativeJoint)(::windows::core::Interface::as_raw(this), joint, referencejoint, result__.as_mut_ptr()).from_abi::<JointPose>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GetRelativeJoints(&self, joints: &[HandJointKind], referencejoints: &[HandJointKind], jointposes: &mut [JointPose]) -> ::windows::core::Result<()> {
         let this = self;
@@ -532,11 +517,9 @@ impl ::core::convert::From<&HandPose> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for HandPose {}
 unsafe impl ::core::marker::Sync for HandPose {}
-#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct HeadPose(::windows::core::IUnknown);
 impl HeadPose {
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -545,7 +528,6 @@ impl HeadPose {
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ForwardDirection(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -554,7 +536,6 @@ impl HeadPose {
             (::windows::core::Interface::vtable(this).ForwardDirection)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn UpDirection(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -758,7 +739,6 @@ pub struct IHeadPose_Vtbl {
     UpDirection: usize,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct JointPose {
     pub Orientation: super::super::Foundation::Numerics::Quaternion,
@@ -806,7 +786,6 @@ impl ::core::default::Default for JointPose {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct JointPoseAccuracy(pub i32);

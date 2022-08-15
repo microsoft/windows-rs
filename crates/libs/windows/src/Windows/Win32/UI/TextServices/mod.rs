@@ -1,10 +1,7 @@
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
 impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
 impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
@@ -66,13 +63,9 @@ pub const CLSID_TF_LangBarMgr: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const CLSID_TF_ThreadMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x529a9e6b_6587_4f23_ab9e_9c7d683e3c50);
 pub const CLSID_TF_TransitoryExtensionUIEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6be008_07fb_400d_8beb_337a64f7051f);
 pub const CLSID_TsfServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39aedc00_6b60_46db_8d31_3642be0e4373);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const DCM_FLAGS_CTFMON: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const DCM_FLAGS_TASKENG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DoMsCtfMonitor<'a, P0>(dwflags: u32, heventforservicestop: P0) -> super::super::Foundation::BOOL
@@ -86,13 +79,10 @@ where
     DoMsCtfMonitor(dwflags, heventforservicestop.into())
 }
 pub const DocWrap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
 impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
 impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
@@ -212,9 +202,7 @@ pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: ::windows::core::GUID = ::windows::c
 pub const GUID_TS_SERVICE_ACCESSIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
 pub const GUID_TS_SERVICE_ACTIVEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
 pub const GUID_TS_SERVICE_DATAOBJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GXFPF_NEAREST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -248,17 +236,14 @@ impl ::core::convert::From<::core::option::Option<HKL>> for HKL {
 unsafe impl ::windows::core::Abi for HKL {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IAccClientDocMgr(::windows::core::IUnknown);
 impl IAccClientDocMgr {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocuments(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocuments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LookupByHWND<'a, P0>(&self, hwnd: P0, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
     where
@@ -267,7 +252,6 @@ impl IAccClientDocMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LookupByHWND)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LookupByPoint(&self, pt: super::super::Foundation::POINT, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -331,11 +315,9 @@ pub struct IAccClientDocMgr_Vtbl {
     LookupByPoint: usize,
     pub GetFocused: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IAccDictionary(::windows::core::IUnknown);
 impl IAccDictionary {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLocalizedString(&self, term: &::windows::core::GUID, lcid: u32, presult: &mut super::super::Foundation::BSTR, plcid: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLocalizedString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(term), lcid, ::core::mem::transmute(presult), ::core::mem::transmute(plcid)).ok()
@@ -344,13 +326,11 @@ impl IAccDictionary {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetParentTerm)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(term), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMnemonicString(&self, term: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMnemonicString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(term), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LookupMnemonicTerm<'a, P0>(&self, bstrmnemonic: P0) -> ::windows::core::Result<::windows::core::GUID>
     where
@@ -359,7 +339,6 @@ impl IAccDictionary {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LookupMnemonicTerm)(::windows::core::Interface::as_raw(self), bstrmnemonic.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ConvertValueToString<'a, P0>(&self, term: &::windows::core::GUID, lcid: u32, varvalue: P0, pbstrresult: &mut super::super::Foundation::BSTR, plcid: &mut u32) -> ::windows::core::Result<()>
     where
@@ -425,7 +404,6 @@ pub struct IAccDictionary_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ConvertValueToString: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IAccServerDocMgr(::windows::core::IUnknown);
 impl IAccServerDocMgr {
@@ -491,7 +469,6 @@ pub struct IAccServerDocMgr_Vtbl {
     pub RevokeDocument: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnDocumentFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IAccStore(::windows::core::IUnknown);
 impl IAccStore {
@@ -507,13 +484,11 @@ impl IAccStore {
     {
         (::windows::core::Interface::vtable(self).Unregister)(::windows::core::Interface::as_raw(self), punk.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocuments(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocuments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LookupByHWND<'a, P0>(&self, hwnd: P0, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown>
     where
@@ -522,7 +497,6 @@ impl IAccStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).LookupByHWND)(::windows::core::Interface::as_raw(self), hwnd.into(), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LookupByPoint(&self, pt: super::super::Foundation::POINT, riid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -595,7 +569,6 @@ pub struct IAccStore_Vtbl {
     pub OnDocumentFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetFocused: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IAnchor(::windows::core::IUnknown);
 impl IAnchor {
@@ -606,7 +579,6 @@ impl IAnchor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGravity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TsGravity>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEqual<'a, P0>(&self, pawith: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -634,7 +606,6 @@ impl IAnchor {
     {
         (::windows::core::Interface::vtable(self).ShiftTo)(::windows::core::Interface::as_raw(self), pasite.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShiftRegion(&self, dwflags: u32, dir: TsShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -712,7 +683,6 @@ pub struct IAnchor_Vtbl {
     pub ClearChangeHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppaclone: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IClonableWrapper(::windows::core::IUnknown);
 impl IClonableWrapper {
@@ -765,11 +735,9 @@ pub struct IClonableWrapper_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CloneNewWrapper: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ICoCreateLocally(::windows::core::IUnknown);
 impl ICoCreateLocally {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CoCreateLocally<'a, P0, P1>(&self, rclsid: &::windows::core::GUID, dwclscontext: u32, riid: &::windows::core::GUID, punk: &mut ::core::option::Option<::windows::core::IUnknown>, riidparam: &::windows::core::GUID, punkparam: P0, varparam: P1) -> ::windows::core::Result<()>
     where
@@ -823,11 +791,9 @@ pub struct ICoCreateLocally_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     CoCreateLocally: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ICoCreatedLocally(::windows::core::IUnknown);
 impl ICoCreatedLocally {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LocalInit<'a, P0, P1, P2>(&self, punklocalobject: P0, riidparam: &::windows::core::GUID, punkparam: P1, varparam: P2) -> ::windows::core::Result<()>
     where
@@ -882,7 +848,6 @@ pub struct ICoCreatedLocally_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     LocalInit: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IDocWrap(::windows::core::IUnknown);
 impl IDocWrap {
@@ -939,7 +904,6 @@ pub struct IDocWrap_Vtbl {
     pub SetDoc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetWrappedDoc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumITfCompositionView(::windows::core::IUnknown);
 impl IEnumITfCompositionView {
@@ -1001,7 +965,6 @@ pub struct IEnumITfCompositionView_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumSpeechCommands(::windows::core::IUnknown);
 impl IEnumSpeechCommands {
@@ -1063,7 +1026,6 @@ pub struct IEnumSpeechCommands_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfCandidates(::windows::core::IUnknown);
 impl IEnumTfCandidates {
@@ -1125,7 +1087,6 @@ pub struct IEnumTfCandidates_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfContextViews(::windows::core::IUnknown);
 impl IEnumTfContextViews {
@@ -1187,7 +1148,6 @@ pub struct IEnumTfContextViews_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfContexts(::windows::core::IUnknown);
 impl IEnumTfContexts {
@@ -1249,7 +1209,6 @@ pub struct IEnumTfContexts_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfDisplayAttributeInfo(::windows::core::IUnknown);
 impl IEnumTfDisplayAttributeInfo {
@@ -1311,7 +1270,6 @@ pub struct IEnumTfDisplayAttributeInfo_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfDocumentMgrs(::windows::core::IUnknown);
 impl IEnumTfDocumentMgrs {
@@ -1373,7 +1331,6 @@ pub struct IEnumTfDocumentMgrs_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfFunctionProviders(::windows::core::IUnknown);
 impl IEnumTfFunctionProviders {
@@ -1435,7 +1392,6 @@ pub struct IEnumTfFunctionProviders_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfInputProcessorProfiles(::windows::core::IUnknown);
 impl IEnumTfInputProcessorProfiles {
@@ -1497,7 +1453,6 @@ pub struct IEnumTfInputProcessorProfiles_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfLangBarItems(::windows::core::IUnknown);
 impl IEnumTfLangBarItems {
@@ -1559,7 +1514,6 @@ pub struct IEnumTfLangBarItems_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfLanguageProfiles(::windows::core::IUnknown);
 impl IEnumTfLanguageProfiles {
@@ -1567,7 +1521,6 @@ impl IEnumTfLanguageProfiles {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTfLanguageProfiles>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, pprofile: &mut [TF_LANGUAGEPROFILE], pcfetch: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), pprofile.len() as _, ::core::mem::transmute(pprofile.as_ptr()), ::core::mem::transmute(pcfetch)).ok()
@@ -1626,7 +1579,6 @@ pub struct IEnumTfLanguageProfiles_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfLatticeElements(::windows::core::IUnknown);
 impl IEnumTfLatticeElements {
@@ -1634,7 +1586,6 @@ impl IEnumTfLatticeElements {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTfLatticeElements>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, rgselements: &mut [TF_LMLATTELEMENT], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgselements.len() as _, ::core::mem::transmute(rgselements.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
@@ -1693,7 +1644,6 @@ pub struct IEnumTfLatticeElements_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfProperties(::windows::core::IUnknown);
 impl IEnumTfProperties {
@@ -1755,7 +1705,6 @@ pub struct IEnumTfProperties_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfPropertyValue(::windows::core::IUnknown);
 impl IEnumTfPropertyValue {
@@ -1763,7 +1712,6 @@ impl IEnumTfPropertyValue {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTfPropertyValue>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Next(&self, rgvalues: &mut [TF_PROPERTYVAL], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgvalues.len() as _, ::core::mem::transmute(rgvalues.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
@@ -1822,7 +1770,6 @@ pub struct IEnumTfPropertyValue_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfRanges(::windows::core::IUnknown);
 impl IEnumTfRanges {
@@ -1884,7 +1831,6 @@ pub struct IEnumTfRanges_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumTfUIElements(::windows::core::IUnknown);
 impl IEnumTfUIElements {
@@ -1946,7 +1892,6 @@ pub struct IEnumTfUIElements_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Skip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IInternalDocWrap(::windows::core::IUnknown);
 impl IInternalDocWrap {
@@ -1995,19 +1940,13 @@ pub struct IInternalDocWrap_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub NotifyRevoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
 impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
 impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
@@ -2028,7 +1967,6 @@ impl ::core::fmt::Debug for INSERT_TEXT_AT_SELECTION_FLAGS {
         f.debug_tuple("INSERT_TEXT_AT_SELECTION_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ISpeechCommandProvider(::windows::core::IUnknown);
 impl ISpeechCommandProvider {
@@ -2082,7 +2020,6 @@ pub struct ISpeechCommandProvider_Vtbl {
     pub EnumSpeechCommands: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ProcessCommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcommand: ::windows::core::PCWSTR, cch: u32, langid: u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreACP(::windows::core::IUnknown);
 impl ITextStoreACP {
@@ -2109,12 +2046,10 @@ impl ITextStoreACP {
     pub unsafe fn QueryInsert(&self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: &mut i32, pacpresultend: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryInsert)(::windows::core::Interface::as_raw(self), acpteststart, acptestend, cch, ::core::mem::transmute(pacpresultstart), ::core::mem::transmute(pacpresultend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ulindex: u32, pselection: &mut [TS_SELECTION_ACP], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSelection)(::windows::core::Interface::as_raw(self), ulindex, pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ACP]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
@@ -2126,7 +2061,6 @@ impl ITextStoreACP {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), dwflags, acpstart, acpend, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TS_TEXTCHANGE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2136,13 +2070,11 @@ impl ITextStoreACP {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEmbedded)(::windows::core::Interface::as_raw(self), acppos, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: &::windows::core::GUID, pformatetc: &super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryInsertEmbedded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidservice), ::core::mem::transmute(pformatetc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<'a, P0>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: P0) -> ::windows::core::Result<TS_TEXTCHANGE>
     where
@@ -2154,7 +2086,6 @@ impl ITextStoreACP {
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], pacpstart: &mut i32, pacpend: &mut i32, pchange: &mut TS_TEXTCHANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::windows::core::Interface::as_raw(self), dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(pacpstart), ::core::mem::transmute(pacpend), ::core::mem::transmute(pchange)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<'a, P0>(&self, dwflags: u32, pdataobject: P0, pacpstart: &mut i32, pacpend: &mut i32, pchange: &mut TS_TEXTCHANGE) -> ::windows::core::Result<()>
     where
@@ -2171,12 +2102,10 @@ impl ITextStoreACP {
     pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::windows::core::Interface::as_raw(self), acppos, pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pacpnext: &mut i32, pffound: &mut super::super::Foundation::BOOL, plfoundoffset: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::windows::core::Interface::as_raw(self), acpstart, acphalt, pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags, ::core::mem::transmute(pacpnext), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::windows::core::Interface::as_raw(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
@@ -2189,24 +2118,20 @@ impl ITextStoreACP {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetActiveView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetACPFromPoint(&self, vcview: u32, ptscreen: &super::super::Foundation::POINT, dwflags: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetACPFromPoint)(::windows::core::Interface::as_raw(self), vcview, ::core::mem::transmute(ptscreen), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextExt(&self, vcview: u32, acpstart: i32, acpend: i32, prc: &mut super::super::Foundation::RECT, pfclipped: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTextExt)(::windows::core::Interface::as_raw(self), vcview, acpstart, acpend, ::core::mem::transmute(prc), ::core::mem::transmute(pfclipped)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScreenExt(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetScreenExt)(::windows::core::Interface::as_raw(self), vcview, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWnd(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2315,7 +2240,6 @@ pub struct ITextStoreACP_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetWnd: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreACP2(::windows::core::IUnknown);
 impl ITextStoreACP2 {
@@ -2342,12 +2266,10 @@ impl ITextStoreACP2 {
     pub unsafe fn QueryInsert(&self, acpteststart: i32, acptestend: i32, cch: u32, pacpresultstart: &mut i32, pacpresultend: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryInsert)(::windows::core::Interface::as_raw(self), acpteststart, acptestend, cch, ::core::mem::transmute(pacpresultstart), ::core::mem::transmute(pacpresultend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ulindex: u32, pselection: &mut [TS_SELECTION_ACP], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSelection)(::windows::core::Interface::as_raw(self), ulindex, pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ACP]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
@@ -2359,7 +2281,6 @@ impl ITextStoreACP2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), dwflags, acpstart, acpend, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TS_TEXTCHANGE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self, acpstart: i32, acpend: i32) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2369,13 +2290,11 @@ impl ITextStoreACP2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEmbedded)(::windows::core::Interface::as_raw(self), acppos, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: &::windows::core::GUID, pformatetc: &super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryInsertEmbedded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidservice), ::core::mem::transmute(pformatetc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<'a, P0>(&self, dwflags: u32, acpstart: i32, acpend: i32, pdataobject: P0) -> ::windows::core::Result<TS_TEXTCHANGE>
     where
@@ -2387,7 +2306,6 @@ impl ITextStoreACP2 {
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], pacpstart: &mut i32, pacpend: &mut i32, pchange: &mut TS_TEXTCHANGE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::windows::core::Interface::as_raw(self), dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(pacpstart), ::core::mem::transmute(pacpend), ::core::mem::transmute(pchange)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<'a, P0>(&self, dwflags: u32, pdataobject: P0, pacpstart: &mut i32, pacpend: &mut i32, pchange: &mut TS_TEXTCHANGE) -> ::windows::core::Result<()>
     where
@@ -2404,12 +2322,10 @@ impl ITextStoreACP2 {
     pub unsafe fn RequestAttrsTransitioningAtPosition(&self, acppos: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::windows::core::Interface::as_raw(self), acppos, pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindNextAttrTransition(&self, acpstart: i32, acphalt: i32, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pacpnext: &mut i32, pffound: &mut super::super::Foundation::BOOL, plfoundoffset: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::windows::core::Interface::as_raw(self), acpstart, acphalt, pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags, ::core::mem::transmute(pacpnext), ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::windows::core::Interface::as_raw(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
@@ -2422,18 +2338,15 @@ impl ITextStoreACP2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetActiveView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetACPFromPoint(&self, vcview: u32, ptscreen: &super::super::Foundation::POINT, dwflags: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetACPFromPoint)(::windows::core::Interface::as_raw(self), vcview, ::core::mem::transmute(ptscreen), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextExt(&self, vcview: u32, acpstart: i32, acpend: i32, prc: &mut super::super::Foundation::RECT, pfclipped: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTextExt)(::windows::core::Interface::as_raw(self), vcview, acpstart, acpend, ::core::mem::transmute(prc), ::core::mem::transmute(pfclipped)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScreenExt(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2538,11 +2451,9 @@ pub struct ITextStoreACP2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetScreenExt: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreACPEx(::windows::core::IUnknown);
 impl ITextStoreACPEx {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollToRect(&self, acpstart: i32, acpend: i32, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ScrollToRect)(::windows::core::Interface::as_raw(self), acpstart, acpend, ::core::mem::transmute(rc), dwposition).ok()
@@ -2592,11 +2503,9 @@ pub struct ITextStoreACPEx_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ScrollToRect: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreACPServices(::windows::core::IUnknown);
 impl ITextStoreACPServices {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<'a, P0, P1, P2>(&self, pprop: P0, prange: P1, phdr: &mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P2) -> ::windows::core::Result<()>
     where
@@ -2606,7 +2515,6 @@ impl ITextStoreACPServices {
     {
         (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), pprop.into().abi(), prange.into().abi(), ::core::mem::transmute(phdr), pstream.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Unserialize<'a, P0, P1, P2>(&self, pprop: P0, phdr: &TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P1, ploader: P2) -> ::windows::core::Result<()>
     where
@@ -2677,7 +2585,6 @@ pub struct ITextStoreACPServices_Vtbl {
     pub ForceLoadProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprop: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, acpstart: i32, acpend: i32, pprange: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreACPSink(::windows::core::IUnknown);
 impl ITextStoreACPSink {
@@ -2754,7 +2661,6 @@ pub struct ITextStoreACPSink_Vtbl {
     pub OnStartEditTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEndEditTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreACPSinkEx(::windows::core::IUnknown);
 impl ITextStoreACPSinkEx {
@@ -2842,7 +2748,6 @@ pub struct ITextStoreACPSinkEx_Vtbl {
     pub base__: ITextStoreACPSink_Vtbl,
     pub OnDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreAnchor(::windows::core::IUnknown);
 impl ITextStoreAnchor {
@@ -2873,17 +2778,14 @@ impl ITextStoreAnchor {
     {
         (::windows::core::Interface::vtable(self).QueryInsert)(::windows::core::Interface::as_raw(self), pateststart.into().abi(), patestend.into().abi(), cch, ::core::mem::transmute(pparesultstart), ::core::mem::transmute(pparesultend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ulindex: u32, pselection: &mut [TS_SELECTION_ANCHOR], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSelection)(::windows::core::Interface::as_raw(self), ulindex, pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, pselection: &[TS_SELECTION_ANCHOR]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText<'a, P0, P1, P2>(&self, dwflags: u32, pastart: P0, paend: P1, pchtext: &mut [u16], pcch: &mut u32, fupdateanchor: P2) -> ::windows::core::Result<()>
     where
@@ -2900,7 +2802,6 @@ impl ITextStoreAnchor {
     {
         (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), dwflags, pastart.into().abi(), paend.into().abi(), ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText<'a, P0, P1>(&self, pastart: P0, paend: P1) -> ::windows::core::Result<super::super::System::Com::IDataObject>
     where
@@ -2917,7 +2818,6 @@ impl ITextStoreAnchor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEmbedded)(::windows::core::Interface::as_raw(self), dwflags, papos.into().abi(), ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<'a, P0, P1, P2>(&self, dwflags: u32, pastart: P0, paend: P1, pdataobject: P2) -> ::windows::core::Result<()>
     where
@@ -2942,7 +2842,6 @@ impl ITextStoreAnchor {
     {
         (::windows::core::Interface::vtable(self).RequestAttrsTransitioningAtPosition)(::windows::core::Interface::as_raw(self), papos.into().abi(), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindNextAttrTransition<'a, P0, P1>(&self, pastart: P0, pahalt: P1, pafilterattrs: &[::windows::core::GUID], dwflags: u32, pffound: &mut super::super::Foundation::BOOL, plfoundoffset: &mut i32) -> ::windows::core::Result<()>
     where
@@ -2951,7 +2850,6 @@ impl ITextStoreAnchor {
     {
         (::windows::core::Interface::vtable(self).FindNextAttrTransition)(::windows::core::Interface::as_raw(self), pastart.into().abi(), pahalt.into().abi(), pafilterattrs.len() as _, ::core::mem::transmute(pafilterattrs.as_ptr()), dwflags, ::core::mem::transmute(pffound), ::core::mem::transmute(plfoundoffset)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, paattrvals: &mut [TS_ATTRVAL], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RetrieveRequestedAttrs)(::windows::core::Interface::as_raw(self), paattrvals.len() as _, ::core::mem::transmute(paattrvals.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
@@ -2968,13 +2866,11 @@ impl ITextStoreAnchor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetActiveView)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnchorFromPoint(&self, vcview: u32, ptscreen: &super::super::Foundation::POINT, dwflags: u32) -> ::windows::core::Result<IAnchor> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAnchorFromPoint)(::windows::core::Interface::as_raw(self), vcview, ::core::mem::transmute(ptscreen), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAnchor>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextExt<'a, P0, P1>(&self, vcview: u32, pastart: P0, paend: P1, prc: &mut super::super::Foundation::RECT, pfclipped: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -2983,19 +2879,16 @@ impl ITextStoreAnchor {
     {
         (::windows::core::Interface::vtable(self).GetTextExt)(::windows::core::Interface::as_raw(self), vcview, pastart.into().abi(), paend.into().abi(), ::core::mem::transmute(prc), ::core::mem::transmute(pfclipped)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScreenExt(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetScreenExt)(::windows::core::Interface::as_raw(self), vcview, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWnd(&self, vcview: u32) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetWnd)(::windows::core::Interface::as_raw(self), vcview, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: &::windows::core::GUID, pformatetc: &super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3004,7 +2897,6 @@ impl ITextStoreAnchor {
     pub unsafe fn InsertTextAtSelection(&self, dwflags: u32, pchtext: &[u16], ppastart: &mut ::core::option::Option<IAnchor>, ppaend: &mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::windows::core::Interface::as_raw(self), dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(ppastart), ::core::mem::transmute(ppaend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<'a, P0>(&self, dwflags: u32, pdataobject: P0, ppastart: &mut ::core::option::Option<IAnchor>, ppaend: &mut ::core::option::Option<IAnchor>) -> ::windows::core::Result<()>
     where
@@ -3119,11 +3011,9 @@ pub struct ITextStoreAnchor_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertEmbeddedAtSelection: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreAnchorEx(::windows::core::IUnknown);
 impl ITextStoreAnchorEx {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScrollToRect<'a, P0, P1>(&self, pstart: P0, pend: P1, rc: super::super::Foundation::RECT, dwposition: u32) -> ::windows::core::Result<()>
     where
@@ -3177,7 +3067,6 @@ pub struct ITextStoreAnchorEx_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ScrollToRect: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreAnchorSink(::windows::core::IUnknown);
 impl ITextStoreAnchorSink {
@@ -3262,7 +3151,6 @@ pub struct ITextStoreAnchorSink_Vtbl {
     pub OnStartEditTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEndEditTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITextStoreSinkAnchorEx(::windows::core::IUnknown);
 impl ITextStoreSinkAnchorEx {
@@ -3358,11 +3246,9 @@ pub struct ITextStoreSinkAnchorEx_Vtbl {
     pub base__: ITextStoreAnchorSink_Vtbl,
     pub OnDisconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfActiveLanguageProfileNotifySink(::windows::core::IUnknown);
 impl ITfActiveLanguageProfileNotifySink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnActivated<'a, P0>(&self, clsid: &::windows::core::GUID, guidprofile: &::windows::core::GUID, factivated: P0) -> ::windows::core::Result<()>
     where
@@ -3415,7 +3301,6 @@ pub struct ITfActiveLanguageProfileNotifySink_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnActivated: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCandidateList(::windows::core::IUnknown);
 impl ITfCandidateList {
@@ -3479,11 +3364,9 @@ pub struct ITfCandidateList_Vtbl {
     pub GetCandidateNum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pncnt: *mut u32) -> ::windows::core::HRESULT,
     pub SetResult: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: u32, imcr: TfCandidateResult) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCandidateListUIElement(::windows::core::IUnknown);
 impl ITfCandidateListUIElement {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3493,7 +3376,6 @@ impl ITfCandidateListUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, bshow: P0) -> ::windows::core::Result<()>
     where
@@ -3501,7 +3383,6 @@ impl ITfCandidateListUIElement {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), bshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3523,7 +3404,6 @@ impl ITfCandidateListUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetString(&self, uindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3606,11 +3486,9 @@ pub struct ITfCandidateListUIElement_Vtbl {
     pub SetPageIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pindex: *const u32, upagecnt: u32) -> ::windows::core::HRESULT,
     pub GetCurrentPage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pupage: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCandidateListUIElementBehavior(::windows::core::IUnknown);
 impl ITfCandidateListUIElementBehavior {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3620,7 +3498,6 @@ impl ITfCandidateListUIElementBehavior {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, bshow: P0) -> ::windows::core::Result<()>
     where
@@ -3628,7 +3505,6 @@ impl ITfCandidateListUIElementBehavior {
     {
         (::windows::core::Interface::vtable(self).base__.base__.Show)(::windows::core::Interface::as_raw(self), bshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3650,7 +3526,6 @@ impl ITfCandidateListUIElementBehavior {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSelection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetString(&self, uindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3749,11 +3624,9 @@ pub struct ITfCandidateListUIElementBehavior_Vtbl {
     pub Finalize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCandidateString(::windows::core::IUnknown);
 impl ITfCandidateString {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3809,7 +3682,6 @@ pub struct ITfCandidateString_Vtbl {
     GetString: usize,
     pub GetIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnindex: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCategoryMgr(::windows::core::IUnknown);
 impl ITfCategoryMgr {
@@ -3819,13 +3691,11 @@ impl ITfCategoryMgr {
     pub unsafe fn UnregisterCategory(&self, rclsid: &::windows::core::GUID, rcatid: &::windows::core::GUID, rguid: &::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rcatid), ::core::mem::transmute(rguid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCategoriesInItem(&self, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IEnumGUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumCategoriesInItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumGUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumItemsInCategory(&self, rcatid: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IEnumGUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3840,7 +3710,6 @@ impl ITfCategoryMgr {
     pub unsafe fn UnregisterGUIDDescription(&self, rclsid: &::windows::core::GUID, rguid: &::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterGUIDDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(rguid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetGUIDDescription(&self, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3864,7 +3733,6 @@ impl ITfCategoryMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGUID)(::windows::core::Interface::as_raw(self), guidatom, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEqualTfGuidAtom(&self, guidatom: u32, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3937,7 +3805,6 @@ pub struct ITfCategoryMgr_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsEqualTfGuidAtom: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCleanupContextDurationSink(::windows::core::IUnknown);
 impl ITfCleanupContextDurationSink {
@@ -3990,7 +3857,6 @@ pub struct ITfCleanupContextDurationSink_Vtbl {
     pub OnStartCleanupContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEndCleanupContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCleanupContextSink(::windows::core::IUnknown);
 impl ITfCleanupContextSink {
@@ -4042,7 +3908,6 @@ pub struct ITfCleanupContextSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnCleanupContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecwrite: u32, pic: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfClientId(::windows::core::IUnknown);
 impl ITfClientId {
@@ -4092,16 +3957,13 @@ pub struct ITfClientId_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetClientId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, ptid: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCompartment(::windows::core::IUnknown);
 impl ITfCompartment {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue(&self, tid: u32, pvarvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), tid, ::core::mem::transmute(pvarvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4156,7 +4018,6 @@ pub struct ITfCompartment_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCompartmentEventSink(::windows::core::IUnknown);
 impl ITfCompartmentEventSink {
@@ -4205,7 +4066,6 @@ pub struct ITfCompartmentEventSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCompartmentMgr(::windows::core::IUnknown);
 impl ITfCompartmentMgr {
@@ -4216,7 +4076,6 @@ impl ITfCompartmentMgr {
     pub unsafe fn ClearCompartment(&self, tid: u32, rguid: &::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClearCompartment)(::windows::core::Interface::as_raw(self), tid, ::core::mem::transmute(rguid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumCompartments(&self) -> ::windows::core::Result<super::super::System::Com::IEnumGUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4269,7 +4128,6 @@ pub struct ITfCompartmentMgr_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumCompartments: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfComposition(::windows::core::IUnknown);
 impl ITfComposition {
@@ -4337,7 +4195,6 @@ pub struct ITfComposition_Vtbl {
     pub ShiftEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecwrite: u32, pnewend: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecwrite: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCompositionSink(::windows::core::IUnknown);
 impl ITfCompositionSink {
@@ -4389,7 +4246,6 @@ pub struct ITfCompositionSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnCompositionTerminated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecwrite: u32, pcomposition: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCompositionView(::windows::core::IUnknown);
 impl ITfCompositionView {
@@ -4444,7 +4300,6 @@ pub struct ITfCompositionView_Vtbl {
     pub GetOwnerClsid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprange: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfConfigureSystemKeystrokeFeed(::windows::core::IUnknown);
 impl ITfConfigureSystemKeystrokeFeed {
@@ -4497,7 +4352,6 @@ pub struct ITfConfigureSystemKeystrokeFeed_Vtbl {
     pub DisableSystemKeystrokeFeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnableSystemKeystrokeFeed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContext(::windows::core::IUnknown);
 impl ITfContext {
@@ -4508,18 +4362,15 @@ impl ITfContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RequestEditSession)(::windows::core::Interface::as_raw(self), tid, pes.into().abi(), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InWriteSession(&self, tid: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InWriteSession)(::windows::core::Interface::as_raw(self), tid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelection(&self, ec: u32, ulindex: u32, pselection: &mut [TF_SELECTION], pcfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSelection)(::windows::core::Interface::as_raw(self), ec, ulindex, pselection.len() as _, ::core::mem::transmute(pselection.as_ptr()), ::core::mem::transmute(pcfetched)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSelection(&self, ec: u32, pselection: &[TF_SELECTION]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSelection)(::windows::core::Interface::as_raw(self), ec, pselection.len() as _, ::core::mem::transmute(pselection.as_ptr())).ok()
@@ -4636,7 +4487,6 @@ pub struct ITfContext_Vtbl {
     pub GetDocumentMgr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdm: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateRangeBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void, ppbackup: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContextComposition(::windows::core::IUnknown);
 impl ITfContextComposition {
@@ -4712,11 +4562,9 @@ pub struct ITfContextComposition_Vtbl {
     pub FindComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecread: u32, ptestrange: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TakeOwnership: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ecwrite: u32, pcomposition: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void, ppcomposition: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContextKeyEventSink(::windows::core::IUnknown);
 impl ITfContextKeyEventSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnKeyDown<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -4726,7 +4574,6 @@ impl ITfContextKeyEventSink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnKeyDown)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnKeyUp<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -4736,7 +4583,6 @@ impl ITfContextKeyEventSink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnKeyUp)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTestKeyDown<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -4746,7 +4592,6 @@ impl ITfContextKeyEventSink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnTestKeyDown)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTestKeyUp<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -4813,22 +4658,18 @@ pub struct ITfContextKeyEventSink_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnTestKeyUp: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContextOwner(::windows::core::IUnknown);
 impl ITfContextOwner {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetACPFromPoint(&self, ptscreen: &super::super::Foundation::POINT, dwflags: u32) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetACPFromPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptscreen), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextExt(&self, acpstart: i32, acpend: i32, prc: &mut super::super::Foundation::RECT, pfclipped: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTextExt)(::windows::core::Interface::as_raw(self), acpstart, acpend, ::core::mem::transmute(prc), ::core::mem::transmute(pfclipped)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScreenExt(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4838,13 +4679,11 @@ impl ITfContextOwner {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TS_STATUS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetWnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetAttribute(&self, rguidattribute: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4912,7 +4751,6 @@ pub struct ITfContextOwner_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetAttribute: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContextOwnerCompositionServices(::windows::core::IUnknown);
 impl ITfContextOwnerCompositionServices {
@@ -5006,11 +4844,9 @@ pub struct ITfContextOwnerCompositionServices_Vtbl {
     pub base__: ITfContextComposition_Vtbl,
     pub TerminateComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomposition: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContextOwnerCompositionSink(::windows::core::IUnknown);
 impl ITfContextOwnerCompositionSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnStartComposition<'a, P0>(&self, pcomposition: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -5079,7 +4915,6 @@ pub struct ITfContextOwnerCompositionSink_Vtbl {
     pub OnUpdateComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomposition: *mut ::core::ffi::c_void, prangenew: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEndComposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomposition: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContextOwnerServices(::windows::core::IUnknown);
 impl ITfContextOwnerServices {
@@ -5092,7 +4927,6 @@ impl ITfContextOwnerServices {
     pub unsafe fn OnAttributeChange(&self, rguidattribute: &::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnAttributeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguidattribute)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<'a, P0, P1, P2>(&self, pprop: P0, prange: P1, phdr: &mut TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P2) -> ::windows::core::Result<()>
     where
@@ -5102,7 +4936,6 @@ impl ITfContextOwnerServices {
     {
         (::windows::core::Interface::vtable(self).Serialize)(::windows::core::Interface::as_raw(self), pprop.into().abi(), prange.into().abi(), ::core::mem::transmute(phdr), pstream.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Unserialize<'a, P0, P1, P2>(&self, pprop: P0, phdr: &TF_PERSISTENT_PROPERTY_HEADER_ACP, pstream: P1, ploader: P2) -> ::windows::core::Result<()>
     where
@@ -5176,17 +5009,14 @@ pub struct ITfContextOwnerServices_Vtbl {
     pub ForceLoadProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprop: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, acpstart: i32, acpend: i32, pprange: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfContextView(::windows::core::IUnknown);
 impl ITfContextView {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRangeFromPoint(&self, ec: u32, ppt: &super::super::Foundation::POINT, dwflags: u32) -> ::windows::core::Result<ITfRange> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRangeFromPoint)(::windows::core::Interface::as_raw(self), ec, ::core::mem::transmute(ppt), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTextExt<'a, P0>(&self, ec: u32, prange: P0, prc: &mut super::super::Foundation::RECT, pfclipped: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -5194,13 +5024,11 @@ impl ITfContextView {
     {
         (::windows::core::Interface::vtable(self).GetTextExt)(::windows::core::Interface::as_raw(self), ec, prange.into().abi(), ::core::mem::transmute(prc), ::core::mem::transmute(pfclipped)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetScreenExt(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetScreenExt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5263,11 +5091,9 @@ pub struct ITfContextView_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetWnd: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfCreatePropertyStore(::windows::core::IUnknown);
 impl ITfCreatePropertyStore {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStoreSerializable<'a, P0, P1>(&self, guidprop: &::windows::core::GUID, prange: P0, ppropstore: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -5277,7 +5103,6 @@ impl ITfCreatePropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsStoreSerializable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidprop), prange.into().abi(), ppropstore.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyStore<'a, P0, P1>(&self, guidprop: &::windows::core::GUID, prange: P0, cb: u32, pstream: P1) -> ::windows::core::Result<ITfPropertyStore>
     where
@@ -5336,7 +5161,6 @@ pub struct ITfCreatePropertyStore_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreatePropertyStore: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfDisplayAttributeInfo(::windows::core::IUnknown);
 impl ITfDisplayAttributeInfo {
@@ -5344,19 +5168,16 @@ impl ITfDisplayAttributeInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributeInfo(&self) -> ::windows::core::Result<TF_DISPLAYATTRIBUTE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAttributeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TF_DISPLAYATTRIBUTE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributeInfo(&self, pda: &TF_DISPLAYATTRIBUTE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttributeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pda)).ok()
@@ -5419,7 +5240,6 @@ pub struct ITfDisplayAttributeInfo_Vtbl {
     SetAttributeInfo: usize,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfDisplayAttributeMgr(::windows::core::IUnknown);
 impl ITfDisplayAttributeMgr {
@@ -5477,7 +5297,6 @@ pub struct ITfDisplayAttributeMgr_Vtbl {
     pub EnumDisplayAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDisplayAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void, pclsidowner: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfDisplayAttributeNotifySink(::windows::core::IUnknown);
 impl ITfDisplayAttributeNotifySink {
@@ -5526,7 +5345,6 @@ pub struct ITfDisplayAttributeNotifySink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnUpdateInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfDisplayAttributeProvider(::windows::core::IUnknown);
 impl ITfDisplayAttributeProvider {
@@ -5581,7 +5399,6 @@ pub struct ITfDisplayAttributeProvider_Vtbl {
     pub EnumDisplayAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetDisplayAttributeInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, ppinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfDocumentMgr(::windows::core::IUnknown);
 impl ITfDocumentMgr {
@@ -5659,11 +5476,9 @@ pub struct ITfDocumentMgr_Vtbl {
     pub GetBase: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppic: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfEditRecord(::windows::core::IUnknown);
 impl ITfEditRecord {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSelectionStatus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5719,7 +5534,6 @@ pub struct ITfEditRecord_Vtbl {
     GetSelectionStatus: usize,
     pub GetTextAndPropertyUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS, prgproperties: *const *const ::windows::core::GUID, cproperties: u32, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfEditSession(::windows::core::IUnknown);
 impl ITfEditSession {
@@ -5768,7 +5582,6 @@ pub struct ITfEditSession_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub DoEditSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfEditTransactionSink(::windows::core::IUnknown);
 impl ITfEditTransactionSink {
@@ -5827,11 +5640,9 @@ pub struct ITfEditTransactionSink_Vtbl {
     pub OnStartEditTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEndEditTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnAdviseText(::windows::core::IUnknown);
 impl ITfFnAdviseText {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5908,7 +5719,6 @@ pub struct ITfFnAdviseText_Vtbl {
     pub OnTextUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, pchtext: ::windows::core::PCWSTR, cch: i32) -> ::windows::core::HRESULT,
     pub OnLatticeUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, plattice: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnBalloon(::windows::core::IUnknown);
 impl ITfFnBalloon {
@@ -5957,17 +5767,14 @@ pub struct ITfFnBalloon_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub UpdateBalloon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, style: TfLBBalloonStyle, pch: ::windows::core::PCWSTR, cch: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnConfigure(::windows::core::IUnknown);
 impl ITfFnConfigure {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, hwndparent: P0, langid: u16, rguidprofile: &::windows::core::GUID) -> ::windows::core::Result<()>
     where
@@ -6035,17 +5842,14 @@ pub struct ITfFnConfigure_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnConfigureRegisterEudc(::windows::core::IUnknown);
 impl ITfFnConfigureRegisterEudc {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0, P1>(&self, hwndparent: P0, langid: u16, rguidprofile: &::windows::core::GUID, bstrregistered: P1) -> ::windows::core::Result<()>
     where
@@ -6114,17 +5918,14 @@ pub struct ITfFnConfigureRegisterEudc_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnConfigureRegisterWord(::windows::core::IUnknown);
 impl ITfFnConfigureRegisterWord {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0, P1>(&self, hwndparent: P0, langid: u16, rguidprofile: &::windows::core::GUID, bstrregistered: P1) -> ::windows::core::Result<()>
     where
@@ -6193,11 +5994,9 @@ pub struct ITfFnConfigureRegisterWord_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnCustomSpeechCommand(::windows::core::IUnknown);
 impl ITfFnCustomSpeechCommand {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6266,11 +6065,9 @@ pub struct ITfFnCustomSpeechCommand_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub SetSpeechCommandProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pspcmdprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnGetLinguisticAlternates(::windows::core::IUnknown);
 impl ITfFnGetLinguisticAlternates {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6340,11 +6137,9 @@ pub struct ITfFnGetLinguisticAlternates_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub GetAlternates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, ppcandidatelist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnGetPreferredTouchKeyboardLayout(::windows::core::IUnknown);
 impl ITfFnGetPreferredTouchKeyboardLayout {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6410,11 +6205,9 @@ pub struct ITfFnGetPreferredTouchKeyboardLayout_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub GetLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptkblayouttype: *mut TKBLayoutType, pwpreferredlayoutid: *const u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnGetSAPIObject(::windows::core::IUnknown);
 impl ITfFnGetSAPIObject {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6481,17 +6274,14 @@ pub struct ITfFnGetSAPIObject_Vtbl {
     pub base__: ITfFunction_Vtbl,
     pub Get: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sobj: TfSapiObject, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnLMInternal(::windows::core::IUnknown);
 impl ITfFnLMInternal {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryRange<'a, P0>(&self, prange: P0, ppnewrange: &mut ::core::option::Option<ITfRange>, pfaccepted: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -6499,7 +6289,6 @@ impl ITfFnLMInternal {
     {
         (::windows::core::Interface::vtable(self).base__.QueryRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(ppnewrange), ::core::mem::transmute(pfaccepted)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryLangID(&self, langid: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6518,7 +6307,6 @@ impl ITfFnLMInternal {
     {
         (::windows::core::Interface::vtable(self).base__.Reconvert)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryKey<'a, P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -6529,7 +6317,6 @@ impl ITfFnLMInternal {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.QueryKey)(::windows::core::Interface::as_raw(self), fup.into(), vkey.into(), lparamkeydata.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InvokeKey<'a, P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> ::windows::core::Result<()>
     where
@@ -6623,17 +6410,14 @@ pub struct ITfFnLMInternal_Vtbl {
     pub base__: ITfFnLMProcessor_Vtbl,
     pub ProcessLattice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnLMProcessor(::windows::core::IUnknown);
 impl ITfFnLMProcessor {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryRange<'a, P0>(&self, prange: P0, ppnewrange: &mut ::core::option::Option<ITfRange>, pfaccepted: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -6641,7 +6425,6 @@ impl ITfFnLMProcessor {
     {
         (::windows::core::Interface::vtable(self).QueryRange)(::windows::core::Interface::as_raw(self), prange.into().abi(), ::core::mem::transmute(ppnewrange), ::core::mem::transmute(pfaccepted)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryLangID(&self, langid: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6660,7 +6443,6 @@ impl ITfFnLMProcessor {
     {
         (::windows::core::Interface::vtable(self).Reconvert)(::windows::core::Interface::as_raw(self), prange.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryKey<'a, P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -6671,7 +6453,6 @@ impl ITfFnLMProcessor {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryKey)(::windows::core::Interface::as_raw(self), fup.into(), vkey.into(), lparamkeydata.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InvokeKey<'a, P0, P1, P2>(&self, fup: P0, vkey: P1, lparamkeydata: P2) -> ::windows::core::Result<()>
     where
@@ -6762,11 +6543,9 @@ pub struct ITfFnLMProcessor_Vtbl {
     InvokeKey: usize,
     pub InvokeFunc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void, refguidfunc: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnLangProfileUtil(::windows::core::IUnknown);
 impl ITfFnLangProfileUtil {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6775,7 +6554,6 @@ impl ITfFnLangProfileUtil {
     pub unsafe fn RegisterActiveProfiles(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterActiveProfiles)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsProfileAvailableForLang(&self, langid: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6842,17 +6620,14 @@ pub struct ITfFnLangProfileUtil_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsProfileAvailableForLang: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnPlayBack(::windows::core::IUnknown);
 impl ITfFnPlayBack {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryRange<'a, P0>(&self, prange: P0, ppnewrange: &mut ::core::option::Option<ITfRange>, pfplayable: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -6927,11 +6702,9 @@ pub struct ITfFnPlayBack_Vtbl {
     QueryRange: usize,
     pub Play: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnPropertyUIStatus(::windows::core::IUnknown);
 impl ITfFnPropertyUIStatus {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7002,17 +6775,14 @@ pub struct ITfFnPropertyUIStatus_Vtbl {
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguidprop: *const ::windows::core::GUID, pdw: *mut u32) -> ::windows::core::HRESULT,
     pub SetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, refguidprop: *const ::windows::core::GUID, dw: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnReconversion(::windows::core::IUnknown);
 impl ITfFnReconversion {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryRange<'a, P0>(&self, prange: P0, ppnewrange: &mut ::core::option::Option<ITfRange>, pfconvertable: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -7095,17 +6865,14 @@ pub struct ITfFnReconversion_Vtbl {
     pub GetReconversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void, ppcandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Reconvert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnSearchCandidateProvider(::windows::core::IUnknown);
 impl ITfFnSearchCandidateProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSearchCandidates<'a, P0, P1>(&self, bstrquery: P0, bstrapplicationid: P1) -> ::windows::core::Result<ITfCandidateList>
     where
@@ -7115,7 +6882,6 @@ impl ITfFnSearchCandidateProvider {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSearchCandidates)(::windows::core::Interface::as_raw(self), bstrquery.into().abi(), bstrapplicationid.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfCandidateList>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetResult<'a, P0, P1, P2>(&self, bstrquery: P0, bstrapplicationid: P1, bstrresult: P2) -> ::windows::core::Result<()>
     where
@@ -7189,17 +6955,14 @@ pub struct ITfFnSearchCandidateProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetResult: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFnShowHelp(::windows::core::IUnknown);
 impl ITfFnShowHelp {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
     where
@@ -7267,11 +7030,9 @@ pub struct ITfFnShowHelp_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Show: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFunction(::windows::core::IUnknown);
 impl ITfFunction {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7322,7 +7083,6 @@ pub struct ITfFunction_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetDisplayName: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfFunctionProvider(::windows::core::IUnknown);
 impl ITfFunctionProvider {
@@ -7330,7 +7090,6 @@ impl ITfFunctionProvider {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7387,7 +7146,6 @@ pub struct ITfFunctionProvider_Vtbl {
     GetDescription: usize,
     pub GetFunction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInputProcessorProfileActivationSink(::windows::core::IUnknown);
 impl ITfInputProcessorProfileActivationSink {
@@ -7439,7 +7197,6 @@ pub struct ITfInputProcessorProfileActivationSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnActivated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprofiletype: u32, langid: u16, clsid: *const ::windows::core::GUID, catid: *const ::windows::core::GUID, guidprofile: *const ::windows::core::GUID, hkl: HKL, dwflags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInputProcessorProfileMgr(::windows::core::IUnknown);
 impl ITfInputProcessorProfileMgr {
@@ -7469,7 +7226,6 @@ impl ITfInputProcessorProfileMgr {
     pub unsafe fn ReleaseInputProcessor(&self, rclsid: &::windows::core::GUID, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseInputProcessor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterProfile<'a, P0, P1>(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID, pchdesc: &[u16], pchiconfile: &[u16], uiconindex: u32, hklsubstitute: P0, dwpreferredlayout: u32, benabledbydefault: P1, dwflags: u32) -> ::windows::core::Result<()>
     where
@@ -7537,7 +7293,6 @@ pub struct ITfInputProcessorProfileMgr_Vtbl {
     pub UnregisterProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, dwflags: u32) -> ::windows::core::HRESULT,
     pub GetActiveProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, catid: *const ::windows::core::GUID, pprofile: *mut TF_INPUTPROCESSORPROFILE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInputProcessorProfileSubstituteLayout(::windows::core::IUnknown);
 impl ITfInputProcessorProfileSubstituteLayout {
@@ -7587,7 +7342,6 @@ pub struct ITfInputProcessorProfileSubstituteLayout_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetSubstituteKeyboardLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, phkl: *mut HKL) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInputProcessorProfiles(::windows::core::IUnknown);
 impl ITfInputProcessorProfiles {
@@ -7603,7 +7357,6 @@ impl ITfInputProcessorProfiles {
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), langid, ::core::mem::transmute(guidprofile)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumInputProcessorInfo(&self) -> ::windows::core::Result<super::super::System::Com::IEnumGUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7621,7 +7374,6 @@ impl ITfInputProcessorProfiles {
     pub unsafe fn GetActiveLanguageProfile(&self, rclsid: &::windows::core::GUID, plangid: &mut u16, pguidprofile: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetActiveLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(plangid), ::core::mem::transmute(pguidprofile)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLanguageProfileDescription(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7641,7 +7393,6 @@ impl ITfInputProcessorProfiles {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumLanguageProfiles)(::windows::core::Interface::as_raw(self), langid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTfLanguageProfiles>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableLanguageProfile<'a, P0>(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -7649,13 +7400,11 @@ impl ITfInputProcessorProfiles {
     {
         (::windows::core::Interface::vtable(self).EnableLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), langid, ::core::mem::transmute(guidprofile), fenable.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsEnabledLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), langid, ::core::mem::transmute(guidprofile), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableLanguageProfileByDefault<'a, P0>(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -7743,7 +7492,6 @@ pub struct ITfInputProcessorProfiles_Vtbl {
     EnableLanguageProfileByDefault: usize,
     pub SubstituteKeyboardLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, hkl: HKL) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInputProcessorProfilesEx(::windows::core::IUnknown);
 impl ITfInputProcessorProfilesEx {
@@ -7759,7 +7507,6 @@ impl ITfInputProcessorProfilesEx {
     pub unsafe fn RemoveLanguageProfile(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RemoveLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), langid, ::core::mem::transmute(guidprofile)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumInputProcessorInfo(&self) -> ::windows::core::Result<super::super::System::Com::IEnumGUID> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7777,7 +7524,6 @@ impl ITfInputProcessorProfilesEx {
     pub unsafe fn GetActiveLanguageProfile(&self, rclsid: &::windows::core::GUID, plangid: &mut u16, pguidprofile: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetActiveLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), ::core::mem::transmute(plangid), ::core::mem::transmute(pguidprofile)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLanguageProfileDescription(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7797,7 +7543,6 @@ impl ITfInputProcessorProfilesEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumLanguageProfiles)(::windows::core::Interface::as_raw(self), langid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumTfLanguageProfiles>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableLanguageProfile<'a, P0>(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -7805,13 +7550,11 @@ impl ITfInputProcessorProfilesEx {
     {
         (::windows::core::Interface::vtable(self).base__.EnableLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), langid, ::core::mem::transmute(guidprofile), fenable.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabledLanguageProfile(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsEnabledLanguageProfile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rclsid), langid, ::core::mem::transmute(guidprofile), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableLanguageProfileByDefault<'a, P0>(&self, rclsid: &::windows::core::GUID, langid: u16, guidprofile: &::windows::core::GUID, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -7885,31 +7628,26 @@ pub struct ITfInputProcessorProfilesEx_Vtbl {
     pub base__: ITfInputProcessorProfiles_Vtbl,
     pub SetLanguageProfileDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, langid: u16, guidprofile: *const ::windows::core::GUID, pchfile: ::windows::core::PCWSTR, cchfile: u32, uresid: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInputScope(::windows::core::IUnknown);
 impl ITfInputScope {
     pub unsafe fn GetInputScopes(&self, pprginputscopes: *mut *mut InputScope, pccount: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInputScopes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprginputscopes), ::core::mem::transmute(pccount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPhrase(&self, ppbstrphrases: *mut *mut super::super::Foundation::BSTR, pccount: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPhrase)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbstrphrases), ::core::mem::transmute(pccount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRegularExpression(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRegularExpression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSRGS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSRGS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7973,37 +7711,31 @@ pub struct ITfInputScope_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetXML: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInputScope2(::windows::core::IUnknown);
 impl ITfInputScope2 {
     pub unsafe fn GetInputScopes(&self, pprginputscopes: *mut *mut InputScope, pccount: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetInputScopes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprginputscopes), ::core::mem::transmute(pccount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPhrase(&self, ppbstrphrases: *mut *mut super::super::Foundation::BSTR, pccount: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetPhrase)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppbstrphrases), ::core::mem::transmute(pccount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRegularExpression(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRegularExpression)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSRGS(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSRGS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetXML(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetXML)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumWordList(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8069,7 +7801,6 @@ pub struct ITfInputScope2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     EnumWordList: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfInsertAtSelection(::windows::core::IUnknown);
 impl ITfInsertAtSelection {
@@ -8077,7 +7808,6 @@ impl ITfInsertAtSelection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InsertTextAtSelection)(::windows::core::Interface::as_raw(self), ec, dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfRange>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbeddedAtSelection<'a, P0>(&self, ec: u32, dwflags: u32, pdataobject: P0) -> ::windows::core::Result<ITfRange>
     where
@@ -8132,7 +7862,6 @@ pub struct ITfInsertAtSelection_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     InsertEmbeddedAtSelection: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfIntegratableCandidateListUIElement(::windows::core::IUnknown);
 impl ITfIntegratableCandidateListUIElement {
@@ -8143,7 +7872,6 @@ impl ITfIntegratableCandidateListUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSelectionStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TfIntegratableCandidateListSelectionStyle>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnKeyDown<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8153,7 +7881,6 @@ impl ITfIntegratableCandidateListUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnKeyDown)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowCandidateNumbers(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8214,11 +7941,9 @@ pub struct ITfIntegratableCandidateListUIElement_Vtbl {
     ShowCandidateNumbers: usize,
     pub FinalizeExactCompositionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfKeyEventSink(::windows::core::IUnknown);
 impl ITfKeyEventSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnSetFocus<'a, P0>(&self, fforeground: P0) -> ::windows::core::Result<()>
     where
@@ -8226,7 +7951,6 @@ impl ITfKeyEventSink {
     {
         (::windows::core::Interface::vtable(self).OnSetFocus)(::windows::core::Interface::as_raw(self), fforeground.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTestKeyDown<'a, P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8237,7 +7961,6 @@ impl ITfKeyEventSink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnTestKeyDown)(::windows::core::Interface::as_raw(self), pic.into().abi(), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTestKeyUp<'a, P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8248,7 +7971,6 @@ impl ITfKeyEventSink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnTestKeyUp)(::windows::core::Interface::as_raw(self), pic.into().abi(), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnKeyDown<'a, P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8259,7 +7981,6 @@ impl ITfKeyEventSink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnKeyDown)(::windows::core::Interface::as_raw(self), pic.into().abi(), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnKeyUp<'a, P0, P1, P2>(&self, pic: P0, wparam: P1, lparam: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8270,7 +7991,6 @@ impl ITfKeyEventSink {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnKeyUp)(::windows::core::Interface::as_raw(self), pic.into().abi(), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnPreservedKey<'a, P0>(&self, pic: P0, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8344,11 +8064,9 @@ pub struct ITfKeyEventSink_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnPreservedKey: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfKeyTraceEventSink(::windows::core::IUnknown);
 impl ITfKeyTraceEventSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnKeyTraceDown<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
@@ -8357,7 +8075,6 @@ impl ITfKeyTraceEventSink {
     {
         (::windows::core::Interface::vtable(self).OnKeyTraceDown)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnKeyTraceUp<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
@@ -8415,11 +8132,9 @@ pub struct ITfKeyTraceEventSink_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnKeyTraceUp: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfKeystrokeMgr(::windows::core::IUnknown);
 impl ITfKeystrokeMgr {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseKeyEventSink<'a, P0, P1>(&self, tid: u32, psink: P0, fforeground: P1) -> ::windows::core::Result<()>
     where
@@ -8435,7 +8150,6 @@ impl ITfKeystrokeMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetForeground)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TestKeyDown<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8445,7 +8159,6 @@ impl ITfKeystrokeMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TestKeyDown)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TestKeyUp<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8455,7 +8168,6 @@ impl ITfKeystrokeMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TestKeyUp)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyDown<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8465,7 +8177,6 @@ impl ITfKeystrokeMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).KeyDown)(::windows::core::Interface::as_raw(self), wparam.into(), lparam.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn KeyUp<'a, P0, P1>(&self, wparam: P0, lparam: P1) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8482,7 +8193,6 @@ impl ITfKeystrokeMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPreservedKey)(::windows::core::Interface::as_raw(self), pic.into().abi(), ::core::mem::transmute(pprekey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPreservedKey(&self, rguid: &::windows::core::GUID, pprekey: &TF_PRESERVEDKEY) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8497,13 +8207,11 @@ impl ITfKeystrokeMgr {
     pub unsafe fn SetPreservedKeyDescription(&self, rguid: &::windows::core::GUID, pchdesc: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPreservedKeyDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguid), ::core::mem::transmute(pchdesc.as_ptr()), pchdesc.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPreservedKeyDescription(&self, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPreservedKeyDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rguid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SimulatePreservedKey<'a, P0>(&self, pic: P0, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -8591,11 +8299,9 @@ pub struct ITfKeystrokeMgr_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SimulatePreservedKey: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLMLattice(::windows::core::IUnknown);
 impl ITfLMLattice {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryType(&self, rguidtype: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8651,7 +8357,6 @@ pub struct ITfLMLattice_Vtbl {
     QueryType: usize,
     pub EnumLatticeElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwframestart: u32, rguidtype: *const ::windows::core::GUID, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarEventSink(::windows::core::IUnknown);
 impl ITfLangBarEventSink {
@@ -8664,7 +8369,6 @@ impl ITfLangBarEventSink {
     pub unsafe fn OnThreadItemChange(&self, dwthreadid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnThreadItemChange)(::windows::core::Interface::as_raw(self), dwthreadid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnModalInput<'a, P0, P1>(&self, dwthreadid: u32, umsg: u32, wparam: P0, lparam: P1) -> ::windows::core::Result<()>
     where
@@ -8676,7 +8380,6 @@ impl ITfLangBarEventSink {
     pub unsafe fn ShowFloating(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShowFloating)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8735,7 +8438,6 @@ pub struct ITfLangBarEventSink_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetItemFloatingRect: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarItem(::windows::core::IUnknown);
 impl ITfLangBarItem {
@@ -8747,7 +8449,6 @@ impl ITfLangBarItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -8755,7 +8456,6 @@ impl ITfLangBarItem {
     {
         (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8812,7 +8512,6 @@ pub struct ITfLangBarItem_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetTooltipString: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarItemBalloon(::windows::core::IUnknown);
 impl ITfLangBarItemBalloon {
@@ -8824,7 +8523,6 @@ impl ITfLangBarItemBalloon {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -8832,24 +8530,20 @@ impl ITfLangBarItemBalloon {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTooltipString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click, ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: &super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPreferredSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszdefault), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBalloonInfo(&self) -> ::windows::core::Result<TF_LBBALLOONINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8923,7 +8617,6 @@ pub struct ITfLangBarItemBalloon_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetBalloonInfo: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarItemBitmap(::windows::core::IUnknown);
 impl ITfLangBarItemBitmap {
@@ -8935,7 +8628,6 @@ impl ITfLangBarItemBitmap {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -8943,24 +8635,20 @@ impl ITfLangBarItemBitmap {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTooltipString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click, ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: &super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPreferredSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszdefault), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: &mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: &mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DrawBitmap)(::windows::core::Interface::as_raw(self), bmwidth, bmheight, dwflags, ::core::mem::transmute(phbmp), ::core::mem::transmute(phbmpmask)).ok()
@@ -9033,7 +8721,6 @@ pub struct ITfLangBarItemBitmap_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     DrawBitmap: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarItemBitmapButton(::windows::core::IUnknown);
 impl ITfLangBarItemBitmapButton {
@@ -9045,7 +8732,6 @@ impl ITfLangBarItemBitmapButton {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -9053,13 +8739,11 @@ impl ITfLangBarItemBitmapButton {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTooltipString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click, ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
@@ -9073,18 +8757,15 @@ impl ITfLangBarItemBitmapButton {
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnMenuSelect)(::windows::core::Interface::as_raw(self), wid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: &super::super::Foundation::SIZE) -> ::windows::core::Result<super::super::Foundation::SIZE> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPreferredSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pszdefault), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn DrawBitmap(&self, bmwidth: i32, bmheight: i32, dwflags: u32, phbmp: &mut super::super::Graphics::Gdi::HBITMAP, phbmpmask: &mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DrawBitmap)(::windows::core::Interface::as_raw(self), bmwidth, bmheight, dwflags, ::core::mem::transmute(phbmp), ::core::mem::transmute(phbmpmask)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9164,7 +8845,6 @@ pub struct ITfLangBarItemBitmapButton_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetText: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarItemButton(::windows::core::IUnknown);
 impl ITfLangBarItemButton {
@@ -9176,7 +8856,6 @@ impl ITfLangBarItemButton {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -9184,13 +8863,11 @@ impl ITfLangBarItemButton {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), fshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTooltipString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTooltipString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::super::Foundation::POINT, prcarea: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnClick)(::windows::core::Interface::as_raw(self), click, ::core::mem::transmute(pt), ::core::mem::transmute(prcarea)).ok()
@@ -9204,13 +8881,11 @@ impl ITfLangBarItemButton {
     pub unsafe fn OnMenuSelect(&self, wid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnMenuSelect)(::windows::core::Interface::as_raw(self), wid).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon(&self) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::WindowsAndMessaging::HICON>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9286,7 +8961,6 @@ pub struct ITfLangBarItemButton_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetText: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarItemMgr(::windows::core::IUnknown);
 impl ITfLangBarItemMgr {
@@ -9319,7 +8993,6 @@ impl ITfLangBarItemMgr {
     pub unsafe fn UnadviseItemSink(&self, dwcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnadviseItemSink)(::windows::core::Interface::as_raw(self), dwcookie).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItemFloatingRect(&self, dwthreadid: u32, rguid: &::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9397,7 +9070,6 @@ pub struct ITfLangBarItemMgr_Vtbl {
     pub AdviseItemsSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, ppunk: *const *mut ::core::ffi::c_void, pguiditem: *const ::windows::core::GUID, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub UnadviseItemsSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulcount: u32, pdwcookie: *const u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarItemSink(::windows::core::IUnknown);
 impl ITfLangBarItemSink {
@@ -9446,11 +9118,9 @@ pub struct ITfLangBarItemSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnUpdate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLangBarMgr(::windows::core::IUnknown);
 impl ITfLangBarMgr {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseEventSink<'a, P0, P1>(&self, psink: P0, hwnd: P1, dwflags: u32, pdwcookie: &u32) -> ::windows::core::Result<()>
     where
@@ -9472,7 +9142,6 @@ impl ITfLangBarMgr {
     pub unsafe fn GetInputProcessorProfiles(&self, dwthreadid: u32, ppaip: &mut ::core::option::Option<ITfInputProcessorProfiles>, pdwthreadid: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInputProcessorProfiles)(::windows::core::Interface::as_raw(self), dwthreadid, ::core::mem::transmute(ppaip), ::core::mem::transmute(pdwthreadid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RestoreLastFocus<'a, P0>(&self, pdwthreadid: &mut u32, fprev: P0) -> ::windows::core::Result<()>
     where
@@ -9549,11 +9218,9 @@ pub struct ITfLangBarMgr_Vtbl {
     pub ShowFloating: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
     pub GetShowFloatingStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfLanguageProfileNotifySink(::windows::core::IUnknown);
 impl ITfLanguageProfileNotifySink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnLanguageChange(&self, langid: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9608,7 +9275,6 @@ pub struct ITfLanguageProfileNotifySink_Vtbl {
     OnLanguageChange: usize,
     pub OnLanguageChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfMSAAControl(::windows::core::IUnknown);
 impl ITfMSAAControl {
@@ -9661,11 +9327,9 @@ pub struct ITfMSAAControl_Vtbl {
     pub SystemEnableMSAA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SystemDisableMSAA: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfMenu(::windows::core::IUnknown);
 impl ITfMenu {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn AddMenuItem<'a, P0, P1>(&self, uid: u32, dwflags: u32, hbmp: P0, hbmpmask: P1, pch: &[u16], ppmenu: &mut ::core::option::Option<ITfMenu>) -> ::windows::core::Result<()>
     where
@@ -9719,11 +9383,9 @@ pub struct ITfMenu_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     AddMenuItem: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfMessagePump(::windows::core::IUnknown);
 impl ITfMessagePump {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn PeekMessageA<'a, P0>(&self, pmsg: &mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -9731,7 +9393,6 @@ impl ITfMessagePump {
     {
         (::windows::core::Interface::vtable(self).PeekMessageA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax, wremovemsg, ::core::mem::transmute(pfresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetMessageA<'a, P0>(&self, pmsg: &mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -9739,7 +9400,6 @@ impl ITfMessagePump {
     {
         (::windows::core::Interface::vtable(self).GetMessageA)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax, ::core::mem::transmute(pfresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn PeekMessageW<'a, P0>(&self, pmsg: &mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, wremovemsg: u32, pfresult: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -9747,7 +9407,6 @@ impl ITfMessagePump {
     {
         (::windows::core::Interface::vtable(self).PeekMessageW)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmsg), hwnd.into(), wmsgfiltermin, wmsgfiltermax, wremovemsg, ::core::mem::transmute(pfresult)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn GetMessageW<'a, P0>(&self, pmsg: &mut super::WindowsAndMessaging::MSG, hwnd: P0, wmsgfiltermin: u32, wmsgfiltermax: u32, pfresult: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -9812,11 +9471,9 @@ pub struct ITfMessagePump_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     GetMessageW: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfMouseSink(::windows::core::IUnknown);
 impl ITfMouseSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnMouseEvent(&self, uedge: u32, uquadrant: u32, dwbtnstatus: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9867,7 +9524,6 @@ pub struct ITfMouseSink_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnMouseEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfMouseTracker(::windows::core::IUnknown);
 impl ITfMouseTracker {
@@ -9925,7 +9581,6 @@ pub struct ITfMouseTracker_Vtbl {
     pub AdviseMouseSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub UnadviseMouseSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfMouseTrackerACP(::windows::core::IUnknown);
 impl ITfMouseTrackerACP {
@@ -9983,11 +9638,9 @@ pub struct ITfMouseTrackerACP_Vtbl {
     pub AdviseMouseSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, range: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub UnadviseMouseSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfPersistentPropertyLoaderACP(::windows::core::IUnknown);
 impl ITfPersistentPropertyLoaderACP {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadProperty(&self, phdr: &TF_PERSISTENT_PROPERTY_HEADER_ACP) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10038,7 +9691,6 @@ pub struct ITfPersistentPropertyLoaderACP_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     LoadProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfPreservedKeyNotifySink(::windows::core::IUnknown);
 impl ITfPreservedKeyNotifySink {
@@ -10087,7 +9739,6 @@ pub struct ITfPreservedKeyNotifySink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprekey: *const TF_PRESERVEDKEY) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfProperty(::windows::core::IUnknown);
 impl ITfProperty {
@@ -10101,7 +9752,6 @@ impl ITfProperty {
     {
         (::windows::core::Interface::vtable(self).base__.EnumRanges)(::windows::core::Interface::as_raw(self), ec, ::core::mem::transmute(ppenum), ptargetrange.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue<'a, P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
@@ -10127,7 +9777,6 @@ impl ITfProperty {
     {
         (::windows::core::Interface::vtable(self).SetValueStore)(::windows::core::Interface::as_raw(self), ec, prange.into().abi(), ppropstore.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue<'a, P0>(&self, ec: u32, prange: P0, pvarvalue: &super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
     where
@@ -10204,7 +9853,6 @@ pub struct ITfProperty_Vtbl {
     SetValue: usize,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfPropertyStore(::windows::core::IUnknown);
 impl ITfPropertyStore {
@@ -10216,13 +9864,11 @@ impl ITfPropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDataType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetData(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTextUpdated<'a, P0>(&self, dwflags: u32, prangenew: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -10231,7 +9877,6 @@ impl ITfPropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).OnTextUpdated)(::windows::core::Interface::as_raw(self), dwflags, prangenew.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Shrink<'a, P0>(&self, prangenew: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -10256,7 +9901,6 @@ impl ITfPropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyRangeCreator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Serialize<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<u32>
     where
@@ -10327,11 +9971,9 @@ pub struct ITfPropertyStore_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Serialize: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfQueryEmbedded(::windows::core::IUnknown);
 impl ITfQueryEmbedded {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryInsertEmbedded(&self, pguidservice: &::windows::core::GUID, pformatetc: &super::super::System::Com::FORMATETC) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10382,7 +10024,6 @@ pub struct ITfQueryEmbedded_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     QueryInsertEmbedded: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfRange(::windows::core::IUnknown);
 impl ITfRange {
@@ -10392,7 +10033,6 @@ impl ITfRange {
     pub unsafe fn SetText(&self, ec: u32, dwflags: u32, pchtext: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetText)(::windows::core::Interface::as_raw(self), ec, dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self, ec: u32) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10402,7 +10042,6 @@ impl ITfRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEmbedded)(::windows::core::Interface::as_raw(self), ec, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<'a, P0>(&self, ec: u32, dwflags: u32, pdataobject: P0) -> ::windows::core::Result<()>
     where
@@ -10428,19 +10067,16 @@ impl ITfRange {
     {
         (::windows::core::Interface::vtable(self).ShiftEndToRange)(::windows::core::Interface::as_raw(self), ec, prange.into().abi(), apos).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ShiftStartRegion)(::windows::core::Interface::as_raw(self), ec, dir, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ShiftEndRegion)(::windows::core::Interface::as_raw(self), ec, dir, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEmpty(&self, ec: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10449,7 +10085,6 @@ impl ITfRange {
     pub unsafe fn Collapse(&self, ec: u32, apos: TfAnchor) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Collapse)(::windows::core::Interface::as_raw(self), ec, apos).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEqualStart<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -10458,7 +10093,6 @@ impl ITfRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsEqualStart)(::windows::core::Interface::as_raw(self), ec, pwith.into().abi(), apos, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEqualEnd<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -10481,7 +10115,6 @@ impl ITfRange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CompareEnd)(::windows::core::Interface::as_raw(self), ec, pwith.into().abi(), apos, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10588,7 +10221,6 @@ pub struct ITfRange_Vtbl {
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppclone: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfRangeACP(::windows::core::IUnknown);
 impl ITfRangeACP {
@@ -10598,7 +10230,6 @@ impl ITfRangeACP {
     pub unsafe fn SetText(&self, ec: u32, dwflags: u32, pchtext: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetText)(::windows::core::Interface::as_raw(self), ec, dwflags, ::core::mem::transmute(pchtext.as_ptr()), pchtext.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFormattedText(&self, ec: u32) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10608,7 +10239,6 @@ impl ITfRangeACP {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetEmbedded)(::windows::core::Interface::as_raw(self), ec, ::core::mem::transmute(rguidservice), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertEmbedded<'a, P0>(&self, ec: u32, dwflags: u32, pdataobject: P0) -> ::windows::core::Result<()>
     where
@@ -10634,19 +10264,16 @@ impl ITfRangeACP {
     {
         (::windows::core::Interface::vtable(self).base__.ShiftEndToRange)(::windows::core::Interface::as_raw(self), ec, prange.into().abi(), apos).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShiftStartRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ShiftStartRegion)(::windows::core::Interface::as_raw(self), ec, dir, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShiftEndRegion(&self, ec: u32, dir: TfShiftDir) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ShiftEndRegion)(::windows::core::Interface::as_raw(self), ec, dir, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEmpty(&self, ec: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10655,7 +10282,6 @@ impl ITfRangeACP {
     pub unsafe fn Collapse(&self, ec: u32, apos: TfAnchor) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Collapse)(::windows::core::Interface::as_raw(self), ec, apos).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEqualStart<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -10664,7 +10290,6 @@ impl ITfRangeACP {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsEqualStart)(::windows::core::Interface::as_raw(self), ec, pwith.into().abi(), apos, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEqualEnd<'a, P0>(&self, ec: u32, pwith: P0, apos: TfAnchor) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -10687,7 +10312,6 @@ impl ITfRangeACP {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CompareEnd)(::windows::core::Interface::as_raw(self), ec, pwith.into().abi(), apos, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdjustForInsert(&self, ec: u32, cchinsert: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10771,7 +10395,6 @@ pub struct ITfRangeACP_Vtbl {
     pub GetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pacpanchor: *mut i32, pcch: *mut i32) -> ::windows::core::HRESULT,
     pub SetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, acpanchor: i32, cch: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfRangeBackup(::windows::core::IUnknown);
 impl ITfRangeBackup {
@@ -10823,7 +10446,6 @@ pub struct ITfRangeBackup_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Restore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ec: u32, prange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfReadOnlyProperty(::windows::core::IUnknown);
 impl ITfReadOnlyProperty {
@@ -10837,7 +10459,6 @@ impl ITfReadOnlyProperty {
     {
         (::windows::core::Interface::vtable(self).EnumRanges)(::windows::core::Interface::as_raw(self), ec, ::core::mem::transmute(ppenum), ptargetrange.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue<'a, P0>(&self, ec: u32, prange: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
@@ -10898,11 +10519,9 @@ pub struct ITfReadOnlyProperty_Vtbl {
     GetValue: usize,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfReadingInformationUIElement(::windows::core::IUnknown);
 impl ITfReadingInformationUIElement {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10912,7 +10531,6 @@ impl ITfReadingInformationUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, bshow: P0) -> ::windows::core::Result<()>
     where
@@ -10920,7 +10538,6 @@ impl ITfReadingInformationUIElement {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), bshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10934,7 +10551,6 @@ impl ITfReadingInformationUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfContext>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10948,7 +10564,6 @@ impl ITfReadingInformationUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetErrorIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsVerticalOrderPreferred(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11022,7 +10637,6 @@ pub struct ITfReadingInformationUIElement_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsVerticalOrderPreferred: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfReverseConversion(::windows::core::IUnknown);
 impl ITfReverseConversion {
@@ -11075,7 +10689,6 @@ pub struct ITfReverseConversion_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub DoReverseConversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpstr: ::windows::core::PCWSTR, pplist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfReverseConversionList(::windows::core::IUnknown);
 impl ITfReverseConversionList {
@@ -11083,7 +10696,6 @@ impl ITfReverseConversionList {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetString(&self, uindex: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11135,7 +10747,6 @@ pub struct ITfReverseConversionList_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetString: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfReverseConversionMgr(::windows::core::IUnknown);
 impl ITfReverseConversionMgr {
@@ -11185,7 +10796,6 @@ pub struct ITfReverseConversionMgr_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetReverseConversion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, langid: u16, guidprofile: *const ::windows::core::GUID, dwflag: u32, ppreverseconversion: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfSource(::windows::core::IUnknown);
 impl ITfSource {
@@ -11242,7 +10852,6 @@ pub struct ITfSource_Vtbl {
     pub AdviseSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub UnadviseSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfSourceSingle(::windows::core::IUnknown);
 impl ITfSourceSingle {
@@ -11298,14 +10907,12 @@ pub struct ITfSourceSingle_Vtbl {
     pub AdviseSingleSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tid: u32, riid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnadviseSingleSink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tid: u32, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfSpeechUIServer(::windows::core::IUnknown);
 impl ITfSpeechUIServer {
     pub unsafe fn Initialize(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowUI<'a, P0>(&self, fshow: P0) -> ::windows::core::Result<()>
     where
@@ -11363,7 +10970,6 @@ pub struct ITfSpeechUIServer_Vtbl {
     ShowUI: usize,
     pub UpdateBalloon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, style: TfLBBalloonStyle, pch: ::windows::core::PCWSTR, cch: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfStatusSink(::windows::core::IUnknown);
 impl ITfStatusSink {
@@ -11415,7 +11021,6 @@ pub struct ITfStatusSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfSystemDeviceTypeLangBarItem(::windows::core::IUnknown);
 impl ITfSystemDeviceTypeLangBarItem {
@@ -11469,11 +11074,9 @@ pub struct ITfSystemDeviceTypeLangBarItem_Vtbl {
     pub SetIconMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: LANG_BAR_ITEM_ICON_MODE_FLAGS) -> ::windows::core::HRESULT,
     pub GetIconMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfSystemLangBarItem(::windows::core::IUnknown);
 impl ITfSystemLangBarItem {
-    #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn SetIcon<'a, P0>(&self, hicon: P0) -> ::windows::core::Result<()>
     where
@@ -11530,7 +11133,6 @@ pub struct ITfSystemLangBarItem_Vtbl {
     SetIcon: usize,
     pub SetTooltipString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pchtooltip: ::windows::core::PCWSTR, cch: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfSystemLangBarItemSink(::windows::core::IUnknown);
 impl ITfSystemLangBarItemSink {
@@ -11586,14 +11188,12 @@ pub struct ITfSystemLangBarItemSink_Vtbl {
     pub InitMenu: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmenu: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnMenuSelect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wid: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfSystemLangBarItemText(::windows::core::IUnknown);
 impl ITfSystemLangBarItemText {
     pub unsafe fn SetItemText(&self, pch: &[u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetItemText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pch.as_ptr()), pch.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetItemText(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11645,7 +11245,6 @@ pub struct ITfSystemLangBarItemText_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetItemText: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfTextEditSink(::windows::core::IUnknown);
 impl ITfTextEditSink {
@@ -11698,7 +11297,6 @@ pub struct ITfTextEditSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnEndEdit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void, ecreadonly: u32, peditrecord: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfTextInputProcessor(::windows::core::IUnknown);
 impl ITfTextInputProcessor {
@@ -11754,7 +11352,6 @@ pub struct ITfTextInputProcessor_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptim: *mut ::core::ffi::c_void, tid: u32) -> ::windows::core::HRESULT,
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfTextInputProcessorEx(::windows::core::IUnknown);
 impl ITfTextInputProcessorEx {
@@ -11830,7 +11427,6 @@ pub struct ITfTextInputProcessorEx_Vtbl {
     pub base__: ITfTextInputProcessor_Vtbl,
     pub ActivateEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptim: *mut ::core::ffi::c_void, tid: u32, dwflags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfTextLayoutSink(::windows::core::IUnknown);
 impl ITfTextLayoutSink {
@@ -11883,7 +11479,6 @@ pub struct ITfTextLayoutSink_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnLayoutChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void, lcode: TfLayoutCode, pview: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfThreadFocusSink(::windows::core::IUnknown);
 impl ITfThreadFocusSink {
@@ -11936,7 +11531,6 @@ pub struct ITfThreadFocusSink_Vtbl {
     pub OnSetThreadFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnKillThreadFocus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfThreadMgr(::windows::core::IUnknown);
 impl ITfThreadMgr {
@@ -11965,7 +11559,6 @@ impl ITfThreadMgr {
     {
         (::windows::core::Interface::vtable(self).SetFocus)(::windows::core::Interface::as_raw(self), pdimfocus.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AssociateFocus<'a, P0, P1>(&self, hwnd: P0, pdimnew: P1) -> ::windows::core::Result<ITfDocumentMgr>
     where
@@ -11975,7 +11568,6 @@ impl ITfThreadMgr {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AssociateFocus)(::windows::core::Interface::as_raw(self), hwnd.into(), pdimnew.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfDocumentMgr>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsThreadFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12051,7 +11643,6 @@ pub struct ITfThreadMgr_Vtbl {
     pub EnumFunctionProviders: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetGlobalCompartment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcompmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfThreadMgr2(::windows::core::IUnknown);
 impl ITfThreadMgr2 {
@@ -12080,7 +11671,6 @@ impl ITfThreadMgr2 {
     {
         (::windows::core::Interface::vtable(self).SetFocus)(::windows::core::Interface::as_raw(self), pdimfocus.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsThreadFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12169,7 +11759,6 @@ pub struct ITfThreadMgr2_Vtbl {
     pub SuspendKeystrokeHandling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ResumeKeystrokeHandling: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfThreadMgrEventSink(::windows::core::IUnknown);
 impl ITfThreadMgrEventSink {
@@ -12250,7 +11839,6 @@ pub struct ITfThreadMgrEventSink_Vtbl {
     pub OnPushContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnPopContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pic: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfThreadMgrEx(::windows::core::IUnknown);
 impl ITfThreadMgrEx {
@@ -12279,7 +11867,6 @@ impl ITfThreadMgrEx {
     {
         (::windows::core::Interface::vtable(self).base__.SetFocus)(::windows::core::Interface::as_raw(self), pdimfocus.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AssociateFocus<'a, P0, P1>(&self, hwnd: P0, pdimnew: P1) -> ::windows::core::Result<ITfDocumentMgr>
     where
@@ -12289,7 +11876,6 @@ impl ITfThreadMgrEx {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.AssociateFocus)(::windows::core::Interface::as_raw(self), hwnd.into(), pdimnew.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITfDocumentMgr>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsThreadFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12372,11 +11958,9 @@ pub struct ITfThreadMgrEx_Vtbl {
     pub ActivateEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptid: *mut u32, dwflags: u32) -> ::windows::core::HRESULT,
     pub GetActiveFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpdwflags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfToolTipUIElement(::windows::core::IUnknown);
 impl ITfToolTipUIElement {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12386,7 +11970,6 @@ impl ITfToolTipUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, bshow: P0) -> ::windows::core::Result<()>
     where
@@ -12394,13 +11977,11 @@ impl ITfToolTipUIElement {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), bshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsShown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12466,11 +12047,9 @@ pub struct ITfToolTipUIElement_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetString: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfTransitoryExtensionSink(::windows::core::IUnknown);
 impl ITfTransitoryExtensionSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTransitoryExtensionUpdated<'a, P0, P1, P2>(&self, pic: P0, ecreadonly: u32, presultrange: P1, pcompositionrange: P2) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -12526,11 +12105,9 @@ pub struct ITfTransitoryExtensionSink_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnTransitoryExtensionUpdated: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfTransitoryExtensionUIElement(::windows::core::IUnknown);
 impl ITfTransitoryExtensionUIElement {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12540,7 +12117,6 @@ impl ITfTransitoryExtensionUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, bshow: P0) -> ::windows::core::Result<()>
     where
@@ -12548,7 +12124,6 @@ impl ITfTransitoryExtensionUIElement {
     {
         (::windows::core::Interface::vtable(self).base__.Show)(::windows::core::Interface::as_raw(self), bshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12615,11 +12190,9 @@ pub struct ITfTransitoryExtensionUIElement_Vtbl {
     pub base__: ITfUIElement_Vtbl,
     pub GetDocumentMgr: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdim: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfUIElement(::windows::core::IUnknown);
 impl ITfUIElement {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12629,7 +12202,6 @@ impl ITfUIElement {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Show<'a, P0>(&self, bshow: P0) -> ::windows::core::Result<()>
     where
@@ -12637,7 +12209,6 @@ impl ITfUIElement {
     {
         (::windows::core::Interface::vtable(self).Show)(::windows::core::Interface::as_raw(self), bshow.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsShown(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12697,11 +12268,9 @@ pub struct ITfUIElement_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsShown: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfUIElementMgr(::windows::core::IUnknown);
 impl ITfUIElementMgr {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginUIElement<'a, P0>(&self, pelement: P0, pbshow: &mut super::super::Foundation::BOOL, pdwuielementid: &mut u32) -> ::windows::core::Result<()>
     where
@@ -12772,11 +12341,9 @@ pub struct ITfUIElementMgr_Vtbl {
     pub GetUIElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwuielementid: u32, ppelement: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnumUIElements: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct ITfUIElementSink(::windows::core::IUnknown);
 impl ITfUIElementSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginUIElement(&self, dwuielementid: u32, pbshow: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginUIElement)(::windows::core::Interface::as_raw(self), dwuielementid, ::core::mem::transmute(pbshow)).ok()
@@ -12834,26 +12401,21 @@ pub struct ITfUIElementSink_Vtbl {
     pub UpdateUIElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwuielementid: u32) -> ::windows::core::HRESULT,
     pub EndUIElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwuielementid: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IUIManagerEventSink(::windows::core::IUnknown);
 impl IUIManagerEventSink {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowOpening(&self, prcbounds: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnWindowOpening)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcbounds)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowOpened(&self, prcbounds: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnWindowOpened)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcbounds)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowUpdating(&self, prcupdatedbounds: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnWindowUpdating)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcupdatedbounds)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowUpdated(&self, prcupdatedbounds: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnWindowUpdated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prcupdatedbounds)).ok()
@@ -12923,7 +12485,6 @@ pub struct IUIManagerEventSink_Vtbl {
     pub OnWindowClosing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnWindowClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 pub struct IVersionInfo(::windows::core::IUnknown);
 impl IVersionInfo {
@@ -12938,13 +12499,11 @@ impl IVersionInfo {
     pub unsafe fn GetBuildVersion(&self, ulsub: u32, pdwmajor: &mut u32, pdwminor: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBuildVersion)(::windows::core::Interface::as_raw(self), ulsub, ::core::mem::transmute(pdwmajor), ::core::mem::transmute(pdwminor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetComponentDescription(&self, ulsub: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetComponentDescription)(::windows::core::Interface::as_raw(self), ulsub, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInstanceDescription(&self, ulsub: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -13002,7 +12561,6 @@ pub struct IVersionInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetInstanceDescription: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -13011,157 +12569,82 @@ pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()>
     }
     InitLocalMsCtfMonitor(dwflags).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InputScope(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DEFAULT: InputScope = InputScope(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_URL: InputScope = InputScope(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_LOGINNAME: InputScope = InputScope(6i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DATE_DAY: InputScope = InputScope(24i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_DIGITS: InputScope = InputScope(28i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_NUMBER: InputScope = InputScope(29i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ONECHAR: InputScope = InputScope(30i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PASSWORD: InputScope = InputScope(31i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_HIRAGANA: InputScope = InputScope(44i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_HANJA: InputScope = InputScope(47i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_SEARCH: InputScope = InputScope(50i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_FORMULA: InputScope = InputScope(51i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_YOMI: InputScope = InputScope(56i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_TEXT: InputScope = InputScope(57i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_CHAT: InputScope = InputScope(58i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PRIVATE: InputScope = InputScope(61i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_MAPS: InputScope = InputScope(62i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_SRGS: InputScope = InputScope(-3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_XML: InputScope = InputScope(-4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
 impl ::core::marker::Copy for InputScope {}
 impl ::core::clone::Clone for InputScope {
@@ -13182,13 +12665,10 @@ impl ::core::fmt::Debug for InputScope {
         f.debug_tuple("InputScope").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
 impl ::core::marker::Copy for LANG_BAR_ITEM_ICON_MODE_FLAGS {}
 impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
@@ -13211,13 +12691,10 @@ impl ::core::fmt::Debug for LANG_BAR_ITEM_ICON_MODE_FLAGS {
 }
 pub const LIBID_MSAATEXTLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
 pub const MSAAControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
 impl ::core::marker::Copy for TEXT_STORE_CHANGE_FLAGS {}
 impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
@@ -13266,13 +12743,10 @@ impl ::core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(6u32);
 impl ::core::marker::Copy for TEXT_STORE_LOCK_FLAGS {}
 impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
@@ -13293,13 +12767,10 @@ impl ::core::fmt::Debug for TEXT_STORE_LOCK_FLAGS {
         f.debug_tuple("TEXT_STORE_LOCK_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(1u32);
 impl ::core::marker::Copy for TEXT_STORE_TEXT_CHANGE_FLAGS {}
 impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
@@ -13348,37 +12819,22 @@ impl ::core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CLUIE_COUNT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CLUIE_SELECTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CLUIE_STRING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_COMMANDING_ENABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_COMMANDING_ON: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
 impl ::core::marker::Copy for TF_CONTEXT_EDIT_CONTEXT_FLAGS {}
 impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
@@ -13427,45 +12883,26 @@ impl ::core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_ATTR_INFO(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
 impl ::core::marker::Copy for TF_DA_ATTR_INFO {}
 impl ::core::clone::Clone for TF_DA_ATTR_INFO {
@@ -13487,7 +12924,6 @@ impl ::core::fmt::Debug for TF_DA_ATTR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
@@ -13513,7 +12949,6 @@ impl ::core::default::Default for TF_DA_COLOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
     pub cr: u32,
@@ -13538,15 +12973,11 @@ impl ::core::default::Default for TF_DA_COLOR_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_COLORTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
 impl ::core::marker::Copy for TF_DA_COLORTYPE {}
 impl ::core::clone::Clone for TF_DA_COLORTYPE {
@@ -13567,19 +12998,13 @@ impl ::core::fmt::Debug for TF_DA_COLORTYPE {
         f.debug_tuple("TF_DA_COLORTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_LINESTYLE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LS_SOLID: TF_DA_LINESTYLE = TF_DA_LINESTYLE(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(4i32);
 impl ::core::marker::Copy for TF_DA_LINESTYLE {}
 impl ::core::clone::Clone for TF_DA_LINESTYLE {
@@ -13600,20 +13025,13 @@ impl ::core::fmt::Debug for TF_DA_LINESTYLE {
         f.debug_tuple("TF_DA_LINESTYLE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DICTATION_ON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DISABLE_BALLOON: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DISABLE_COMMANDING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DISABLE_DICTATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_DISABLE_SPEECH: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_DISPLAYATTRIBUTE {
     pub crText: TF_DA_COLOR,
@@ -13649,60 +13067,33 @@ impl ::core::default::Default for TF_DISPLAYATTRIBUTE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ENABLE_PROCESS_ATOM: &str = "_CTF_ENABLE_PROCESS_ATOM_";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220218i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_COMPOSITION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220216i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220220i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_EMPTYCONTEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220215i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220982i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_INVALIDPOINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220985i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_INVALIDPOS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_INVALIDVIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220219i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220224i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOCONVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219968i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOLAYOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOPROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220221i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOSELECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOSERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_NOTOWNEDRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220222i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_RANGE_NOT_COVERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220217i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220983i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_STACKFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220223i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_E_SYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_FLOATINGLANGBAR_WNDTITLE: &str = "TF_FloatingLangBar_WndTitle";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_FLOATINGLANGBAR_WNDTITLEA: &str = "TF_FloatingLangBar_WndTitle";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_FLOATINGLANGBAR_WNDTITLEW: &str = "TF_FloatingLangBar_WndTitle";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_HALTCOND {
     pub pHaltRange: ::core::option::Option<ITfRange>,
     pub aHaltPos: TfAnchor,
@@ -13732,12 +13123,9 @@ impl ::core::default::Default for TF_HALTCOND {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_HF_OBJECT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IE_CORRECTION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: u16,
@@ -13774,46 +13162,26 @@ impl ::core::default::Default for TF_INPUTPROCESSORPROFILE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: ::windows::core::GUID,
     pub guidItem: ::windows::core::GUID,
@@ -13847,7 +13215,6 @@ impl ::core::default::Default for TF_LANGBARITEMINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: ::windows::core::GUID,
@@ -13889,7 +13256,6 @@ impl ::core::default::Default for TF_LANGUAGEPROFILE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
@@ -13925,60 +13291,33 @@ impl ::core::default::Default for TF_LBBALLOONINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_BALLOON: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_BITMAP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_CUSTOMUI: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_DESC_MAXLEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_ICON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STATUS: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STATUS_DISABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STATUS_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_TEXT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_TOOLTIP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBMENUF_CHECKED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBMENUF_GRAYED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_LMLATTELEMENT {
     pub dwFrameStart: u32,
@@ -14012,7 +13351,6 @@ impl ::core::default::Default for TF_LMLATTELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
@@ -14043,32 +13381,19 @@ impl ::core::default::Default for TF_LMLATTELEMENT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MENUREADY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_ALT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_CONTROL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_LALT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_LCONTROL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_LSHIFT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_ON_KEYUP: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_RALT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_RCONTROL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_RSHIFT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_MOD_SHIFT: u32 = 4u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: ::windows::core::GUID,
     pub ichStart: i32,
@@ -14102,10 +13427,8 @@ impl ::core::default::Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_POPF_ALL: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
@@ -14135,11 +13458,8 @@ impl ::core::default::Default for TF_PRESERVEDKEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_PROCESS_ATOM: &str = "_CTF_PROCESS_ATOM_";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
 pub const TF_PROFILE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd38eff65_aa46_4fd5_91a7_67845fb02f5b);
 pub const TF_PROFILE_CANTONESE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aec109c_7e96_11d4_b2ef_0080c882687e);
@@ -14156,7 +13476,6 @@ pub const TF_PROFILE_TIGRINYA: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const TF_PROFILE_WUBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
 pub const TF_PROFILE_YI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct TF_PROPERTYVAL {
     pub guidId: ::windows::core::GUID,
@@ -14186,42 +13505,24 @@ impl ::core::default::Default for TF_PROPERTYVAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RCM_COMLESS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RCM_HINT_READING_LENGTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RCM_VKEY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RIUIE_CONTEXT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RIUIE_ERRORINDEX: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RIUIE_STRING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RIUIE_VERTICALORDER: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RP_HIDDENINSETTINGUI: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RP_LOCALPROCESS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RP_LOCALTHREAD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SD_LOADING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SD_READONLY: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_SELECTION {
     pub range: ::core::option::Option<ITfRange>,
@@ -14258,7 +13559,6 @@ impl ::core::default::Default for TF_SELECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
@@ -14296,135 +13596,71 @@ impl ::core::default::Default for TF_SELECTIONSTYLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_DESKBAND: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_DOCK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_HIDDEN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_LABELS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_LOWTRANSPARENCY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_MINIMIZED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_NOLABELS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_NOTRANSPARENCY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SFT_SHOWNORMAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SHOW_BALLOON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SPEECHUI_SHOWN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SS_DISJOINTSEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SS_REGIONS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SS_TRANSITORY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ST_CORRECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262912i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TF_IGNOREEND: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TF_MOVESTART: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMAE_COMLESS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMAE_CONSOLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMAE_NOACTIVATETIP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMAE_SECUREMODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMAE_WOW16: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_ACTIVATED: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_COMLESS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_CONSOLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_IMMERSIVEMODE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_NOACTIVATETIP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_SECUREMODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TMF_WOW16: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TRANSITORYEXTENSION_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_TU_CORRECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_URP_ALLPROFILES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_URP_LOCALPROCESS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_URP_LOCALTHREAD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_US_HIDETIPUI: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI: u32 = 61507u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_OPT_JAPANESE_ABC: u32 = 1041u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBL_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TKBLayoutType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBLT_CLASSIC: TKBLayoutType = TKBLayoutType(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKBLT_OPTIMIZED: TKBLayoutType = TKBLayoutType(2i32);
 impl ::core::marker::Copy for TKBLayoutType {}
 impl ::core::clone::Clone for TKBLayoutType {
@@ -14445,13 +13681,9 @@ impl ::core::fmt::Debug for TKBLayoutType {
         f.debug_tuple("TKBLayoutType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TKB_ALTERNATES_STANDARD: u32 = 1u32;
 pub const TSATTRID_App: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa80f77df_4237_40e5_849c_b5fa51c13ac7);
 pub const TSATTRID_App_IncorrectGrammar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd54e398_ad03_4b74_b6b3_5edb19996388);
@@ -14537,18 +13769,12 @@ pub const TSATTRID_Text_Para_SpaceBefore: ::windows::core::GUID = ::windows::cor
 pub const TSATTRID_Text_ReadOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85836617_de32_4afd_a50f_a2db110e6e4d);
 pub const TSATTRID_Text_RightToLeft: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca666e71_1b08_453d_bfdd_28e08c8aaf7a);
 pub const TSATTRID_Text_VerticalWriting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bba8195_046f_4ea9_b311_97fd66c4274b);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AS_SEL_CHANGE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct TS_ATTRVAL {
     pub idAttr: ::windows::core::GUID,
@@ -14579,62 +13805,34 @@ impl ::core::default::Default for TS_ATTRVAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ATTR_FIND_WANT_END: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_CHAR_REGION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220982i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_INVALIDPOINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220985i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_INVALIDPOS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_NOLAYOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_NOLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_NOOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_NOSELECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_NOSERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220983i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_E_SYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_GEA_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_GTA_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_IAS_NOQUERY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_IAS_QUERYONLY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_IE_COMPOSITION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_IE_CORRECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LF_SYNC: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
@@ -14664,26 +13862,16 @@ impl ::core::default::Default for TS_RUNINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_LOADING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_READONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_RESERVED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
@@ -14722,7 +13910,6 @@ impl ::core::default::Default for TS_SELECTIONSTYLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
@@ -14762,7 +13949,6 @@ impl ::core::default::Default for TS_SELECTION_ACP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: ::core::option::Option<IAnchor>,
@@ -14799,30 +13985,18 @@ impl ::core::default::Default for TS_SELECTION_ANCHOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SS_DISJOINTSEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SS_REGIONS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SS_TRANSITORY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SS_UWPCONTROL: u32 = 64u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
@@ -14852,16 +14026,11 @@ impl ::core::default::Default for TS_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_STRF_END: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_STRF_MID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_STRF_START: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262912i32);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,
@@ -14892,17 +14061,12 @@ impl ::core::default::Default for TS_TEXTCHANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfActiveSelEnd(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
 impl ::core::marker::Copy for TfActiveSelEnd {}
 impl ::core::clone::Clone for TfActiveSelEnd {
@@ -14923,13 +14087,10 @@ impl ::core::fmt::Debug for TfActiveSelEnd {
         f.debug_tuple("TfActiveSelEnd").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfAnchor(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
 impl ::core::marker::Copy for TfAnchor {}
 impl ::core::clone::Clone for TfAnchor {
@@ -14950,15 +14111,11 @@ impl ::core::fmt::Debug for TfAnchor {
         f.debug_tuple("TfAnchor").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfCandidateResult(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
 impl ::core::marker::Copy for TfCandidateResult {}
 impl ::core::clone::Clone for TfCandidateResult {
@@ -14979,13 +14136,10 @@ impl ::core::fmt::Debug for TfCandidateResult {
         f.debug_tuple("TfCandidateResult").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfGravity(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
 impl ::core::marker::Copy for TfGravity {}
 impl ::core::clone::Clone for TfGravity {
@@ -15006,13 +14160,10 @@ impl ::core::fmt::Debug for TfGravity {
         f.debug_tuple("TfGravity").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
 impl ::core::marker::Copy for TfIntegratableCandidateListSelectionStyle {}
 impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
@@ -15033,15 +14184,11 @@ impl ::core::fmt::Debug for TfIntegratableCandidateListSelectionStyle {
         f.debug_tuple("TfIntegratableCandidateListSelectionStyle").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLBBalloonStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = TfLBBalloonStyle(2i32);
 impl ::core::marker::Copy for TfLBBalloonStyle {}
 impl ::core::clone::Clone for TfLBBalloonStyle {
@@ -15062,13 +14209,10 @@ impl ::core::fmt::Debug for TfLBBalloonStyle {
         f.debug_tuple("TfLBBalloonStyle").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLBIClick(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LBI_CLK_LEFT: TfLBIClick = TfLBIClick(2i32);
 impl ::core::marker::Copy for TfLBIClick {}
 impl ::core::clone::Clone for TfLBIClick {
@@ -15089,15 +14233,11 @@ impl ::core::fmt::Debug for TfLBIClick {
         f.debug_tuple("TfLBIClick").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfLayoutCode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
 impl ::core::marker::Copy for TfLayoutCode {}
 impl ::core::clone::Clone for TfLayoutCode {
@@ -15118,21 +14258,14 @@ impl ::core::fmt::Debug for TfLayoutCode {
         f.debug_tuple("TfLayoutCode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfSapiObject(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
 impl ::core::marker::Copy for TfSapiObject {}
 impl ::core::clone::Clone for TfSapiObject {
@@ -15153,13 +14286,10 @@ impl ::core::fmt::Debug for TfSapiObject {
         f.debug_tuple("TfSapiObject").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TfShiftDir(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
 impl ::core::marker::Copy for TfShiftDir {}
 impl ::core::clone::Clone for TfShiftDir {
@@ -15180,15 +14310,11 @@ impl ::core::fmt::Debug for TfShiftDir {
         f.debug_tuple("TfShiftDir").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsActiveSelEnd(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AE_START: TsActiveSelEnd = TsActiveSelEnd(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_AE_END: TsActiveSelEnd = TsActiveSelEnd(2i32);
 impl ::core::marker::Copy for TsActiveSelEnd {}
 impl ::core::clone::Clone for TsActiveSelEnd {
@@ -15209,13 +14335,10 @@ impl ::core::fmt::Debug for TsActiveSelEnd {
         f.debug_tuple("TsActiveSelEnd").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsGravity(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_GR_FORWARD: TsGravity = TsGravity(1i32);
 impl ::core::marker::Copy for TsGravity {}
 impl ::core::clone::Clone for TsGravity {
@@ -15236,15 +14359,11 @@ impl ::core::fmt::Debug for TsGravity {
         f.debug_tuple("TsGravity").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsLayoutCode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LC_CHANGE: TsLayoutCode = TsLayoutCode(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_LC_DESTROY: TsLayoutCode = TsLayoutCode(2i32);
 impl ::core::marker::Copy for TsLayoutCode {}
 impl ::core::clone::Clone for TsLayoutCode {
@@ -15265,15 +14384,11 @@ impl ::core::fmt::Debug for TsLayoutCode {
         f.debug_tuple("TsLayoutCode").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsRunType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
 impl ::core::marker::Copy for TsRunType {}
 impl ::core::clone::Clone for TsRunType {
@@ -15294,13 +14409,10 @@ impl ::core::fmt::Debug for TsRunType {
         f.debug_tuple("TsRunType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TsShiftDir(pub i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TS_SD_FORWARD: TsShiftDir = TsShiftDir(1i32);
 impl ::core::marker::Copy for TsShiftDir {}
 impl ::core::clone::Clone for TsShiftDir {
@@ -15321,7 +14433,6 @@ impl ::core::fmt::Debug for TsShiftDir {
         f.debug_tuple("TsShiftDir").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]

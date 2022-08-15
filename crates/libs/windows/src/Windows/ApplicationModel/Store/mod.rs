@@ -2,7 +2,6 @@
 pub mod LicenseManagement;
 #[cfg(feature = "ApplicationModel_Store_Preview")]
 pub mod Preview;
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 pub struct CurrentApp;
 impl CurrentApp {
     pub fn LicenseInformation() -> ::windows::core::Result<LicenseInformation> {
@@ -11,7 +10,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).LicenseInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LicenseInformation>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LinkUri() -> ::windows::core::Result<super::super::Foundation::Uri> {
         Self::ICurrentApp(|this| unsafe {
@@ -25,7 +23,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).AppId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAppPurchaseAsync(includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
@@ -33,7 +30,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).RequestAppPurchaseAsync)(::windows::core::Interface::as_raw(this), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestProductPurchaseAsync(productid: &::windows::core::HSTRING, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
@@ -41,7 +37,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).RequestProductPurchaseAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadListingInformationAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentApp(|this| unsafe {
@@ -49,7 +44,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).LoadListingInformationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppReceiptAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
@@ -57,7 +51,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).GetAppReceiptAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetProductReceiptAsync(productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp(|this| unsafe {
@@ -65,7 +58,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).GetProductReceiptAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCustomerPurchaseIdAsync(serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp2Statics(|this| unsafe {
@@ -73,7 +65,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceticket), ::core::mem::transmute_copy(publisheruserid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCustomerCollectionsIdAsync(serviceticket: &::windows::core::HSTRING, publisheruserid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentApp2Statics(|this| unsafe {
@@ -81,7 +72,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serviceticket), ::core::mem::transmute_copy(publisheruserid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByProductIdsAsync<'a, P0, E0>(productids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
@@ -93,7 +83,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows::core::Interface::as_raw(this), productids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByKeywordsAsync<'a, P0, E0>(keywords: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
@@ -108,7 +97,6 @@ impl CurrentApp {
     pub fn ReportProductFulfillment(productid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         Self::ICurrentAppStaticsWithFiltering(|this| unsafe { (::windows::core::Interface::vtable(this).ReportProductFulfillment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid)).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppPurchaseCampaignIdAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppWithCampaignId(|this| unsafe {
@@ -116,7 +104,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).GetAppPurchaseCampaignIdAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportConsumableFulfillmentAsync(productid: &::windows::core::HSTRING, transactionid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
@@ -124,7 +111,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), transactionid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FulfillmentResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestProductPurchaseWithResultsAsync(productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
@@ -132,7 +118,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).RequestProductPurchaseWithResultsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, P0>(productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
     where
@@ -143,7 +128,6 @@ impl CurrentApp {
             (::windows::core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), displayproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnfulfilledConsumablesAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>> {
         Self::ICurrentAppWithConsumables(|this| unsafe {
@@ -180,7 +164,6 @@ impl CurrentApp {
 impl ::windows::core::RuntimeName for CurrentApp {
     const NAME: &'static str = "Windows.ApplicationModel.Store.CurrentApp";
 }
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 pub struct CurrentAppSimulator;
 impl CurrentAppSimulator {
     pub fn LicenseInformation() -> ::windows::core::Result<LicenseInformation> {
@@ -189,7 +172,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).LicenseInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LicenseInformation>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LinkUri() -> ::windows::core::Result<super::super::Foundation::Uri> {
         Self::ICurrentAppSimulator(|this| unsafe {
@@ -203,7 +185,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).AppId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAppPurchaseAsync(includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
@@ -211,7 +192,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).RequestAppPurchaseAsync)(::windows::core::Interface::as_raw(this), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RequestProductPurchaseAsync(productid: &::windows::core::HSTRING, includereceipt: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
@@ -219,7 +199,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).RequestProductPurchaseAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), includereceipt, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadListingInformationAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>> {
         Self::ICurrentAppSimulator(|this| unsafe {
@@ -227,7 +206,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).LoadListingInformationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppReceiptAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
@@ -235,7 +213,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).GetAppReceiptAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetProductReceiptAsync(productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppSimulator(|this| unsafe {
@@ -243,7 +220,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).GetProductReceiptAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn ReloadSimulatorAsync<'a, P0>(simulatorsettingsfile: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -254,7 +230,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).ReloadSimulatorAsync)(::windows::core::Interface::as_raw(this), simulatorsettingsfile.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByProductIdsAsync<'a, P0, E0>(productids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
@@ -266,7 +241,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).LoadListingInformationByProductIdsAsync)(::windows::core::Interface::as_raw(this), productids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn LoadListingInformationByKeywordsAsync<'a, P0, E0>(keywords: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ListingInformation>>
     where
@@ -278,7 +252,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).LoadListingInformationByKeywordsAsync)(::windows::core::Interface::as_raw(this), keywords.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ListingInformation>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAppPurchaseCampaignIdAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::ICurrentAppSimulatorWithCampaignId(|this| unsafe {
@@ -286,7 +259,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).GetAppPurchaseCampaignIdAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportConsumableFulfillmentAsync(productid: &::windows::core::HSTRING, transactionid: ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FulfillmentResult>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
@@ -294,7 +266,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), transactionid, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<FulfillmentResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestProductPurchaseWithResultsAsync(productid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
@@ -302,7 +273,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).RequestProductPurchaseWithResultsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestProductPurchaseWithDisplayPropertiesAsync<'a, P0>(productid: &::windows::core::HSTRING, offerid: &::windows::core::HSTRING, displayproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PurchaseResults>>
     where
@@ -313,7 +283,6 @@ impl CurrentAppSimulator {
             (::windows::core::Interface::vtable(this).RequestProductPurchaseWithDisplayPropertiesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(productid), ::core::mem::transmute_copy(offerid), displayproperties.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PurchaseResults>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnfulfilledConsumablesAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UnfulfilledConsumable>>> {
         Self::ICurrentAppSimulatorWithConsumables(|this| unsafe {
@@ -345,7 +314,6 @@ impl CurrentAppSimulator {
 impl ::windows::core::RuntimeName for CurrentAppSimulator {
     const NAME: &'static str = "Windows.ApplicationModel.Store.CurrentAppSimulator";
 }
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FulfillmentResult(pub i32);
@@ -850,7 +818,6 @@ pub struct IUnfulfilledConsumable_Vtbl {
     pub TransactionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OfferId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct LicenseChangedEventHandler(pub ::windows::core::IUnknown);
 impl LicenseChangedEventHandler {
@@ -934,11 +901,9 @@ pub struct LicenseChangedEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct LicenseInformation(::windows::core::IUnknown);
 impl LicenseInformation {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProductLicenses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductLicense>> {
         let this = self;
@@ -961,7 +926,6 @@ impl LicenseInformation {
             (::windows::core::Interface::vtable(this).IsTrial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -970,7 +934,6 @@ impl LicenseInformation {
             (::windows::core::Interface::vtable(this).ExpirationDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LicenseChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -982,7 +945,6 @@ impl LicenseInformation {
             (::windows::core::Interface::vtable(this).LicenseChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLicenseChanged(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1051,7 +1013,6 @@ impl ::core::convert::From<&LicenseInformation> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for LicenseInformation {}
 unsafe impl ::core::marker::Sync for LicenseInformation {}
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct ListingInformation(::windows::core::IUnknown);
 impl ListingInformation {
@@ -1069,7 +1030,6 @@ impl ListingInformation {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProductListings(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ProductListing>> {
         let this = self;
@@ -1106,7 +1066,6 @@ impl ListingInformation {
             (::windows::core::Interface::vtable(this).FormattedBasePrice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaleEndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IListingInformation2>(self)?;
@@ -1192,7 +1151,6 @@ impl ::core::convert::From<&ListingInformation> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for ListingInformation {}
 unsafe impl ::core::marker::Sync for ListingInformation {}
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct ProductLicense(::windows::core::IUnknown);
 impl ProductLicense {
@@ -1210,7 +1168,6 @@ impl ProductLicense {
             (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1289,7 +1246,6 @@ impl ::core::convert::From<&ProductLicense> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ProductLicense {}
 unsafe impl ::core::marker::Sync for ProductLicense {}
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct ProductListing(::windows::core::IUnknown);
 impl ProductListing {
@@ -1321,7 +1277,6 @@ impl ProductListing {
             (::windows::core::Interface::vtable(this).FormattedBasePrice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaleEndDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IProductListing2>(self)?;
@@ -1351,7 +1306,6 @@ impl ProductListing {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IProductListingWithMetadata>(self)?;
@@ -1374,7 +1328,6 @@ impl ProductListing {
             (::windows::core::Interface::vtable(this).Tag)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ImageUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IProductListingWithMetadata>(self)?;
@@ -1446,7 +1399,6 @@ impl ::core::convert::From<&ProductListing> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ProductListing {}
 unsafe impl ::core::marker::Sync for ProductListing {}
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct ProductPurchaseDisplayProperties(::windows::core::IUnknown);
 impl ProductPurchaseDisplayProperties {
@@ -1479,7 +1431,6 @@ impl ProductPurchaseDisplayProperties {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Image(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1488,7 +1439,6 @@ impl ProductPurchaseDisplayProperties {
             (::windows::core::Interface::vtable(this).Image)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetImage<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1571,7 +1521,6 @@ impl ::core::convert::From<&ProductPurchaseDisplayProperties> for &::windows::co
 }
 unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProductPurchaseStatus(pub i32);
@@ -1607,7 +1556,6 @@ unsafe impl ::windows::core::RuntimeType for ProductPurchaseStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProductType(pub i32);
@@ -1642,7 +1590,6 @@ unsafe impl ::windows::core::RuntimeType for ProductType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct PurchaseResults(::windows::core::IUnknown);
 impl PurchaseResults {
@@ -1737,7 +1684,6 @@ impl ::core::convert::From<&PurchaseResults> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for PurchaseResults {}
 unsafe impl ::core::marker::Sync for PurchaseResults {}
-#[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
 #[repr(transparent)]
 pub struct UnfulfilledConsumable(::windows::core::IUnknown);
 impl UnfulfilledConsumable {

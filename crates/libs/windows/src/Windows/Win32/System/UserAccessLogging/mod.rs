@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct UAL_DATA_BLOB {
     pub Size: u32,
@@ -40,7 +39,6 @@ impl ::core::default::Default for UAL_DATA_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn UalInstrument(data: &UAL_DATA_BLOB) -> ::windows::core::Result<()> {
@@ -50,7 +48,6 @@ pub unsafe fn UalInstrument(data: &UAL_DATA_BLOB) -> ::windows::core::Result<()>
     }
     UalInstrument(::core::mem::transmute(data)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`*"]
 #[inline]
 pub unsafe fn UalRegisterProduct<'a, P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> ::windows::core::Result<()>
 where
@@ -64,7 +61,6 @@ where
     }
     UalRegisterProduct(wszproductname.into(), wszrolename.into(), wszguid.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn UalStart(data: &UAL_DATA_BLOB) -> ::windows::core::Result<()> {
@@ -74,7 +70,6 @@ pub unsafe fn UalStart(data: &UAL_DATA_BLOB) -> ::windows::core::Result<()> {
     }
     UalStart(::core::mem::transmute(data)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_UserAccessLogging\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn UalStop(data: &UAL_DATA_BLOB) -> ::windows::core::Result<()> {

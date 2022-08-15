@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
@@ -34,7 +33,6 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundReason {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
@@ -68,7 +66,6 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundRevokedEventArgs(::windows::core::IUnknown);
 impl ExtendedExecutionForegroundRevokedEventArgs {
@@ -142,7 +139,6 @@ impl ::core::convert::From<&ExtendedExecutionForegroundRevokedEventArgs> for &::
 }
 unsafe impl ::core::marker::Send for ExtendedExecutionForegroundRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
@@ -176,7 +172,6 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedR
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_ExtendedExecution_Foreground\"`*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionForegroundSession(::windows::core::IUnknown);
 impl ExtendedExecutionForegroundSession {
@@ -187,7 +182,6 @@ impl ExtendedExecutionForegroundSession {
         static SHARED: ::windows::core::FactoryCache<ExtendedExecutionForegroundSession, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -204,7 +198,6 @@ impl ExtendedExecutionForegroundSession {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Revoked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -216,13 +209,11 @@ impl ExtendedExecutionForegroundSession {
             (::windows::core::Interface::vtable(this).Revoked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRevoked(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRevoked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestExtensionAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>> {
         let this = self;

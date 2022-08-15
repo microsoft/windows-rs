@@ -1,12 +1,8 @@
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACCOUNT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
 impl ::core::marker::Copy for ACCOUNT_STATE {}
 impl ::core::clone::Clone for ACCOUNT_STATE {
@@ -27,11 +23,9 @@ impl ::core::fmt::Debug for ACCOUNT_STATE {
         f.debug_tuple("ACCOUNT_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct AsyncIAssociatedIdentityProvider(::windows::core::IUnknown);
 impl AsyncIAssociatedIdentityProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Begin_AssociateIdentity<'a, P0>(&self, hwndparent: P0) -> ::windows::core::Result<()>
     where
@@ -39,13 +33,11 @@ impl AsyncIAssociatedIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).Begin_AssociateIdentity)(::windows::core::Interface::as_raw(self), hwndparent.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_AssociateIdentity(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Finish_AssociateIdentity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Begin_DisassociateIdentity<'a, P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
@@ -57,7 +49,6 @@ impl AsyncIAssociatedIdentityProvider {
     pub unsafe fn Finish_DisassociateIdentity(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_DisassociateIdentity)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Begin_ChangeCredential<'a, P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
@@ -128,7 +119,6 @@ pub struct AsyncIAssociatedIdentityProvider_Vtbl {
     Begin_ChangeCredential: usize,
     pub Finish_ChangeCredential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct AsyncIConnectedIdentityProvider(::windows::core::IUnknown);
 impl AsyncIConnectedIdentityProvider {
@@ -147,13 +137,11 @@ impl AsyncIConnectedIdentityProvider {
     pub unsafe fn Begin_IsConnected(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Begin_IsConnected)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Finish_IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Finish_IsConnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Begin_GetUrl<'a, P0>(&self, identifier: IDENTITY_URL, context: P0) -> ::windows::core::Result<()>
     where
@@ -161,7 +149,6 @@ impl AsyncIConnectedIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).Begin_GetUrl)(::windows::core::Interface::as_raw(self), identifier, context.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Finish_GetUrl(&self, postdata: &mut super::super::super::super::System::Com::VARIANT, url: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_GetUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(postdata), ::core::mem::transmute(url)).ok()
@@ -233,7 +220,6 @@ pub struct AsyncIConnectedIdentityProvider_Vtbl {
     pub Begin_GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Finish_GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityAdvise(::windows::core::IUnknown);
 impl AsyncIIdentityAdvise {
@@ -289,7 +275,6 @@ pub struct AsyncIIdentityAdvise_Vtbl {
     pub Begin_IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidentityupdateevents: u32, lpszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Finish_IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityAuthentication(::windows::core::IUnknown);
 impl AsyncIIdentityAuthentication {
@@ -299,12 +284,10 @@ impl AsyncIIdentityAuthentication {
     pub unsafe fn Finish_SetIdentityCredential(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_SetIdentityCredential)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Begin_ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: ::core::option::Option<&mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Begin_ValidateIdentityCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_ValidateIdentityCredential(&self, ppidentityproperties: ::core::option::Option<&mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_ValidateIdentityCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppidentityproperties)).ok()
@@ -360,22 +343,18 @@ pub struct AsyncIIdentityAuthentication_Vtbl {
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     Finish_ValidateIdentityCredential: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityProvider(::windows::core::IUnknown);
 impl AsyncIIdentityProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Begin_GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: ::core::option::Option<&super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pfilterpropvarvalue: ::core::option::Option<&super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Begin_GetIdentityEnum)(::windows::core::Interface::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Finish_GetIdentityEnum(&self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Finish_GetIdentityEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::System::Com::IEnumUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_Create<'a, P0>(&self, lpszusername: P0, pkeywordstoadd: &super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
@@ -383,13 +362,11 @@ impl AsyncIIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).Begin_Create)(::windows::core::Interface::as_raw(self), lpszusername.into(), ::core::mem::transmute(pkeywordstoadd)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_Create(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Finish_Create)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Begin_Import<'a, P0>(&self, ppropertystore: P0) -> ::windows::core::Result<()>
     where
@@ -400,7 +377,6 @@ impl AsyncIIdentityProvider {
     pub unsafe fn Finish_Import(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_Import)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Begin_Delete<'a, P0>(&self, lpszuniqueid: P0, pkeywordstodelete: &super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
@@ -417,7 +393,6 @@ impl AsyncIIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).Begin_FindByUniqueID)(::windows::core::Interface::as_raw(self), lpszuniqueid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_FindByUniqueID(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -426,7 +401,6 @@ impl AsyncIIdentityProvider {
     pub unsafe fn Begin_GetProviderPropertyStore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Begin_GetProviderPropertyStore)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Finish_GetProviderPropertyStore(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -529,7 +503,6 @@ pub struct AsyncIIdentityProvider_Vtbl {
     pub Begin_UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
     pub Finish_UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityStore(::windows::core::IUnknown);
 impl AsyncIIdentityStore {
@@ -564,12 +537,10 @@ impl AsyncIIdentityStore {
     pub unsafe fn Finish_ConvertToSid(&self, psid: ::core::option::Option<&mut u8>, pcbrequiredsid: &mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Finish_ConvertToSid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psid), ::core::mem::transmute(pcbrequiredsid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Begin_EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: ::core::option::Option<&super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pfilterpropvarvalue: ::core::option::Option<&super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Begin_EnumerateIdentities)(::windows::core::Interface::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Finish_EnumerateIdentities(&self) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -640,7 +611,6 @@ pub struct AsyncIIdentityStore_Vtbl {
     pub Begin_Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Finish_Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct AsyncIIdentityStoreEx(::windows::core::IUnknown);
 impl AsyncIIdentityStoreEx {
@@ -710,11 +680,9 @@ pub struct AsyncIIdentityStoreEx_Vtbl {
 }
 pub const CIdentityProfileHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecf5bf46_e3b6_449a_b56b_43f58f867814);
 pub const CoClassIdentityStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d49246_d217_465f_b00b_ac9ddd652eb7);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct IAssociatedIdentityProvider(::windows::core::IUnknown);
 impl IAssociatedIdentityProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn AssociateIdentity<'a, P0>(&self, hwndparent: P0) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>
     where
@@ -723,7 +691,6 @@ impl IAssociatedIdentityProvider {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AssociateIdentity)(::windows::core::Interface::as_raw(self), hwndparent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisassociateIdentity<'a, P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
@@ -732,7 +699,6 @@ impl IAssociatedIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).DisassociateIdentity)(::windows::core::Interface::as_raw(self), hwndparent.into(), lpszuniqueid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeCredential<'a, P0, P1>(&self, hwndparent: P0, lpszuniqueid: P1) -> ::windows::core::Result<()>
     where
@@ -794,7 +760,6 @@ pub struct IAssociatedIdentityProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ChangeCredential: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct IConnectedIdentityProvider(::windows::core::IUnknown);
 impl IConnectedIdentityProvider {
@@ -804,13 +769,11 @@ impl IConnectedIdentityProvider {
     pub unsafe fn DisconnectIdentity(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisconnectIdentity)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsConnected(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsConnected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetUrl<'a, P0>(&self, identifier: IDENTITY_URL, context: P0, postdata: &mut super::super::super::super::System::Com::VARIANT, url: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()>
     where
@@ -874,21 +837,14 @@ pub struct IConnectedIdentityProvider_Vtbl {
     GetUrl: usize,
     pub GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_ASSOCIATED: &str = "associated";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_CONNECTED: &str = "connected";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_HOMEGROUP: &str = "homegroup";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_KEYWORD_LOCAL: &str = "local";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDENTITY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
 impl ::core::marker::Copy for IDENTITY_TYPE {}
 impl ::core::clone::Clone for IDENTITY_TYPE {
@@ -909,23 +865,15 @@ impl ::core::fmt::Debug for IDENTITY_TYPE {
         f.debug_tuple("IDENTITY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IDENTITY_URL(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
 impl ::core::marker::Copy for IDENTITY_URL {}
 impl ::core::clone::Clone for IDENTITY_URL {
@@ -946,7 +894,6 @@ impl ::core::fmt::Debug for IDENTITY_URL {
         f.debug_tuple("IDENTITY_URL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct IIdentityAdvise(::windows::core::IUnknown);
 impl IIdentityAdvise {
@@ -998,14 +945,12 @@ pub struct IIdentityAdvise_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub IdentityUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwidentityupdateevents: IdentityUpdateEvent, lpszuniqueid: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct IIdentityAuthentication(::windows::core::IUnknown);
 impl IIdentityAuthentication {
     pub unsafe fn SetIdentityCredential(&self, credbuffer: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetIdentityCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), credbuffer.as_deref().map_or(0, |slice| slice.len() as _)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn ValidateIdentityCredential(&self, credbuffer: &[u8], ppidentityproperties: ::core::option::Option<&mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ValidateIdentityCredential)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(credbuffer.as_ptr()), credbuffer.len() as _, ::core::mem::transmute(ppidentityproperties)).ok()
@@ -1056,17 +1001,14 @@ pub struct IIdentityAuthentication_Vtbl {
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     ValidateIdentityCredential: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct IIdentityProvider(::windows::core::IUnknown);
 impl IIdentityProvider {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: ::core::option::Option<&super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pfilterpropvarvalue: ::core::option::Option<&super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIdentityEnum)(::windows::core::Interface::as_raw(self), eidentitytype, ::core::mem::transmute(pfilterkey), ::core::mem::transmute(pfilterpropvarvalue), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::System::Com::IEnumUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Create<'a, P0>(&self, lpszusername: P0, pppropertystore: &mut ::core::option::Option<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: &super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
@@ -1074,7 +1016,6 @@ impl IIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), lpszusername.into(), ::core::mem::transmute(pppropertystore), ::core::mem::transmute(pkeywordstoadd)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn Import<'a, P0>(&self, ppropertystore: P0) -> ::windows::core::Result<()>
     where
@@ -1082,7 +1023,6 @@ impl IIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).Import)(::windows::core::Interface::as_raw(self), ppropertystore.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn Delete<'a, P0>(&self, lpszuniqueid: P0, pkeywordstodelete: &super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
@@ -1090,7 +1030,6 @@ impl IIdentityProvider {
     {
         (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(pkeywordstodelete)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn FindByUniqueID<'a, P0>(&self, lpszuniqueid: P0) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>
     where
@@ -1099,7 +1038,6 @@ impl IIdentityProvider {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindByUniqueID)(::windows::core::Interface::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetProviderPropertyStore(&self) -> ::windows::core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1182,7 +1120,6 @@ pub struct IIdentityProvider_Vtbl {
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentityadvise: *mut ::core::ffi::c_void, dwidentityupdateevents: IdentityUpdateEvent, pdwcookie: *mut u32) -> ::windows::core::HRESULT,
     pub UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct IIdentityStore(::windows::core::IUnknown);
 impl IIdentityStore {
@@ -1205,7 +1142,6 @@ impl IIdentityStore {
     {
         (::windows::core::Interface::vtable(self).ConvertToSid)(::windows::core::Interface::as_raw(self), lpszuniqueid.into(), ::core::mem::transmute(providerguid), psid.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(psid.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcbrequiredsid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: ::core::option::Option<&super::super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY>, pfilterpropvarvalue: ::core::option::Option<&super::super::super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<super::super::super::super::System::Com::IEnumUnknown> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1264,7 +1200,6 @@ pub struct IIdentityStore_Vtbl {
     EnumerateIdentities: usize,
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 pub struct IIdentityStoreEx(::windows::core::IUnknown);
 impl IIdentityStoreEx {
@@ -1324,25 +1259,16 @@ pub struct IIdentityStoreEx_Vtbl {
     pub CreateConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, localname: ::windows::core::PCWSTR, connectedname: ::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub DeleteConnectedIdentity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectedname: ::windows::core::PCWSTR, providerguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IdentityUpdateEvent(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64u32);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128u32);
 impl ::core::marker::Copy for IdentityUpdateEvent {}
 impl ::core::clone::Clone for IdentityUpdateEvent {
@@ -1392,19 +1318,12 @@ impl ::core::ops::Not for IdentityUpdateEvent {
     }
 }
 pub const OID_OAssociatedIdentityProviderObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_COMPLETE_ACCOUNT: &str = "CompleteAccount";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_MODERN_SETTINGS_ADD_USER: &str = "ModernSettingsAddUser";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_NTH_USER_FIRST_AUTH: &str = "NthUserFirstAuth";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_OUT_OF_BOX_EXPERIENCE: &str = "OutOfBoxExperience";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_OUT_OF_BOX_UPGRADE_EXPERIENCE: &str = "OutOfBoxUpgradeExperience";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_PROPERTY_STORE: &str = "PropertyStore";
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity_Provider\"`*"]
 pub const STR_USER_NAME: &str = "Username";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

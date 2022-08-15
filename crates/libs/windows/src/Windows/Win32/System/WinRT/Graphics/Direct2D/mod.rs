@@ -1,28 +1,16 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GRAPHICS_EFFECT_PROPERTY_MAPPING(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_UNKNOWN: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_DIRECT: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORX: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORY: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORZ: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_VECTORW: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RECT_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(6i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_RADIANS_TO_DEGREES: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(7i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLORMATRIX_ALPHA_MODE: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR3: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(9i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 pub const GRAPHICS_EFFECT_PROPERTY_MAPPING_COLOR_TO_VECTOR4: GRAPHICS_EFFECT_PROPERTY_MAPPING = GRAPHICS_EFFECT_PROPERTY_MAPPING(10i32);
 impl ::core::marker::Copy for GRAPHICS_EFFECT_PROPERTY_MAPPING {}
 impl ::core::clone::Clone for GRAPHICS_EFFECT_PROPERTY_MAPPING {
@@ -43,17 +31,14 @@ impl ::core::fmt::Debug for GRAPHICS_EFFECT_PROPERTY_MAPPING {
         f.debug_tuple("GRAPHICS_EFFECT_PROPERTY_MAPPING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
 pub struct IGeometrySource2DInterop(::windows::core::IUnknown);
 impl IGeometrySource2DInterop {
-    #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn GetGeometry(&self) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetGeometry)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`*"]
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub unsafe fn TryGetGeometryUsingFactory<'a, P0>(&self, factory: P0) -> ::windows::core::Result<super::super::super::super::Graphics::Direct2D::ID2D1Geometry>
     where
@@ -111,7 +96,6 @@ pub struct IGeometrySource2DInterop_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))]
     TryGetGeometryUsingFactory: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Direct2D\"`*"]
 #[repr(transparent)]
 pub struct IGraphicsEffectD2D1Interop(::windows::core::IUnknown);
 impl IGraphicsEffectD2D1Interop {
@@ -129,13 +113,11 @@ impl IGraphicsEffectD2D1Interop {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPropertyCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub unsafe fn GetProperty(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Foundation::IPropertyValue> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::super::super::Foundation::IPropertyValue>(result__)
     }
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub unsafe fn GetSource(&self, index: u32) -> ::windows::core::Result<super::super::super::super::super::Graphics::Effects::IGraphicsEffectSource> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();

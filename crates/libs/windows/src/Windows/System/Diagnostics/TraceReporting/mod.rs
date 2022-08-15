@@ -59,7 +59,6 @@ pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
     pub RuntimeFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
     pub EtwRuntimeFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticActionState(pub i32);
@@ -94,7 +93,6 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 pub struct PlatformDiagnosticActions;
 impl PlatformDiagnosticActions {
     pub fn IsScenarioEnabled(scenarioid: ::windows::core::GUID) -> ::windows::core::Result<bool> {
@@ -103,7 +101,6 @@ impl PlatformDiagnosticActions {
             (::windows::core::Interface::vtable(this).IsScenarioEnabled)(::windows::core::Interface::as_raw(this), scenarioid, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryEscalateScenario<'a, P0, E0>(scenarioid: ::windows::core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &::windows::core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P0) -> ::windows::core::Result<bool>
     where
@@ -121,7 +118,6 @@ impl PlatformDiagnosticActions {
             (::windows::core::Interface::vtable(this).DownloadLatestSettingsForNamespace)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(partner), ::core::mem::transmute_copy(feature), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticActionState>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetActiveScenarioList() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::GUID>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
@@ -147,7 +143,6 @@ impl PlatformDiagnosticActions {
             (::windows::core::Interface::vtable(this).GetActiveTraceRuntime)(::windows::core::Interface::as_raw(this), slottype, result__.as_mut_ptr()).from_abi::<PlatformDiagnosticTraceRuntimeInfo>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
@@ -164,7 +159,6 @@ impl PlatformDiagnosticActions {
 impl ::windows::core::RuntimeName for PlatformDiagnosticActions {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActions";
 }
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticEscalationType(pub i32);
@@ -198,7 +192,6 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
@@ -261,7 +254,6 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEventBufferLatenc
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceInfo(::windows::core::IUnknown);
 impl PlatformDiagnosticTraceInfo {
@@ -370,7 +362,6 @@ impl ::core::convert::From<&PlatformDiagnosticTraceInfo> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
@@ -404,7 +395,6 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTracePriority {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(::windows::core::IUnknown);
 impl PlatformDiagnosticTraceRuntimeInfo {
@@ -485,7 +475,6 @@ impl ::core::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for &::windows::
 }
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
@@ -520,7 +509,6 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceSlotState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDiagnosticTraceSlotType(pub i32);

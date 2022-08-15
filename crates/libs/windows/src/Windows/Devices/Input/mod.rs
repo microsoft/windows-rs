@@ -357,7 +357,6 @@ pub struct ITouchCapabilities_Vtbl {
     pub TouchPresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub Contacts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct KeyboardCapabilities(::windows::core::IUnknown);
 impl KeyboardCapabilities {
@@ -438,7 +437,6 @@ impl ::core::convert::From<&KeyboardCapabilities> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for KeyboardCapabilities {}
 unsafe impl ::core::marker::Sync for KeyboardCapabilities {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct MouseCapabilities(::windows::core::IUnknown);
 impl MouseCapabilities {
@@ -548,7 +546,6 @@ impl ::core::convert::From<&MouseCapabilities> for &::windows::core::IInspectabl
 unsafe impl ::core::marker::Send for MouseCapabilities {}
 unsafe impl ::core::marker::Sync for MouseCapabilities {}
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 pub struct MouseDelta {
     pub X: i32,
     pub Y: i32,
@@ -585,11 +582,9 @@ impl ::core::default::Default for MouseDelta {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct MouseDevice(::windows::core::IUnknown);
 impl MouseDevice {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MouseMoved<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -601,7 +596,6 @@ impl MouseDevice {
             (::windows::core::Interface::vtable(this).MouseMoved)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMouseMoved(&self, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -679,7 +673,6 @@ impl ::core::convert::From<&MouseDevice> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct MouseEventArgs(::windows::core::IUnknown);
 impl MouseEventArgs {
@@ -751,7 +744,6 @@ impl ::core::convert::From<&MouseEventArgs> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenButtonListener(::windows::core::IUnknown);
 impl PenButtonListener {
@@ -762,7 +754,6 @@ impl PenButtonListener {
             (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsSupportedChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -774,13 +765,11 @@ impl PenButtonListener {
             (::windows::core::Interface::vtable(this).IsSupportedChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsSupportedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveIsSupportedChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TailButtonClicked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -792,13 +781,11 @@ impl PenButtonListener {
             (::windows::core::Interface::vtable(this).TailButtonClicked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTailButtonClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveTailButtonClicked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TailButtonDoubleClicked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -810,13 +797,11 @@ impl PenButtonListener {
             (::windows::core::Interface::vtable(this).TailButtonDoubleClicked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTailButtonDoubleClicked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveTailButtonDoubleClicked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TailButtonLongPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -828,7 +813,6 @@ impl PenButtonListener {
             (::windows::core::Interface::vtable(this).TailButtonLongPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTailButtonLongPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -908,7 +892,6 @@ impl ::core::convert::From<&PenButtonListener> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for PenButtonListener {}
 unsafe impl ::core::marker::Sync for PenButtonListener {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenDevice(::windows::core::IUnknown);
 impl PenDevice {
@@ -919,7 +902,6 @@ impl PenDevice {
             (::windows::core::Interface::vtable(this).PenId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Haptics\"`*"]
     #[cfg(feature = "Devices_Haptics")]
     pub fn SimpleHapticsController(&self) -> ::windows::core::Result<super::Haptics::SimpleHapticsController> {
         let this = &::windows::core::Interface::cast::<IPenDevice2>(self)?;
@@ -1002,7 +984,6 @@ impl ::core::convert::From<&PenDevice> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PenDevice {}
 unsafe impl ::core::marker::Sync for PenDevice {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenDockListener(::windows::core::IUnknown);
 impl PenDockListener {
@@ -1013,7 +994,6 @@ impl PenDockListener {
             (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsSupportedChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1025,13 +1005,11 @@ impl PenDockListener {
             (::windows::core::Interface::vtable(this).IsSupportedChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsSupportedChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveIsSupportedChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Docked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1043,13 +1021,11 @@ impl PenDockListener {
             (::windows::core::Interface::vtable(this).Docked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDocked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDocked)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Undocked<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1061,7 +1037,6 @@ impl PenDockListener {
             (::windows::core::Interface::vtable(this).Undocked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUndocked(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1141,7 +1116,6 @@ impl ::core::convert::From<&PenDockListener> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for PenDockListener {}
 unsafe impl ::core::marker::Sync for PenDockListener {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenDockedEventArgs(::windows::core::IUnknown);
 impl PenDockedEventArgs {}
@@ -1207,7 +1181,6 @@ impl ::core::convert::From<&PenDockedEventArgs> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for PenDockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenDockedEventArgs {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenTailButtonClickedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonClickedEventArgs {}
@@ -1273,7 +1246,6 @@ impl ::core::convert::From<&PenTailButtonClickedEventArgs> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for PenTailButtonClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonClickedEventArgs {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenTailButtonDoubleClickedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonDoubleClickedEventArgs {}
@@ -1339,7 +1311,6 @@ impl ::core::convert::From<&PenTailButtonDoubleClickedEventArgs> for &::windows:
 }
 unsafe impl ::core::marker::Send for PenTailButtonDoubleClickedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonDoubleClickedEventArgs {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenTailButtonLongPressedEventArgs(::windows::core::IUnknown);
 impl PenTailButtonLongPressedEventArgs {}
@@ -1405,7 +1376,6 @@ impl ::core::convert::From<&PenTailButtonLongPressedEventArgs> for &::windows::c
 }
 unsafe impl ::core::marker::Send for PenTailButtonLongPressedEventArgs {}
 unsafe impl ::core::marker::Sync for PenTailButtonLongPressedEventArgs {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PenUndockedEventArgs(::windows::core::IUnknown);
 impl PenUndockedEventArgs {}
@@ -1471,7 +1441,6 @@ impl ::core::convert::From<&PenUndockedEventArgs> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for PenUndockedEventArgs {}
 unsafe impl ::core::marker::Sync for PenUndockedEventArgs {}
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct PointerDevice(::windows::core::IUnknown);
 impl PointerDevice {
@@ -1496,7 +1465,6 @@ impl PointerDevice {
             (::windows::core::Interface::vtable(this).MaxContacts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PhysicalDeviceRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -1505,7 +1473,6 @@ impl PointerDevice {
             (::windows::core::Interface::vtable(this).PhysicalDeviceRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -1514,7 +1481,6 @@ impl PointerDevice {
             (::windows::core::Interface::vtable(this).ScreenRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedUsages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>> {
         let this = self;
@@ -1536,7 +1502,6 @@ impl PointerDevice {
             (::windows::core::Interface::vtable(this).GetPointerDevice)(::windows::core::Interface::as_raw(this), pointerid, result__.as_mut_ptr()).from_abi::<PointerDevice>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetPointerDevices() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PointerDevice>> {
         Self::IPointerDeviceStatics(|this| unsafe {
@@ -1610,7 +1575,6 @@ impl ::core::convert::From<&PointerDevice> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PointerDeviceType(pub i32);
@@ -1646,7 +1610,6 @@ unsafe impl ::windows::core::RuntimeType for PointerDeviceType {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 pub struct PointerDeviceUsage {
     pub UsagePage: u32,
     pub Usage: u32,
@@ -1689,7 +1652,6 @@ impl ::core::default::Default for PointerDeviceUsage {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Devices_Input\"`*"]
 #[repr(transparent)]
 pub struct TouchCapabilities(::windows::core::IUnknown);
 impl TouchCapabilities {

@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct FindAllAccountsResult(::windows::core::IUnknown);
 impl FindAllAccountsResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub fn Accounts(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>> {
         let this = self;
@@ -88,7 +86,6 @@ impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for FindAllAccountsResult {}
 unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FindAllWebAccountsStatus(pub i32);
@@ -495,11 +492,9 @@ pub struct IWebTokenResponseFactory_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWithTokenAccountAndError: usize,
 }
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebAccountEventArgs(::windows::core::IUnknown);
 impl WebAccountEventArgs {
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn Account(&self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount> {
         let this = self;
@@ -571,11 +566,9 @@ impl ::core::convert::From<&WebAccountEventArgs> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for WebAccountEventArgs {}
 unsafe impl ::core::marker::Sync for WebAccountEventArgs {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebAccountMonitor(::windows::core::IUnknown);
 impl WebAccountMonitor {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -587,13 +580,11 @@ impl WebAccountMonitor {
             (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -605,13 +596,11 @@ impl WebAccountMonitor {
             (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DefaultSignInAccountChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -623,13 +612,11 @@ impl WebAccountMonitor {
             (::windows::core::Interface::vtable(this).DefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDefaultSignInAccountChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDefaultSignInAccountChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AccountPictureUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken>
     where
@@ -641,7 +628,6 @@ impl WebAccountMonitor {
             (::windows::core::Interface::vtable(this).AccountPictureUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAccountPictureUpdated(&self, token: super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWebAccountMonitor2>(self)?;
@@ -710,10 +696,8 @@ impl ::core::convert::From<&WebAccountMonitor> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for WebAccountMonitor {}
 unsafe impl ::core::marker::Sync for WebAccountMonitor {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetTokenSilentlyAsync<'a, P0>(request: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>
     where
@@ -724,7 +708,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).GetTokenSilentlyAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn GetTokenSilentlyWithWebAccountAsync<'a, P0, P1>(request: P0, webaccount: P1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>
     where
@@ -736,7 +719,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).GetTokenSilentlyWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestTokenAsync<'a, P0>(request: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>
     where
@@ -747,7 +729,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).RequestTokenAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn RequestTokenWithWebAccountAsync<'a, P0, P1>(request: P0, webaccount: P1) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>
     where
@@ -759,7 +740,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).RequestTokenWithWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn FindAccountAsync<'a, P0>(provider: P0, webaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>
     where
@@ -770,7 +750,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindAccountAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(webaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn FindAccountProviderAsync(webaccountproviderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
@@ -778,7 +757,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindAccountProviderAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn FindAccountProviderWithAuthorityAsync(webaccountproviderid: &::windows::core::HSTRING, authority: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics(|this| unsafe {
@@ -786,7 +764,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "System"))]
     pub fn FindAccountProviderWithAuthorityForUserAsync<'a, P0>(webaccountproviderid: &::windows::core::HSTRING, authority: &::windows::core::HSTRING, user: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
     where
@@ -797,7 +774,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindAccountProviderWithAuthorityForUserAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), user.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
     pub fn CreateWebAccountMonitor<'a, P0, E0>(webaccounts: P0) -> ::windows::core::Result<WebAccountMonitor>
     where
@@ -809,7 +785,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).CreateWebAccountMonitor)(::windows::core::Interface::as_raw(this), webaccounts.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<WebAccountMonitor>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn FindAllAccountsAsync<'a, P0>(provider: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>
     where
@@ -820,7 +795,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindAllAccountsAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn FindAllAccountsWithClientIdAsync<'a, P0>(provider: P0, clientid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>
     where
@@ -831,7 +805,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindAllAccountsWithClientIdAsync)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(clientid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn FindSystemAccountProviderAsync(webaccountproviderid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
@@ -839,7 +812,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindSystemAccountProviderAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))]
     pub fn FindSystemAccountProviderWithAuthorityAsync(webaccountproviderid: &::windows::core::HSTRING, authority: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>> {
         Self::IWebAuthenticationCoreManagerStatics4(|this| unsafe {
@@ -847,7 +819,6 @@ impl WebAuthenticationCoreManager {
             (::windows::core::Interface::vtable(this).FindSystemAccountProviderWithAuthorityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(webaccountproviderid), ::core::mem::transmute_copy(authority), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Credentials\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "System"))]
     pub fn FindSystemAccountProviderWithAuthorityForUserAsync<'a, P0>(webaccountproviderid: &::windows::core::HSTRING, authority: &::windows::core::HSTRING, user: P0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>>
     where
@@ -882,7 +853,6 @@ impl WebAuthenticationCoreManager {
 impl ::windows::core::RuntimeName for WebAuthenticationCoreManager {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager";
 }
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebProviderError(::windows::core::IUnknown);
 impl WebProviderError {
@@ -900,7 +870,6 @@ impl WebProviderError {
             (::windows::core::Interface::vtable(this).ErrorMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -983,11 +952,9 @@ impl ::core::convert::From<&WebProviderError> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for WebProviderError {}
 unsafe impl ::core::marker::Sync for WebProviderError {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebTokenRequest(::windows::core::IUnknown);
 impl WebTokenRequest {
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn WebAccountProvider(&self) -> ::windows::core::Result<super::super::super::Credentials::WebAccountProvider> {
         let this = self;
@@ -1017,7 +984,6 @@ impl WebTokenRequest {
             (::windows::core::Interface::vtable(this).PromptType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebTokenRequestPromptType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -1026,7 +992,6 @@ impl WebTokenRequest {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AppProperties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IWebTokenRequest2>(self)?;
@@ -1046,7 +1011,6 @@ impl WebTokenRequest {
         let this = &::windows::core::Interface::cast::<IWebTokenRequest3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCorrelationId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn Create<'a, P0>(provider: P0, scope: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING) -> ::windows::core::Result<WebTokenRequest>
     where
@@ -1057,7 +1021,6 @@ impl WebTokenRequest {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(clientid), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn CreateWithPromptType<'a, P0>(provider: P0, scope: &::windows::core::HSTRING, clientid: &::windows::core::HSTRING, prompttype: WebTokenRequestPromptType) -> ::windows::core::Result<WebTokenRequest>
     where
@@ -1068,7 +1031,6 @@ impl WebTokenRequest {
             (::windows::core::Interface::vtable(this).CreateWithPromptType)(::windows::core::Interface::as_raw(this), provider.into().abi(), ::core::mem::transmute_copy(scope), ::core::mem::transmute_copy(clientid), prompttype, result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn CreateWithProvider<'a, P0>(provider: P0) -> ::windows::core::Result<WebTokenRequest>
     where
@@ -1079,7 +1041,6 @@ impl WebTokenRequest {
             (::windows::core::Interface::vtable(this).CreateWithProvider)(::windows::core::Interface::as_raw(this), provider.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenRequest>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn CreateWithScope<'a, P0>(provider: P0, scope: &::windows::core::HSTRING) -> ::windows::core::Result<WebTokenRequest>
     where
@@ -1158,7 +1119,6 @@ impl ::core::convert::From<&WebTokenRequest> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for WebTokenRequest {}
 unsafe impl ::core::marker::Sync for WebTokenRequest {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebTokenRequestPromptType(pub i32);
@@ -1192,11 +1152,9 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequestPromptType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebTokenRequestResult(::windows::core::IUnknown);
 impl WebTokenRequestResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResponseData(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<WebTokenResponse>> {
         let this = self;
@@ -1219,7 +1177,6 @@ impl WebTokenRequestResult {
             (::windows::core::Interface::vtable(this).ResponseError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InvalidateCacheAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1291,7 +1248,6 @@ impl ::core::convert::From<&WebTokenRequestResult> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for WebTokenRequestResult {}
 unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WebTokenRequestStatus(pub i32);
@@ -1329,7 +1285,6 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequestStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebTokenResponse(::windows::core::IUnknown);
 impl WebTokenResponse {
@@ -1354,7 +1309,6 @@ impl WebTokenResponse {
             (::windows::core::Interface::vtable(this).ProviderError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn WebAccount(&self) -> ::windows::core::Result<super::super::super::Credentials::WebAccount> {
         let this = self;
@@ -1363,7 +1317,6 @@ impl WebTokenResponse {
             (::windows::core::Interface::vtable(this).WebAccount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Credentials::WebAccount>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -1378,7 +1331,6 @@ impl WebTokenResponse {
             (::windows::core::Interface::vtable(this).CreateWithToken)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(token), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn CreateWithTokenAndAccount<'a, P0>(token: &::windows::core::HSTRING, webaccount: P0) -> ::windows::core::Result<WebTokenResponse>
     where
@@ -1389,7 +1341,6 @@ impl WebTokenResponse {
             (::windows::core::Interface::vtable(this).CreateWithTokenAndAccount)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(token), webaccount.into().abi(), result__.as_mut_ptr()).from_abi::<WebTokenResponse>(result__)
         })
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn CreateWithTokenAccountAndError<'a, P0, P1>(token: &::windows::core::HSTRING, webaccount: P0, error: P1) -> ::windows::core::Result<WebTokenResponse>
     where

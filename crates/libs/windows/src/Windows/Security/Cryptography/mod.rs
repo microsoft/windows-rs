@@ -4,7 +4,6 @@ pub mod Certificates;
 pub mod Core;
 #[cfg(feature = "Security_Cryptography_DataProtection")]
 pub mod DataProtection;
-#[doc = "*Required features: `\"Security_Cryptography\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BinaryStringEncoding(pub i32);
@@ -39,10 +38,8 @@ unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_Cryptography\"`*"]
 pub struct CryptographicBuffer;
 impl CryptographicBuffer {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Compare<'a, P0, E0, P1, E1>(object1: P0, object2: P1) -> ::windows::core::Result<bool>
     where
@@ -56,7 +53,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).Compare)(::windows::core::Interface::as_raw(this), object1.try_into().map_err(|e| e.into())?.abi(), object2.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GenerateRandom(length: u32) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
@@ -70,7 +66,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).GenerateRandomNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromByteArray(value: &[u8]) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
@@ -78,7 +73,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).CreateFromByteArray)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr(), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CopyToByteArray<'a, P0, E0>(buffer: P0, value: &mut ::windows::core::Array<u8>) -> ::windows::core::Result<()>
     where
@@ -87,7 +81,6 @@ impl CryptographicBuffer {
     {
         Self::ICryptographicBufferStatics(|this| unsafe { (::windows::core::Interface::vtable(this).CopyToByteArray)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), value.set_abi_len(), value as *mut _ as _).ok() })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DecodeFromHexString(value: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
@@ -95,7 +88,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).DecodeFromHexString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn EncodeToHexString<'a, P0, E0>(buffer: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -107,7 +99,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).EncodeToHexString)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DecodeFromBase64String(value: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
@@ -115,7 +106,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).DecodeFromBase64String)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn EncodeToBase64String<'a, P0, E0>(buffer: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -127,7 +117,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).EncodeToBase64String)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ConvertStringToBinary(value: &::windows::core::HSTRING, encoding: BinaryStringEncoding) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         Self::ICryptographicBufferStatics(|this| unsafe {
@@ -135,7 +124,6 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).ConvertStringToBinary)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), encoding, result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ConvertBinaryToString<'a, P0, E0>(encoding: BinaryStringEncoding, buffer: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where

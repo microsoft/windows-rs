@@ -138,7 +138,6 @@ pub struct IPrintCustomItemListOptionDetails3_Vtbl {
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct IPrintCustomOptionDetails(::windows::core::IUnknown);
 impl IPrintCustomOptionDetails {
@@ -368,11 +367,9 @@ pub struct IPrintHolePunchOptionDetails_Vtbl {
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct IPrintItemListOptionDetails(::windows::core::IUnknown);
 impl IPrintItemListOptionDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = self;
@@ -552,7 +549,6 @@ pub struct IPrintMediaTypeOptionDetails_Vtbl {
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct IPrintNumberOptionDetails(::windows::core::IUnknown);
 impl IPrintNumberOptionDetails {
@@ -707,7 +703,6 @@ pub struct IPrintNumberOptionDetails_Vtbl {
     pub MinValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub MaxValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct IPrintOptionDetails(::windows::core::IUnknown);
 impl IPrintOptionDetails {
@@ -972,7 +967,6 @@ pub struct IPrintTaskOptionDetailsStatic_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub GetFromPrintTaskOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printtaskoptions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct IPrintTextOptionDetails(::windows::core::IUnknown);
 impl IPrintTextOptionDetails {
@@ -1119,7 +1113,6 @@ pub struct IPrintTextOptionDetails_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub MaxCharacters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintBindingOptionDetails(::windows::core::IUnknown);
 impl PrintBindingOptionDetails {
@@ -1145,7 +1138,6 @@ impl PrintBindingOptionDetails {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1308,7 +1300,6 @@ impl<'a> ::core::convert::TryFrom<&PrintBindingOptionDetails> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for PrintBindingOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintBindingOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintBorderingOptionDetails(::windows::core::IUnknown);
 impl PrintBorderingOptionDetails {
@@ -1334,7 +1325,6 @@ impl PrintBorderingOptionDetails {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1497,7 +1487,6 @@ impl<'a> ::core::convert::TryFrom<&PrintBorderingOptionDetails> for ::windows::c
 }
 unsafe impl ::core::marker::Send for PrintBorderingOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintBorderingOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintCollationOptionDetails(::windows::core::IUnknown);
 impl PrintCollationOptionDetails {
@@ -1523,7 +1512,6 @@ impl PrintCollationOptionDetails {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1686,7 +1674,6 @@ impl<'a> ::core::convert::TryFrom<&PrintCollationOptionDetails> for ::windows::c
 }
 unsafe impl ::core::marker::Send for PrintCollationOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCollationOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintColorModeOptionDetails(::windows::core::IUnknown);
 impl PrintColorModeOptionDetails {
@@ -1712,7 +1699,6 @@ impl PrintColorModeOptionDetails {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -1875,7 +1861,6 @@ impl<'a> ::core::convert::TryFrom<&PrintColorModeOptionDetails> for ::windows::c
 }
 unsafe impl ::core::marker::Send for PrintColorModeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintColorModeOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintCopiesOptionDetails(::windows::core::IUnknown);
 impl PrintCopiesOptionDetails {
@@ -2069,7 +2054,6 @@ impl<'a> ::core::convert::TryFrom<&PrintCopiesOptionDetails> for ::windows::core
 }
 unsafe impl ::core::marker::Send for PrintCopiesOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCopiesOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintCustomItemDetails(::windows::core::IUnknown);
 impl PrintCustomItemDetails {
@@ -2154,7 +2138,6 @@ impl ::core::convert::From<&PrintCustomItemDetails> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for PrintCustomItemDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomItemDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintCustomItemListOptionDetails(::windows::core::IUnknown);
 impl PrintCustomItemListOptionDetails {
@@ -2162,7 +2145,6 @@ impl PrintCustomItemListOptionDetails {
         let this = &::windows::core::Interface::cast::<IPrintCustomItemListOptionDetails>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).AddItem)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(itemid), ::core::mem::transmute_copy(displayname)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AddItem2<'a, P0, E0>(&self, itemid: &::windows::core::HSTRING, displayname: &::windows::core::HSTRING, description: &::windows::core::HSTRING, icon: P0) -> ::windows::core::Result<()>
     where
@@ -2205,7 +2187,6 @@ impl PrintCustomItemListOptionDetails {
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -2387,7 +2368,6 @@ impl<'a> ::core::convert::TryFrom<&PrintCustomItemListOptionDetails> for ::windo
 }
 unsafe impl ::core::marker::Send for PrintCustomItemListOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomItemListOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintCustomTextOptionDetails(::windows::core::IUnknown);
 impl PrintCustomTextOptionDetails {
@@ -2589,7 +2569,6 @@ impl<'a> ::core::convert::TryFrom<&PrintCustomTextOptionDetails> for ::windows::
 }
 unsafe impl ::core::marker::Send for PrintCustomTextOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomTextOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintCustomToggleOptionDetails(::windows::core::IUnknown);
 impl PrintCustomToggleOptionDetails {
@@ -2780,7 +2759,6 @@ impl<'a> ::core::convert::TryFrom<&PrintCustomToggleOptionDetails> for ::windows
 }
 unsafe impl ::core::marker::Send for PrintCustomToggleOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintCustomToggleOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintDuplexOptionDetails(::windows::core::IUnknown);
 impl PrintDuplexOptionDetails {
@@ -2806,7 +2784,6 @@ impl PrintDuplexOptionDetails {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -2969,7 +2946,6 @@ impl<'a> ::core::convert::TryFrom<&PrintDuplexOptionDetails> for ::windows::core
 }
 unsafe impl ::core::marker::Send for PrintDuplexOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintDuplexOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintHolePunchOptionDetails(::windows::core::IUnknown);
 impl PrintHolePunchOptionDetails {
@@ -2995,7 +2971,6 @@ impl PrintHolePunchOptionDetails {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -3158,11 +3133,9 @@ impl<'a> ::core::convert::TryFrom<&PrintHolePunchOptionDetails> for ::windows::c
 }
 unsafe impl ::core::marker::Send for PrintHolePunchOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintHolePunchOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintMediaSizeOptionDetails(::windows::core::IUnknown);
 impl PrintMediaSizeOptionDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -3347,11 +3320,9 @@ impl<'a> ::core::convert::TryFrom<&PrintMediaSizeOptionDetails> for ::windows::c
 }
 unsafe impl ::core::marker::Send for PrintMediaSizeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintMediaSizeOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintMediaTypeOptionDetails(::windows::core::IUnknown);
 impl PrintMediaTypeOptionDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -3536,7 +3507,6 @@ impl<'a> ::core::convert::TryFrom<&PrintMediaTypeOptionDetails> for ::windows::c
 }
 unsafe impl ::core::marker::Send for PrintMediaTypeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintMediaTypeOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintOptionStates(pub u32);
@@ -3599,7 +3569,6 @@ unsafe impl ::windows::core::RuntimeType for PrintOptionStates {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PrintOptionType(pub i32);
@@ -3636,11 +3605,9 @@ unsafe impl ::windows::core::RuntimeType for PrintOptionType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintOrientationOptionDetails(::windows::core::IUnknown);
 impl PrintOrientationOptionDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -3825,7 +3792,6 @@ impl<'a> ::core::convert::TryFrom<&PrintOrientationOptionDetails> for ::windows:
 }
 unsafe impl ::core::marker::Send for PrintOrientationOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintOrientationOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintPageRangeOptionDetails(::windows::core::IUnknown);
 impl PrintPageRangeOptionDetails {
@@ -3986,11 +3952,9 @@ impl<'a> ::core::convert::TryFrom<&PrintPageRangeOptionDetails> for ::windows::c
 }
 unsafe impl ::core::marker::Send for PrintPageRangeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintQualityOptionDetails(::windows::core::IUnknown);
 impl PrintQualityOptionDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -4175,11 +4139,9 @@ impl<'a> ::core::convert::TryFrom<&PrintQualityOptionDetails> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for PrintQualityOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintQualityOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintStapleOptionDetails(::windows::core::IUnknown);
 impl PrintStapleOptionDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<IPrintItemListOptionDetails>(self)?;
@@ -4364,7 +4326,6 @@ impl<'a> ::core::convert::TryFrom<&PrintStapleOptionDetails> for ::windows::core
 }
 unsafe impl ::core::marker::Send for PrintStapleOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintStapleOptionDetails {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintTaskOptionChangedEventArgs(::windows::core::IUnknown);
 impl PrintTaskOptionChangedEventArgs {
@@ -4438,11 +4399,9 @@ impl ::core::convert::From<&PrintTaskOptionChangedEventArgs> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for PrintTaskOptionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskOptionChangedEventArgs {}
-#[doc = "*Required features: `\"Graphics_Printing_OptionDetails\"`*"]
 #[repr(transparent)]
 pub struct PrintTaskOptionDetails(::windows::core::IUnknown);
 impl PrintTaskOptionDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Options(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, IPrintOptionDetails>> {
         let this = self;
@@ -4465,7 +4424,6 @@ impl PrintTaskOptionDetails {
             (::windows::core::Interface::vtable(this).CreateTextOption)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(optionid), ::core::mem::transmute_copy(displayname), result__.as_mut_ptr()).from_abi::<PrintCustomTextOptionDetails>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OptionChanged<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4477,13 +4435,11 @@ impl PrintTaskOptionDetails {
             (::windows::core::Interface::vtable(this).OptionChanged)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOptionChanged(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveOptionChanged)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BeginValidation<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -4495,7 +4451,6 @@ impl PrintTaskOptionDetails {
             (::windows::core::Interface::vtable(this).BeginValidation)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBeginValidation(&self, eventcookie: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -4517,7 +4472,6 @@ impl PrintTaskOptionDetails {
             (::windows::core::Interface::vtable(this).GetFromPrintTaskOptions)(::windows::core::Interface::as_raw(this), printtaskoptions.into().abi(), result__.as_mut_ptr()).from_abi::<PrintTaskOptionDetails>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPageDescription(&self, jobpagenumber: u32) -> ::windows::core::Result<super::PrintPageDescription> {
         let this = &::windows::core::Interface::cast::<super::IPrintTaskOptionsCore>(self)?;
@@ -4526,7 +4480,6 @@ impl PrintTaskOptionDetails {
             (::windows::core::Interface::vtable(this).GetPageDescription)(::windows::core::Interface::as_raw(this), jobpagenumber, result__.as_mut_ptr()).from_abi::<super::PrintPageDescription>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayedOptions(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<super::IPrintTaskOptionsCoreUIConfiguration>(self)?;

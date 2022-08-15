@@ -5,15 +5,11 @@ pub const CLSID_HorizontalIndicatorContent: ::windows::core::GUID = ::windows::c
 pub const CLSID_VerticalIndicatorContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa10b5f17_afe0_4aa2_91e9_3e7001d2e6b4);
 pub const CLSID_VirtualViewportContent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3206a19a_86f0_4cb4_a7f3_16e3b7e2d852);
 pub const DCompManipulationCompositor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79dea627_a08a_43ac_8ef5_6900b9299126);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_STOP: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_FORWARD: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION_REVERSE: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION = DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION(2i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
@@ -34,27 +30,17 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION {
         f.debug_tuple("DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_CONFIGURATION(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_NONE: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_INTERACTION: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_X: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_Y: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_SCALING: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_TRANSLATION_INERTIA: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_SCALING_INERTIA: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(128i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_RAILS_X: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(256i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_CONFIGURATION_RAILS_Y: DIRECTMANIPULATION_CONFIGURATION = DIRECTMANIPULATION_CONFIGURATION(512i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_CONFIGURATION {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_CONFIGURATION {
@@ -75,19 +61,13 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_CONFIGURATION {
         f.debug_tuple("DIRECTMANIPULATION_CONFIGURATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_VERTICAL: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HORIZONTAL: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_ONLY: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_SELECT_DRAG: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION_HOLD_DRAG: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION = DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION(64i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
@@ -108,21 +88,14 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION {
         f.debug_tuple("DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_DRAG_DROP_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_READY: DIRECTMANIPULATION_DRAG_DROP_STATUS = DIRECTMANIPULATION_DRAG_DROP_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_PRESELECT: DIRECTMANIPULATION_DRAG_DROP_STATUS = DIRECTMANIPULATION_DRAG_DROP_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_SELECTING: DIRECTMANIPULATION_DRAG_DROP_STATUS = DIRECTMANIPULATION_DRAG_DROP_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_DRAGGING: DIRECTMANIPULATION_DRAG_DROP_STATUS = DIRECTMANIPULATION_DRAG_DROP_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_CANCELLED: DIRECTMANIPULATION_DRAG_DROP_STATUS = DIRECTMANIPULATION_DRAG_DROP_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DRAG_DROP_COMMITTED: DIRECTMANIPULATION_DRAG_DROP_STATUS = DIRECTMANIPULATION_DRAG_DROP_STATUS(5i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_DRAG_DROP_STATUS {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_DRAG_DROP_STATUS {
@@ -143,19 +116,13 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_DRAG_DROP_STATUS {
         f.debug_tuple("DIRECTMANIPULATION_DRAG_DROP_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_GESTURE_CONFIGURATION(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_GESTURE_NONE: DIRECTMANIPULATION_GESTURE_CONFIGURATION = DIRECTMANIPULATION_GESTURE_CONFIGURATION(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_GESTURE_DEFAULT: DIRECTMANIPULATION_GESTURE_CONFIGURATION = DIRECTMANIPULATION_GESTURE_CONFIGURATION(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_VERTICAL: DIRECTMANIPULATION_GESTURE_CONFIGURATION = DIRECTMANIPULATION_GESTURE_CONFIGURATION(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_GESTURE_CROSS_SLIDE_HORIZONTAL: DIRECTMANIPULATION_GESTURE_CONFIGURATION = DIRECTMANIPULATION_GESTURE_CONFIGURATION(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_GESTURE_PINCH_ZOOM: DIRECTMANIPULATION_GESTURE_CONFIGURATION = DIRECTMANIPULATION_GESTURE_CONFIGURATION(32i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_GESTURE_CONFIGURATION {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
@@ -176,15 +143,11 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_GESTURE_CONFIGURATION {
         f.debug_tuple("DIRECTMANIPULATION_GESTURE_CONFIGURATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_HITTEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HITTEST_TYPE_ASYNCHRONOUS: DIRECTMANIPULATION_HITTEST_TYPE = DIRECTMANIPULATION_HITTEST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HITTEST_TYPE_SYNCHRONOUS: DIRECTMANIPULATION_HITTEST_TYPE = DIRECTMANIPULATION_HITTEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HITTEST_TYPE_AUTO_SYNCHRONOUS: DIRECTMANIPULATION_HITTEST_TYPE = DIRECTMANIPULATION_HITTEST_TYPE(2i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_HITTEST_TYPE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_HITTEST_TYPE {
@@ -205,19 +168,13 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_HITTEST_TYPE {
         f.debug_tuple("DIRECTMANIPULATION_HITTEST_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_HORIZONTALALIGNMENT(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_NONE: DIRECTMANIPULATION_HORIZONTALALIGNMENT = DIRECTMANIPULATION_HORIZONTALALIGNMENT(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_LEFT: DIRECTMANIPULATION_HORIZONTALALIGNMENT = DIRECTMANIPULATION_HORIZONTALALIGNMENT(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_CENTER: DIRECTMANIPULATION_HORIZONTALALIGNMENT = DIRECTMANIPULATION_HORIZONTALALIGNMENT(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_RIGHT: DIRECTMANIPULATION_HORIZONTALALIGNMENT = DIRECTMANIPULATION_HORIZONTALALIGNMENT(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_HORIZONTALALIGNMENT_UNLOCKCENTER: DIRECTMANIPULATION_HORIZONTALALIGNMENT = DIRECTMANIPULATION_HORIZONTALALIGNMENT(8i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_HORIZONTALALIGNMENT {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
@@ -238,13 +195,10 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_HORIZONTALALIGNMENT {
         f.debug_tuple("DIRECTMANIPULATION_HORIZONTALALIGNMENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_INPUT_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INPUT_MODE_AUTOMATIC: DIRECTMANIPULATION_INPUT_MODE = DIRECTMANIPULATION_INPUT_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INPUT_MODE_MANUAL: DIRECTMANIPULATION_INPUT_MODE = DIRECTMANIPULATION_INPUT_MODE(1i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_INPUT_MODE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_INPUT_MODE {
@@ -265,23 +219,15 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_INPUT_MODE {
         f.debug_tuple("DIRECTMANIPULATION_INPUT_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_INTERACTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_BEGIN: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_MANIPULATION: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_TAP: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_HOLD: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_CROSS_SLIDE: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_TYPE_GESTURE_PINCH_ZOOM: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INTERACTION_END: DIRECTMANIPULATION_INTERACTION_TYPE = DIRECTMANIPULATION_INTERACTION_TYPE(100i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_INTERACTION_TYPE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_INTERACTION_TYPE {
@@ -302,25 +248,16 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_INTERACTION_TYPE {
         f.debug_tuple("DIRECTMANIPULATION_INTERACTION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_KEYBOARDFOCUS: u32 = 4294967294u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_MOTION_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_NONE: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_TRANSLATEX: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_TRANSLATEY: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_ZOOM: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_CENTERX: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(16i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_CENTERY: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(32i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOTION_ALL: DIRECTMANIPULATION_MOTION_TYPES = DIRECTMANIPULATION_MOTION_TYPES(55i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_MOTION_TYPES {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_MOTION_TYPES {
@@ -341,17 +278,12 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_MOTION_TYPES {
         f.debug_tuple("DIRECTMANIPULATION_MOTION_TYPES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_MOUSEFOCUS: u32 = 4294967293u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_COORDINATE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_COORDINATE_BOUNDARY: DIRECTMANIPULATION_SNAPPOINT_COORDINATE = DIRECTMANIPULATION_SNAPPOINT_COORDINATE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_COORDINATE_ORIGIN: DIRECTMANIPULATION_SNAPPOINT_COORDINATE = DIRECTMANIPULATION_SNAPPOINT_COORDINATE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_COORDINATE_MIRRORED: DIRECTMANIPULATION_SNAPPOINT_COORDINATE = DIRECTMANIPULATION_SNAPPOINT_COORDINATE(16i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
@@ -372,17 +304,12 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_SNAPPOINT_COORDINATE {
         f.debug_tuple("DIRECTMANIPULATION_SNAPPOINT_COORDINATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_SNAPPOINT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_MANDATORY: DIRECTMANIPULATION_SNAPPOINT_TYPE = DIRECTMANIPULATION_SNAPPOINT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_OPTIONAL: DIRECTMANIPULATION_SNAPPOINT_TYPE = DIRECTMANIPULATION_SNAPPOINT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_MANDATORY_SINGLE: DIRECTMANIPULATION_SNAPPOINT_TYPE = DIRECTMANIPULATION_SNAPPOINT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_SNAPPOINT_OPTIONAL_SINGLE: DIRECTMANIPULATION_SNAPPOINT_TYPE = DIRECTMANIPULATION_SNAPPOINT_TYPE(3i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_SNAPPOINT_TYPE {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_SNAPPOINT_TYPE {
@@ -403,23 +330,15 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_SNAPPOINT_TYPE {
         f.debug_tuple("DIRECTMANIPULATION_SNAPPOINT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_BUILDING: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_ENABLED: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_DISABLED: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_RUNNING: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_INERTIA: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_READY: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_SUSPENDED: DIRECTMANIPULATION_STATUS = DIRECTMANIPULATION_STATUS(6i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_STATUS {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_STATUS {
@@ -440,19 +359,13 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_STATUS {
         f.debug_tuple("DIRECTMANIPULATION_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_VERTICALALIGNMENT(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_NONE: DIRECTMANIPULATION_VERTICALALIGNMENT = DIRECTMANIPULATION_VERTICALALIGNMENT(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_TOP: DIRECTMANIPULATION_VERTICALALIGNMENT = DIRECTMANIPULATION_VERTICALALIGNMENT(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_CENTER: DIRECTMANIPULATION_VERTICALALIGNMENT = DIRECTMANIPULATION_VERTICALALIGNMENT(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_BOTTOM: DIRECTMANIPULATION_VERTICALALIGNMENT = DIRECTMANIPULATION_VERTICALALIGNMENT(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VERTICALALIGNMENT_UNLOCKCENTER: DIRECTMANIPULATION_VERTICALALIGNMENT = DIRECTMANIPULATION_VERTICALALIGNMENT(8i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_VERTICALALIGNMENT {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_VERTICALALIGNMENT {
@@ -473,21 +386,14 @@ impl ::core::fmt::Debug for DIRECTMANIPULATION_VERTICALALIGNMENT {
         f.debug_tuple("DIRECTMANIPULATION_VERTICALALIGNMENT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DIRECTMANIPULATION_VIEWPORT_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_DEFAULT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_AUTODISABLE: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_MANUALUPDATE: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(2i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_INPUT: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(4i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_EXPLICITHITTEST: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(8i32);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 pub const DIRECTMANIPULATION_VIEWPORT_OPTIONS_DISABLEPIXELSNAPPING: DIRECTMANIPULATION_VIEWPORT_OPTIONS = DIRECTMANIPULATION_VIEWPORT_OPTIONS(16i32);
 impl ::core::marker::Copy for DIRECTMANIPULATION_VIEWPORT_OPTIONS {}
 impl ::core::clone::Clone for DIRECTMANIPULATION_VIEWPORT_OPTIONS {
@@ -513,7 +419,6 @@ pub const DirectManipulationPrimaryContent: ::windows::core::GUID = ::windows::c
 pub const DirectManipulationSharedManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99793286_77cc_4b57_96db_3b354f6f9fb5);
 pub const DirectManipulationUpdateManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc1bfd5_1835_441a_b3b1_b6cc74b727d0);
 pub const DirectManipulationViewport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34e211b6_3650_4f75_8334_fa359598e1c5);
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationAutoScrollBehavior(::windows::core::IUnknown);
 impl IDirectManipulationAutoScrollBehavior {
@@ -562,7 +467,6 @@ pub struct IDirectManipulationAutoScrollBehavior_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, motiontypes: DIRECTMANIPULATION_MOTION_TYPES, scrollmotion: DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationCompositor(::windows::core::IUnknown);
 impl IDirectManipulationCompositor {
@@ -635,7 +539,6 @@ pub struct IDirectManipulationCompositor_Vtbl {
     pub SetUpdateManager: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatemanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationCompositor2(::windows::core::IUnknown);
 impl IDirectManipulationCompositor2 {
@@ -729,17 +632,14 @@ pub struct IDirectManipulationCompositor2_Vtbl {
     pub base__: IDirectManipulationCompositor_Vtbl,
     pub AddContentWithCrossProcessChaining: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void, parentvisual: *mut ::core::ffi::c_void, childvisual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationContent(::windows::core::IUnknown);
 impl IDirectManipulationContent {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContentRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetContentRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContentRect(&self, contentsize: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContentRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(contentsize)).ok()
@@ -827,7 +727,6 @@ pub struct IDirectManipulationContent_Vtbl {
     pub GetContentTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *mut f32, pointcount: u32) -> ::windows::core::HRESULT,
     pub SyncContentTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const f32, pointcount: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationDeferContactService(::windows::core::IUnknown);
 impl IDirectManipulationDeferContactService {
@@ -884,7 +783,6 @@ pub struct IDirectManipulationDeferContactService_Vtbl {
     pub CancelContact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
     pub CancelDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerid: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationDragDropBehavior(::windows::core::IUnknown);
 impl IDirectManipulationDragDropBehavior {
@@ -938,7 +836,6 @@ pub struct IDirectManipulationDragDropBehavior_Vtbl {
     pub SetConfiguration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, configuration: DIRECTMANIPULATION_DRAG_DROP_CONFIGURATION) -> ::windows::core::HRESULT,
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: *mut DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationDragDropEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationDragDropEventHandler {
@@ -990,7 +887,6 @@ pub struct IDirectManipulationDragDropEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnDragDropStatusChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, current: DIRECTMANIPULATION_DRAG_DROP_STATUS, previous: DIRECTMANIPULATION_DRAG_DROP_STATUS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationFrameInfoProvider(::windows::core::IUnknown);
 impl IDirectManipulationFrameInfoProvider {
@@ -1039,7 +935,6 @@ pub struct IDirectManipulationFrameInfoProvider_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetNextFrameInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, time: *mut u64, processtime: *mut u64, compositiontime: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationInteractionEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationInteractionEventHandler {
@@ -1091,11 +986,9 @@ pub struct IDirectManipulationInteractionEventHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnInteraction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, viewport: *mut ::core::ffi::c_void, interaction: DIRECTMANIPULATION_INTERACTION_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationManager(::windows::core::IUnknown);
 impl IDirectManipulationManager {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
@@ -1103,7 +996,6 @@ impl IDirectManipulationManager {
     {
         (::windows::core::Interface::vtable(self).Activate)(::windows::core::Interface::as_raw(self), window.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deactivate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
@@ -1111,7 +1003,6 @@ impl IDirectManipulationManager {
     {
         (::windows::core::Interface::vtable(self).Deactivate)(::windows::core::Interface::as_raw(self), window.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterHitTestTarget<'a, P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
     where
@@ -1120,7 +1011,6 @@ impl IDirectManipulationManager {
     {
         (::windows::core::Interface::vtable(self).RegisterHitTestTarget)(::windows::core::Interface::as_raw(self), window.into(), hittestwindow.into(), r#type).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: &super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1133,7 +1023,6 @@ impl IDirectManipulationManager {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetUpdateManager)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateViewport<'a, P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
     where
@@ -1215,11 +1104,9 @@ pub struct IDirectManipulationManager_Vtbl {
     CreateViewport: usize,
     pub CreateContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationManager2(::windows::core::IUnknown);
 impl IDirectManipulationManager2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
@@ -1227,7 +1114,6 @@ impl IDirectManipulationManager2 {
     {
         (::windows::core::Interface::vtable(self).base__.Activate)(::windows::core::Interface::as_raw(self), window.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deactivate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
@@ -1235,7 +1121,6 @@ impl IDirectManipulationManager2 {
     {
         (::windows::core::Interface::vtable(self).base__.Deactivate)(::windows::core::Interface::as_raw(self), window.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterHitTestTarget<'a, P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
     where
@@ -1244,7 +1129,6 @@ impl IDirectManipulationManager2 {
     {
         (::windows::core::Interface::vtable(self).base__.RegisterHitTestTarget)(::windows::core::Interface::as_raw(self), window.into(), hittestwindow.into(), r#type).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: &super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1257,7 +1141,6 @@ impl IDirectManipulationManager2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetUpdateManager)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateViewport<'a, P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
     where
@@ -1340,11 +1223,9 @@ pub struct IDirectManipulationManager2_Vtbl {
     pub base__: IDirectManipulationManager_Vtbl,
     pub CreateBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationManager3(::windows::core::IUnknown);
 impl IDirectManipulationManager3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
@@ -1352,7 +1233,6 @@ impl IDirectManipulationManager3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.Activate)(::windows::core::Interface::as_raw(self), window.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deactivate<'a, P0>(&self, window: P0) -> ::windows::core::Result<()>
     where
@@ -1360,7 +1240,6 @@ impl IDirectManipulationManager3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.Deactivate)(::windows::core::Interface::as_raw(self), window.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterHitTestTarget<'a, P0, P1>(&self, window: P0, hittestwindow: P1, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> ::windows::core::Result<()>
     where
@@ -1369,7 +1248,6 @@ impl IDirectManipulationManager3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.RegisterHitTestTarget)(::windows::core::Interface::as_raw(self), window.into(), hittestwindow.into(), r#type).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn ProcessInput(&self, message: &super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1382,7 +1260,6 @@ impl IDirectManipulationManager3 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.base__.GetUpdateManager)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateViewport<'a, P0, P1, T>(&self, frameinfo: P0, window: P1) -> ::windows::core::Result<T>
     where
@@ -1487,7 +1364,6 @@ pub struct IDirectManipulationManager3_Vtbl {
     pub base__: IDirectManipulationManager2_Vtbl,
     pub GetService: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationPrimaryContent(::windows::core::IUnknown);
 impl IDirectManipulationPrimaryContent {
@@ -1568,7 +1444,6 @@ pub struct IDirectManipulationPrimaryContent_Vtbl {
     pub GetInertiaEndTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *mut f32, pointcount: u32) -> ::windows::core::HRESULT,
     pub GetCenterPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: *mut f32, centery: *mut f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationUpdateHandler(::windows::core::IUnknown);
 impl IDirectManipulationUpdateHandler {
@@ -1617,11 +1492,9 @@ pub struct IDirectManipulationUpdateHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationUpdateManager(::windows::core::IUnknown);
 impl IDirectManipulationUpdateManager {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterWaitHandleCallback<'a, P0, P1>(&self, handle: P0, eventhandler: P1) -> ::windows::core::Result<u32>
     where
@@ -1687,7 +1560,6 @@ pub struct IDirectManipulationUpdateManager_Vtbl {
     pub UnregisterWaitHandleCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
     pub Update: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationViewport(::windows::core::IUnknown);
 impl IDirectManipulationViewport {
@@ -1722,18 +1594,15 @@ impl IDirectManipulationViewport {
     {
         (::windows::core::Interface::vtable(self).SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetViewportRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetViewportRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewportRect(&self, viewport: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetViewportRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(viewport)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ZoomToRect<'a, P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows::core::Result<()>
     where
@@ -1784,7 +1653,6 @@ impl IDirectManipulationViewport {
     pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetChaining)(::windows::core::Interface::as_raw(self), enabledtypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddEventHandler<'a, P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows::core::Result<u32>
     where
@@ -1890,7 +1758,6 @@ pub struct IDirectManipulationViewport_Vtbl {
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abandon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationViewport2(::windows::core::IUnknown);
 impl IDirectManipulationViewport2 {
@@ -1925,18 +1792,15 @@ impl IDirectManipulationViewport2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetTag)(::windows::core::Interface::as_raw(self), object.into().abi(), id).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetViewportRect(&self) -> ::windows::core::Result<super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetViewportRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetViewportRect(&self, viewport: &super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetViewportRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(viewport)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ZoomToRect<'a, P0>(&self, left: f32, top: f32, right: f32, bottom: f32, animate: P0) -> ::windows::core::Result<()>
     where
@@ -1987,7 +1851,6 @@ impl IDirectManipulationViewport2 {
     pub unsafe fn SetChaining(&self, enabledtypes: DIRECTMANIPULATION_MOTION_TYPES) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetChaining)(::windows::core::Interface::as_raw(self), enabledtypes).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddEventHandler<'a, P0, P1>(&self, window: P0, eventhandler: P1) -> ::windows::core::Result<u32>
     where
@@ -2084,7 +1947,6 @@ pub struct IDirectManipulationViewport2_Vtbl {
     pub RemoveBehavior: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
     pub RemoveAllBehaviors: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectManipulation\"`*"]
 #[repr(transparent)]
 pub struct IDirectManipulationViewportEventHandler(::windows::core::IUnknown);
 impl IDirectManipulationViewportEventHandler {

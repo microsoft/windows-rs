@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CachedFileOptions(pub u32);
@@ -62,7 +61,6 @@ unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CachedFileTarget(pub i32);
@@ -96,7 +94,6 @@ unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct CachedFileUpdater;
 impl CachedFileUpdater {
     pub fn SetUpdateInformation<'a, P0, E0>(file: P0, contentid: &::windows::core::HSTRING, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()>
@@ -115,7 +112,6 @@ impl CachedFileUpdater {
 impl ::windows::core::RuntimeName for CachedFileUpdater {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdater";
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct CachedFileUpdaterUI(::windows::core::IUnknown);
 impl CachedFileUpdaterUI {
@@ -137,7 +133,6 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).UpdateTarget)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CachedFileTarget>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FileUpdateRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -149,13 +144,11 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).FileUpdateRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFileUpdateRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveFileUpdateRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UIRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -167,7 +160,6 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).UIRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUIRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -255,7 +247,6 @@ impl ::core::convert::From<&CachedFileUpdaterUI> for &::windows::core::IInspecta
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequest(::windows::core::IUnknown);
 impl FileUpdateRequest {
@@ -371,7 +362,6 @@ impl ::core::convert::From<&FileUpdateRequest> for &::windows::core::IInspectabl
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestDeferral(::windows::core::IUnknown);
 impl FileUpdateRequestDeferral {
@@ -440,7 +430,6 @@ impl ::core::convert::From<&FileUpdateRequestDeferral> for &::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestedEventArgs(::windows::core::IUnknown);
 impl FileUpdateRequestedEventArgs {
@@ -512,7 +501,6 @@ impl ::core::convert::From<&FileUpdateRequestedEventArgs> for &::windows::core::
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileUpdateStatus(pub i32);
@@ -797,7 +785,6 @@ pub struct IStorageProviderGetPathForContentUriResult_Vtbl {
     pub Path: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct IStorageProviderHandlerFactory(::windows::core::IUnknown);
 impl IStorageProviderHandlerFactory {
@@ -922,11 +909,9 @@ pub struct IStorageProviderItemPropertyDefinition_Vtbl {
     pub DisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDisplayNameResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct IStorageProviderItemPropertySource(::windows::core::IUnknown);
 impl IStorageProviderItemPropertySource {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetItemProperties(&self, itempath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
@@ -1002,7 +987,6 @@ pub struct IStorageProviderItemPropertySource_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetItemProperties: usize,
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct IStorageProviderPropertyCapabilities(::windows::core::IUnknown);
 impl IStorageProviderPropertyCapabilities {
@@ -1112,7 +1096,6 @@ pub struct IStorageProviderStatusFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreateInstance2: usize,
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct IStorageProviderStatusSource(::windows::core::IUnknown);
 impl IStorageProviderStatusSource {
@@ -1123,7 +1106,6 @@ impl IStorageProviderStatusSource {
             (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1135,7 +1117,6 @@ impl IStorageProviderStatusSource {
             (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1334,7 +1315,6 @@ pub struct IStorageProviderSyncRootManagerStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct IStorageProviderUriSource(::windows::core::IUnknown);
 impl IStorageProviderUriSource {
@@ -1417,7 +1397,6 @@ pub struct IStorageProviderUriSource_Vtbl {
     pub GetPathForContentUri: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenturi: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContentInfoForPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReadActivationMode(pub i32);
@@ -1451,7 +1430,6 @@ unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderError(::windows::core::IUnknown);
 impl StorageProviderError {
@@ -1603,7 +1581,6 @@ impl ::core::convert::From<&StorageProviderError> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for StorageProviderError {}
 unsafe impl ::core::marker::Sync for StorageProviderError {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderErrorCommand(::windows::core::IUnknown);
 impl StorageProviderErrorCommand {
@@ -1614,7 +1591,6 @@ impl StorageProviderErrorCommand {
             (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ActionUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1623,7 +1599,6 @@ impl StorageProviderErrorCommand {
             (::windows::core::Interface::vtable(this).ActionUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstance<'a, P0>(label: &::windows::core::HSTRING, actionuri: P0) -> ::windows::core::Result<StorageProviderErrorCommand>
     where
@@ -1702,7 +1677,6 @@ impl ::core::convert::From<&StorageProviderErrorCommand> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for StorageProviderErrorCommand {}
 unsafe impl ::core::marker::Sync for StorageProviderErrorCommand {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderFileTypeInfo(::windows::core::IUnknown);
 impl StorageProviderFileTypeInfo {
@@ -1794,7 +1768,6 @@ impl ::core::convert::From<&StorageProviderFileTypeInfo> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for StorageProviderFileTypeInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderFileTypeInfo {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderGetContentInfoForPathResult(::windows::core::IUnknown);
 impl StorageProviderGetContentInfoForPathResult {
@@ -1901,7 +1874,6 @@ impl ::core::convert::From<&StorageProviderGetContentInfoForPathResult> for &::w
 }
 unsafe impl ::core::marker::Send for StorageProviderGetContentInfoForPathResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetContentInfoForPathResult {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderGetPathForContentUriResult(::windows::core::IUnknown);
 impl StorageProviderGetPathForContentUriResult {
@@ -1997,7 +1969,6 @@ impl ::core::convert::From<&StorageProviderGetPathForContentUriResult> for &::wi
 }
 unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
@@ -2059,7 +2030,6 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderHydrationPolicy(pub i32);
@@ -2095,7 +2065,6 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
@@ -2160,7 +2129,6 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModif
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderInSyncPolicy(pub u32);
@@ -2232,10 +2200,8 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAsync<'a, P0, E0, P1, E1>(item: P0, itemproperties: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2258,7 +2224,6 @@ impl StorageProviderItemProperties {
 impl ::windows::core::RuntimeName for StorageProviderItemProperties {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperties";
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderItemProperty(::windows::core::IUnknown);
 impl StorageProviderItemProperty {
@@ -2365,7 +2330,6 @@ impl ::core::convert::From<&StorageProviderItemProperty> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for StorageProviderItemProperty {}
 unsafe impl ::core::marker::Sync for StorageProviderItemProperty {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderItemPropertyDefinition(::windows::core::IUnknown);
 impl StorageProviderItemPropertyDefinition {
@@ -2461,7 +2425,6 @@ impl ::core::convert::From<&StorageProviderItemPropertyDefinition> for &::window
 }
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderPopulationPolicy(pub i32);
@@ -2495,7 +2458,6 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderProtectionMode(pub i32);
@@ -2529,7 +2491,6 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderState(pub i32);
@@ -2567,7 +2528,6 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderStatus(::windows::core::IUnknown);
 impl StorageProviderStatus {
@@ -2585,7 +2545,6 @@ impl StorageProviderStatus {
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StorageProviderState>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ErrorMessages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderError>> {
         let this = self;
@@ -2600,7 +2559,6 @@ impl StorageProviderStatus {
             (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), state, ::core::mem::transmute_copy(message), result__.as_mut_ptr()).from_abi::<StorageProviderStatus>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstance2<'a, P0, E0>(state: StorageProviderState, message: &::windows::core::HSTRING, errormessages: P0) -> ::windows::core::Result<StorageProviderStatus>
     where
@@ -2680,7 +2638,6 @@ impl ::core::convert::From<&StorageProviderStatus> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for StorageProviderStatus {}
 unsafe impl ::core::marker::Sync for StorageProviderStatus {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 pub struct StorageProviderSyncRootInfo(::windows::core::IUnknown);
 impl StorageProviderSyncRootInfo {
@@ -2702,7 +2659,6 @@ impl StorageProviderSyncRootInfo {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Context(&self) -> ::windows::core::Result<super::Streams::IBuffer> {
         let this = self;
@@ -2711,7 +2667,6 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).Context)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetContext<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2857,7 +2812,6 @@ impl StorageProviderSyncRootInfo {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAllowPinning)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StorageProviderItemPropertyDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>> {
         let this = self;
@@ -2866,7 +2820,6 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).StorageProviderItemPropertyDefinitions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RecycleBinUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2875,7 +2828,6 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).RecycleBinUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRecycleBinUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2895,7 +2847,6 @@ impl StorageProviderSyncRootInfo {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetProviderId)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FallbackFileTypeInfo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo3>(self)?;
@@ -2967,7 +2918,6 @@ impl ::core::convert::From<&StorageProviderSyncRootInfo> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for StorageProviderSyncRootInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 pub struct StorageProviderSyncRootManager;
 impl StorageProviderSyncRootManager {
     pub fn Register<'a, P0>(syncrootinformation: P0) -> ::windows::core::Result<()>
@@ -2995,7 +2945,6 @@ impl StorageProviderSyncRootManager {
             (::windows::core::Interface::vtable(this).GetSyncRootInformationForId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(id), result__.as_mut_ptr()).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentSyncRoots() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
@@ -3023,7 +2972,6 @@ impl StorageProviderSyncRootManager {
 impl ::windows::core::RuntimeName for StorageProviderSyncRootManager {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootManager";
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StorageProviderUriSourceStatus(pub i32);
@@ -3058,7 +3006,6 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UIStatus(pub i32);
@@ -3094,7 +3041,6 @@ unsafe impl ::windows::core::RuntimeType for UIStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WriteActivationMode(pub i32);

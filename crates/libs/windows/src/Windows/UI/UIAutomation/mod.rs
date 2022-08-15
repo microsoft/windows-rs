@@ -1,6 +1,5 @@
 #[cfg(feature = "UI_UIAutomation_Core")]
 pub mod Core;
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 pub struct AutomationConnection(::windows::core::IUnknown);
 impl AutomationConnection {
@@ -88,7 +87,6 @@ impl ::core::convert::From<&AutomationConnection> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for AutomationConnection {}
 unsafe impl ::core::marker::Sync for AutomationConnection {}
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 pub struct AutomationConnectionBoundObject(::windows::core::IUnknown);
 impl AutomationConnectionBoundObject {
@@ -162,7 +160,6 @@ impl ::core::convert::From<&AutomationConnectionBoundObject> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 pub struct AutomationElement(::windows::core::IUnknown);
 impl AutomationElement {
@@ -250,7 +247,6 @@ impl ::core::convert::From<&AutomationElement> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for AutomationElement {}
 unsafe impl ::core::marker::Sync for AutomationElement {}
-#[doc = "*Required features: `\"UI_UIAutomation\"`*"]
 #[repr(transparent)]
 pub struct AutomationTextRange(::windows::core::IUnknown);
 impl AutomationTextRange {}

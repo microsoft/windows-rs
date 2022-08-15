@@ -1,16 +1,10 @@
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LicenseProtectionStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const Success: LicenseProtectionStatus = LicenseProtectionStatus(0i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyNotFound: LicenseProtectionStatus = LicenseProtectionStatus(1i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyUnprotected: LicenseProtectionStatus = LicenseProtectionStatus(2i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyCorrupted: LicenseProtectionStatus = LicenseProtectionStatus(3i32);
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = LicenseProtectionStatus(4i32);
 impl ::core::marker::Copy for LicenseProtectionStatus {}
 impl ::core::clone::Clone for LicenseProtectionStatus {
@@ -31,7 +25,6 @@ impl ::core::fmt::Debug for LicenseProtectionStatus {
         f.debug_tuple("LicenseProtectionStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`*"]
 #[inline]
 pub unsafe fn RegisterLicenseKeyWithExpiration<'a, P0>(licensekey: P0, validityindays: u32) -> ::windows::core::Result<LicenseProtectionStatus>
 where
@@ -44,7 +37,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RegisterLicenseKeyWithExpiration(licensekey.into(), validityindays, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<LicenseProtectionStatus>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_LicenseProtection\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateLicenseKeyProtection<'a, P0>(licensekey: P0, notvalidbefore: &mut super::super::Foundation::FILETIME, notvalidafter: &mut super::super::Foundation::FILETIME, status: &mut LicenseProtectionStatus) -> ::windows::core::Result<()>

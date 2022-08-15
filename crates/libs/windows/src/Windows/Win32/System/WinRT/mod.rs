@@ -28,21 +28,14 @@ pub mod Shell;
 pub mod Storage;
 #[cfg(feature = "Win32_System_WinRT_Xaml")]
 pub mod Xaml;
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ACTIVATIONTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
 impl ::core::marker::Copy for ACTIVATIONTYPE {}
 impl ::core::clone::Clone for ACTIVATIONTYPE {
@@ -95,13 +88,10 @@ impl ::core::convert::From<::core::option::Option<APARTMENT_SHUTDOWN_REGISTRATIO
 unsafe impl ::windows::core::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AgileReferenceOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
 impl ::core::marker::Copy for AgileReferenceOptions {}
 impl ::core::clone::Clone for AgileReferenceOptions {
@@ -122,13 +112,10 @@ impl ::core::fmt::Debug for AgileReferenceOptions {
         f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BSOS_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
 impl ::core::marker::Copy for BSOS_OPTIONS {}
 impl ::core::clone::Clone for BSOS_OPTIONS {
@@ -149,23 +136,15 @@ impl ::core::fmt::Debug for BSOS_OPTIONS {
         f.debug_tuple("BSOS_OPTIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
 impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
 impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
@@ -186,19 +165,13 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
         f.debug_tuple("CASTING_CONNECTION_ERROR_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CASTING_CONNECTION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
 impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
 impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
@@ -219,13 +192,9 @@ impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
         f.debug_tuple("CASTING_CONNECTION_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CastingSourceInfo_Property_CastingTypes: &str = "CastingTypes";
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CastingSourceInfo_Property_PreferredSourceUriScheme: &str = "PreferredSourceUriScheme";
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const CastingSourceInfo_Property_ProtectedMedia: &str = "ProtectedMedia";
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::windows::core::Result<ServerInformation> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -235,7 +204,6 @@ pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> ::window
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoDecodeProxy(dwclientpid, ui64proxyaddress, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ServerInformation>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateControlInput<T>() -> ::windows::core::Result<T>
 where
@@ -248,7 +216,6 @@ where
     let mut result__ = ::core::option::Option::None;
     CreateControlInput(&<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateControlInputEx<'a, P0, T>(pcorewindow: P0) -> ::windows::core::Result<T>
 where
@@ -262,7 +229,6 @@ where
     let mut result__ = ::core::option::Option::None;
     CreateControlInputEx(pcorewindow.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"System\"`*"]
 #[cfg(feature = "System")]
 #[inline]
 pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -> ::windows::core::Result<super::super::super::System::DispatcherQueueController> {
@@ -273,7 +239,6 @@ pub unsafe fn CreateDispatcherQueueController(options: DispatcherQueueOptions) -
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateDispatcherQueueController(::core::mem::transmute(options), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::DispatcherQueueController>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOnFile<'a, P0, T>(filepath: P0, accessmode: u32) -> ::windows::core::Result<T>
 where
@@ -287,7 +252,6 @@ where
     let mut result__ = ::core::option::Option::None;
     CreateRandomAccessStreamOnFile(filepath.into(), accessmode, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CreateRandomAccessStreamOverStream<'a, P0, T>(stream: P0, options: BSOS_OPTIONS) -> ::windows::core::Result<T>
@@ -302,7 +266,6 @@ where
     let mut result__ = ::core::option::Option::None;
     CreateRandomAccessStreamOverStream(stream.into().abi(), options, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn CreateStreamOverRandomAccessStream<'a, P0, T>(randomaccessstream: P0) -> ::windows::core::Result<T>
 where
@@ -316,15 +279,11 @@ where
     let mut result__ = ::core::option::Option::None;
     CreateStreamOverRandomAccessStream(randomaccessstream.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
 impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
 impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
@@ -345,13 +304,10 @@ impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
         f.debug_tuple("DISPATCHERQUEUE_THREAD_APARTMENTTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
 impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
 impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
@@ -373,7 +329,6 @@ impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub struct DispatcherQueueOptions {
     pub dwSize: u32,
     pub threadType: DISPATCHERQUEUE_THREAD_TYPE,
@@ -405,7 +360,6 @@ impl ::core::default::Default for DispatcherQueueOptions {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub struct EventRegistrationToken {
     pub value: i64,
 }
@@ -434,7 +388,6 @@ impl ::core::default::Default for EventRegistrationToken {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn GetRestrictedErrorInfo() -> ::windows::core::Result<IRestrictedErrorInfo> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -477,7 +430,6 @@ unsafe impl ::windows::core::Abi for HSTRING_BUFFER {
     type Abi = Self;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub struct HSTRING_HEADER {
     pub flags: u32,
     pub length: u32,
@@ -510,7 +462,6 @@ impl ::core::default::Default for HSTRING_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree(param0: &u32, param1: &::windows::core::HSTRING) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -519,7 +470,6 @@ pub unsafe fn HSTRING_UserFree(param0: &u32, param1: &::windows::core::HSTRING) 
     }
     HSTRING_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserFree64(param0: &u32, param1: &::windows::core::HSTRING) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -528,7 +478,6 @@ pub unsafe fn HSTRING_UserFree64(param0: &u32, param1: &::windows::core::HSTRING
     }
     HSTRING_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal(param0: &u32, param1: &mut u8, param2: &::windows::core::HSTRING) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -537,7 +486,6 @@ pub unsafe fn HSTRING_UserMarshal(param0: &u32, param1: &mut u8, param2: &::wind
     }
     HSTRING_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserMarshal64(param0: &u32, param1: &mut u8, param2: &::windows::core::HSTRING) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -546,7 +494,6 @@ pub unsafe fn HSTRING_UserMarshal64(param0: &u32, param1: &mut u8, param2: &::wi
     }
     HSTRING_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize(param0: &u32, param1: u32, param2: &::windows::core::HSTRING) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -555,7 +502,6 @@ pub unsafe fn HSTRING_UserSize(param0: &u32, param1: u32, param2: &::windows::co
     }
     HSTRING_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserSize64(param0: &u32, param1: u32, param2: &::windows::core::HSTRING) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -564,7 +510,6 @@ pub unsafe fn HSTRING_UserSize64(param0: &u32, param1: u32, param2: &::windows::
     }
     HSTRING_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut ::windows::core::HSTRING) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -573,7 +518,6 @@ pub unsafe fn HSTRING_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mu
     }
     HSTRING_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn HSTRING_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut ::windows::core::HSTRING) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -582,11 +526,9 @@ pub unsafe fn HSTRING_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &
     }
     HSTRING_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IAccountsSettingsPaneInterop(::windows::core::IUnknown);
 impl IAccountsSettingsPaneInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -596,7 +538,6 @@ impl IAccountsSettingsPaneInterop {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowManageAccountsForWindowAsync<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -606,7 +547,6 @@ impl IAccountsSettingsPaneInterop {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).ShowManageAccountsForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowAddAccountForWindowAsync<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -684,7 +624,6 @@ pub struct IAccountsSettingsPaneInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ShowAddAccountForWindowAsync: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IActivationFactory(::windows::core::IUnknown);
 impl IActivationFactory {
@@ -749,7 +688,6 @@ pub struct IActivationFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub ActivateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, instance: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IAgileReference(::windows::core::IUnknown);
 impl IAgileReference {
@@ -802,7 +740,6 @@ pub struct IAgileReference_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobjectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IApartmentShutdown(::windows::core::IUnknown);
 impl IApartmentShutdown {
@@ -851,7 +788,6 @@ pub struct IApartmentShutdown_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnUninitialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ui64apartmentidentifier: u64),
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IAppServiceConnectionExtendedExecution(::windows::core::IUnknown);
 impl IAppServiceConnectionExtendedExecution {
@@ -904,7 +840,6 @@ pub struct IAppServiceConnectionExtendedExecution_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OpenForExtendedExecutionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, operation: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IBufferByteAccess(::windows::core::IUnknown);
 impl IBufferByteAccess {
@@ -954,7 +889,6 @@ pub struct IBufferByteAccess_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Buffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICastingController(::windows::core::IUnknown);
 impl ICastingController {
@@ -1027,7 +961,6 @@ pub struct ICastingController_Vtbl {
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, cookie: *mut u32) -> ::windows::core::HRESULT,
     pub UnAdvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICastingEventHandler(::windows::core::IUnknown);
 impl ICastingEventHandler {
@@ -1083,7 +1016,6 @@ pub struct ICastingEventHandler_Vtbl {
     pub OnStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newstate: CASTING_CONNECTION_STATE) -> ::windows::core::HRESULT,
     pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, errorstatus: CASTING_CONNECTION_ERROR_STATUS, errormessage: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICastingSourceInfo(::windows::core::IUnknown);
 impl ICastingSourceInfo {
@@ -1091,7 +1023,6 @@ impl ICastingSourceInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetController)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICastingController>(result__)
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn GetProperties(&self) -> ::windows::core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1143,7 +1074,6 @@ pub struct ICastingSourceInfo_Vtbl {
     #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
     GetProperties: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICoreInputInterop(::windows::core::IUnknown);
 impl ICoreInputInterop {
@@ -1199,7 +1129,6 @@ pub struct ICoreInputInterop_Vtbl {
     pub SetInputSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetMessageHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindowAdapterInterop(::windows::core::IUnknown);
 impl ICoreWindowAdapterInterop {
@@ -1301,11 +1230,9 @@ pub struct ICoreWindowAdapterInterop_Vtbl {
     pub TitleBarClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetWindowClientAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindowComponentInterop(::windows::core::IUnknown);
 impl ICoreWindowComponentInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConfigureComponentInput<'a, P0, P1>(&self, hostviewinstanceid: u32, hwndhost: P0, inputsourcevisual: P1) -> ::windows::core::Result<()>
     where
@@ -1364,11 +1291,9 @@ pub struct ICoreWindowComponentInterop_Vtbl {
     ConfigureComponentInput: usize,
     pub GetViewInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, componentviewinstanceid: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICoreWindowInterop(::windows::core::IUnknown);
 impl ICoreWindowInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1423,7 +1348,6 @@ pub struct ICoreWindowInterop_Vtbl {
     WindowHandle: usize,
     pub SetMessageHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICorrelationVectorInformation(::windows::core::IUnknown);
 impl ICorrelationVectorInformation {
@@ -1497,7 +1421,6 @@ pub struct ICorrelationVectorInformation_Vtbl {
     pub NextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetNextCorrelationVectorForThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ICorrelationVectorSource(::windows::core::IUnknown);
 impl ICorrelationVectorSource {
@@ -1547,11 +1470,9 @@ pub struct ICorrelationVectorSource_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CorrelationVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cv: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IDragDropManagerInterop(::windows::core::IUnknown);
 impl IDragDropManagerInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, hwnd: P0) -> ::windows::core::Result<T>
     where
@@ -1621,11 +1542,9 @@ pub struct IDragDropManagerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IHolographicSpaceInterop(::windows::core::IUnknown);
 impl IHolographicSpaceInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
     where
@@ -1695,11 +1614,9 @@ pub struct IHolographicSpaceInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IInputPaneInterop(::windows::core::IUnknown);
 impl IInputPaneInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -1769,7 +1686,6 @@ pub struct IInputPaneInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo {
@@ -1819,7 +1735,6 @@ pub struct ILanguageExceptionErrorInfo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetLanguageException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ILanguageExceptionErrorInfo2(::windows::core::IUnknown);
 impl ILanguageExceptionErrorInfo2 {
@@ -1900,7 +1815,6 @@ pub struct ILanguageExceptionErrorInfo2_Vtbl {
     pub CapturePropagationContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, languageexception: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPropagationContextHead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propagatedlanguageexceptionerrorinfohead: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ILanguageExceptionStackBackTrace(::windows::core::IUnknown);
 impl ILanguageExceptionStackBackTrace {
@@ -1949,7 +1863,6 @@ pub struct ILanguageExceptionStackBackTrace_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetStackBackTrace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxframestocapture: u32, stackbacktrace: *mut usize, framescaptured: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ILanguageExceptionTransform(::windows::core::IUnknown);
 impl ILanguageExceptionTransform {
@@ -1999,7 +1912,6 @@ pub struct ILanguageExceptionTransform_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetTransformedRestrictedErrorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restrictederrorinfo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IMemoryBufferByteAccess(::windows::core::IUnknown);
 impl IMemoryBufferByteAccess {
@@ -2048,7 +1960,6 @@ pub struct IMemoryBufferByteAccess_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut u8, capacity: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IMessageDispatcher(::windows::core::IUnknown);
 impl IMessageDispatcher {
@@ -2112,11 +2023,9 @@ pub struct IMessageDispatcher_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub PumpMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IPlayToManagerInterop(::windows::core::IUnknown);
 impl IPlayToManagerInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -2126,7 +2035,6 @@ impl IPlayToManagerInterop {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetForWindow)(::windows::core::Interface::as_raw(self), appwindow.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowPlayToUIForWindow<'a, P0>(&self, appwindow: P0) -> ::windows::core::Result<()>
     where
@@ -2198,16 +2106,13 @@ pub struct IPlayToManagerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ShowPlayToUIForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IRestrictedErrorInfo(::windows::core::IUnknown);
 impl IRestrictedErrorInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorDetails(&self, description: &mut super::super::Foundation::BSTR, error: &mut ::windows::core::HRESULT, restricteddescription: &mut super::super::Foundation::BSTR, capabilitysid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetErrorDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(description), ::core::mem::transmute(error), ::core::mem::transmute(restricteddescription), ::core::mem::transmute(capabilitysid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReference(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2264,7 +2169,6 @@ pub struct IRestrictedErrorInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetReference: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IRoMetaDataLocator(::windows::core::IUnknown);
 impl IRoMetaDataLocator {
@@ -2301,7 +2205,6 @@ unsafe impl ::windows::core::Interface for IRoMetaDataLocator {
 pub struct IRoMetaDataLocator_Vtbl {
     pub Locate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nameelement: ::windows::core::PCWSTR, metadatadestination: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IRoSimpleMetaDataBuilder(::windows::core::IUnknown);
 impl IRoSimpleMetaDataBuilder {
@@ -2391,11 +2294,9 @@ pub struct IRoSimpleMetaDataBuilder_Vtbl {
     pub SetParameterizedInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT,
     pub SetParameterizedDelegate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piid: ::windows::core::GUID, numargs: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IShareWindowCommandEventArgsInterop(::windows::core::IUnknown);
 impl IShareWindowCommandEventArgsInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2446,11 +2347,9 @@ pub struct IShareWindowCommandEventArgsInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IShareWindowCommandSourceInterop(::windows::core::IUnknown);
 impl IShareWindowCommandSourceInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -2505,11 +2404,9 @@ pub struct IShareWindowCommandSourceInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ISpatialInteractionManagerInterop(::windows::core::IUnknown);
 impl ISpatialInteractionManagerInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
     where
@@ -2579,11 +2476,9 @@ pub struct ISpatialInteractionManagerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct ISystemMediaTransportControlsInterop(::windows::core::IUnknown);
 impl ISystemMediaTransportControlsInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, appwindow: P0) -> ::windows::core::Result<T>
     where
@@ -2653,11 +2548,9 @@ pub struct ISystemMediaTransportControlsInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IUIViewSettingsInterop(::windows::core::IUnknown);
 impl IUIViewSettingsInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, hwnd: P0) -> ::windows::core::Result<T>
     where
@@ -2727,11 +2620,9 @@ pub struct IUIViewSettingsInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IUserActivityInterop(::windows::core::IUnknown);
 impl IUserActivityInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateSessionForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
     where
@@ -2801,11 +2692,9 @@ pub struct IUserActivityInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateSessionForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IUserActivityRequestManagerInterop(::windows::core::IUnknown);
 impl IUserActivityRequestManagerInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
     where
@@ -2875,7 +2764,6 @@ pub struct IUserActivityRequestManagerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetForWindow: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IUserActivitySourceHostInterop(::windows::core::IUnknown);
 impl IUserActivitySourceHostInterop {
@@ -2939,11 +2827,9 @@ pub struct IUserActivitySourceHostInterop_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub SetActivitySourceHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, activitysourcehost: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IUserConsentVerifierInterop(::windows::core::IUnknown);
 impl IUserConsentVerifierInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestVerificationForWindowAsync<'a, P0, T>(&self, appwindow: P0, message: &::windows::core::HSTRING) -> ::windows::core::Result<T>
     where
@@ -3013,7 +2899,6 @@ pub struct IUserConsentVerifierInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestVerificationForWindowAsync: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IWeakReference(::windows::core::IUnknown);
 impl IWeakReference {
@@ -3066,7 +2951,6 @@ pub struct IWeakReference_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Resolve: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, objectreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IWeakReferenceSource(::windows::core::IUnknown);
 impl IWeakReferenceSource {
@@ -3116,11 +3000,9 @@ pub struct IWeakReferenceSource_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetWeakReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, weakreference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 pub struct IWebAuthenticationCoreManagerInterop(::windows::core::IUnknown);
 impl IWebAuthenticationCoreManagerInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestTokenForWindowAsync<'a, P0, P1, T>(&self, appwindow: P0, request: P1) -> ::windows::core::Result<T>
     where
@@ -3131,7 +3013,6 @@ impl IWebAuthenticationCoreManagerInterop {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).RequestTokenForWindowAsync)(::windows::core::Interface::as_raw(self), appwindow.into(), request.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestTokenWithWebAccountForWindowAsync<'a, P0, P1, P2, T>(&self, appwindow: P0, request: P1, webaccount: P2) -> ::windows::core::Result<T>
     where
@@ -3207,7 +3088,6 @@ pub struct IWebAuthenticationCoreManagerInterop_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RequestTokenWithWebAccountForWindowAsync: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
@@ -3217,9 +3097,7 @@ pub unsafe fn IsErrorPropagationEnabled() -> super::super::Foundation::BOOL {
     }
     IsErrorPropagationEnabled()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const MAX_ERROR_MESSAGE_CHARS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn MetaDataGetDispenser(rclsid: &::windows::core::GUID, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3228,11 +3106,8 @@ pub unsafe fn MetaDataGetDispenser(rclsid: &::windows::core::GUID, riid: &::wind
     }
     MetaDataGetDispenser(::core::mem::transmute(rclsid), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub type PINSPECT_HSTRING_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub type PINSPECT_HSTRING_CALLBACK2 = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: u64, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub type PINSPECT_MEMORY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, readaddress: usize, length: u32, buffer: *mut u8) -> ::windows::core::HRESULT>;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3266,19 +3141,13 @@ impl ::core::convert::From<::core::option::Option<ROPARAMIIDHANDLE>> for ROPARAM
 unsafe impl ::windows::core::Abi for ROPARAMIIDHANDLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(8u32);
 impl ::core::marker::Copy for RO_ERROR_REPORTING_FLAGS {}
 impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
@@ -3327,13 +3196,10 @@ impl ::core::ops::Not for RO_ERROR_REPORTING_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RO_INIT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
 impl ::core::marker::Copy for RO_INIT_TYPE {}
 impl ::core::clone::Clone for RO_INIT_TYPE {
@@ -3354,7 +3220,6 @@ impl ::core::fmt::Debug for RO_INIT_TYPE {
         f.debug_tuple("RO_INIT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3364,7 +3229,6 @@ pub unsafe fn RoActivateInstance(activatableclassid: &::windows::core::HSTRING) 
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoActivateInstance(::core::mem::transmute_copy(activatableclassid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3373,7 +3237,6 @@ pub unsafe fn RoCaptureErrorContext(hr: ::windows::core::HRESULT) -> ::windows::
     }
     RoCaptureErrorContext(hr).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoClearError() {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3382,7 +3245,6 @@ pub unsafe fn RoClearError() {
     }
     RoClearError()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3391,7 +3253,6 @@ pub unsafe fn RoFailFastWithErrorContext(hrerror: ::windows::core::HRESULT) {
     }
     RoFailFastWithErrorContext(hrerror)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoFreeParameterizedTypeExtra<'a, P0>(extra: P0)
 where
@@ -3403,7 +3264,6 @@ where
     }
     RoFreeParameterizedTypeExtra(extra.into())
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &::windows::core::HSTRING) -> ::windows::core::Result<T>
 where
@@ -3416,7 +3276,6 @@ where
     let mut result__ = ::core::option::Option::None;
     RoGetActivationFactory(::core::mem::transmute_copy(activatableclassid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetAgileReference<'a, P0>(options: AgileReferenceOptions, riid: &::windows::core::GUID, punk: P0) -> ::windows::core::Result<IAgileReference>
 where
@@ -3429,7 +3288,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoGetAgileReference(options, ::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAgileReference>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3439,7 +3297,6 @@ pub unsafe fn RoGetApartmentIdentifier() -> ::windows::core::Result<u64> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoGetApartmentIdentifier(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_System_Com_Marshal\"`*"]
 #[cfg(feature = "Win32_System_Com_Marshal")]
 #[inline]
 pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Marshal::IMarshal> {
@@ -3450,7 +3307,6 @@ pub unsafe fn RoGetBufferMarshaler() -> ::windows::core::Result<super::Com::Mars
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoGetBufferMarshaler(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::Marshal::IMarshal>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3460,7 +3316,6 @@ pub unsafe fn RoGetErrorReportingFlags() -> ::windows::core::Result<u32> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoGetErrorReportingFlags(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -> ::windows::core::Result<IRestrictedErrorInfo> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3470,7 +3325,6 @@ pub unsafe fn RoGetMatchingRestrictedErrorInfo(hrin: ::windows::core::HRESULT) -
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoGetMatchingRestrictedErrorInfo(hrin, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetParameterizedTypeInstanceIID<'a, P0>(nameelements: &[::windows::core::PWSTR], metadatalocator: P0, iid: &mut ::windows::core::GUID, pextra: ::core::option::Option<&mut ROPARAMIIDHANDLE>) -> ::windows::core::Result<()>
 where
@@ -3482,7 +3336,6 @@ where
     }
     RoGetParameterizedTypeInstanceIID(nameelements.len() as _, ::core::mem::transmute(nameelements.as_ptr()), metadatalocator.into().abi(), ::core::mem::transmute(iid), ::core::mem::transmute(pextra)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRING, activatableclassids: &mut *mut ::windows::core::HSTRING, count: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3491,7 +3344,6 @@ pub unsafe fn RoGetServerActivatableClasses(servername: &::windows::core::HSTRIN
     }
     RoGetServerActivatableClasses(::core::mem::transmute_copy(servername), ::core::mem::transmute(activatableclassids), ::core::mem::transmute(count)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3500,7 +3352,6 @@ pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> ::windows::core::Result<()
     }
     RoInitialize(inittype).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void, framecount: &mut u32, targetbacktraceaddress: &mut usize) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3509,7 +3360,6 @@ pub unsafe fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress: usize, mac
     }
     RoInspectCapturedStackBackTrace(targeterrorinfoaddress, machine, ::core::mem::transmute(readmemorycallback), ::core::mem::transmute(context), ::core::mem::transmute(framecount), ::core::mem::transmute(targetbacktraceaddress)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, readmemorycallback: PINSPECT_MEMORY_CALLBACK, context: *const ::core::ffi::c_void) -> ::windows::core::Result<usize> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3519,7 +3369,6 @@ pub unsafe fn RoInspectThreadErrorInfo(targettebaddress: usize, machine: u16, re
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoInspectThreadErrorInfo(targettebaddress, machine, ::core::mem::transmute(readmemorycallback), ::core::mem::transmute(context), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<usize>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateError(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
@@ -3529,7 +3378,6 @@ pub unsafe fn RoOriginateError(error: ::windows::core::HRESULT, message: &::wind
     }
     RoOriginateError(error, ::core::mem::transmute_copy(message))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
@@ -3539,7 +3387,6 @@ pub unsafe fn RoOriginateErrorW(error: ::windows::core::HRESULT, cchmax: u32, me
     }
     RoOriginateErrorW(error, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoOriginateLanguageException<'a, P0>(error: ::windows::core::HRESULT, message: &::windows::core::HSTRING, languageexception: P0) -> super::super::Foundation::BOOL
@@ -3552,7 +3399,6 @@ where
     }
     RoOriginateLanguageException(error, ::core::mem::transmute_copy(message), languageexception.into().abi())
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoParameterizedTypeExtraGetTypeSignature<'a, P0>(extra: P0) -> ::windows::core::PSTR
 where
@@ -3564,7 +3410,6 @@ where
     }
     RoParameterizedTypeExtraGetTypeSignature(extra.into())
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::windows::core::HSTRING, activationfactorycallbacks: *const isize, count: u32) -> ::windows::core::Result<isize> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3574,7 +3419,6 @@ pub unsafe fn RoRegisterActivationFactories(activatableclassids: *const ::window
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoRegisterActivationFactories(::core::mem::transmute(activatableclassids), ::core::mem::transmute(activationfactorycallbacks), ::core::mem::transmute(count), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoRegisterForApartmentShutdown<'a, P0>(callbackobject: P0, apartmentidentifier: &mut u64, regcookie: &mut APARTMENT_SHUTDOWN_REGISTRATION_COOKIE) -> ::windows::core::Result<()>
 where
@@ -3586,7 +3430,6 @@ where
     }
     RoRegisterForApartmentShutdown(callbackobject.into().abi(), ::core::mem::transmute(apartmentidentifier), ::core::mem::transmute(regcookie)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoReportFailedDelegate<'a, P0, P1>(punkdelegate: P0, prestrictederrorinfo: P1) -> ::windows::core::Result<()>
 where
@@ -3599,7 +3442,6 @@ where
     }
     RoReportFailedDelegate(punkdelegate.into().abi(), prestrictederrorinfo.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoReportUnhandledError<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
 where
@@ -3611,7 +3453,6 @@ where
     }
     RoReportUnhandledError(prestrictederrorinfo.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoResolveRestrictedErrorInfoReference<'a, P0>(reference: P0) -> ::windows::core::Result<IRestrictedErrorInfo>
 where
@@ -3624,7 +3465,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     RoResolveRestrictedErrorInfoReference(reference.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRestrictedErrorInfo>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3633,7 +3473,6 @@ pub unsafe fn RoRevokeActivationFactories(cookie: isize) {
     }
     RoRevokeActivationFactories(cookie)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3642,7 +3481,6 @@ pub unsafe fn RoSetErrorReportingFlags(flags: u32) -> ::windows::core::Result<()
     }
     RoSetErrorReportingFlags(flags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, message: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
@@ -3652,7 +3490,6 @@ pub unsafe fn RoTransformError(olderror: ::windows::core::HRESULT, newerror: ::w
     }
     RoTransformError(olderror, newerror, ::core::mem::transmute_copy(message))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::windows::core::HRESULT, cchmax: u32, message: ::core::option::Option<&[u16; 512]>) -> super::super::Foundation::BOOL {
@@ -3662,7 +3499,6 @@ pub unsafe fn RoTransformErrorW(olderror: ::windows::core::HRESULT, newerror: ::
     }
     RoTransformErrorW(olderror, newerror, cchmax, ::core::mem::transmute(message.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoUninitialize() {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3671,7 +3507,6 @@ pub unsafe fn RoUninitialize() {
     }
     RoUninitialize()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn RoUnregisterForApartmentShutdown<'a, P0>(regcookie: P0) -> ::windows::core::Result<()>
 where
@@ -3684,7 +3519,6 @@ where
     RoUnregisterForApartmentShutdown(regcookie.into()).ok()
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub struct ServerInformation {
     pub dwServerPid: u32,
     pub dwServerTid: u32,
@@ -3715,7 +3549,6 @@ impl ::core::default::Default for ServerInformation {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn SetRestrictedErrorInfo<'a, P0>(prestrictederrorinfo: P0) -> ::windows::core::Result<()>
 where
@@ -3727,15 +3560,11 @@ where
     }
     SetRestrictedErrorInfo(prestrictederrorinfo.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TrustLevel(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const BaseTrust: TrustLevel = TrustLevel(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const PartialTrust: TrustLevel = TrustLevel(1i32);
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 pub const FullTrust: TrustLevel = TrustLevel(2i32);
 impl ::core::marker::Copy for TrustLevel {}
 impl ::core::clone::Clone for TrustLevel {
@@ -3756,7 +3585,6 @@ impl ::core::fmt::Debug for TrustLevel {
         f.debug_tuple("TrustLevel").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3766,7 +3594,6 @@ pub unsafe fn WindowsCompareStringOrdinal(string1: &::windows::core::HSTRING, st
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsCompareStringOrdinal(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsConcatString(string1: &::windows::core::HSTRING, string2: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3776,7 +3603,6 @@ pub unsafe fn WindowsConcatString(string1: &::windows::core::HSTRING, string2: &
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsConcatString(::core::mem::transmute_copy(string1), ::core::mem::transmute_copy(string2), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3786,7 +3612,6 @@ pub unsafe fn WindowsCreateString(sourcestring: ::core::option::Option<&[u16]>) 
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsCreateString(::core::mem::transmute(sourcestring.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), sourcestring.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsCreateStringReference<'a, P0>(sourcestring: P0, length: u32, hstringheader: &mut HSTRING_HEADER, string: ::core::option::Option<&mut ::windows::core::HSTRING>) -> ::windows::core::Result<()>
 where
@@ -3798,7 +3623,6 @@ where
     }
     WindowsCreateStringReference(sourcestring.into(), length, ::core::mem::transmute(hstringheader), ::core::mem::transmute(string)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsDeleteString(string: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3807,7 +3631,6 @@ pub unsafe fn WindowsDeleteString(string: &::windows::core::HSTRING) -> ::window
     }
     WindowsDeleteString(::core::mem::transmute_copy(string)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsDeleteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<()>
 where
@@ -3819,7 +3642,6 @@ where
     }
     WindowsDeleteStringBuffer(bufferhandle.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsDuplicateString(string: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3829,7 +3651,6 @@ pub unsafe fn WindowsDuplicateString(string: &::windows::core::HSTRING) -> ::win
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsDuplicateString(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3838,7 +3659,6 @@ pub unsafe fn WindowsGetStringLen(string: &::windows::core::HSTRING) -> u32 {
     }
     WindowsGetStringLen(::core::mem::transmute_copy(string))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, length: ::core::option::Option<&mut u32>) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3847,7 +3667,6 @@ pub unsafe fn WindowsGetStringRawBuffer(string: &::windows::core::HSTRING, lengt
     }
     WindowsGetStringRawBuffer(::core::mem::transmute_copy(string), ::core::mem::transmute(length))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback: PINSPECT_HSTRING_CALLBACK, context: *const ::core::ffi::c_void, length: &mut u32, targetstringaddress: &mut usize) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3856,7 +3675,6 @@ pub unsafe fn WindowsInspectString(targethstring: usize, machine: u16, callback:
     }
     WindowsInspectString(targethstring, machine, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(length), ::core::mem::transmute(targetstringaddress)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: PINSPECT_HSTRING_CALLBACK2, context: *const ::core::ffi::c_void, length: &mut u32, targetstringaddress: &mut u64) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3865,7 +3683,6 @@ pub unsafe fn WindowsInspectString2(targethstring: u64, machine: u16, callback: 
     }
     WindowsInspectString2(targethstring, machine, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(length), ::core::mem::transmute(targetstringaddress)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsIsStringEmpty(string: &::windows::core::HSTRING) -> super::super::Foundation::BOOL {
@@ -3875,7 +3692,6 @@ pub unsafe fn WindowsIsStringEmpty(string: &::windows::core::HSTRING) -> super::
     }
     WindowsIsStringEmpty(::core::mem::transmute_copy(string))
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: &mut *mut u16, bufferhandle: &mut HSTRING_BUFFER) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3884,7 +3700,6 @@ pub unsafe fn WindowsPreallocateStringBuffer(length: u32, charbuffer: &mut *mut 
     }
     WindowsPreallocateStringBuffer(length, ::core::mem::transmute(charbuffer), ::core::mem::transmute(bufferhandle)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsPromoteStringBuffer<'a, P0>(bufferhandle: P0) -> ::windows::core::Result<::windows::core::HSTRING>
 where
@@ -3897,7 +3712,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsPromoteStringBuffer(bufferhandle.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringreplaced: &::windows::core::HSTRING, stringreplacewith: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3907,7 +3721,6 @@ pub unsafe fn WindowsReplaceString(string: &::windows::core::HSTRING, stringrepl
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsReplaceString(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(stringreplaced), ::core::mem::transmute_copy(stringreplacewith), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -3918,7 +3731,6 @@ pub unsafe fn WindowsStringHasEmbeddedNull(string: &::windows::core::HSTRING) ->
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsStringHasEmbeddedNull(::core::mem::transmute_copy(string), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsSubstring(string: &::windows::core::HSTRING, startindex: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3928,7 +3740,6 @@ pub unsafe fn WindowsSubstring(string: &::windows::core::HSTRING, startindex: u3
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsSubstring(::core::mem::transmute_copy(string), startindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &::windows::core::HSTRING, startindex: u32, length: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3938,7 +3749,6 @@ pub unsafe fn WindowsSubstringWithSpecifiedLength(string: &::windows::core::HSTR
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsSubstringWithSpecifiedLength(::core::mem::transmute_copy(string), startindex, length, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringEnd(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3948,7 +3758,6 @@ pub unsafe fn WindowsTrimStringEnd(string: &::windows::core::HSTRING, trimstring
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WindowsTrimStringEnd(::core::mem::transmute_copy(string), ::core::mem::transmute_copy(trimstring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HSTRING>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
 #[inline]
 pub unsafe fn WindowsTrimStringStart(string: &::windows::core::HSTRING, trimstring: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
     #[cfg_attr(windows, link(name = "windows"))]

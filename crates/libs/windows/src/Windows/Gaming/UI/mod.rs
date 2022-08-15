@@ -1,7 +1,5 @@
-#[doc = "*Required features: `\"Gaming_UI\"`*"]
 pub struct GameBar;
 impl GameBar {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn VisibilityChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -12,12 +10,10 @@ impl GameBar {
             (::windows::core::Interface::vtable(this).VisibilityChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVisibilityChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IGameBarStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveVisibilityChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsInputRedirectedChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -28,7 +24,6 @@ impl GameBar {
             (::windows::core::Interface::vtable(this).IsInputRedirectedChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsInputRedirectedChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IGameBarStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveIsInputRedirectedChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -54,7 +49,6 @@ impl GameBar {
 impl ::windows::core::RuntimeName for GameBar {
     const NAME: &'static str = "Windows.Gaming.UI.GameBar";
 }
-#[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameChatMessageOrigin(pub i32);
@@ -88,7 +82,6 @@ unsafe impl ::windows::core::RuntimeType for GameChatMessageOrigin {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
 pub struct GameChatMessageReceivedEventArgs(::windows::core::IUnknown);
 impl GameChatMessageReceivedEventArgs {
@@ -190,7 +183,6 @@ impl ::core::convert::From<&GameChatMessageReceivedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for GameChatMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for GameChatMessageReceivedEventArgs {}
-#[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
 pub struct GameChatOverlay(::windows::core::IUnknown);
 impl GameChatOverlay {
@@ -283,7 +275,6 @@ impl ::core::convert::From<&GameChatOverlay> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for GameChatOverlay {}
 unsafe impl ::core::marker::Sync for GameChatOverlay {}
-#[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
 pub struct GameChatOverlayMessageSource(::windows::core::IUnknown);
 impl GameChatOverlayMessageSource {
@@ -294,7 +285,6 @@ impl GameChatOverlayMessageSource {
         static SHARED: ::windows::core::FactoryCache<GameChatOverlayMessageSource, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MessageReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -306,13 +296,11 @@ impl GameChatOverlayMessageSource {
             (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMessageReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -381,7 +369,6 @@ impl ::core::convert::From<&GameChatOverlayMessageSource> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for GameChatOverlayMessageSource {}
 unsafe impl ::core::marker::Sync for GameChatOverlayMessageSource {}
-#[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GameChatOverlayPosition(pub i32);
@@ -421,11 +408,9 @@ unsafe impl ::windows::core::RuntimeType for GameChatOverlayPosition {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_UI\"`*"]
 #[repr(transparent)]
 pub struct GameUIProviderActivatedEventArgs(::windows::core::IUnknown);
 impl GameUIProviderActivatedEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn Kind(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -434,7 +419,6 @@ impl GameUIProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Activation::ActivationKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn PreviousExecutionState(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -443,7 +427,6 @@ impl GameUIProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Activation::ApplicationExecutionState>(result__)
         }
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn SplashScreen(&self) -> ::windows::core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &::windows::core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
@@ -452,7 +435,6 @@ impl GameUIProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Activation::SplashScreen>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GameUIArgs(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -461,7 +443,6 @@ impl GameUIProviderActivatedEventArgs {
             (::windows::core::Interface::vtable(this).GameUIArgs)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReportCompleted<'a, P0>(&self, results: P0) -> ::windows::core::Result<()>
     where

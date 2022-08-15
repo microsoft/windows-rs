@@ -1,7 +1,6 @@
 pub const CLSID_CTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd520_a2ab_11ce_b11f_00aa00530503);
 pub const CLSID_CTaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd52a_a2ab_11ce_b11f_00aa00530503);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub struct DAILY {
     pub DaysInterval: u16,
 }
@@ -30,18 +29,15 @@ impl ::core::default::Default for DAILY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IAction(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAction {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -129,7 +125,6 @@ pub struct IAction_Vtbl {
     SetId: usize,
     pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut TASK_ACTION_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IActionCollection(::windows::core::IUnknown);
@@ -138,7 +133,6 @@ impl IActionCollection {
     pub unsafe fn Count(&self, pcount: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -148,12 +142,10 @@ impl IActionCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn XmlText(&self, ptext: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXmlText<'a, P0>(&self, text: P0) -> ::windows::core::Result<()>
     where
@@ -161,13 +153,11 @@ impl IActionCollection {
     {
         (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create(&self, r#type: TASK_ACTION_TYPE) -> ::windows::core::Result<IAction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, P0>(&self, index: P0) -> ::windows::core::Result<()>
     where
@@ -178,12 +168,10 @@ impl IActionCollection {
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Context(&self, pcontext: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Context)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetContext<'a, P0>(&self, context: P0) -> ::windows::core::Result<()>
     where
@@ -290,7 +278,6 @@ pub struct IActionCollection_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetContext: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IBootTrigger(::windows::core::IUnknown);
@@ -299,12 +286,10 @@ impl IBootTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -312,13 +297,11 @@ impl IBootTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -326,12 +309,10 @@ impl IBootTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -339,12 +320,10 @@ impl IBootTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -352,12 +331,10 @@ impl IBootTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -371,12 +348,10 @@ impl IBootTrigger {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Delay(&self, pdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDelay<'a, P0>(&self, delay: P0) -> ::windows::core::Result<()>
     where
@@ -478,18 +453,15 @@ pub struct IBootTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDelay: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IComHandlerAction(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IComHandlerAction {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -500,12 +472,10 @@ impl IComHandlerAction {
     pub unsafe fn Type(&self, ptype: &mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ClassId(&self, pclsid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ClassId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclsid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClassId<'a, P0>(&self, clsid: P0) -> ::windows::core::Result<()>
     where
@@ -513,12 +483,10 @@ impl IComHandlerAction {
     {
         (::windows::core::Interface::vtable(self).SetClassId)(::windows::core::Interface::as_raw(self), clsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Data(&self, pdata: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Data)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetData<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
     where
@@ -628,7 +596,6 @@ pub struct IComHandlerAction_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetData: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IDailyTrigger(::windows::core::IUnknown);
@@ -637,12 +604,10 @@ impl IDailyTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -650,13 +615,11 @@ impl IDailyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -664,12 +627,10 @@ impl IDailyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -677,12 +638,10 @@ impl IDailyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -690,12 +649,10 @@ impl IDailyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -715,12 +672,10 @@ impl IDailyTrigger {
     pub unsafe fn SetDaysInterval(&self, days: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDaysInterval)(::windows::core::Interface::as_raw(self), days).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RandomDelay(&self, prandomdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRandomDelay<'a, P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
     where
@@ -824,18 +779,15 @@ pub struct IDailyTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRandomDelay: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IEmailAction(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEmailAction {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -846,12 +798,10 @@ impl IEmailAction {
     pub unsafe fn Type(&self, ptype: &mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Server(&self, pserver: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Server)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pserver)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServer<'a, P0>(&self, server: P0) -> ::windows::core::Result<()>
     where
@@ -859,12 +809,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), server.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self, psubject: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psubject)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubject<'a, P0>(&self, subject: P0) -> ::windows::core::Result<()>
     where
@@ -872,12 +820,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetSubject)(::windows::core::Interface::as_raw(self), subject.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn To(&self, pto: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).To)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pto)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTo<'a, P0>(&self, to: P0) -> ::windows::core::Result<()>
     where
@@ -885,12 +831,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetTo)(::windows::core::Interface::as_raw(self), to.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Cc(&self, pcc: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Cc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcc)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCc<'a, P0>(&self, cc: P0) -> ::windows::core::Result<()>
     where
@@ -898,12 +842,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetCc)(::windows::core::Interface::as_raw(self), cc.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Bcc(&self, pbcc: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Bcc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbcc)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBcc<'a, P0>(&self, bcc: P0) -> ::windows::core::Result<()>
     where
@@ -911,12 +853,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetBcc)(::windows::core::Interface::as_raw(self), bcc.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReplyTo(&self, preplyto: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReplyTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(preplyto)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReplyTo<'a, P0>(&self, replyto: P0) -> ::windows::core::Result<()>
     where
@@ -924,12 +864,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetReplyTo)(::windows::core::Interface::as_raw(self), replyto.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn From(&self, pfrom: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).From)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfrom)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFrom<'a, P0>(&self, from: P0) -> ::windows::core::Result<()>
     where
@@ -937,13 +875,11 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetFrom)(::windows::core::Interface::as_raw(self), from.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn HeaderFields(&self) -> ::windows::core::Result<ITaskNamedValueCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).HeaderFields)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskNamedValueCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHeaderFields<'a, P0>(&self, pheaderfields: P0) -> ::windows::core::Result<()>
     where
@@ -951,12 +887,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetHeaderFields)(::windows::core::Interface::as_raw(self), pheaderfields.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Body(&self, pbody: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Body)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbody)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBody<'a, P0>(&self, body: P0) -> ::windows::core::Result<()>
     where
@@ -964,12 +898,10 @@ impl IEmailAction {
     {
         (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), body.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Attachments(&self, pattachements: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Attachments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattachements)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAttachments(&self, pattachements: &mut super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAttachments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattachements)).ok()
@@ -1140,7 +1072,6 @@ pub struct IEmailAction_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetAttachments: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct IEnumWorkItems(::windows::core::IUnknown);
 impl IEnumWorkItems {
@@ -1202,7 +1133,6 @@ pub struct IEnumWorkItems_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumworkitems: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IEventTrigger(::windows::core::IUnknown);
@@ -1211,12 +1141,10 @@ impl IEventTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -1224,13 +1152,11 @@ impl IEventTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -1238,12 +1164,10 @@ impl IEventTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -1251,12 +1175,10 @@ impl IEventTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -1264,12 +1186,10 @@ impl IEventTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -1283,12 +1203,10 @@ impl IEventTrigger {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subscription(&self, pquery: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Subscription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pquery)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubscription<'a, P0>(&self, query: P0) -> ::windows::core::Result<()>
     where
@@ -1296,12 +1214,10 @@ impl IEventTrigger {
     {
         (::windows::core::Interface::vtable(self).SetSubscription)(::windows::core::Interface::as_raw(self), query.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Delay(&self, pdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDelay<'a, P0>(&self, delay: P0) -> ::windows::core::Result<()>
     where
@@ -1309,13 +1225,11 @@ impl IEventTrigger {
     {
         (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ValueQueries(&self) -> ::windows::core::Result<ITaskNamedValueCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ValueQueries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskNamedValueCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetValueQueries<'a, P0>(&self, pnamedxpaths: P0) -> ::windows::core::Result<()>
     where
@@ -1433,18 +1347,15 @@ pub struct IEventTrigger_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetValueQueries: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IExecAction(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IExecAction {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -1455,12 +1366,10 @@ impl IExecAction {
     pub unsafe fn Type(&self, ptype: &mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self, ppath: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppath)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPath<'a, P0>(&self, path: P0) -> ::windows::core::Result<()>
     where
@@ -1468,12 +1377,10 @@ impl IExecAction {
     {
         (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Arguments(&self, pargument: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Arguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pargument)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArguments<'a, P0>(&self, argument: P0) -> ::windows::core::Result<()>
     where
@@ -1481,12 +1388,10 @@ impl IExecAction {
     {
         (::windows::core::Interface::vtable(self).SetArguments)(::windows::core::Interface::as_raw(self), argument.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WorkingDirectory(&self, pworkingdirectory: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pworkingdirectory)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWorkingDirectory<'a, P0>(&self, workingdirectory: P0) -> ::windows::core::Result<()>
     where
@@ -1604,18 +1509,15 @@ pub struct IExecAction_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetWorkingDirectory: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IExecAction2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IExecAction2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -1626,12 +1528,10 @@ impl IExecAction2 {
     pub unsafe fn Type(&self, ptype: &mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self, ppath: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppath)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPath<'a, P0>(&self, path: P0) -> ::windows::core::Result<()>
     where
@@ -1639,12 +1539,10 @@ impl IExecAction2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), path.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Arguments(&self, pargument: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Arguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pargument)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArguments<'a, P0>(&self, argument: P0) -> ::windows::core::Result<()>
     where
@@ -1652,12 +1550,10 @@ impl IExecAction2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetArguments)(::windows::core::Interface::as_raw(self), argument.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WorkingDirectory(&self, pworkingdirectory: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.WorkingDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pworkingdirectory)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWorkingDirectory<'a, P0>(&self, workingdirectory: P0) -> ::windows::core::Result<()>
     where
@@ -1777,18 +1673,15 @@ pub struct IExecAction2_Vtbl {
     pub HideAppWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phideappwindow: *mut i16) -> ::windows::core::HRESULT,
     pub SetHideAppWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hideappwindow: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IIdleSettings(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IIdleSettings {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IdleDuration(&self, pdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IdleDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIdleDuration<'a, P0>(&self, delay: P0) -> ::windows::core::Result<()>
     where
@@ -1796,12 +1689,10 @@ impl IIdleSettings {
     {
         (::windows::core::Interface::vtable(self).SetIdleDuration)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitTimeout(&self, ptimeout: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WaitTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimeout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWaitTimeout<'a, P0>(&self, timeout: P0) -> ::windows::core::Result<()>
     where
@@ -1909,7 +1800,6 @@ pub struct IIdleSettings_Vtbl {
     pub RestartOnIdle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prestart: *mut i16) -> ::windows::core::HRESULT,
     pub SetRestartOnIdle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, restart: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IIdleTrigger(::windows::core::IUnknown);
@@ -1918,12 +1808,10 @@ impl IIdleTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -1931,13 +1819,11 @@ impl IIdleTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -1945,12 +1831,10 @@ impl IIdleTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -1958,12 +1842,10 @@ impl IIdleTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -1971,12 +1853,10 @@ impl IIdleTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -2076,7 +1956,6 @@ unsafe impl ::windows::core::Interface for IIdleTrigger {
 pub struct IIdleTrigger_Vtbl {
     pub base__: ITrigger_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ILogonTrigger(::windows::core::IUnknown);
@@ -2085,12 +1964,10 @@ impl ILogonTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -2098,13 +1975,11 @@ impl ILogonTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -2112,12 +1987,10 @@ impl ILogonTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -2125,12 +1998,10 @@ impl ILogonTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -2138,12 +2009,10 @@ impl ILogonTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -2157,12 +2026,10 @@ impl ILogonTrigger {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Delay(&self, pdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDelay<'a, P0>(&self, delay: P0) -> ::windows::core::Result<()>
     where
@@ -2170,12 +2037,10 @@ impl ILogonTrigger {
     {
         (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserId(&self, puser: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puser)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserId<'a, P0>(&self, user: P0) -> ::windows::core::Result<()>
     where
@@ -2285,13 +2150,11 @@ pub struct ILogonTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetUserId: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMaintenanceSettings(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMaintenanceSettings {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPeriod<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2299,12 +2162,10 @@ impl IMaintenanceSettings {
     {
         (::windows::core::Interface::vtable(self).SetPeriod)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Period(&self, target: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Period)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeadline<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2312,7 +2173,6 @@ impl IMaintenanceSettings {
     {
         (::windows::core::Interface::vtable(self).SetDeadline)(::windows::core::Interface::as_raw(self), value.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Deadline(&self, target: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Deadline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(target)).ok()
@@ -2409,7 +2269,6 @@ pub struct IMaintenanceSettings_Vtbl {
     pub SetExclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16) -> ::windows::core::HRESULT,
     pub Exclusive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMonthlyDOWTrigger(::windows::core::IUnknown);
@@ -2418,12 +2277,10 @@ impl IMonthlyDOWTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -2431,13 +2288,11 @@ impl IMonthlyDOWTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -2445,12 +2300,10 @@ impl IMonthlyDOWTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -2458,12 +2311,10 @@ impl IMonthlyDOWTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -2471,12 +2322,10 @@ impl IMonthlyDOWTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -2514,12 +2363,10 @@ impl IMonthlyDOWTrigger {
     pub unsafe fn SetRunOnLastWeekOfMonth(&self, lastweek: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRunOnLastWeekOfMonth)(::windows::core::Interface::as_raw(self), lastweek).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RandomDelay(&self, prandomdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRandomDelay<'a, P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
     where
@@ -2629,7 +2476,6 @@ pub struct IMonthlyDOWTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRandomDelay: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMonthlyTrigger(::windows::core::IUnknown);
@@ -2638,12 +2484,10 @@ impl IMonthlyTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -2651,13 +2495,11 @@ impl IMonthlyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -2665,12 +2507,10 @@ impl IMonthlyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -2678,12 +2518,10 @@ impl IMonthlyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -2691,12 +2529,10 @@ impl IMonthlyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -2728,12 +2564,10 @@ impl IMonthlyTrigger {
     pub unsafe fn SetRunOnLastDayOfMonth(&self, lastday: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRunOnLastDayOfMonth)(::windows::core::Interface::as_raw(self), lastday).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RandomDelay(&self, prandomdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRandomDelay<'a, P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
     where
@@ -2841,18 +2675,15 @@ pub struct IMonthlyTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRandomDelay: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct INetworkSettings(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl INetworkSettings {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self, pname: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -2860,12 +2691,10 @@ impl INetworkSettings {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -2957,18 +2786,15 @@ pub struct INetworkSettings_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetId: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrincipal(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPrincipal {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -2976,12 +2802,10 @@ impl IPrincipal {
     {
         (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self, pname: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplayName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -2989,12 +2813,10 @@ impl IPrincipal {
     {
         (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserId(&self, puser: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puser)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserId<'a, P0>(&self, user: P0) -> ::windows::core::Result<()>
     where
@@ -3008,12 +2830,10 @@ impl IPrincipal {
     pub unsafe fn SetLogonType(&self, logon: TASK_LOGON_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLogonType)(::windows::core::Interface::as_raw(self), logon).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GroupId(&self, pgroup: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GroupId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pgroup)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGroupId<'a, P0>(&self, group: P0) -> ::windows::core::Result<()>
     where
@@ -3131,7 +2951,6 @@ pub struct IPrincipal_Vtbl {
     pub RunLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prunlevel: *mut TASK_RUNLEVEL_TYPE) -> ::windows::core::HRESULT,
     pub SetRunLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, runlevel: TASK_RUNLEVEL_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPrincipal2(::windows::core::IUnknown);
@@ -3146,12 +2965,10 @@ impl IPrincipal2 {
     pub unsafe fn RequiredPrivilegeCount(&self, pcount: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequiredPrivilegeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_RequiredPrivilege(&self, index: i32, pprivilege: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).get_RequiredPrivilege)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(pprivilege)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddRequiredPrivilege<'a, P0>(&self, privilege: P0) -> ::windows::core::Result<()>
     where
@@ -3238,11 +3055,9 @@ pub struct IPrincipal2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddRequiredPrivilege: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct IProvideTaskPage(::windows::core::IUnknown);
 impl IProvideTaskPage {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub unsafe fn GetPage<'a, P0>(&self, tptype: TASKPAGE, fpersistchanges: P0) -> ::windows::core::Result<super::super::UI::Controls::HPROPSHEETPAGE>
     where
@@ -3296,19 +3111,16 @@ pub struct IProvideTaskPage_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls")))]
     GetPage: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRegisteredTask(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRegisteredTask {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3325,7 +3137,6 @@ impl IRegisteredTask {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Run<'a, P0>(&self, params: P0) -> ::windows::core::Result<IRunningTask>
     where
@@ -3334,7 +3145,6 @@ impl IRegisteredTask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), params.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RunEx<'a, P0, P1>(&self, params: P0, flags: i32, sessionid: i32, user: P1) -> ::windows::core::Result<IRunningTask>
     where
@@ -3344,7 +3154,6 @@ impl IRegisteredTask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RunEx)(::windows::core::Interface::as_raw(self), params.into().abi(), flags, sessionid, user.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTask>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInstances(&self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3366,25 +3175,21 @@ impl IRegisteredTask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NextRunTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Definition(&self) -> ::windows::core::Result<ITaskDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Definition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurityDescriptor(&self, securityinformation: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), securityinformation, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSecurityDescriptor<'a, P0>(&self, sddl: P0, flags: i32) -> ::windows::core::Result<()>
     where
@@ -3395,7 +3200,6 @@ impl IRegisteredTask {
     pub unsafe fn Stop(&self, flags: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), flags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunTimes(&self, pststart: &super::super::Foundation::SYSTEMTIME, pstend: &super::super::Foundation::SYSTEMTIME, pcount: &mut u32, pruntimes: &mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRunTimes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pststart), ::core::mem::transmute(pstend), ::core::mem::transmute(pcount), ::core::mem::transmute(pruntimes)).ok()
@@ -3516,7 +3320,6 @@ pub struct IRegisteredTask_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetRunTimes: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRegisteredTaskCollection(::windows::core::IUnknown);
@@ -3526,7 +3329,6 @@ impl IRegisteredTaskCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, P0>(&self, index: P0) -> ::windows::core::Result<IRegisteredTask>
     where
@@ -3613,18 +3415,15 @@ pub struct IRegisteredTaskCollection_Vtbl {
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRegistrationInfo(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRegistrationInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self, pdescription: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdescription)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, P0>(&self, description: P0) -> ::windows::core::Result<()>
     where
@@ -3632,12 +3431,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Author(&self, pauthor: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Author)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pauthor)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAuthor<'a, P0>(&self, author: P0) -> ::windows::core::Result<()>
     where
@@ -3645,12 +3442,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetAuthor)(::windows::core::Interface::as_raw(self), author.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self, pversion: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pversion)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVersion<'a, P0>(&self, version: P0) -> ::windows::core::Result<()>
     where
@@ -3658,12 +3453,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), version.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Date(&self, pdate: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Date)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdate)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDate<'a, P0>(&self, date: P0) -> ::windows::core::Result<()>
     where
@@ -3671,12 +3464,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetDate)(::windows::core::Interface::as_raw(self), date.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Documentation(&self, pdocumentation: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Documentation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdocumentation)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocumentation<'a, P0>(&self, documentation: P0) -> ::windows::core::Result<()>
     where
@@ -3684,12 +3475,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetDocumentation)(::windows::core::Interface::as_raw(self), documentation.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn XmlText(&self, ptext: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXmlText<'a, P0>(&self, text: P0) -> ::windows::core::Result<()>
     where
@@ -3697,12 +3486,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetXmlText)(::windows::core::Interface::as_raw(self), text.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URI(&self, puri: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).URI)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puri)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURI<'a, P0>(&self, uri: P0) -> ::windows::core::Result<()>
     where
@@ -3710,12 +3497,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetURI)(::windows::core::Interface::as_raw(self), uri.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SecurityDescriptor(&self, psddl: &mut super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psddl)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSecurityDescriptor<'a, P0>(&self, sddl: P0) -> ::windows::core::Result<()>
     where
@@ -3723,12 +3508,10 @@ impl IRegistrationInfo {
     {
         (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), sddl.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Source(&self, psource: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Source)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psource)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSource<'a, P0>(&self, source: P0) -> ::windows::core::Result<()>
     where
@@ -3876,7 +3659,6 @@ pub struct IRegistrationInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSource: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRegistrationTrigger(::windows::core::IUnknown);
@@ -3885,12 +3667,10 @@ impl IRegistrationTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -3898,13 +3678,11 @@ impl IRegistrationTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -3912,12 +3690,10 @@ impl IRegistrationTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -3925,12 +3701,10 @@ impl IRegistrationTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -3938,12 +3712,10 @@ impl IRegistrationTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -3957,12 +3729,10 @@ impl IRegistrationTrigger {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Delay(&self, pdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDelay<'a, P0>(&self, delay: P0) -> ::windows::core::Result<()>
     where
@@ -4064,18 +3834,15 @@ pub struct IRegistrationTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetDelay: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRepetitionPattern(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRepetitionPattern {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Interval(&self, pinterval: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Interval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinterval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInterval<'a, P0>(&self, interval: P0) -> ::windows::core::Result<()>
     where
@@ -4083,12 +3850,10 @@ impl IRepetitionPattern {
     {
         (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), interval.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Duration(&self, pduration: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Duration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pduration)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDuration<'a, P0>(&self, duration: P0) -> ::windows::core::Result<()>
     where
@@ -4188,25 +3953,21 @@ pub struct IRepetitionPattern_Vtbl {
     pub StopAtDurationEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstop: *mut i16) -> ::windows::core::HRESULT,
     pub SetStopAtDurationEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stop: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRunningTask(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IRunningTask {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstanceGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).InstanceGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4216,7 +3977,6 @@ impl IRunningTask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<TASK_STATE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentAction(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4320,7 +4080,6 @@ pub struct IRunningTask_Vtbl {
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EnginePID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppid: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IRunningTaskCollection(::windows::core::IUnknown);
@@ -4330,7 +4089,6 @@ impl IRunningTaskCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, P0>(&self, index: P0) -> ::windows::core::Result<IRunningTask>
     where
@@ -4417,7 +4175,6 @@ pub struct IRunningTaskCollection_Vtbl {
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct IScheduledWorkItem(::windows::core::IUnknown);
 impl IScheduledWorkItem {
@@ -4439,12 +4196,10 @@ impl IScheduledWorkItem {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTriggerString)(::windows::core::Interface::as_raw(self), itrigger, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunTimes(&self, pstbegin: &super::super::Foundation::SYSTEMTIME, pstend: &super::super::Foundation::SYSTEMTIME, pcount: &mut u16, rgsttasktimes: &mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRunTimes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstbegin), ::core::mem::transmute(pstend), ::core::mem::transmute(pcount), ::core::mem::transmute(rgsttasktimes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextRunTime(&self, pstnextrun: &mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetNextRunTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstnextrun)).ok()
@@ -4461,7 +4216,6 @@ impl IScheduledWorkItem {
     pub unsafe fn Terminate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Terminate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EditWorkItem<'a, P0>(&self, hparent: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
@@ -4469,7 +4223,6 @@ impl IScheduledWorkItem {
     {
         (::windows::core::Interface::vtable(self).EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMostRecentRunTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -4623,7 +4376,6 @@ pub struct IScheduledWorkItem_Vtbl {
     pub SetAccountInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszaccountname: ::windows::core::PCWSTR, pwszpassword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub GetAccountInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszaccountname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISessionStateChangeTrigger(::windows::core::IUnknown);
@@ -4632,12 +4384,10 @@ impl ISessionStateChangeTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -4645,13 +4395,11 @@ impl ISessionStateChangeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -4659,12 +4407,10 @@ impl ISessionStateChangeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -4672,12 +4418,10 @@ impl ISessionStateChangeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -4685,12 +4429,10 @@ impl ISessionStateChangeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -4704,12 +4446,10 @@ impl ISessionStateChangeTrigger {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Delay(&self, pdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Delay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDelay<'a, P0>(&self, delay: P0) -> ::windows::core::Result<()>
     where
@@ -4717,12 +4457,10 @@ impl ISessionStateChangeTrigger {
     {
         (::windows::core::Interface::vtable(self).SetDelay)(::windows::core::Interface::as_raw(self), delay.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserId(&self, puser: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UserId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(puser)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserId<'a, P0>(&self, user: P0) -> ::windows::core::Result<()>
     where
@@ -4840,18 +4578,15 @@ pub struct ISessionStateChangeTrigger_Vtbl {
     pub StateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptype: *mut TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::HRESULT,
     pub SetStateChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: TASK_SESSION_STATE_CHANGE_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IShowMessageAction(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IShowMessageAction {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -4862,12 +4597,10 @@ impl IShowMessageAction {
     pub unsafe fn Type(&self, ptype: &mut TASK_ACTION_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self, ptitle: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptitle)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTitle<'a, P0>(&self, title: P0) -> ::windows::core::Result<()>
     where
@@ -4875,12 +4608,10 @@ impl IShowMessageAction {
     {
         (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), title.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MessageBody(&self, pmessagebody: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).MessageBody)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmessagebody)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMessageBody<'a, P0>(&self, messagebody: P0) -> ::windows::core::Result<()>
     where
@@ -4990,7 +4721,6 @@ pub struct IShowMessageAction_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMessageBody: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct ITask(::windows::core::IUnknown);
 impl ITask {
@@ -5012,12 +4742,10 @@ impl ITask {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTriggerString)(::windows::core::Interface::as_raw(self), itrigger, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRunTimes(&self, pstbegin: &super::super::Foundation::SYSTEMTIME, pstend: &super::super::Foundation::SYSTEMTIME, pcount: &mut u16, rgsttasktimes: &mut *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRunTimes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstbegin), ::core::mem::transmute(pstend), ::core::mem::transmute(pcount), ::core::mem::transmute(rgsttasktimes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNextRunTime(&self, pstnextrun: &mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetNextRunTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstnextrun)).ok()
@@ -5034,7 +4762,6 @@ impl ITask {
     pub unsafe fn Terminate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Terminate)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EditWorkItem<'a, P0>(&self, hparent: P0, dwreserved: u32) -> ::windows::core::Result<()>
     where
@@ -5042,7 +4769,6 @@ impl ITask {
     {
         (::windows::core::Interface::vtable(self).base__.EditWorkItem)(::windows::core::Interface::as_raw(self), hparent.into(), dwreserved).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMostRecentRunTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5233,19 +4959,16 @@ pub struct ITask_Vtbl {
     pub SetMaxRunTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxruntimems: u32) -> ::windows::core::HRESULT,
     pub GetMaxRunTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxruntimems: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskDefinition(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskDefinition {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegistrationInfo(&self) -> ::windows::core::Result<IRegistrationInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegistrationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegistrationInfo>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRegistrationInfo<'a, P0>(&self, pregistrationinfo: P0) -> ::windows::core::Result<()>
     where
@@ -5253,13 +4976,11 @@ impl ITaskDefinition {
     {
         (::windows::core::Interface::vtable(self).SetRegistrationInfo)(::windows::core::Interface::as_raw(self), pregistrationinfo.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Triggers(&self) -> ::windows::core::Result<ITriggerCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Triggers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITriggerCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetTriggers<'a, P0>(&self, ptriggers: P0) -> ::windows::core::Result<()>
     where
@@ -5267,13 +4988,11 @@ impl ITaskDefinition {
     {
         (::windows::core::Interface::vtable(self).SetTriggers)(::windows::core::Interface::as_raw(self), ptriggers.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Settings(&self) -> ::windows::core::Result<ITaskSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskSettings>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSettings<'a, P0>(&self, psettings: P0) -> ::windows::core::Result<()>
     where
@@ -5281,12 +5000,10 @@ impl ITaskDefinition {
     {
         (::windows::core::Interface::vtable(self).SetSettings)(::windows::core::Interface::as_raw(self), psettings.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Data(&self, pdata: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Data)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetData<'a, P0>(&self, data: P0) -> ::windows::core::Result<()>
     where
@@ -5294,13 +5011,11 @@ impl ITaskDefinition {
     {
         (::windows::core::Interface::vtable(self).SetData)(::windows::core::Interface::as_raw(self), data.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Principal(&self) -> ::windows::core::Result<IPrincipal> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Principal)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrincipal>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPrincipal<'a, P0>(&self, pprincipal: P0) -> ::windows::core::Result<()>
     where
@@ -5308,13 +5023,11 @@ impl ITaskDefinition {
     {
         (::windows::core::Interface::vtable(self).SetPrincipal)(::windows::core::Interface::as_raw(self), pprincipal.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Actions(&self) -> ::windows::core::Result<IActionCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Actions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IActionCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetActions<'a, P0>(&self, pactions: P0) -> ::windows::core::Result<()>
     where
@@ -5322,12 +5035,10 @@ impl ITaskDefinition {
     {
         (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), pactions.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn XmlText(&self, pxml: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pxml)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXmlText<'a, P0>(&self, xml: P0) -> ::windows::core::Result<()>
     where
@@ -5459,25 +5170,21 @@ pub struct ITaskDefinition_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetXmlText: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskFolder(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskFolder {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFolder<'a, P0>(&self, path: P0) -> ::windows::core::Result<ITaskFolder>
     where
@@ -5486,13 +5193,11 @@ impl ITaskFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetFolders(&self, flags: i32) -> ::windows::core::Result<ITaskFolderCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFolders)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolderCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateFolder<'a, P0, P1>(&self, subfoldername: P0, sddl: P1) -> ::windows::core::Result<ITaskFolder>
     where
@@ -5502,7 +5207,6 @@ impl ITaskFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateFolder)(::windows::core::Interface::as_raw(self), subfoldername.into().abi(), sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteFolder<'a, P0>(&self, subfoldername: P0, flags: i32) -> ::windows::core::Result<()>
     where
@@ -5510,7 +5214,6 @@ impl ITaskFolder {
     {
         (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), subfoldername.into().abi(), flags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetTask<'a, P0>(&self, path: P0) -> ::windows::core::Result<IRegisteredTask>
     where
@@ -5519,13 +5222,11 @@ impl ITaskFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTask)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTasks(&self, flags: i32) -> ::windows::core::Result<IRegisteredTaskCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTasks)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTaskCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteTask<'a, P0>(&self, name: P0, flags: i32) -> ::windows::core::Result<()>
     where
@@ -5533,7 +5234,6 @@ impl ITaskFolder {
     {
         (::windows::core::Interface::vtable(self).DeleteTask)(::windows::core::Interface::as_raw(self), name.into().abi(), flags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RegisterTask<'a, P0, P1, P2, P3, P4>(&self, path: P0, xmltext: P1, flags: i32, userid: P2, password: P3, logontype: TASK_LOGON_TYPE, sddl: P4) -> ::windows::core::Result<IRegisteredTask>
     where
@@ -5546,7 +5246,6 @@ impl ITaskFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegisterTask)(::windows::core::Interface::as_raw(self), path.into().abi(), xmltext.into().abi(), flags, userid.into().abi(), password.into().abi(), logontype, sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RegisterTaskDefinition<'a, P0, P1, P2, P3, P4>(&self, path: P0, pdefinition: P1, flags: i32, userid: P2, password: P3, logontype: TASK_LOGON_TYPE, sddl: P4) -> ::windows::core::Result<IRegisteredTask>
     where
@@ -5559,13 +5258,11 @@ impl ITaskFolder {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RegisterTaskDefinition)(::windows::core::Interface::as_raw(self), path.into().abi(), pdefinition.into().abi(), flags, userid.into().abi(), password.into().abi(), logontype, sddl.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRegisteredTask>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurityDescriptor(&self, securityinformation: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), securityinformation, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSecurityDescriptor<'a, P0>(&self, sddl: P0, flags: i32) -> ::windows::core::Result<()>
     where
@@ -5693,7 +5390,6 @@ pub struct ITaskFolder_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSecurityDescriptor: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskFolderCollection(::windows::core::IUnknown);
@@ -5703,7 +5399,6 @@ impl ITaskFolderCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, P0>(&self, index: P0) -> ::windows::core::Result<ITaskFolder>
     where
@@ -5790,11 +5485,9 @@ pub struct ITaskFolderCollection_Vtbl {
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct ITaskHandler(::windows::core::IUnknown);
 impl ITaskHandler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Start<'a, P0, P1>(&self, phandlerservices: P0, data: P1) -> ::windows::core::Result<()>
     where
@@ -5861,11 +5554,9 @@ pub struct ITaskHandler_Vtbl {
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct ITaskHandlerStatus(::windows::core::IUnknown);
 impl ITaskHandlerStatus {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateStatus<'a, P0>(&self, percentcomplete: i16, statusmessage: P0) -> ::windows::core::Result<()>
     where
@@ -5922,7 +5613,6 @@ pub struct ITaskHandlerStatus_Vtbl {
     UpdateStatus: usize,
     pub TaskCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskerrcode: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskNamedValueCollection(::windows::core::IUnknown);
@@ -5931,7 +5621,6 @@ impl ITaskNamedValueCollection {
     pub unsafe fn Count(&self, pcount: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<ITaskNamedValuePair> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5941,7 +5630,6 @@ impl ITaskNamedValueCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Create<'a, P0, P1>(&self, name: P0, value: P1) -> ::windows::core::Result<ITaskNamedValuePair>
     where
@@ -6037,18 +5725,15 @@ pub struct ITaskNamedValueCollection_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskNamedValuePair(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskNamedValuePair {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self, pname: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pname)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -6056,12 +5741,10 @@ impl ITaskNamedValuePair {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Value(&self, pvalue: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6153,7 +5836,6 @@ pub struct ITaskNamedValuePair_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct ITaskScheduler(::windows::core::IUnknown);
 impl ITaskScheduler {
@@ -6253,13 +5935,11 @@ pub struct ITaskScheduler_Vtbl {
     pub AddWorkItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztaskname: ::windows::core::PCWSTR, pworkitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsOfType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskService(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITaskService {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFolder<'a, P0>(&self, path: P0) -> ::windows::core::Result<ITaskFolder>
     where
@@ -6268,19 +5948,16 @@ impl ITaskService {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), path.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskFolder>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRunningTasks(&self, flags: i32) -> ::windows::core::Result<IRunningTaskCollection> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRunningTasks)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningTaskCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NewTask(&self, flags: u32) -> ::windows::core::Result<ITaskDefinition> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NewTask)(::windows::core::Interface::as_raw(self), flags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITaskDefinition>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Connect<'a, P0, P1, P2, P3>(&self, servername: P0, user: P1, domain: P2, password: P3) -> ::windows::core::Result<()>
     where
@@ -6295,19 +5972,16 @@ impl ITaskService {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Connected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TargetServer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TargetServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectedUser(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ConnectedUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConnectedDomain(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6415,7 +6089,6 @@ pub struct ITaskService_Vtbl {
     ConnectedDomain: usize,
     pub HighestVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pversion: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskSettings(::windows::core::IUnknown);
@@ -6427,12 +6100,10 @@ impl ITaskSettings {
     pub unsafe fn SetAllowDemandStart(&self, allowdemandstart: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAllowDemandStart)(::windows::core::Interface::as_raw(self), allowdemandstart).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RestartInterval(&self, prestartinterval: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RestartInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prestartinterval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRestartInterval<'a, P0>(&self, restartinterval: P0) -> ::windows::core::Result<()>
     where
@@ -6476,12 +6147,10 @@ impl ITaskSettings {
     pub unsafe fn SetStartWhenAvailable(&self, startwhenavailable: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStartWhenAvailable)(::windows::core::Interface::as_raw(self), startwhenavailable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn XmlText(&self, ptext: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXmlText<'a, P0>(&self, text: P0) -> ::windows::core::Result<()>
     where
@@ -6495,12 +6164,10 @@ impl ITaskSettings {
     pub unsafe fn SetRunOnlyIfNetworkAvailable(&self, runonlyifnetworkavailable: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRunOnlyIfNetworkAvailable)(::windows::core::Interface::as_raw(self), runonlyifnetworkavailable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, pexecutiontimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexecutiontimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, executiontimelimit: P0) -> ::windows::core::Result<()>
     where
@@ -6514,12 +6181,10 @@ impl ITaskSettings {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteExpiredTaskAfter(&self, pexpirationdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexpirationdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteExpiredTaskAfter<'a, P0>(&self, expirationdelay: P0) -> ::windows::core::Result<()>
     where
@@ -6545,13 +6210,11 @@ impl ITaskSettings {
     pub unsafe fn SetHidden(&self, hidden: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetHidden)(::windows::core::Interface::as_raw(self), hidden).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IdleSettings(&self) -> ::windows::core::Result<IIdleSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IdleSettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IIdleSettings>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIdleSettings<'a, P0>(&self, pidlesettings: P0) -> ::windows::core::Result<()>
     where
@@ -6571,13 +6234,11 @@ impl ITaskSettings {
     pub unsafe fn SetWakeToRun(&self, wake: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWakeToRun)(::windows::core::Interface::as_raw(self), wake).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetworkSettings(&self) -> ::windows::core::Result<INetworkSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).NetworkSettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetworkSettings>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNetworkSettings<'a, P0>(&self, pnetworksettings: P0) -> ::windows::core::Result<()>
     where
@@ -6729,7 +6390,6 @@ pub struct ITaskSettings_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SetNetworkSettings: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskSettings2(::windows::core::IUnknown);
@@ -6819,7 +6479,6 @@ pub struct ITaskSettings2_Vtbl {
     pub UseUnifiedSchedulingEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puseunifiedengine: *mut i16) -> ::windows::core::HRESULT,
     pub SetUseUnifiedSchedulingEngine: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, useunifiedengine: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITaskSettings3(::windows::core::IUnknown);
@@ -6831,12 +6490,10 @@ impl ITaskSettings3 {
     pub unsafe fn SetAllowDemandStart(&self, allowdemandstart: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetAllowDemandStart)(::windows::core::Interface::as_raw(self), allowdemandstart).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RestartInterval(&self, prestartinterval: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RestartInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prestartinterval)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRestartInterval<'a, P0>(&self, restartinterval: P0) -> ::windows::core::Result<()>
     where
@@ -6880,12 +6537,10 @@ impl ITaskSettings3 {
     pub unsafe fn SetStartWhenAvailable(&self, startwhenavailable: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetStartWhenAvailable)(::windows::core::Interface::as_raw(self), startwhenavailable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn XmlText(&self, ptext: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.XmlText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetXmlText<'a, P0>(&self, text: P0) -> ::windows::core::Result<()>
     where
@@ -6899,12 +6554,10 @@ impl ITaskSettings3 {
     pub unsafe fn SetRunOnlyIfNetworkAvailable(&self, runonlyifnetworkavailable: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetRunOnlyIfNetworkAvailable)(::windows::core::Interface::as_raw(self), runonlyifnetworkavailable).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, pexecutiontimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexecutiontimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, executiontimelimit: P0) -> ::windows::core::Result<()>
     where
@@ -6918,12 +6571,10 @@ impl ITaskSettings3 {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteExpiredTaskAfter(&self, pexpirationdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DeleteExpiredTaskAfter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pexpirationdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDeleteExpiredTaskAfter<'a, P0>(&self, expirationdelay: P0) -> ::windows::core::Result<()>
     where
@@ -6949,13 +6600,11 @@ impl ITaskSettings3 {
     pub unsafe fn SetHidden(&self, hidden: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetHidden)(::windows::core::Interface::as_raw(self), hidden).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IdleSettings(&self) -> ::windows::core::Result<IIdleSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IdleSettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IIdleSettings>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIdleSettings<'a, P0>(&self, pidlesettings: P0) -> ::windows::core::Result<()>
     where
@@ -6975,13 +6624,11 @@ impl ITaskSettings3 {
     pub unsafe fn SetWakeToRun(&self, wake: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetWakeToRun)(::windows::core::Interface::as_raw(self), wake).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NetworkSettings(&self) -> ::windows::core::Result<INetworkSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.NetworkSettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INetworkSettings>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetNetworkSettings<'a, P0>(&self, pnetworksettings: P0) -> ::windows::core::Result<()>
     where
@@ -7001,13 +6648,11 @@ impl ITaskSettings3 {
     pub unsafe fn SetUseUnifiedSchedulingEngine(&self, useunifiedengine: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetUseUnifiedSchedulingEngine)(::windows::core::Interface::as_raw(self), useunifiedengine).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MaintenanceSettings(&self) -> ::windows::core::Result<IMaintenanceSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MaintenanceSettings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMaintenanceSettings>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMaintenanceSettings<'a, P0>(&self, pmaintenancesettings: P0) -> ::windows::core::Result<()>
     where
@@ -7015,7 +6660,6 @@ impl ITaskSettings3 {
     {
         (::windows::core::Interface::vtable(self).SetMaintenanceSettings)(::windows::core::Interface::as_raw(self), pmaintenancesettings.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMaintenanceSettings(&self) -> ::windows::core::Result<IMaintenanceSettings> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7131,7 +6775,6 @@ pub struct ITaskSettings3_Vtbl {
     pub Volatile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvolatile: *mut i16) -> ::windows::core::HRESULT,
     pub SetVolatile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, volatile: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct ITaskTrigger(::windows::core::IUnknown);
 impl ITaskTrigger {
@@ -7190,17 +6833,14 @@ pub struct ITaskTrigger_Vtbl {
     pub GetTrigger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptrigger: *mut TASK_TRIGGER) -> ::windows::core::HRESULT,
     pub GetTriggerString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwsztrigger: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 pub struct ITaskVariables(::windows::core::IUnknown);
 impl ITaskVariables {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInput(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOutput<'a, P0>(&self, input: P0) -> ::windows::core::Result<()>
     where
@@ -7208,7 +6848,6 @@ impl ITaskVariables {
     {
         (::windows::core::Interface::vtable(self).SetOutput)(::windows::core::Interface::as_raw(self), input.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContext(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7267,7 +6906,6 @@ pub struct ITaskVariables_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetContext: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITimeTrigger(::windows::core::IUnknown);
@@ -7276,12 +6914,10 @@ impl ITimeTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -7289,13 +6925,11 @@ impl ITimeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -7303,12 +6937,10 @@ impl ITimeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -7316,12 +6948,10 @@ impl ITimeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -7329,12 +6959,10 @@ impl ITimeTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -7348,12 +6976,10 @@ impl ITimeTrigger {
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetEnabled)(::windows::core::Interface::as_raw(self), enabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RandomDelay(&self, prandomdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRandomDelay<'a, P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
     where
@@ -7455,7 +7081,6 @@ pub struct ITimeTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRandomDelay: usize,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITrigger(::windows::core::IUnknown);
@@ -7464,12 +7089,10 @@ impl ITrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -7477,13 +7100,11 @@ impl ITrigger {
     {
         (::windows::core::Interface::vtable(self).SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -7491,12 +7112,10 @@ impl ITrigger {
     {
         (::windows::core::Interface::vtable(self).SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -7504,12 +7123,10 @@ impl ITrigger {
     {
         (::windows::core::Interface::vtable(self).SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -7517,12 +7134,10 @@ impl ITrigger {
     {
         (::windows::core::Interface::vtable(self).SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -7647,7 +7262,6 @@ pub struct ITrigger_Vtbl {
     pub Enabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, penabled: *mut i16) -> ::windows::core::HRESULT,
     pub SetEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITriggerCollection(::windows::core::IUnknown);
@@ -7656,7 +7270,6 @@ impl ITriggerCollection {
     pub unsafe fn Count(&self, pcount: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<ITrigger> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7666,13 +7279,11 @@ impl ITriggerCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Create(&self, r#type: TASK_TRIGGER_TYPE2) -> ::windows::core::Result<ITrigger> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), r#type, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ITrigger>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, P0>(&self, index: P0) -> ::windows::core::Result<()>
     where
@@ -7766,7 +7377,6 @@ pub struct ITriggerCollection_Vtbl {
     Remove: usize,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWeeklyTrigger(::windows::core::IUnknown);
@@ -7775,12 +7385,10 @@ impl IWeeklyTrigger {
     pub unsafe fn Type(&self, ptype: &mut TASK_TRIGGER_TYPE2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self, pid: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetId<'a, P0>(&self, id: P0) -> ::windows::core::Result<()>
     where
@@ -7788,13 +7396,11 @@ impl IWeeklyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetId)(::windows::core::Interface::as_raw(self), id.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Repetition(&self) -> ::windows::core::Result<IRepetitionPattern> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.Repetition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRepetitionPattern>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRepetition<'a, P0>(&self, prepeat: P0) -> ::windows::core::Result<()>
     where
@@ -7802,12 +7408,10 @@ impl IWeeklyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetRepetition)(::windows::core::Interface::as_raw(self), prepeat.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExecutionTimeLimit(&self, ptimelimit: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ExecutionTimeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptimelimit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExecutionTimeLimit<'a, P0>(&self, timelimit: P0) -> ::windows::core::Result<()>
     where
@@ -7815,12 +7419,10 @@ impl IWeeklyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetExecutionTimeLimit)(::windows::core::Interface::as_raw(self), timelimit.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartBoundary(&self, pstart: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StartBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstart)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartBoundary<'a, P0>(&self, start: P0) -> ::windows::core::Result<()>
     where
@@ -7828,12 +7430,10 @@ impl IWeeklyTrigger {
     {
         (::windows::core::Interface::vtable(self).base__.SetStartBoundary)(::windows::core::Interface::as_raw(self), start.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndBoundary(&self, pend: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndBoundary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pend)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEndBoundary<'a, P0>(&self, end: P0) -> ::windows::core::Result<()>
     where
@@ -7859,12 +7459,10 @@ impl IWeeklyTrigger {
     pub unsafe fn SetWeeksInterval(&self, weeks: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetWeeksInterval)(::windows::core::Interface::as_raw(self), weeks).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RandomDelay(&self, prandomdelay: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RandomDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prandomdelay)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRandomDelay<'a, P0>(&self, randomdelay: P0) -> ::windows::core::Result<()>
     where
@@ -7971,7 +7569,6 @@ pub struct IWeeklyTrigger_Vtbl {
     SetRandomDelay: usize,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub struct MONTHLYDATE {
     pub rgfDays: u32,
     pub rgfMonths: u16,
@@ -8002,7 +7599,6 @@ impl ::core::default::Default for MONTHLYDATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub struct MONTHLYDOW {
     pub wWhichWeek: u16,
     pub rgfDaysOfTheWeek: u16,
@@ -8033,15 +7629,11 @@ impl ::core::default::Default for MONTHLYDOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASKPAGE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASKPAGE_TASK: TASKPAGE = TASKPAGE(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASKPAGE_SCHEDULE: TASKPAGE = TASKPAGE(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASKPAGE_SETTINGS: TASKPAGE = TASKPAGE(2i32);
 impl ::core::marker::Copy for TASKPAGE {}
 impl ::core::clone::Clone for TASKPAGE {
@@ -8062,17 +7654,12 @@ impl ::core::fmt::Debug for TASKPAGE {
         f.debug_tuple("TASKPAGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_ACTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = TASK_ACTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_ACTION_COM_HANDLER: TASK_ACTION_TYPE = TASK_ACTION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_ACTION_SEND_EMAIL: TASK_ACTION_TYPE = TASK_ACTION_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_ACTION_SHOW_MESSAGE: TASK_ACTION_TYPE = TASK_ACTION_TYPE(7i32);
 impl ::core::marker::Copy for TASK_ACTION_TYPE {}
 impl ::core::clone::Clone for TASK_ACTION_TYPE {
@@ -8093,27 +7680,17 @@ impl ::core::fmt::Debug for TASK_ACTION_TYPE {
         f.debug_tuple("TASK_ACTION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_APRIL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_AUGUST: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_COMPATIBILITY(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_AT: TASK_COMPATIBILITY = TASK_COMPATIBILITY(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_V1: TASK_COMPATIBILITY = TASK_COMPATIBILITY(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_V2: TASK_COMPATIBILITY = TASK_COMPATIBILITY(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_V2_1: TASK_COMPATIBILITY = TASK_COMPATIBILITY(3i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_V2_2: TASK_COMPATIBILITY = TASK_COMPATIBILITY(4i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_V2_3: TASK_COMPATIBILITY = TASK_COMPATIBILITY(5i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_COMPATIBILITY_V2_4: TASK_COMPATIBILITY = TASK_COMPATIBILITY(6i32);
 impl ::core::marker::Copy for TASK_COMPATIBILITY {}
 impl ::core::clone::Clone for TASK_COMPATIBILITY {
@@ -8134,23 +7711,15 @@ impl ::core::fmt::Debug for TASK_COMPATIBILITY {
         f.debug_tuple("TASK_COMPATIBILITY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_CREATION(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_VALIDATE_ONLY: TASK_CREATION = TASK_CREATION(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_CREATE: TASK_CREATION = TASK_CREATION(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_UPDATE: TASK_CREATION = TASK_CREATION(4i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_CREATE_OR_UPDATE: TASK_CREATION = TASK_CREATION(6i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_DISABLE: TASK_CREATION = TASK_CREATION(8i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_DONT_ADD_PRINCIPAL_ACE: TASK_CREATION = TASK_CREATION(16i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_IGNORE_REGISTRATION_TRIGGERS: TASK_CREATION = TASK_CREATION(32i32);
 impl ::core::marker::Copy for TASK_CREATION {}
 impl ::core::clone::Clone for TASK_CREATION {
@@ -8171,13 +7740,10 @@ impl ::core::fmt::Debug for TASK_CREATION {
         f.debug_tuple("TASK_CREATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_DECEMBER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_ENUM_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = TASK_ENUM_FLAGS(1i32);
 impl ::core::marker::Copy for TASK_ENUM_FLAGS {}
 impl ::core::clone::Clone for TASK_ENUM_FLAGS {
@@ -8198,51 +7764,29 @@ impl ::core::fmt::Debug for TASK_ENUM_FLAGS {
         f.debug_tuple("TASK_ENUM_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FEBRUARY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FIRST_WEEK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_DELETE_WHEN_DONE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_DONT_START_IF_ON_BATTERIES: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_HIDDEN: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_INTERACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_KILL_IF_GOING_ON_BATTERIES: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_KILL_ON_IDLE_END: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_RESTART_ON_IDLE_RESUME: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_RUN_IF_CONNECTED_TO_INTERNET: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_RUN_ONLY_IF_DOCKED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_RUN_ONLY_IF_LOGGED_ON: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_START_ONLY_IF_IDLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FLAG_SYSTEM_REQUIRED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FOURTH_WEEK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_FRIDAY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_INSTANCES_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_INSTANCES_QUEUE: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_INSTANCES_IGNORE_NEW: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_INSTANCES_STOP_EXISTING: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(3i32);
 impl ::core::marker::Copy for TASK_INSTANCES_POLICY {}
 impl ::core::clone::Clone for TASK_INSTANCES_POLICY {
@@ -8263,31 +7807,19 @@ impl ::core::fmt::Debug for TASK_INSTANCES_POLICY {
         f.debug_tuple("TASK_INSTANCES_POLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_JANUARY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_JULY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_JUNE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LAST_WEEK: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_LOGON_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_NONE: TASK_LOGON_TYPE = TASK_LOGON_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_PASSWORD: TASK_LOGON_TYPE = TASK_LOGON_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_S4U: TASK_LOGON_TYPE = TASK_LOGON_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_INTERACTIVE_TOKEN: TASK_LOGON_TYPE = TASK_LOGON_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_GROUP: TASK_LOGON_TYPE = TASK_LOGON_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_SERVICE_ACCOUNT: TASK_LOGON_TYPE = TASK_LOGON_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD: TASK_LOGON_TYPE = TASK_LOGON_TYPE(6i32);
 impl ::core::marker::Copy for TASK_LOGON_TYPE {}
 impl ::core::clone::Clone for TASK_LOGON_TYPE {
@@ -8308,27 +7840,17 @@ impl ::core::fmt::Debug for TASK_LOGON_TYPE {
         f.debug_tuple("TASK_LOGON_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_MARCH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_MAX_RUN_TIMES: u32 = 1440u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_MAY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_MONDAY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_NOVEMBER: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_OCTOBER: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_PROCESSTOKENSID_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_PROCESSTOKENSID_UNRESTRICTED: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_PROCESSTOKENSID_DEFAULT: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(2i32);
 impl ::core::marker::Copy for TASK_PROCESSTOKENSID_TYPE {}
 impl ::core::clone::Clone for TASK_PROCESSTOKENSID_TYPE {
@@ -8349,13 +7871,10 @@ impl ::core::fmt::Debug for TASK_PROCESSTOKENSID_TYPE {
         f.debug_tuple("TASK_PROCESSTOKENSID_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_RUNLEVEL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUNLEVEL_HIGHEST: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(1i32);
 impl ::core::marker::Copy for TASK_RUNLEVEL_TYPE {}
 impl ::core::clone::Clone for TASK_RUNLEVEL_TYPE {
@@ -8376,19 +7895,13 @@ impl ::core::fmt::Debug for TASK_RUNLEVEL_TYPE {
         f.debug_tuple("TASK_RUNLEVEL_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_RUN_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUN_AS_SELF: TASK_RUN_FLAGS = TASK_RUN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUN_IGNORE_CONSTRAINTS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUN_USE_SESSION_ID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_RUN_USER_SID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(8i32);
 impl ::core::marker::Copy for TASK_RUN_FLAGS {}
 impl ::core::clone::Clone for TASK_RUN_FLAGS {
@@ -8409,27 +7922,17 @@ impl ::core::fmt::Debug for TASK_RUN_FLAGS {
         f.debug_tuple("TASK_RUN_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_SATURDAY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_SECOND_WEEK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_SEPTEMBER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_SESSION_STATE_CHANGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_CONSOLE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_CONSOLE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_REMOTE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_REMOTE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_SESSION_LOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_SESSION_UNLOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(8i32);
 impl ::core::marker::Copy for TASK_SESSION_STATE_CHANGE_TYPE {}
 impl ::core::clone::Clone for TASK_SESSION_STATE_CHANGE_TYPE {
@@ -8450,19 +7953,13 @@ impl ::core::fmt::Debug for TASK_SESSION_STATE_CHANGE_TYPE {
         f.debug_tuple("TASK_SESSION_STATE_CHANGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_STATE_UNKNOWN: TASK_STATE = TASK_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_STATE_DISABLED: TASK_STATE = TASK_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_STATE_QUEUED: TASK_STATE = TASK_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_STATE_READY: TASK_STATE = TASK_STATE(3i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_STATE_RUNNING: TASK_STATE = TASK_STATE(4i32);
 impl ::core::marker::Copy for TASK_STATE {}
 impl ::core::clone::Clone for TASK_STATE {
@@ -8483,14 +7980,10 @@ impl ::core::fmt::Debug for TASK_STATE {
         f.debug_tuple("TASK_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_SUNDAY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_THIRD_WEEK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_THURSDAY: u32 = 16u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub struct TASK_TRIGGER {
     pub cbTriggerSize: u16,
     pub Reserved1: u16,
@@ -8530,31 +8023,19 @@ impl ::core::default::Default for TASK_TRIGGER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_FLAG_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_TRIGGER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TIME_TRIGGER_ONCE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TIME_TRIGGER_DAILY: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TIME_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TIME_TRIGGER_MONTHLYDATE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TIME_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_EVENT_TRIGGER_ON_IDLE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_EVENT_TRIGGER_AT_SYSTEMSTART: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_EVENT_TRIGGER_AT_LOGON: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(7i32);
 impl ::core::marker::Copy for TASK_TRIGGER_TYPE {}
 impl ::core::clone::Clone for TASK_TRIGGER_TYPE {
@@ -8575,33 +8056,20 @@ impl ::core::fmt::Debug for TASK_TRIGGER_TYPE {
         f.debug_tuple("TASK_TRIGGER_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_TRIGGER_TYPE2(pub i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(0i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_TIME: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(1i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_DAILY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(2i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(3i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_MONTHLY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(4i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(5i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_IDLE: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(6i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_REGISTRATION: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(7i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(8i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_LOGON: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(9i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_SESSION_STATE_CHANGE: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(11i32);
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(12i32);
 impl ::core::marker::Copy for TASK_TRIGGER_TYPE2 {}
 impl ::core::clone::Clone for TASK_TRIGGER_TYPE2 {
@@ -8622,12 +8090,9 @@ impl ::core::fmt::Debug for TASK_TRIGGER_TYPE2 {
         f.debug_tuple("TASK_TRIGGER_TYPE2").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_TUESDAY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub const TASK_WEDNESDAY: u32 = 8u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub union TRIGGER_TYPE_UNION {
     pub Daily: DAILY,
     pub Weekly: WEEKLY,
@@ -8658,7 +8123,6 @@ pub const TaskHandlerPS: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const TaskHandlerStatusPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
 pub const TaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub struct WEEKLY {
     pub WeeksInterval: u16,
     pub rgfDaysOfTheWeek: u16,

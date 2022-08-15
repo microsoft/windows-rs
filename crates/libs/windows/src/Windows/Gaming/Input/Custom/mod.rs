@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 pub struct GameControllerFactoryManager;
 impl GameControllerFactoryManager {
     pub fn RegisterCustomFactoryForGipInterface<'a, P0, E0>(factory: P0, interfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
@@ -49,7 +48,6 @@ impl ::windows::core::RuntimeName for GameControllerFactoryManager {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GameControllerFactoryManager";
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 pub struct GameControllerVersionInfo {
     pub Major: u16,
     pub Minor: u16,
@@ -89,7 +87,6 @@ impl ::core::default::Default for GameControllerVersionInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 pub struct GipFirmwareUpdateProgress {
     pub PercentCompleted: f64,
     pub CurrentComponentId: u32,
@@ -126,7 +123,6 @@ impl ::core::default::Default for GipFirmwareUpdateProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct GipFirmwareUpdateResult(::windows::core::IUnknown);
 impl GipFirmwareUpdateResult {
@@ -214,7 +210,6 @@ impl ::core::convert::From<&GipFirmwareUpdateResult> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for GipFirmwareUpdateResult {}
 unsafe impl ::core::marker::Sync for GipFirmwareUpdateResult {}
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GipFirmwareUpdateStatus(pub i32);
@@ -249,7 +244,6 @@ unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct GipGameControllerProvider(::windows::core::IUnknown);
 impl GipGameControllerProvider {
@@ -296,7 +290,6 @@ impl GipGameControllerProvider {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SendReceiveMessage)(::windows::core::Interface::as_raw(this), messageclass, messageid, requestmessagebuffer.len() as u32, requestmessagebuffer.as_ptr(), responsemessagebuffer.len() as u32, responsemessagebuffer.as_mut_ptr()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn UpdateFirmwareAsync<'a, P0, E0>(&self, firmwareimage: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<GipFirmwareUpdateResult, GipFirmwareUpdateProgress>>
     where
@@ -391,7 +384,6 @@ impl<'a> ::core::convert::TryFrom<&GipGameControllerProvider> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for GipGameControllerProvider {}
 unsafe impl ::core::marker::Sync for GipGameControllerProvider {}
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GipMessageClass(pub i32);
@@ -426,7 +418,6 @@ unsafe impl ::windows::core::RuntimeType for GipMessageClass {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct HidGameControllerProvider(::windows::core::IUnknown);
 impl HidGameControllerProvider {
@@ -573,7 +564,6 @@ impl<'a> ::core::convert::TryFrom<&HidGameControllerProvider> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for HidGameControllerProvider {}
 unsafe impl ::core::marker::Sync for HidGameControllerProvider {}
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct ICustomGameControllerFactory(::windows::core::IUnknown);
 impl ICustomGameControllerFactory {
@@ -698,7 +688,6 @@ pub struct IGameControllerFactoryManagerStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub TryGetFactoryControllerFromGameController: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, factory: *mut ::core::ffi::c_void, gamecontroller: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct IGameControllerInputSink(::windows::core::IUnknown);
 impl IGameControllerInputSink {
@@ -775,7 +764,6 @@ pub struct IGameControllerInputSink_Vtbl {
     pub OnInputResumed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u64) -> ::windows::core::HRESULT,
     pub OnInputSuspended: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timestamp: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct IGameControllerProvider(::windows::core::IUnknown);
 impl IGameControllerProvider {
@@ -897,7 +885,6 @@ pub struct IGipFirmwareUpdateResult_Vtbl {
     pub FinalComponentId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GipFirmwareUpdateStatus) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct IGipGameControllerInputSink(::windows::core::IUnknown);
 impl IGipGameControllerInputSink {
@@ -1019,7 +1006,6 @@ pub struct IGipGameControllerProvider_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
     UpdateFirmwareAsync: usize,
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct IHidGameControllerInputSink(::windows::core::IUnknown);
 impl IHidGameControllerInputSink {
@@ -1135,7 +1121,6 @@ pub struct IHidGameControllerProvider_Vtbl {
     pub SendFeatureReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT,
     pub SendOutputReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reportid: u8, reportBuffer_array_size: u32, reportbuffer: *const u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct IXusbGameControllerInputSink(::windows::core::IUnknown);
 impl IXusbGameControllerInputSink {
@@ -1247,7 +1232,6 @@ pub struct IXusbGameControllerProvider_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub SetVibration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lowfrequencymotorspeed: f64, highfrequencymotorspeed: f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XusbDeviceSubtype(pub i32);
@@ -1290,7 +1274,6 @@ unsafe impl ::windows::core::RuntimeType for XusbDeviceSubtype {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XusbDeviceType(pub i32);
@@ -1324,7 +1307,6 @@ unsafe impl ::windows::core::RuntimeType for XusbDeviceType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
 #[repr(transparent)]
 pub struct XusbGameControllerProvider(::windows::core::IUnknown);
 impl XusbGameControllerProvider {

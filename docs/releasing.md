@@ -25,7 +25,7 @@
 3. In the `windows-rs` repo build the docs with the following command:
 
 ```powershell
-C:\git\windows-rs> cargo doc -p windows --all-features --no-deps --target-dir d:\git\docs-rs\docs
+C:\git\windows-rs> $env:RUSTDOCFLAGS="--cfg docsrs"; cargo +nightly doc -p windows --all-features --no-deps --target-dir d:\git\docs-rs\docs; Remove-Item Env:\RUSTDOCFLAGS
 ```
 
 ## Publishing order

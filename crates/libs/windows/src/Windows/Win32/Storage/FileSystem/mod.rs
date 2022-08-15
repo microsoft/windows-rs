@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddLogContainer<'a, P0, P1>(hlog: P0, pcbcontainer: ::core::option::Option<&u64>, pwszcontainerpath: P1, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -12,7 +11,6 @@ where
     }
     AddLogContainer(hlog.into(), ::core::mem::transmute(pcbcontainer), pwszcontainerpath.into(), ::core::mem::transmute(preserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddLogContainerSet<'a, P0>(hlog: P0, pcbcontainer: ::core::option::Option<&u64>, rgwszcontainerpath: &[::windows::core::PWSTR], preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -25,7 +23,6 @@ where
     }
     AddLogContainerSet(hlog.into(), rgwszcontainerpath.len() as _, ::core::mem::transmute(pcbcontainer), ::core::mem::transmute(rgwszcontainerpath.as_ptr()), ::core::mem::transmute(preserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn AddUsersToEncryptedFile<'a, P0>(lpfilename: P0, pencryptioncertificates: &ENCRYPTION_CERTIFICATE_LIST) -> u32
@@ -38,7 +35,6 @@ where
     }
     AddUsersToEncryptedFile(lpfilename.into(), ::core::mem::transmute(pencryptioncertificates))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: &mut CLS_LSN, fflags: u32, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -48,7 +44,6 @@ pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: &mut
     }
     AdvanceLogBase(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnbase), fflags, ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, rgcbreservation: &mut i64, pcbalignreservation: &mut i64) -> super::super::Foundation::BOOL {
@@ -58,7 +53,6 @@ pub unsafe fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrec
     }
     AlignReservedLog(::core::mem::transmute(pvmarshal), creservedrecords, ::core::mem::transmute(rgcbreservation), ::core::mem::transmute(pcbalignreservation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: &mut i64) -> super::super::Foundation::BOOL {
@@ -68,7 +62,6 @@ pub unsafe fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrec
     }
     AllocReservedLog(::core::mem::transmute(pvmarshal), creservedrecords, ::core::mem::transmute(pcbadjustment))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
@@ -78,7 +71,6 @@ pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
     }
     AreFileApisANSI()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreShortNamesEnabled<'a, P0>(handle: P0, enabled: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
@@ -92,7 +84,6 @@ where
     AreShortNamesEnabled(handle.into(), ::core::mem::transmute(enabled))
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BY_HANDLE_FILE_INFORMATION {
     pub dwFileAttributes: u32,
@@ -149,7 +140,6 @@ impl ::core::default::Default for BY_HANDLE_FILE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupRead<'a, P0, P1, P2>(hfile: P0, lpbuffer: &mut [u8], lpnumberofbytesread: &mut u32, babort: P1, bprocesssecurity: P2, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -164,7 +154,6 @@ where
     }
     BackupRead(hfile.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofbytesread), babort.into(), bprocesssecurity.into(), ::core::mem::transmute(lpcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupSeek<'a, P0>(hfile: P0, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: &mut u32, lpdwhighbyteseeked: &mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -177,7 +166,6 @@ where
     }
     BackupSeek(hfile.into(), dwlowbytestoseek, dwhighbytestoseek, ::core::mem::transmute(lpdwlowbyteseeked), ::core::mem::transmute(lpdwhighbyteseeked), ::core::mem::transmute(lpcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupWrite<'a, P0, P1, P2>(hfile: P0, lpbuffer: &[u8], lpnumberofbyteswritten: &mut u32, babort: P1, bprocesssecurity: P2, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -192,7 +180,6 @@ where
     }
     BackupWrite(hfile.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, ::core::mem::transmute(lpnumberofbyteswritten), babort.into(), bprocesssecurity.into(), ::core::mem::transmute(lpcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingCancelRequest(ioring: &HIORING__, file: IORING_HANDLE_REF, optocancel: usize, userdata: usize) -> ::windows::core::Result<()> {
@@ -202,7 +189,6 @@ pub unsafe fn BuildIoRingCancelRequest(ioring: &HIORING__, file: IORING_HANDLE_R
     }
     BuildIoRingCancelRequest(::core::mem::transmute(ioring), ::core::mem::transmute(file), optocancel, userdata).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingReadFile(ioring: &HIORING__, fileref: IORING_HANDLE_REF, dataref: IORING_BUFFER_REF, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::Result<()> {
@@ -212,7 +198,6 @@ pub unsafe fn BuildIoRingReadFile(ioring: &HIORING__, fileref: IORING_HANDLE_REF
     }
     BuildIoRingReadFile(::core::mem::transmute(ioring), ::core::mem::transmute(fileref), ::core::mem::transmute(dataref), numberofbytestoread, fileoffset, userdata, flags).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn BuildIoRingRegisterBuffers(ioring: &HIORING__, buffers: &[IORING_BUFFER_INFO], userdata: usize) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -221,7 +206,6 @@ pub unsafe fn BuildIoRingRegisterBuffers(ioring: &HIORING__, buffers: &[IORING_B
     }
     BuildIoRingRegisterBuffers(::core::mem::transmute(ioring), buffers.len() as _, ::core::mem::transmute(buffers.as_ptr()), userdata).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingRegisterFileHandles(ioring: &HIORING__, handles: &[super::super::Foundation::HANDLE], userdata: usize) -> ::windows::core::Result<()> {
@@ -231,43 +215,26 @@ pub unsafe fn BuildIoRingRegisterFileHandles(ioring: &HIORING__, handles: &[supe
     }
     BuildIoRingRegisterFileHandles(::core::mem::transmute(ioring), handles.len() as _, ::core::mem::transmute(handles.as_ptr()), userdata).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CACHE_KEY_COMPARE = ::core::option::Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CACHE_KEY_HASH = ::core::option::Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CACHE_READ_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CLAIMMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CLAIMMEDIALABELEX = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows::core::GUID) -> u32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_BASELOG_EXTENSION: &str = ".blf";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CLFS_BLOCK_ALLOCATION = ::core::option::Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type CLFS_BLOCK_DEALLOCATION = ::core::option::Option<unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_CONTAINER_RELATIVE_PREFIX: &str = "%BLF%\\";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_CONTAINER_STREAM_PREFIX: &str = "%BLF%:";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_CONTEXT_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContextNone: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContextForward: CLFS_CONTEXT_MODE = CLFS_CONTEXT_MODE(3i32);
 impl ::core::marker::Copy for CLFS_CONTEXT_MODE {}
 impl ::core::clone::Clone for CLFS_CONTEXT_MODE {
@@ -288,17 +255,12 @@ impl ::core::fmt::Debug for CLFS_CONTEXT_MODE {
         f.debug_tuple("CLFS_CONTEXT_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_FLAG(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = CLFS_FLAG(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = CLFS_FLAG(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = CLFS_FLAG(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = CLFS_FLAG(4u32);
 impl ::core::marker::Copy for CLFS_FLAG {}
 impl ::core::clone::Clone for CLFS_FLAG {
@@ -347,31 +309,19 @@ impl ::core::ops::Not for CLFS_FLAG {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_IOSTATS_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = CLFS_IOSTATS_CLASS(65535i32);
 impl ::core::marker::Copy for CLFS_IOSTATS_CLASS {}
 impl ::core::clone::Clone for CLFS_IOSTATS_CLASS {
@@ -392,13 +342,10 @@ impl ::core::fmt::Debug for CLFS_IOSTATS_CLASS {
         f.debug_tuple("CLFS_IOSTATS_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_LOG_ARCHIVE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = CLFS_LOG_ARCHIVE_MODE(2i32);
 impl ::core::marker::Copy for CLFS_LOG_ARCHIVE_MODE {}
 impl ::core::clone::Clone for CLFS_LOG_ARCHIVE_MODE {
@@ -420,7 +367,6 @@ impl ::core::fmt::Debug for CLFS_LOG_ARCHIVE_MODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_LOG_NAME_INFORMATION {
     pub NameLengthInBytes: u16,
     pub Name: [u16; 1],
@@ -450,16 +396,11 @@ impl ::core::default::Default for CLFS_LOG_NAME_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_NOTIFICATION {
     pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
     pub Lsn: CLS_LSN,
@@ -490,17 +431,12 @@ impl ::core::default::Default for CLFS_MGMT_NOTIFICATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_MGMT_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = CLFS_MGMT_NOTIFICATION_TYPE(3i32);
 impl ::core::marker::Copy for CLFS_MGMT_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for CLFS_MGMT_NOTIFICATION_TYPE {
@@ -522,7 +458,6 @@ impl ::core::fmt::Debug for CLFS_MGMT_NOTIFICATION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY {
     pub Version: u32,
     pub LengthInBytes: u32,
@@ -551,7 +486,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub union CLFS_MGMT_POLICY_0 {
     pub MaximumSize: CLFS_MGMT_POLICY_0_4,
     pub MinimumSize: CLFS_MGMT_POLICY_0_5,
@@ -585,7 +519,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Enabled: u32,
 }
@@ -615,7 +548,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Percentage: u32,
 }
@@ -645,7 +577,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_2 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
@@ -676,7 +607,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_3 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
@@ -707,7 +637,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub Containers: u32,
 }
@@ -737,7 +666,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Containers: u32,
 }
@@ -767,7 +695,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_5 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_6 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
@@ -798,7 +725,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_6 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixLengthInBytes: u16,
     pub PrefixString: [u16; 1],
@@ -829,7 +755,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub SizeInBytes: u32,
 }
@@ -859,7 +784,6 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_8 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub NextContainerSuffix: u64,
 }
@@ -888,31 +812,19 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_9 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLFS_MGMT_POLICY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = CLFS_MGMT_POLICY_TYPE(10i32);
 impl ::core::marker::Copy for CLFS_MGMT_POLICY_TYPE {}
 impl ::core::clone::Clone for CLFS_MGMT_POLICY_TYPE {
@@ -933,10 +845,8 @@ impl ::core::fmt::Debug for CLFS_MGMT_POLICY_TYPE {
         f.debug_tuple("CLFS_MGMT_POLICY_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_NODE_ID {
     pub cType: u32,
     pub cbNode: u32,
@@ -967,7 +877,6 @@ impl ::core::default::Default for CLFS_NODE_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: u8,
     pub VirtualLsn: CLS_LSN,
@@ -998,20 +907,13 @@ impl ::core::default::Default for CLFS_PHYSICAL_LSN_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_SCAN_CLOSE: u8 = 8u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_SCAN_FORWARD: u8 = 2u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_SCAN_INIT: u8 = 1u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
@@ -1042,7 +944,6 @@ impl ::core::default::Default for CLFS_STREAM_ID_INFORMATION {
 }
 pub const CLSID_DiskQuotaControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
     pub coffHigh: u64,
@@ -1074,7 +975,6 @@ impl ::core::default::Default for CLS_ARCHIVE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLS_CONTAINER_INFORMATION {
     pub FileAttributes: u32,
     pub CreationTime: u64,
@@ -1125,17 +1025,12 @@ impl ::core::default::Default for CLS_CONTAINER_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_CONTEXT_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContextNone: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContextUndoNext: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContextPrevious: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContextForward: CLS_CONTEXT_MODE = CLS_CONTEXT_MODE(3i32);
 impl ::core::marker::Copy for CLS_CONTEXT_MODE {}
 impl ::core::clone::Clone for CLS_CONTEXT_MODE {
@@ -1157,7 +1052,6 @@ impl ::core::fmt::Debug for CLS_CONTEXT_MODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLS_INFORMATION {
     pub TotalAvailable: i64,
     pub CurrentAvailable: i64,
@@ -1220,13 +1114,10 @@ impl ::core::default::Default for CLS_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_IOSTATS_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = CLS_IOSTATS_CLASS(65535i32);
 impl ::core::marker::Copy for CLS_IOSTATS_CLASS {}
 impl ::core::clone::Clone for CLS_IOSTATS_CLASS {
@@ -1248,7 +1139,6 @@ impl ::core::fmt::Debug for CLS_IOSTATS_CLASS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLS_IO_STATISTICS {
     pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
     pub cFlush: u64,
@@ -1282,7 +1172,6 @@ impl ::core::default::Default for CLS_IO_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLS_IO_STATISTICS_HEADER {
     pub ubMajorVersion: u8,
     pub ubMinorVersion: u8,
@@ -1315,21 +1204,14 @@ impl ::core::default::Default for CLS_IO_STATISTICS_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLS_LOG_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = CLS_LOG_INFORMATION_CLASS(5i32);
 impl ::core::marker::Copy for CLS_LOG_INFORMATION_CLASS {}
 impl ::core::clone::Clone for CLS_LOG_INFORMATION_CLASS {
@@ -1351,7 +1233,6 @@ impl ::core::fmt::Debug for CLS_LOG_INFORMATION_CLASS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
@@ -1381,7 +1262,6 @@ impl ::core::default::Default for CLS_LSN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
@@ -1425,7 +1305,6 @@ impl ::core::default::Default for CLS_SCAN_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut ::core::ffi::c_void,
     pub ByteLength: u32,
@@ -1456,7 +1335,6 @@ impl ::core::default::Default for CLS_WRITE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
@@ -1486,7 +1364,6 @@ impl ::core::default::Default for CONNECTION_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct CONNECTION_INFO_1 {
     pub coni1_id: u32,
     pub coni1_type: SHARE_TYPE,
@@ -1521,25 +1398,16 @@ impl ::core::default::Default for CONNECTION_INFO_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_COPY_PHASE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = COPYFILE2_COPY_PHASE(7i32);
 impl ::core::marker::Copy for COPYFILE2_COPY_PHASE {}
 impl ::core::clone::Clone for COPYFILE2_COPY_PHASE {
@@ -1561,7 +1429,6 @@ impl ::core::fmt::Debug for COPYFILE2_COPY_PHASE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
@@ -1603,7 +1470,6 @@ impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
@@ -1649,7 +1515,6 @@ impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE {
     pub Type: COPYFILE2_MESSAGE_TYPE,
@@ -1683,7 +1548,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union COPYFILE2_MESSAGE_0 {
     pub ChunkStarted: COPYFILE2_MESSAGE_0_1,
@@ -1720,7 +1584,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
@@ -1778,7 +1641,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
@@ -1823,7 +1685,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
@@ -1869,7 +1730,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwReserved: u32,
@@ -1907,7 +1767,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwStreamNumber: u32,
@@ -1952,7 +1811,6 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_5 {
     pub dwStreamNumber: u32,
@@ -1994,19 +1852,13 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_5 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_MESSAGE_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = COPYFILE2_MESSAGE_ACTION(4i32);
 impl ::core::marker::Copy for COPYFILE2_MESSAGE_ACTION {}
 impl ::core::clone::Clone for COPYFILE2_MESSAGE_ACTION {
@@ -2027,25 +1879,16 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_ACTION {
         f.debug_tuple("COPYFILE2_MESSAGE_ACTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COPYFILE2_MESSAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = COPYFILE2_MESSAGE_TYPE(7i32);
 impl ::core::marker::Copy for COPYFILE2_MESSAGE_TYPE {}
 impl ::core::clone::Clone for COPYFILE2_MESSAGE_TYPE {
@@ -2067,7 +1910,6 @@ impl ::core::fmt::Debug for COPYFILE2_MESSAGE_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
@@ -2109,15 +1951,11 @@ impl ::core::default::Default for CREATEFILE2_EXTENDED_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_TAPE_PARTITION_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = CREATE_TAPE_PARTITION_METHOD(1i32);
 impl ::core::marker::Copy for CREATE_TAPE_PARTITION_METHOD {}
 impl ::core::clone::Clone for CREATE_TAPE_PARTITION_METHOD {
@@ -2138,29 +1976,17 @@ impl ::core::fmt::Debug for CREATE_TAPE_PARTITION_METHOD {
         f.debug_tuple("CREATE_TAPE_PARTITION_METHOD").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSC_CACHE_NONE: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSC_CACHE_VDO: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSC_MASK: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSC_MASK_EXT: u32 = 8240u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3A<'a, P0>(lpname: P0, lpoemname: ::core::option::Option<&mut [u8]>, pbnamecontainsspaces: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbnamelegal: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
@@ -2173,7 +1999,6 @@ where
     }
     CheckNameLegalDOS8Dot3A(lpname.into(), ::core::mem::transmute(lpoemname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbnamecontainsspaces), ::core::mem::transmute(pbnamelegal))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3W<'a, P0>(lpname: P0, lpoemname: ::core::option::Option<&mut [u8]>, pbnamecontainsspaces: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbnamelegal: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL
@@ -2186,27 +2011,16 @@ where
     }
     CheckNameLegalDOS8Dot3W(lpname.into(), ::core::mem::transmute(lpoemname.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpoemname.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pbnamecontainsspaces), ::core::mem::transmute(pbnamelegal))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsClientRecord: u8 = 3u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContainerActive: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContainerActivePendingDelete: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContainerInactive: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContainerInitializing: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContainerPendingArchive: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsDataRecord: u8 = 1u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsNullRecord: u8 = 0u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClfsRestartRecord: u8 = 2u8;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseAndResetLogFile<'a, P0>(hlog: P0) -> super::super::Foundation::BOOL
@@ -2219,7 +2033,6 @@ where
     }
     CloseAndResetLogFile(hlog.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2228,7 +2041,6 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
     }
     CloseEncryptedFileRaw(::core::mem::transmute(pvcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CloseIoRing(ioring: &HIORING__) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2237,19 +2049,12 @@ pub unsafe fn CloseIoRing(ioring: &HIORING__) -> ::windows::core::Result<()> {
     }
     CloseIoRing(::core::mem::transmute(ioring)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContainerActive: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContainerActivePendingDelete: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContainerInactive: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContainerInitializing: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContainerPendingArchive: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitComplete<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -2262,7 +2067,6 @@ where
     }
     CommitComplete(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitEnlistment<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -2275,7 +2079,6 @@ where
     }
     CommitEnlistment(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitTransaction<'a, P0>(transactionhandle: P0) -> super::super::Foundation::BOOL
@@ -2288,7 +2091,6 @@ where
     }
     CommitTransaction(transactionhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitTransactionAsync<'a, P0>(transactionhandle: P0) -> super::super::Foundation::BOOL
@@ -2301,7 +2103,6 @@ where
     }
     CommitTransactionAsync(transactionhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareFileTime(lpfiletime1: &super::super::Foundation::FILETIME, lpfiletime2: &super::super::Foundation::FILETIME) -> i32 {
@@ -2311,7 +2112,6 @@ pub unsafe fn CompareFileTime(lpfiletime1: &super::super::Foundation::FILETIME, 
     }
     CompareFileTime(::core::mem::transmute(lpfiletime1), ::core::mem::transmute(lpfiletime2))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFile2<'a, P0, P1>(pwszexistingfilename: P0, pwsznewfilename: P1, pextendedparameters: ::core::option::Option<&COPYFILE2_EXTENDED_PARAMETERS>) -> ::windows::core::Result<()>
@@ -2325,7 +2125,6 @@ where
     }
     CopyFile2(pwszexistingfilename.into(), pwsznewfilename.into(), ::core::mem::transmute(pextendedparameters)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileA<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> super::super::Foundation::BOOL
@@ -2340,7 +2139,6 @@ where
     }
     CopyFileA(lpexistingfilename.into(), lpnewfilename.into(), bfailifexists.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileExA<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: ::core::option::Option<&mut i32>, dwcopyflags: u32) -> super::super::Foundation::BOOL
@@ -2354,7 +2152,6 @@ where
     }
     CopyFileExA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileExW<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: ::core::option::Option<&mut i32>, dwcopyflags: u32) -> super::super::Foundation::BOOL
@@ -2368,7 +2165,6 @@ where
     }
     CopyFileExW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileFromAppW<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> super::super::Foundation::BOOL
@@ -2383,7 +2179,6 @@ where
     }
     CopyFileFromAppW(lpexistingfilename.into(), lpnewfilename.into(), bfailifexists.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileTransactedA<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: ::core::option::Option<&i32>, dwcopyflags: u32, htransaction: P2) -> super::super::Foundation::BOOL
@@ -2398,7 +2193,6 @@ where
     }
     CopyFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileTransactedW<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: ::core::option::Option<&i32>, dwcopyflags: u32, htransaction: P2) -> super::super::Foundation::BOOL
@@ -2413,7 +2207,6 @@ where
     }
     CopyFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), ::core::mem::transmute(pbcancel), dwcopyflags, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileW<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, bfailifexists: P2) -> super::super::Foundation::BOOL
@@ -2428,7 +2221,6 @@ where
     }
     CopyFileW(lpexistingfilename.into(), lpnewfilename.into(), bfailifexists.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2437,7 +2229,6 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     }
     CopyLZFile(hfsource, hfdest)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryA<'a, P0>(lppathname: P0, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::BOOL
@@ -2450,7 +2241,6 @@ where
     }
     CreateDirectoryA(lppathname.into(), ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryExA<'a, P0, P1>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::BOOL
@@ -2464,7 +2254,6 @@ where
     }
     CreateDirectoryExA(lptemplatedirectory.into(), lpnewdirectory.into(), ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryExW<'a, P0, P1>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::BOOL
@@ -2478,7 +2267,6 @@ where
     }
     CreateDirectoryExW(lptemplatedirectory.into(), lpnewdirectory.into(), ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryFromAppW<'a, P0>(lppathname: P0, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::BOOL
@@ -2491,7 +2279,6 @@ where
     }
     CreateDirectoryFromAppW(lppathname.into(), ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryTransactedA<'a, P0, P1, P2>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> super::super::Foundation::BOOL
@@ -2506,7 +2293,6 @@ where
     }
     CreateDirectoryTransactedA(lptemplatedirectory.into(), lpnewdirectory.into(), ::core::mem::transmute(lpsecurityattributes), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryTransactedW<'a, P0, P1, P2>(lptemplatedirectory: P0, lpnewdirectory: P1, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, htransaction: P2) -> super::super::Foundation::BOOL
@@ -2521,7 +2307,6 @@ where
     }
     CreateDirectoryTransactedW(lptemplatedirectory.into(), lpnewdirectory.into(), ::core::mem::transmute(lpsecurityattributes), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryW<'a, P0>(lppathname: P0, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> super::super::Foundation::BOOL
@@ -2534,7 +2319,6 @@ where
     }
     CreateDirectoryW(lppathname.into(), ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateEnlistment<'a, P0, P1>(lpenlistmentattributes: &mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: P0, transactionhandle: P1, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2549,7 +2333,6 @@ where
     let result__ = CreateEnlistment(::core::mem::transmute(lpenlistmentattributes), resourcemanagerhandle.into(), transactionhandle.into(), notificationmask, createoptions, ::core::mem::transmute(enlistmentkey));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFile2<'a, P0>(lpfilename: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: ::core::option::Option<&CREATEFILE2_EXTENDED_PARAMETERS>) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2563,7 +2346,6 @@ where
     let result__ = CreateFile2(lpfilename.into(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFile2FromAppW<'a, P0>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: ::core::option::Option<&CREATEFILE2_EXTENDED_PARAMETERS>) -> super::super::Foundation::HANDLE
@@ -2576,7 +2358,6 @@ where
     }
     CreateFile2FromAppW(lpfilename.into(), dwdesiredaccess, dwsharemode, dwcreationdisposition, ::core::mem::transmute(pcreateexparams))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileA<'a, P0, P1>(lpfilename: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2591,7 +2372,6 @@ where
     let result__ = CreateFileA(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileFromAppW<'a, P0, P1>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: P1) -> super::super::Foundation::HANDLE
@@ -2605,7 +2385,6 @@ where
     }
     CreateFileFromAppW(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileTransactedA<'a, P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: ::core::option::Option<&TXFS_MINIVERSION>, lpextendedparameter: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2621,7 +2400,6 @@ where
     let result__ = CreateFileTransactedA(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileTransactedW<'a, P0, P1, P2>(lpfilename: P0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1, htransaction: P2, pusminiversion: ::core::option::Option<&TXFS_MINIVERSION>, lpextendedparameter: *mut ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2637,7 +2415,6 @@ where
     let result__ = CreateFileTransactedW(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into(), htransaction.into(), ::core::mem::transmute(pusminiversion), ::core::mem::transmute(lpextendedparameter));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileW<'a, P0, P1>(lpfilename: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2652,7 +2429,6 @@ where
     let result__ = CreateFileW(lpfilename.into(), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwcreationdisposition, dwflagsandattributes, htemplatefile.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkA<'a, P0, P1>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: &mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL
@@ -2666,7 +2442,6 @@ where
     }
     CreateHardLinkA(lpfilename.into(), lpexistingfilename.into(), ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkTransactedA<'a, P0, P1, P2>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: &mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: P2) -> super::super::Foundation::BOOL
@@ -2681,7 +2456,6 @@ where
     }
     CreateHardLinkTransactedA(lpfilename.into(), lpexistingfilename.into(), ::core::mem::transmute(lpsecurityattributes), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkTransactedW<'a, P0, P1, P2>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: &mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: P2) -> super::super::Foundation::BOOL
@@ -2696,7 +2470,6 @@ where
     }
     CreateHardLinkTransactedW(lpfilename.into(), lpexistingfilename.into(), ::core::mem::transmute(lpsecurityattributes), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkW<'a, P0, P1>(lpfilename: P0, lpexistingfilename: P1, lpsecurityattributes: &mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL
@@ -2710,7 +2483,6 @@ where
     }
     CreateHardLinkW(lpfilename.into(), lpexistingfilename.into(), ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_FLAGS, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::core::Result<*mut HIORING__> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2720,7 +2492,6 @@ pub unsafe fn CreateIoRing(ioringversion: IORING_VERSION, flags: IORING_CREATE_F
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateIoRing(ioringversion, ::core::mem::transmute(flags), submissionqueuesize, completionqueuesize, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut HIORING__>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CreateLogContainerScanContext<'a, P0>(hlog: P0, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: &mut CLS_SCAN_CONTEXT, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -2733,7 +2504,6 @@ where
     }
     CreateLogContainerScanContext(hlog.into(), cfromcontainer, ccontainers, escanmode, ::core::mem::transmute(pcxscan), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateLogFile<'a, P0>(pszlogfilename: P0, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: &mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2747,7 +2517,6 @@ where
     let result__ = CreateLogFile(pszlogfilename.into(), fdesiredaccess, dwsharemode, ::core::mem::transmute(psalogfile), fcreatedisposition, fflagsandattributes);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateLogMarshallingArea<'a, P0>(hlog: P0, pfnallocbuffer: CLFS_BLOCK_ALLOCATION, pfnfreebuffer: CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -2760,7 +2529,6 @@ where
     }
     CreateLogMarshallingArea(hlog.into(), ::core::mem::transmute(pfnallocbuffer), ::core::mem::transmute(pfnfreebuffer), ::core::mem::transmute(pvblockalloccontext), cbmarshallingbuffer, cmaxwritebuffers, cmaxreadbuffers, ::core::mem::transmute(ppvmarshal))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateResourceManager<'a, P0, P1>(lpresourcemanagerattributes: &mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: &mut ::windows::core::GUID, createoptions: u32, tmhandle: P0, description: P1) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2775,7 +2543,6 @@ where
     let result__ = CreateResourceManager(::core::mem::transmute(lpresourcemanagerattributes), ::core::mem::transmute(resourcemanagerid), createoptions, tmhandle.into(), description.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkA<'a, P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN
@@ -2789,7 +2556,6 @@ where
     }
     CreateSymbolicLinkA(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkTransactedA<'a, P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P2) -> super::super::Foundation::BOOLEAN
@@ -2804,7 +2570,6 @@ where
     }
     CreateSymbolicLinkTransactedA(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkTransactedW<'a, P0, P1, P2>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: P2) -> super::super::Foundation::BOOLEAN
@@ -2819,7 +2584,6 @@ where
     }
     CreateSymbolicLinkTransactedW(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkW<'a, P0, P1>(lpsymlinkfilename: P0, lptargetfilename: P1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN
@@ -2833,7 +2597,6 @@ where
     }
     CreateSymbolicLinkW(lpsymlinkfilename.into(), lptargetfilename.into(), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateTapePartition<'a, P0>(hdevice: P0, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32
@@ -2846,7 +2609,6 @@ where
     }
     CreateTapePartition(hdevice.into(), dwpartitionmethod, dwcount, dwsize)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateTransaction<'a, P0>(lptransactionattributes: &mut super::super::Security::SECURITY_ATTRIBUTES, uow: &mut ::windows::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2860,7 +2622,6 @@ where
     let result__ = CreateTransaction(::core::mem::transmute(lptransactionattributes), ::core::mem::transmute(uow), createoptions, isolationlevel, isolationflags, timeout, description.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateTransactionManager<'a, P0>(lptransactionattributes: &mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: P0, createoptions: u32, commitstrength: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -2874,19 +2635,13 @@ where
     let result__ = CreateTransactionManager(::core::mem::transmute(lptransactionattributes), logfilename.into(), createoptions, commitstrength);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEFINE_DOS_DEVICE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = DEFINE_DOS_DEVICE_FLAGS(16u32);
 impl ::core::marker::Copy for DEFINE_DOS_DEVICE_FLAGS {}
 impl ::core::clone::Clone for DEFINE_DOS_DEVICE_FLAGS {
@@ -2935,33 +2690,20 @@ impl ::core::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DISKQUOTA_USERNAME_RESOLVE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = DISKQUOTA_USERNAME_RESOLVE(1u32);
 impl ::core::marker::Copy for DISKQUOTA_USERNAME_RESOLVE {}
 impl ::core::clone::Clone for DISKQUOTA_USERNAME_RESOLVE {
@@ -2982,20 +2724,13 @@ impl ::core::fmt::Debug for DISKQUOTA_USERNAME_RESOLVE {
         f.debug_tuple("DISKQUOTA_USERNAME_RESOLVE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct DISKQUOTA_USER_INFORMATION {
     pub QuotaUsed: i64,
     pub QuotaThreshold: i64,
@@ -3027,7 +2762,6 @@ impl ::core::default::Default for DISKQUOTA_USER_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -3082,7 +2816,6 @@ impl ::core::default::Default for DISK_SPACE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DecryptFileA<'a, P0>(lpfilename: P0, dwreserved: u32) -> super::super::Foundation::BOOL
@@ -3095,7 +2828,6 @@ where
     }
     DecryptFileA(lpfilename.into(), dwreserved)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DecryptFileW<'a, P0>(lpfilename: P0, dwreserved: u32) -> super::super::Foundation::BOOL
@@ -3108,7 +2840,6 @@ where
     }
     DecryptFileW(lpfilename.into(), dwreserved)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DefineDosDeviceA<'a, P0, P1>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P0, lptargetpath: P1) -> super::super::Foundation::BOOL
@@ -3122,7 +2853,6 @@ where
     }
     DefineDosDeviceA(dwflags, lpdevicename.into(), lptargetpath.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DefineDosDeviceW<'a, P0, P1>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: P0, lptargetpath: P1) -> super::super::Foundation::BOOL
@@ -3136,7 +2866,6 @@ where
     }
     DefineDosDeviceW(dwflags, lpdevicename.into(), lptargetpath.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileA<'a, P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -3149,7 +2878,6 @@ where
     }
     DeleteFileA(lpfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileFromAppW<'a, P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -3162,7 +2890,6 @@ where
     }
     DeleteFileFromAppW(lpfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileTransactedA<'a, P0, P1>(lpfilename: P0, htransaction: P1) -> super::super::Foundation::BOOL
@@ -3176,7 +2903,6 @@ where
     }
     DeleteFileTransactedA(lpfilename.into(), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileTransactedW<'a, P0, P1>(lpfilename: P0, htransaction: P1) -> super::super::Foundation::BOOL
@@ -3190,7 +2916,6 @@ where
     }
     DeleteFileTransactedW(lpfilename.into(), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileW<'a, P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -3203,7 +2928,6 @@ where
     }
     DeleteFileW(lpfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteLogByHandle<'a, P0>(hlog: P0) -> super::super::Foundation::BOOL
@@ -3216,7 +2940,6 @@ where
     }
     DeleteLogByHandle(hlog.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteLogFile<'a, P0>(pszlogfilename: P0, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -3229,7 +2952,6 @@ where
     }
     DeleteLogFile(pszlogfilename.into(), ::core::mem::transmute(pvreserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -3239,7 +2961,6 @@ pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> s
     }
     DeleteLogMarshallingArea(::core::mem::transmute(pvmarshal))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteVolumeMountPointA<'a, P0>(lpszvolumemountpoint: P0) -> super::super::Foundation::BOOL
@@ -3252,7 +2973,6 @@ where
     }
     DeleteVolumeMountPointA(lpszvolumemountpoint.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteVolumeMountPointW<'a, P0>(lpszvolumemountpoint: P0) -> super::super::Foundation::BOOL
@@ -3265,7 +2985,6 @@ where
     }
     DeleteVolumeMountPointW(lpszvolumemountpoint.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeregisterManageableLogClient<'a, P0>(hlog: P0) -> super::super::Foundation::BOOL
@@ -3278,7 +2997,6 @@ where
     }
     DeregisterManageableLogClient(hlog.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn DuplicateEncryptionInfoFile<'a, P0, P1>(srcfilename: P0, dstfilename: P1, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>) -> u32
@@ -3292,12 +3010,9 @@ where
     }
     DuplicateEncryptionInfoFile(srcfilename.into(), dstfilename.into(), dwcreationdistribution, dwattributes, ::core::mem::transmute(lpsecurityattributes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EA_CONTAINER_NAME: &str = "ContainerName";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EA_CONTAINER_SIZE: &str = "ContainerSize";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: u32,
     pub cbData: u32,
@@ -3329,7 +3044,6 @@ impl ::core::default::Default for EFS_CERTIFICATE_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
@@ -3358,12 +3072,9 @@ impl ::core::default::Default for EFS_COMPATIBILITY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwDecryptionError: u32,
     pub dwHashOffset: u32,
@@ -3394,10 +3105,8 @@ impl ::core::default::Default for EFS_DECRYPTION_STATUS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
     pub bHasCurrentKey: super::super::Foundation::BOOL,
@@ -3436,7 +3145,6 @@ impl ::core::default::Default for EFS_ENCRYPTION_STATUS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_HASH_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -3467,7 +3175,6 @@ impl ::core::default::Default for EFS_HASH_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
@@ -3499,20 +3206,13 @@ impl ::core::default::Default for EFS_KEY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_METADATA_ADD_USER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: u32,
     pub cbData: u32,
@@ -3544,7 +3244,6 @@ impl ::core::default::Default for EFS_PIN_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -3574,10 +3273,8 @@ impl ::core::default::Default for EFS_RPC_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct EFS_VERSION_INFO {
     pub EfsVersion: u32,
     pub SubVersion: u32,
@@ -3608,7 +3305,6 @@ impl ::core::default::Default for EFS_VERSION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: u32,
@@ -3649,7 +3345,6 @@ impl ::core::default::Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
@@ -3689,7 +3384,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
@@ -3730,7 +3424,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
@@ -3769,7 +3462,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
@@ -3808,7 +3500,6 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_LIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
@@ -3848,7 +3539,6 @@ impl ::core::default::Default for ENCRYPTION_PROTECTOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
@@ -3886,19 +3576,13 @@ impl ::core::default::Default for ENCRYPTION_PROTECTOR_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ENLISTMENT_OBJECT_PATH: &str = "\\Enlistment\\";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ERASE_TAPE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = ERASE_TAPE_TYPE(0i32);
 impl ::core::marker::Copy for ERASE_TAPE_TYPE {}
 impl ::core::clone::Clone for ERASE_TAPE_TYPE {
@@ -3919,7 +3603,6 @@ impl ::core::fmt::Debug for ERASE_TAPE_TYPE {
         f.debug_tuple("ERASE_TAPE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptFileA<'a, P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -3932,7 +3615,6 @@ where
     }
     EncryptFileA(lpfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptFileW<'a, P0>(lpfilename: P0) -> super::super::Foundation::BOOL
@@ -3945,7 +3627,6 @@ where
     }
     EncryptFileW(lpfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptionDisable<'a, P0, P1>(dirpath: P0, disable: P1) -> super::super::Foundation::BOOL
@@ -3959,7 +3640,6 @@ where
     }
     EncryptionDisable(dirpath.into(), disable.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EraseTape<'a, P0, P1>(hdevice: P0, dwerasetype: ERASE_TAPE_TYPE, bimmediate: P1) -> u32
@@ -3973,14 +3653,11 @@ where
     }
     EraseTape(hdevice.into(), dwerasetype, bimmediate.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FCACHE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpstrname: ::windows::core::PCSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FCACHE_RICHCREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpstrname: ::windows::core::PCSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FH_OVERLAPPED {
     pub Internal: usize,
@@ -4026,61 +3703,34 @@ impl ::core::default::Default for FH_OVERLAPPED {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ACCESS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_READ_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_LIST_DIRECTORY: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_WRITE_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ADD_FILE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_APPEND_DATA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_READ_EA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_WRITE_EA: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_EXECUTE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_TRAVERSE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_DELETE_CHILD: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const READ_CONTROL: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SYNCHRONIZE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(983040u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STANDARD_RIGHTS_READ: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2031616u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(65535u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ALL_ACCESS: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(2032127u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_GENERIC_READ: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179785u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_GENERIC_WRITE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179926u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1179808u32);
 impl ::core::marker::Copy for FILE_ACCESS_FLAGS {}
 impl ::core::clone::Clone for FILE_ACCESS_FLAGS {
@@ -4129,19 +3779,13 @@ impl ::core::ops::Not for FILE_ACCESS_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ACTION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ACTION_ADDED: FILE_ACTION = FILE_ACTION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ACTION_REMOVED: FILE_ACTION = FILE_ACTION(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ACTION_MODIFIED: FILE_ACTION = FILE_ACTION(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = FILE_ACTION(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = FILE_ACTION(5u32);
 impl ::core::marker::Copy for FILE_ACTION {}
 impl ::core::clone::Clone for FILE_ACTION {
@@ -4163,7 +3807,6 @@ impl ::core::fmt::Debug for FILE_ACTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ALIGNMENT_INFO {
     pub AlignmentRequirement: u32,
 }
@@ -4193,7 +3836,6 @@ impl ::core::default::Default for FILE_ALIGNMENT_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ALLOCATION_INFO {
     pub AllocationSize: i64,
 }
@@ -4223,7 +3865,6 @@ impl ::core::default::Default for FILE_ALLOCATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ATTRIBUTE_TAG_INFO {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
@@ -4254,7 +3895,6 @@ impl ::core::default::Default for FILE_ATTRIBUTE_TAG_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_BASIC_INFO {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -4288,7 +3928,6 @@ impl ::core::default::Default for FILE_BASIC_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
     pub CompressionFormat: u16,
@@ -4322,19 +3961,13 @@ impl ::core::default::Default for FILE_COMPRESSION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_CREATION_DISPOSITION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CREATE_NEW: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = FILE_CREATION_DISPOSITION(5u32);
 impl ::core::marker::Copy for FILE_CREATION_DISPOSITION {}
 impl ::core::clone::Clone for FILE_CREATION_DISPOSITION {
@@ -4355,17 +3988,12 @@ impl ::core::fmt::Debug for FILE_CREATION_DISPOSITION {
         f.debug_tuple("FILE_CREATION_DISPOSITION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_DEVICE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(7u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(31u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = FILE_DEVICE_TYPE(51u32);
 impl ::core::marker::Copy for FILE_DEVICE_TYPE {}
 impl ::core::clone::Clone for FILE_DEVICE_TYPE {
@@ -4387,7 +4015,6 @@ impl ::core::fmt::Debug for FILE_DEVICE_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_DISPOSITION_INFO {
     pub DeleteFileA: super::super::Foundation::BOOLEAN,
@@ -4425,7 +4052,6 @@ impl ::core::default::Default for FILE_DISPOSITION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_END_OF_FILE_INFO {
     pub EndOfFile: i64,
 }
@@ -4455,7 +4081,6 @@ impl ::core::default::Default for FILE_END_OF_FILE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_EXTENT {
     pub VolumeOffset: u64,
     pub ExtentLength: u64,
@@ -4485,99 +4110,53 @@ impl ::core::default::Default for FILE_EXTENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_FLAGS_AND_ATTRIBUTES(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(128u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(256u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(512u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1024u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2048u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4096u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8192u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16384u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(32768u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(4194304u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2147483648u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1073741824u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(536870912u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(268435456u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(134217728u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(67108864u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(33554432u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(16777216u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(8388608u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2097152u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(196608u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(1048576u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = FILE_FLAGS_AND_ATTRIBUTES(2031616u32);
 impl ::core::marker::Copy for FILE_FLAGS_AND_ATTRIBUTES {}
 impl ::core::clone::Clone for FILE_FLAGS_AND_ATTRIBUTES {
@@ -4627,7 +4206,6 @@ impl ::core::ops::Not for FILE_FLAGS_AND_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_FULL_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -4681,7 +4259,6 @@ impl ::core::default::Default for FILE_FULL_DIR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
@@ -4711,7 +4288,6 @@ impl ::core::default::Default for FILE_ID_128 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ID_BOTH_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -4771,7 +4347,6 @@ impl ::core::default::Default for FILE_ID_BOTH_DIR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ID_DESCRIPTOR {
     pub dwSize: u32,
     pub Type: FILE_ID_TYPE,
@@ -4798,7 +4373,6 @@ impl ::core::default::Default for FILE_ID_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub union FILE_ID_DESCRIPTOR_0 {
     pub FileId: i64,
     pub ObjectId: ::windows::core::GUID,
@@ -4825,7 +4399,6 @@ impl ::core::default::Default for FILE_ID_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ID_EXTD_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -4883,7 +4456,6 @@ impl ::core::default::Default for FILE_ID_EXTD_DIR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_ID_INFO {
     pub VolumeSerialNumber: u64,
     pub FileId: FILE_ID_128,
@@ -4913,17 +4485,12 @@ impl ::core::default::Default for FILE_ID_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_ID_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdType: FILE_ID_TYPE = FILE_ID_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ObjectIdType: FILE_ID_TYPE = FILE_ID_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ExtendedFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MaximumFileIdType: FILE_ID_TYPE = FILE_ID_TYPE(3i32);
 impl ::core::marker::Copy for FILE_ID_TYPE {}
 impl ::core::clone::Clone for FILE_ID_TYPE {
@@ -4945,7 +4512,6 @@ impl ::core::fmt::Debug for FILE_ID_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
@@ -4975,7 +4541,6 @@ impl ::core::default::Default for FILE_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_INFO_3 {
     pub fi3_id: u32,
     pub fi3_permissions: FILE_INFO_FLAGS_PERMISSIONS,
@@ -5008,61 +4573,34 @@ impl ::core::default::Default for FILE_INFO_3 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFO_BY_HANDLE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(19i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(21i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(22i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(23i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(24i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = FILE_INFO_BY_HANDLE_CLASS(25i32);
 impl ::core::marker::Copy for FILE_INFO_BY_HANDLE_CLASS {}
 impl ::core::clone::Clone for FILE_INFO_BY_HANDLE_CLASS {
@@ -5083,15 +4621,11 @@ impl ::core::fmt::Debug for FILE_INFO_BY_HANDLE_CLASS {
         f.debug_tuple("FILE_INFO_BY_HANDLE_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_INFO_FLAGS_PERMISSIONS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = FILE_INFO_FLAGS_PERMISSIONS(4u32);
 impl ::core::marker::Copy for FILE_INFO_FLAGS_PERMISSIONS {}
 impl ::core::clone::Clone for FILE_INFO_FLAGS_PERMISSIONS {
@@ -5141,7 +4675,6 @@ impl ::core::ops::Not for FILE_INFO_FLAGS_PERMISSIONS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_IO_PRIORITY_HINT_INFO {
     pub PriorityHint: PRIORITY_HINT,
 }
@@ -5170,13 +4703,10 @@ impl ::core::default::Default for FILE_IO_PRIORITY_HINT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_NAME(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NAME_NORMALIZED: FILE_NAME = FILE_NAME(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NAME_OPENED: FILE_NAME = FILE_NAME(8u32);
 impl ::core::marker::Copy for FILE_NAME {}
 impl ::core::clone::Clone for FILE_NAME {
@@ -5198,7 +4728,6 @@ impl ::core::fmt::Debug for FILE_NAME {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_NAME_INFO {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
@@ -5228,25 +4757,16 @@ impl ::core::default::Default for FILE_NAME_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_NOTIFY_CHANGE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = FILE_NOTIFY_CHANGE(256u32);
 impl ::core::marker::Copy for FILE_NOTIFY_CHANGE {}
 impl ::core::clone::Clone for FILE_NOTIFY_CHANGE {
@@ -5296,7 +4816,6 @@ impl ::core::ops::Not for FILE_NOTIFY_CHANGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -5354,7 +4873,6 @@ impl ::core::default::Default for FILE_NOTIFY_EXTENDED_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_NOTIFY_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -5386,16 +4904,11 @@ impl ::core::default::Default for FILE_NOTIFY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub StructureVersion: u16,
     pub StructureSize: u16,
@@ -5429,7 +4942,6 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
     pub Reserved: [u32; 8],
 }
@@ -5459,7 +4971,6 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub union FILE_REMOTE_PROTOCOL_INFO_1 {
     pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
     pub Reserved: [u32; 16],
@@ -5485,7 +4996,6 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
@@ -5516,7 +5026,6 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     pub Capabilities: u32,
 }
@@ -5546,7 +5055,6 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub Capabilities: u32,
     pub CachingFlags: u32,
@@ -5577,7 +5085,6 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_RENAME_INFO {
     pub Anonymous: FILE_RENAME_INFO_0,
@@ -5612,7 +5119,6 @@ impl ::core::default::Default for FILE_RENAME_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union FILE_RENAME_INFO_0 {
     pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
@@ -5645,7 +5151,6 @@ impl ::core::default::Default for FILE_RENAME_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub union FILE_SEGMENT_ELEMENT {
     pub Buffer: *mut ::core::ffi::c_void,
     pub Alignment: u64,
@@ -5670,17 +5175,12 @@ impl ::core::default::Default for FILE_SEGMENT_ELEMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILE_SHARE_MODE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SHARE_NONE: FILE_SHARE_MODE = FILE_SHARE_MODE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = FILE_SHARE_MODE(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SHARE_READ: FILE_SHARE_MODE = FILE_SHARE_MODE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = FILE_SHARE_MODE(2u32);
 impl ::core::marker::Copy for FILE_SHARE_MODE {}
 impl ::core::clone::Clone for FILE_SHARE_MODE {
@@ -5730,7 +5230,6 @@ impl ::core::ops::Not for FILE_SHARE_MODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_STANDARD_INFO {
     pub AllocationSize: i64,
@@ -5772,7 +5271,6 @@ impl ::core::default::Default for FILE_STANDARD_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_STORAGE_INFO {
     pub LogicalBytesPerSector: u32,
     pub PhysicalBytesPerSectorForAtomicity: u32,
@@ -5816,7 +5314,6 @@ impl ::core::default::Default for FILE_STORAGE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct FILE_STREAM_INFO {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -5849,15 +5346,11 @@ impl ::core::default::Default for FILE_STREAM_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDEX_INFO_LEVELS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExInfoStandard: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExInfoBasic: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = FINDEX_INFO_LEVELS(2i32);
 impl ::core::marker::Copy for FINDEX_INFO_LEVELS {}
 impl ::core::clone::Clone for FINDEX_INFO_LEVELS {
@@ -5878,17 +5371,12 @@ impl ::core::fmt::Debug for FINDEX_INFO_LEVELS {
         f.debug_tuple("FINDEX_INFO_LEVELS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FINDEX_SEARCH_OPS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = FINDEX_SEARCH_OPS(3i32);
 impl ::core::marker::Copy for FINDEX_SEARCH_OPS {}
 impl ::core::clone::Clone for FINDEX_SEARCH_OPS {
@@ -5909,15 +5397,11 @@ impl ::core::fmt::Debug for FINDEX_SEARCH_OPS {
         f.debug_tuple("FINDEX_SEARCH_OPS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FIND_FIRST_EX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = FIND_FIRST_EX_FLAGS(4u32);
 impl ::core::marker::Copy for FIND_FIRST_EX_FLAGS {}
 impl ::core::clone::Clone for FIND_FIRST_EX_FLAGS {
@@ -5967,7 +5451,6 @@ impl ::core::ops::Not for FIND_FIRST_EX_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FIO_CONTEXT {
     pub m_dwTempHack: u32,
@@ -6008,7 +5491,6 @@ impl ::core::default::Default for FIO_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileEncryptionStatusA<'a, P0>(lpfilename: P0, lpstatus: &mut u32) -> super::super::Foundation::BOOL
@@ -6021,7 +5503,6 @@ where
     }
     FileEncryptionStatusA(lpfilename.into(), ::core::mem::transmute(lpstatus))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileEncryptionStatusW<'a, P0>(lpfilename: P0, lpstatus: &mut u32) -> super::super::Foundation::BOOL
@@ -6034,7 +5515,6 @@ where
     }
     FileEncryptionStatusW(lpfilename.into(), ::core::mem::transmute(lpstatus))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileTimeToLocalFileTime(lpfiletime: &super::super::Foundation::FILETIME, lplocalfiletime: &mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -6076,7 +5556,6 @@ impl ::core::convert::From<::core::option::Option<FindChangeNotificationHandle>>
 unsafe impl ::windows::core::Abi for FindChangeNotificationHandle {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindClose<'a, P0>(hfindfile: P0) -> super::super::Foundation::BOOL
@@ -6089,7 +5568,6 @@ where
     }
     FindClose(hfindfile.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindCloseChangeNotification<'a, P0>(hchangehandle: P0) -> super::super::Foundation::BOOL
@@ -6166,7 +5644,6 @@ impl ::core::convert::From<::core::option::Option<FindFileNameHandle>> for FindF
 unsafe impl ::windows::core::Abi for FindFileNameHandle {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstChangeNotificationA<'a, P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> ::windows::core::Result<FindChangeNotificationHandle>
@@ -6181,7 +5658,6 @@ where
     let result__ = FindFirstChangeNotificationA(lppathname.into(), bwatchsubtree.into(), dwnotifyfilter);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstChangeNotificationW<'a, P0, P1>(lppathname: P0, bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> ::windows::core::Result<FindChangeNotificationHandle>
@@ -6196,7 +5672,6 @@ where
     let result__ = FindFirstChangeNotificationW(lppathname.into(), bwatchsubtree.into(), dwnotifyfilter);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileA<'a, P0>(lpfilename: P0, lpfindfiledata: &mut WIN32_FIND_DATAA) -> ::windows::core::Result<FindFileHandle>
@@ -6210,7 +5685,6 @@ where
     let result__ = FindFirstFileA(lpfilename.into(), ::core::mem::transmute(lpfindfiledata));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstFileExA<'a, P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> ::windows::core::Result<FindFileHandle>
 where
@@ -6223,7 +5697,6 @@ where
     let result__ = FindFirstFileExA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileExFromAppW<'a, P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE
@@ -6236,7 +5709,6 @@ where
     }
     FindFirstFileExFromAppW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstFileExW<'a, P0>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> ::windows::core::Result<FindFileHandle>
 where
@@ -6249,7 +5721,6 @@ where
     let result__ = FindFirstFileExW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileNameTransactedW<'a, P0, P1>(lpfilename: P0, dwflags: u32, stringlength: &mut u32, linkname: ::windows::core::PWSTR, htransaction: P1) -> ::windows::core::Result<FindFileNameHandle>
@@ -6264,7 +5735,6 @@ where
     let result__ = FindFirstFileNameTransactedW(lpfilename.into(), dwflags, ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname), htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstFileNameW<'a, P0>(lpfilename: P0, dwflags: u32, stringlength: &mut u32, linkname: ::windows::core::PWSTR) -> ::windows::core::Result<FindFileNameHandle>
 where
@@ -6277,7 +5747,6 @@ where
     let result__ = FindFirstFileNameW(lpfilename.into(), dwflags, ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileTransactedA<'a, P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: P1) -> ::windows::core::Result<FindFileHandle>
@@ -6292,7 +5761,6 @@ where
     let result__ = FindFirstFileTransactedA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags, htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileTransactedW<'a, P0, P1>(lpfilename: P0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: P1) -> ::windows::core::Result<FindFileHandle>
@@ -6307,7 +5775,6 @@ where
     let result__ = FindFirstFileTransactedW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfindfiledata), fsearchop, ::core::mem::transmute(lpsearchfilter), dwadditionalflags, htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileW<'a, P0>(lpfilename: P0, lpfindfiledata: &mut WIN32_FIND_DATAW) -> ::windows::core::Result<FindFileHandle>
@@ -6321,7 +5788,6 @@ where
     let result__ = FindFirstFileW(lpfilename.into(), ::core::mem::transmute(lpfindfiledata));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstStreamTransactedW<'a, P0, P1>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: P1) -> ::windows::core::Result<FindStreamHandle>
@@ -6336,7 +5802,6 @@ where
     let result__ = FindFirstStreamTransactedW(lpfilename.into(), infolevel, ::core::mem::transmute(lpfindstreamdata), dwflags, htransaction.into());
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstStreamW<'a, P0>(lpfilename: P0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<FindStreamHandle>
 where
@@ -6349,7 +5814,6 @@ where
     let result__ = FindFirstStreamW(lpfilename.into(), infolevel, ::core::mem::transmute(lpfindstreamdata), dwflags);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstVolumeA(lpszvolumename: &mut [u8]) -> ::windows::core::Result<FindVolumeHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -6359,7 +5823,6 @@ pub unsafe fn FindFirstVolumeA(lpszvolumename: &mut [u8]) -> ::windows::core::Re
     let result__ = FindFirstVolumeA(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstVolumeMountPointA<'a, P0>(lpszrootpathname: P0, lpszvolumemountpoint: &mut [u8]) -> ::windows::core::Result<FindVolumeMointPointHandle>
 where
@@ -6372,7 +5835,6 @@ where
     let result__ = FindFirstVolumeMountPointA(lpszrootpathname.into(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstVolumeMountPointW<'a, P0>(lpszrootpathname: P0, lpszvolumemountpoint: &mut [u16]) -> ::windows::core::Result<FindVolumeMointPointHandle>
 where
@@ -6385,7 +5847,6 @@ where
     let result__ = FindFirstVolumeMountPointW(lpszrootpathname.into(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FindFirstVolumeW(lpszvolumename: &mut [u16]) -> ::windows::core::Result<FindVolumeHandle> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -6395,7 +5856,6 @@ pub unsafe fn FindFirstVolumeW(lpszvolumename: &mut [u16]) -> ::windows::core::R
     let result__ = FindFirstVolumeW(::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextChangeNotification<'a, P0>(hchangehandle: P0) -> super::super::Foundation::BOOL
@@ -6408,7 +5868,6 @@ where
     }
     FindNextChangeNotification(hchangehandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextFileA<'a, P0>(hfindfile: P0, lpfindfiledata: &mut WIN32_FIND_DATAA) -> super::super::Foundation::BOOL
@@ -6421,7 +5880,6 @@ where
     }
     FindNextFileA(hfindfile.into(), ::core::mem::transmute(lpfindfiledata))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextFileNameW<'a, P0>(hfindstream: P0, stringlength: &mut u32, linkname: ::windows::core::PWSTR) -> super::super::Foundation::BOOL
@@ -6434,7 +5892,6 @@ where
     }
     FindNextFileNameW(hfindstream.into(), ::core::mem::transmute(stringlength), ::core::mem::transmute(linkname))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextFileW<'a, P0>(hfindfile: P0, lpfindfiledata: &mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL
@@ -6447,7 +5904,6 @@ where
     }
     FindNextFileW(hfindfile.into(), ::core::mem::transmute(lpfindfiledata))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextStreamW<'a, P0>(hfindstream: P0, lpfindstreamdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -6460,7 +5916,6 @@ where
     }
     FindNextStreamW(hfindstream.into(), ::core::mem::transmute(lpfindstreamdata))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeA<'a, P0>(hfindvolume: P0, lpszvolumename: &mut [u8]) -> super::super::Foundation::BOOL
@@ -6473,7 +5928,6 @@ where
     }
     FindNextVolumeA(hfindvolume.into(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeMountPointA<'a, P0>(hfindvolumemountpoint: P0, lpszvolumemountpoint: &mut [u8]) -> super::super::Foundation::BOOL
@@ -6486,7 +5940,6 @@ where
     }
     FindNextVolumeMountPointA(hfindvolumemountpoint.into(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeMountPointW<'a, P0>(hfindvolumemountpoint: P0, lpszvolumemountpoint: &mut [u16]) -> super::super::Foundation::BOOL
@@ -6499,7 +5952,6 @@ where
     }
     FindNextVolumeMountPointW(hfindvolumemountpoint.into(), ::core::mem::transmute(lpszvolumemountpoint.as_ptr()), lpszvolumemountpoint.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeW<'a, P0>(hfindvolume: P0, lpszvolumename: &mut [u16]) -> super::super::Foundation::BOOL
@@ -6544,7 +5996,6 @@ impl ::core::convert::From<::core::option::Option<FindStreamHandle>> for FindStr
 unsafe impl ::windows::core::Abi for FindStreamHandle {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindVolumeClose<'a, P0>(hfindvolume: P0) -> super::super::Foundation::BOOL
@@ -6621,7 +6072,6 @@ impl ::core::convert::From<::core::option::Option<FindVolumeMointPointHandle>> f
 unsafe impl ::windows::core::Abi for FindVolumeMointPointHandle {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindVolumeMountPointClose<'a, P0>(hfindvolumemountpoint: P0) -> super::super::Foundation::BOOL
@@ -6634,7 +6084,6 @@ where
     }
     FindVolumeMountPointClose(hfindvolumemountpoint.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlushFileBuffers<'a, P0>(hfile: P0) -> super::super::Foundation::BOOL
@@ -6647,7 +6096,6 @@ where
     }
     FlushFileBuffers(hfile.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogBuffers(pvmarshal: *mut ::core::ffi::c_void, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -6657,7 +6105,6 @@ pub unsafe fn FlushLogBuffers(pvmarshal: *mut ::core::ffi::c_void, poverlapped: 
     }
     FlushLogBuffers(::core::mem::transmute(pvmarshal), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflush: &mut CLS_LSN, plsnlastflushed: &mut CLS_LSN, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -6667,7 +6114,6 @@ pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflus
     }
     FlushLogToLsn(::core::mem::transmute(pvmarshalcontext), ::core::mem::transmute(plsnflush), ::core::mem::transmute(plsnlastflushed), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: &u8) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -6676,7 +6122,6 @@ pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: &u8) {
     }
     FreeEncryptedFileMetadata(::core::mem::transmute(pbmetadata))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: &ENCRYPTION_CERTIFICATE_HASH_LIST) {
@@ -6686,7 +6131,6 @@ pub unsafe fn FreeEncryptionCertificateHashList(pusers: &ENCRYPTION_CERTIFICATE_
     }
     FreeEncryptionCertificateHashList(::core::mem::transmute(pusers))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: &mut i64) -> super::super::Foundation::BOOL {
@@ -6696,13 +6140,10 @@ pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedreco
     }
     FreeReservedLog(::core::mem::transmute(pvmarshal), creservedrecords, ::core::mem::transmute(pcbadjustment))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_FILEEX_INFO_LEVELS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = GET_FILEEX_INFO_LEVELS(1i32);
 impl ::core::marker::Copy for GET_FILEEX_INFO_LEVELS {}
 impl ::core::clone::Clone for GET_FILEEX_INFO_LEVELS {
@@ -6723,15 +6164,11 @@ impl ::core::fmt::Debug for GET_FILEEX_INFO_LEVELS {
         f.debug_tuple("GET_FILEEX_INFO_LEVELS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_FILE_VERSION_INFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = GET_FILE_VERSION_INFO_FLAGS(4u32);
 impl ::core::marker::Copy for GET_FILE_VERSION_INFO_FLAGS {}
 impl ::core::clone::Clone for GET_FILE_VERSION_INFO_FLAGS {
@@ -6780,13 +6217,10 @@ impl ::core::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GET_TAPE_DRIVE_PARAMETERS_OPERATION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = GET_TAPE_DRIVE_PARAMETERS_OPERATION(0u32);
 impl ::core::marker::Copy for GET_TAPE_DRIVE_PARAMETERS_OPERATION {}
 impl ::core::clone::Clone for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
@@ -6807,7 +6241,6 @@ impl ::core::fmt::Debug for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
         f.debug_tuple("GET_TAPE_DRIVE_PARAMETERS_OPERATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBinaryTypeA<'a, P0>(lpapplicationname: P0, lpbinarytype: &mut u32) -> super::super::Foundation::BOOL
@@ -6820,7 +6253,6 @@ where
     }
     GetBinaryTypeA(lpapplicationname.into(), ::core::mem::transmute(lpbinarytype))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBinaryTypeW<'a, P0>(lpapplicationname: P0, lpbinarytype: &mut u32) -> super::super::Foundation::BOOL
@@ -6833,7 +6265,6 @@ where
     }
     GetBinaryTypeW(lpapplicationname.into(), ::core::mem::transmute(lpbinarytype))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetCompressedFileSizeA<'a, P0>(lpfilename: P0, lpfilesizehigh: ::core::option::Option<&mut u32>) -> u32
 where
@@ -6845,7 +6276,6 @@ where
     }
     GetCompressedFileSizeA(lpfilename.into(), ::core::mem::transmute(lpfilesizehigh))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCompressedFileSizeTransactedA<'a, P0, P1>(lpfilename: P0, lpfilesizehigh: ::core::option::Option<&mut u32>, htransaction: P1) -> u32
@@ -6859,7 +6289,6 @@ where
     }
     GetCompressedFileSizeTransactedA(lpfilename.into(), ::core::mem::transmute(lpfilesizehigh), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCompressedFileSizeTransactedW<'a, P0, P1>(lpfilename: P0, lpfilesizehigh: ::core::option::Option<&mut u32>, htransaction: P1) -> u32
@@ -6873,7 +6302,6 @@ where
     }
     GetCompressedFileSizeTransactedW(lpfilename.into(), ::core::mem::transmute(lpfilesizehigh), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetCompressedFileSizeW<'a, P0>(lpfilename: P0, lpfilesizehigh: ::core::option::Option<&mut u32>) -> u32
 where
@@ -6885,7 +6313,6 @@ where
     }
     GetCompressedFileSizeW(lpfilename.into(), ::core::mem::transmute(lpfilesizehigh))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentClockTransactionManager<'a, P0>(transactionmanagerhandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -6898,7 +6325,6 @@ where
     }
     GetCurrentClockTransactionManager(transactionmanagerhandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceA<'a, P0>(lprootpathname: P0, lpsectorspercluster: ::core::option::Option<&mut u32>, lpbytespersector: ::core::option::Option<&mut u32>, lpnumberoffreeclusters: ::core::option::Option<&mut u32>, lptotalnumberofclusters: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -6911,7 +6337,6 @@ where
     }
     GetDiskFreeSpaceA(lprootpathname.into(), ::core::mem::transmute(lpsectorspercluster), ::core::mem::transmute(lpbytespersector), ::core::mem::transmute(lpnumberoffreeclusters), ::core::mem::transmute(lptotalnumberofclusters))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceExA<'a, P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: ::core::option::Option<&mut u64>, lptotalnumberofbytes: ::core::option::Option<&mut u64>, lptotalnumberoffreebytes: ::core::option::Option<&mut u64>) -> super::super::Foundation::BOOL
@@ -6924,7 +6349,6 @@ where
     }
     GetDiskFreeSpaceExA(lpdirectoryname.into(), ::core::mem::transmute(lpfreebytesavailabletocaller), ::core::mem::transmute(lptotalnumberofbytes), ::core::mem::transmute(lptotalnumberoffreebytes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceExW<'a, P0>(lpdirectoryname: P0, lpfreebytesavailabletocaller: ::core::option::Option<&mut u64>, lptotalnumberofbytes: ::core::option::Option<&mut u64>, lptotalnumberoffreebytes: ::core::option::Option<&mut u64>) -> super::super::Foundation::BOOL
@@ -6937,7 +6361,6 @@ where
     }
     GetDiskFreeSpaceExW(lpdirectoryname.into(), ::core::mem::transmute(lpfreebytesavailabletocaller), ::core::mem::transmute(lptotalnumberofbytes), ::core::mem::transmute(lptotalnumberoffreebytes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceW<'a, P0>(lprootpathname: P0, lpsectorspercluster: ::core::option::Option<&mut u32>, lpbytespersector: ::core::option::Option<&mut u32>, lpnumberoffreeclusters: ::core::option::Option<&mut u32>, lptotalnumberofclusters: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -6950,7 +6373,6 @@ where
     }
     GetDiskFreeSpaceW(lprootpathname.into(), ::core::mem::transmute(lpsectorspercluster), ::core::mem::transmute(lpbytespersector), ::core::mem::transmute(lpnumberoffreeclusters), ::core::mem::transmute(lptotalnumberofclusters))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetDiskSpaceInformationA<'a, P0>(rootpath: P0) -> ::windows::core::Result<DISK_SPACE_INFORMATION>
 where
@@ -6963,7 +6385,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetDiskSpaceInformationA(rootpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DISK_SPACE_INFORMATION>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetDiskSpaceInformationW<'a, P0>(rootpath: P0) -> ::windows::core::Result<DISK_SPACE_INFORMATION>
 where
@@ -6976,7 +6397,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetDiskSpaceInformationW(rootpath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DISK_SPACE_INFORMATION>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetDriveTypeA<'a, P0>(lprootpathname: P0) -> u32
 where
@@ -6988,7 +6408,6 @@ where
     }
     GetDriveTypeA(lprootpathname.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetDriveTypeW<'a, P0>(lprootpathname: P0) -> u32
 where
@@ -7000,7 +6419,6 @@ where
     }
     GetDriveTypeW(lprootpathname.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetEncryptedFileMetadata<'a, P0>(lpfilename: P0, pcbmetadata: &mut u32, ppbmetadata: &mut *mut u8) -> u32
 where
@@ -7012,7 +6430,6 @@ where
     }
     GetEncryptedFileMetadata(lpfilename.into(), ::core::mem::transmute(pcbmetadata), ::core::mem::transmute(ppbmetadata))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnlistmentId<'a, P0>(enlistmenthandle: P0, enlistmentid: &mut ::windows::core::GUID) -> super::super::Foundation::BOOL
@@ -7025,7 +6442,6 @@ where
     }
     GetEnlistmentId(enlistmenthandle.into(), ::core::mem::transmute(enlistmentid))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnlistmentRecoveryInformation<'a, P0>(enlistmenthandle: P0, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: &mut u32) -> super::super::Foundation::BOOL
@@ -7038,7 +6454,6 @@ where
     }
     GetEnlistmentRecoveryInformation(enlistmenthandle.into(), buffersize, ::core::mem::transmute(buffer), ::core::mem::transmute(bufferused))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetExpandedNameA<'a, P0>(lpszsource: P0, lpszbuffer: &mut [u8; 260]) -> i32
 where
@@ -7050,7 +6465,6 @@ where
     }
     GetExpandedNameA(lpszsource.into(), ::core::mem::transmute(lpszbuffer.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetExpandedNameW<'a, P0>(lpszsource: P0, lpszbuffer: &mut [u16; 260]) -> i32
 where
@@ -7062,7 +6476,6 @@ where
     }
     GetExpandedNameW(lpszsource.into(), ::core::mem::transmute(lpszbuffer.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFileAttributesA<'a, P0>(lpfilename: P0) -> u32
 where
@@ -7074,7 +6487,6 @@ where
     }
     GetFileAttributesA(lpfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesExA<'a, P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -7087,7 +6499,6 @@ where
     }
     GetFileAttributesExA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesExFromAppW<'a, P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -7100,7 +6511,6 @@ where
     }
     GetFileAttributesExFromAppW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesExW<'a, P0>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -7113,7 +6523,6 @@ where
     }
     GetFileAttributesExW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesTransactedA<'a, P0, P1>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: P1) -> super::super::Foundation::BOOL
@@ -7127,7 +6536,6 @@ where
     }
     GetFileAttributesTransactedA(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesTransactedW<'a, P0, P1>(lpfilename: P0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: P1) -> super::super::Foundation::BOOL
@@ -7141,7 +6549,6 @@ where
     }
     GetFileAttributesTransactedW(lpfilename.into(), finfolevelid, ::core::mem::transmute(lpfileinformation), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFileAttributesW<'a, P0>(lpfilename: P0) -> u32
 where
@@ -7153,7 +6560,6 @@ where
     }
     GetFileAttributesW(lpfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileBandwidthReservation<'a, P0>(hfile: P0, lpperiodmilliseconds: &mut u32, lpbytesperperiod: &mut u32, pdiscardable: &mut i32, lptransfersize: &mut u32, lpnumoutstandingrequests: &mut u32) -> super::super::Foundation::BOOL
@@ -7166,7 +6572,6 @@ where
     }
     GetFileBandwidthReservation(hfile.into(), ::core::mem::transmute(lpperiodmilliseconds), ::core::mem::transmute(lpbytesperperiod), ::core::mem::transmute(pdiscardable), ::core::mem::transmute(lptransfersize), ::core::mem::transmute(lpnumoutstandingrequests))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileInformationByHandle<'a, P0>(hfile: P0, lpfileinformation: &mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation::BOOL
@@ -7179,7 +6584,6 @@ where
     }
     GetFileInformationByHandle(hfile.into(), ::core::mem::transmute(lpfileinformation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileInformationByHandleEx<'a, P0>(hfile: P0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: &mut [u8]) -> super::super::Foundation::BOOL
@@ -7192,7 +6596,6 @@ where
     }
     GetFileInformationByHandleEx(hfile.into(), fileinformationclass, ::core::mem::transmute(lpfileinformation.as_ptr()), lpfileinformation.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileSize<'a, P0>(hfile: P0, lpfilesizehigh: ::core::option::Option<&mut u32>) -> u32
@@ -7205,7 +6608,6 @@ where
     }
     GetFileSize(hfile.into(), ::core::mem::transmute(lpfilesizehigh))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileSizeEx<'a, P0>(hfile: P0, lpfilesize: &mut i64) -> super::super::Foundation::BOOL
@@ -7218,7 +6620,6 @@ where
     }
     GetFileSizeEx(hfile.into(), ::core::mem::transmute(lpfilesize))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileTime<'a, P0>(hfile: P0, lpcreationtime: ::core::option::Option<&mut super::super::Foundation::FILETIME>, lplastaccesstime: ::core::option::Option<&mut super::super::Foundation::FILETIME>, lplastwritetime: ::core::option::Option<&mut super::super::Foundation::FILETIME>) -> super::super::Foundation::BOOL
@@ -7231,7 +6632,6 @@ where
     }
     GetFileTime(hfile.into(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lplastaccesstime), ::core::mem::transmute(lplastwritetime))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileType<'a, P0>(hfile: P0) -> u32
@@ -7244,7 +6644,6 @@ where
     }
     GetFileType(hfile.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoA<'a, P0>(lptstrfilename: P0, dwhandle: u32, lpdata: &mut [u8]) -> super::super::Foundation::BOOL
@@ -7257,7 +6656,6 @@ where
     }
     GetFileVersionInfoA(lptstrfilename.into(), dwhandle, lpdata.len() as _, ::core::mem::transmute(lpdata.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoExA<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, dwhandle: u32, lpdata: &mut [u8]) -> super::super::Foundation::BOOL
@@ -7270,7 +6668,6 @@ where
     }
     GetFileVersionInfoExA(dwflags, lpwstrfilename.into(), dwhandle, lpdata.len() as _, ::core::mem::transmute(lpdata.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoExW<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, dwhandle: u32, lpdata: &mut [u8]) -> super::super::Foundation::BOOL
@@ -7283,7 +6680,6 @@ where
     }
     GetFileVersionInfoExW(dwflags, lpwstrfilename.into(), dwhandle, lpdata.len() as _, ::core::mem::transmute(lpdata.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeA<'a, P0>(lptstrfilename: P0, lpdwhandle: ::core::option::Option<&mut u32>) -> u32
 where
@@ -7295,7 +6691,6 @@ where
     }
     GetFileVersionInfoSizeA(lptstrfilename.into(), ::core::mem::transmute(lpdwhandle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeExA<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, lpdwhandle: &mut u32) -> u32
 where
@@ -7307,7 +6702,6 @@ where
     }
     GetFileVersionInfoSizeExA(dwflags, lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeExW<'a, P0>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: P0, lpdwhandle: &mut u32) -> u32
 where
@@ -7319,7 +6713,6 @@ where
     }
     GetFileVersionInfoSizeExW(dwflags, lpwstrfilename.into(), ::core::mem::transmute(lpdwhandle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeW<'a, P0>(lptstrfilename: P0, lpdwhandle: ::core::option::Option<&mut u32>) -> u32
 where
@@ -7331,7 +6724,6 @@ where
     }
     GetFileVersionInfoSizeW(lptstrfilename.into(), ::core::mem::transmute(lpdwhandle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoW<'a, P0>(lptstrfilename: P0, dwhandle: u32, lpdata: &mut [u8]) -> super::super::Foundation::BOOL
@@ -7344,7 +6736,6 @@ where
     }
     GetFileVersionInfoW(lptstrfilename.into(), dwhandle, lpdata.len() as _, ::core::mem::transmute(lpdata.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFinalPathNameByHandleA<'a, P0>(hfile: P0, lpszfilepath: &mut [u8], dwflags: FILE_NAME) -> u32
@@ -7357,7 +6748,6 @@ where
     }
     GetFinalPathNameByHandleA(hfile.into(), ::core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len() as _, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFinalPathNameByHandleW<'a, P0>(hfile: P0, lpszfilepath: &mut [u16], dwflags: FILE_NAME) -> u32
@@ -7370,7 +6760,6 @@ where
     }
     GetFinalPathNameByHandleW(hfile.into(), ::core::mem::transmute(lpszfilepath.as_ptr()), lpszfilepath.len() as _, dwflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFullPathNameA<'a, P0>(lpfilename: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpfilepart: ::core::option::Option<&mut ::windows::core::PSTR>) -> u32
 where
@@ -7382,7 +6771,6 @@ where
     }
     GetFullPathNameA(lpfilename.into(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFullPathNameTransactedA<'a, P0, P1>(lpfilename: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpfilepart: ::core::option::Option<&mut ::windows::core::PSTR>, htransaction: P1) -> u32
@@ -7396,7 +6784,6 @@ where
     }
     GetFullPathNameTransactedA(lpfilename.into(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFullPathNameTransactedW<'a, P0, P1>(lpfilename: P0, lpbuffer: ::core::option::Option<&mut [u16]>, lpfilepart: ::core::option::Option<&mut ::windows::core::PWSTR>, htransaction: P1) -> u32
@@ -7410,7 +6797,6 @@ where
     }
     GetFullPathNameTransactedW(lpfilename.into(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetFullPathNameW<'a, P0>(lpfilename: P0, lpbuffer: ::core::option::Option<&mut [u16]>, lpfilepart: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32
 where
@@ -7422,7 +6808,6 @@ where
     }
     GetFullPathNameW(lpfilename.into(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetIoRingInfo(ioring: &HIORING__) -> ::windows::core::Result<IORING_INFO> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7432,7 +6817,6 @@ pub unsafe fn GetIoRingInfo(ioring: &HIORING__) -> ::windows::core::Result<IORIN
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetIoRingInfo(::core::mem::transmute(ioring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IORING_INFO>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogContainerName<'a, P0, P1>(hlog: P0, cidlogicalcontainer: u32, pwstrcontainername: P1, clencontainername: u32, pcactuallencontainername: &mut u32) -> super::super::Foundation::BOOL
@@ -7446,7 +6830,6 @@ where
     }
     GetLogContainerName(hlog.into(), cidlogicalcontainer, pwstrcontainername.into(), clencontainername, ::core::mem::transmute(pcactuallencontainername))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogFileInformation<'a, P0>(hlog: P0, pinfobuffer: &mut CLS_INFORMATION, cbbuffer: &mut u32) -> super::super::Foundation::BOOL
@@ -7459,7 +6842,6 @@ where
     }
     GetLogFileInformation(hlog.into(), ::core::mem::transmute(pinfobuffer), ::core::mem::transmute(cbbuffer))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogIoStatistics<'a, P0>(hlog: P0, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: &mut u32) -> super::super::Foundation::BOOL
@@ -7472,7 +6854,6 @@ where
     }
     GetLogIoStatistics(hlog.into(), ::core::mem::transmute(pvstatsbuffer), cbstatsbuffer, estatsclass, ::core::mem::transmute(pcbstatswritten))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbrecordnumber: &mut u32, pcbuserreservation: &mut i64, pcbcommitreservation: &mut i64) -> super::super::Foundation::BOOL {
@@ -7482,7 +6863,6 @@ pub unsafe fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbre
     }
     GetLogReservationInfo(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pcbrecordnumber), ::core::mem::transmute(pcbuserreservation), ::core::mem::transmute(pcbcommitreservation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLogicalDriveStringsA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7491,7 +6871,6 @@ pub unsafe fn GetLogicalDriveStringsA(lpbuffer: ::core::option::Option<&mut [u8]
     }
     GetLogicalDriveStringsA(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLogicalDriveStringsW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7500,7 +6879,6 @@ pub unsafe fn GetLogicalDriveStringsW(lpbuffer: ::core::option::Option<&mut [u16
     }
     GetLogicalDriveStringsW(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLogicalDrives() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7509,7 +6887,6 @@ pub unsafe fn GetLogicalDrives() -> u32 {
     }
     GetLogicalDrives()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLongPathNameA<'a, P0>(lpszshortpath: P0, lpszlongpath: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -7521,7 +6898,6 @@ where
     }
     GetLongPathNameA(lpszshortpath.into(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLongPathNameTransactedA<'a, P0, P1>(lpszshortpath: P0, lpszlongpath: ::core::option::Option<&mut [u8]>, htransaction: P1) -> u32
@@ -7535,7 +6911,6 @@ where
     }
     GetLongPathNameTransactedA(lpszshortpath.into(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLongPathNameTransactedW<'a, P0, P1>(lpszshortpath: P0, lpszlongpath: ::core::option::Option<&mut [u16]>, htransaction: P1) -> u32
@@ -7549,7 +6924,6 @@ where
     }
     GetLongPathNameTransactedW(lpszshortpath.into(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetLongPathNameW<'a, P0>(lpszshortpath: P0, lpszlongpath: ::core::option::Option<&mut [u16]>) -> u32
 where
@@ -7561,7 +6935,6 @@ where
     }
     GetLongPathNameW(lpszshortpath.into(), ::core::mem::transmute(lpszlongpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszlongpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void, rgadextent: &mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: &mut u32) -> super::super::Foundation::BOOL {
@@ -7571,7 +6944,6 @@ pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void
     }
     GetNextLogArchiveExtent(::core::mem::transmute(pvarchivecontext), ::core::mem::transmute(rgadextent), cdescriptors, ::core::mem::transmute(pcdescriptorsreturned))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNotificationResourceManager<'a, P0>(resourcemanagerhandle: P0, transactionnotification: &mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: &mut u32) -> super::super::Foundation::BOOL
@@ -7584,7 +6956,6 @@ where
     }
     GetNotificationResourceManager(resourcemanagerhandle.into(), ::core::mem::transmute(transactionnotification), notificationlength, dwmilliseconds, ::core::mem::transmute(returnlength))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetNotificationResourceManagerAsync<'a, P0>(resourcemanagerhandle: P0, transactionnotification: &mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: &mut u32, lpoverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -7597,7 +6968,6 @@ where
     }
     GetNotificationResourceManagerAsync(resourcemanagerhandle.into(), ::core::mem::transmute(transactionnotification), transactionnotificationlength, ::core::mem::transmute(returnlength), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetShortPathNameA<'a, P0>(lpszlongpath: P0, lpszshortpath: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -7609,7 +6979,6 @@ where
     }
     GetShortPathNameA(lpszlongpath.into(), ::core::mem::transmute(lpszshortpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetShortPathNameW<'a, P0>(lpszlongpath: P0, lpszshortpath: ::core::option::Option<&mut [u16]>) -> u32
 where
@@ -7621,7 +6990,6 @@ where
     }
     GetShortPathNameW(lpszlongpath.into(), ::core::mem::transmute(lpszshortpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszshortpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTapeParameters<'a, P0>(hdevice: P0, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: &mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32
@@ -7634,7 +7002,6 @@ where
     }
     GetTapeParameters(hdevice.into(), dwoperation, ::core::mem::transmute(lpdwsize), ::core::mem::transmute(lptapeinformation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTapePosition<'a, P0>(hdevice: P0, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: &mut u32, lpdwoffsetlow: &mut u32, lpdwoffsethigh: &mut u32) -> u32
@@ -7647,7 +7014,6 @@ where
     }
     GetTapePosition(hdevice.into(), dwpositiontype, ::core::mem::transmute(lpdwpartition), ::core::mem::transmute(lpdwoffsetlow), ::core::mem::transmute(lpdwoffsethigh))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTapeStatus<'a, P0>(hdevice: P0) -> u32
@@ -7660,7 +7026,6 @@ where
     }
     GetTapeStatus(hdevice.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempFileNameA<'a, P0, P1>(lppathname: P0, lpprefixstring: P1, uunique: u32, lptempfilename: &mut [u8; 260]) -> u32
 where
@@ -7673,7 +7038,6 @@ where
     }
     GetTempFileNameA(lppathname.into(), lpprefixstring.into(), uunique, ::core::mem::transmute(lptempfilename.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempFileNameW<'a, P0, P1>(lppathname: P0, lpprefixstring: P1, uunique: u32, lptempfilename: &mut [u16; 260]) -> u32
 where
@@ -7686,7 +7050,6 @@ where
     }
     GetTempFileNameW(lppathname.into(), lpprefixstring.into(), uunique, ::core::mem::transmute(lptempfilename.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPath2A(buffer: ::core::option::Option<&mut [u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7695,7 +7058,6 @@ pub unsafe fn GetTempPath2A(buffer: ::core::option::Option<&mut [u8]>) -> u32 {
     }
     GetTempPath2A(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPath2W(buffer: ::core::option::Option<&mut [u16]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7704,7 +7066,6 @@ pub unsafe fn GetTempPath2W(buffer: ::core::option::Option<&mut [u16]>) -> u32 {
     }
     GetTempPath2W(buffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPathA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7713,7 +7074,6 @@ pub unsafe fn GetTempPathA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
     }
     GetTempPathA(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn GetTempPathW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -7722,7 +7082,6 @@ pub unsafe fn GetTempPathW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 
     }
     GetTempPathW(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTransactionId<'a, P0>(transactionhandle: P0, transactionid: &mut ::windows::core::GUID) -> super::super::Foundation::BOOL
@@ -7735,7 +7094,6 @@ where
     }
     GetTransactionId(transactionhandle.into(), ::core::mem::transmute(transactionid))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTransactionInformation<'a, P0>(transactionhandle: P0, outcome: &mut u32, isolationlevel: &mut u32, isolationflags: &mut u32, timeout: &mut u32, description: ::core::option::Option<&mut [u16]>) -> super::super::Foundation::BOOL
@@ -7748,7 +7106,6 @@ where
     }
     GetTransactionInformation(transactionhandle.into(), ::core::mem::transmute(outcome), ::core::mem::transmute(isolationlevel), ::core::mem::transmute(isolationflags), ::core::mem::transmute(timeout), description.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(description.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTransactionManagerId<'a, P0>(transactionmanagerhandle: P0, transactionmanagerid: &mut ::windows::core::GUID) -> super::super::Foundation::BOOL
@@ -7761,7 +7118,6 @@ where
     }
     GetTransactionManagerId(transactionmanagerhandle.into(), ::core::mem::transmute(transactionmanagerid))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeInformationA<'a, P0>(lprootpathname: P0, lpvolumenamebuffer: ::core::option::Option<&mut [u8]>, lpvolumeserialnumber: ::core::option::Option<&mut u32>, lpmaximumcomponentlength: ::core::option::Option<&mut u32>, lpfilesystemflags: ::core::option::Option<&mut u32>, lpfilesystemnamebuffer: ::core::option::Option<&mut [u8]>) -> super::super::Foundation::BOOL
@@ -7783,7 +7139,6 @@ where
         lpfilesystemnamebuffer.as_deref().map_or(0, |slice| slice.len() as _),
     )
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeInformationByHandleW<'a, P0>(hfile: P0, lpvolumenamebuffer: ::core::option::Option<&mut [u16]>, lpvolumeserialnumber: ::core::option::Option<&mut u32>, lpmaximumcomponentlength: ::core::option::Option<&mut u32>, lpfilesystemflags: ::core::option::Option<&mut u32>, lpfilesystemnamebuffer: ::core::option::Option<&mut [u16]>) -> super::super::Foundation::BOOL
@@ -7805,7 +7160,6 @@ where
         lpfilesystemnamebuffer.as_deref().map_or(0, |slice| slice.len() as _),
     )
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeInformationW<'a, P0>(lprootpathname: P0, lpvolumenamebuffer: ::core::option::Option<&mut [u16]>, lpvolumeserialnumber: ::core::option::Option<&mut u32>, lpmaximumcomponentlength: ::core::option::Option<&mut u32>, lpfilesystemflags: ::core::option::Option<&mut u32>, lpfilesystemnamebuffer: ::core::option::Option<&mut [u16]>) -> super::super::Foundation::BOOL
@@ -7827,7 +7181,6 @@ where
         lpfilesystemnamebuffer.as_deref().map_or(0, |slice| slice.len() as _),
     )
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeNameForVolumeMountPointA<'a, P0>(lpszvolumemountpoint: P0, lpszvolumename: &mut [u8]) -> super::super::Foundation::BOOL
@@ -7840,7 +7193,6 @@ where
     }
     GetVolumeNameForVolumeMountPointA(lpszvolumemountpoint.into(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeNameForVolumeMountPointW<'a, P0>(lpszvolumemountpoint: P0, lpszvolumename: &mut [u16]) -> super::super::Foundation::BOOL
@@ -7853,7 +7205,6 @@ where
     }
     GetVolumeNameForVolumeMountPointW(lpszvolumemountpoint.into(), ::core::mem::transmute(lpszvolumename.as_ptr()), lpszvolumename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNameA<'a, P0>(lpszfilename: P0, lpszvolumepathname: &mut [u8]) -> super::super::Foundation::BOOL
@@ -7866,7 +7217,6 @@ where
     }
     GetVolumePathNameA(lpszfilename.into(), ::core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNameW<'a, P0>(lpszfilename: P0, lpszvolumepathname: &mut [u16]) -> super::super::Foundation::BOOL
@@ -7879,7 +7229,6 @@ where
     }
     GetVolumePathNameW(lpszfilename.into(), ::core::mem::transmute(lpszvolumepathname.as_ptr()), lpszvolumepathname.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameA<'a, P0>(lpszvolumename: P0, lpszvolumepathnames: ::core::option::Option<&mut [u8]>, lpcchreturnlength: &mut u32) -> super::super::Foundation::BOOL
@@ -7892,7 +7241,6 @@ where
     }
     GetVolumePathNamesForVolumeNameA(lpszvolumename.into(), ::core::mem::transmute(lpszvolumepathnames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpcchreturnlength))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameW<'a, P0>(lpszvolumename: P0, lpszvolumepathnames: ::core::option::Option<&mut [u16]>, lpcchreturnlength: &mut u32) -> super::super::Foundation::BOOL
@@ -7906,7 +7254,6 @@ where
     GetVolumePathNamesForVolumeNameW(lpszvolumename.into(), ::core::mem::transmute(lpszvolumepathnames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszvolumepathnames.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpcchreturnlength))
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct HIORING__ {
     pub unused: i32,
 }
@@ -7935,7 +7282,6 @@ impl ::core::default::Default for HIORING__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HandleLogFull<'a, P0>(hlog: P0) -> super::super::Foundation::BOOL
@@ -7948,25 +7294,21 @@ where
     }
     HandleLogFull(hlog.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IDiskQuotaControl(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IDiskQuotaControl {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.EnumConnectionPoints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindConnectionPoint(&self, riid: &::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IConnectionPoint> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FindConnectionPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, pszpath: P0, breadwrite: P1) -> ::windows::core::Result<()>
     where
@@ -8011,7 +7353,6 @@ impl IDiskQuotaControl {
     {
         (::windows::core::Interface::vtable(self).GetDefaultQuotaLimitText)(::windows::core::Interface::as_raw(self), psztext.into(), cchtext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddUserSid<'a, P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
@@ -8033,7 +7374,6 @@ impl IDiskQuotaControl {
     {
         (::windows::core::Interface::vtable(self).DeleteUser)(::windows::core::Interface::as_raw(self), puser.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindUserSid<'a, P0>(&self, pusersid: P0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser>
     where
@@ -8049,7 +7389,6 @@ impl IDiskQuotaControl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FindUserName)(::windows::core::Interface::as_raw(self), pszlogonname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDiskQuotaUser>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateEnumUsers(&self, rgpusersids: &mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: &mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateEnumUsers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgpusersids), cpsids, fnameresolution, ::core::mem::transmute(ppenum)).ok()
@@ -8171,7 +7510,6 @@ pub struct IDiskQuotaControl_Vtbl {
     pub GiveUserNameResolutionPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShutdownNameResolution: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 pub struct IDiskQuotaEvents(::windows::core::IUnknown);
 impl IDiskQuotaEvents {
@@ -8223,7 +7561,6 @@ pub struct IDiskQuotaEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnUserNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 pub struct IDiskQuotaUser(::windows::core::IUnknown);
 impl IDiskQuotaUser {
@@ -8274,7 +7611,6 @@ impl IDiskQuotaUser {
     pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetQuotaInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbquotainfo), cbquotainfo).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetQuotaThreshold<'a, P0>(&self, llthreshold: i64, fwritethrough: P0) -> ::windows::core::Result<()>
     where
@@ -8282,7 +7618,6 @@ impl IDiskQuotaUser {
     {
         (::windows::core::Interface::vtable(self).SetQuotaThreshold)(::windows::core::Interface::as_raw(self), llthreshold, fwritethrough.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetQuotaLimit<'a, P0>(&self, lllimit: i64, fwritethrough: P0) -> ::windows::core::Result<()>
     where
@@ -8358,7 +7693,6 @@ pub struct IDiskQuotaUser_Vtbl {
     pub Invalidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAccountStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 pub struct IDiskQuotaUserBatch(::windows::core::IUnknown);
 impl IDiskQuotaUserBatch {
@@ -8425,7 +7759,6 @@ pub struct IDiskQuotaUserBatch_Vtbl {
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FlushToDisk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 pub struct IEnumDiskQuotaUsers(::windows::core::IUnknown);
 impl IEnumDiskQuotaUsers {
@@ -8487,70 +7820,38 @@ pub struct IEnumDiskQuotaUsers_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_BASE: u32 = 86u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_BUFFER_INFO {
     pub Address: *mut ::core::ffi::c_void,
     pub Length: u32,
@@ -8581,7 +7882,6 @@ impl ::core::default::Default for IORING_BUFFER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_BUFFER_REF {
     pub Kind: IORING_REF_KIND,
     pub Buffer: IORING_BUFFER_REF_0,
@@ -8607,7 +7907,6 @@ impl ::core::default::Default for IORING_BUFFER_REF {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub union IORING_BUFFER_REF_0 {
     pub Address: *mut ::core::ffi::c_void,
     pub IndexAndOffset: IORING_REGISTERED_BUFFER,
@@ -8633,7 +7932,6 @@ impl ::core::default::Default for IORING_BUFFER_REF_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_CAPABILITIES {
     pub MaxVersion: IORING_VERSION,
     pub MaxSubmissionQueueSize: u32,
@@ -8666,7 +7964,6 @@ impl ::core::default::Default for IORING_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_CQE {
     pub UserData: usize,
     pub ResultCode: ::windows::core::HRESULT,
@@ -8697,11 +7994,9 @@ impl ::core::default::Default for IORING_CQE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_CREATE_ADVISORY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = IORING_CREATE_ADVISORY_FLAGS(0i32);
 impl ::core::marker::Copy for IORING_CREATE_ADVISORY_FLAGS {}
 impl ::core::clone::Clone for IORING_CREATE_ADVISORY_FLAGS {
@@ -8723,7 +8018,6 @@ impl ::core::fmt::Debug for IORING_CREATE_ADVISORY_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_CREATE_FLAGS {
     pub Required: IORING_CREATE_REQUIRED_FLAGS,
     pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
@@ -8753,11 +8047,9 @@ impl ::core::default::Default for IORING_CREATE_FLAGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_CREATE_REQUIRED_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = IORING_CREATE_REQUIRED_FLAGS(0i32);
 impl ::core::marker::Copy for IORING_CREATE_REQUIRED_FLAGS {}
 impl ::core::clone::Clone for IORING_CREATE_REQUIRED_FLAGS {
@@ -8778,15 +8070,11 @@ impl ::core::fmt::Debug for IORING_CREATE_REQUIRED_FLAGS {
         f.debug_tuple("IORING_CREATE_REQUIRED_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_FEATURE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = IORING_FEATURE_FLAGS(2i32);
 impl ::core::marker::Copy for IORING_FEATURE_FLAGS {}
 impl ::core::clone::Clone for IORING_FEATURE_FLAGS {
@@ -8808,7 +8096,6 @@ impl ::core::fmt::Debug for IORING_FEATURE_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IORING_HANDLE_REF {
     pub Kind: IORING_REF_KIND,
@@ -8841,7 +8128,6 @@ impl ::core::default::Default for IORING_HANDLE_REF {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union IORING_HANDLE_REF_0 {
     pub Handle: super::super::Foundation::HANDLE,
@@ -8874,7 +8160,6 @@ impl ::core::default::Default for IORING_HANDLE_REF_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_INFO {
     pub IoRingVersion: IORING_VERSION,
     pub Flags: IORING_CREATE_FLAGS,
@@ -8906,19 +8191,13 @@ impl ::core::default::Default for IORING_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_OP_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_OP_NOP: IORING_OP_CODE = IORING_OP_CODE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_OP_READ: IORING_OP_CODE = IORING_OP_CODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = IORING_OP_CODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = IORING_OP_CODE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_OP_CANCEL: IORING_OP_CODE = IORING_OP_CODE(4i32);
 impl ::core::marker::Copy for IORING_OP_CODE {}
 impl ::core::clone::Clone for IORING_OP_CODE {
@@ -8939,13 +8218,10 @@ impl ::core::fmt::Debug for IORING_OP_CODE {
         f.debug_tuple("IORING_OP_CODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_REF_KIND(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_REF_RAW: IORING_REF_KIND = IORING_REF_KIND(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_REF_REGISTERED: IORING_REF_KIND = IORING_REF_KIND(1i32);
 impl ::core::marker::Copy for IORING_REF_KIND {}
 impl ::core::clone::Clone for IORING_REF_KIND {
@@ -8967,7 +8243,6 @@ impl ::core::fmt::Debug for IORING_REF_KIND {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct IORING_REGISTERED_BUFFER {
     pub BufferIndex: u32,
     pub Offset: u32,
@@ -8997,11 +8272,9 @@ impl ::core::default::Default for IORING_REGISTERED_BUFFER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_SQE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = IORING_SQE_FLAGS(0i32);
 impl ::core::marker::Copy for IORING_SQE_FLAGS {}
 impl ::core::clone::Clone for IORING_SQE_FLAGS {
@@ -9022,13 +8295,10 @@ impl ::core::fmt::Debug for IORING_SQE_FLAGS {
         f.debug_tuple("IORING_SQE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct IORING_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_VERSION_INVALID: IORING_VERSION = IORING_VERSION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IORING_VERSION_1: IORING_VERSION = IORING_VERSION(1i32);
 impl ::core::marker::Copy for IORING_VERSION {}
 impl ::core::clone::Clone for IORING_VERSION {
@@ -9049,7 +8319,6 @@ impl ::core::fmt::Debug for IORING_VERSION {
         f.debug_tuple("IORING_VERSION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallLogPolicy<'a, P0>(hlog: P0, ppolicy: &mut CLFS_MGMT_POLICY) -> super::super::Foundation::BOOL
@@ -9062,7 +8331,6 @@ where
     }
     InstallLogPolicy(hlog.into(), ::core::mem::transmute(ppolicy))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsIoRingOpSupported(ioring: &HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL {
@@ -9073,7 +8341,6 @@ pub unsafe fn IsIoRingOpSupported(ioring: &HIORING__, op: IORING_OP_CODE) -> sup
     IsIoRingOpSupported(::core::mem::transmute(ioring), op)
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct KCRM_MARSHAL_HEADER {
     pub VersionMajor: u32,
     pub VersionMinor: u32,
@@ -9106,7 +8373,6 @@ impl ::core::default::Default for KCRM_MARSHAL_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: ::windows::core::GUID,
     pub StaticInfoLength: u32,
@@ -9140,7 +8406,6 @@ impl ::core::default::Default for KCRM_PROTOCOL_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: ::windows::core::GUID,
     pub TmIdentity: ::windows::core::GUID,
@@ -9174,17 +8439,12 @@ impl ::core::default::Default for KCRM_TRANSACTION_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCK_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = LOCK_FILE_FLAGS(1u32);
 impl ::core::marker::Copy for LOCK_FILE_FLAGS {}
 impl ::core::clone::Clone for LOCK_FILE_FLAGS {
@@ -9234,7 +8494,6 @@ impl ::core::ops::Not for LOCK_FILE_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut ::core::ffi::c_void,
@@ -9274,20 +8533,14 @@ impl ::core::default::Default for LOG_MANAGEMENT_CALLBACKS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LPPROGRESS_ROUTINE_CALLBACK_REASON(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = LPPROGRESS_ROUTINE_CALLBACK_REASON(1u32);
 impl ::core::marker::Copy for LPPROGRESS_ROUTINE_CALLBACK_REASON {}
 impl ::core::clone::Clone for LPPROGRESS_ROUTINE_CALLBACK_REASON {
@@ -9308,7 +8561,6 @@ impl ::core::fmt::Debug for LPPROGRESS_ROUTINE_CALLBACK_REASON {
         f.debug_tuple("LPPROGRESS_ROUTINE_CALLBACK_REASON").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9317,7 +8569,6 @@ pub unsafe fn LZClose(hfile: i32) {
     }
     LZClose(hfile)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9326,7 +8577,6 @@ pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     }
     LZCopy(hfsource, hfdest)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZDone() {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9335,23 +8585,14 @@ pub unsafe fn LZDone() {
     }
     LZDone()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_BADINHANDLE: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_BADVALUE: i32 = -7i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_GLOBALLOC: i32 = -5i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_GLOBLOCK: i32 = -6i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_READ: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_UNKNOWNALG: i32 = -8i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const LZERROR_WRITE: i32 = -4i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZInit(hfsource: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9360,41 +8601,24 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
     }
     LZInit(hfsource)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LZOPENFILE_STYLE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_CANCEL: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2048u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_CREATE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(4096u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_DELETE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(512u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_EXIST: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16384u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_PARSE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(256u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_PROMPT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(8192u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_READWRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_REOPEN: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32768u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = LZOPENFILE_STYLE(48u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_WRITE: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = LZOPENFILE_STYLE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const OF_VERIFY: LZOPENFILE_STYLE = LZOPENFILE_STYLE(1024u32);
 impl ::core::marker::Copy for LZOPENFILE_STYLE {}
 impl ::core::clone::Clone for LZOPENFILE_STYLE {
@@ -9443,7 +8667,6 @@ impl ::core::ops::Not for LZOPENFILE_STYLE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZOpenFileA<'a, P0>(lpfilename: P0, lpreopenbuf: &mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
@@ -9456,7 +8679,6 @@ where
     }
     LZOpenFileA(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), wstyle)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZOpenFileW<'a, P0>(lpfilename: P0, lpreopenbuf: &mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32
@@ -9469,7 +8691,6 @@ where
     }
     LZOpenFileW(lpfilename.into(), ::core::mem::transmute(lpreopenbuf), wstyle)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZRead(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9478,7 +8699,6 @@ pub unsafe fn LZRead(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
     }
     LZRead(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9487,7 +8707,6 @@ pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     }
     LZSeek(hfile, loffset, iorigin)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LZStart() -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9496,7 +8715,6 @@ pub unsafe fn LZStart() -> i32 {
     }
     LZStart()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: &super::super::Foundation::FILETIME, lpfiletime: &mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -9506,7 +8724,6 @@ pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: &super::super::Foundation
     }
     LocalFileTimeToFileTime(::core::mem::transmute(lplocalfiletime), ::core::mem::transmute(lpfiletime))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LockFile<'a, P0>(hfile: P0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> super::super::Foundation::BOOL
@@ -9519,7 +8736,6 @@ where
     }
     LockFile(hfile.into(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestolocklow, nnumberofbytestolockhigh)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn LockFileEx<'a, P0>(hfile: P0, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -9532,7 +8748,6 @@ where
     }
     LockFileEx(hfile.into(), dwflags, dwreserved, nnumberofbytestolocklow, nnumberofbytestolockhigh, ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogTailAdvanceFailure<'a, P0>(hlog: P0, dwreason: u32) -> super::super::Foundation::BOOL
@@ -9545,7 +8760,6 @@ where
     }
     LogTailAdvanceFailure(hlog.into(), dwreason)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnBlockOffset(plsn: &CLS_LSN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9554,7 +8768,6 @@ pub unsafe fn LsnBlockOffset(plsn: &CLS_LSN) -> u32 {
     }
     LsnBlockOffset(::core::mem::transmute(plsn))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnContainer(plsn: &CLS_LSN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9563,7 +8776,6 @@ pub unsafe fn LsnContainer(plsn: &CLS_LSN) -> u32 {
     }
     LsnContainer(::core::mem::transmute(plsn))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9572,7 +8784,6 @@ pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_L
     }
     LsnCreate(cidcontainer, offblock, crecord)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnEqual(plsn1: &CLS_LSN, plsn2: &CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -9582,7 +8793,6 @@ pub unsafe fn LsnEqual(plsn1: &CLS_LSN, plsn2: &CLS_LSN) -> super::super::Founda
     }
     LsnEqual(::core::mem::transmute(plsn1), ::core::mem::transmute(plsn2))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnGreater(plsn1: &CLS_LSN, plsn2: &CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -9592,7 +8802,6 @@ pub unsafe fn LsnGreater(plsn1: &CLS_LSN, plsn2: &CLS_LSN) -> super::super::Foun
     }
     LsnGreater(::core::mem::transmute(plsn1), ::core::mem::transmute(plsn2))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnIncrement(plsn: &CLS_LSN) -> CLS_LSN {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9601,7 +8810,6 @@ pub unsafe fn LsnIncrement(plsn: &CLS_LSN) -> CLS_LSN {
     }
     LsnIncrement(::core::mem::transmute(plsn))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnInvalid(plsn: &CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -9611,7 +8819,6 @@ pub unsafe fn LsnInvalid(plsn: &CLS_LSN) -> super::super::Foundation::BOOLEAN {
     }
     LsnInvalid(::core::mem::transmute(plsn))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnLess(plsn1: &CLS_LSN, plsn2: &CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -9621,7 +8828,6 @@ pub unsafe fn LsnLess(plsn1: &CLS_LSN, plsn2: &CLS_LSN) -> super::super::Foundat
     }
     LsnLess(::core::mem::transmute(plsn1), ::core::mem::transmute(plsn2))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnNull(plsn: &CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -9631,7 +8837,6 @@ pub unsafe fn LsnNull(plsn: &CLS_LSN) -> super::super::Foundation::BOOLEAN {
     }
     LsnNull(::core::mem::transmute(plsn))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn LsnRecordSequence(plsn: &CLS_LSN) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9640,31 +8845,19 @@ pub unsafe fn LsnRecordSequence(plsn: &CLS_LSN) -> u32 {
     }
     LsnRecordSequence(::core::mem::transmute(plsn))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MAXIMUM_REPARSE_DATA_BUFFER_SIZE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type MAXMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MAX_SID_SIZE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MOVE_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = MOVE_FILE_FLAGS(32u32);
 impl ::core::marker::Copy for MOVE_FILE_FLAGS {}
 impl ::core::clone::Clone for MOVE_FILE_FLAGS {
@@ -9714,7 +8907,6 @@ impl ::core::ops::Not for MOVE_FILE_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct MediaLabelInfo {
     pub LabelType: [u16; 64],
     pub LabelIDSize: u32,
@@ -9746,7 +8938,6 @@ impl ::core::default::Default for MediaLabelInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileA<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> super::super::Foundation::BOOL
@@ -9760,7 +8951,6 @@ where
     }
     MoveFileA(lpexistingfilename.into(), lpnewfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileExA<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
@@ -9774,7 +8964,6 @@ where
     }
     MoveFileExA(lpexistingfilename.into(), lpnewfilename.into(), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileExW<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
@@ -9788,7 +8977,6 @@ where
     }
     MoveFileExW(lpexistingfilename.into(), lpnewfilename.into(), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileFromAppW<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> super::super::Foundation::BOOL
@@ -9802,7 +8990,6 @@ where
     }
     MoveFileFromAppW(lpexistingfilename.into(), lpnewfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileTransactedA<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: P2) -> super::super::Foundation::BOOL
@@ -9817,7 +9004,6 @@ where
     }
     MoveFileTransactedA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileTransactedW<'a, P0, P1, P2>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: P2) -> super::super::Foundation::BOOL
@@ -9832,7 +9018,6 @@ where
     }
     MoveFileTransactedW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileW<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1) -> super::super::Foundation::BOOL
@@ -9846,7 +9031,6 @@ where
     }
     MoveFileW(lpexistingfilename.into(), lpnewfilename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileWithProgressA<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
@@ -9860,7 +9044,6 @@ where
     }
     MoveFileWithProgressA(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileWithProgressW<'a, P0, P1>(lpexistingfilename: P0, lpnewfilename: P1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL
@@ -9875,7 +9058,6 @@ where
     MoveFileWithProgressW(lpexistingfilename.into(), lpnewfilename.into(), ::core::mem::transmute(lpprogressroutine), ::core::mem::transmute(lpdata), dwflags)
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NAME_CACHE_CONTEXT {
     pub m_dwSignature: u32,
 }
@@ -9904,14 +9086,10 @@ impl ::core::default::Default for NAME_CACHE_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMSMLI_MAXTYPE: u32 = 64u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut ::core::ffi::c_void,
@@ -9942,10 +9120,8 @@ impl ::core::default::Default for NTMS_ALLOCATION_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_ASYNC_IO {
     pub OperationId: ::windows::core::GUID,
@@ -9988,10 +9164,8 @@ impl ::core::default::Default for NTMS_ASYNC_IO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
@@ -10038,7 +9212,6 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_CHANGERINFORMATIONW {
     pub Number: u32,
     pub ChangerType: ::windows::core::GUID,
@@ -10077,7 +9250,6 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
     pub szVendor: [super::super::Foundation::CHAR; 128],
@@ -10117,7 +9289,6 @@ impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_CHANGERTYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -10149,7 +9320,6 @@ impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_COMPUTERINFORMATION {
     pub dwLibRequestPurgeTime: u32,
     pub dwOpRequestPurgeTime: u32,
@@ -10182,14 +9352,10 @@ impl ::core::default::Default for NTMS_COMPUTERINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
@@ -10259,7 +9425,6 @@ impl ::core::default::Default for NTMS_DRIVEINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVEINFORMATIONW {
     pub Number: u32,
@@ -10329,7 +9494,6 @@ impl ::core::default::Default for NTMS_DRIVEINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
     pub szVendor: [super::super::Foundation::CHAR; 128],
@@ -10370,7 +9534,6 @@ impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -10403,7 +9566,6 @@ impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_FILESYSTEM_INFO {
     pub FileSystemType: [u16; 64],
     pub VolumeName: [u16; 256],
@@ -10435,7 +9597,6 @@ impl ::core::default::Default for NTMS_FILESYSTEM_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBRARYINFORMATION {
     pub LibraryType: u32,
@@ -10515,7 +9676,6 @@ impl ::core::default::Default for NTMS_I1_LIBRARYINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
@@ -10579,7 +9739,6 @@ impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
@@ -10642,10 +9801,8 @@ impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub dwSize: u32,
@@ -10686,7 +9843,6 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
@@ -10732,7 +9888,6 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub dwSize: u32,
@@ -10773,7 +9928,6 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
@@ -10819,7 +9973,6 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
@@ -10867,7 +10020,6 @@ impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub Request: u32,
@@ -10915,7 +10067,6 @@ impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::core::GUID,
@@ -10962,7 +10113,6 @@ impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub PhysicalMedia: ::windows::core::GUID,
     pub LogicalMedia: ::windows::core::GUID,
@@ -11001,7 +10151,6 @@ impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::core::GUID,
@@ -11061,7 +10210,6 @@ impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_I1_PMIDINFORMATIONW {
     pub CurrentLibrary: ::windows::core::GUID,
     pub MediaPool: ::windows::core::GUID,
@@ -11113,7 +10261,6 @@ impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_IEDOORINFORMATION {
     pub Number: u32,
     pub State: NtmsDoorState,
@@ -11146,7 +10293,6 @@ impl ::core::default::Default for NTMS_IEDOORINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_IEPORTINFORMATION {
     pub Number: u32,
     pub Content: NtmsPortContent,
@@ -11180,7 +10326,6 @@ impl ::core::default::Default for NTMS_IEPORTINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBRARYINFORMATION {
     pub LibraryType: NtmsLibraryType,
@@ -11264,7 +10409,6 @@ impl ::core::default::Default for NTMS_LIBRARYINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub OperationCode: NtmsLmOperation,
@@ -11334,7 +10478,6 @@ impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub OperationCode: NtmsLmOperation,
@@ -11404,7 +10547,6 @@ impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_LMIDINFORMATION {
     pub MediaPool: ::windows::core::GUID,
     pub dwNumberOfPartitions: u32,
@@ -11434,12 +10576,9 @@ impl ::core::default::Default for NTMS_LMIDINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_MEDIAPOOLINFORMATION {
     pub PoolType: u32,
     pub MediaType: ::windows::core::GUID,
@@ -11487,7 +10626,6 @@ impl ::core::default::Default for NTMS_MEDIAPOOLINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_MEDIATYPEINFORMATION {
     pub MediaType: u32,
     pub NumberOfSides: u32,
@@ -11519,10 +10657,8 @@ impl ::core::default::Default for NTMS_MEDIATYPEINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_MOUNT_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut ::core::ffi::c_void,
@@ -11553,7 +10689,6 @@ impl ::core::default::Default for NTMS_MOUNT_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_NOTIFICATIONINFORMATION {
     pub dwOperation: NtmsNotificationOperations,
     pub ObjectId: ::windows::core::GUID,
@@ -11584,7 +10719,6 @@ impl ::core::default::Default for NTMS_NOTIFICATIONINFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OBJECTINFORMATIONA {
     pub dwSize: u32,
@@ -11625,7 +10759,6 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
@@ -11672,7 +10805,6 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONA_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OBJECTINFORMATIONW {
     pub dwSize: u32,
@@ -11713,7 +10845,6 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
@@ -11759,21 +10890,14 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONW_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTMS_OMID_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = NTMS_OMID_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = NTMS_OMID_TYPE(1u32);
 impl ::core::marker::Copy for NTMS_OMID_TYPE {}
 impl ::core::clone::Clone for NTMS_OMID_TYPE {
@@ -11795,7 +10919,6 @@ impl ::core::fmt::Debug for NTMS_OMID_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: NtmsOpreqCommand,
@@ -11843,7 +10966,6 @@ impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OPREQUESTINFORMATIONW {
     pub Request: NtmsOpreqCommand,
@@ -11891,7 +11013,6 @@ impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::core::GUID,
@@ -11951,7 +11072,6 @@ impl ::core::default::Default for NTMS_PARTITIONINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_PARTITIONINFORMATIONW {
     pub PhysicalMedia: ::windows::core::GUID,
     pub LogicalMedia: ::windows::core::GUID,
@@ -12003,7 +11123,6 @@ impl ::core::default::Default for NTMS_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::core::GUID,
@@ -12069,7 +11188,6 @@ impl ::core::default::Default for NTMS_PMIDINFORMATIONA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_PMIDINFORMATIONW {
     pub CurrentLibrary: ::windows::core::GUID,
     pub MediaPool: ::windows::core::GUID,
@@ -12126,18 +11244,12 @@ impl ::core::default::Default for NTMS_PMIDINFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_REVISION_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct NTMS_STORAGESLOTINFORMATION {
     pub Number: u32,
     pub State: u32,
@@ -12168,25 +11280,16 @@ impl ::core::default::Default for NTMS_STORAGESLOTINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NT_CREATE_FILE_DISPOSITION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_CREATE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_OPEN: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_OPEN_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_OVERWRITE: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_OVERWRITE_IF: NT_CREATE_FILE_DISPOSITION = NT_CREATE_FILE_DISPOSITION(5u32);
 impl ::core::marker::Copy for NT_CREATE_FILE_DISPOSITION {}
 impl ::core::clone::Clone for NT_CREATE_FILE_DISPOSITION {
@@ -12207,7 +11310,6 @@ impl ::core::fmt::Debug for NT_CREATE_FILE_DISPOSITION {
         f.debug_tuple("NT_CREATE_FILE_DISPOSITION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetConnectionEnum<'a, P0, P1>(servername: P0, qualifier: P1, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
 where
@@ -12220,7 +11322,6 @@ where
     }
     NetConnectionEnum(servername.into(), qualifier.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetFileClose<'a, P0>(servername: P0, fileid: u32) -> u32
 where
@@ -12232,7 +11333,6 @@ where
     }
     NetFileClose(servername.into(), fileid)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetFileEnum<'a, P0, P1, P2>(servername: P0, basepath: P1, username: P2, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut usize>) -> u32
 where
@@ -12246,7 +11346,6 @@ where
     }
     NetFileEnum(servername.into(), basepath.into(), username.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetFileGetInfo<'a, P0>(servername: P0, fileid: u32, level: u32, bufptr: &mut *mut u8) -> u32
 where
@@ -12258,7 +11357,6 @@ where
     }
     NetFileGetInfo(servername.into(), fileid, level, ::core::mem::transmute(bufptr))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetServerAliasAdd<'a, P0>(servername: P0, level: u32, buf: &u8) -> u32
 where
@@ -12270,7 +11368,6 @@ where
     }
     NetServerAliasAdd(servername.into(), level, ::core::mem::transmute(buf))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetServerAliasDel<'a, P0>(servername: P0, level: u32, buf: &u8) -> u32
 where
@@ -12282,7 +11379,6 @@ where
     }
     NetServerAliasDel(servername.into(), level, ::core::mem::transmute(buf))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetServerAliasEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resumehandle: ::core::option::Option<&mut u32>) -> u32
 where
@@ -12294,7 +11390,6 @@ where
     }
     NetServerAliasEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resumehandle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetSessionDel<'a, P0, P1, P2>(servername: P0, uncclientname: P1, username: P2) -> u32
 where
@@ -12308,7 +11403,6 @@ where
     }
     NetSessionDel(servername.into(), uncclientname.into(), username.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetSessionEnum<'a, P0, P1, P2>(servername: P0, uncclientname: P1, username: P2, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
 where
@@ -12322,7 +11416,6 @@ where
     }
     NetSessionEnum(servername.into(), uncclientname.into(), username.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetSessionGetInfo<'a, P0, P1, P2>(servername: P0, uncclientname: P1, username: P2, level: u32, bufptr: &mut *mut u8) -> u32
 where
@@ -12336,7 +11429,6 @@ where
     }
     NetSessionGetInfo(servername.into(), uncclientname.into(), username.into(), level, ::core::mem::transmute(bufptr))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareAdd<'a, P0>(servername: P0, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
 where
@@ -12348,7 +11440,6 @@ where
     }
     NetShareAdd(servername.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareCheck<'a, P0, P1>(servername: P0, device: P1, r#type: &mut u32) -> u32
 where
@@ -12361,7 +11452,6 @@ where
     }
     NetShareCheck(servername.into(), device.into(), ::core::mem::transmute(r#type))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareDel<'a, P0, P1>(servername: P0, netname: P1, reserved: u32) -> u32
 where
@@ -12374,7 +11464,6 @@ where
     }
     NetShareDel(servername.into(), netname.into(), reserved)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareDelEx<'a, P0>(servername: P0, level: u32, buf: &u8) -> u32
 where
@@ -12386,7 +11475,6 @@ where
     }
     NetShareDelEx(servername.into(), level, ::core::mem::transmute(buf))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareDelSticky<'a, P0, P1>(servername: P0, netname: P1, reserved: u32) -> u32
 where
@@ -12399,7 +11487,6 @@ where
     }
     NetShareDelSticky(servername.into(), netname.into(), reserved)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareEnum<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
 where
@@ -12411,7 +11498,6 @@ where
     }
     NetShareEnum(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareEnumSticky<'a, P0>(servername: P0, level: u32, bufptr: &mut *mut u8, prefmaxlen: u32, entriesread: &mut u32, totalentries: &mut u32, resume_handle: ::core::option::Option<&mut u32>) -> u32
 where
@@ -12423,7 +11509,6 @@ where
     }
     NetShareEnumSticky(servername.into(), level, ::core::mem::transmute(bufptr), prefmaxlen, ::core::mem::transmute(entriesread), ::core::mem::transmute(totalentries), ::core::mem::transmute(resume_handle))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareGetInfo<'a, P0, P1>(servername: P0, netname: P1, level: u32, bufptr: &mut *mut u8) -> u32
 where
@@ -12436,7 +11521,6 @@ where
     }
     NetShareGetInfo(servername.into(), netname.into(), level, ::core::mem::transmute(bufptr))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetShareSetInfo<'a, P0, P1>(servername: P0, netname: P1, level: u32, buf: &u8, parm_err: ::core::option::Option<&mut u32>) -> u32
 where
@@ -12449,7 +11533,6 @@ where
     }
     NetShareSetInfo(servername.into(), netname.into(), level, ::core::mem::transmute(buf), ::core::mem::transmute(parm_err))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: &i8, service: &i8, level: u32, options: u32, buffer: &mut *mut u8) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -12458,7 +11541,6 @@ pub unsafe fn NetStatisticsGet(servername: &i8, service: &i8, level: u32, option
     }
     NetStatisticsGet(::core::mem::transmute(servername), ::core::mem::transmute(service), level, options, ::core::mem::transmute(buffer))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn NtCreateFile(filehandle: &mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: &mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: &mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: &mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::core::Result<()> {
@@ -12468,15 +11550,11 @@ pub unsafe fn NtCreateFile(filehandle: &mut super::super::Foundation::HANDLE, de
     }
     NtCreateFile(::core::mem::transmute(filehandle), desiredaccess, ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), ::core::mem::transmute(allocationsize), fileattributes, shareaccess, createdisposition, createoptions, ::core::mem::transmute(eabuffer), ealength).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAccessMask(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_USE_ACCESS: NtmsAccessMask = NtmsAccessMask(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = NtmsAccessMask(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = NtmsAccessMask(4i32);
 impl ::core::marker::Copy for NtmsAccessMask {}
 impl ::core::clone::Clone for NtmsAccessMask {
@@ -12497,15 +11575,11 @@ impl ::core::fmt::Debug for NtmsAccessMask {
         f.debug_tuple("NtmsAccessMask").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAllocateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = NtmsAllocateOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = NtmsAllocateOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = NtmsAllocateOptions(4i32);
 impl ::core::marker::Copy for NtmsAllocateOptions {}
 impl ::core::clone::Clone for NtmsAllocateOptions {
@@ -12526,11 +11600,9 @@ impl ::core::fmt::Debug for NtmsAllocateOptions {
         f.debug_tuple("NtmsAllocateOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAllocationPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = NtmsAllocationPolicy(1i32);
 impl ::core::marker::Copy for NtmsAllocationPolicy {}
 impl ::core::clone::Clone for NtmsAllocationPolicy {
@@ -12551,11 +11623,9 @@ impl ::core::fmt::Debug for NtmsAllocationPolicy {
         f.debug_tuple("NtmsAllocationPolicy").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAsyncOperations(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = NtmsAsyncOperations(1i32);
 impl ::core::marker::Copy for NtmsAsyncOperations {}
 impl ::core::clone::Clone for NtmsAsyncOperations {
@@ -12576,19 +11646,13 @@ impl ::core::fmt::Debug for NtmsAsyncOperations {
         f.debug_tuple("NtmsAsyncOperations").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsAsyncStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = NtmsAsyncStatus(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = NtmsAsyncStatus(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = NtmsAsyncStatus(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = NtmsAsyncStatus(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = NtmsAsyncStatus(4i32);
 impl ::core::marker::Copy for NtmsAsyncStatus {}
 impl ::core::clone::Clone for NtmsAsyncStatus {
@@ -12609,13 +11673,10 @@ impl ::core::fmt::Debug for NtmsAsyncStatus {
         f.debug_tuple("NtmsAsyncStatus").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsBarCodeState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = NtmsBarCodeState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = NtmsBarCodeState(2i32);
 impl ::core::marker::Copy for NtmsBarCodeState {}
 impl ::core::clone::Clone for NtmsBarCodeState {
@@ -12636,11 +11697,9 @@ impl ::core::fmt::Debug for NtmsBarCodeState {
         f.debug_tuple("NtmsBarCodeState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsCreateNtmsMediaOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = NtmsCreateNtmsMediaOptions(1i32);
 impl ::core::marker::Copy for NtmsCreateNtmsMediaOptions {}
 impl ::core::clone::Clone for NtmsCreateNtmsMediaOptions {
@@ -12661,15 +11720,11 @@ impl ::core::fmt::Debug for NtmsCreateNtmsMediaOptions {
         f.debug_tuple("NtmsCreateNtmsMediaOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsCreateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = NtmsCreateOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_CREATE_NEW: NtmsCreateOptions = NtmsCreateOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = NtmsCreateOptions(3i32);
 impl ::core::marker::Copy for NtmsCreateOptions {}
 impl ::core::clone::Clone for NtmsCreateOptions {
@@ -12690,11 +11745,9 @@ impl ::core::fmt::Debug for NtmsCreateOptions {
         f.debug_tuple("NtmsCreateOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDeallocationPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = NtmsDeallocationPolicy(1i32);
 impl ::core::marker::Copy for NtmsDeallocationPolicy {}
 impl ::core::clone::Clone for NtmsDeallocationPolicy {
@@ -12715,13 +11768,10 @@ impl ::core::fmt::Debug for NtmsDeallocationPolicy {
         f.debug_tuple("NtmsDeallocationPolicy").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDismountOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = NtmsDismountOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = NtmsDismountOptions(2i32);
 impl ::core::marker::Copy for NtmsDismountOptions {}
 impl ::core::clone::Clone for NtmsDismountOptions {
@@ -12742,15 +11792,11 @@ impl ::core::fmt::Debug for NtmsDismountOptions {
         f.debug_tuple("NtmsDismountOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDoorState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = NtmsDoorState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = NtmsDoorState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = NtmsDoorState(2i32);
 impl ::core::marker::Copy for NtmsDoorState {}
 impl ::core::clone::Clone for NtmsDoorState {
@@ -12771,21 +11817,14 @@ impl ::core::fmt::Debug for NtmsDoorState {
         f.debug_tuple("NtmsDoorState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDriveState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = NtmsDriveState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = NtmsDriveState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = NtmsDriveState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = NtmsDriveState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = NtmsDriveState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = NtmsDriveState(7i32);
 impl ::core::marker::Copy for NtmsDriveState {}
 impl ::core::clone::Clone for NtmsDriveState {
@@ -12806,11 +11845,9 @@ impl ::core::fmt::Debug for NtmsDriveState {
         f.debug_tuple("NtmsDriveState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsDriveType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = NtmsDriveType(0i32);
 impl ::core::marker::Copy for NtmsDriveType {}
 impl ::core::clone::Clone for NtmsDriveType {
@@ -12831,21 +11868,14 @@ impl ::core::fmt::Debug for NtmsDriveType {
         f.debug_tuple("NtmsDriveType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsEjectOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EJECT_START: NtmsEjectOperation = NtmsEjectOperation(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EJECT_STOP: NtmsEjectOperation = NtmsEjectOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = NtmsEjectOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EJECT_FORCE: NtmsEjectOperation = NtmsEjectOperation(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = NtmsEjectOperation(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = NtmsEjectOperation(5i32);
 impl ::core::marker::Copy for NtmsEjectOperation {}
 impl ::core::clone::Clone for NtmsEjectOperation {
@@ -12866,13 +11896,10 @@ impl ::core::fmt::Debug for NtmsEjectOperation {
         f.debug_tuple("NtmsEjectOperation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsEnumerateOption(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = NtmsEnumerateOption(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = NtmsEnumerateOption(1i32);
 impl ::core::marker::Copy for NtmsEnumerateOption {}
 impl ::core::clone::Clone for NtmsEnumerateOption {
@@ -12893,17 +11920,12 @@ impl ::core::fmt::Debug for NtmsEnumerateOption {
         f.debug_tuple("NtmsEnumerateOption").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsInjectOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INJECT_START: NtmsInjectOperation = NtmsInjectOperation(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INJECT_STOP: NtmsInjectOperation = NtmsInjectOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = NtmsInjectOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = NtmsInjectOperation(3i32);
 impl ::core::marker::Copy for NtmsInjectOperation {}
 impl ::core::clone::Clone for NtmsInjectOperation {
@@ -12924,23 +11946,15 @@ impl ::core::fmt::Debug for NtmsInjectOperation {
         f.debug_tuple("NtmsInjectOperation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsInventoryMethod(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = NtmsInventoryMethod(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = NtmsInventoryMethod(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = NtmsInventoryMethod(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = NtmsInventoryMethod(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = NtmsInventoryMethod(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = NtmsInventoryMethod(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = NtmsInventoryMethod(6i32);
 impl ::core::marker::Copy for NtmsInventoryMethod {}
 impl ::core::clone::Clone for NtmsInventoryMethod {
@@ -12961,13 +11975,10 @@ impl ::core::fmt::Debug for NtmsInventoryMethod {
         f.debug_tuple("NtmsInventoryMethod").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibRequestFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = NtmsLibRequestFlags(2i32);
 impl ::core::marker::Copy for NtmsLibRequestFlags {}
 impl ::core::clone::Clone for NtmsLibRequestFlags {
@@ -12988,19 +11999,13 @@ impl ::core::fmt::Debug for NtmsLibRequestFlags {
         f.debug_tuple("NtmsLibRequestFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibraryFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = NtmsLibraryFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = NtmsLibraryFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = NtmsLibraryFlags(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = NtmsLibraryFlags(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = NtmsLibraryFlags(16i32);
 impl ::core::marker::Copy for NtmsLibraryFlags {}
 impl ::core::clone::Clone for NtmsLibraryFlags {
@@ -13021,17 +12026,12 @@ impl ::core::fmt::Debug for NtmsLibraryFlags {
         f.debug_tuple("NtmsLibraryFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLibraryType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = NtmsLibraryType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = NtmsLibraryType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = NtmsLibraryType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = NtmsLibraryType(3i32);
 impl ::core::marker::Copy for NtmsLibraryType {}
 impl ::core::clone::Clone for NtmsLibraryType {
@@ -13052,59 +12052,33 @@ impl ::core::fmt::Debug for NtmsLibraryType {
         f.debug_tuple("NtmsLibraryType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLmOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_REMOVE: NtmsLmOperation = NtmsLmOperation(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = NtmsLmOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = NtmsLmOperation(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = NtmsLmOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = NtmsLmOperation(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = NtmsLmOperation(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = NtmsLmOperation(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = NtmsLmOperation(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = NtmsLmOperation(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = NtmsLmOperation(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_INVENTORY: NtmsLmOperation = NtmsLmOperation(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DOORACCESS: NtmsLmOperation = NtmsLmOperation(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_EJECT: NtmsLmOperation = NtmsLmOperation(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = NtmsLmOperation(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_INJECT: NtmsLmOperation = NtmsLmOperation(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = NtmsLmOperation(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = NtmsLmOperation(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = NtmsLmOperation(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DISMOUNT: NtmsLmOperation = NtmsLmOperation(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_MOUNT: NtmsLmOperation = NtmsLmOperation(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = NtmsLmOperation(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_CLASSIFY: NtmsLmOperation = NtmsLmOperation(19i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = NtmsLmOperation(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = NtmsLmOperation(21i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = NtmsLmOperation(22i32);
 impl ::core::marker::Copy for NtmsLmOperation {}
 impl ::core::clone::Clone for NtmsLmOperation {
@@ -13125,29 +12099,18 @@ impl ::core::fmt::Debug for NtmsLmOperation {
         f.debug_tuple("NtmsLmOperation").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsLmState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_QUEUED: NtmsLmState = NtmsLmState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_INPROCESS: NtmsLmState = NtmsLmState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_PASSED: NtmsLmState = NtmsLmState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_FAILED: NtmsLmState = NtmsLmState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_INVALID: NtmsLmState = NtmsLmState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_WAITING: NtmsLmState = NtmsLmState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DEFERRED: NtmsLmState = NtmsLmState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_DEFFERED: NtmsLmState = NtmsLmState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_CANCELLED: NtmsLmState = NtmsLmState(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LM_STOPPED: NtmsLmState = NtmsLmState(8i32);
 impl ::core::marker::Copy for NtmsLmState {}
 impl ::core::clone::Clone for NtmsLmState {
@@ -13168,13 +12131,10 @@ impl ::core::fmt::Debug for NtmsLmState {
         f.debug_tuple("NtmsLmState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMediaPoolPolicy(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = NtmsMediaPoolPolicy(2i32);
 impl ::core::marker::Copy for NtmsMediaPoolPolicy {}
 impl ::core::clone::Clone for NtmsMediaPoolPolicy {
@@ -13195,23 +12155,15 @@ impl ::core::fmt::Debug for NtmsMediaPoolPolicy {
         f.debug_tuple("NtmsMediaPoolPolicy").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMediaState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = NtmsMediaState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = NtmsMediaState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = NtmsMediaState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = NtmsMediaState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = NtmsMediaState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = NtmsMediaState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = NtmsMediaState(6i32);
 impl ::core::marker::Copy for NtmsMediaState {}
 impl ::core::clone::Clone for NtmsMediaState {
@@ -13232,25 +12184,16 @@ impl ::core::fmt::Debug for NtmsMediaState {
         f.debug_tuple("NtmsMediaState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMountOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_READ: NtmsMountOptions = NtmsMountOptions(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_WRITE: NtmsMountOptions = NtmsMountOptions(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = NtmsMountOptions(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = NtmsMountOptions(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = NtmsMountOptions(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = NtmsMountOptions(32i32);
 impl ::core::marker::Copy for NtmsMountOptions {}
 impl ::core::clone::Clone for NtmsMountOptions {
@@ -13271,21 +12214,14 @@ impl ::core::fmt::Debug for NtmsMountOptions {
         f.debug_tuple("NtmsMountOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsMountPriority(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = NtmsMountPriority(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = NtmsMountPriority(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = NtmsMountPriority(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = NtmsMountPriority(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRIORITY_LOW: NtmsMountPriority = NtmsMountPriority(-7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = NtmsMountPriority(-15i32);
 impl ::core::marker::Copy for NtmsMountPriority {}
 impl ::core::clone::Clone for NtmsMountPriority {
@@ -13306,19 +12242,13 @@ impl ::core::fmt::Debug for NtmsMountPriority {
         f.debug_tuple("NtmsMountPriority").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsNotificationOperations(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = NtmsNotificationOperations(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = NtmsNotificationOperations(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = NtmsNotificationOperations(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = NtmsNotificationOperations(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = NtmsNotificationOperations(5i32);
 impl ::core::marker::Copy for NtmsNotificationOperations {}
 impl ::core::clone::Clone for NtmsNotificationOperations {
@@ -13339,49 +12269,28 @@ impl ::core::fmt::Debug for NtmsNotificationOperations {
         f.debug_tuple("NtmsNotificationOperations").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsObjectsTypes(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UNKNOWN: NtmsObjectsTypes = NtmsObjectsTypes(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OBJECT: NtmsObjectsTypes = NtmsObjectsTypes(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_CHANGER: NtmsObjectsTypes = NtmsObjectsTypes(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_COMPUTER: NtmsObjectsTypes = NtmsObjectsTypes(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVE: NtmsObjectsTypes = NtmsObjectsTypes(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_IEDOOR: NtmsObjectsTypes = NtmsObjectsTypes(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_IEPORT: NtmsObjectsTypes = NtmsObjectsTypes(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBRARY: NtmsObjectsTypes = NtmsObjectsTypes(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LIBREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = NtmsObjectsTypes(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = NtmsObjectsTypes(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTITION: NtmsObjectsTypes = NtmsObjectsTypes(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = NtmsObjectsTypes(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_STORAGESLOT: NtmsObjectsTypes = NtmsObjectsTypes(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQUEST: NtmsObjectsTypes = NtmsObjectsTypes(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = NtmsObjectsTypes(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = NtmsObjectsTypes(19i32);
 impl ::core::marker::Copy for NtmsObjectsTypes {}
 impl ::core::clone::Clone for NtmsObjectsTypes {
@@ -13402,17 +12311,12 @@ impl ::core::fmt::Debug for NtmsObjectsTypes {
         f.debug_tuple("NtmsObjectsTypes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpRequestFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = NtmsOpRequestFlags(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = NtmsOpRequestFlags(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = NtmsOpRequestFlags(32i32);
 impl ::core::marker::Copy for NtmsOpRequestFlags {}
 impl ::core::clone::Clone for NtmsOpRequestFlags {
@@ -13433,17 +12337,12 @@ impl ::core::fmt::Debug for NtmsOpRequestFlags {
         f.debug_tuple("NtmsOpRequestFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOperationalState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_READY: NtmsOperationalState = NtmsOperationalState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_INITIALIZING: NtmsOperationalState = NtmsOperationalState(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = NtmsOperationalState(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_NOT_PRESENT: NtmsOperationalState = NtmsOperationalState(21i32);
 impl ::core::marker::Copy for NtmsOperationalState {}
 impl ::core::clone::Clone for NtmsOperationalState {
@@ -13464,21 +12363,14 @@ impl ::core::fmt::Debug for NtmsOperationalState {
         f.debug_tuple("NtmsOperationalState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpreqCommand(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = NtmsOpreqCommand(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = NtmsOpreqCommand(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = NtmsOpreqCommand(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = NtmsOpreqCommand(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = NtmsOpreqCommand(5i32);
 impl ::core::marker::Copy for NtmsOpreqCommand {}
 impl ::core::clone::Clone for NtmsOpreqCommand {
@@ -13499,21 +12391,14 @@ impl ::core::fmt::Debug for NtmsOpreqCommand {
         f.debug_tuple("NtmsOpreqCommand").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsOpreqState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = NtmsOpreqState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = NtmsOpreqState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = NtmsOpreqState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = NtmsOpreqState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = NtmsOpreqState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = NtmsOpreqState(5i32);
 impl ::core::marker::Copy for NtmsOpreqState {}
 impl ::core::clone::Clone for NtmsOpreqState {
@@ -13534,29 +12419,18 @@ impl ::core::fmt::Debug for NtmsOpreqState {
         f.debug_tuple("NtmsOpreqState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPartitionState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = NtmsPartitionState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = NtmsPartitionState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = NtmsPartitionState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = NtmsPartitionState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = NtmsPartitionState(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = NtmsPartitionState(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = NtmsPartitionState(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = NtmsPartitionState(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = NtmsPartitionState(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = NtmsPartitionState(9i32);
 impl ::core::marker::Copy for NtmsPartitionState {}
 impl ::core::clone::Clone for NtmsPartitionState {
@@ -13577,19 +12451,13 @@ impl ::core::fmt::Debug for NtmsPartitionState {
         f.debug_tuple("NtmsPartitionState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPoolType(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = NtmsPoolType(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = NtmsPoolType(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = NtmsPoolType(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = NtmsPoolType(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = NtmsPoolType(1000i32);
 impl ::core::marker::Copy for NtmsPoolType {}
 impl ::core::clone::Clone for NtmsPoolType {
@@ -13610,15 +12478,11 @@ impl ::core::fmt::Debug for NtmsPoolType {
         f.debug_tuple("NtmsPoolType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPortContent(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = NtmsPortContent(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = NtmsPortContent(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = NtmsPortContent(2i32);
 impl ::core::marker::Copy for NtmsPortContent {}
 impl ::core::clone::Clone for NtmsPortContent {
@@ -13639,15 +12503,11 @@ impl ::core::fmt::Debug for NtmsPortContent {
         f.debug_tuple("NtmsPortContent").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsPortPosition(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = NtmsPortPosition(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = NtmsPortPosition(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = NtmsPortPosition(2i32);
 impl ::core::marker::Copy for NtmsPortPosition {}
 impl ::core::clone::Clone for NtmsPortPosition {
@@ -13668,17 +12528,12 @@ impl ::core::fmt::Debug for NtmsPortPosition {
         f.debug_tuple("NtmsPortPosition").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsReadWriteCharacteristics(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = NtmsReadWriteCharacteristics(3i32);
 impl ::core::marker::Copy for NtmsReadWriteCharacteristics {}
 impl ::core::clone::Clone for NtmsReadWriteCharacteristics {
@@ -13699,11 +12554,9 @@ impl ::core::fmt::Debug for NtmsReadWriteCharacteristics {
         f.debug_tuple("NtmsReadWriteCharacteristics").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsSessionOptions(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = NtmsSessionOptions(1i32);
 impl ::core::marker::Copy for NtmsSessionOptions {}
 impl ::core::clone::Clone for NtmsSessionOptions {
@@ -13724,19 +12577,13 @@ impl ::core::fmt::Debug for NtmsSessionOptions {
         f.debug_tuple("NtmsSessionOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsSlotState(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = NtmsSlotState(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = NtmsSlotState(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = NtmsSlotState(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = NtmsSlotState(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = NtmsSlotState(4i32);
 impl ::core::marker::Copy for NtmsSlotState {}
 impl ::core::clone::Clone for NtmsSlotState {
@@ -13757,17 +12604,12 @@ impl ::core::fmt::Debug for NtmsSlotState {
         f.debug_tuple("NtmsSlotState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsUIOperations(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UIDEST_ADD: NtmsUIOperations = NtmsUIOperations(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UIDEST_DELETE: NtmsUIOperations = NtmsUIOperations(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = NtmsUIOperations(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = NtmsUIOperations(4i32);
 impl ::core::marker::Copy for NtmsUIOperations {}
 impl ::core::clone::Clone for NtmsUIOperations {
@@ -13788,19 +12630,13 @@ impl ::core::fmt::Debug for NtmsUIOperations {
         f.debug_tuple("NtmsUIOperations").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NtmsUITypes(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UITYPE_INVALID: NtmsUITypes = NtmsUITypes(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UITYPE_INFO: NtmsUITypes = NtmsUITypes(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UITYPE_REQ: NtmsUITypes = NtmsUITypes(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UITYPE_ERR: NtmsUITypes = NtmsUITypes(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const NTMS_UITYPE_MAX: NtmsUITypes = NtmsUITypes(4i32);
 impl ::core::marker::Copy for NtmsUITypes {}
 impl ::core::clone::Clone for NtmsUITypes {
@@ -13822,7 +12658,6 @@ impl ::core::fmt::Debug for NtmsUITypes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFSTRUCT {
     pub cBytes: u8,
@@ -13864,7 +12699,6 @@ impl ::core::default::Default for OFSTRUCT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn OpenEncryptedFileRawA<'a, P0>(lpfilename: P0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32
 where
@@ -13876,7 +12710,6 @@ where
     }
     OpenEncryptedFileRawA(lpfilename.into(), ulflags, ::core::mem::transmute(pvcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn OpenEncryptedFileRawW<'a, P0>(lpfilename: P0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32
 where
@@ -13888,7 +12721,6 @@ where
     }
     OpenEncryptedFileRawW(lpfilename.into(), ulflags, ::core::mem::transmute(pvcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEnlistment<'a, P0>(dwdesiredaccess: u32, resourcemanagerhandle: P0, enlistmentid: &mut ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -13902,7 +12734,6 @@ where
     let result__ = OpenEnlistment(dwdesiredaccess, resourcemanagerhandle.into(), ::core::mem::transmute(enlistmentid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenFile<'a, P0>(lpfilename: P0, lpreopenbuff: &mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32
@@ -13915,7 +12746,6 @@ where
     }
     OpenFile(lpfilename.into(), ::core::mem::transmute(lpreopenbuff), ustyle)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn OpenFileById<'a, P0>(hvolumehint: P0, lpfileid: &FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: ::core::option::Option<&super::super::Security::SECURITY_ATTRIBUTES>, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -13929,7 +12759,6 @@ where
     let result__ = OpenFileById(hvolumehint.into(), ::core::mem::transmute(lpfileid), dwdesiredaccess, dwsharemode, ::core::mem::transmute(lpsecurityattributes), dwflagsandattributes);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenResourceManager<'a, P0>(dwdesiredaccess: u32, tmhandle: P0, resourcemanagerid: &mut ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -13943,7 +12772,6 @@ where
     let result__ = OpenResourceManager(dwdesiredaccess, tmhandle.into(), ::core::mem::transmute(resourcemanagerid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: &mut ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -13954,7 +12782,6 @@ pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: &mut ::window
     let result__ = OpenTransaction(dwdesiredaccess, ::core::mem::transmute(transactionid));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransactionManager<'a, P0>(logfilename: P0, desiredaccess: u32, openoptions: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -13968,7 +12795,6 @@ where
     let result__ = OpenTransactionManager(logfilename.into(), desiredaccess, openoptions);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransactionManagerById(transactionmanagerid: &::windows::core::GUID, desiredaccess: u32, openoptions: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -14003,42 +12829,27 @@ pub const PARTITION_SPACES_DATA_GUID: ::windows::core::GUID = ::windows::core::G
 pub const PARTITION_SPACES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75caf8f_f680_4cee_afa3_b001e56efc2d);
 pub const PARTITION_SYSTEM_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12a7328_f81f_11d2_ba4b_00a0c93ec93b);
 pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type PCLFS_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32)>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCOPYFILE2_PROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const ::core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type PFE_EXPORT_FUNC = ::core::option::Option<unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub type PFE_IMPORT_FUNC = ::core::option::Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32)>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_FULL_HANDLER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_TAIL_ADVANCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PREPARE_TAPE_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = PREPARE_TAPE_OPERATION(4i32);
 impl ::core::marker::Copy for PREPARE_TAPE_OPERATION {}
 impl ::core::clone::Clone for PREPARE_TAPE_OPERATION {
@@ -14059,17 +12870,12 @@ impl ::core::fmt::Debug for PREPARE_TAPE_OPERATION {
         f.debug_tuple("PREPARE_TAPE_OPERATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRIORITY_HINT(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IoPriorityHintVeryLow: PRIORITY_HINT = PRIORITY_HINT(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IoPriorityHintLow: PRIORITY_HINT = PRIORITY_HINT(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const IoPriorityHintNormal: PRIORITY_HINT = PRIORITY_HINT(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const MaximumIoPriorityHintType: PRIORITY_HINT = PRIORITY_HINT(3i32);
 impl ::core::marker::Copy for PRIORITY_HINT {}
 impl ::core::clone::Clone for PRIORITY_HINT {
@@ -14090,7 +12896,6 @@ impl ::core::fmt::Debug for PRIORITY_HINT {
         f.debug_tuple("PRIORITY_HINT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn PopIoRingCompletion(ioring: &HIORING__) -> ::windows::core::Result<IORING_CQE> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -14100,7 +12905,6 @@ pub unsafe fn PopIoRingCompletion(ioring: &HIORING__) -> ::windows::core::Result
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PopIoRingCompletion(::core::mem::transmute(ioring), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IORING_CQE>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrePrepareComplete<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14113,7 +12917,6 @@ where
     }
     PrePrepareComplete(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrePrepareEnlistment<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14126,7 +12929,6 @@ where
     }
     PrePrepareEnlistment(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareComplete<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14139,7 +12941,6 @@ where
     }
     PrepareComplete(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareEnlistment<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14152,7 +12953,6 @@ where
     }
     PrepareEnlistment(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareLogArchive<'a, P0>(hlog: P0, pszbaselogfilename: &mut [u16], plsnlow: ::core::option::Option<&CLS_LSN>, plsnhigh: ::core::option::Option<&CLS_LSN>, pcactuallength: ::core::option::Option<&mut u32>, poffbaselogfiledata: &mut u64, pcbbaselogfilelength: &mut u64, plsnbase: &mut CLS_LSN, plsnlast: &mut CLS_LSN, plsncurrentarchivetail: &mut CLS_LSN, ppvarchivecontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -14165,7 +12965,6 @@ where
     }
     PrepareLogArchive(hlog.into(), ::core::mem::transmute(pszbaselogfilename.as_ptr()), pszbaselogfilename.len() as _, ::core::mem::transmute(plsnlow), ::core::mem::transmute(plsnhigh), ::core::mem::transmute(pcactuallength), ::core::mem::transmute(poffbaselogfiledata), ::core::mem::transmute(pcbbaselogfilelength), ::core::mem::transmute(plsnbase), ::core::mem::transmute(plsnlast), ::core::mem::transmute(plsncurrentarchivetail), ::core::mem::transmute(ppvarchivecontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareTape<'a, P0, P1>(hdevice: P0, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: P1) -> u32
@@ -14179,7 +12978,6 @@ where
     }
     PrepareTape(hdevice.into(), dwoperation, bimmediate.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn QueryDosDeviceA<'a, P0>(lpdevicename: P0, lptargetpath: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -14191,7 +12989,6 @@ where
     }
     QueryDosDeviceA(lpdevicename.into(), ::core::mem::transmute(lptargetpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn QueryDosDeviceW<'a, P0>(lpdevicename: P0, lptargetpath: ::core::option::Option<&mut [u16]>) -> u32
 where
@@ -14203,7 +13000,6 @@ where
     }
     QueryDosDeviceW(lpdevicename.into(), ::core::mem::transmute(lptargetpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lptargetpath.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABILITIES> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -14213,7 +13009,6 @@ pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABI
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     QueryIoRingCapabilities(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IORING_CAPABILITIES>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryLogPolicy<'a, P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: &mut CLFS_MGMT_POLICY, pcbpolicybuffer: &mut u32) -> super::super::Foundation::BOOL
@@ -14226,7 +13021,6 @@ where
     }
     QueryLogPolicy(hlog.into(), epolicytype, ::core::mem::transmute(ppolicybuffer), ::core::mem::transmute(pcbpolicybuffer))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<'a, P0>(lpfilename: P0, precoveryagents: &mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
@@ -14239,7 +13033,6 @@ where
     }
     QueryRecoveryAgentsOnEncryptedFile(lpfilename.into(), ::core::mem::transmute(precoveryagents))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn QueryUsersOnEncryptedFile<'a, P0>(lpfilename: P0, pusers: &mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
@@ -14252,13 +13045,10 @@ where
     }
     QueryUsersOnEncryptedFile(lpfilename.into(), ::core::mem::transmute(pusers))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = READ_DIRECTORY_NOTIFY_INFORMATION_CLASS(2i32);
 impl ::core::marker::Copy for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {}
 impl ::core::clone::Clone for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
@@ -14280,7 +13070,6 @@ impl ::core::fmt::Debug for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
@@ -14314,7 +13103,6 @@ impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
@@ -14343,15 +13131,11 @@ impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REPLACE_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = REPLACE_FILE_FLAGS(4u32);
 impl ::core::marker::Copy for REPLACE_FILE_FLAGS {}
 impl ::core::clone::Clone for REPLACE_FILE_FLAGS {
@@ -14400,15 +13184,10 @@ impl ::core::ops::Not for REPLACE_FILE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_OBJECT_PATH: &str = "\\ResourceManager\\";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReOpenFile<'a, P0>(horiginalfile: P0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> ::windows::core::Result<super::super::Foundation::HANDLE>
@@ -14422,7 +13201,6 @@ where
     let result__ = ReOpenFile(horiginalfile.into(), dwdesiredaccess, dwsharemode, dwflagsandattributes);
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadDirectoryChangesExW<'a, P0, P1>(hdirectory: P0, lpbuffer: &mut [u8], bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: ::core::option::Option<&mut u32>, lpoverlapped: ::core::option::Option<&mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL
@@ -14436,7 +13214,6 @@ where
     }
     ReadDirectoryChangesExW(hdirectory.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, bwatchsubtree.into(), dwnotifyfilter, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), readdirectorynotifyinformationclass)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadDirectoryChangesW<'a, P0, P1>(hdirectory: P0, lpbuffer: &mut [u8], bwatchsubtree: P1, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: ::core::option::Option<&mut u32>, lpoverlapped: ::core::option::Option<&mut super::super::System::IO::OVERLAPPED>, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL
@@ -14450,7 +13227,6 @@ where
     }
     ReadDirectoryChangesW(hdirectory.into(), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, bwatchsubtree.into(), dwnotifyfilter, ::core::mem::transmute(lpbytesreturned), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -14459,7 +13235,6 @@ pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallback
     }
     ReadEncryptedFileRaw(::core::mem::transmute(pfexportcallback), ::core::mem::transmute(pvcallbackcontext), ::core::mem::transmute(pvcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFile<'a, P0>(hfile: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpnumberofbytesread: ::core::option::Option<&mut u32>, lpoverlapped: ::core::option::Option<&mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
@@ -14472,7 +13247,6 @@ where
     }
     ReadFile(hfile.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnumberofbytesread), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFileEx<'a, P0>(hfile: P0, lpbuffer: ::core::option::Option<&mut [u8]>, lpoverlapped: &mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL
@@ -14485,7 +13259,6 @@ where
     }
     ReadFileEx(hfile.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFileScatter<'a, P0>(hfile: P0, asegmentarray: &FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: &mut u32, lpoverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -14498,7 +13271,6 @@ where
     }
     ReadFileScatter(hfile.into(), ::core::mem::transmute(asegmentarray), nnumberofbytestoread, ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: &mut u8, pcbbytesread: &mut u32) -> super::super::Foundation::BOOL {
@@ -14508,7 +13280,6 @@ pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void,
     }
     ReadLogArchiveMetadata(::core::mem::transmute(pvarchivecontext), cboffset, cbbytestoread, ::core::mem::transmute(pbreadbuffer), ::core::mem::transmute(pcbbytesread))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogNotification<'a, P0>(hlog: P0, pnotification: &mut CLFS_MGMT_NOTIFICATION, lpoverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -14521,7 +13292,6 @@ where
     }
     ReadLogNotification(hlog.into(), ::core::mem::transmute(pnotification), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: &mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: &mut u32, perecordtype: &mut u8, plsnundonext: &mut CLS_LSN, plsnprevious: &mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14531,7 +13301,6 @@ pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: &mut
     }
     ReadLogRecord(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnfirst), econtextmode, ::core::mem::transmute(ppvreadbuffer), ::core::mem::transmute(pcbreadbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(ppvreadcontext), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: &mut u32, plsn: &mut CLS_LSN, ppvcontext: *mut *mut ::core::ffi::c_void, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14541,7 +13310,6 @@ pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestart
     }
     ReadLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(ppvrestartbuffer), ::core::mem::transmute(pcbrestartbuffer), ::core::mem::transmute(plsn), ::core::mem::transmute(ppvcontext), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: &mut u32, perecordtype: &mut u8, plsnuser: &mut CLS_LSN, plsnundonext: &mut CLS_LSN, plsnprevious: &mut CLS_LSN, plsnrecord: &mut CLS_LSN, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14551,7 +13319,6 @@ pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuff
     }
     ReadNextLogRecord(::core::mem::transmute(pvreadcontext), ::core::mem::transmute(ppvbuffer), ::core::mem::transmute(pcbbuffer), ::core::mem::transmute(perecordtype), ::core::mem::transmute(plsnuser), ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), ::core::mem::transmute(plsnrecord), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadOnlyEnlistment<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14564,7 +13331,6 @@ where
     }
     ReadOnlyEnlistment(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: &mut u32, plsnrestart: &mut CLS_LSN, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14574,7 +13340,6 @@ pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void
     }
     ReadPreviousLogRestartArea(::core::mem::transmute(pvreadcontext), ::core::mem::transmute(ppvrestartbuffer), ::core::mem::transmute(pcbrestartbuffer), ::core::mem::transmute(plsnrestart), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RecoverEnlistment<'a, P0>(enlistmenthandle: P0, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -14587,7 +13352,6 @@ where
     }
     RecoverEnlistment(enlistmenthandle.into(), ::core::mem::transmute(enlistmentkey))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RecoverResourceManager<'a, P0>(resourcemanagerhandle: P0) -> super::super::Foundation::BOOL
@@ -14600,7 +13364,6 @@ where
     }
     RecoverResourceManager(resourcemanagerhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RecoverTransactionManager<'a, P0>(transactionmanagerhandle: P0) -> super::super::Foundation::BOOL
@@ -14613,7 +13376,6 @@ where
     }
     RecoverTransactionManager(transactionmanagerhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterForLogWriteNotification<'a, P0, P1>(hlog: P0, cbthreshold: u32, fenable: P1) -> super::super::Foundation::BOOL
@@ -14627,7 +13389,6 @@ where
     }
     RegisterForLogWriteNotification(hlog.into(), cbthreshold, fenable.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterManageableLogClient<'a, P0>(hlog: P0, pcallbacks: &mut LOG_MANAGEMENT_CALLBACKS) -> super::super::Foundation::BOOL
@@ -14640,7 +13401,6 @@ where
     }
     RegisterManageableLogClient(hlog.into(), ::core::mem::transmute(pcallbacks))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryA<'a, P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -14653,7 +13413,6 @@ where
     }
     RemoveDirectoryA(lppathname.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryFromAppW<'a, P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -14666,7 +13425,6 @@ where
     }
     RemoveDirectoryFromAppW(lppathname.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryTransactedA<'a, P0, P1>(lppathname: P0, htransaction: P1) -> super::super::Foundation::BOOL
@@ -14680,7 +13438,6 @@ where
     }
     RemoveDirectoryTransactedA(lppathname.into(), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryTransactedW<'a, P0, P1>(lppathname: P0, htransaction: P1) -> super::super::Foundation::BOOL
@@ -14694,7 +13451,6 @@ where
     }
     RemoveDirectoryTransactedW(lppathname.into(), htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryW<'a, P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -14707,7 +13463,6 @@ where
     }
     RemoveDirectoryW(lppathname.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveLogContainer<'a, P0, P1, P2>(hlog: P0, pwszcontainerpath: P1, fforce: P2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -14722,7 +13477,6 @@ where
     }
     RemoveLogContainer(hlog.into(), pwszcontainerpath.into(), fforce.into(), ::core::mem::transmute(preserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveLogContainerSet<'a, P0, P1>(hlog: P0, rgwszcontainerpath: &[::windows::core::PWSTR], fforce: P1, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -14736,7 +13490,6 @@ where
     }
     RemoveLogContainerSet(hlog.into(), rgwszcontainerpath.len() as _, ::core::mem::transmute(rgwszcontainerpath.as_ptr()), fforce.into(), ::core::mem::transmute(preserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveLogPolicy<'a, P0>(hlog: P0, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL
@@ -14749,7 +13502,6 @@ where
     }
     RemoveLogPolicy(hlog.into(), epolicytype)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn RemoveUsersFromEncryptedFile<'a, P0>(lpfilename: P0, phashes: &ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32
@@ -14762,7 +13514,6 @@ where
     }
     RemoveUsersFromEncryptedFile(lpfilename.into(), ::core::mem::transmute(phashes))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RenameTransactionManager<'a, P0>(logfilename: P0, existingtransactionmanagerguid: &mut ::windows::core::GUID) -> super::super::Foundation::BOOL
@@ -14775,7 +13526,6 @@ where
     }
     RenameTransactionManager(logfilename.into(), ::core::mem::transmute(existingtransactionmanagerguid))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceFileA<'a, P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -14790,7 +13540,6 @@ where
     }
     ReplaceFileA(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags, ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceFileFromAppW<'a, P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -14805,7 +13554,6 @@ where
     }
     ReplaceFileFromAppW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags, ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceFileW<'a, P0, P1, P2>(lpreplacedfilename: P0, lpreplacementfilename: P1, lpbackupfilename: P2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -14820,7 +13568,6 @@ where
     }
     ReplaceFileW(lpreplacedfilename.into(), lpreplacementfilename.into(), lpbackupfilename.into(), dwreplaceflags, ::core::mem::transmute(lpexclude), ::core::mem::transmute(lpreserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: &mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: &mut CLS_LSN, plsnprevious: &mut CLS_LSN, creserverecords: u32, rgcbreservation: &mut i64, fflags: CLFS_FLAG, plsn: &mut CLS_LSN, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14830,7 +13577,6 @@ pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteen
     }
     ReserveAndAppendLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), cwriteentries, ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), creserverecords, ::core::mem::transmute(rgcbreservation), fflags, ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: &mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: &mut CLS_LSN, plsnprevious: &mut CLS_LSN, creserverecords: u32, rgcbreservation: &mut i64, fflags: CLFS_FLAG, plsn: &mut CLS_LSN, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14840,7 +13586,6 @@ pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rg
     }
     ReserveAndAppendLogAligned(::core::mem::transmute(pvmarshal), ::core::mem::transmute(rgwriteentries), cwriteentries, cbentryalignment, ::core::mem::transmute(plsnundonext), ::core::mem::transmute(plsnprevious), creserverecords, ::core::mem::transmute(rgcbreservation), fflags, ::core::mem::transmute(plsn), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackComplete<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14853,7 +13598,6 @@ where
     }
     RollbackComplete(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackEnlistment<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14866,7 +13610,6 @@ where
     }
     RollbackEnlistment(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackTransaction<'a, P0>(transactionhandle: P0) -> super::super::Foundation::BOOL
@@ -14879,7 +13622,6 @@ where
     }
     RollbackTransaction(transactionhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackTransactionAsync<'a, P0>(transactionhandle: P0) -> super::super::Foundation::BOOL
@@ -14892,7 +13634,6 @@ where
     }
     RollbackTransactionAsync(transactionhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollforwardTransactionManager<'a, P0>(transactionmanagerhandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -14906,7 +13647,6 @@ where
     RollforwardTransactionManager(transactionmanagerhandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: ::windows::core::PWSTR,
@@ -14947,7 +13687,6 @@ impl ::core::default::Default for SERVER_ALIAS_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SERVER_CERTIFICATE_INFO_0 {
     pub srvci0_name: ::windows::core::PWSTR,
     pub srvci0_subject: ::windows::core::PWSTR,
@@ -15000,11 +13739,9 @@ impl ::core::default::Default for SERVER_CERTIFICATE_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SERVER_CERTIFICATE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const QUIC: SERVER_CERTIFICATE_TYPE = SERVER_CERTIFICATE_TYPE(0i32);
 impl ::core::marker::Copy for SERVER_CERTIFICATE_TYPE {}
 impl ::core::clone::Clone for SERVER_CERTIFICATE_TYPE {
@@ -15025,12 +13762,9 @@ impl ::core::fmt::Debug for SERVER_CERTIFICATE_TYPE {
         f.debug_tuple("SERVER_CERTIFICATE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: ::windows::core::PWSTR,
 }
@@ -15060,7 +13794,6 @@ impl ::core::default::Default for SESSION_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: ::windows::core::PWSTR,
     pub sesi1_username: ::windows::core::PWSTR,
@@ -15095,7 +13828,6 @@ impl ::core::default::Default for SESSION_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: ::windows::core::PWSTR,
     pub sesi10_username: ::windows::core::PWSTR,
@@ -15128,7 +13860,6 @@ impl ::core::default::Default for SESSION_INFO_10 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: ::windows::core::PWSTR,
     pub sesi2_username: ::windows::core::PWSTR,
@@ -15164,7 +13895,6 @@ impl ::core::default::Default for SESSION_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: ::windows::core::PWSTR,
     pub sesi502_username: ::windows::core::PWSTR,
@@ -15200,13 +13930,10 @@ impl ::core::default::Default for SESSION_INFO_502 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SESSION_INFO_USER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = SESSION_INFO_USER_FLAGS(2u32);
 impl ::core::marker::Copy for SESSION_INFO_USER_FLAGS {}
 impl ::core::clone::Clone for SESSION_INFO_USER_FLAGS {
@@ -15227,15 +13954,11 @@ impl ::core::fmt::Debug for SESSION_INFO_USER_FLAGS {
         f.debug_tuple("SESSION_INFO_USER_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SET_FILE_POINTER_MOVE_METHOD(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = SET_FILE_POINTER_MOVE_METHOD(2u32);
 impl ::core::marker::Copy for SET_FILE_POINTER_MOVE_METHOD {}
 impl ::core::clone::Clone for SET_FILE_POINTER_MOVE_METHOD {
@@ -15256,12 +13979,9 @@ impl ::core::fmt::Debug for SET_FILE_POINTER_MOVE_METHOD {
         f.debug_tuple("SET_FILE_POINTER_MOVE_METHOD").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: ::windows::core::PWSTR,
 }
@@ -15291,7 +14011,6 @@ impl ::core::default::Default for SHARE_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: ::windows::core::PWSTR,
     pub shi1_type: SHARE_TYPE,
@@ -15323,7 +14042,6 @@ impl ::core::default::Default for SHARE_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: ::windows::core::PWSTR,
 }
@@ -15353,7 +14071,6 @@ impl ::core::default::Default for SHARE_INFO_1004 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
@@ -15383,7 +14100,6 @@ impl ::core::default::Default for SHARE_INFO_1005 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
@@ -15413,7 +14129,6 @@ impl ::core::default::Default for SHARE_INFO_1006 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
@@ -15452,7 +14167,6 @@ impl ::core::default::Default for SHARE_INFO_1501 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: ::windows::core::GUID,
 }
@@ -15482,7 +14196,6 @@ impl ::core::default::Default for SHARE_INFO_1503 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: ::windows::core::PWSTR,
     pub shi2_type: SHARE_TYPE,
@@ -15519,7 +14232,6 @@ impl ::core::default::Default for SHARE_INFO_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: ::windows::core::PWSTR,
     pub shi501_type: SHARE_TYPE,
@@ -15552,7 +14264,6 @@ impl ::core::default::Default for SHARE_INFO_501 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: ::windows::core::PWSTR,
@@ -15610,7 +14321,6 @@ impl ::core::default::Default for SHARE_INFO_502 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: ::windows::core::PWSTR,
@@ -15669,25 +14379,16 @@ impl ::core::default::Default for SHARE_INFO_503 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARE_INFO_PERMISSIONS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = SHARE_INFO_PERMISSIONS(32768u32);
 impl ::core::marker::Copy for SHARE_INFO_PERMISSIONS {}
 impl ::core::clone::Clone for SHARE_INFO_PERMISSIONS {
@@ -15708,37 +14409,22 @@ impl ::core::fmt::Debug for SHARE_INFO_PERMISSIONS {
         f.debug_tuple("SHARE_INFO_PERMISSIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_PATH_PARMNUM: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARE_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_DISKTREE: SHARE_TYPE = SHARE_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_PRINTQ: SHARE_TYPE = SHARE_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_DEVICE: SHARE_TYPE = SHARE_TYPE(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_IPC: SHARE_TYPE = SHARE_TYPE(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_SPECIAL: SHARE_TYPE = SHARE_TYPE(2147483648u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_TEMPORARY: SHARE_TYPE = SHARE_TYPE(1073741824u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_MASK: SHARE_TYPE = SHARE_TYPE(255u32);
 impl ::core::marker::Copy for SHARE_TYPE {}
 impl ::core::clone::Clone for SHARE_TYPE {
@@ -15787,48 +14473,27 @@ impl ::core::ops::Not for SHARE_TYPE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_DFS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STATSOPT_CLR: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct STAT_SERVER_0 {
     pub sts0_start: u32,
     pub sts0_fopens: u32,
@@ -15892,7 +14557,6 @@ impl ::core::default::Default for STAT_SERVER_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct STAT_WORKSTATION_0 {
     pub StatisticsStartTime: i64,
     pub BytesReceived: i64,
@@ -16001,53 +14665,30 @@ impl ::core::default::Default for STAT_WORKSTATION_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STORAGE_BUS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeAtapi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeAta: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusType1394: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeSsa: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeFibre: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeUsb: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeRAID: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeiScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeSas: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeSata: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeSd: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeMmc: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeSpaces: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeNvme: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
 impl ::core::marker::Copy for STORAGE_BUS_TYPE {}
 impl ::core::clone::Clone for STORAGE_BUS_TYPE {
@@ -16068,13 +14709,10 @@ impl ::core::fmt::Debug for STORAGE_BUS_TYPE {
         f.debug_tuple("STORAGE_BUS_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STREAM_INFO_LEVELS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = STREAM_INFO_LEVELS(1i32);
 impl ::core::marker::Copy for STREAM_INFO_LEVELS {}
 impl ::core::clone::Clone for STREAM_INFO_LEVELS {
@@ -16095,25 +14733,16 @@ impl ::core::fmt::Debug for STREAM_INFO_LEVELS {
         f.debug_tuple("STREAM_INFO_LEVELS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED1: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED2: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED3: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED4: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED5: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYMBOLIC_LINK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = SYMBOLIC_LINK_FLAGS(2u32);
 impl ::core::marker::Copy for SYMBOLIC_LINK_FLAGS {}
 impl ::core::clone::Clone for SYMBOLIC_LINK_FLAGS {
@@ -16162,7 +14791,6 @@ impl ::core::ops::Not for SYMBOLIC_LINK_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScanLogContainers(pcxscan: &mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -16172,7 +14800,6 @@ pub unsafe fn ScanLogContainers(pcxscan: &mut CLS_SCAN_CONTEXT, escanmode: u8, p
     }
     ScanLogContainers(::core::mem::transmute(pcxscan), escanmode, ::core::mem::transmute(preserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SearchPathA<'a, P0, P1, P2>(lppath: P0, lpfilename: P1, lpextension: P2, lpbuffer: ::core::option::Option<&mut [u8]>, lpfilepart: ::core::option::Option<&mut ::windows::core::PSTR>) -> u32
 where
@@ -16186,7 +14813,6 @@ where
     }
     SearchPathA(lppath.into(), lpfilename.into(), lpextension.into(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SearchPathW<'a, P0, P1, P2>(lppath: P0, lpfilename: P1, lpextension: P2, lpbuffer: ::core::option::Option<&mut [u16]>, lpfilepart: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32
 where
@@ -16200,7 +14826,6 @@ where
     }
     SearchPathW(lppath.into(), lpfilename.into(), lpextension.into(), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(lpfilepart))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetEncryptedFileMetadata<'a, P0>(lpfilename: P0, pboldmetadata: ::core::option::Option<&u8>, pbnewmetadata: &u8, pownerhash: &ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: ::core::option::Option<&ENCRYPTION_CERTIFICATE_HASH_LIST>) -> u32
@@ -16213,7 +14838,6 @@ where
     }
     SetEncryptedFileMetadata(lpfilename.into(), ::core::mem::transmute(pboldmetadata), ::core::mem::transmute(pbnewmetadata), ::core::mem::transmute(pownerhash), dwoperation, ::core::mem::transmute(pcertificatesadded))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEndOfFile<'a, P0>(hfile: P0) -> super::super::Foundation::BOOL
@@ -16226,7 +14850,6 @@ where
     }
     SetEndOfFile(hfile.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn SetEndOfLog<'a, P0>(hlog: P0, plsnend: &mut CLS_LSN, lpoverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -16239,7 +14862,6 @@ where
     }
     SetEndOfLog(hlog.into(), ::core::mem::transmute(plsnend), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnlistmentRecoveryInformation<'a, P0>(enlistmenthandle: P0, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -16252,7 +14874,6 @@ where
     }
     SetEnlistmentRecoveryInformation(enlistmenthandle.into(), buffersize, ::core::mem::transmute(buffer))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SetFileApisToANSI() {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -16261,7 +14882,6 @@ pub unsafe fn SetFileApisToANSI() {
     }
     SetFileApisToANSI()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SetFileApisToOEM() {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -16270,7 +14890,6 @@ pub unsafe fn SetFileApisToOEM() {
     }
     SetFileApisToOEM()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesA<'a, P0>(lpfilename: P0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL
@@ -16283,7 +14902,6 @@ where
     }
     SetFileAttributesA(lpfilename.into(), dwfileattributes)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesFromAppW<'a, P0>(lpfilename: P0, dwfileattributes: u32) -> super::super::Foundation::BOOL
@@ -16296,7 +14914,6 @@ where
     }
     SetFileAttributesFromAppW(lpfilename.into(), dwfileattributes)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesTransactedA<'a, P0, P1>(lpfilename: P0, dwfileattributes: u32, htransaction: P1) -> super::super::Foundation::BOOL
@@ -16310,7 +14927,6 @@ where
     }
     SetFileAttributesTransactedA(lpfilename.into(), dwfileattributes, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesTransactedW<'a, P0, P1>(lpfilename: P0, dwfileattributes: u32, htransaction: P1) -> super::super::Foundation::BOOL
@@ -16324,7 +14940,6 @@ where
     }
     SetFileAttributesTransactedW(lpfilename.into(), dwfileattributes, htransaction.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesW<'a, P0>(lpfilename: P0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL
@@ -16337,7 +14952,6 @@ where
     }
     SetFileAttributesW(lpfilename.into(), dwfileattributes)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileBandwidthReservation<'a, P0, P1>(hfile: P0, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: P1, lptransfersize: &mut u32, lpnumoutstandingrequests: &mut u32) -> super::super::Foundation::BOOL
@@ -16351,7 +14965,6 @@ where
     }
     SetFileBandwidthReservation(hfile.into(), nperiodmilliseconds, nbytesperperiod, bdiscardable.into(), ::core::mem::transmute(lptransfersize), ::core::mem::transmute(lpnumoutstandingrequests))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileCompletionNotificationModes<'a, P0>(filehandle: P0, flags: u8) -> super::super::Foundation::BOOL
@@ -16364,7 +14977,6 @@ where
     }
     SetFileCompletionNotificationModes(filehandle.into(), flags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileInformationByHandle<'a, P0>(hfile: P0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: &[u8]) -> super::super::Foundation::BOOL
@@ -16377,7 +14989,6 @@ where
     }
     SetFileInformationByHandle(hfile.into(), fileinformationclass, ::core::mem::transmute(lpfileinformation.as_ptr()), lpfileinformation.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileIoOverlappedRange<'a, P0>(filehandle: P0, overlappedrangestart: &u8, length: u32) -> super::super::Foundation::BOOL
@@ -16390,7 +15001,6 @@ where
     }
     SetFileIoOverlappedRange(filehandle.into(), ::core::mem::transmute(overlappedrangestart), length)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFilePointer<'a, P0>(hfile: P0, ldistancetomove: i32, lpdistancetomovehigh: ::core::option::Option<&mut i32>, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32
@@ -16403,7 +15013,6 @@ where
     }
     SetFilePointer(hfile.into(), ldistancetomove, ::core::mem::transmute(lpdistancetomovehigh), dwmovemethod)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFilePointerEx<'a, P0>(hfile: P0, lidistancetomove: i64, lpnewfilepointer: ::core::option::Option<&mut i64>, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL
@@ -16416,7 +15025,6 @@ where
     }
     SetFilePointerEx(hfile.into(), lidistancetomove, ::core::mem::transmute(lpnewfilepointer), dwmovemethod)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileShortNameA<'a, P0, P1>(hfile: P0, lpshortname: P1) -> super::super::Foundation::BOOL
@@ -16430,7 +15038,6 @@ where
     }
     SetFileShortNameA(hfile.into(), lpshortname.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileShortNameW<'a, P0, P1>(hfile: P0, lpshortname: P1) -> super::super::Foundation::BOOL
@@ -16444,7 +15051,6 @@ where
     }
     SetFileShortNameW(hfile.into(), lpshortname.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileTime<'a, P0>(hfile: P0, lpcreationtime: ::core::option::Option<&super::super::Foundation::FILETIME>, lplastaccesstime: ::core::option::Option<&super::super::Foundation::FILETIME>, lplastwritetime: ::core::option::Option<&super::super::Foundation::FILETIME>) -> super::super::Foundation::BOOL
@@ -16457,7 +15063,6 @@ where
     }
     SetFileTime(hfile.into(), ::core::mem::transmute(lpcreationtime), ::core::mem::transmute(lplastaccesstime), ::core::mem::transmute(lplastwritetime))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileValidData<'a, P0>(hfile: P0, validdatalength: i64) -> super::super::Foundation::BOOL
@@ -16470,7 +15075,6 @@ where
     }
     SetFileValidData(hfile.into(), validdatalength)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetIoRingCompletionEvent<'a, P0>(ioring: &HIORING__, hevent: P0) -> ::windows::core::Result<()>
@@ -16483,7 +15087,6 @@ where
     }
     SetIoRingCompletionEvent(::core::mem::transmute(ioring), hevent.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLogArchiveMode<'a, P0>(hlog: P0, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL
@@ -16496,7 +15099,6 @@ where
     }
     SetLogArchiveMode(hlog.into(), emode)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLogArchiveTail<'a, P0>(hlog: P0, plsnarchivetail: &mut CLS_LSN, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -16509,7 +15111,6 @@ where
     }
     SetLogArchiveTail(hlog.into(), ::core::mem::transmute(plsnarchivetail), ::core::mem::transmute(preserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLogFileSizeWithPolicy<'a, P0>(hlog: P0, pdesiredsize: &mut u64, presultingsize: &mut u64) -> super::super::Foundation::BOOL
@@ -16522,7 +15123,6 @@ where
     }
     SetLogFileSizeWithPolicy(hlog.into(), ::core::mem::transmute(pdesiredsize), ::core::mem::transmute(presultingsize))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetResourceManagerCompletionPort<'a, P0, P1>(resourcemanagerhandle: P0, iocompletionporthandle: P1, completionkey: usize) -> super::super::Foundation::BOOL
@@ -16536,7 +15136,6 @@ where
     }
     SetResourceManagerCompletionPort(resourcemanagerhandle.into(), iocompletionporthandle.into(), completionkey)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
@@ -16546,7 +15145,6 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
     }
     SetSearchPathMode(flags)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTapeParameters<'a, P0>(hdevice: P0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32
@@ -16559,7 +15157,6 @@ where
     }
     SetTapeParameters(hdevice.into(), dwoperation, ::core::mem::transmute(lptapeinformation))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTapePosition<'a, P0, P1>(hdevice: P0, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: P1) -> u32
@@ -16573,7 +15170,6 @@ where
     }
     SetTapePosition(hdevice.into(), dwpositionmethod, dwpartition, dwoffsetlow, dwoffsethigh, bimmediate.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTransactionInformation<'a, P0, P1>(transactionhandle: P0, isolationlevel: u32, isolationflags: u32, timeout: u32, description: P1) -> super::super::Foundation::BOOL
@@ -16587,7 +15183,6 @@ where
     }
     SetTransactionInformation(transactionhandle.into(), isolationlevel, isolationflags, timeout, description.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: ::core::option::Option<&ENCRYPTION_CERTIFICATE>) -> u32 {
@@ -16597,7 +15192,6 @@ pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: ::core::option::O
     }
     SetUserFileEncryptionKey(::core::mem::transmute(pencryptioncertificate))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Security\"`*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: ::core::option::Option<&ENCRYPTION_CERTIFICATE>, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> u32 {
@@ -16607,7 +15201,6 @@ pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: ::core::option:
     }
     SetUserFileEncryptionKeyEx(::core::mem::transmute(pencryptioncertificate), dwcapabilities, dwflags, ::core::mem::transmute(pvreserved))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeLabelA<'a, P0, P1>(lprootpathname: P0, lpvolumename: P1) -> super::super::Foundation::BOOL
@@ -16621,7 +15214,6 @@ where
     }
     SetVolumeLabelA(lprootpathname.into(), lpvolumename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeLabelW<'a, P0, P1>(lprootpathname: P0, lpvolumename: P1) -> super::super::Foundation::BOOL
@@ -16635,7 +15227,6 @@ where
     }
     SetVolumeLabelW(lprootpathname.into(), lpvolumename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeMountPointA<'a, P0, P1>(lpszvolumemountpoint: P0, lpszvolumename: P1) -> super::super::Foundation::BOOL
@@ -16649,7 +15240,6 @@ where
     }
     SetVolumeMountPointA(lpszvolumemountpoint.into(), lpszvolumename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeMountPointW<'a, P0, P1>(lpszvolumemountpoint: P0, lpszvolumename: P1) -> super::super::Foundation::BOOL
@@ -16663,7 +15253,6 @@ where
     }
     SetVolumeMountPointW(lpszvolumemountpoint.into(), lpszvolumename.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SinglePhaseReject<'a, P0>(enlistmenthandle: P0, tmvirtualclock: &mut i64) -> super::super::Foundation::BOOL
@@ -16676,7 +15265,6 @@ where
     }
     SinglePhaseReject(enlistmenthandle.into(), ::core::mem::transmute(tmvirtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn SubmitIoRing(ioring: &HIORING__, waitoperations: u32, milliseconds: u32) -> ::windows::core::Result<u32> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -16686,17 +15274,12 @@ pub unsafe fn SubmitIoRing(ioring: &HIORING__, waitoperations: u32, milliseconds
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SubmitIoRing(::core::mem::transmute(ioring), waitoperations, milliseconds, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPEMARK_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SETMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = TAPEMARK_TYPE(2i32);
 impl ::core::marker::Copy for TAPEMARK_TYPE {}
 impl ::core::clone::Clone for TAPEMARK_TYPE {
@@ -16718,7 +15301,6 @@ impl ::core::fmt::Debug for TAPEMARK_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_ERASE {
     pub Type: ERASE_TAPE_TYPE,
@@ -16757,7 +15339,6 @@ impl ::core::default::Default for TAPE_ERASE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TAPE_GET_POSITION {
     pub Type: TAPE_POSITION_TYPE,
     pub Partition: u32,
@@ -16788,13 +15369,10 @@ impl ::core::default::Default for TAPE_GET_POSITION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_INFORMATION_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = TAPE_INFORMATION_TYPE(0u32);
 impl ::core::marker::Copy for TAPE_INFORMATION_TYPE {}
 impl ::core::clone::Clone for TAPE_INFORMATION_TYPE {
@@ -16815,27 +15393,17 @@ impl ::core::fmt::Debug for TAPE_INFORMATION_TYPE {
         f.debug_tuple("TAPE_INFORMATION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_POSITION_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_REWIND: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = TAPE_POSITION_METHOD(8i32);
 impl ::core::marker::Copy for TAPE_POSITION_METHOD {}
 impl ::core::clone::Clone for TAPE_POSITION_METHOD {
@@ -16856,13 +15424,10 @@ impl ::core::fmt::Debug for TAPE_POSITION_METHOD {
         f.debug_tuple("TAPE_POSITION_METHOD").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TAPE_POSITION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = TAPE_POSITION_TYPE(1i32);
 impl ::core::marker::Copy for TAPE_POSITION_TYPE {}
 impl ::core::clone::Clone for TAPE_POSITION_TYPE {
@@ -16884,7 +15449,6 @@ impl ::core::fmt::Debug for TAPE_POSITION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_PREPARE {
     pub Operation: PREPARE_TAPE_OPERATION,
@@ -16923,7 +15487,6 @@ impl ::core::default::Default for TAPE_PREPARE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_SET_POSITION {
     pub Method: TAPE_POSITION_METHOD,
@@ -16964,7 +15527,6 @@ impl ::core::default::Default for TAPE_SET_POSITION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_WRITE_MARKS {
     pub Type: TAPEMARK_TYPE,
@@ -17003,30 +15565,18 @@ impl ::core::default::Default for TAPE_WRITE_MARKS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTIONMANAGER_OBJECT_PATH: &str = "\\TransactionManager\\";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut ::core::ffi::c_void,
     pub TransactionNotification: u32,
@@ -17059,7 +15609,6 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
     pub UOW: ::windows::core::GUID,
@@ -17090,7 +15639,6 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
     pub UOW: ::windows::core::GUID,
@@ -17123,7 +15671,6 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub EnlistmentId: ::windows::core::GUID,
     pub UOW: ::windows::core::GUID,
@@ -17154,7 +15701,6 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: u32,
 }
@@ -17184,7 +15730,6 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: ::windows::core::GUID,
     pub Flags: u32,
@@ -17214,73 +15759,40 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TRANSACTION_OBJECT_PATH: &str = "\\Transaction\\";
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRANSACTION_OUTCOME(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = TRANSACTION_OUTCOME(3i32);
 impl ::core::marker::Copy for TRANSACTION_OUTCOME {}
 impl ::core::clone::Clone for TRANSACTION_OUTCOME {
@@ -17301,15 +15813,11 @@ impl ::core::fmt::Debug for TRANSACTION_OUTCOME {
         f.debug_tuple("TRANSACTION_OUTCOME").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXFS_MINIVERSION(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(0u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65535u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = TXFS_MINIVERSION(65534u32);
 impl ::core::marker::Copy for TXFS_MINIVERSION {}
 impl ::core::clone::Clone for TXFS_MINIVERSION {
@@ -17331,7 +15839,6 @@ impl ::core::fmt::Debug for TXFS_MINIVERSION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
@@ -17356,7 +15863,6 @@ impl ::core::default::Default for TXF_ID {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -17382,7 +15888,6 @@ impl ::core::default::Default for TXF_ID_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
     pub RecordLength: u32,
@@ -17413,7 +15918,6 @@ impl ::core::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
     pub RecordType: TXF_LOG_RECORD_TYPE,
@@ -17444,16 +15948,11 @@ impl ::core::default::Default for TXF_LOG_RECORD_BASE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
     pub RecordType: u16,
@@ -17485,15 +15984,11 @@ impl ::core::default::Default for TXF_LOG_RECORD_TRUNCATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TXF_LOG_RECORD_TYPE(pub u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(4u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(2u16);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = TXF_LOG_RECORD_TYPE(1u16);
 impl ::core::marker::Copy for TXF_LOG_RECORD_TYPE {}
 impl ::core::clone::Clone for TXF_LOG_RECORD_TYPE {
@@ -17515,7 +16010,6 @@ impl ::core::fmt::Debug for TXF_LOG_RECORD_TYPE {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,
     pub RecordType: u16,
@@ -17549,7 +16043,6 @@ impl ::core::default::Default for TXF_LOG_RECORD_WRITE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -17559,7 +16052,6 @@ pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) ->
     }
     TerminateLogArchive(::core::mem::transmute(pvarchivecontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -17569,7 +16061,6 @@ pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> sup
     }
     TerminateReadLog(::core::mem::transmute(pvcursorcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: &CLS_LSN, lpoverlapped: ::core::option::Option<&mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL {
@@ -17579,7 +16070,6 @@ pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: &CLS_L
     }
     TruncateLog(::core::mem::transmute(pvmarshal), ::core::mem::transmute(plsnend), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: &mut u16) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -17588,7 +16078,6 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: &mut u16) {
     }
     TxfGetThreadMiniVersionForCreate(::core::mem::transmute(miniversion))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogCreateFileReadContext<'a, P0>(logpath: P0, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, txffileid: &TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -17601,7 +16090,6 @@ where
     }
     TxfLogCreateFileReadContext(logpath.into(), ::core::mem::transmute(beginninglsn), ::core::mem::transmute(endinglsn), ::core::mem::transmute(txffileid), ::core::mem::transmute(txflogcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogCreateRangeReadContext<'a, P0>(logpath: P0, beginninglsn: CLS_LSN, endinglsn: CLS_LSN, beginningvirtualclock: &i64, endingvirtualclock: &i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -17614,7 +16102,6 @@ where
     }
     TxfLogCreateRangeReadContext(logpath.into(), ::core::mem::transmute(beginninglsn), ::core::mem::transmute(endinglsn), ::core::mem::transmute(beginningvirtualclock), ::core::mem::transmute(endingvirtualclock), recordtypemask, ::core::mem::transmute(txflogcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -17624,7 +16111,6 @@ pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void
     }
     TxfLogDestroyReadContext(::core::mem::transmute(txflogcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, buffer: &mut [u8], bytesused: &mut u32, recordcount: &mut u32) -> super::super::Foundation::BOOL {
@@ -17634,7 +16120,6 @@ pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, buffe
     }
     TxfLogReadRecords(::core::mem::transmute(txflogcontext), buffer.len() as _, ::core::mem::transmute(buffer.as_ptr()), ::core::mem::transmute(bytesused), ::core::mem::transmute(recordcount))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogRecordGetFileName(recordbuffer: &[u8], namebuffer: ::windows::core::PWSTR, namebufferlengthinbytes: &mut u32, txfid: ::core::option::Option<&mut TXF_ID>) -> super::super::Foundation::BOOL {
@@ -17644,7 +16129,6 @@ pub unsafe fn TxfLogRecordGetFileName(recordbuffer: &[u8], namebuffer: ::windows
     }
     TxfLogRecordGetFileName(::core::mem::transmute(recordbuffer.as_ptr()), recordbuffer.len() as _, ::core::mem::transmute(namebuffer), ::core::mem::transmute(namebufferlengthinbytes), ::core::mem::transmute(txfid))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: &mut u32, virtualclock: ::core::option::Option<&mut i64>) -> super::super::Foundation::BOOL {
@@ -17654,7 +16138,6 @@ pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_voi
     }
     TxfLogRecordGetGenericType(::core::mem::transmute(recordbuffer), recordbufferlengthinbytes, ::core::mem::transmute(generictype), ::core::mem::transmute(virtualclock))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfReadMetadataInfo<'a, P0>(filehandle: P0, txffileid: &mut TXF_ID, lastlsn: &mut CLS_LSN, transactionstate: &mut u32, lockingtransaction: &mut ::windows::core::GUID) -> super::super::Foundation::BOOL
@@ -17667,7 +16150,6 @@ where
     }
     TxfReadMetadataInfo(filehandle.into(), ::core::mem::transmute(txffileid), ::core::mem::transmute(lastlsn), ::core::mem::transmute(transactionstate), ::core::mem::transmute(lockingtransaction))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -17676,7 +16158,6 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     }
     TxfSetThreadMiniVersionForCreate(miniversion)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnlockFile<'a, P0>(hfile: P0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> super::super::Foundation::BOOL
@@ -17689,7 +16170,6 @@ where
     }
     UnlockFile(hfile.into(), dwfileoffsetlow, dwfileoffsethigh, nnumberofbytestounlocklow, nnumberofbytestounlockhigh)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn UnlockFileEx<'a, P0>(hfile: P0, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -17702,11 +16182,9 @@ where
     }
     UnlockFileEx(hfile.into(), dwreserved, nnumberofbytestounlocklow, nnumberofbytestounlockhigh, ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_FIND_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = VER_FIND_FILE_FLAGS(1u32);
 impl ::core::marker::Copy for VER_FIND_FILE_FLAGS {}
 impl ::core::clone::Clone for VER_FIND_FILE_FLAGS {
@@ -17727,15 +16205,11 @@ impl ::core::fmt::Debug for VER_FIND_FILE_FLAGS {
         f.debug_tuple("VER_FIND_FILE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_FIND_FILE_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = VER_FIND_FILE_STATUS(4u32);
 impl ::core::marker::Copy for VER_FIND_FILE_STATUS {}
 impl ::core::clone::Clone for VER_FIND_FILE_STATUS {
@@ -17784,13 +16258,10 @@ impl ::core::ops::Not for VER_FIND_FILE_STATUS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_INSTALL_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = VER_INSTALL_FILE_FLAGS(2u32);
 impl ::core::marker::Copy for VER_INSTALL_FILE_FLAGS {}
 impl ::core::clone::Clone for VER_INSTALL_FILE_FLAGS {
@@ -17811,51 +16282,29 @@ impl ::core::fmt::Debug for VER_INSTALL_FILE_FLAGS {
         f.debug_tuple("VER_INSTALL_FILE_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VER_INSTALL_FILE_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(64u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(128u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(256u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(512u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1024u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(2048u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(4096u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(8192u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(16384u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(32768u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(65536u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(131072u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(262144u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(524288u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = VER_INSTALL_FILE_STATUS(1048576u32);
 impl ::core::marker::Copy for VER_INSTALL_FILE_STATUS {}
 impl ::core::clone::Clone for VER_INSTALL_FILE_STATUS {
@@ -17905,7 +16354,6 @@ impl ::core::ops::Not for VER_INSTALL_FILE_STATUS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
@@ -17952,7 +16400,6 @@ impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
@@ -17983,7 +16430,6 @@ impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub ClusterSize: u32,
     pub NumberOfClusters: u32,
@@ -18015,7 +16461,6 @@ impl ::core::default::Default for VOLUME_ALLOCATION_HINT_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
@@ -18045,7 +16490,6 @@ impl ::core::default::Default for VOLUME_ALLOCATION_HINT_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
@@ -18077,7 +16521,6 @@ impl ::core::default::Default for VOLUME_CRITICAL_IO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_FAILOVER_SET {
     pub NumberOfDisks: u32,
     pub DiskNumbers: [u32; 1],
@@ -18108,7 +16551,6 @@ impl ::core::default::Default for VOLUME_FAILOVER_SET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub Version: u32,
     pub Reserved1: u32,
@@ -18143,7 +16585,6 @@ impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -18178,7 +16619,6 @@ impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
@@ -18208,7 +16648,6 @@ impl ::core::default::Default for VOLUME_LOGICAL_OFFSET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_NUMBER {
     pub VolumeNumber: u32,
     pub VolumeManagerName: [u16; 8],
@@ -18239,7 +16678,6 @@ impl ::core::default::Default for VOLUME_NUMBER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_PHYSICAL_OFFSET {
     pub DiskNumber: u32,
     pub Offset: i64,
@@ -18270,7 +16708,6 @@ impl ::core::default::Default for VOLUME_PHYSICAL_OFFSET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_PHYSICAL_OFFSETS {
     pub NumberOfPhysicalOffsets: u32,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
@@ -18301,7 +16738,6 @@ impl ::core::default::Default for VOLUME_PHYSICAL_OFFSETS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: i64,
     pub Length: u32,
@@ -18333,7 +16769,6 @@ impl ::core::default::Default for VOLUME_READ_PLEX_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
@@ -18375,7 +16810,6 @@ impl ::core::default::Default for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }
@@ -18404,14 +16838,10 @@ impl ::core::default::Default for VOLUME_SHRINK_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct VS_FIXEDFILEINFO {
     pub dwSignature: u32,
     pub dwStrucVersion: u32,
@@ -18466,21 +16896,14 @@ impl ::core::default::Default for VS_FIXEDFILEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = VS_FIXEDFILEINFO_FILE_FLAGS(32u32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_FLAGS {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_FLAGS {
@@ -18529,41 +16952,24 @@ impl ::core::ops::Not for VS_FIXEDFILEINFO_FILE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_OS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65536i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131072i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196608i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262144i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(327680i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65537i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(65540i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(131074i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(196611i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = VS_FIXEDFILEINFO_FILE_OS(262148i32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_OS {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_OS {
@@ -18584,41 +16990,24 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_OS {
         f.debug_tuple("VS_FIXEDFILEINFO_FILE_OS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_SUBTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(10i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(11i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(12i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = VS_FIXEDFILEINFO_FILE_SUBTYPE(3i32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_SUBTYPE {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_SUBTYPE {
@@ -18639,23 +17028,15 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_SUBTYPE {
         f.debug_tuple("VS_FIXEDFILEINFO_FILE_SUBTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VS_FIXEDFILEINFO_FILE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = VS_FIXEDFILEINFO_FILE_TYPE(7i32);
 impl ::core::marker::Copy for VS_FIXEDFILEINFO_FILE_TYPE {}
 impl ::core::clone::Clone for VS_FIXEDFILEINFO_FILE_TYPE {
@@ -18676,11 +17057,8 @@ impl ::core::fmt::Debug for VS_FIXEDFILEINFO_FILE_TYPE {
         f.debug_tuple("VS_FIXEDFILEINFO_FILE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_USER_DEFINED: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const VS_VERSION_INFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn ValidateLog<'a, P0>(pszlogfilename: P0, psalogfile: &mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: &mut CLS_INFORMATION, pcbbuffer: &mut u32) -> super::super::Foundation::BOOL
@@ -18693,7 +17071,6 @@ where
     }
     ValidateLog(pszlogfilename.into(), ::core::mem::transmute(psalogfile), ::core::mem::transmute(pinfobuffer), ::core::mem::transmute(pcbbuffer))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerFindFileA<'a, P0, P1, P2>(uflags: VER_FIND_FILE_FLAGS, szfilename: P0, szwindir: P1, szappdir: P2, szcurdir: ::windows::core::PSTR, pucurdirlen: &mut u32, szdestdir: ::windows::core::PSTR, pudestdirlen: &mut u32) -> VER_FIND_FILE_STATUS
 where
@@ -18707,7 +17084,6 @@ where
     }
     VerFindFileA(uflags, szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerFindFileW<'a, P0, P1, P2>(uflags: VER_FIND_FILE_FLAGS, szfilename: P0, szwindir: P1, szappdir: P2, szcurdir: ::windows::core::PWSTR, pucurdirlen: &mut u32, szdestdir: ::windows::core::PWSTR, pudestdirlen: &mut u32) -> VER_FIND_FILE_STATUS
 where
@@ -18721,7 +17097,6 @@ where
     }
     VerFindFileW(uflags, szfilename.into(), szwindir.into(), szappdir.into(), ::core::mem::transmute(szcurdir), ::core::mem::transmute(pucurdirlen), ::core::mem::transmute(szdestdir), ::core::mem::transmute(pudestdirlen))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerInstallFileA<'a, P0, P1, P2, P3, P4>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P0, szdestfilename: P1, szsrcdir: P2, szdestdir: P3, szcurdir: P4, sztmpfile: ::windows::core::PSTR, putmpfilelen: &mut u32) -> VER_INSTALL_FILE_STATUS
 where
@@ -18737,7 +17112,6 @@ where
     }
     VerInstallFileA(uflags, szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerInstallFileW<'a, P0, P1, P2, P3, P4>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: P0, szdestfilename: P1, szsrcdir: P2, szdestdir: P3, szcurdir: P4, sztmpfile: ::windows::core::PWSTR, putmpfilelen: &mut u32) -> VER_INSTALL_FILE_STATUS
 where
@@ -18753,7 +17127,6 @@ where
     }
     VerInstallFileW(uflags, szsrcfilename.into(), szdestfilename.into(), szsrcdir.into(), szdestdir.into(), szcurdir.into(), ::core::mem::transmute(sztmpfile), ::core::mem::transmute(putmpfilelen))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerLanguageNameA(wlang: u32, szlang: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -18762,7 +17135,6 @@ pub unsafe fn VerLanguageNameA(wlang: u32, szlang: &mut [u8]) -> u32 {
     }
     VerLanguageNameA(wlang, ::core::mem::transmute(szlang.as_ptr()), szlang.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn VerLanguageNameW(wlang: u32, szlang: &mut [u16]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -18771,7 +17143,6 @@ pub unsafe fn VerLanguageNameW(wlang: u32, szlang: &mut [u16]) -> u32 {
     }
     VerLanguageNameW(wlang, ::core::mem::transmute(szlang.as_ptr()), szlang.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerQueryValueA<'a, P0>(pblock: *const ::core::ffi::c_void, lpsubblock: P0, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: &mut u32) -> super::super::Foundation::BOOL
@@ -18784,7 +17155,6 @@ where
     }
     VerQueryValueA(::core::mem::transmute(pblock), lpsubblock.into(), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(pulen))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerQueryValueW<'a, P0>(pblock: *const ::core::ffi::c_void, lpsubblock: P0, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: &mut u32) -> super::super::Foundation::BOOL
@@ -18797,16 +17167,11 @@ where
     }
     VerQueryValueW(::core::mem::transmute(pblock), lpsubblock.into(), ::core::mem::transmute(lplpbuffer), ::core::mem::transmute(pulen))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WIM_BOOT_OS_WIM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct WIM_ENTRY_INFO {
     pub WimEntryInfoSize: u32,
     pub WimType: u32,
@@ -18842,7 +17207,6 @@ impl ::core::default::Default for WIM_ENTRY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct WIM_EXTERNAL_FILE_INFO {
     pub DataSourceId: i64,
     pub ResourceHash: [u8; 20],
@@ -18873,14 +17237,10 @@ impl ::core::default::Default for WIM_EXTERNAL_FILE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub dwFileAttributes: u32,
@@ -18923,7 +17283,6 @@ impl ::core::default::Default for WIN32_FILE_ATTRIBUTE_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
@@ -18981,7 +17340,6 @@ impl ::core::default::Default for WIN32_FIND_DATAA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FIND_DATAW {
     pub dwFileAttributes: u32,
@@ -19039,7 +17397,6 @@ impl ::core::default::Default for WIN32_FIND_DATAW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct WIN32_FIND_STREAM_DATA {
     pub StreamSize: i64,
     pub cStreamName: [u16; 296],
@@ -19070,7 +17427,6 @@ impl ::core::default::Default for WIN32_FIND_STREAM_DATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct WIN32_STREAM_ID {
     pub dwStreamId: WIN_STREAM_ID,
     pub dwStreamAttributes: u32,
@@ -19103,31 +17459,19 @@ impl ::core::default::Default for WIN32_STREAM_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WIN_STREAM_ID(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(4u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_DATA: WIN_STREAM_ID = WIN_STREAM_ID(1u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_EA_DATA: WIN_STREAM_ID = WIN_STREAM_ID(2u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_LINK: WIN_STREAM_ID = WIN_STREAM_ID(5u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = WIN_STREAM_ID(7u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(6u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = WIN_STREAM_ID(8u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = WIN_STREAM_ID(3u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = WIN_STREAM_ID(9u32);
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = WIN_STREAM_ID(10u32);
 impl ::core::marker::Copy for WIN_STREAM_ID {}
 impl ::core::clone::Clone for WIN_STREAM_ID {
@@ -19149,7 +17493,6 @@ impl ::core::fmt::Debug for WIN_STREAM_ID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
     pub Algorithm: u32,
 }
@@ -19179,7 +17522,6 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub struct WOF_FILE_COMPRESSION_INFO_V1 {
     pub Algorithm: u32,
     pub Flags: u32,
@@ -19209,11 +17551,8 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofEnumEntries<'a, P0>(volumename: P0, provider: u32, enumproc: WofEnumEntryProc, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -19226,13 +17565,10 @@ where
     }
     WofEnumEntries(volumename.into(), provider, ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WofEnumEntryProc = ::core::option::Option<unsafe extern "system" fn(entryinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WofEnumFilesProc = ::core::option::Option<unsafe extern "system" fn(filepath: ::windows::core::PCWSTR, externalfileinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofFileEnumFiles<'a, P0>(volumename: P0, algorithm: u32, enumproc: WofEnumFilesProc, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -19245,7 +17581,6 @@ where
     }
     WofFileEnumFiles(volumename.into(), algorithm, ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofGetDriverVersion<'a, P0>(fileorvolumehandle: P0, provider: u32) -> ::windows::core::Result<u32>
@@ -19259,7 +17594,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WofGetDriverVersion(fileorvolumehandle.into(), provider, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofIsExternalFile<'a, P0>(filepath: P0, isexternalfile: ::core::option::Option<&mut super::super::Foundation::BOOL>, provider: ::core::option::Option<&mut u32>, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
@@ -19272,7 +17606,6 @@ where
     }
     WofIsExternalFile(filepath.into(), ::core::mem::transmute(isexternalfile), ::core::mem::transmute(provider), ::core::mem::transmute(externalfileinfo), ::core::mem::transmute(bufferlength)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofSetFileDataLocation<'a, P0>(filehandle: P0, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::core::Result<()>
@@ -19285,7 +17618,6 @@ where
     }
     WofSetFileDataLocation(filehandle.into(), provider, ::core::mem::transmute(externalfileinfo), length).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofShouldCompressBinaries<'a, P0>(volume: P0, algorithm: &mut u32) -> super::super::Foundation::BOOL
@@ -19298,7 +17630,6 @@ where
     }
     WofShouldCompressBinaries(volume.into(), ::core::mem::transmute(algorithm))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn WofWimAddEntry<'a, P0, P1>(volumename: P0, wimpath: P1, wimtype: u32, wimindex: u32) -> ::windows::core::Result<i64>
 where
@@ -19312,7 +17643,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WofWimAddEntry(volumename.into(), wimpath.into(), wimtype, wimindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofWimEnumFiles<'a, P0>(volumename: P0, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -19325,7 +17655,6 @@ where
     }
     WofWimEnumFiles(volumename.into(), datasourceid, ::core::mem::transmute(enumproc), ::core::mem::transmute(userdata)).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn WofWimRemoveEntry<'a, P0>(volumename: P0, datasourceid: i64) -> ::windows::core::Result<()>
 where
@@ -19337,7 +17666,6 @@ where
     }
     WofWimRemoveEntry(volumename.into(), datasourceid).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn WofWimSuspendEntry<'a, P0>(volumename: P0, datasourceid: i64) -> ::windows::core::Result<()>
 where
@@ -19349,7 +17677,6 @@ where
     }
     WofWimSuspendEntry(volumename.into(), datasourceid).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn WofWimUpdateEntry<'a, P0, P1>(volumename: P0, datasourceid: i64, newwimpath: P1) -> ::windows::core::Result<()>
 where
@@ -19362,7 +17689,6 @@ where
     }
     WofWimUpdateEntry(volumename.into(), datasourceid, newwimpath.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -19372,7 +17698,6 @@ pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_
     }
     Wow64DisableWow64FsRedirection(::core::mem::transmute(oldvalue))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64EnableWow64FsRedirection<'a, P0>(wow64fsenableredirection: P0) -> super::super::Foundation::BOOLEAN
@@ -19385,7 +17710,6 @@ where
     }
     Wow64EnableWow64FsRedirection(wow64fsenableredirection.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -19395,7 +17719,6 @@ pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void)
     }
     Wow64RevertWow64FsRedirection(::core::mem::transmute(olvalue))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 #[inline]
 pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -19404,7 +17727,6 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbac
     }
     WriteEncryptedFileRaw(::core::mem::transmute(pfimportcallback), ::core::mem::transmute(pvcallbackcontext), ::core::mem::transmute(pvcontext))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFile<'a, P0>(hfile: P0, lpbuffer: ::core::option::Option<&[u8]>, lpnumberofbyteswritten: ::core::option::Option<&mut u32>, lpoverlapped: ::core::option::Option<&mut super::super::System::IO::OVERLAPPED>) -> super::super::Foundation::BOOL
@@ -19417,7 +17739,6 @@ where
     }
     WriteFile(hfile.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFileEx<'a, P0>(hfile: P0, lpbuffer: ::core::option::Option<&[u8]>, lpoverlapped: &mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL
@@ -19430,7 +17751,6 @@ where
     }
     WriteFileEx(hfile.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFileGather<'a, P0>(hfile: P0, asegmentarray: &FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: &mut u32, lpoverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL
@@ -19443,7 +17763,6 @@ where
     }
     WriteFileGather(hfile.into(), ::core::mem::transmute(asegmentarray), nnumberofbytestowrite, ::core::mem::transmute(lpreserved), ::core::mem::transmute(lpoverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: &mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: &mut u32, plsnnext: &mut CLS_LSN, poverlapped: &mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -19453,7 +17772,6 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestart
     }
     WriteLogRestartArea(::core::mem::transmute(pvmarshal), ::core::mem::transmute(pvrestartbuffer), cbrestartbuffer, ::core::mem::transmute(plsnbase), fflags, ::core::mem::transmute(pcbwritten), ::core::mem::transmute(plsnnext), ::core::mem::transmute(poverlapped))
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteTapemark<'a, P0, P1>(hdevice: P0, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: P1) -> u32
@@ -19467,7 +17785,6 @@ where
     }
     WriteTapemark(hdevice.into(), dwtapemarktype, dwtapemarkcount, bimmediate.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

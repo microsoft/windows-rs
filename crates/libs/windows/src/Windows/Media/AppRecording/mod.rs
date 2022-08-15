@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingManager(::windows::core::IUnknown);
 impl AppRecordingManager {
@@ -9,7 +8,6 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).GetStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppRecordingStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn StartRecordingToFileAsync<'a, P0>(&self, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
@@ -21,7 +19,6 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).StartRecordingToFileAsync)(::windows::core::Interface::as_raw(this), file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn RecordTimeSpanToFileAsync<'a, P0>(&self, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingResult>>
     where
@@ -33,7 +30,6 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).RecordTimeSpanToFileAsync)(::windows::core::Interface::as_raw(this), starttime, duration, file.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<AppRecordingResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedScreenshotMediaEncodingSubtypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -42,7 +38,6 @@ impl AppRecordingManager {
             (::windows::core::Interface::vtable(this).SupportedScreenshotMediaEncodingSubtypes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SaveScreenshotToFilesAsync<'a, P0, P1, E1>(&self, folder: P0, filenameprefix: &::windows::core::HSTRING, option: AppRecordingSaveScreenshotOption, requestedformats: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>>
     where
@@ -130,7 +125,6 @@ impl ::core::convert::From<&AppRecordingManager> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for AppRecordingManager {}
 unsafe impl ::core::marker::Sync for AppRecordingManager {}
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingResult(::windows::core::IUnknown);
 impl AppRecordingResult {
@@ -148,7 +142,6 @@ impl AppRecordingResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -227,7 +220,6 @@ impl ::core::convert::From<&AppRecordingResult> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for AppRecordingResult {}
 unsafe impl ::core::marker::Sync for AppRecordingResult {}
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
@@ -261,7 +253,6 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotResult(::windows::core::IUnknown);
 impl AppRecordingSaveScreenshotResult {
@@ -279,7 +270,6 @@ impl AppRecordingSaveScreenshotResult {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SavedScreenshotInfos(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppRecordingSavedScreenshotInfo>> {
         let this = self;
@@ -351,11 +341,9 @@ impl ::core::convert::From<&AppRecordingSaveScreenshotResult> for &::windows::co
 }
 unsafe impl ::core::marker::Send for AppRecordingSaveScreenshotResult {}
 unsafe impl ::core::marker::Sync for AppRecordingSaveScreenshotResult {}
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingSavedScreenshotInfo(::windows::core::IUnknown);
 impl AppRecordingSavedScreenshotInfo {
-    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -434,7 +422,6 @@ impl ::core::convert::From<&AppRecordingSavedScreenshotInfo> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for AppRecordingSavedScreenshotInfo {}
 unsafe impl ::core::marker::Sync for AppRecordingSavedScreenshotInfo {}
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingStatus(::windows::core::IUnknown);
 impl AppRecordingStatus {
@@ -452,7 +439,6 @@ impl AppRecordingStatus {
             (::windows::core::Interface::vtable(this).CanRecordTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn HistoricalBufferDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -531,7 +517,6 @@ impl ::core::convert::From<&AppRecordingStatus> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for AppRecordingStatus {}
 unsafe impl ::core::marker::Sync for AppRecordingStatus {}
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingStatusDetails(::windows::core::IUnknown);
 impl AppRecordingStatusDetails {

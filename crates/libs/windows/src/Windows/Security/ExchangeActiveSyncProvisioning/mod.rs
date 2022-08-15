@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasClientDeviceInformation(::windows::core::IUnknown);
 impl EasClientDeviceInformation {
@@ -126,7 +125,6 @@ impl ::core::convert::From<&EasClientDeviceInformation> for &::windows::core::II
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasClientSecurityPolicy(::windows::core::IUnknown);
 impl EasClientSecurityPolicy {
@@ -181,7 +179,6 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMinPasswordComplexCharacters)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PasswordExpiration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -190,7 +187,6 @@ impl EasClientSecurityPolicy {
             (::windows::core::Interface::vtable(this).PasswordExpiration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPasswordExpiration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -218,7 +214,6 @@ impl EasClientSecurityPolicy {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxPasswordFailedAttempts)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxInactivityTimeLock(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -227,7 +222,6 @@ impl EasClientSecurityPolicy {
             (::windows::core::Interface::vtable(this).MaxInactivityTimeLock)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxInactivityTimeLock(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -240,7 +234,6 @@ impl EasClientSecurityPolicy {
             (::windows::core::Interface::vtable(this).CheckCompliance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EasComplianceResults>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ApplyAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<EasComplianceResults>> {
         let this = self;
@@ -310,7 +303,6 @@ impl ::core::convert::From<&EasClientSecurityPolicy> for &::windows::core::IInsp
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 pub struct EasComplianceResults(::windows::core::IUnknown);
 impl EasComplianceResults {
@@ -445,7 +437,6 @@ impl ::core::convert::From<&EasComplianceResults> for &::windows::core::IInspect
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
@@ -481,7 +472,6 @@ unsafe impl ::windows::core::RuntimeType for EasDisallowConvenienceLogonResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasEncryptionProviderType(pub i32);
@@ -516,7 +506,6 @@ unsafe impl ::windows::core::RuntimeType for EasEncryptionProviderType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
@@ -553,7 +542,6 @@ unsafe impl ::windows::core::RuntimeType for EasMaxInactivityTimeLockResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
@@ -590,7 +578,6 @@ unsafe impl ::windows::core::RuntimeType for EasMaxPasswordFailedAttemptsResult 
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
@@ -637,7 +624,6 @@ unsafe impl ::windows::core::RuntimeType for EasMinPasswordComplexCharactersResu
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasMinPasswordLengthResult(pub i32);
@@ -684,7 +670,6 @@ unsafe impl ::windows::core::RuntimeType for EasMinPasswordLengthResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasPasswordExpirationResult(pub i32);
@@ -725,7 +710,6 @@ unsafe impl ::windows::core::RuntimeType for EasPasswordExpirationResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasPasswordHistoryResult(pub i32);
@@ -762,7 +746,6 @@ unsafe impl ::windows::core::RuntimeType for EasPasswordHistoryResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Security_ExchangeActiveSyncProvisioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct EasRequireEncryptionResult(pub i32);

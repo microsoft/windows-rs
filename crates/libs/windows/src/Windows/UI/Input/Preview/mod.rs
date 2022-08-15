@@ -16,10 +16,8 @@ pub struct IInputActivationListenerPreviewStatics_Vtbl {
     #[cfg(not(feature = "UI_WindowManagement"))]
     CreateForApplicationWindow: usize,
 }
-#[doc = "*Required features: `\"UI_Input_Preview\"`*"]
 pub struct InputActivationListenerPreview;
 impl InputActivationListenerPreview {
-    #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn CreateForApplicationWindow<'a, P0>(window: P0) -> ::windows::core::Result<super::InputActivationListener>
     where

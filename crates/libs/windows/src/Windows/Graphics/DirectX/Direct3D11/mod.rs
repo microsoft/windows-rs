@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Direct3DBindings(pub u32);
@@ -69,7 +68,6 @@ unsafe impl ::windows::core::RuntimeType for Direct3DBindings {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
@@ -107,7 +105,6 @@ impl ::core::default::Default for Direct3DMultisampleDescription {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,
@@ -146,7 +143,6 @@ impl ::core::default::Default for Direct3DSurfaceDescription {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct Direct3DUsage(pub i32);
@@ -182,7 +178,6 @@ unsafe impl ::windows::core::RuntimeType for Direct3DUsage {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct IDirect3DDevice(::windows::core::IUnknown);
 impl IDirect3DDevice {
@@ -190,7 +185,6 @@ impl IDirect3DDevice {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Trim)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -282,7 +276,6 @@ pub struct IDirect3DDevice_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Trim: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct IDirect3DSurface(::windows::core::IUnknown);
 impl IDirect3DSurface {
@@ -293,7 +286,6 @@ impl IDirect3DSurface {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Direct3DSurfaceDescription>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;

@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CollectionChange(pub i32);
@@ -34,7 +33,6 @@ unsafe impl ::windows::core::RuntimeType for CollectionChange {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IIterable<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -129,7 +127,6 @@ where
     pub First: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IIterator<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -244,7 +241,6 @@ where
     pub GetMany: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *mut <T as ::windows::core::Abi>::Abi, result__: *mut u32) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IKeyValuePair<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -336,7 +332,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IMap<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -515,7 +510,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IMapChangedEventArgs<K>(::windows::core::IUnknown, ::core::marker::PhantomData<K>)
 where
@@ -604,7 +598,6 @@ where
     pub Key: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut <K as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub K: ::core::marker::PhantomData<K>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IMapView<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -755,7 +748,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IObservableMap<K, V>(::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -962,7 +954,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IObservableVector<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1185,7 +1176,6 @@ where
     pub RemoveVectorChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::EventRegistrationToken) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IPropertySet(::windows::core::IUnknown);
 impl IPropertySet {
@@ -1390,7 +1380,6 @@ unsafe impl ::windows::core::Interface for IPropertySet {
 pub struct IPropertySet_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IVector<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1608,7 +1597,6 @@ where
     pub ReplaceAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items_array_size: u32, items: *const <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IVectorChangedEventArgs(::windows::core::IUnknown);
 impl IVectorChangedEventArgs {
@@ -1691,7 +1679,6 @@ pub struct IVectorChangedEventArgs_Vtbl {
     pub CollectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CollectionChange) -> ::windows::core::HRESULT,
     pub Index: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct IVectorView<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where
@@ -1857,7 +1844,6 @@ where
     pub GetMany: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, items_array_size: u32, items: *mut <T as ::windows::core::Abi>::Abi, result__: *mut u32) -> ::windows::core::HRESULT,
     pub T: ::core::marker::PhantomData<T>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct MapChangedEventHandler<K, V>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<K>, ::core::marker::PhantomData<V>)
 where
@@ -1962,7 +1948,6 @@ where
     pub K: ::core::marker::PhantomData<K>,
     pub V: ::core::marker::PhantomData<V>,
 }
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct PropertySet(::windows::core::IUnknown);
 impl PropertySet {
@@ -2193,7 +2178,6 @@ impl<'a> ::core::convert::TryFrom<&PropertySet> for ::windows::core::InParam<'a,
 }
 unsafe impl ::core::marker::Send for PropertySet {}
 unsafe impl ::core::marker::Sync for PropertySet {}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct StringMap(::windows::core::IUnknown);
 impl StringMap {
@@ -2402,7 +2386,6 @@ impl<'a> ::core::convert::TryFrom<&StringMap> for ::windows::core::InParam<'a, I
 }
 unsafe impl ::core::marker::Send for StringMap {}
 unsafe impl ::core::marker::Sync for StringMap {}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct ValueSet(::windows::core::IUnknown);
 impl ValueSet {
@@ -2633,7 +2616,6 @@ impl<'a> ::core::convert::TryFrom<&ValueSet> for ::windows::core::InParam<'a, IP
 }
 unsafe impl ::core::marker::Send for ValueSet {}
 unsafe impl ::core::marker::Sync for ValueSet {}
-#[doc = "*Required features: `\"Foundation_Collections\"`*"]
 #[repr(transparent)]
 pub struct VectorChangedEventHandler<T>(pub ::windows::core::IUnknown, ::core::marker::PhantomData<T>)
 where

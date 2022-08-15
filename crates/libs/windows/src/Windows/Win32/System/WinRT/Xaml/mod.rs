@@ -1,10 +1,7 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSourceNative(::windows::core::IUnknown);
 impl IDesktopWindowXamlSourceNative {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AttachToWindow<'a, P0>(&self, parentwnd: P0) -> ::windows::core::Result<()>
     where
@@ -12,7 +9,6 @@ impl IDesktopWindowXamlSourceNative {
     {
         (::windows::core::Interface::vtable(self).AttachToWindow)(::windows::core::Interface::as_raw(self), parentwnd.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -67,11 +63,9 @@ pub struct IDesktopWindowXamlSourceNative_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     WindowHandle: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSourceNative2(::windows::core::IUnknown);
 impl IDesktopWindowXamlSourceNative2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AttachToWindow<'a, P0>(&self, parentwnd: P0) -> ::windows::core::Result<()>
     where
@@ -79,13 +73,11 @@ impl IDesktopWindowXamlSourceNative2 {
     {
         (::windows::core::Interface::vtable(self).base__.AttachToWindow)(::windows::core::Interface::as_raw(self), parentwnd.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.WindowHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn PreTranslateMessage(&self, message: &super::super::super::UI::WindowsAndMessaging::MSG, result: &mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PreTranslateMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(message), ::core::mem::transmute(result)).ok()
@@ -150,7 +142,6 @@ pub struct IDesktopWindowXamlSourceNative2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     PreTranslateMessage: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IFindReferenceTargetsCallback(::windows::core::IUnknown);
 impl IFindReferenceTargetsCallback {
@@ -202,7 +193,6 @@ pub struct IFindReferenceTargetsCallback_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub FoundTrackerTarget: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, target: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IReferenceTracker(::windows::core::IUnknown);
 impl IReferenceTracker {
@@ -279,7 +269,6 @@ pub struct IReferenceTracker_Vtbl {
     pub ReleaseFromTrackerSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub PegFromTrackerSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IReferenceTrackerExtension(::windows::core::IUnknown);
 impl IReferenceTrackerExtension {}
@@ -323,7 +312,6 @@ unsafe impl ::windows::core::Interface for IReferenceTrackerExtension {
 pub struct IReferenceTrackerExtension_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IReferenceTrackerHost(::windows::core::IUnknown);
 impl IReferenceTrackerHost {
@@ -396,7 +384,6 @@ pub struct IReferenceTrackerHost_Vtbl {
     pub AddMemoryPressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bytesallocated: u64) -> ::windows::core::HRESULT,
     pub RemoveMemoryPressure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bytesallocated: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IReferenceTrackerManager(::windows::core::IUnknown);
 impl IReferenceTrackerManager {
@@ -460,7 +447,6 @@ pub struct IReferenceTrackerManager_Vtbl {
     pub ReferenceTrackingCompleted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetReferenceTrackerHost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IReferenceTrackerTarget(::windows::core::IUnknown);
 impl IReferenceTrackerTarget {
@@ -521,7 +507,6 @@ pub struct IReferenceTrackerTarget_Vtbl {
     pub Peg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unpeg: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct ISurfaceImageSourceManagerNative(::windows::core::IUnknown);
 impl ISurfaceImageSourceManagerNative {
@@ -573,11 +558,9 @@ pub struct ISurfaceImageSourceManagerNative_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub FlushAllSurfacesWithDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct ISurfaceImageSourceNative(::windows::core::IUnknown);
 impl ISurfaceImageSourceNative {
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn SetDevice<'a, P0>(&self, device: P0) -> ::windows::core::Result<()>
     where
@@ -585,7 +568,6 @@ impl ISurfaceImageSourceNative {
     {
         (::windows::core::Interface::vtable(self).SetDevice)(::windows::core::Interface::as_raw(self), device.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
     pub unsafe fn BeginDraw(&self, updaterect: super::super::super::Foundation::RECT, surface: &mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
@@ -643,7 +625,6 @@ pub struct ISurfaceImageSourceNative_Vtbl {
     BeginDraw: usize,
     pub EndDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct ISurfaceImageSourceNativeWithD2D(::windows::core::IUnknown);
 impl ISurfaceImageSourceNativeWithD2D {
@@ -653,7 +634,6 @@ impl ISurfaceImageSourceNativeWithD2D {
     {
         (::windows::core::Interface::vtable(self).SetDevice)(::windows::core::Interface::as_raw(self), device.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginDraw<T>(&self, updaterect: &super::super::super::Foundation::RECT, offset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<T>
     where
@@ -720,11 +700,9 @@ pub struct ISurfaceImageSourceNativeWithD2D_Vtbl {
     pub SuspendDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ResumeDraw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct ISwapChainBackgroundPanelNative(::windows::core::IUnknown);
 impl ISwapChainBackgroundPanelNative {
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn SetSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<()>
     where
@@ -777,11 +755,9 @@ pub struct ISwapChainBackgroundPanelNative_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     SetSwapChain: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct ISwapChainPanelNative(::windows::core::IUnknown);
 impl ISwapChainPanelNative {
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn SetSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<()>
     where
@@ -834,11 +810,9 @@ pub struct ISwapChainPanelNative_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     SetSwapChain: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct ISwapChainPanelNative2(::windows::core::IUnknown);
 impl ISwapChainPanelNative2 {
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn SetSwapChain<'a, P0>(&self, swapchain: P0) -> ::windows::core::Result<()>
     where
@@ -846,7 +820,6 @@ impl ISwapChainPanelNative2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetSwapChain)(::windows::core::Interface::as_raw(self), swapchain.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSwapChainHandle<'a, P0>(&self, swapchainhandle: P0) -> ::windows::core::Result<()>
     where
@@ -914,7 +887,6 @@ pub struct ISwapChainPanelNative2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSwapChainHandle: usize,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct ITrackerOwner(::windows::core::IUnknown);
 impl ITrackerOwner {
@@ -979,11 +951,9 @@ pub struct ITrackerOwner_Vtbl {
     pub SetTrackerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: *const TrackerHandle__, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub TryGetSafeTrackerValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: *const TrackerHandle__, returnvalue: *mut *mut ::core::ffi::c_void) -> u8,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IVirtualSurfaceImageSourceNative(::windows::core::IUnknown);
 impl IVirtualSurfaceImageSourceNative {
-    #[doc = "*Required features: `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn SetDevice<'a, P0>(&self, device: P0) -> ::windows::core::Result<()>
     where
@@ -991,7 +961,6 @@ impl IVirtualSurfaceImageSourceNative {
     {
         (::windows::core::Interface::vtable(self).base__.SetDevice)(::windows::core::Interface::as_raw(self), device.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
     pub unsafe fn BeginDraw(&self, updaterect: super::super::super::Foundation::RECT, surface: &mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.BeginDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
@@ -999,7 +968,6 @@ impl IVirtualSurfaceImageSourceNative {
     pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.EndDraw)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Invalidate(&self, updaterect: super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Invalidate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updaterect)).ok()
@@ -1008,12 +976,10 @@ impl IVirtualSurfaceImageSourceNative {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUpdateRectCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUpdateRects(&self, updates: &mut [super::super::super::Foundation::RECT]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetUpdateRects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(updates.as_ptr()), updates.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetVisibleBounds(&self) -> ::windows::core::Result<super::super::super::Foundation::RECT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1099,7 +1065,6 @@ pub struct IVirtualSurfaceImageSourceNative_Vtbl {
     pub RegisterForUpdatesNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, callback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newwidth: i32, newheight: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 pub struct IVirtualSurfaceUpdatesCallbackNative(::windows::core::IUnknown);
 impl IVirtualSurfaceUpdatesCallbackNative {
@@ -1149,7 +1114,6 @@ pub struct IVirtualSurfaceUpdatesCallbackNative_Vtbl {
     pub UpdatesNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub struct TrackerHandle__ {
     pub unused: i32,
 }
@@ -1178,13 +1142,10 @@ impl ::core::default::Default for TrackerHandle__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XAML_REFERENCETRACKER_DISCONNECT(pub i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(0i32);
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = XAML_REFERENCETRACKER_DISCONNECT(1i32);
 impl ::core::marker::Copy for XAML_REFERENCETRACKER_DISCONNECT {}
 impl ::core::clone::Clone for XAML_REFERENCETRACKER_DISCONNECT {

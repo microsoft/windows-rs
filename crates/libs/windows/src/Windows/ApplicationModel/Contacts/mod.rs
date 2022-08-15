@@ -2,11 +2,9 @@
 pub mod DataProvider;
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct AggregateContactManager(::windows::core::IUnknown);
 impl AggregateContactManager {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindRawContactsAsync<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>
     where
@@ -18,7 +16,6 @@ impl AggregateContactManager {
             (::windows::core::Interface::vtable(this).FindRawContactsAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryLinkContactsAsync<'a, P0, P1>(&self, primarycontact: P0, secondarycontact: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>
     where
@@ -31,7 +28,6 @@ impl AggregateContactManager {
             (::windows::core::Interface::vtable(this).TryLinkContactsAsync)(::windows::core::Interface::as_raw(this), primarycontact.into().abi(), secondarycontact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UnlinkRawContactAsync<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -43,7 +39,6 @@ impl AggregateContactManager {
             (::windows::core::Interface::vtable(this).UnlinkRawContactAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrySetPreferredSourceForPictureAsync<'a, P0, P1>(&self, aggregatecontact: P0, rawcontact: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -56,7 +51,6 @@ impl AggregateContactManager {
             (::windows::core::Interface::vtable(this).TrySetPreferredSourceForPictureAsync)(::windows::core::Interface::as_raw(this), aggregatecontact.into().abi(), rawcontact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRemoteIdentificationInformationAsync(&self, contactlistid: &::windows::core::HSTRING, remotesourceid: &::windows::core::HSTRING, accountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IAggregateContactManager2>(self)?;
@@ -128,7 +122,6 @@ impl ::core::convert::From<&AggregateContactManager> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for AggregateContactManager {}
 unsafe impl ::core::marker::Sync for AggregateContactManager {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct Contact(::windows::core::IUnknown);
 impl Contact {
@@ -150,7 +143,6 @@ impl Contact {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -159,7 +151,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -169,7 +160,6 @@ impl Contact {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Fields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<IContactField>> {
         let this = self;
@@ -200,7 +190,6 @@ impl Contact {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNotes)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Phones(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactPhone>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -209,7 +198,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).Phones)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactPhone>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Emails(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactEmail>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -218,7 +206,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).Emails)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactEmail>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Addresses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactAddress>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -227,7 +214,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).Addresses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactAddress>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ConnectedServiceAccounts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -236,7 +222,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).ConnectedServiceAccounts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactConnectedServiceAccount>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ImportantDates(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactDate>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -245,7 +230,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).ImportantDates)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactDate>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DataSuppliers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -254,7 +238,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).DataSuppliers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn JobInfo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactJobInfo>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -263,7 +246,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).JobInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactJobInfo>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SignificantOthers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactSignificantOther>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -272,7 +254,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).SignificantOthers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactSignificantOther>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Websites(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactWebsite>> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -281,7 +262,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).Websites)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactWebsite>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProviderProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = &::windows::core::Interface::cast::<IContact2>(self)?;
@@ -297,7 +277,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).ContactListId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisplayPictureUserUpdateTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = &::windows::core::Interface::cast::<IContact3>(self)?;
@@ -306,7 +285,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).DisplayPictureUserUpdateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDisplayPictureUserUpdateTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IContact3>(self)?;
@@ -355,7 +333,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).IsDisplayPictureManuallySet)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LargeDisplayPicture(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IContact3>(self)?;
@@ -364,7 +341,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).LargeDisplayPicture)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SmallDisplayPicture(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IContact3>(self)?;
@@ -373,7 +349,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).SmallDisplayPicture)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SourceDisplayPicture(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IContact3>(self)?;
@@ -382,7 +357,6 @@ impl Contact {
             (::windows::core::Interface::vtable(this).SourceDisplayPicture)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSourceDisplayPicture<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -600,7 +574,6 @@ impl ::core::convert::From<&Contact> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Contact {}
 unsafe impl ::core::marker::Sync for Contact {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactAddress(::windows::core::IUnknown);
 impl ContactAddress {
@@ -751,7 +724,6 @@ impl ::core::convert::From<&ContactAddress> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactAddress {}
 unsafe impl ::core::marker::Sync for ContactAddress {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactAddressKind(pub i32);
@@ -786,7 +758,6 @@ unsafe impl ::windows::core::RuntimeType for ContactAddressKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactAnnotation(::windows::core::IUnknown);
 impl ContactAnnotation {
@@ -851,7 +822,6 @@ impl ContactAnnotation {
             (::windows::core::Interface::vtable(this).IsDisabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ProviderProperties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -934,7 +904,6 @@ impl ::core::convert::From<&ContactAnnotation> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for ContactAnnotation {}
 unsafe impl ::core::marker::Sync for ContactAnnotation {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactAnnotationList(::windows::core::IUnknown);
 impl ContactAnnotationList {
@@ -959,7 +928,6 @@ impl ContactAnnotationList {
             (::windows::core::Interface::vtable(this).UserDataAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -968,7 +936,6 @@ impl ContactAnnotationList {
             (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrySaveAnnotationAsync<'a, P0>(&self, annotation: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -980,7 +947,6 @@ impl ContactAnnotationList {
             (::windows::core::Interface::vtable(this).TrySaveAnnotationAsync)(::windows::core::Interface::as_raw(this), annotation.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAnnotationAsync(&self, annotationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotation>> {
         let this = self;
@@ -989,7 +955,6 @@ impl ContactAnnotationList {
             (::windows::core::Interface::vtable(this).GetAnnotationAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(annotationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactAnnotation>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAnnotationsByRemoteIdAsync(&self, remoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
@@ -998,7 +963,6 @@ impl ContactAnnotationList {
             (::windows::core::Interface::vtable(this).FindAnnotationsByRemoteIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remoteid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAnnotationsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = self;
@@ -1007,7 +971,6 @@ impl ContactAnnotationList {
             (::windows::core::Interface::vtable(this).FindAnnotationsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAnnotationAsync<'a, P0>(&self, annotation: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1082,7 +1045,6 @@ impl ::core::convert::From<&ContactAnnotationList> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for ContactAnnotationList {}
 unsafe impl ::core::marker::Sync for ContactAnnotationList {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactAnnotationOperations(pub u32);
@@ -1149,11 +1111,9 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationOperations {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactAnnotationStore(::windows::core::IUnknown);
 impl ContactAnnotationStore {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactIdsByEmailAsync(&self, emailaddress: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
@@ -1162,7 +1122,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).FindContactIdsByEmailAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(emailaddress), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactIdsByPhoneNumberAsync(&self, phonenumber: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
@@ -1171,7 +1130,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).FindContactIdsByPhoneNumberAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(phonenumber), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAnnotationsForContactAsync<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>
     where
@@ -1183,7 +1141,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).FindAnnotationsForContactAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAnnotationAsync<'a, P0>(&self, annotation: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -1195,7 +1152,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).DisableAnnotationAsync)(::windows::core::Interface::as_raw(this), annotation.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAnnotationListAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
@@ -1204,7 +1160,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).CreateAnnotationListAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAnnotationListInAccountAsync(&self, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
@@ -1213,7 +1168,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).CreateAnnotationListInAccountAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(userdataaccountid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAnnotationListAsync(&self, annotationlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationList>> {
         let this = self;
@@ -1222,7 +1176,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).GetAnnotationListAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(annotationlistid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactAnnotationList>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAnnotationListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>> {
         let this = self;
@@ -1231,7 +1184,6 @@ impl ContactAnnotationStore {
             (::windows::core::Interface::vtable(this).FindAnnotationListsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotationList>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAnnotationsForContactListAsync(&self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactAnnotation>>> {
         let this = &::windows::core::Interface::cast::<IContactAnnotationStore2>(self)?;
@@ -1303,7 +1255,6 @@ impl ::core::convert::From<&ContactAnnotationStore> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for ContactAnnotationStore {}
 unsafe impl ::core::marker::Sync for ContactAnnotationStore {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
@@ -1337,11 +1288,9 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationStoreAccessType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactBatch(::windows::core::IUnknown);
 impl ContactBatch {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Contacts(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<Contact>> {
         let this = self;
@@ -1420,7 +1369,6 @@ impl ::core::convert::From<&ContactBatch> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactBatch {}
 unsafe impl ::core::marker::Sync for ContactBatch {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactBatchStatus(pub i32);
@@ -1455,11 +1403,9 @@ unsafe impl ::windows::core::RuntimeType for ContactBatchStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactCardDelayedDataLoader(::windows::core::IUnknown);
 impl ContactCardDelayedDataLoader {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1557,7 +1503,6 @@ impl<'a> ::core::convert::TryFrom<&ContactCardDelayedDataLoader> for ::windows::
 }
 unsafe impl ::core::marker::Send for ContactCardDelayedDataLoader {}
 unsafe impl ::core::marker::Sync for ContactCardDelayedDataLoader {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactCardHeaderKind(pub i32);
@@ -1592,7 +1537,6 @@ unsafe impl ::windows::core::RuntimeType for ContactCardHeaderKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactCardOptions(::windows::core::IUnknown);
 impl ContactCardOptions {
@@ -1625,7 +1569,6 @@ impl ContactCardOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialTabKind)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServerSearchContactListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IContactCardOptions2>(self)?;
@@ -1697,7 +1640,6 @@ impl ::core::convert::From<&ContactCardOptions> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for ContactCardOptions {}
 unsafe impl ::core::marker::Sync for ContactCardOptions {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactCardTabKind(pub i32);
@@ -1735,7 +1677,6 @@ unsafe impl ::windows::core::RuntimeType for ContactCardTabKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactChange(::windows::core::IUnknown);
 impl ContactChange {
@@ -1816,7 +1757,6 @@ impl ::core::convert::From<&ContactChange> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactChange {}
 unsafe impl ::core::marker::Sync for ContactChange {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactChangeReader(::windows::core::IUnknown);
 impl ContactChangeReader {
@@ -1831,7 +1771,6 @@ impl ContactChangeReader {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).AcceptChangesThrough)(::windows::core::Interface::as_raw(this), lastchangetoaccept.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactChange>>> {
         let this = self;
@@ -1903,7 +1842,6 @@ impl ::core::convert::From<&ContactChangeReader> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for ContactChangeReader {}
 unsafe impl ::core::marker::Sync for ContactChangeReader {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactChangeTracker(::windows::core::IUnknown);
 impl ContactChangeTracker {
@@ -1992,7 +1930,6 @@ impl ::core::convert::From<&ContactChangeTracker> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for ContactChangeTracker {}
 unsafe impl ::core::marker::Sync for ContactChangeTracker {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactChangeType(pub i32);
@@ -2028,7 +1965,6 @@ unsafe impl ::windows::core::RuntimeType for ContactChangeType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactChangedDeferral(::windows::core::IUnknown);
 impl ContactChangedDeferral {
@@ -2099,7 +2035,6 @@ impl ::core::convert::From<&ContactChangedDeferral> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for ContactChangedDeferral {}
 unsafe impl ::core::marker::Sync for ContactChangedDeferral {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactChangedEventArgs(::windows::core::IUnknown);
 impl ContactChangedEventArgs {
@@ -2173,7 +2108,6 @@ impl ::core::convert::From<&ContactChangedEventArgs> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for ContactChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactChangedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactConnectedServiceAccount(::windows::core::IUnknown);
 impl ContactConnectedServiceAccount {
@@ -2269,7 +2203,6 @@ impl ::core::convert::From<&ContactConnectedServiceAccount> for &::windows::core
 }
 unsafe impl ::core::marker::Send for ContactConnectedServiceAccount {}
 unsafe impl ::core::marker::Sync for ContactConnectedServiceAccount {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactDate(::windows::core::IUnknown);
 impl ContactDate {
@@ -2280,7 +2213,6 @@ impl ContactDate {
         static SHARED: ::windows::core::FactoryCache<ContactDate, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Day(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -2289,7 +2221,6 @@ impl ContactDate {
             (::windows::core::Interface::vtable(this).Day)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDay<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2299,7 +2230,6 @@ impl ContactDate {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDay)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Month(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -2308,7 +2238,6 @@ impl ContactDate {
             (::windows::core::Interface::vtable(this).Month)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMonth<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2318,7 +2247,6 @@ impl ContactDate {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMonth)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Year(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -2327,7 +2255,6 @@ impl ContactDate {
             (::windows::core::Interface::vtable(this).Year)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetYear<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2422,7 +2349,6 @@ impl ::core::convert::From<&ContactDate> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactDate {}
 unsafe impl ::core::marker::Sync for ContactDate {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactDateKind(pub i32);
@@ -2457,7 +2383,6 @@ unsafe impl ::windows::core::RuntimeType for ContactDateKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactEmail(::windows::core::IUnknown);
 impl ContactEmail {
@@ -2564,7 +2489,6 @@ impl ::core::convert::From<&ContactEmail> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactEmail {}
 unsafe impl ::core::marker::Sync for ContactEmail {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactEmailKind(pub i32);
@@ -2599,7 +2523,6 @@ unsafe impl ::windows::core::RuntimeType for ContactEmailKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactField(::windows::core::IUnknown);
 impl ContactField {
@@ -2736,7 +2659,6 @@ impl<'a> ::core::convert::TryFrom<&ContactField> for ::windows::core::InParam<'a
 }
 unsafe impl ::core::marker::Send for ContactField {}
 unsafe impl ::core::marker::Sync for ContactField {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactFieldCategory(pub i32);
@@ -2773,7 +2695,6 @@ unsafe impl ::windows::core::RuntimeType for ContactFieldCategory {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactFieldFactory(::windows::core::IUnknown);
 impl ContactFieldFactory {
@@ -2819,7 +2740,6 @@ impl ContactFieldFactory {
             (::windows::core::Interface::vtable(this).CreateInstantMessage_Category)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, result__.as_mut_ptr()).from_abi::<ContactInstantMessageField>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstantMessage_All<'a, P0>(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: P0) -> ::windows::core::Result<ContactInstantMessageField>
     where
@@ -2972,7 +2892,6 @@ impl<'a> ::core::convert::TryFrom<&ContactFieldFactory> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for ContactFieldFactory {}
 unsafe impl ::core::marker::Sync for ContactFieldFactory {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactFieldType(pub i32);
@@ -3016,7 +2935,6 @@ unsafe impl ::windows::core::RuntimeType for ContactFieldType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactGroup(::windows::core::IUnknown);
 impl ContactGroup {}
@@ -3082,7 +3000,6 @@ impl ::core::convert::From<&ContactGroup> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactGroup {}
 unsafe impl ::core::marker::Sync for ContactGroup {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactInformation(::windows::core::IUnknown);
 impl ContactInformation {
@@ -3093,7 +3010,6 @@ impl ContactInformation {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetThumbnailAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -3102,7 +3018,6 @@ impl ContactInformation {
             (::windows::core::Interface::vtable(this).GetThumbnailAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Emails(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
@@ -3111,7 +3026,6 @@ impl ContactInformation {
             (::windows::core::Interface::vtable(this).Emails)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ContactField>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
@@ -3120,7 +3034,6 @@ impl ContactInformation {
             (::windows::core::Interface::vtable(this).PhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ContactField>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Locations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactLocationField>> {
         let this = self;
@@ -3129,7 +3042,6 @@ impl ContactInformation {
             (::windows::core::Interface::vtable(this).Locations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ContactLocationField>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InstantMessages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>> {
         let this = self;
@@ -3138,7 +3050,6 @@ impl ContactInformation {
             (::windows::core::Interface::vtable(this).InstantMessages)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ContactInstantMessageField>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CustomFields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
@@ -3147,7 +3058,6 @@ impl ContactInformation {
             (::windows::core::Interface::vtable(this).CustomFields)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ContactField>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn QueryCustomFields(&self, customname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactField>> {
         let this = self;
@@ -3217,7 +3127,6 @@ impl ::core::convert::From<&ContactInformation> for &::windows::core::IInspectab
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactInstantMessageField(::windows::core::IUnknown);
 impl ContactInstantMessageField {
@@ -3270,7 +3179,6 @@ impl ContactInstantMessageField {
             (::windows::core::Interface::vtable(this).DisplayText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -3291,7 +3199,6 @@ impl ContactInstantMessageField {
             (::windows::core::Interface::vtable(this).CreateInstantMessage_Category)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, result__.as_mut_ptr()).from_abi::<ContactInstantMessageField>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstantMessage_All<'a, P0>(username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: P0) -> ::windows::core::Result<ContactInstantMessageField>
     where
@@ -3389,7 +3296,6 @@ impl<'a> ::core::convert::TryFrom<&ContactInstantMessageField> for ::windows::co
 }
 unsafe impl ::core::marker::Send for ContactInstantMessageField {}
 unsafe impl ::core::marker::Sync for ContactInstantMessageField {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactJobInfo(::windows::core::IUnknown);
 impl ContactJobInfo {
@@ -3551,7 +3457,6 @@ impl ::core::convert::From<&ContactJobInfo> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactJobInfo {}
 unsafe impl ::core::marker::Sync for ContactJobInfo {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 pub struct ContactLaunchActionVerbs;
 impl ContactLaunchActionVerbs {
     pub fn Call() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3593,7 +3498,6 @@ impl ContactLaunchActionVerbs {
 impl ::windows::core::RuntimeName for ContactLaunchActionVerbs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLaunchActionVerbs";
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactList(::windows::core::IUnknown);
 impl ContactList {
@@ -3683,7 +3587,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).UserDataAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContactChanged<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3695,13 +3598,11 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).ContactChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContactChanged(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveContactChanged)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3710,7 +3611,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).SaveAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3719,7 +3619,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetContactFromRemoteIdAsync(&self, remoteid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
@@ -3728,7 +3627,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).GetContactFromRemoteIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(remoteid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetMeContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
@@ -3754,7 +3652,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).GetContactReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<ContactReader>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveContactAsync<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3766,7 +3663,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).SaveContactAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteContactAsync<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -3778,7 +3674,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).DeleteContactAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
@@ -3787,7 +3682,6 @@ impl ContactList {
             (::windows::core::Interface::vtable(this).GetContactAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contactid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RegisterSyncManagerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IContactList2>(self)?;
@@ -3884,11 +3778,9 @@ impl ::core::convert::From<&ContactList> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactList {}
 unsafe impl ::core::marker::Sync for ContactList {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactListLimitedWriteOperations(::windows::core::IUnknown);
 impl ContactListLimitedWriteOperations {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateOrUpdateContactAsync<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -3900,7 +3792,6 @@ impl ContactListLimitedWriteOperations {
             (::windows::core::Interface::vtable(this).TryCreateOrUpdateContactAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDeleteContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3972,7 +3863,6 @@ impl ::core::convert::From<&ContactListLimitedWriteOperations> for &::windows::c
 }
 unsafe impl ::core::marker::Send for ContactListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for ContactListLimitedWriteOperations {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactListOtherAppReadAccess(pub i32);
@@ -4008,7 +3898,6 @@ unsafe impl ::windows::core::RuntimeType for ContactListOtherAppReadAccess {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
@@ -4043,7 +3932,6 @@ unsafe impl ::windows::core::RuntimeType for ContactListOtherAppWriteAccess {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactListSyncConstraints(::windows::core::IUnknown);
 impl ContactListSyncConstraints {
@@ -4058,7 +3946,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCanSyncDescriptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxHomePhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4067,7 +3954,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxHomePhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxHomePhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4077,7 +3963,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxHomePhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxMobilePhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4086,7 +3971,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxMobilePhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxMobilePhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4096,7 +3980,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxMobilePhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxWorkPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4105,7 +3988,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxWorkPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxWorkPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4115,7 +3997,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxWorkPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxOtherPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4124,7 +4005,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxOtherPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxOtherPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4134,7 +4014,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxOtherPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxPagerPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4143,7 +4022,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxPagerPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxPagerPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4153,7 +4031,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxPagerPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxBusinessFaxPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4162,7 +4039,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxBusinessFaxPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxBusinessFaxPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4172,7 +4048,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxBusinessFaxPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxHomeFaxPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4181,7 +4056,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxHomeFaxPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxHomeFaxPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4191,7 +4065,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxHomeFaxPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxCompanyPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4200,7 +4073,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxCompanyPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxCompanyPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4210,7 +4082,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxCompanyPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxAssistantPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4219,7 +4090,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxAssistantPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxAssistantPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4229,7 +4099,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxAssistantPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxRadioPhoneNumbers(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4238,7 +4107,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxRadioPhoneNumbers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxRadioPhoneNumbers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4248,7 +4116,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxRadioPhoneNumbers)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxPersonalEmailAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4257,7 +4124,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxPersonalEmailAddresses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxPersonalEmailAddresses<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4267,7 +4133,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxPersonalEmailAddresses)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxWorkEmailAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4276,7 +4141,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxWorkEmailAddresses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxWorkEmailAddresses<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4286,7 +4150,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxWorkEmailAddresses)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxOtherEmailAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4295,7 +4158,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxOtherEmailAddresses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxOtherEmailAddresses<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4305,7 +4167,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxOtherEmailAddresses)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxHomeAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4314,7 +4175,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxHomeAddresses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxHomeAddresses<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4324,7 +4184,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxHomeAddresses)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxWorkAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4333,7 +4192,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxWorkAddresses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxWorkAddresses<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4343,7 +4201,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxWorkAddresses)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxOtherAddresses(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4352,7 +4209,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxOtherAddresses)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxOtherAddresses<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4362,7 +4218,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxOtherAddresses)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxBirthdayDates(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4371,7 +4226,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxBirthdayDates)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxBirthdayDates<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4381,7 +4235,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxBirthdayDates)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxAnniversaryDates(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4390,7 +4243,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxAnniversaryDates)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxAnniversaryDates<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4400,7 +4252,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxAnniversaryDates)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxOtherDates(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4409,7 +4260,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxOtherDates)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxOtherDates<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4419,7 +4269,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxOtherDates)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxOtherRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4428,7 +4277,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxOtherRelationships)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxOtherRelationships<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4438,7 +4286,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxOtherRelationships)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSpouseRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4447,7 +4294,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxSpouseRelationships)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxSpouseRelationships<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4457,7 +4303,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxSpouseRelationships)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxPartnerRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4466,7 +4311,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxPartnerRelationships)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxPartnerRelationships<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4476,7 +4320,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxPartnerRelationships)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSiblingRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4485,7 +4328,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxSiblingRelationships)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxSiblingRelationships<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4495,7 +4337,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxSiblingRelationships)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxParentRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4504,7 +4345,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxParentRelationships)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxParentRelationships<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4514,7 +4354,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxParentRelationships)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxChildRelationships(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4523,7 +4362,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxChildRelationships)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxChildRelationships<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4533,7 +4371,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxChildRelationships)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxJobInfo(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4542,7 +4379,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxJobInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxJobInfo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4552,7 +4388,6 @@ impl ContactListSyncConstraints {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMaxJobInfo)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxWebsites(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -4561,7 +4396,6 @@ impl ContactListSyncConstraints {
             (::windows::core::Interface::vtable(this).MaxWebsites)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetMaxWebsites<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4634,7 +4468,6 @@ impl ::core::convert::From<&ContactListSyncConstraints> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for ContactListSyncConstraints {}
 unsafe impl ::core::marker::Sync for ContactListSyncConstraints {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactListSyncManager(::windows::core::IUnknown);
 impl ContactListSyncManager {
@@ -4645,7 +4478,6 @@ impl ContactListSyncManager {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContactListSyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -4654,7 +4486,6 @@ impl ContactListSyncManager {
             (::windows::core::Interface::vtable(this).LastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastAttemptedSyncTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -4663,7 +4494,6 @@ impl ContactListSyncManager {
             (::windows::core::Interface::vtable(this).LastAttemptedSyncTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4672,7 +4502,6 @@ impl ContactListSyncManager {
             (::windows::core::Interface::vtable(this).SyncAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncStatusChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4684,7 +4513,6 @@ impl ContactListSyncManager {
             (::windows::core::Interface::vtable(this).SyncStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncStatusChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -4694,13 +4522,11 @@ impl ContactListSyncManager {
         let this = &::windows::core::Interface::cast::<IContactListSyncManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IContactListSyncManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetLastSuccessfulSyncTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IContactListSyncManager2>(self)?;
@@ -4769,7 +4595,6 @@ impl ::core::convert::From<&ContactListSyncManager> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for ContactListSyncManager {}
 unsafe impl ::core::marker::Sync for ContactListSyncManager {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactListSyncStatus(pub i32);
@@ -4808,7 +4633,6 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactLocationField(::windows::core::IUnknown);
 impl ContactLocationField {
@@ -4987,10 +4811,8 @@ impl<'a> ::core::convert::TryFrom<&ContactLocationField> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for ContactLocationField {}
 unsafe impl ::core::marker::Sync for ContactLocationField {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 pub struct ContactManager;
 impl ContactManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowContactCard<'a, P0>(contact: P0, selection: super::super::Foundation::Rect) -> ::windows::core::Result<()>
     where
@@ -4998,7 +4820,6 @@ impl ContactManager {
     {
         Self::IContactManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowContactCard)(::windows::core::Interface::as_raw(this), contact.into().abi(), selection).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowContactCardWithPlacement<'a, P0>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<()>
     where
@@ -5006,7 +4827,6 @@ impl ContactManager {
     {
         Self::IContactManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).ShowContactCardWithPlacement)(::windows::core::Interface::as_raw(this), contact.into().abi(), selection, preferredplacement).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowDelayLoadedContactCard<'a, P0>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> ::windows::core::Result<ContactCardDelayedDataLoader>
     where
@@ -5017,7 +4837,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).ShowDelayLoadedContactCard)(::windows::core::Interface::as_raw(this), contact.into().abi(), selection, preferredplacement, result__.as_mut_ptr()).from_abi::<ContactCardDelayedDataLoader>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactManagerStatics2(|this| unsafe {
@@ -5025,7 +4844,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactStore>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertContactToVCardAsync<'a, P0>(contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
     where
@@ -5036,7 +4854,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertContactToVCardAsyncWithMaxBytes<'a, P0>(contact: P0, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
     where
@@ -5047,7 +4864,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows::core::Interface::as_raw(this), contact.into().abi(), maxbytes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertVCardToContactAsync<'a, P0, E0>(vcard: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>
     where
@@ -5059,7 +4875,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).ConvertVCardToContactAsync)(::windows::core::Interface::as_raw(this), vcard.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsyncWithAccessType(accesstype: ContactStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         Self::IContactManagerStatics3(|this| unsafe {
@@ -5067,7 +4882,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).RequestStoreAsyncWithAccessType)(::windows::core::Interface::as_raw(this), accesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactStore>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAnnotationStoreAsync(accesstype: ContactAnnotationStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>> {
         Self::IContactManagerStatics3(|this| unsafe {
@@ -5081,7 +4895,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).IsShowContactCardSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowContactCardWithOptions<'a, P0, P1>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P1) -> ::windows::core::Result<()>
     where
@@ -5096,7 +4909,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).IsShowDelayLoadedContactCardSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI_Popups\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))]
     pub fn ShowDelayLoadedContactCardWithOptions<'a, P0, P1>(contact: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, contactcardoptions: P1) -> ::windows::core::Result<ContactCardDelayedDataLoader>
     where
@@ -5133,7 +4945,6 @@ impl ContactManager {
     pub fn SetSystemSortOrder(value: ContactNameOrder) -> ::windows::core::Result<()> {
         Self::IContactManagerStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).SetSystemSortOrder)(::windows::core::Interface::as_raw(this), value).ok() })
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<ContactManagerForUser>
     where
@@ -5144,7 +4955,6 @@ impl ContactManager {
             (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<ContactManagerForUser>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsShowFullContactCardSupportedAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IContactManagerStatics5(|this| unsafe {
@@ -5190,11 +5000,9 @@ impl ContactManager {
 impl ::windows::core::RuntimeName for ContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManager";
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactManagerForUser(::windows::core::IUnknown);
 impl ContactManagerForUser {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertContactToVCardAsync<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
     where
@@ -5206,7 +5014,6 @@ impl ContactManagerForUser {
             (::windows::core::Interface::vtable(this).ConvertContactToVCardAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertContactToVCardAsyncWithMaxBytes<'a, P0>(&self, contact: P0, maxbytes: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>
     where
@@ -5218,7 +5025,6 @@ impl ContactManagerForUser {
             (::windows::core::Interface::vtable(this).ConvertContactToVCardAsyncWithMaxBytes)(::windows::core::Interface::as_raw(this), contact.into().abi(), maxbytes, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ConvertVCardToContactAsync<'a, P0, E0>(&self, vcard: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>>
     where
@@ -5231,7 +5037,6 @@ impl ContactManagerForUser {
             (::windows::core::Interface::vtable(this).ConvertVCardToContactAsync)(::windows::core::Interface::as_raw(this), vcard.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync(&self, accesstype: ContactStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactStore>> {
         let this = self;
@@ -5240,7 +5045,6 @@ impl ContactManagerForUser {
             (::windows::core::Interface::vtable(this).RequestStoreAsync)(::windows::core::Interface::as_raw(this), accesstype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactStore>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAnnotationStoreAsync(&self, accesstype: ContactAnnotationStoreAccessType) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactAnnotationStore>> {
         let this = self;
@@ -5271,7 +5075,6 @@ impl ContactManagerForUser {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSystemSortOrder)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
@@ -5351,7 +5154,6 @@ impl ::core::convert::From<&ContactManagerForUser> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for ContactManagerForUser {}
 unsafe impl ::core::marker::Sync for ContactManagerForUser {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactMatchReason(::windows::core::IUnknown);
 impl ContactMatchReason {
@@ -5362,7 +5164,6 @@ impl ContactMatchReason {
             (::windows::core::Interface::vtable(this).Field)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContactMatchReasonKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Data_Text", feature = "Foundation_Collections"))]
     pub fn Segments(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Data::Text::TextSegment>> {
         let this = self;
@@ -5441,7 +5242,6 @@ impl ::core::convert::From<&ContactMatchReason> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for ContactMatchReason {}
 unsafe impl ::core::marker::Sync for ContactMatchReason {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactMatchReasonKind(pub i32);
@@ -5479,7 +5279,6 @@ unsafe impl ::windows::core::RuntimeType for ContactMatchReasonKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactNameOrder(pub i32);
@@ -5513,7 +5312,6 @@ unsafe impl ::windows::core::RuntimeType for ContactNameOrder {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactPanel(::windows::core::IUnknown);
 impl ContactPanel {
@@ -5521,7 +5319,6 @@ impl ContactPanel {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ClosePanel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI"))]
     pub fn HeaderColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::UI::Color>> {
         let this = self;
@@ -5530,7 +5327,6 @@ impl ContactPanel {
             (::windows::core::Interface::vtable(this).HeaderColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::UI::Color>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"UI\"`*"]
     #[cfg(all(feature = "Foundation", feature = "UI"))]
     pub fn SetHeaderColor<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -5540,7 +5336,6 @@ impl ContactPanel {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHeaderColor)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchFullAppRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5552,13 +5347,11 @@ impl ContactPanel {
             (::windows::core::Interface::vtable(this).LaunchFullAppRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLaunchFullAppRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveLaunchFullAppRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closing<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5570,7 +5363,6 @@ impl ContactPanel {
             (::windows::core::Interface::vtable(this).Closing)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosing(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -5639,11 +5431,9 @@ impl ::core::convert::From<&ContactPanel> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactPanel {}
 unsafe impl ::core::marker::Sync for ContactPanel {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactPanelClosingEventArgs(::windows::core::IUnknown);
 impl ContactPanelClosingEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -5715,7 +5505,6 @@ impl ::core::convert::From<&ContactPanelClosingEventArgs> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for ContactPanelClosingEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelClosingEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactPanelLaunchFullAppRequestedEventArgs(::windows::core::IUnknown);
 impl ContactPanelLaunchFullAppRequestedEventArgs {
@@ -5793,7 +5582,6 @@ impl ::core::convert::From<&ContactPanelLaunchFullAppRequestedEventArgs> for &::
 }
 unsafe impl ::core::marker::Send for ContactPanelLaunchFullAppRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ContactPanelLaunchFullAppRequestedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactPhone(::windows::core::IUnknown);
 impl ContactPhone {
@@ -5900,7 +5688,6 @@ impl ::core::convert::From<&ContactPhone> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactPhone {}
 unsafe impl ::core::marker::Sync for ContactPhone {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactPhoneKind(pub i32);
@@ -5942,7 +5729,6 @@ unsafe impl ::windows::core::RuntimeType for ContactPhoneKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactPicker(::windows::core::IUnknown);
 impl ContactPicker {
@@ -5975,7 +5761,6 @@ impl ContactPicker {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSelectionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DesiredFields(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -5984,7 +5769,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).DesiredFields)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PickSingleContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactInformation>> {
         let this = self;
@@ -5993,7 +5777,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).PickSingleContactAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactInformation>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PickMultipleContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>> {
         let this = self;
@@ -6002,7 +5785,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).PickMultipleContactsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactInformation>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DesiredFieldsWithContactFieldType(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ContactFieldType>> {
         let this = &::windows::core::Interface::cast::<IContactPicker2>(self)?;
@@ -6011,7 +5793,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).DesiredFieldsWithContactFieldType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ContactFieldType>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PickContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = &::windows::core::Interface::cast::<IContactPicker2>(self)?;
@@ -6020,7 +5801,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).PickContactAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Contact>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PickContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>> {
         let this = &::windows::core::Interface::cast::<IContactPicker2>(self)?;
@@ -6029,7 +5809,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).PickContactsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<Contact>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = &::windows::core::Interface::cast::<IContactPicker3>(self)?;
@@ -6038,7 +5817,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn CreateForUser<'a, P0>(user: P0) -> ::windows::core::Result<ContactPicker>
     where
@@ -6049,7 +5827,6 @@ impl ContactPicker {
             (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<ContactPicker>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsSupportedAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IContactPickerStatics(|this| unsafe {
@@ -6123,7 +5900,6 @@ impl ::core::convert::From<&ContactPicker> for &::windows::core::IInspectable {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactQueryDesiredFields(pub u32);
@@ -6187,7 +5963,6 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryDesiredFields {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactQueryOptions(::windows::core::IUnknown);
 impl ContactQueryOptions {
@@ -6205,7 +5980,6 @@ impl ContactQueryOptions {
             (::windows::core::Interface::vtable(this).TextSearch)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContactQueryTextSearch>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContactListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -6247,7 +6021,6 @@ impl ContactQueryOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDesiredOperations)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AnnotationListIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -6336,7 +6109,6 @@ impl ::core::convert::From<&ContactQueryOptions> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for ContactQueryOptions {}
 unsafe impl ::core::marker::Sync for ContactQueryOptions {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactQuerySearchFields(pub u32);
@@ -6401,7 +6173,6 @@ unsafe impl ::windows::core::RuntimeType for ContactQuerySearchFields {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactQuerySearchScope(pub i32);
@@ -6435,7 +6206,6 @@ unsafe impl ::windows::core::RuntimeType for ContactQuerySearchScope {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactQueryTextSearch(::windows::core::IUnknown);
 impl ContactQueryTextSearch {
@@ -6535,11 +6305,9 @@ impl ::core::convert::From<&ContactQueryTextSearch> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for ContactQueryTextSearch {}
 unsafe impl ::core::marker::Sync for ContactQueryTextSearch {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactReader(::windows::core::IUnknown);
 impl ContactReader {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadBatchAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactBatch>> {
         let this = self;
@@ -6548,7 +6316,6 @@ impl ContactReader {
             (::windows::core::Interface::vtable(this).ReadBatchAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactBatch>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMatchingPropertiesWithMatchReason<'a, P0>(&self, contact: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ContactMatchReason>>
     where
@@ -6623,7 +6390,6 @@ impl ::core::convert::From<&ContactReader> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactReader {}
 unsafe impl ::core::marker::Sync for ContactReader {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactRelationship(pub i32);
@@ -6661,7 +6427,6 @@ unsafe impl ::windows::core::RuntimeType for ContactRelationship {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactSelectionMode(pub i32);
@@ -6695,7 +6460,6 @@ unsafe impl ::windows::core::RuntimeType for ContactSelectionMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactSignificantOther(::windows::core::IUnknown);
 impl ContactSignificantOther {
@@ -6802,11 +6566,9 @@ impl ::core::convert::From<&ContactSignificantOther> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for ContactSignificantOther {}
 unsafe impl ::core::marker::Sync for ContactSignificantOther {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactStore(::windows::core::IUnknown);
 impl ContactStore {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
@@ -6815,7 +6577,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).FindContactsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactsWithSearchTextAsync(&self, searchtext: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>> {
         let this = self;
@@ -6824,7 +6585,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).FindContactsWithSearchTextAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchtext), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Contact>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetContactAsync(&self, contactid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = self;
@@ -6840,7 +6600,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).ChangeTracker)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContactChangeTracker>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContactChanged<'a, P0>(&self, value: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -6852,7 +6611,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).ContactChanged)(::windows::core::Interface::as_raw(this), value.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContactChanged(&self, value: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IContactStore2>(self)?;
@@ -6865,7 +6623,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).AggregateContactManager)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AggregateContactManager>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindContactListsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>> {
         let this = &::windows::core::Interface::cast::<IContactStore2>(self)?;
@@ -6874,7 +6631,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).FindContactListsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ContactList>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetContactListAsync(&self, contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows::core::Interface::cast::<IContactStore2>(self)?;
@@ -6883,7 +6639,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).GetContactListAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contactlistid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactList>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateContactListAsync(&self, displayname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows::core::Interface::cast::<IContactStore2>(self)?;
@@ -6892,7 +6647,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).CreateContactListAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(displayname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ContactList>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetMeContactAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Contact>> {
         let this = &::windows::core::Interface::cast::<IContactStore2>(self)?;
@@ -6918,7 +6672,6 @@ impl ContactStore {
             (::windows::core::Interface::vtable(this).GetContactReaderWithOptions)(::windows::core::Interface::as_raw(this), options.into().abi(), result__.as_mut_ptr()).from_abi::<ContactReader>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateContactListInAccountAsync(&self, displayname: &::windows::core::HSTRING, userdataaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ContactList>> {
         let this = &::windows::core::Interface::cast::<IContactStore2>(self)?;
@@ -6997,7 +6750,6 @@ impl ::core::convert::From<&ContactStore> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactStore {}
 unsafe impl ::core::marker::Sync for ContactStore {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ContactStoreAccessType(pub i32);
@@ -7032,7 +6784,6 @@ unsafe impl ::windows::core::RuntimeType for ContactStoreAccessType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactStoreNotificationTriggerDetails(::windows::core::IUnknown);
 impl ContactStoreNotificationTriggerDetails {}
@@ -7098,7 +6849,6 @@ impl ::core::convert::From<&ContactStoreNotificationTriggerDetails> for &::windo
 }
 unsafe impl ::core::marker::Send for ContactStoreNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ContactStoreNotificationTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct ContactWebsite(::windows::core::IUnknown);
 impl ContactWebsite {
@@ -7109,7 +6859,6 @@ impl ContactWebsite {
         static SHARED: ::windows::core::FactoryCache<ContactWebsite, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -7118,7 +6867,6 @@ impl ContactWebsite {
             (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -7212,7 +6960,6 @@ impl ::core::convert::From<&ContactWebsite> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ContactWebsite {}
 unsafe impl ::core::marker::Sync for ContactWebsite {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct FullContactCardOptions(::windows::core::IUnknown);
 impl FullContactCardOptions {
@@ -7223,7 +6970,6 @@ impl FullContactCardOptions {
         static SHARED: ::windows::core::FactoryCache<FullContactCardOptions, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn DesiredRemainingView(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ViewSizePreference> {
         let this = self;
@@ -7232,7 +6978,6 @@ impl FullContactCardOptions {
             (::windows::core::Interface::vtable(this).DesiredRemainingView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::ViewManagement::ViewSizePreference>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     #[cfg(feature = "UI_ViewManagement")]
     pub fn SetDesiredRemainingView(&self, value: super::super::UI::ViewManagement::ViewSizePreference) -> ::windows::core::Result<()> {
         let this = self;
@@ -7866,7 +7611,6 @@ pub struct IContactEmail_Vtbl {
     pub Description: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct IContactField(::windows::core::IUnknown);
 impl IContactField {
@@ -7965,7 +7709,6 @@ pub struct IContactField_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct IContactFieldFactory(::windows::core::IUnknown);
 impl IContactFieldFactory {
@@ -8128,7 +7871,6 @@ pub struct IContactInstantMessageField_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     LaunchUri: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct IContactInstantMessageFieldFactory(::windows::core::IUnknown);
 impl IContactInstantMessageFieldFactory {
@@ -8146,7 +7888,6 @@ impl IContactInstantMessageFieldFactory {
             (::windows::core::Interface::vtable(this).CreateInstantMessage_Category)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), category, result__.as_mut_ptr()).from_abi::<ContactInstantMessageField>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstantMessage_All<'a, P0>(&self, username: &::windows::core::HSTRING, category: ContactFieldCategory, service: &::windows::core::HSTRING, displaytext: &::windows::core::HSTRING, verb: P0) -> ::windows::core::Result<ContactInstantMessageField>
     where
@@ -8690,7 +8431,6 @@ pub struct IContactLocationField_Vtbl {
     pub Country: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub PostalCode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct IContactLocationFieldFactory(::windows::core::IUnknown);
 impl IContactLocationFieldFactory {
@@ -9540,12 +9280,10 @@ pub struct IPinnedContactManagerStatics_Vtbl {
     GetForUser: usize,
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 pub struct KnownContactField;
 #[cfg(feature = "deprecated")]
 impl KnownContactField {
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Email() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
@@ -9553,7 +9291,6 @@ impl KnownContactField {
             (::windows::core::Interface::vtable(this).Email)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn PhoneNumber() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
@@ -9561,7 +9298,6 @@ impl KnownContactField {
             (::windows::core::Interface::vtable(this).PhoneNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Location() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
@@ -9569,7 +9305,6 @@ impl KnownContactField {
             (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn InstantMessage() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
@@ -9577,7 +9312,6 @@ impl KnownContactField {
             (::windows::core::Interface::vtable(this).InstantMessage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertNameToType(name: &::windows::core::HSTRING) -> ::windows::core::Result<ContactFieldType> {
         Self::IKnownContactFieldStatics(|this| unsafe {
@@ -9585,7 +9319,6 @@ impl KnownContactField {
             (::windows::core::Interface::vtable(this).ConvertNameToType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<ContactFieldType>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ConvertTypeToName(r#type: ContactFieldType) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownContactFieldStatics(|this| unsafe {
@@ -9604,11 +9337,9 @@ impl KnownContactField {
 impl ::windows::core::RuntimeName for KnownContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.KnownContactField";
 }
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct PinnedContactIdsQueryResult(::windows::core::IUnknown);
 impl PinnedContactIdsQueryResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ContactIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -9680,11 +9411,9 @@ impl ::core::convert::From<&PinnedContactIdsQueryResult> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for PinnedContactIdsQueryResult {}
 unsafe impl ::core::marker::Sync for PinnedContactIdsQueryResult {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 pub struct PinnedContactManager(::windows::core::IUnknown);
 impl PinnedContactManager {
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
@@ -9710,7 +9439,6 @@ impl PinnedContactManager {
             (::windows::core::Interface::vtable(this).IsContactPinned)(::windows::core::Interface::as_raw(this), contact.into().abi(), surface, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestPinContactAsync<'a, P0>(&self, contact: P0, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -9722,7 +9450,6 @@ impl PinnedContactManager {
             (::windows::core::Interface::vtable(this).RequestPinContactAsync)(::windows::core::Interface::as_raw(this), contact.into().abi(), surface, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RequestPinContactsAsync<'a, P0, E0>(&self, contacts: P0, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -9735,7 +9462,6 @@ impl PinnedContactManager {
             (::windows::core::Interface::vtable(this).RequestPinContactsAsync)(::windows::core::Interface::as_raw(this), contacts.try_into().map_err(|e| e.into())?.abi(), surface, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestUnpinContactAsync<'a, P0>(&self, contact: P0, surface: PinnedContactSurface) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -9754,7 +9480,6 @@ impl PinnedContactManager {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SignalContactActivity)(::windows::core::Interface::as_raw(this), contact.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPinnedContactIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PinnedContactIdsQueryResult>> {
         let this = self;
@@ -9769,7 +9494,6 @@ impl PinnedContactManager {
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PinnedContactManager>(result__)
         })
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<PinnedContactManager>
     where
@@ -9854,7 +9578,6 @@ impl ::core::convert::From<&PinnedContactManager> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for PinnedContactManager {}
 unsafe impl ::core::marker::Sync for PinnedContactManager {}
-#[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PinnedContactSurface(pub i32);

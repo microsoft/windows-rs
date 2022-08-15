@@ -1,6 +1,5 @@
 #[cfg(feature = "Devices_Adc_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
 pub struct AdcChannel(::windows::core::IUnknown);
 impl AdcChannel {
@@ -25,7 +24,6 @@ impl AdcChannel {
             (::windows::core::Interface::vtable(this).ReadRatio)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -116,7 +114,6 @@ impl<'a> ::core::convert::TryFrom<&AdcChannel> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
-#[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AdcChannelMode(pub i32);
@@ -150,7 +147,6 @@ unsafe impl ::windows::core::RuntimeType for AdcChannelMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Adc\"`*"]
 #[repr(transparent)]
 pub struct AdcController(::windows::core::IUnknown);
 impl AdcController {
@@ -207,7 +203,6 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).OpenChannel)(::windows::core::Interface::as_raw(this), channelnumber, result__.as_mut_ptr()).from_abi::<AdcChannel>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Adc_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>
     where
@@ -219,7 +214,6 @@ impl AdcController {
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AdcController>> {
         Self::IAdcControllerStatics2(|this| unsafe {

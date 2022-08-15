@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CallEnclave<'a, P0>(lproutine: isize, lpparameter: *const ::core::ffi::c_void, fwaitforthread: P0, lpreturnvalue: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL
@@ -11,7 +10,6 @@ where
     }
     CallEnclave(lproutine, ::core::mem::transmute(lpparameter), fwaitforthread.into(), ::core::mem::transmute(lpreturnvalue))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnclave<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, dwsize: usize, dwinitialcommitment: usize, flenclavetype: u32, lpenclaveinformation: &[u8], lpenclaveerror: ::core::option::Option<&mut u32>) -> *mut ::core::ffi::c_void
@@ -24,7 +22,6 @@ where
     }
     CreateEnclave(hprocess.into(), ::core::mem::transmute(lpaddress), dwsize, dwinitialcommitment, flenclavetype, ::core::mem::transmute(lpenclaveinformation.as_ptr()), lpenclaveinformation.len() as _, ::core::mem::transmute(lpenclaveerror))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnvironmentBlock<'a, P0, P1>(lpenvironment: *mut *mut ::core::ffi::c_void, htoken: P0, binherit: P1) -> super::super::Foundation::BOOL
@@ -38,7 +35,6 @@ where
     }
     CreateEnvironmentBlock(::core::mem::transmute(lpenvironment), htoken.into(), binherit.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteEnclave(lpaddress: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -48,7 +44,6 @@ pub unsafe fn DeleteEnclave(lpaddress: *const ::core::ffi::c_void) -> super::sup
     }
     DeleteEnclave(::core::mem::transmute(lpaddress))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -58,14 +53,10 @@ pub unsafe fn DestroyEnvironmentBlock(lpenvironment: *const ::core::ffi::c_void)
     }
     DestroyEnvironmentBlock(::core::mem::transmute(lpenvironment))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct ENCLAVE_IDENTITY {
     pub OwnerId: [u8; 32],
     pub UniqueId: [u8; 32],
@@ -100,7 +91,6 @@ impl ::core::default::Default for ENCLAVE_IDENTITY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct ENCLAVE_INFORMATION {
     pub EnclaveType: u32,
     pub Reserved: u32,
@@ -128,27 +118,17 @@ impl ::core::default::Default for ENCLAVE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_REPORT_DATA_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENCLAVE_SEALING_IDENTITY_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_INVALID: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_EXACT_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_PRIMARY_CODE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_IMAGE: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(3i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_FAMILY: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(4i32);
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_IDENTITY_POLICY_SEAL_SAME_AUTHOR: ENCLAVE_SEALING_IDENTITY_POLICY = ENCLAVE_SEALING_IDENTITY_POLICY(5i32);
 impl ::core::marker::Copy for ENCLAVE_SEALING_IDENTITY_POLICY {}
 impl ::core::clone::Clone for ENCLAVE_SEALING_IDENTITY_POLICY {
@@ -169,18 +149,12 @@ impl ::core::fmt::Debug for ENCLAVE_SEALING_IDENTITY_POLICY {
         f.debug_tuple("ENCLAVE_SEALING_IDENTITY_POLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_UNSEAL_FLAG_STALE_KEY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct ENCLAVE_VBS_BASIC_KEY_REQUEST {
     pub RequestSize: u32,
     pub Flags: u32,
@@ -213,7 +187,6 @@ impl ::core::default::Default for ENCLAVE_VBS_BASIC_KEY_REQUEST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<&u8>, report: ::core::option::Option<&mut [u8]>, outputsize: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -222,7 +195,6 @@ pub unsafe fn EnclaveGetAttestationReport(enclavedata: ::core::option::Option<&u
     }
     EnclaveGetAttestationReport(::core::mem::transmute(enclavedata), ::core::mem::transmute(report.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), report.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputsize)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn EnclaveGetEnclaveInformation(enclaveinformation: &mut [u8]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -231,7 +203,6 @@ pub unsafe fn EnclaveGetEnclaveInformation(enclaveinformation: &mut [u8]) -> ::w
     }
     EnclaveGetEnclaveInformation(enclaveinformation.len() as _, ::core::mem::transmute(enclaveinformation.as_ptr())).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn EnclaveSealData(datatoencrypt: &[u8], identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: u32, protectedblob: ::core::option::Option<&mut [u8]>, protectedblobsize: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -240,7 +211,6 @@ pub unsafe fn EnclaveSealData(datatoencrypt: &[u8], identitypolicy: ENCLAVE_SEAL
     }
     EnclaveSealData(::core::mem::transmute(datatoencrypt.as_ptr()), datatoencrypt.len() as _, identitypolicy, runtimepolicy, ::core::mem::transmute(protectedblob.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), protectedblob.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(protectedblobsize)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn EnclaveUnsealData(protectedblob: &[u8], decrypteddata: ::core::option::Option<&mut [u8]>, decrypteddatasize: &mut u32, sealingidentity: ::core::option::Option<&mut ENCLAVE_IDENTITY>, unsealingflags: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -249,7 +219,6 @@ pub unsafe fn EnclaveUnsealData(protectedblob: &[u8], decrypteddata: ::core::opt
     }
     EnclaveUnsealData(::core::mem::transmute(protectedblob.as_ptr()), protectedblob.len() as _, ::core::mem::transmute(decrypteddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), decrypteddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(decrypteddatasize), ::core::mem::transmute(sealingidentity), ::core::mem::transmute(unsealingflags)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn EnclaveVerifyAttestationReport(enclavetype: u32, report: &[u8]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -258,7 +227,6 @@ pub unsafe fn EnclaveVerifyAttestationReport(enclavetype: u32, report: &[u8]) ->
     }
     EnclaveVerifyAttestationReport(enclavetype, ::core::mem::transmute(report.as_ptr()), report.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsA<'a, P0>(lpsrc: P0, lpdst: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -270,7 +238,6 @@ where
     }
     ExpandEnvironmentStringsA(lpsrc.into(), ::core::mem::transmute(lpdst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdst.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserA<'a, P0, P1>(htoken: P0, lpsrc: P1, lpdest: &mut [u8]) -> super::super::Foundation::BOOL
@@ -284,7 +251,6 @@ where
     }
     ExpandEnvironmentStringsForUserA(htoken.into(), lpsrc.into(), ::core::mem::transmute(lpdest.as_ptr()), lpdest.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsForUserW<'a, P0, P1>(htoken: P0, lpsrc: P1, lpdest: &mut [u16]) -> super::super::Foundation::BOOL
@@ -298,7 +264,6 @@ where
     }
     ExpandEnvironmentStringsForUserW(htoken.into(), lpsrc.into(), ::core::mem::transmute(lpdest.as_ptr()), lpdest.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn ExpandEnvironmentStringsW<'a, P0>(lpsrc: P0, lpdst: ::core::option::Option<&mut [u16]>) -> u32
 where
@@ -310,7 +275,6 @@ where
     }
     ExpandEnvironmentStringsW(lpsrc.into(), ::core::mem::transmute(lpdst.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpdst.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeEnvironmentStringsA<'a, P0>(penv: P0) -> super::super::Foundation::BOOL
@@ -323,7 +287,6 @@ where
     }
     FreeEnvironmentStringsA(penv.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeEnvironmentStringsW<'a, P0>(penv: P0) -> super::super::Foundation::BOOL
@@ -336,7 +299,6 @@ where
     }
     FreeEnvironmentStringsW(penv.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetCommandLineA() -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -345,7 +307,6 @@ pub unsafe fn GetCommandLineA() -> ::windows::core::PSTR {
     }
     GetCommandLineA()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetCommandLineW() -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -354,7 +315,6 @@ pub unsafe fn GetCommandLineW() -> ::windows::core::PWSTR {
     }
     GetCommandLineW()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetCurrentDirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -363,7 +323,6 @@ pub unsafe fn GetCurrentDirectoryA(lpbuffer: ::core::option::Option<&mut [u8]>) 
     }
     GetCurrentDirectoryA(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetCurrentDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -372,7 +331,6 @@ pub unsafe fn GetCurrentDirectoryW(lpbuffer: ::core::option::Option<&mut [u16]>)
     }
     GetCurrentDirectoryW(lpbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetEnvironmentStrings() -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -381,7 +339,6 @@ pub unsafe fn GetEnvironmentStrings() -> ::windows::core::PSTR {
     }
     GetEnvironmentStrings()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetEnvironmentStringsW() -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -390,7 +347,6 @@ pub unsafe fn GetEnvironmentStringsW() -> ::windows::core::PWSTR {
     }
     GetEnvironmentStringsW()
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetEnvironmentVariableA<'a, P0>(lpname: P0, lpbuffer: ::core::option::Option<&mut [u8]>) -> u32
 where
@@ -402,7 +358,6 @@ where
     }
     GetEnvironmentVariableA(lpname.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[inline]
 pub unsafe fn GetEnvironmentVariableW<'a, P0>(lpname: P0, lpbuffer: ::core::option::Option<&mut [u16]>) -> u32
 where
@@ -414,7 +369,6 @@ where
     }
     GetEnvironmentVariableW(lpname.into(), ::core::mem::transmute(lpbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len() as _))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeEnclave<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpenclaveinformation: &[u8], lpenclaveerror: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -427,7 +381,6 @@ where
     }
     InitializeEnclave(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpenclaveinformation.as_ptr()), lpenclaveinformation.len() as _, ::core::mem::transmute(lpenclaveerror))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Foundation::BOOL {
@@ -437,7 +390,6 @@ pub unsafe fn IsEnclaveTypeSupported(flenclavetype: u32) -> super::super::Founda
     }
     IsEnclaveTypeSupported(flenclavetype)
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadEnclaveData<'a, P0>(hprocess: P0, lpaddress: *const ::core::ffi::c_void, lpbuffer: &[u8], flprotect: u32, lppageinformation: &[u8], lpnumberofbyteswritten: &mut usize, lpenclaveerror: ::core::option::Option<&mut u32>) -> super::super::Foundation::BOOL
@@ -450,7 +402,6 @@ where
     }
     LoadEnclaveData(hprocess.into(), ::core::mem::transmute(lpaddress), ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _, flprotect, ::core::mem::transmute(lppageinformation.as_ptr()), lppageinformation.len() as _, ::core::mem::transmute(lpnumberofbyteswritten), ::core::mem::transmute(lpenclaveerror))
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadEnclaveImageA<'a, P0>(lpenclaveaddress: *const ::core::ffi::c_void, lpimagename: P0) -> super::super::Foundation::BOOL
@@ -463,7 +414,6 @@ where
     }
     LoadEnclaveImageA(::core::mem::transmute(lpenclaveaddress), lpimagename.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadEnclaveImageW<'a, P0>(lpenclaveaddress: *const ::core::ffi::c_void, lpimagename: P0) -> super::super::Foundation::BOOL
@@ -476,7 +426,6 @@ where
     }
     LoadEnclaveImageW(::core::mem::transmute(lpenclaveaddress), lpimagename.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathA<'a, P0>(exename: P0) -> super::super::Foundation::BOOL
@@ -489,7 +438,6 @@ where
     }
     NeedCurrentDirectoryForExePathA(exename.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NeedCurrentDirectoryForExePathW<'a, P0>(exename: P0) -> super::super::Foundation::BOOL
@@ -502,7 +450,6 @@ where
     }
     NeedCurrentDirectoryForExePathW(exename.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentDirectoryA<'a, P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -515,7 +462,6 @@ where
     }
     SetCurrentDirectoryA(lppathname.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCurrentDirectoryW<'a, P0>(lppathname: P0) -> super::super::Foundation::BOOL
@@ -528,7 +474,6 @@ where
     }
     SetCurrentDirectoryW(lppathname.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnvironmentStringsW<'a, P0>(newenvironment: P0) -> super::super::Foundation::BOOL
@@ -541,7 +486,6 @@ where
     }
     SetEnvironmentStringsW(newenvironment.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnvironmentVariableA<'a, P0, P1>(lpname: P0, lpvalue: P1) -> super::super::Foundation::BOOL
@@ -555,7 +499,6 @@ where
     }
     SetEnvironmentVariableA(lpname.into(), lpvalue.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnvironmentVariableW<'a, P0, P1>(lpname: P0, lpvalue: P1) -> super::super::Foundation::BOOL
@@ -569,7 +512,6 @@ where
     }
     SetEnvironmentVariableW(lpname.into(), lpvalue.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateEnclave<'a, P0>(lpaddress: *const ::core::ffi::c_void, fwait: P0) -> super::super::Foundation::BOOL
@@ -582,50 +524,32 @@ where
     }
     TerminateEnclave(::core::mem::transmute(lpaddress), fwait.into())
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_COMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize, sourceaddress: *const ::core::ffi::c_void, pageprotection: u32) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_DECOMMIT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofbytes: usize) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_KEY = ::core::option::Option<unsafe extern "system" fn(keyrequest: *mut ENCLAVE_VBS_BASIC_KEY_REQUEST, requestedkeysize: u32, returnedkey: *mut u8) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA = ::core::option::Option<unsafe extern "system" fn(buffer: *mut u8, numberofbytes: u32, generation: *mut u64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_REPORT = ::core::option::Option<unsafe extern "system" fn(enclavedata: *const u8, report: *mut ::core::ffi::c_void, buffersize: u32, outputsize: *mut u32) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_GET_ENCLAVE_INFORMATION = ::core::option::Option<unsafe extern "system" fn(enclaveinfo: *mut ENCLAVE_INFORMATION) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_INTERRUPT_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_PROTECT_PAGES = ::core::option::Option<unsafe extern "system" fn(enclaveaddress: *const ::core::ffi::c_void, numberofytes: usize, pageprotection: u32) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE = ::core::option::Option<unsafe extern "system" fn(returnvalue: usize)>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(target_arch = "x86_64")]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const VBS_BASIC_ENCLAVE_EXCEPTION_AMD64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION = ::core::option::Option<unsafe extern "system" fn(exceptionrecord: *const ::core::ffi::c_void) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 #[cfg(target_arch = "x86")]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_TERMINATE_THREAD = ::core::option::Option<unsafe extern "system" fn(threaddescriptor: *const VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32) -> i32>;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub type VBS_BASIC_ENCLAVE_BASIC_CALL_VERIFY_REPORT = ::core::option::Option<unsafe extern "system" fn(report: *const ::core::ffi::c_void, reportsize: u32) -> i32>;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     pub ExceptionCode: u32,
     pub NumberParameters: u32,
@@ -662,7 +586,6 @@ impl ::core::default::Default for VBS_BASIC_ENCLAVE_EXCEPTION_AMD64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     pub ReturnFromEnclave: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE,
     pub ReturnFromException: VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION,
@@ -718,7 +641,6 @@ impl ::core::default::Default for VBS_BASIC_ENCLAVE_SYSCALL_PAGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     pub ThreadContext: [u32; 4],
     pub EntryPoint: u32,
@@ -753,7 +675,6 @@ impl ::core::default::Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     pub ThreadContext: [u64; 4],
     pub EntryPoint: u64,
@@ -788,7 +709,6 @@ impl ::core::default::Default for VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_ENCLAVE_REPORT {
     pub ReportSize: u32,
     pub ReportVersion: u32,
@@ -816,7 +736,6 @@ impl ::core::default::Default for VBS_ENCLAVE_REPORT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_ENCLAVE_REPORT_MODULE {
     pub Header: VBS_ENCLAVE_REPORT_VARDATA_HEADER,
     pub UniqueId: [u8; 32],
@@ -847,7 +766,6 @@ impl ::core::default::Default for VBS_ENCLAVE_REPORT_MODULE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_ENCLAVE_REPORT_PKG_HEADER {
     pub PackageSize: u32,
     pub Version: u32,
@@ -876,12 +794,9 @@ impl ::core::default::Default for VBS_ENCLAVE_REPORT_PKG_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256: u32 = 1u32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub struct VBS_ENCLAVE_REPORT_VARDATA_HEADER {
     pub DataType: u32,
     pub Size: u32,
@@ -906,11 +821,8 @@ impl ::core::default::Default for VBS_ENCLAVE_REPORT_VARDATA_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const VBS_ENCLAVE_REPORT_VERSION_CURRENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const VBS_ENCLAVE_VARDATA_INVALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Environment\"`*"]
 pub const VBS_ENCLAVE_VARDATA_MODULE: u32 = 1u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ACCESSRECTLIST {
     pub lpLink: *mut ACCESSRECTLIST,
@@ -41,14 +40,10 @@ impl ::core::default::Default for ACCESSRECTLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ACCESSRECT_BROKEN: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ACCESSRECT_NOTHOLDINGWIN16LOCK: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ACCESSRECT_VRAMSTYLE: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ATTACHLIST {
     pub dwFlags: u32,
@@ -88,73 +83,41 @@ impl ::core::default::Default for ATTACHLIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const CCHDEVICENAME: u32 = 32u32;
 pub const CLSID_DirectDraw: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7b70ee0_4340_11cf_b063_0020afc2cd35);
 pub const CLSID_DirectDraw7: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c305196_50db_11d3_9cfe_00c04fd930c5);
 pub const CLSID_DirectDrawClipper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x593817a0_7db3_11cf_a2de_00aa00b93356);
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_D15S1: u32 = 73u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_D24S8: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_D24X8: u32 = 77u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_D32: u32 = 71u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_S1D15: u32 = 72u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_S8D24: u32 = 74u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFMT_INTERNAL_X8D24: u32 = 76u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_MEMBEROFGROUP_ARGB: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_3DACCELERATION: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_AUTOGENMIPMAP: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_BUMPMAP: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_CONVERT_TO_ARGB: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_CUBETEXTURE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_DISPLAYMODE: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_DMAP: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_NOALPHABLEND: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_NOFILTER: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_NOTEXCOORDWRAPNORMIP: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_OFFSCREENPLAIN: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_OFFSCREEN_RENDERTARGET: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_PIXELSIZE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_SAME_FORMAT_RENDERTARGET: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_SAME_FORMAT_UP_TO_ALPHA_RENDERTARGET: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_SRGBREAD: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_SRGBWRITE: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_TEXTURE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_VERTEXTEXTURE: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_VOLUMETEXTURE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_ZSTENCIL: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const D3DFORMAT_OP_ZSTENCIL_WITH_ARBITRARY_COLOR_DEPTH: i32 = 128i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DBLNODE {
     pub next: *mut DBLNODE,
@@ -194,10 +157,8 @@ impl ::core::default::Default for DBLNODE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DCICOMMAND: u32 = 3075u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD32BITDRIVERDATA {
     pub szName: [super::super::Foundation::CHAR; 260],
@@ -236,12 +197,9 @@ impl ::core::default::Default for DD32BITDRIVERDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDABLT_SRCOVERDEST: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDAL_IMPLICIT: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDARGB {
     pub blue: u8,
     pub green: u8,
@@ -273,22 +231,14 @@ impl ::core::default::Default for DDARGB {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBD_1: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBD_16: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBD_2: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBD_24: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBD_32: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBD_4: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBD_8: i32 = 2048i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDBLTBATCH {
     pub lprDest: *mut super::super::Foundation::RECT,
@@ -327,18 +277,12 @@ impl ::core::default::Default for DDBLTBATCH {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFAST_DESTCOLORKEY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFAST_DONOTWAIT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFAST_NOCOLORKEY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFAST_SRCCOLORKEY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFAST_WAIT: u32 = 16u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDBLTFX {
     pub dwSize: u32,
     pub dwDDFX: u32,
@@ -430,7 +374,6 @@ impl ::core::default::Default for DDBLTFX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_0 {
     pub dwZDestConst: u32,
     pub lpDDSZBufferDest: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
@@ -455,7 +398,6 @@ impl ::core::default::Default for DDBLTFX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_1 {
     pub dwZSrcConst: u32,
     pub lpDDSZBufferSrc: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
@@ -480,7 +422,6 @@ impl ::core::default::Default for DDBLTFX_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_2 {
     pub dwAlphaDestConst: u32,
     pub lpDDSAlphaDest: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
@@ -505,7 +446,6 @@ impl ::core::default::Default for DDBLTFX_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_3 {
     pub dwAlphaSrcConst: u32,
     pub lpDDSAlphaSrc: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
@@ -530,7 +470,6 @@ impl ::core::default::Default for DDBLTFX_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDBLTFX_4 {
     pub dwFillColor: u32,
     pub dwFillDepth: u32,
@@ -556,90 +495,48 @@ impl ::core::default::Default for DDBLTFX_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_ARITHSTRETCHY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_MIRRORLEFTRIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_MIRRORUPDOWN: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_NOTEARING: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_ROTATE180: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_ROTATE270: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_ROTATE90: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_ZBUFFERBASEDEST: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLTFX_ZBUFFERRANGE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_AFLAGS: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHADEST: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHADESTCONSTOVERRIDE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHADESTNEG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHADESTSURFACEOVERRIDE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHAEDGEBLEND: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHASRC: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHASRCCONSTOVERRIDE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHASRCNEG: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ALPHASRCSURFACEOVERRIDE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ASYNC: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_COLORFILL: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_DDFX: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_DDROPS: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_DEPTHFILL: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_DONOTWAIT: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_EXTENDED_FLAGS: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_EXTENDED_LINEAR_CONTENT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_KEYDEST: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_KEYDESTOVERRIDE: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_KEYSRC: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_KEYSRCOVERRIDE: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_LAST_PRESENTATION: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_PRESENTATION: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ROP: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ROTATIONANGLE: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_WAIT: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ZBUFFER: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ZBUFFERDESTCONSTOVERRIDE: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ZBUFFERDESTOVERRIDE: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ZBUFFERSRCCONSTOVERRIDE: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDBLT_ZBUFFERSRCOVERRIDE: i32 = 8388608i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDBOBNEXTFIELDINFO {
     pub lpSurface: *mut DDSURFACEDATA,
 }
@@ -668,106 +565,56 @@ impl ::core::default::Default for DDBOBNEXTFIELDINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_AUTOFLIPOVERLAY: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANAUTOGENMIPMAP: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANBOBHARDWARE: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANBOBINTERLEAVED: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANBOBNONINTERLEAVED: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANCALIBRATEGAMMA: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANDROPZ16BIT: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANFLIPODDEVEN: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANMANAGERESOURCE: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANMANAGETEXTURE: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANRENDERWINDOWED: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CANSHARERESOURCE: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_CERTIFIED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_COLORCONTROLOVERLAY: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_COLORCONTROLPRIMARY: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_COPYFOURCC: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_DYNAMICTEXTURES: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_FLIPINTERVAL: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_FLIPNOVSYNC: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_NO2DDURING3DSCENE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_NONLOCALVIDMEM: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_NONLOCALVIDMEMCAPS: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_NOPAGELOCKREQUIRED: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_PRIMARYGAMMA: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_RESERVED1: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_STEREO: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_SYSTONONLOCAL_AS_SYSTOLOCAL: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_TEXMANINNONLOCALVIDMEM: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_VIDEOPORT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS2_WIDESURFACES: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_3D: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ALIGNBOUNDARYDEST: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ALIGNBOUNDARYSRC: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ALIGNSIZEDEST: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ALIGNSIZESRC: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ALIGNSTRIDE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ALPHA: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_BANKSWITCHED: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_BLT: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_BLTCOLORFILL: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_BLTDEPTHFILL: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_BLTFOURCC: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_BLTQUEUE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_BLTSTRETCH: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_CANBLTSYSMEM: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_CANCLIP: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_CANCLIPSTRETCHED: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_COLORKEY: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_COLORKEYHWASSIST: i32 = 16777216i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCAPS_DX1 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -869,7 +716,6 @@ impl ::core::default::Default for DDCAPS_DX1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCAPS_DX3 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -1001,7 +847,6 @@ impl ::core::default::Default for DDCAPS_DX3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCAPS_DX5 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -1143,7 +988,6 @@ impl ::core::default::Default for DDCAPS_DX5 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCAPS_DX6 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -1224,7 +1068,6 @@ impl ::core::default::Default for DDCAPS_DX6 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCAPS_DX7 {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -1304,82 +1147,44 @@ impl ::core::default::Default for DDCAPS_DX7 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_GDI: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_NOHARDWARE: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_OVERLAY: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_OVERLAYCANTCLIP: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_OVERLAYFOURCC: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_OVERLAYSTRETCH: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_PALETTE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_PALETTEVSYNC: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_READSCANLINE: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_RESERVED1: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_VBI: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ZBLTS: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCAPS_ZOVERLAYS: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTBLT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTBLTCLRSPACE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTBLTCLRSPACEYUV: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTBLTYUV: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTOVERLAY: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTOVERLAYCLRSPACE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTOVERLAYCLRSPACEYUV: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTOVERLAYONEACTIVE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_DESTOVERLAYYUV: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_NOCOSTOVERLAY: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCBLT: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCBLTCLRSPACE: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCBLTCLRSPACEYUV: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCBLTYUV: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCOVERLAY: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCOVERLAYCLRSPACE: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCOVERLAYCLRSPACEYUV: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCOVERLAYONEACTIVE: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEYCAPS_SRCOVERLAYYUV: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEY_COLORSPACE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEY_DESTBLT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEY_DESTOVERLAY: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEY_SRCBLT: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCKEY_SRCOVERLAY: i32 = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCOLORCONTROL {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -1418,7 +1223,6 @@ impl ::core::default::Default for DDCOLORCONTROL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCOLORKEY {
     pub dwColorSpaceLowValue: u32,
     pub dwColorSpaceHighValue: u32,
@@ -1448,22 +1252,14 @@ impl ::core::default::Default for DDCOLORKEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCOLOR_BRIGHTNESS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCOLOR_COLORENABLE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCOLOR_CONTRAST: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCOLOR_GAMMA: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCOLOR_HUE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCOLOR_SATURATION: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCOLOR_SHARPNESS: i32 = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCOMPBUFFERINFO {
     pub dwSize: u32,
     pub dwNumCompBuffers: u32,
@@ -1494,7 +1290,6 @@ impl ::core::default::Default for DDCOMPBUFFERINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDCORECAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -1625,14 +1420,10 @@ impl ::core::default::Default for DDCORECAPS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCREATEDRIVEROBJECT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCREATE_EMULATIONONLY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDCREATE_HARDWAREONLY: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDDEVICEIDENTIFIER {
     pub szDriver: [super::super::Foundation::CHAR; 512],
@@ -1677,7 +1468,6 @@ impl ::core::default::Default for DDDEVICEIDENTIFIER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDDEVICEIDENTIFIER2 {
     pub szDriver: [super::super::Foundation::CHAR; 512],
@@ -1722,16 +1512,11 @@ impl ::core::default::Default for DDDEVICEIDENTIFIER2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDEDM_REFRESHRATES: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDEDM_STANDARDVGAMODES: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDEM_MODEFAILED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDEM_MODEPASSED: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDENABLEIRQINFO {
     pub dwIRQSources: u32,
     pub dwLine: u32,
@@ -1763,34 +1548,20 @@ impl ::core::default::Default for DDENABLEIRQINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMOVERLAYZ_BACKTOFRONT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMOVERLAYZ_FRONTTOBACK: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMRET_CANCEL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMRET_OK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMSURFACES_ALL: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMSURFACES_CANBECREATED: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMSURFACES_DOESEXIST: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMSURFACES_MATCH: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUMSURFACES_NOMATCH: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUM_ATTACHEDSECONDARYDEVICES: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUM_DETACHEDSECONDARYDEVICES: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDENUM_NONDISPLAYDEVICES: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDERR_NOTINITIALIZED: i32 = -2147221008i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDFLIPOVERLAYINFO {
     pub lpCurrentSurface: *mut DDSURFACEDATA,
     pub lpTargetSurface: *mut DDSURFACEDATA,
@@ -1822,7 +1593,6 @@ impl ::core::default::Default for DDFLIPOVERLAYINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDFLIPVIDEOPORTINFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
     pub lpCurrentSurface: *mut DDSURFACEDATA,
@@ -1854,108 +1624,57 @@ impl ::core::default::Default for DDFLIPVIDEOPORTINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_DONOTWAIT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_EVEN: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_INTERVAL2: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_INTERVAL3: i32 = 50331648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_INTERVAL4: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_NOVSYNC: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_ODD: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_STEREO: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFLIP_WAIT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_BLTALPHAEDGEBLEND: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_BLTALPHAPIXELS: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_BLTALPHAPIXELSNEG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_BLTALPHASURFACES: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_BLTALPHASURFACESNEG: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_OVERLAYALPHAEDGEBLEND: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_OVERLAYALPHAPIXELS: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_OVERLAYALPHAPIXELSNEG: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_OVERLAYALPHASURFACES: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXALPHACAPS_OVERLAYALPHASURFACESNEG: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTALPHA: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTARITHSTRETCHY: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTARITHSTRETCHYN: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTFILTER: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTMIRRORLEFTRIGHT: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTMIRRORUPDOWN: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTROTATION: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTROTATION90: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSHRINKX: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSHRINKXN: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSHRINKY: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSHRINKYN: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSTRETCHX: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSTRETCHXN: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSTRETCHY: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_BLTSTRETCHYN: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYALPHA: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYARITHSTRETCHY: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYARITHSTRETCHYN: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYDEINTERLACE: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYFILTER: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYMIRRORLEFTRIGHT: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYMIRRORUPDOWN: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSHRINKX: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSHRINKXN: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSHRINKY: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSHRINKYN: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSTRETCHX: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSTRETCHXN: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSTRETCHY: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDFXCAPS_OVERLAYSTRETCHYN: i32 = 67108864i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGAMMARAMP {
     pub red: [u16; 256],
     pub green: [u16; 256],
@@ -1986,16 +1705,11 @@ impl ::core::default::Default for DDGAMMARAMP {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDGBS_CANBLT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDGBS_ISBLTDONE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDGDI_GETHOSTIDENTIFIER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDGET32BITDRIVERNAME: u32 = 11u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETCURRENTAUTOFLIPININFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
 }
@@ -2025,7 +1739,6 @@ impl ::core::default::Default for DDGETCURRENTAUTOFLIPININFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETCURRENTAUTOFLIPOUTINFO {
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
@@ -2056,7 +1769,6 @@ impl ::core::default::Default for DDGETCURRENTAUTOFLIPOUTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETIRQINFO {
     pub dwFlags: u32,
 }
@@ -2086,7 +1798,6 @@ impl ::core::default::Default for DDGETIRQINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETPOLARITYININFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
 }
@@ -2116,7 +1827,6 @@ impl ::core::default::Default for DDGETPOLARITYININFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETPOLARITYOUTINFO {
     pub bPolarity: u32,
 }
@@ -2146,7 +1856,6 @@ impl ::core::default::Default for DDGETPOLARITYOUTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETPREVIOUSAUTOFLIPININFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
 }
@@ -2176,7 +1885,6 @@ impl ::core::default::Default for DDGETPREVIOUSAUTOFLIPININFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETPREVIOUSAUTOFLIPOUTINFO {
     pub dwSurfaceIndex: u32,
     pub dwVBISurfaceIndex: u32,
@@ -2207,7 +1915,6 @@ impl ::core::default::Default for DDGETPREVIOUSAUTOFLIPOUTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDGETTRANSFERSTATUSOUTINFO {
     pub dwTransferID: usize,
 }
@@ -2236,12 +1943,9 @@ impl ::core::default::Default for DDGETTRANSFERSTATUSOUTINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDGFS_CANFLIP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDGFS_ISFLIPDONE: i32 = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHALDDRAWFNS {
     pub dwSize: u32,
@@ -2282,7 +1986,6 @@ impl ::core::default::Default for DDHALDDRAWFNS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHALINFO {
     pub dwSize: u32,
@@ -2330,16 +2033,11 @@ impl ::core::default::Default for DDHALINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHALINFO_GETDRIVERINFO2: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHALINFO_GETDRIVERINFOSET: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHALINFO_ISPRIMARYDISPLAY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHALINFO_MODEXILLEGAL: i32 = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDHALMODEINFO {
     pub dwWidth: u32,
     pub dwHeight: u32,
@@ -2378,7 +2076,6 @@ impl ::core::default::Default for DDHALMODEINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -2419,10 +2116,8 @@ impl ::core::default::Default for DDHAL_ADDATTACHEDSURFACEDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_APP_DLLNAME: &str = "DDRAW.DLL";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -2468,7 +2163,6 @@ impl ::core::default::Default for DDHAL_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_BLTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -2528,7 +2222,6 @@ impl ::core::default::Default for DDHAL_BLTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CALLBACKS {
     pub cbDDCallbacks: DDHAL_DDCALLBACKS,
@@ -2610,7 +2303,6 @@ impl ::core::default::Default for DDHAL_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CANCREATESURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -2652,7 +2344,6 @@ impl ::core::default::Default for DDHAL_CANCREATESURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CANCREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -2692,30 +2383,18 @@ impl ::core::default::Default for DDHAL_CANCREATEVPORTDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_CANCREATESURFACE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_CREATEPALETTE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_CREATESURFACE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_DESTROYDRIVER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_FLIPTOGDISURFACE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_GETSCANLINE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_MAPMEMORY: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_SETCOLORKEY: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_SETEXCLUSIVEMODE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_SETMODE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CB32_WAITFORVERTICALBLANK: i32 = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_COLORCONTROLDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -2757,10 +2436,8 @@ impl ::core::default::Default for DDHAL_COLORCONTROLDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_COLOR_COLORCONTROL: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATEMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -2801,7 +2478,6 @@ impl ::core::default::Default for DDHAL_CREATEMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATEPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -2844,7 +2520,6 @@ impl ::core::default::Default for DDHAL_CREATEPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATESURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -2887,7 +2562,6 @@ impl ::core::default::Default for DDHAL_CREATESURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATESURFACEEXDATA {
     pub dwFlags: u32,
@@ -2927,10 +2601,8 @@ impl ::core::default::Default for DDHAL_CREATESURFACEEXDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_CREATESURFACEEX_SWAPHANDLES: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_CREATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -2971,18 +2643,12 @@ impl ::core::default::Default for DDHAL_CREATEVPORTDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_CANCREATED3DBUF: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_CREATED3DBUF: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_DESTROYD3DBUF: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_LOCKD3DBUF: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_D3DBUFCB32_UNLOCKD3DBUF: i32 = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDCALLBACKS {
     pub dwSize: u32,
@@ -3044,7 +2710,6 @@ impl ::core::default::Default for DDHAL_DDCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDCOLORCONTROLCALLBACKS {
     pub dwSize: u32,
@@ -3084,7 +2749,6 @@ impl ::core::default::Default for DDHAL_DDCOLORCONTROLCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDEXEBUFCALLBACKS {
     pub dwSize: u32,
@@ -3136,7 +2800,6 @@ impl ::core::default::Default for DDHAL_DDEXEBUFCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDKERNELCALLBACKS {
     pub dwSize: u32,
@@ -3177,7 +2840,6 @@ impl ::core::default::Default for DDHAL_DDKERNELCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDMISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
@@ -3220,7 +2882,6 @@ impl ::core::default::Default for DDHAL_DDMISCELLANEOUS2CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDMISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
@@ -3263,7 +2924,6 @@ impl ::core::default::Default for DDHAL_DDMISCELLANEOUSCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDMOTIONCOMPCALLBACKS {
     pub dwSize: u32,
@@ -3325,7 +2985,6 @@ impl ::core::default::Default for DDHAL_DDMOTIONCOMPCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDPALETTECALLBACKS {
     pub dwSize: u32,
@@ -3366,7 +3025,6 @@ impl ::core::default::Default for DDHAL_DDPALETTECALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDSURFACECALLBACKS {
     pub dwSize: u32,
@@ -3436,7 +3094,6 @@ impl ::core::default::Default for DDHAL_DDSURFACECALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DDVIDEOPORTCALLBACKS {
     pub dwSize: u32,
@@ -3510,7 +3167,6 @@ impl ::core::default::Default for DDHAL_DDVIDEOPORTCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
@@ -3550,7 +3206,6 @@ impl ::core::default::Default for DDHAL_DESTROYDDLOCALDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYDRIVERDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -3590,7 +3245,6 @@ impl ::core::default::Default for DDHAL_DESTROYDRIVERDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -3631,7 +3285,6 @@ impl ::core::default::Default for DDHAL_DESTROYMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -3672,7 +3325,6 @@ impl ::core::default::Default for DDHAL_DESTROYPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYSURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -3713,7 +3365,6 @@ impl ::core::default::Default for DDHAL_DESTROYSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DESTROYVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -3753,16 +3404,11 @@ impl ::core::default::Default for DDHAL_DESTROYVPORTDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_DRIVER_DLLNAME: &str = "DDRAW16.DLL";
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_DRIVER_HANDLED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_DRIVER_NOCKEYHW: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_DRIVER_NOTHANDLED: i32 = 0i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DDRAWI_DDRAWSURFACE_LCL,
@@ -3804,7 +3450,6 @@ impl ::core::default::Default for DDHAL_DRVSETCOLORKEYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_ENDMOCOMPFRAMEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -3846,18 +3491,12 @@ impl ::core::default::Default for DDHAL_ENDMOCOMPFRAMEDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_EXEBUFCB32_CANCREATEEXEBUF: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_EXEBUFCB32_CREATEEXEBUF: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_EXEBUFCB32_DESTROYEXEBUF: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_EXEBUFCB32_LOCKEXEBUF: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_EXEBUFCB32_UNLOCKEXEBUF: i32 = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_FLIPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -3902,7 +3541,6 @@ impl ::core::default::Default for DDHAL_FLIPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -3944,7 +3582,6 @@ impl ::core::default::Default for DDHAL_FLIPTOGDISURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_FLIPVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -3987,7 +3624,6 @@ impl ::core::default::Default for DDHAL_FLIPVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETAVAILDRIVERMEMORYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -4025,7 +3661,6 @@ impl ::core::default::Default for DDHAL_GETAVAILDRIVERMEMORYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETBLTSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -4067,7 +3702,6 @@ impl ::core::default::Default for DDHAL_GETBLTSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDHAL_GETDRIVERINFODATA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -4104,7 +3738,6 @@ impl ::core::default::Default for DDHAL_GETDRIVERINFODATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDHAL_GETDRIVERSTATEDATA {
     pub dwFlags: u32,
     pub Anonymous: DDHAL_GETDRIVERSTATEDATA_0,
@@ -4133,7 +3766,6 @@ impl ::core::default::Default for DDHAL_GETDRIVERSTATEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDHAL_GETDRIVERSTATEDATA_0 {
     pub dwhContext: usize,
 }
@@ -4158,7 +3790,6 @@ impl ::core::default::Default for DDHAL_GETDRIVERSTATEDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -4200,7 +3831,6 @@ impl ::core::default::Default for DDHAL_GETFLIPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDHAL_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
@@ -4229,7 +3859,6 @@ impl ::core::default::Default for DDHAL_GETHEAPALIGNMENTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4268,7 +3897,6 @@ impl ::core::default::Default for DDHAL_GETINTERNALMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4308,7 +3936,6 @@ impl ::core::default::Default for DDHAL_GETMOCOMPCOMPBUFFDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4351,7 +3978,6 @@ impl ::core::default::Default for DDHAL_GETMOCOMPFORMATSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4393,7 +4019,6 @@ impl ::core::default::Default for DDHAL_GETMOCOMPGUIDSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETSCANLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -4434,7 +4059,6 @@ impl ::core::default::Default for DDHAL_GETSCANLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4480,7 +4104,6 @@ impl ::core::default::Default for DDHAL_GETVPORTBANDWIDTHDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTCONNECTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4523,7 +4146,6 @@ impl ::core::default::Default for DDHAL_GETVPORTCONNECTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTFIELDDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4565,7 +4187,6 @@ impl ::core::default::Default for DDHAL_GETVPORTFIELDDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4606,7 +4227,6 @@ impl ::core::default::Default for DDHAL_GETVPORTFLIPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4650,7 +4270,6 @@ impl ::core::default::Default for DDHAL_GETVPORTINPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTLINEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4692,7 +4311,6 @@ impl ::core::default::Default for DDHAL_GETVPORTLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4737,7 +4355,6 @@ impl ::core::default::Default for DDHAL_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_GETVPORTSIGNALDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4778,12 +4395,9 @@ impl ::core::default::Default for DDHAL_GETVPORTSIGNALDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_KERNEL_SYNCSURFACEDATA: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_KERNEL_SYNCVIDEOPORTDATA: i32 = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_LOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -4827,66 +4441,36 @@ impl ::core::default::Default for DDHAL_LOCKDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISC2CB32_ALPHABLT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISC2CB32_CREATESURFACEEX: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISC2CB32_DESTROYDDLOCAL: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISC2CB32_GETDRIVERSTATE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISCCB32_GETAVAILDRIVERMEMORY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISCCB32_GETHEAPALIGNMENT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISCCB32_GETSYSMEMBLTSTATUS: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MISCCB32_UPDATENONLOCALHEAP: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_BEGINFRAME: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_CREATE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_DESTROY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_ENDFRAME: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_GETCOMPBUFFINFO: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_GETFORMATS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_GETGUIDS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_GETINTERNALINFO: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_QUERYSTATUS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_MOCOMP32_RENDER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_NTCB32_FLIPTOGDISURFACE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_NTCB32_FREEDRIVERMEMORY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_NTCB32_SETEXCLUSIVEMODE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PALCB32_DESTROYPALETTE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PALCB32_SETENTRIES: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PLEASEALLOC_BLOCKSIZE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PLEASEALLOC_LINEARSIZE: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PLEASEALLOC_USERMEM: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PRIVATECAP_ATOMICSURFACECREATION: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PRIVATECAP_NOTIFYPRIMARYCREATION: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_PRIVATECAP_RESERVED1: i32 = 4i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4929,7 +4513,6 @@ impl ::core::default::Default for DDHAL_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_RENDERMOCOMPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -4989,7 +4572,6 @@ impl ::core::default::Default for DDHAL_RENDERMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETCLIPLISTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5030,7 +4612,6 @@ impl ::core::default::Default for DDHAL_SETCLIPLISTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETCOLORKEYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5073,7 +4654,6 @@ impl ::core::default::Default for DDHAL_SETCOLORKEYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETENTRIESDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5117,7 +4697,6 @@ impl ::core::default::Default for DDHAL_SETENTRIESDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5159,7 +4738,6 @@ impl ::core::default::Default for DDHAL_SETEXCLUSIVEMODEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETMODEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5202,7 +4780,6 @@ impl ::core::default::Default for DDHAL_SETMODEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5246,7 +4823,6 @@ impl ::core::default::Default for DDHAL_SETOVERLAYPOSITIONDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SETPALETTEDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5288,36 +4864,21 @@ impl ::core::default::Default for DDHAL_SETPALETTEDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_ADDATTACHEDSURFACE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_BLT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_DESTROYSURFACE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_FLIP: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_GETBLTSTATUS: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_GETFLIPSTATUS: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_LOCK: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_RESERVED4: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_SETCLIPLIST: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_SETCOLORKEY: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_SETOVERLAYPOSITION: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_SETPALETTE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_UNLOCK: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_SURFCB32_UPDATEOVERLAY: i32 = 1024i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SYNCSURFACEDATA {
     pub dwSize: u32,
@@ -5385,7 +4946,6 @@ impl ::core::default::Default for DDHAL_SYNCSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_SYNCVIDEOPORTDATA {
     pub dwSize: u32,
@@ -5432,7 +4992,6 @@ impl ::core::default::Default for DDHAL_SYNCVIDEOPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UNLOCKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5473,7 +5032,6 @@ impl ::core::default::Default for DDHAL_UNLOCKDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UPDATENONLOCALHEAPDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5517,7 +5075,6 @@ impl ::core::default::Default for DDHAL_UPDATENONLOCALHEAPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UPDATEOVERLAYDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5565,7 +5122,6 @@ impl ::core::default::Default for DDHAL_UPDATEOVERLAYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_UPDATEVPORTDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5611,40 +5167,23 @@ impl ::core::default::Default for DDHAL_UPDATEVPORTDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_CANCREATEVIDEOPORT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_COLORCONTROL: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_CREATEVIDEOPORT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_DESTROY: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_FLIP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETAUTOFLIPSURF: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETBANDWIDTH: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETCONNECT: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETFIELD: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETFLIPSTATUS: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETINPUTFORMATS: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETLINE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETOUTPUTFORMATS: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_GETSIGNALSTATUS: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_UPDATE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDHAL_VPORT32_WAITFORSYNC: i32 = 8192i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_VPORTCOLORDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5687,7 +5226,6 @@ impl ::core::default::Default for DDHAL_VPORTCOLORDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -5730,7 +5268,6 @@ impl ::core::default::Default for DDHAL_WAITFORVERTICALBLANKDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDHAL_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -5773,54 +5310,30 @@ impl ::core::default::Default for DDHAL_WAITFORVPORTSYNCDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_BUSMASTER: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_DISPLAY_VSYNC: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_RESERVED1: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT0_LINE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT0_VSYNC: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT1_LINE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT1_VSYNC: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT2_LINE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT2_VSYNC: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT3_LINE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT3_VSYNC: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT4_LINE: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT4_VSYNC: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT5_LINE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT5_VSYNC: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT6_LINE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT6_VSYNC: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT7_LINE: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT7_VSYNC: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT8_LINE: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT8_VSYNC: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT9_LINE: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDIRQ_VPORT9_VSYNC: i32 = 65536i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDKERNELCAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -5851,28 +5364,17 @@ impl ::core::default::Default for DDKERNELCAPS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_AUTOFLIP: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_CAPTURE_INVERTED: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_CAPTURE_NONLOCALVIDMEM: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_CAPTURE_SYSMEM: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_FIELDPOLARITY: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_FLIPOVERLAY: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_FLIPVIDEOPORT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_LOCK: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_SETSTATE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDKERNELCAPS_SKIPFIELDS: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDLOCKININFO {
     pub lpSurfaceData: *mut DDSURFACEDATA,
 }
@@ -5902,7 +5404,6 @@ impl ::core::default::Default for DDLOCKININFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDLOCKOUTINFO {
     pub dwSurfacePtr: usize,
 }
@@ -5931,32 +5432,19 @@ impl ::core::default::Default for DDLOCKOUTINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_DISCARDCONTENTS: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_DONOTWAIT: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_EVENT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_HASVOLUMETEXTUREBOXRECT: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_NODIRTYUPDATE: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_NOOVERWRITE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_NOSYSLOCK: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_OKTOSWAP: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_READONLY: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_SURFACEMEMORYPTR: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_WAIT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDLOCK_WRITEONLY: i32 = 32i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDMCBUFFERINFO {
     pub dwSize: u32,
@@ -5998,7 +5486,6 @@ impl ::core::default::Default for DDMCBUFFERINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDMCCOMPBUFFERINFO {
     pub dwSize: u32,
     pub dwNumCompBuffers: u32,
@@ -6028,10 +5515,8 @@ impl ::core::default::Default for DDMCCOMPBUFFERINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDMCQUERY_READ: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDMOCOMPBUFFERINFO {
     pub dwSize: u32,
@@ -6072,20 +5557,13 @@ impl ::core::default::Default for DDMOCOMPBUFFERINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDMODEINFO_MAXREFRESH: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDMODEINFO_MODEX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDMODEINFO_PALETTIZED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDMODEINFO_STANDARDVGA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDMODEINFO_STEREO: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDMODEINFO_UNSUPPORTED: u32 = 4u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDMONITORINFO {
     pub Manufacturer: u16,
     pub Product: u16,
@@ -6139,7 +5617,6 @@ impl ::core::default::Default for DDMONITORINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDMORESURFACECAPS {
     pub dwSize: u32,
     pub ddsCapsMore: DDSCAPSEX,
@@ -6166,7 +5643,6 @@ impl ::core::default::Default for DDMORESURFACECAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDMORESURFACECAPS_0 {
     pub ddsCapsEx: DDSCAPSEX,
     pub ddsCapsExAlt: DDSCAPSEX,
@@ -6191,10 +5667,8 @@ impl ::core::default::Default for DDMORESURFACECAPS_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDNEWCALLBACKFNS: u32 = 12u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDNONLOCALVIDMEMCAPS {
     pub dwSize: u32,
     pub dwNLVBCaps: u32,
@@ -6229,7 +5703,6 @@ impl ::core::default::Default for DDNONLOCALVIDMEMCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDNTCORECAPS {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -6361,7 +5834,6 @@ impl ::core::default::Default for DDNTCORECAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDOPTSURFACEDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6391,7 +5863,6 @@ impl ::core::default::Default for DDOPTSURFACEDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDOSCAPS {
     pub dwCaps: u32,
 }
@@ -6420,36 +5891,21 @@ impl ::core::default::Default for DDOSCAPS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSDCAPS_MONOLITHICMIPMAP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSDCAPS_OPTCOMPRESSED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSDCAPS_OPTREORDERED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSDCAPS_VALIDOSCAPS: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSDCAPS_VALIDSCAPS: i32 = 805324800i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSD_ALL: i32 = 15i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSD_COMPRESSION_RATIO: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSD_GUID: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSD_OSCAPS: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOSD_SCAPS: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERFX_ARITHSTRETCHY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERFX_DEINTERLACE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERFX_MIRRORLEFTRIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERFX_MIRRORUPDOWN: i32 = 4i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDOVERLAYFX {
     pub dwSize: u32,
     pub dwAlphaEdgeBlendBitDepth: u32,
@@ -6497,7 +5953,6 @@ impl ::core::default::Default for DDOVERLAYFX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDOVERLAYFX_0 {
     pub dwAlphaDestConst: u32,
     pub lpDDSAlphaDest: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
@@ -6522,7 +5977,6 @@ impl ::core::default::Default for DDOVERLAYFX_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDOVERLAYFX_1 {
     pub dwAlphaSrcConst: u32,
     pub lpDDSAlphaSrc: ::core::mem::ManuallyDrop<::core::option::Option<IDirectDrawSurface>>,
@@ -6546,136 +6000,71 @@ impl ::core::default::Default for DDOVERLAYFX_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERZ_INSERTINBACKOF: i32 = 5i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERZ_INSERTINFRONTOF: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERZ_MOVEBACKWARD: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERZ_MOVEFORWARD: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERZ_SENDTOBACK: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVERZ_SENDTOFRONT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ADDDIRTYRECT: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHADEST: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHADESTCONSTOVERRIDE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHADESTNEG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHADESTSURFACEOVERRIDE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHAEDGEBLEND: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHASRC: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHASRCCONSTOVERRIDE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHASRCNEG: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ALPHASRCSURFACEOVERRIDE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_ARGBSCALEFACTORS: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_AUTOFLIP: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_BOB: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_BOBHARDWARE: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_DDFX: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_DEGRADEARGBSCALING: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_HIDE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_INTERLEAVED: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_KEYDEST: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_KEYDESTOVERRIDE: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_KEYSRC: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_KEYSRCOVERRIDE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_OVERRIDEBOBWEAVE: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_REFRESHALL: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_REFRESHDIRTYRECTS: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDOVER_SHOW: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_1BIT: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_2BIT: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_4BIT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_8BIT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_8BITENTRIES: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_ALLOW256: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_ALPHA: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_INITIALIZE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_PRIMARYSURFACE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_PRIMARYSURFACELEFT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPCAPS_VSYNC: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_ALPHA: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_ALPHAPIXELS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_ALPHAPREMULT: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_BUMPDUDV: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_BUMPLUMINANCE: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_COMPRESSED: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_D3DFORMAT: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_FOURCC: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_LUMINANCE: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_NOVEL_TEXTURE_FORMAT: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_PALETTEINDEXED1: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_PALETTEINDEXED2: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_PALETTEINDEXED4: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_PALETTEINDEXED8: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_PALETTEINDEXEDTO8: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_RGB: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_RGBTOYUV: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_STENCILBUFFER: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_YUV: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_ZBUFFER: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDPF_ZPIXELS: i32 = 8192i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDPIXELFORMAT {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -6707,7 +6096,6 @@ impl ::core::default::Default for DDPIXELFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDPIXELFORMAT_0 {
     pub dwRGBBitCount: u32,
     pub dwYUVBitCount: u32,
@@ -6738,7 +6126,6 @@ impl ::core::default::Default for DDPIXELFORMAT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDPIXELFORMAT_1 {
     pub dwRBitMask: u32,
     pub dwYBitMask: u32,
@@ -6768,7 +6155,6 @@ impl ::core::default::Default for DDPIXELFORMAT_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDPIXELFORMAT_2 {
     pub dwGBitMask: u32,
     pub dwUBitMask: u32,
@@ -6797,7 +6183,6 @@ impl ::core::default::Default for DDPIXELFORMAT_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDPIXELFORMAT_2_0 {
     pub wFlipMSTypes: u16,
     pub wBltMSTypes: u16,
@@ -6828,7 +6213,6 @@ impl ::core::default::Default for DDPIXELFORMAT_2_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDPIXELFORMAT_3 {
     pub dwBBitMask: u32,
     pub dwVBitMask: u32,
@@ -6856,7 +6240,6 @@ impl ::core::default::Default for DDPIXELFORMAT_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDPIXELFORMAT_4 {
     pub dwRGBAlphaBitMask: u32,
     pub dwYUVAlphaBitMask: u32,
@@ -6884,216 +6267,111 @@ impl ::core::default::Default for DDPIXELFORMAT_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWICLIP_INMASTERSPRITELIST: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWICLIP_ISINITIALIZED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWICLIP_WATCHWINDOW: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_ACTIVENO: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_ACTIVEYES: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_ALLOWMODEX: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_ATTEMPTEDD3DCONTEXT: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_CREATEDWINDOW: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_CURSORCLIPPED: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_DIRECTDRAW7: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_DIRECTDRAW8: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_DIRTYDC: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_DISABLEINACTIVATE: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_DX8DRIVER: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_EXPLICITMONITOR: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_FPUPRESERVE: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_FPUSETUP: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_HASEXCLUSIVEMODE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_HOOKEDHWND: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_ISFULLSCREEN: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_MODEHASBEENCHANGED: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_MULTITHREADED: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_POWEREDDOWN: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_SETCOOPCALLED: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWILCL_V1SCLBEHAVIOUR: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_16: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_2: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_256: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_4: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_ALLOW256: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_ALPHA: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_DIRTY: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_EXCLUSIVE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_GDI: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_INHEL: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_STORED_16: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_STORED_24: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_STORED_8: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIPAL_STORED_8INDEX: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_DDHELDONTFREE: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_DX8SURFACE: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_FASTLOCKHELD: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_HARDWAREOPDEST: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_HARDWAREOPSOURCE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_IMPLICITHANDLE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_ISCLIENTMEM: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_ISGDISURFACE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_LATEALLOCATELINEAR: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_LOCKBROKEN: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_LOCKNOTHOLDINGWIN16LOCK: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_LOCKVRAMSTYLE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_MEMFREE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_NOTIFYWHENUNLOCKED: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_READONLYLOCKHELD: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_RESERVED0: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_SOFTWAREAUTOFLIP: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_SYSMEMEXECUTEBUFFER: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_SYSMEMREQUESTED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_VPORTDATA: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURFGBL_VPORTINTERLEAVED: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_ATTACHED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_ATTACHED_FROM: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_BACKBUFFER: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_DATAISALIASED: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_DCIBUSY: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_DCILOCK: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_DRIVERMANAGED: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_FRONTBUFFER: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_GETDCNULL: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HASCKEYDESTBLT: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HASCKEYDESTOVERLAY: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HASCKEYSRCBLT: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HASCKEYSRCOVERLAY: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HASDC: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HASOVERLAYDATA: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HASPIXELFORMAT: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HELCB: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HW_CKEYDESTBLT: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HW_CKEYDESTOVERLAY: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HW_CKEYSRCBLT: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_HW_CKEYSRCOVERLAY: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_IMPLICITCREATE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_IMPLICITROOT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_INMASTERSPRITELIST: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_INVALID: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_ISFREE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_LOCKEXCLUDEDCURSOR: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_PARTOFPRIMARYCHAIN: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_SETGAMMA: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_STEREOSURFACELEFT: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_SW_CKEYDESTBLT: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_SW_CKEYDESTOVERLAY: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_SW_CKEYSRCBLT: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWISURF_SW_CKEYSRCOVERLAY: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIVPORT_COLORKEYANDINTERP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIVPORT_NOKERNELHANDLES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIVPORT_ON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIVPORT_SOFTWARE_AUTOFLIP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIVPORT_SOFTWARE_BOB: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIVPORT_VBION: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWIVPORT_VIDEOON: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_ATTACHEDTODESKTOP: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_BADPDEV: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_CHANGINGMODE: i32 = 4194304i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDMOTIONCOMP_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -7134,7 +6412,6 @@ impl ::core::default::Default for DDRAWI_DDMOTIONCOMP_INT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDMOTIONCOMP_LCL {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -7180,7 +6457,6 @@ impl ::core::default::Default for DDRAWI_DDMOTIONCOMP_LCL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWCLIPPER_GBL {
     pub dwRefCnt: u32,
@@ -7224,7 +6500,6 @@ impl ::core::default::Default for DDRAWI_DDRAWCLIPPER_GBL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWCLIPPER_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -7265,7 +6540,6 @@ impl ::core::default::Default for DDRAWI_DDRAWCLIPPER_INT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWCLIPPER_LCL {
     pub lpClipMore: u32,
@@ -7316,10 +6590,8 @@ impl ::core::default::Default for DDRAWI_DDRAWCLIPPER_LCL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_DDRAWDATANOTFETCHED: i32 = 67108864i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWPALETTE_GBL {
     pub dwRefCnt: u32,
@@ -7360,7 +6632,6 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWPALETTE_GBL_0 {
     pub dwReserved1: usize,
@@ -7393,7 +6664,6 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_GBL_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWPALETTE_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -7434,7 +6704,6 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_INT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWPALETTE_LCL {
     pub lpPalMore: u32,
@@ -7490,7 +6759,6 @@ impl ::core::default::Default for DDRAWI_DDRAWPALETTE_LCL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_GBL {
     pub dwRefCnt: u32,
@@ -7533,7 +6801,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_0 {
     pub lpRectList: *mut ACCESSRECTLIST,
@@ -7567,7 +6834,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_1 {
     pub lpVidMemHeap: *mut VMEMHEAP,
@@ -7600,7 +6866,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_2 {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_GBL,
@@ -7633,7 +6898,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_3 {
     pub lPitch: i32,
@@ -7666,7 +6930,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDRAWI_DDRAWSURFACE_GBL_MORE {
     pub dwSize: u32,
     pub Anonymous: DDRAWI_DDRAWSURFACE_GBL_MORE_0,
@@ -7709,7 +6972,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_MORE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     pub dwPhysicalPageTable: u32,
     pub fpPhysicalVidMem: usize,
@@ -7735,7 +6997,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_GBL_MORE_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -7776,7 +7037,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_INT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_LCL {
     pub lpSurfMore: *mut DDRAWI_DDRAWSURFACE_MORE,
@@ -7834,7 +7094,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_LCL_0 {
     pub lpDDPalette: *mut DDRAWI_DDRAWPALETTE_INT,
@@ -7867,7 +7126,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_LCL_1 {
     pub lpDDClipper: *mut DDRAWI_DDRAWCLIPPER_LCL,
@@ -7900,7 +7158,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_LCL_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDRAWSURFACE_MORE {
     pub dwSize: u32,
@@ -7962,7 +7219,6 @@ impl ::core::default::Default for DDRAWI_DDRAWSURFACE_MORE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDVIDEOPORT_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -8004,7 +7260,6 @@ impl ::core::default::Default for DDRAWI_DDVIDEOPORT_INT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DDVIDEOPORT_LCL {
     pub lpDD: *mut DDRAWI_DIRECTDRAW_LCL,
@@ -8086,7 +7341,6 @@ impl ::core::default::Default for DDRAWI_DDVIDEOPORT_LCL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DIRECTDRAW_GBL {
     pub dwRefCnt: u32,
@@ -8187,7 +7441,6 @@ impl ::core::default::Default for DDRAWI_DIRECTDRAW_GBL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DIRECTDRAW_INT {
     pub lpVtbl: *mut ::core::ffi::c_void,
@@ -8228,7 +7481,6 @@ impl ::core::default::Default for DDRAWI_DIRECTDRAW_INT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DDRAWI_DIRECTDRAW_LCL {
     pub lpDDMore: u32,
@@ -8367,74 +7619,40 @@ impl ::core::default::Default for DDRAWI_DIRECTDRAW_LCL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_DISPLAYDRV: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_DRIVERINFO2: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_EMULATIONINITIALIZED: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_EXTENDEDALIGNMENT: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_FLIPPEDTOGDI: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_FULLSCREEN: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_GDIDRV: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_GETCOLOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_HASCKEYDESTOVERLAY: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_HASCKEYSRCOVERLAY: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_HASGDIPALETTE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_HASGDIPALETTE_EXCLUSIVE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_MODECHANGED: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_MODEX: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_MODEXILLEGAL: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_NEEDSWIN16FORVRAMLOCK: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_NOEMULATION: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_NOHARDWARE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_PALETTEINIT: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_PDEVICEVRAMBITCLEARED: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_SECONDARYDRIVERLOADED: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_SETCOLOR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_STANDARDVGA: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_TESTINGMODES: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_UMODELOADED: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_VIRTUALDESKTOP: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_VPORTGETCOLOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_VPORTSETCOLOR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_VPORTSTART: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_VPORTSTOP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_VPORTUPDATE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_xxxxxxxxx1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDRAWI_xxxxxxxxx2: i32 = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDRGBA {
     pub red: u8,
     pub green: u8,
@@ -8467,7 +7685,6 @@ impl ::core::default::Default for DDRGBA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSCAPS {
     pub dwCaps: u32,
 }
@@ -8497,7 +7714,6 @@ impl ::core::default::Default for DDSCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSCAPS2 {
     pub dwCaps: u32,
     pub dwCaps2: u32,
@@ -8525,7 +7741,6 @@ impl ::core::default::Default for DDSCAPS2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSCAPS2_0 {
     pub dwCaps4: u32,
     pub dwVolumeDepth: u32,
@@ -8550,98 +7765,52 @@ impl ::core::default::Default for DDSCAPS2_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_ADDITIONALPRIMARY: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_COMMANDBUFFER: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_CUBEMAP: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_CUBEMAP_NEGATIVEX: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_CUBEMAP_NEGATIVEY: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_CUBEMAP_NEGATIVEZ: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_CUBEMAP_POSITIVEX: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_CUBEMAP_POSITIVEY: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_CUBEMAP_POSITIVEZ: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_D3DTEXTUREMANAGE: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_DISCARDBACKBUFFER: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_DONOTPERSIST: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_ENABLEALPHACHANNEL: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_EXTENDEDFORMATPRIMARY: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_HARDWAREDEINTERLACE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_HINTANTIALIASING: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_HINTDYNAMIC: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_HINTSTATIC: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_INDEXBUFFER: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_MIPMAPSUBLEVEL: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_NOTUSERLOCKABLE: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_NPATCHES: i32 = 33554432i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_OPAQUE: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_POINTS: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_RESERVED1: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_RESERVED2: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_RESERVED3: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_RESERVED4: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_RTPATCHES: i32 = 16777216i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_STEREOSURFACELEFT: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_TEXTUREMANAGE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_VERTEXBUFFER: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS2_VOLUME: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_AUTOGENMIPMAP: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_CREATESHAREDRESOURCE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_DMAP: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_LIGHTWEIGHTMIPMAP: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_MULTISAMPLE_MASK: i32 = 31i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_MULTISAMPLE_QUALITY_MASK: i32 = 224i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_MULTISAMPLE_QUALITY_SHIFT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_OPENSHAREDRESOURCE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_READONLYRESOURCE: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_RESERVED1: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_RESERVED2: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS3_VIDEO: i32 = 512i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSCAPSEX {
     pub dwCaps2: u32,
     pub dwCaps3: u32,
@@ -8668,7 +7837,6 @@ impl ::core::default::Default for DDSCAPSEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSCAPSEX_0 {
     pub dwCaps4: u32,
     pub dwVolumeDepth: u32,
@@ -8693,142 +7861,74 @@ impl ::core::default::Default for DDSCAPSEX_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_3DDEVICE: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_ALLOCONLOAD: i32 = 67108864i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_ALPHA: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_BACKBUFFER: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_COMMANDBUFFER: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_COMPLEX: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_EXECUTEBUFFER: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_FLIP: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_FRONTBUFFER: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_HWCODEC: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_LIVEVIDEO: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_LOCALVIDMEM: i32 = 268435456i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_MIPMAP: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_MODEX: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_NONLOCALVIDMEM: i32 = 536870912i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_OFFSCREENPLAIN: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_OPTIMIZED: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_OVERLAY: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_OWNDC: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_PALETTE: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_PRIMARYSURFACE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_PRIMARYSURFACELEFT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_RESERVED1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_RESERVED2: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_RESERVED3: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_STANDARDVGAMODE: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_SYSTEMMEMORY: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_TEXTURE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_VIDEOMEMORY: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_VIDEOPORT: i32 = 134217728i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_VISIBLE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_WRITEONLY: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCAPS_ZBUFFER: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_ALLOWMODEX: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_ALLOWREBOOT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_CREATEDEVICEWINDOW: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_EXCLUSIVE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_FPUPRESERVE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_FPUSETUP: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_FULLSCREEN: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_MULTITHREADED: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_NORMAL: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_NOWINDOWCHANGES: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_SETDEVICEWINDOW: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSCL_SETFOCUSWINDOW: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSDM_STANDARDVGAMODE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_ALL: i32 = 16775662i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_ALPHABITDEPTH: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_BACKBUFFERCOUNT: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_CAPS: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_CKDESTBLT: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_CKDESTOVERLAY: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_CKSRCBLT: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_CKSRCOVERLAY: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_DEPTH: i32 = 8388608i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_FVF: i32 = 2097152i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_HEIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_LINEARSIZE: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_LPSURFACE: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_MIPMAPCOUNT: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_PITCH: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_PIXELFORMAT: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_REFRESHRATE: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_SRCVBHANDLE: i32 = 4194304i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_TEXTURESTAGE: i32 = 1048576i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_WIDTH: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSD_ZBUFFERBITDEPTH: i32 = 64i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSETSTATEININFO {
     pub lpSurfaceData: *mut DDSURFACEDATA,
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
@@ -8859,7 +7959,6 @@ impl ::core::default::Default for DDSETSTATEININFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDSETSTATEOUTINFO {
     pub bSoftwareAutoflip: super::super::Foundation::BOOL,
@@ -8898,14 +7997,10 @@ impl ::core::default::Default for DDSETSTATEOUTINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSETSURFACEDESC_PRESERVEDC: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSETSURFACEDESC_RECREATEDC: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSGR_CALIBRATE: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSKIPNEXTFIELDINFO {
     pub lpVideoPortData: *mut DDVIDEOPORTDATA,
     pub dwSkipFlags: u32,
@@ -8935,18 +8030,12 @@ impl ::core::default::Default for DDSKIPNEXTFIELDINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSKIP_ENABLENEXT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSKIP_SKIPNEXT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSMT_ISTESTREQUIRED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSPD_IUNKNOWNPOINTER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSPD_VOLATILE: i32 = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDSTEREOMODE {
     pub dwSize: u32,
@@ -8989,7 +8078,6 @@ impl ::core::default::Default for DDSTEREOMODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSURFACEDATA {
     pub ddsCaps: u32,
     pub dwSurfaceOffset: u32,
@@ -9065,7 +8153,6 @@ impl ::core::default::Default for DDSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSURFACEDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9105,7 +8192,6 @@ impl ::core::default::Default for DDSURFACEDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSURFACEDESC_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
@@ -9131,7 +8217,6 @@ impl ::core::default::Default for DDSURFACEDESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSURFACEDESC_1 {
     pub dwMipMapCount: u32,
     pub dwZBufferBitDepth: u32,
@@ -9158,7 +8243,6 @@ impl ::core::default::Default for DDSURFACEDESC_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDSURFACEDESC2 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9199,7 +8283,6 @@ impl ::core::default::Default for DDSURFACEDESC2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSURFACEDESC2_0 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
@@ -9225,7 +8308,6 @@ impl ::core::default::Default for DDSURFACEDESC2_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSURFACEDESC2_1 {
     pub dwBackBufferCount: u32,
     pub dwDepth: u32,
@@ -9251,7 +8333,6 @@ impl ::core::default::Default for DDSURFACEDESC2_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSURFACEDESC2_2 {
     pub dwMipMapCount: u32,
     pub dwRefreshRate: u32,
@@ -9278,7 +8359,6 @@ impl ::core::default::Default for DDSURFACEDESC2_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSURFACEDESC2_3 {
     pub ddckCKDestOverlay: DDCOLORKEY,
     pub dwEmptyFaceColor: u32,
@@ -9304,7 +8384,6 @@ impl ::core::default::Default for DDSURFACEDESC2_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DDSURFACEDESC2_4 {
     pub ddpfPixelFormat: DDPIXELFORMAT,
     pub dwFVF: u32,
@@ -9329,18 +8408,12 @@ impl ::core::default::Default for DDSURFACEDESC2_4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSVCAPS_RESERVED1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSVCAPS_RESERVED2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSVCAPS_RESERVED3: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSVCAPS_RESERVED4: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDSVCAPS_STEREOSEQUENTIAL: i32 = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDTRANSFERININFO {
     pub lpSurfaceData: *mut DDSURFACEDATA,
     pub dwStartLine: u32,
@@ -9375,7 +8448,6 @@ impl ::core::default::Default for DDTRANSFERININFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDTRANSFEROUTINFO {
     pub dwBufferPolarity: u32,
 }
@@ -9404,20 +8476,13 @@ impl ::core::default::Default for DDTRANSFEROUTINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDTRANSFER_CANCEL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDTRANSFER_HALFLINES: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDTRANSFER_INVERT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDTRANSFER_NONLOCALVIDMEM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDTRANSFER_SYSTEMMEMORY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDUNSUPPORTEDMODE: u32 = 4294967295u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDVERSIONDATA {
     pub dwHALVersion: u32,
     pub dwReserved1: usize,
@@ -9448,10 +8513,8 @@ impl ::core::default::Default for DDVERSIONDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVERSIONINFO: u32 = 13u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDVIDEOPORTBANDWIDTH {
     pub dwSize: u32,
     pub dwCaps: u32,
@@ -9488,7 +8551,6 @@ impl ::core::default::Default for DDVIDEOPORTBANDWIDTH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDVIDEOPORTCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -9556,7 +8618,6 @@ impl ::core::default::Default for DDVIDEOPORTCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDVIDEOPORTCONNECT {
     pub dwSize: u32,
     pub dwPortWidth: u32,
@@ -9590,7 +8651,6 @@ impl ::core::default::Default for DDVIDEOPORTCONNECT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDVIDEOPORTDATA {
     pub dwVideoPortId: u32,
     pub dwVPFlags: u32,
@@ -9627,7 +8687,6 @@ impl ::core::default::Default for DDVIDEOPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDVIDEOPORTDESC {
     pub dwSize: u32,
     pub dwFieldWidth: u32,
@@ -9679,7 +8738,6 @@ impl ::core::default::Default for DDVIDEOPORTDESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDVIDEOPORTINFO {
     pub dwSize: u32,
@@ -9743,7 +8801,6 @@ impl ::core::default::Default for DDVIDEOPORTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DDVIDEOPORTNOTIFY {
     pub ApproximateTimeStamp: i64,
     pub lField: i32,
@@ -9776,7 +8833,6 @@ impl ::core::default::Default for DDVIDEOPORTNOTIFY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DDVIDEOPORTSTATUS {
     pub dwSize: u32,
@@ -9819,143 +8875,74 @@ impl ::core::default::Default for DDVIDEOPORTSTATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPBCAPS_DESTINATION: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPBCAPS_SOURCE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPB_OVERLAY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPB_TYPE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPB_VIDEOPORT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_AUTOFLIP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_COLORCONTROL: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_HARDWAREDEINTERLACE: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_INTERLACED: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_NONINTERLACED: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_OVERSAMPLEDVBI: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_READBACKFIELD: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_READBACKLINE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_SHAREABLE: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_SKIPEVENFIELDS: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_SKIPODDFIELDS: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_SYNCMASTER: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_SYSTEMMEMORY: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_VBIANDVIDEOINDEPENDENT: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCAPS_VBISURFACE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_DISCARDSVREFDATA: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_DOUBLECLOCK: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_HALFLINE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_INTERLACED: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_INVERTPOLARITY: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_SHAREEVEN: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_SHAREODD: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCONNECT_VACT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCREATE_VBIONLY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPCREATE_VIDEOONLY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_ALIGN: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_AUTOFLIP: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_CAPS: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_FILTERQUALITY: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_FX: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_HEIGHT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_ID: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_PREFERREDAUTOFLIP: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPD_WIDTH: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFLIP_VBI: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFLIP_VIDEO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFORMAT_VBI: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFORMAT_VIDEO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_CROPTOPDATA: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_CROPX: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_CROPY: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_IGNOREVBIXCROP: i32 = 262144i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_INTERLEAVE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_MIRRORLEFTRIGHT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_MIRRORUPDOWN: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESHRINKX: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESHRINKXB: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESHRINKXS: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESHRINKY: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESHRINKYB: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESHRINKYS: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESTRETCHX: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESTRETCHXN: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESTRETCHY: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_PRESTRETCHYN: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_VBICONVERT: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_VBINOINTERLEAVE: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPFX_VBINOSCALE: i32 = 131072i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPSQ_NOSIGNAL: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPSQ_SIGNALOK: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPSTATUS_VBIONLY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPSTATUS_VIDEOONLY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPTARGET_VBI: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPTARGET_VIDEO: i32 = 1i32;
 pub const DDVPTYPE_BROOKTREE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1352a560_da61_11cf_9b06_00a0c903a3b8);
 pub const DDVPTYPE_CCIR656: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfca326a0_da60_11cf_9b06_00a0c903a3b8);
@@ -9964,54 +8951,30 @@ pub const DDVPTYPE_E_HREFH_VREFL: ::windows::core::GUID = ::windows::core::GUID:
 pub const DDVPTYPE_E_HREFL_VREFH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa07a02e0_da60_11cf_9b06_00a0c903a3b8);
 pub const DDVPTYPE_E_HREFL_VREFL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe09c77e0_da60_11cf_9b06_00a0c903a3b8);
 pub const DDVPTYPE_PHILIPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332cf160_da61_11cf_9b06_00a0c903a3b8);
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPWAIT_BEGIN: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPWAIT_END: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVPWAIT_LINE: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_AUTOFLIP: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_CONVERT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_CROP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_HARDWAREDEINTERLACE: i32 = 32768i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_IGNOREVBIXCROP: i32 = 8192i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_INTERLEAVE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_MIRRORLEFTRIGHT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_MIRRORUPDOWN: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_OVERRIDEBOBWEAVE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_PRESCALE: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_SKIPEVENFIELDS: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_SKIPODDFIELDS: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_SYNCMASTER: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_VBICONVERT: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_VBINOINTERLEAVE: i32 = 16384i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDVP_VBINOSCALE: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDWAITVB_BLOCKBEGIN: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDWAITVB_BLOCKBEGINEVENT: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDWAITVB_BLOCKEND: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DDWAITVB_I_TESTVB: i32 = -2147483642i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_ADDATTACHEDSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10053,7 +9016,6 @@ impl ::core::default::Default for DD_ADDATTACHEDSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_ATTACHLIST {
     pub lpLink: *mut DD_ATTACHLIST,
@@ -10092,7 +9054,6 @@ impl ::core::default::Default for DD_ATTACHLIST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_BEGINMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -10137,7 +9098,6 @@ impl ::core::default::Default for DD_BEGINMOCOMPFRAMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_BLTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10201,7 +9161,6 @@ impl ::core::default::Default for DD_BLTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DD_CALLBACKS {
     pub dwSize: u32,
@@ -10261,7 +9220,6 @@ impl ::core::default::Default for DD_CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_CANCREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDSurfaceDesc: *mut DDSURFACEDESC,
@@ -10295,7 +9253,6 @@ impl ::core::default::Default for DD_CANCREATESURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_CANCREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpDDVideoPortDesc: *mut DDVIDEOPORTDESC,
@@ -10328,7 +9285,6 @@ impl ::core::default::Default for DD_CANCREATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_CLIPPER_GLOBAL {
     pub dwReserved1: usize,
 }
@@ -10358,7 +9314,6 @@ impl ::core::default::Default for DD_CLIPPER_GLOBAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_CLIPPER_LOCAL {
     pub dwReserved1: usize,
 }
@@ -10388,7 +9343,6 @@ impl ::core::default::Default for DD_CLIPPER_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_COLORCONTROLCALLBACKS {
     pub dwSize: u32,
@@ -10428,7 +9382,6 @@ impl ::core::default::Default for DD_COLORCONTROLCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_COLORCONTROLDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10471,7 +9424,6 @@ impl ::core::default::Default for DD_COLORCONTROLDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_CREATEMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -10504,7 +9456,6 @@ impl ::core::default::Default for DD_CREATEMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DD_CREATEPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10547,7 +9498,6 @@ impl ::core::default::Default for DD_CREATEPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_CREATESURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10590,7 +9540,6 @@ impl ::core::default::Default for DD_CREATESURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_CREATESURFACEEXDATA {
     pub dwFlags: u32,
@@ -10631,7 +9580,6 @@ impl ::core::default::Default for DD_CREATESURFACEEXDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_CREATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -10673,7 +9621,6 @@ impl ::core::default::Default for DD_CREATEVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_D3DBUFCALLBACKS {
     pub dwSize: u32,
@@ -10717,7 +9664,6 @@ impl ::core::default::Default for DD_D3DBUFCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_DESTROYDDLOCALDATA {
     pub dwFlags: u32,
     pub pDDLcl: *mut DD_DIRECTDRAW_LOCAL,
@@ -10749,7 +9695,6 @@ impl ::core::default::Default for DD_DESTROYDDLOCALDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_DESTROYMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -10781,7 +9726,6 @@ impl ::core::default::Default for DD_DESTROYMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_DESTROYPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub lpDDPalette: *mut DD_PALETTE_GLOBAL,
@@ -10814,7 +9758,6 @@ impl ::core::default::Default for DD_DESTROYPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_DESTROYSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -10855,7 +9798,6 @@ impl ::core::default::Default for DD_DESTROYSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_DESTROYVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -10896,7 +9838,6 @@ impl ::core::default::Default for DD_DESTROYVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_DIRECTDRAW_GLOBAL {
     pub dhpdev: *mut ::core::ffi::c_void,
     pub dwReserved1: usize,
@@ -10929,7 +9870,6 @@ impl ::core::default::Default for DD_DIRECTDRAW_GLOBAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_DIRECTDRAW_LOCAL {
     pub lpGbl: *mut DD_DIRECTDRAW_GLOBAL,
 }
@@ -10959,7 +9899,6 @@ impl ::core::default::Default for DD_DIRECTDRAW_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_DRVSETCOLORKEYDATA {
     pub lpDDSurface: *mut DD_SURFACE_LOCAL,
@@ -11001,7 +9940,6 @@ impl ::core::default::Default for DD_DRVSETCOLORKEYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_ENDMOCOMPFRAMEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpMoComp: *mut DD_MOTIONCOMP_LOCAL,
@@ -11035,7 +9973,6 @@ impl ::core::default::Default for DD_ENDMOCOMPFRAMEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_FLIPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11080,7 +10017,6 @@ impl ::core::default::Default for DD_FLIPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_FLIPTOGDISURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwToGDI: u32,
@@ -11114,7 +10050,6 @@ impl ::core::default::Default for DD_FLIPTOGDISURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_FLIPVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11157,7 +10092,6 @@ impl ::core::default::Default for DD_FLIPVPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_FREEDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11198,7 +10132,6 @@ impl ::core::default::Default for DD_FREEDRIVERMEMORYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETAVAILDRIVERMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub DDSCaps: DDSCAPS,
@@ -11233,7 +10166,6 @@ impl ::core::default::Default for DD_GETAVAILDRIVERMEMORYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETBLTSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11275,7 +10207,6 @@ impl ::core::default::Default for DD_GETBLTSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETDRIVERINFODATA {
     pub dhpdev: *mut ::core::ffi::c_void,
     pub dwSize: u32,
@@ -11312,7 +10243,6 @@ impl ::core::default::Default for DD_GETDRIVERINFODATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETDRIVERSTATEDATA {
     pub dwFlags: u32,
     pub Anonymous: DD_GETDRIVERSTATEDATA_0,
@@ -11341,7 +10271,6 @@ impl ::core::default::Default for DD_GETDRIVERSTATEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union DD_GETDRIVERSTATEDATA_0 {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwhContext: usize,
@@ -11367,7 +10296,6 @@ impl ::core::default::Default for DD_GETDRIVERSTATEDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -11409,7 +10337,6 @@ impl ::core::default::Default for DD_GETFLIPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETHEAPALIGNMENTDATA {
     pub dwInstance: usize,
     pub dwHeap: u32,
@@ -11438,7 +10365,6 @@ impl ::core::default::Default for DD_GETHEAPALIGNMENTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETINTERNALMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut ::windows::core::GUID,
@@ -11469,7 +10395,6 @@ impl ::core::default::Default for DD_GETINTERNALMOCOMPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETMOCOMPCOMPBUFFDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut ::windows::core::GUID,
@@ -11501,7 +10426,6 @@ impl ::core::default::Default for DD_GETMOCOMPCOMPBUFFDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETMOCOMPFORMATSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub lpGuid: *mut ::windows::core::GUID,
@@ -11535,7 +10459,6 @@ impl ::core::default::Default for DD_GETMOCOMPFORMATSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETMOCOMPGUIDSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub dwNumGuids: u32,
@@ -11568,7 +10491,6 @@ impl ::core::default::Default for DD_GETMOCOMPGUIDSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETSCANLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwScanLine: u32,
@@ -11601,7 +10523,6 @@ impl ::core::default::Default for DD_GETSCANLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTBANDWIDTHDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11647,7 +10568,6 @@ impl ::core::default::Default for DD_GETVPORTBANDWIDTHDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETVPORTCONNECTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub dwPortId: u32,
@@ -11682,7 +10602,6 @@ impl ::core::default::Default for DD_GETVPORTCONNECTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTFIELDDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11724,7 +10643,6 @@ impl ::core::default::Default for DD_GETVPORTFIELDDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_GETVPORTFLIPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub fpSurface: usize,
@@ -11757,7 +10675,6 @@ impl ::core::default::Default for DD_GETVPORTFLIPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTINPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11801,7 +10718,6 @@ impl ::core::default::Default for DD_GETVPORTINPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTLINEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11843,7 +10759,6 @@ impl ::core::default::Default for DD_GETVPORTLINEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTOUTPUTFORMATDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11888,7 +10803,6 @@ impl ::core::default::Default for DD_GETVPORTOUTPUTFORMATDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_GETVPORTSIGNALDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -11930,7 +10844,6 @@ impl ::core::default::Default for DD_GETVPORTSIGNALDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_HALINFO {
     pub dwSize: u32,
@@ -11969,7 +10882,6 @@ impl ::core::default::Default for DD_HALINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_HALINFO_V4 {
     pub dwSize: u32,
     pub vmiData: VIDEOMEMORYINFO,
@@ -11997,10 +10909,8 @@ impl ::core::default::Default for DD_HALINFO_V4 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DD_HAL_VERSION: u32 = 256u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_KERNELCALLBACKS {
     pub dwSize: u32,
@@ -12041,7 +10951,6 @@ impl ::core::default::Default for DD_KERNELCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_LOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12087,7 +10996,6 @@ impl ::core::default::Default for DD_LOCKDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_MAPMEMORYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12129,7 +11037,6 @@ impl ::core::default::Default for DD_MAPMEMORYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_MISCELLANEOUS2CALLBACKS {
     pub dwSize: u32,
@@ -12172,7 +11079,6 @@ impl ::core::default::Default for DD_MISCELLANEOUS2CALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_MISCELLANEOUSCALLBACKS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -12204,7 +11110,6 @@ impl ::core::default::Default for DD_MISCELLANEOUSCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_MORECAPS {
     pub dwSize: u32,
     pub dwAlphaCaps: u32,
@@ -12242,7 +11147,6 @@ impl ::core::default::Default for DD_MORECAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_MORESURFACECAPS {
     pub dwSize: u32,
     pub ddsCapsMore: DDSCAPSEX,
@@ -12269,7 +11173,6 @@ impl ::core::default::Default for DD_MORESURFACECAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_MORESURFACECAPS_0 {
     pub ddsCapsEx: DDSCAPSEX,
     pub ddsCapsExAlt: DDSCAPSEX,
@@ -12295,7 +11198,6 @@ impl ::core::default::Default for DD_MORESURFACECAPS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_MOTIONCOMPCALLBACKS {
     pub dwSize: u32,
@@ -12357,7 +11259,6 @@ impl ::core::default::Default for DD_MOTIONCOMPCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_MOTIONCOMP_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
     pub guid: ::windows::core::GUID,
@@ -12392,7 +11293,6 @@ impl ::core::default::Default for DD_MOTIONCOMP_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_NONLOCALVIDMEMCAPS {
     pub dwSize: u32,
     pub dwNLVBCaps: u32,
@@ -12427,7 +11327,6 @@ impl ::core::default::Default for DD_NONLOCALVIDMEMCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_NTCALLBACKS {
     pub dwSize: u32,
@@ -12469,7 +11368,6 @@ impl ::core::default::Default for DD_NTCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_NTPRIVATEDRIVERCAPS {
     pub dwSize: u32,
     pub dwPrivateCaps: u32,
@@ -12500,7 +11398,6 @@ impl ::core::default::Default for DD_NTPRIVATEDRIVERCAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct DD_PALETTECALLBACKS {
     pub dwSize: u32,
@@ -12541,7 +11438,6 @@ impl ::core::default::Default for DD_PALETTECALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_PALETTE_GLOBAL {
     pub dwReserved1: usize,
 }
@@ -12571,7 +11467,6 @@ impl ::core::default::Default for DD_PALETTE_GLOBAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_PALETTE_LOCAL {
     pub dwReserved0: u32,
     pub dwReserved1: usize,
@@ -12602,7 +11497,6 @@ impl ::core::default::Default for DD_PALETTE_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_QUERYMOCOMPSTATUSDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12644,7 +11538,6 @@ impl ::core::default::Default for DD_QUERYMOCOMPSTATUSDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_RENDERMOCOMPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -12690,10 +11583,8 @@ impl ::core::default::Default for DD_RENDERMOCOMPDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DD_RUNTIME_VERSION: i32 = 2306i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETCLIPLISTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12734,7 +11625,6 @@ impl ::core::default::Default for DD_SETCLIPLISTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETCOLORKEYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12777,7 +11667,6 @@ impl ::core::default::Default for DD_SETCOLORKEYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct DD_SETENTRIESDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12821,7 +11710,6 @@ impl ::core::default::Default for DD_SETENTRIESDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_SETEXCLUSIVEMODEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwEnterExcl: u32,
@@ -12855,7 +11743,6 @@ impl ::core::default::Default for DD_SETEXCLUSIVEMODEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETOVERLAYPOSITIONDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12899,7 +11786,6 @@ impl ::core::default::Default for DD_SETOVERLAYPOSITIONDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SETPALETTEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -12942,7 +11828,6 @@ impl ::core::default::Default for DD_SETPALETTEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_STEREOMODE {
     pub dwSize: u32,
@@ -12985,7 +11870,6 @@ impl ::core::default::Default for DD_STEREOMODE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACECALLBACKS {
     pub dwSize: u32,
@@ -13055,7 +11939,6 @@ impl ::core::default::Default for DD_SURFACECALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_GLOBAL {
     pub Anonymous1: DD_SURFACE_GLOBAL_0,
@@ -13098,7 +11981,6 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_0 {
     pub dwBlockSizeY: u32,
@@ -13131,7 +12013,6 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_1 {
     pub lpVidMemHeap: *mut VIDEOMEMORY,
@@ -13165,7 +12046,6 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_2 {
     pub lPitch: i32,
@@ -13198,7 +12078,6 @@ impl ::core::default::Default for DD_SURFACE_GLOBAL_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_INT {
     pub lpLcl: *mut DD_SURFACE_LOCAL,
@@ -13236,7 +12115,6 @@ impl ::core::default::Default for DD_SURFACE_INT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_LOCAL {
     pub lpGbl: *mut DD_SURFACE_GLOBAL,
@@ -13277,7 +12155,6 @@ impl ::core::default::Default for DD_SURFACE_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_LOCAL_0 {
     pub ddckCKSrcOverlay: DDCOLORKEY,
@@ -13310,7 +12187,6 @@ impl ::core::default::Default for DD_SURFACE_LOCAL_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_LOCAL_1 {
     pub ddckCKDestOverlay: DDCOLORKEY,
@@ -13343,7 +12219,6 @@ impl ::core::default::Default for DD_SURFACE_LOCAL_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SURFACE_MORE {
     pub dwMipMapCount: u32,
@@ -13379,7 +12254,6 @@ impl ::core::default::Default for DD_SURFACE_MORE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SYNCSURFACEDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13439,7 +12313,6 @@ impl ::core::default::Default for DD_SYNCSURFACEDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_SYNCVIDEOPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13485,7 +12358,6 @@ impl ::core::default::Default for DD_SYNCVIDEOPORTDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_UNLOCKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13526,7 +12398,6 @@ impl ::core::default::Default for DD_UNLOCKDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_UPDATENONLOCALHEAPDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwHeap: u32,
@@ -13562,7 +12433,6 @@ impl ::core::default::Default for DD_UPDATENONLOCALHEAPDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_UPDATEOVERLAYDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
@@ -13610,7 +12480,6 @@ impl ::core::default::Default for DD_UPDATEOVERLAYDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_UPDATEVPORTDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13656,10 +12525,8 @@ impl ::core::default::Default for DD_UPDATEVPORTDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DD_VERSION: i32 = 512i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_VIDEOPORTCALLBACKS {
     pub dwSize: u32,
@@ -13733,7 +12600,6 @@ impl ::core::default::Default for DD_VIDEOPORTCALLBACKS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_VIDEOPORT_LOCAL {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13780,7 +12646,6 @@ impl ::core::default::Default for DD_VIDEOPORT_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_VPORTCOLORDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13823,7 +12688,6 @@ impl ::core::default::Default for DD_VPORTCOLORDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DD_WAITFORVERTICALBLANKDATA {
     pub lpDD: *mut DD_DIRECTDRAW_GLOBAL,
     pub dwFlags: u32,
@@ -13858,7 +12722,6 @@ impl ::core::default::Default for DD_WAITFORVERTICALBLANKDATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DD_WAITFORVPORTSYNCDATA {
     pub lpDD: *mut DD_DIRECTDRAW_LOCAL,
@@ -13901,18 +12764,12 @@ impl ::core::default::Default for DD_WAITFORVPORTSYNCDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DELETED_LASTONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DELETED_NOTFOUND: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DELETED_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DIRECTDRAW_VERSION: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DXAPI_HALVERSION: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXAPI_INTERFACE {
     pub Size: u16,
@@ -13985,14 +12842,10 @@ impl ::core::default::Default for DXAPI_INTERFACE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DXERR_GENERIC: u32 = 2147500037u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DXERR_OUTOFCAPS: u32 = 2289434984u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DXERR_UNSUPPORTED: u32 = 2147500033u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct DX_IRQDATA {
     pub dwIrqFlags: u32,
 }
@@ -14021,9 +12874,7 @@ impl ::core::default::Default for DX_IRQDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const DX_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
 pub unsafe fn DirectDrawCreate<'a, P0>(lpguid: &mut ::windows::core::GUID, lplpdd: &mut ::core::option::Option<IDirectDraw>, punkouter: P0) -> ::windows::core::Result<()>
 where
@@ -14035,7 +12886,6 @@ where
     }
     DirectDrawCreate(::core::mem::transmute(lpguid), ::core::mem::transmute(lplpdd), punkouter.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
 pub unsafe fn DirectDrawCreateClipper<'a, P0>(dwflags: u32, lplpddclipper: &mut ::core::option::Option<IDirectDrawClipper>, punkouter: P0) -> ::windows::core::Result<()>
 where
@@ -14047,7 +12897,6 @@ where
     }
     DirectDrawCreateClipper(dwflags, ::core::mem::transmute(lplpddclipper), punkouter.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[inline]
 pub unsafe fn DirectDrawCreateEx<'a, P0>(lpguid: &mut ::windows::core::GUID, lplpdd: *mut *mut ::core::ffi::c_void, iid: &::windows::core::GUID, punkouter: P0) -> ::windows::core::Result<()>
 where
@@ -14059,7 +12908,6 @@ where
     }
     DirectDrawCreateEx(::core::mem::transmute(lpguid), ::core::mem::transmute(lplpdd), ::core::mem::transmute(iid), punkouter.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -14069,7 +12917,6 @@ pub unsafe fn DirectDrawEnumerateA(lpcallback: LPDDENUMCALLBACKA, lpcontext: *mu
     }
     DirectDrawEnumerateA(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext)).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
@@ -14079,7 +12926,6 @@ pub unsafe fn DirectDrawEnumerateExA(lpcallback: LPDDENUMCALLBACKEXA, lpcontext:
     }
     DirectDrawEnumerateExA(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext), dwflags).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::Result<()> {
@@ -14089,7 +12935,6 @@ pub unsafe fn DirectDrawEnumerateExW(lpcallback: LPDDENUMCALLBACKEXW, lpcontext:
     }
     DirectDrawEnumerateExW(::core::mem::transmute(lpcallback), ::core::mem::transmute(lpcontext), dwflags).ok()
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DirectDrawEnumerateW(lpcallback: LPDDENUMCALLBACKW, lpcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -14129,7 +12974,6 @@ pub const GUID_VideoPortCallbacks: ::windows::core::GUID = ::windows::core::GUID
 pub const GUID_VideoPortCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefd60cc3_49e7_11d0_889d_00aa00bbb76a);
 pub const GUID_ZPixelFormats: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93869880_36cf_11d1_9b1b_00aa00bbb8ae);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct HEAPALIAS {
     pub fpVidMem: usize,
     pub lpAlias: *mut ::core::ffi::c_void,
@@ -14161,7 +13005,6 @@ impl ::core::default::Default for HEAPALIAS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct HEAPALIASINFO {
     pub dwRefCnt: u32,
     pub dwFlags: u32,
@@ -14193,12 +13036,9 @@ impl ::core::default::Default for HEAPALIASINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const HEAPALIASINFO_MAPPEDDUMMY: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const HEAPALIASINFO_MAPPEDREAL: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct HEAPALIGNMENT {
     pub dwSize: u32,
     pub ddsCaps: DDSCAPS,
@@ -14231,7 +13071,6 @@ impl ::core::default::Default for HEAPALIGNMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDDVideoPortContainer(::windows::core::IUnknown);
 impl IDDVideoPortContainer {
@@ -14247,7 +13086,6 @@ impl IDDVideoPortContainer {
     pub unsafe fn GetVideoPortConnectInfo(&self, param0: u32, pcinfo: &mut u32, param2: *mut DDVIDEOPORTCONNECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetVideoPortConnectInfo)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(pcinfo), ::core::mem::transmute(param2)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn QueryVideoPortStatus(&self, param0: u32, param1: &mut DDVIDEOPORTSTATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryVideoPortStatus)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
@@ -14300,7 +13138,6 @@ pub struct IDDVideoPortContainer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     QueryVideoPortStatus: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDraw(::windows::core::IUnknown);
 impl IDirectDraw {
@@ -14313,7 +13150,6 @@ impl IDirectDraw {
     {
         (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<'a, P0>(&self, param0: u32, param1: &mut super::Gdi::PALETTEENTRY, param2: &mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
     where
@@ -14371,7 +13207,6 @@ impl IDirectDraw {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -14382,7 +13217,6 @@ impl IDirectDraw {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<'a, P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
     where
@@ -14460,7 +13294,6 @@ pub struct IDirectDraw_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     WaitForVerticalBlank: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDraw2(::windows::core::IUnknown);
 impl IDirectDraw2 {
@@ -14473,7 +13306,6 @@ impl IDirectDraw2 {
     {
         (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<'a, P0>(&self, param0: u32, param1: &mut super::Gdi::PALETTEENTRY, param2: &mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
     where
@@ -14531,7 +13363,6 @@ impl IDirectDraw2 {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -14542,7 +13373,6 @@ impl IDirectDraw2 {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<'a, P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
     where
@@ -14624,7 +13454,6 @@ pub struct IDirectDraw2_Vtbl {
     WaitForVerticalBlank: usize,
     pub GetAvailableVidMem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSCAPS, param1: *mut u32, param2: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDraw4(::windows::core::IUnknown);
 impl IDirectDraw4 {
@@ -14637,7 +13466,6 @@ impl IDirectDraw4 {
     {
         (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<'a, P0>(&self, param0: u32, param1: &mut super::Gdi::PALETTEENTRY, param2: &mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
     where
@@ -14695,7 +13523,6 @@ impl IDirectDraw4 {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -14706,7 +13533,6 @@ impl IDirectDraw4 {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<'a, P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
     where
@@ -14717,7 +13543,6 @@ impl IDirectDraw4 {
     pub unsafe fn GetAvailableVidMem(&self, param0: &mut DDSCAPS2, param1: &mut u32, param2: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAvailableVidMem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetSurfaceFromDC<'a, P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface4>
     where
@@ -14732,7 +13557,6 @@ impl IDirectDraw4 {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TestCooperativeLevel)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceIdentifier(&self, param0: &mut DDDEVICEIDENTIFIER, param1: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1).ok()
@@ -14818,7 +13642,6 @@ pub struct IDirectDraw4_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetDeviceIdentifier: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDraw7(::windows::core::IUnknown);
 impl IDirectDraw7 {
@@ -14831,7 +13654,6 @@ impl IDirectDraw7 {
     {
         (::windows::core::Interface::vtable(self).CreateClipper)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1), param2.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreatePalette<'a, P0>(&self, param0: u32, param1: &mut super::Gdi::PALETTEENTRY, param2: &mut ::core::option::Option<IDirectDrawPalette>, param3: P0) -> ::windows::core::Result<()>
     where
@@ -14889,7 +13711,6 @@ impl IDirectDraw7 {
     pub unsafe fn RestoreDisplayMode(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RestoreDisplayMode)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCooperativeLevel<'a, P0>(&self, param0: P0, param1: u32) -> ::windows::core::Result<()>
     where
@@ -14900,7 +13721,6 @@ impl IDirectDraw7 {
     pub unsafe fn SetDisplayMode(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDisplayMode)(::windows::core::Interface::as_raw(self), param0, param1, param2, param3, param4).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WaitForVerticalBlank<'a, P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
     where
@@ -14911,7 +13731,6 @@ impl IDirectDraw7 {
     pub unsafe fn GetAvailableVidMem(&self, param0: &mut DDSCAPS2, param1: &mut u32, param2: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAvailableVidMem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetSurfaceFromDC<'a, P0>(&self, param0: P0) -> ::windows::core::Result<IDirectDrawSurface7>
     where
@@ -14926,12 +13745,10 @@ impl IDirectDraw7 {
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TestCooperativeLevel)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceIdentifier(&self, param0: &mut DDDEVICEIDENTIFIER2, param1: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDeviceIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartModeTest(&self, param0: &mut super::super::Foundation::SIZE, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StartModeTest)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
@@ -15025,16 +13842,13 @@ pub struct IDirectDraw7_Vtbl {
     StartModeTest: usize,
     pub EvaluateMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawClipper(::windows::core::IUnknown);
 impl IDirectDrawClipper {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetClipList(&self, param0: &mut super::super::Foundation::RECT, param1: &mut super::Gdi::RGNDATA, param2: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetClipList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHWnd(&self, param0: &mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetHWnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -15045,17 +13859,14 @@ impl IDirectDrawClipper {
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into().abi(), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClipListChanged(&self, param0: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsClipListChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn SetClipList(&self, param0: &mut super::Gdi::RGNDATA, param1: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClipList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHWnd<'a, P0>(&self, param0: u32, param1: P0) -> ::windows::core::Result<()>
     where
@@ -15125,7 +13936,6 @@ pub struct IDirectDrawClipper_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetHWnd: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawColorControl(::windows::core::IUnknown);
 impl IDirectDrawColorControl {
@@ -15178,7 +13988,6 @@ pub struct IDirectDrawColorControl_Vtbl {
     pub GetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
     pub SetColorControls: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDCOLORCONTROL) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawGammaControl(::windows::core::IUnknown);
 impl IDirectDrawGammaControl {
@@ -15231,7 +14040,6 @@ pub struct IDirectDrawGammaControl_Vtbl {
     pub GetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::HRESULT,
     pub SetGammaRamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut DDGAMMARAMP) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawKernel(::windows::core::IUnknown);
 impl IDirectDrawKernel {
@@ -15288,19 +14096,16 @@ pub struct IDirectDrawKernel_Vtbl {
     pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows::core::HRESULT,
     pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawPalette(::windows::core::IUnknown);
 impl IDirectDrawPalette {
     pub unsafe fn GetCaps(&self, param0: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetEntries(&self, param0: u32, param1: u32, param2: u32, param3: &mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetEntries)(::windows::core::Interface::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn Initialize<'a, P0>(&self, param0: P0, param1: u32, param2: &mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()>
     where
@@ -15308,7 +14113,6 @@ impl IDirectDrawPalette {
     {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), param0.into().abi(), param1, ::core::mem::transmute(param2)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetEntries(&self, param0: u32, param1: u32, param2: u32, param3: &mut super::Gdi::PALETTEENTRY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetEntries)(::windows::core::Interface::as_raw(self), param0, param1, param2, ::core::mem::transmute(param3)).ok()
@@ -15367,7 +14171,6 @@ pub struct IDirectDrawPalette_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetEntries: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawSurface(::windows::core::IUnknown);
 impl IDirectDrawSurface {
@@ -15377,12 +14180,10 @@ impl IDirectDrawSurface {
     {
         (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDBLTFX) -> ::windows::core::Result<()>
     where
@@ -15390,12 +14191,10 @@ impl IDirectDrawSurface {
     {
         (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into().abi(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: &mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<'a, P0>(&self, param0: u32, param1: u32, param2: P0, param3: &mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
     where
@@ -15437,7 +14236,6 @@ impl IDirectDrawSurface {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: &mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: &mut super::Gdi::HDC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -15467,7 +14265,6 @@ impl IDirectDrawSurface {
     pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: &mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows::core::Result<()>
     where
@@ -15475,7 +14272,6 @@ impl IDirectDrawSurface {
     {
         (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<'a, P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
@@ -15507,7 +14303,6 @@ impl IDirectDrawSurface {
     pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDOVERLAYFX) -> ::windows::core::Result<()>
     where
@@ -15622,7 +14417,6 @@ pub struct IDirectDrawSurface_Vtbl {
     pub UpdateOverlayDisplay: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
     pub UpdateOverlayZOrder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawSurface2(::windows::core::IUnknown);
 impl IDirectDrawSurface2 {
@@ -15632,12 +14426,10 @@ impl IDirectDrawSurface2 {
     {
         (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDBLTFX) -> ::windows::core::Result<()>
     where
@@ -15645,12 +14437,10 @@ impl IDirectDrawSurface2 {
     {
         (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into().abi(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: &mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<'a, P0>(&self, param0: u32, param1: u32, param2: P0, param3: &mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
     where
@@ -15692,7 +14482,6 @@ impl IDirectDrawSurface2 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: &mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: &mut super::Gdi::HDC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -15722,7 +14511,6 @@ impl IDirectDrawSurface2 {
     pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: &mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows::core::Result<()>
     where
@@ -15730,7 +14518,6 @@ impl IDirectDrawSurface2 {
     {
         (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<'a, P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
@@ -15762,7 +14549,6 @@ impl IDirectDrawSurface2 {
     pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDOVERLAYFX) -> ::windows::core::Result<()>
     where
@@ -15889,7 +14675,6 @@ pub struct IDirectDrawSurface2_Vtbl {
     pub PageLock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
     pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawSurface3(::windows::core::IUnknown);
 impl IDirectDrawSurface3 {
@@ -15899,12 +14684,10 @@ impl IDirectDrawSurface3 {
     {
         (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDBLTFX) -> ::windows::core::Result<()>
     where
@@ -15912,12 +14695,10 @@ impl IDirectDrawSurface3 {
     {
         (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into().abi(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: &mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<'a, P0>(&self, param0: u32, param1: u32, param2: P0, param3: &mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
     where
@@ -15959,7 +14740,6 @@ impl IDirectDrawSurface3 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: &mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: &mut super::Gdi::HDC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -15989,7 +14769,6 @@ impl IDirectDrawSurface3 {
     pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: &mut DDSURFACEDESC, param2: u32, param3: P0) -> ::windows::core::Result<()>
     where
@@ -15997,7 +14776,6 @@ impl IDirectDrawSurface3 {
     {
         (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<'a, P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
@@ -16029,7 +14807,6 @@ impl IDirectDrawSurface3 {
     pub unsafe fn Unlock(&self, param0: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDOVERLAYFX) -> ::windows::core::Result<()>
     where
@@ -16160,7 +14937,6 @@ pub struct IDirectDrawSurface3_Vtbl {
     pub PageUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
     pub SetSurfaceDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut DDSURFACEDESC, param1: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawSurface4(::windows::core::IUnknown);
 impl IDirectDrawSurface4 {
@@ -16170,12 +14946,10 @@ impl IDirectDrawSurface4 {
     {
         (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDBLTFX) -> ::windows::core::Result<()>
     where
@@ -16183,12 +14957,10 @@ impl IDirectDrawSurface4 {
     {
         (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into().abi(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: &mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<'a, P0>(&self, param0: u32, param1: u32, param2: P0, param3: &mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
     where
@@ -16230,7 +15002,6 @@ impl IDirectDrawSurface4 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: &mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: &mut super::Gdi::HDC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -16260,7 +15031,6 @@ impl IDirectDrawSurface4 {
     pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: &mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows::core::Result<()>
     where
@@ -16268,7 +15038,6 @@ impl IDirectDrawSurface4 {
     {
         (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<'a, P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
@@ -16297,12 +15066,10 @@ impl IDirectDrawSurface4 {
     {
         (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unlock(&self, param0: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDOVERLAYFX) -> ::windows::core::Result<()>
     where
@@ -16456,7 +15223,6 @@ pub struct IDirectDrawSurface4_Vtbl {
     pub GetUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
     pub ChangeUniquenessValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawSurface7(::windows::core::IUnknown);
 impl IDirectDrawSurface7 {
@@ -16466,12 +15232,10 @@ impl IDirectDrawSurface7 {
     {
         (::windows::core::Interface::vtable(self).AddAttachedSurface)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddOverlayDirtyRect(&self, param0: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddOverlayDirtyRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Blt<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDBLTFX) -> ::windows::core::Result<()>
     where
@@ -16479,12 +15243,10 @@ impl IDirectDrawSurface7 {
     {
         (::windows::core::Interface::vtable(self).Blt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1.into().abi(), ::core::mem::transmute(param2), param3, ::core::mem::transmute(param4)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltBatch(&self, param0: &mut DDBLTBATCH, param1: u32, param2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BltBatch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), param1, param2).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BltFast<'a, P0>(&self, param0: u32, param1: u32, param2: P0, param3: &mut super::super::Foundation::RECT, param4: u32) -> ::windows::core::Result<()>
     where
@@ -16526,7 +15288,6 @@ impl IDirectDrawSurface7 {
     pub unsafe fn GetColorKey(&self, param0: u32, param1: &mut DDCOLORKEY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColorKey)(::windows::core::Interface::as_raw(self), param0, ::core::mem::transmute(param1)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetDC(&self, param0: &mut super::Gdi::HDC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -16556,7 +15317,6 @@ impl IDirectDrawSurface7 {
     pub unsafe fn IsLost(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsLost)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Lock<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: &mut DDSURFACEDESC2, param2: u32, param3: P0) -> ::windows::core::Result<()>
     where
@@ -16564,7 +15324,6 @@ impl IDirectDrawSurface7 {
     {
         (::windows::core::Interface::vtable(self).Lock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1), param2, param3.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn ReleaseDC<'a, P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
@@ -16593,12 +15352,10 @@ impl IDirectDrawSurface7 {
     {
         (::windows::core::Interface::vtable(self).SetPalette)(::windows::core::Interface::as_raw(self), param0.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unlock(&self, param0: &mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unlock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateOverlay<'a, P0>(&self, param0: &mut super::super::Foundation::RECT, param1: P0, param2: &mut super::super::Foundation::RECT, param3: u32, param4: &mut DDOVERLAYFX) -> ::windows::core::Result<()>
     where
@@ -16768,7 +15525,6 @@ pub struct IDirectDrawSurface7_Vtbl {
     pub SetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32) -> ::windows::core::HRESULT,
     pub GetLOD: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawSurfaceKernel(::windows::core::IUnknown);
 impl IDirectDrawSurfaceKernel {
@@ -16821,7 +15577,6 @@ pub struct IDirectDrawSurfaceKernel_Vtbl {
     pub GetKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut usize) -> ::windows::core::HRESULT,
     pub ReleaseKernelHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawVideoPort(::windows::core::IUnknown);
 impl IDirectDrawVideoPort {
@@ -16861,7 +15616,6 @@ impl IDirectDrawVideoPort {
     {
         (::windows::core::Interface::vtable(self).SetTargetSurface)(::windows::core::Interface::as_raw(self), param0.into().abi(), param1).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartVideo(&self, param0: &mut DDVIDEOPORTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StartVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -16869,7 +15623,6 @@ impl IDirectDrawVideoPort {
     pub unsafe fn StopVideo(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StopVideo)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateVideo(&self, param0: &mut DDVIDEOPORTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UpdateVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
@@ -16938,16 +15691,13 @@ pub struct IDirectDrawVideoPort_Vtbl {
     UpdateVideo: usize,
     pub WaitForSync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 #[repr(transparent)]
 pub struct IDirectDrawVideoPortNotify(::windows::core::IUnknown);
 impl IDirectDrawVideoPortNotify {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AcquireNotification(&self, param0: &mut super::super::Foundation::HANDLE, param1: &mut DDVIDEOPORTNOTIFY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AcquireNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0), ::core::mem::transmute(param1)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseNotification<'a, P0>(&self, param0: P0) -> ::windows::core::Result<()>
     where
@@ -17004,12 +15754,9 @@ pub struct IDirectDrawVideoPortNotify_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ReleaseNotification: usize,
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const IRQINFO_HANDLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const IRQINFO_NOTHANDLED: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct IUNKNOWN_LIST {
     pub lpLink: *mut IUNKNOWN_LIST,
     pub lpGuid: *mut ::windows::core::GUID,
@@ -17039,257 +15786,168 @@ impl ::core::default::Default for IUNKNOWN_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPCLIPPERCALLBACK = ::core::option::Option<unsafe extern "system" fn(lpddclipper: ::core::option::Option<IDirectDrawClipper>, hwnd: super::super::Foundation::HWND, code: u32, lpcontext: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDD32BITDRIVERINIT = ::core::option::Option<unsafe extern "system" fn(dwcontext: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDDENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDENUMCALLBACKEXA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDENUMCALLBACKEXW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: *mut ::core::ffi::c_void, param4: super::Gdi::HMONITOR) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDDENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDENUMMODESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDENUMMODESCALLBACK2 = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDSURFACEDESC2, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDENUMSURFACESCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface>, param1: *mut DDSURFACEDESC, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDENUMSURFACESCALLBACK2 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface4>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDENUMSURFACESCALLBACK7 = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<IDirectDrawSurface7>, param1: *mut DDSURFACEDESC2, param2: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDENUMVIDEOCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDVIDEOPORTCAPS, param1: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDGAMMACALIBRATORPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDGAMMARAMP, param1: *mut u8) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALCOLORCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_COLORCONTROLDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_CANCREATEEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CANCREATESURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_CREATEEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATESURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_DESTROYEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_LOCKEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_LOCKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALEXEBUFCB_UNLOCKEXEBUF = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UNLOCKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALKERNELCB_SYNCSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SYNCSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALKERNELCB_SYNCVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SYNCVIDEOPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_BEGINFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_BEGINMOCOMPFRAMEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_CREATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATEMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_DESTROY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_ENDFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_ENDMOCOMPFRAMEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETCOMPBUFFINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETMOCOMPCOMPBUFFDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETMOCOMPFORMATSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETGUIDS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETMOCOMPGUIDSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_GETINTERNALINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETINTERNALMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_QUERYSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_QUERYMOCOMPSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALMOCOMPCB_RENDER = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_RENDERMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALPALCB_DESTROYPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYPALETTEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALPALCB_SETENTRIES = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETENTRIESDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_ADDATTACHEDSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_ADDATTACHEDSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_BLT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_BLTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_DESTROYSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_FLIPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_GETBLTSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETBLTSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETFLIPSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_LOCKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETCLIPLIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETCLIPLISTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETCOLORKEYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETOVERLAYPOSITION = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETOVERLAYPOSITIONDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_SETPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETPALETTEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_UNLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UNLOCKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALSURFCB_UPDATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UPDATEOVERLAYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_CANCREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CANCREATEVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_VPORTCOLORDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_CREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATEVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_DESTROYVPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_FLIPVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETBANDWIDTH = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTBANDWIDTHDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETFIELD = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTFIELDDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTFLIPSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETINPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTINPUTFORMATDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTLINEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETOUTPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTOUTPUTFORMATDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETSIGNALSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTSIGNALDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_GETVPORTCONNECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETVPORTCONNECTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_UPDATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UPDATEVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHALVPORTCB_WAITFORSYNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_WAITFORVPORTSYNCDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CANCREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CANCREATESURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CREATEPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATEPALETTEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATESURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_CREATESURFACEEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_CREATESURFACEEXDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_DESTROYDDLOCAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYDDLOCALDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_DESTROYDRIVER = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DESTROYDRIVERDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_FLIPTOGDISURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_FLIPTOGDISURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_GETAVAILDRIVERMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETAVAILDRIVERMEMORYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDHAL_GETDRIVERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETDRIVERINFODATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDHAL_GETDRIVERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETDRIVERSTATEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type LPDDHAL_GETHEAPALIGNMENT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETHEAPALIGNMENTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_GETSCANLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_GETSCANLINEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_DRVSETCOLORKEYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETEXCLUSIVEMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETEXCLUSIVEMODEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETINFO = ::core::option::Option<unsafe extern "system" fn(lpddhalinfo: *mut DDHALINFO, reset: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_SETMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_SETMODEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_UPDATENONLOCALHEAP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_UPDATENONLOCALHEAPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_VIDMEMALLOC = ::core::option::Option<unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, dwwidth: u32, dwheight: u32) -> usize>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_VIDMEMFREE = ::core::option::Option<unsafe extern "system" fn(lpdd: *mut DDRAWI_DIRECTDRAW_GBL, heap: i32, fpmem: usize)>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHAL_WAITFORVERTICALBLANK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDHAL_WAITFORVERTICALBLANKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDDHEL_INIT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DDRAWI_DIRECTDRAW_GBL, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDIRECTDRAWENUMERATEEXA = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXA, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type LPDIRECTDRAWENUMERATEEXW = ::core::option::Option<unsafe extern "system" fn(lpcallback: LPDDENUMCALLBACKEXW, lpcontext: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MAX_AUTOFLIP_BUFFERS: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MAX_DDDEVICEID_STRING: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MAX_DRIVER_NAME: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MAX_PALETTE_SIZE: u32 = 256u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct MDL {
     pub MdlNext: *mut MDL,
     pub MdlSize: i16,
@@ -17327,236 +15985,141 @@ impl ::core::default::Default for MDL {
 }
 #[repr(C)]
 pub struct MDL_0(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_64_BIT_VA: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_ALLOCATED_FIXED_SIZE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_ALLOCATED_MUST_SUCCEED: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_IO_PAGE_READ: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_IO_SPACE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_LOCK_HELD: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_MAPPED_TO_SYSTEM_VA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_MAPPING_CAN_FAIL: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_NETWORK_HEADER: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_PAGES_LOCKED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_PARENT_MAPPED_SYSTEM_VA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_PARTIAL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_PARTIAL_HAS_BEEN_MAPPED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_SCATTER_GATHER_VA: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_SOURCE_IS_NONPAGED_POOL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const MDL_WRITE_OPERATION: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const OBJECT_ISROOT: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_ALPHABLT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_BLTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_CANCREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CANCREATESURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_COLORCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_COLORCONTROLDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type PDD_CREATEPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATEPALETTEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_CREATESURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATESURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_CREATESURFACEEX = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATESURFACEEXDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_DESTROYDDLOCAL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYDDLOCALDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_DESTROYDRIVER = ::core::option::Option<unsafe extern "system" fn(param0: *mut _DD_DESTROYDRIVERDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_FLIPTOGDISURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPTOGDISURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_FREEDRIVERMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FREEDRIVERMEMORYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_GETAVAILDRIVERMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETAVAILDRIVERMEMORYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_GETDRIVERINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETDRIVERINFODATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_GETDRIVERSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETDRIVERSTATEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_GETSCANLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETSCANLINEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_KERNELCB_SYNCSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SYNCSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_KERNELCB_SYNCVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SYNCVIDEOPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MAPMEMORY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_MAPMEMORYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MOCOMPCB_BEGINFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_BEGINMOCOMPFRAMEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_MOCOMPCB_CREATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATEMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_MOCOMPCB_DESTROY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_MOCOMPCB_ENDFRAME = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_ENDMOCOMPFRAMEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_MOCOMPCB_GETCOMPBUFFINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETMOCOMPCOMPBUFFDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_MOCOMPCB_GETFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETMOCOMPFORMATSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_MOCOMPCB_GETGUIDS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETMOCOMPGUIDSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_MOCOMPCB_GETINTERNALINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETINTERNALMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MOCOMPCB_QUERYSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_QUERYMOCOMPSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_MOCOMPCB_RENDER = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_RENDERMOCOMPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_PALCB_DESTROYPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYPALETTEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub type PDD_PALCB_SETENTRIES = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETENTRIESDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DRVSETCOLORKEYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_SETEXCLUSIVEMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETEXCLUSIVEMODEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_SETMODE = ::core::option::Option<unsafe extern "system" fn(param0: *mut _DD_SETMODEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_ADDATTACHEDSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_ADDATTACHEDSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_BLT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_BLTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_DESTROYSURFACE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_GETBLTSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETBLTSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETFLIPSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_LOCKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETCLIPLIST = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETCLIPLISTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETCOLORKEY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETCOLORKEYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETOVERLAYPOSITION = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETOVERLAYPOSITIONDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_SETPALETTE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_SETPALETTEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_UNLOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_UNLOCKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_SURFCB_UPDATEOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_UPDATEOVERLAYDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_VPORTCB_CANCREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CANCREATEVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_COLORCONTROL = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_VPORTCOLORDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_CREATEVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_CREATEVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_DESTROYVPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_DESTROYVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_FLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_FLIPVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_VPORTCB_GETAUTOFLIPSURF = ::core::option::Option<unsafe extern "system" fn(param0: *mut _DD_GETVPORTAUTOFLIPSURFACEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETBANDWIDTH = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTBANDWIDTHDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETFIELD = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTFIELDDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_VPORTCB_GETFLIPSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTFLIPSTATUSDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETINPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTINPUTFORMATDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETLINE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTLINEDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETOUTPUTFORMATS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTOUTPUTFORMATDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_GETSIGNALSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTSIGNALDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_VPORTCB_GETVPORTCONNECT = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_GETVPORTCONNECTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_UPDATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_UPDATEVPORTDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDD_VPORTCB_WAITFORSYNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_WAITFORVPORTSYNCDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDD_WAITFORVERTICALBLANK = ::core::option::Option<unsafe extern "system" fn(param0: *mut DD_WAITFORVERTICALBLANKDATA) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_BOBNEXTFIELD = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDBOBNEXTFIELDINFO, param2: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_ENABLEIRQ = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDENABLEIRQINFO, param2: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_FLIPOVERLAY = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDFLIPOVERLAYINFO, param2: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_FLIPVIDEOPORT = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDFLIPVIDEOPORTINFO, param2: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_GETCURRENTAUTOFLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDGETCURRENTAUTOFLIPININFO, param2: *mut DDGETCURRENTAUTOFLIPOUTINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_GETIRQINFO = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: *mut DDGETIRQINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_GETPOLARITY = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDGETPOLARITYININFO, param2: *mut DDGETPOLARITYOUTINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_GETPREVIOUSAUTOFLIP = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDGETPREVIOUSAUTOFLIPININFO, param2: *mut DDGETPREVIOUSAUTOFLIPOUTINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_GETTRANSFERSTATUS = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: *mut DDGETTRANSFERSTATUSOUTINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_IRQCALLBACK = ::core::option::Option<unsafe extern "system" fn(pirqdata: *mut DX_IRQDATA)>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_LOCK = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDLOCKININFO, param2: *mut DDLOCKOUTINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDX_SETSTATE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDSETSTATEININFO, param2: *mut DDSETSTATEOUTINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_SKIPNEXTFIELD = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDSKIPNEXTFIELDINFO, param2: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub type PDX_TRANSFER = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut DDTRANSFERININFO, param2: *mut DDTRANSFEROUTINFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const PFINDEX_UNINITIALIZED: u32 = 0u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct PROCESS_LIST {
     pub lpLink: *mut PROCESS_LIST,
     pub dwProcessId: u32,
@@ -17589,18 +16152,12 @@ impl ::core::default::Default for PROCESS_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const REGSTR_KEY_DDHW_DESCRIPTION: &str = "Description";
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const REGSTR_KEY_DDHW_DRIVERNAME: &str = "DriverName";
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const REGSTR_PATH_DDHW: &str = "Hardware\\DirectDrawDrivers";
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ROP_HAS_PATTERN: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const ROP_HAS_SOURCE: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct SURFACEALIGNMENT {
     pub Anonymous: SURFACEALIGNMENT_0,
 }
@@ -17625,7 +16182,6 @@ impl ::core::default::Default for SURFACEALIGNMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub union SURFACEALIGNMENT_0 {
     pub Linear: SURFACEALIGNMENT_0_0,
     pub Rectangular: SURFACEALIGNMENT_0_1,
@@ -17651,7 +16207,6 @@ impl ::core::default::Default for SURFACEALIGNMENT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct SURFACEALIGNMENT_0_0 {
     pub dwStartAlignment: u32,
     pub dwPitchAlignment: u32,
@@ -17684,7 +16239,6 @@ impl ::core::default::Default for SURFACEALIGNMENT_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct SURFACEALIGNMENT_0_1 {
     pub dwXAlignment: u32,
     pub dwYAlignment: u32,
@@ -17716,10 +16270,8 @@ impl ::core::default::Default for SURFACEALIGNMENT_0_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const SURFACEALIGN_DISCARDABLE: i32 = 1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDEOMEMORY {
     pub dwFlags: u32,
@@ -17756,7 +16308,6 @@ impl ::core::default::Default for VIDEOMEMORY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDEOMEMORY_0 {
     pub fpEnd: usize,
@@ -17789,7 +16340,6 @@ impl ::core::default::Default for VIDEOMEMORY_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDEOMEMORY_1 {
     pub lpHeap: *mut VMEMHEAP,
@@ -17822,7 +16372,6 @@ impl ::core::default::Default for VIDEOMEMORY_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub struct VIDEOMEMORYINFO {
     pub fpPrimary: usize,
     pub dwFlags: u32,
@@ -17858,7 +16407,6 @@ impl ::core::default::Default for VIDEOMEMORYINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDMEM {
     pub dwFlags: u32,
@@ -17895,7 +16443,6 @@ impl ::core::default::Default for VIDMEM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDMEM_0 {
     pub fpEnd: usize,
@@ -17928,7 +16475,6 @@ impl ::core::default::Default for VIDMEM_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union VIDMEM_1 {
     pub lpHeap: *mut VMEMHEAP,
@@ -17961,7 +16507,6 @@ impl ::core::default::Default for VIDMEM_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VIDMEMINFO {
     pub fpPrimary: usize,
@@ -18004,20 +16549,13 @@ impl ::core::default::Default for VIDMEMINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VIDMEM_HEAPDISABLED: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VIDMEM_ISHEAP: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VIDMEM_ISLINEAR: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VIDMEM_ISNONLOCAL: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VIDMEM_ISRECTANGULAR: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VIDMEM_ISWC: i32 = 16i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VMEMHEAP {
     pub dwFlags: u32,
@@ -18064,14 +16602,10 @@ impl ::core::default::Default for VMEMHEAP {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VMEMHEAP_ALIGNMENT: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VMEMHEAP_LINEAR: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const VMEMHEAP_RECTANGULAR: i32 = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VMEML {
     pub next: *mut VMEML,
@@ -18112,7 +16646,6 @@ impl ::core::default::Default for VMEML {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VMEMR {
     pub next: *mut VMEMR,
@@ -18171,7 +16704,6 @@ pub struct _DD_DESTROYDRIVERDATA(pub u8);
 pub struct _DD_GETVPORTAUTOFLIPSURFACEDATA(pub u8);
 #[repr(C)]
 pub struct _DD_SETMODEDATA(pub u8);
-#[doc = "*Required features: `\"Win32_Graphics_DirectDraw\"`*"]
 pub const _FACDD: u32 = 2166u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

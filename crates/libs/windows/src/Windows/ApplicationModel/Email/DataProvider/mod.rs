@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailDataProviderConnection(::windows::core::IUnknown);
 impl EmailDataProviderConnection {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MailboxSyncRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -14,13 +12,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).MailboxSyncRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMailboxSyncRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMailboxSyncRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadMessageRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -32,13 +28,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).DownloadMessageRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadMessageRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadMessageRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadAttachmentRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -50,13 +44,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).DownloadAttachmentRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadAttachmentRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadAttachmentRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFolderRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -68,13 +60,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).CreateFolderRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCreateFolderRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveCreateFolderRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteFolderRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -86,13 +76,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).DeleteFolderRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeleteFolderRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDeleteFolderRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EmptyFolderRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -104,13 +92,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).EmptyFolderRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEmptyFolderRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveEmptyFolderRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MoveFolderRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -122,13 +108,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).MoveFolderRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMoveFolderRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveMoveFolderRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateMeetingResponseRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -140,13 +124,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).UpdateMeetingResponseRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdateMeetingResponseRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveUpdateMeetingResponseRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ForwardMeetingRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -158,13 +140,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).ForwardMeetingRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveForwardMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveForwardMeetingRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ProposeNewTimeForMeetingRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -176,13 +156,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).ProposeNewTimeForMeetingRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProposeNewTimeForMeetingRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveProposeNewTimeForMeetingRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetAutoReplySettingsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -194,13 +172,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).SetAutoReplySettingsRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSetAutoReplySettingsRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSetAutoReplySettingsRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAutoReplySettingsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -212,13 +188,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).GetAutoReplySettingsRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGetAutoReplySettingsRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveGetAutoReplySettingsRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ResolveRecipientsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -230,13 +204,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).ResolveRecipientsRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveResolveRecipientsRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveResolveRecipientsRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ValidateCertificatesRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -248,13 +220,11 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).ValidateCertificatesRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValidateCertificatesRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveValidateCertificatesRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ServerSearchReadBatchRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -266,7 +236,6 @@ impl EmailDataProviderConnection {
             (::windows::core::Interface::vtable(this).ServerSearchReadBatchRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServerSearchReadBatchRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -339,7 +308,6 @@ impl ::core::convert::From<&EmailDataProviderConnection> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for EmailDataProviderConnection {}
 unsafe impl ::core::marker::Sync for EmailDataProviderConnection {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailDataProviderTriggerDetails(::windows::core::IUnknown);
 impl EmailDataProviderTriggerDetails {
@@ -413,7 +381,6 @@ impl ::core::convert::From<&EmailDataProviderTriggerDetails> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for EmailDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for EmailDataProviderTriggerDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxCreateFolderRequest {
@@ -438,7 +405,6 @@ impl EmailMailboxCreateFolderRequest {
             (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync<'a, P0>(&self, folder: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -450,7 +416,6 @@ impl EmailMailboxCreateFolderRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), folder.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self, status: super::EmailMailboxCreateFolderStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -522,7 +487,6 @@ impl ::core::convert::From<&EmailMailboxCreateFolderRequest> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxCreateFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxCreateFolderRequestEventArgs {
@@ -533,7 +497,6 @@ impl EmailMailboxCreateFolderRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxCreateFolderRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -605,7 +568,6 @@ impl ::core::convert::From<&EmailMailboxCreateFolderRequestEventArgs> for &::win
 }
 unsafe impl ::core::marker::Send for EmailMailboxCreateFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxDeleteFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxDeleteFolderRequest {
@@ -623,7 +585,6 @@ impl EmailMailboxDeleteFolderRequest {
             (::windows::core::Interface::vtable(this).EmailFolderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -632,7 +593,6 @@ impl EmailMailboxDeleteFolderRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self, status: super::EmailMailboxDeleteFolderStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -704,7 +664,6 @@ impl ::core::convert::From<&EmailMailboxDeleteFolderRequest> for &::windows::cor
 }
 unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxDeleteFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxDeleteFolderRequestEventArgs {
@@ -715,7 +674,6 @@ impl EmailMailboxDeleteFolderRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxDeleteFolderRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -787,7 +745,6 @@ impl ::core::convert::From<&EmailMailboxDeleteFolderRequestEventArgs> for &::win
 }
 unsafe impl ::core::marker::Send for EmailMailboxDeleteFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDeleteFolderRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadAttachmentRequest(::windows::core::IUnknown);
 impl EmailMailboxDownloadAttachmentRequest {
@@ -812,7 +769,6 @@ impl EmailMailboxDownloadAttachmentRequest {
             (::windows::core::Interface::vtable(this).EmailAttachmentId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -821,7 +777,6 @@ impl EmailMailboxDownloadAttachmentRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -893,7 +848,6 @@ impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequest> for &::window
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadAttachmentRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxDownloadAttachmentRequestEventArgs {
@@ -904,7 +858,6 @@ impl EmailMailboxDownloadAttachmentRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxDownloadAttachmentRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -976,7 +929,6 @@ impl ::core::convert::From<&EmailMailboxDownloadAttachmentRequestEventArgs> for 
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadAttachmentRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadAttachmentRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadMessageRequest(::windows::core::IUnknown);
 impl EmailMailboxDownloadMessageRequest {
@@ -994,7 +946,6 @@ impl EmailMailboxDownloadMessageRequest {
             (::windows::core::Interface::vtable(this).EmailMessageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1003,7 +954,6 @@ impl EmailMailboxDownloadMessageRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1075,7 +1025,6 @@ impl ::core::convert::From<&EmailMailboxDownloadMessageRequest> for &::windows::
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxDownloadMessageRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxDownloadMessageRequestEventArgs {
@@ -1086,7 +1035,6 @@ impl EmailMailboxDownloadMessageRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxDownloadMessageRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1158,7 +1106,6 @@ impl ::core::convert::From<&EmailMailboxDownloadMessageRequestEventArgs> for &::
 }
 unsafe impl ::core::marker::Send for EmailMailboxDownloadMessageRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxDownloadMessageRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxEmptyFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxEmptyFolderRequest {
@@ -1176,7 +1123,6 @@ impl EmailMailboxEmptyFolderRequest {
             (::windows::core::Interface::vtable(this).EmailFolderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1185,7 +1131,6 @@ impl EmailMailboxEmptyFolderRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self, status: super::EmailMailboxEmptyFolderStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1257,7 +1202,6 @@ impl ::core::convert::From<&EmailMailboxEmptyFolderRequest> for &::windows::core
 }
 unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxEmptyFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxEmptyFolderRequestEventArgs {
@@ -1268,7 +1212,6 @@ impl EmailMailboxEmptyFolderRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxEmptyFolderRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1340,7 +1283,6 @@ impl ::core::convert::From<&EmailMailboxEmptyFolderRequestEventArgs> for &::wind
 }
 unsafe impl ::core::marker::Send for EmailMailboxEmptyFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxEmptyFolderRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxForwardMeetingRequest(::windows::core::IUnknown);
 impl EmailMailboxForwardMeetingRequest {
@@ -1358,7 +1300,6 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).EmailMessageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Recipients(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::EmailRecipient>> {
         let this = self;
@@ -1395,7 +1336,6 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1404,7 +1344,6 @@ impl EmailMailboxForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1476,7 +1415,6 @@ impl ::core::convert::From<&EmailMailboxForwardMeetingRequest> for &::windows::c
 }
 unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxForwardMeetingRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxForwardMeetingRequestEventArgs {
@@ -1487,7 +1425,6 @@ impl EmailMailboxForwardMeetingRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxForwardMeetingRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1559,7 +1496,6 @@ impl ::core::convert::From<&EmailMailboxForwardMeetingRequestEventArgs> for &::w
 }
 unsafe impl ::core::marker::Send for EmailMailboxForwardMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxForwardMeetingRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxGetAutoReplySettingsRequest(::windows::core::IUnknown);
 impl EmailMailboxGetAutoReplySettingsRequest {
@@ -1577,7 +1513,6 @@ impl EmailMailboxGetAutoReplySettingsRequest {
             (::windows::core::Interface::vtable(this).RequestedFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::EmailMailboxAutoReplyMessageResponseKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync<'a, P0>(&self, autoreplysettings: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -1589,7 +1524,6 @@ impl EmailMailboxGetAutoReplySettingsRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), autoreplysettings.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1661,7 +1595,6 @@ impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequest> for &::wind
 }
 unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxGetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
@@ -1672,7 +1605,6 @@ impl EmailMailboxGetAutoReplySettingsRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxGetAutoReplySettingsRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1744,7 +1676,6 @@ impl ::core::convert::From<&EmailMailboxGetAutoReplySettingsRequestEventArgs> fo
 }
 unsafe impl ::core::marker::Send for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxMoveFolderRequest(::windows::core::IUnknown);
 impl EmailMailboxMoveFolderRequest {
@@ -1776,7 +1707,6 @@ impl EmailMailboxMoveFolderRequest {
             (::windows::core::Interface::vtable(this).NewFolderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1785,7 +1715,6 @@ impl EmailMailboxMoveFolderRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1857,7 +1786,6 @@ impl ::core::convert::From<&EmailMailboxMoveFolderRequest> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxMoveFolderRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxMoveFolderRequestEventArgs {
@@ -1868,7 +1796,6 @@ impl EmailMailboxMoveFolderRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxMoveFolderRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1940,7 +1867,6 @@ impl ::core::convert::From<&EmailMailboxMoveFolderRequestEventArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for EmailMailboxMoveFolderRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxMoveFolderRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
 impl EmailMailboxProposeNewTimeForMeetingRequest {
@@ -1958,7 +1884,6 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).EmailMessageId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NewStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -1967,7 +1892,6 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).NewStartTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NewDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1990,7 +1914,6 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1999,7 +1922,6 @@ impl EmailMailboxProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2071,7 +1993,6 @@ impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequest> for &::
 }
 unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
@@ -2082,7 +2003,6 @@ impl EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxProposeNewTimeForMeetingRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2154,7 +2074,6 @@ impl ::core::convert::From<&EmailMailboxProposeNewTimeForMeetingRequestEventArgs
 }
 unsafe impl ::core::marker::Send for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxResolveRecipientsRequest(::windows::core::IUnknown);
 impl EmailMailboxResolveRecipientsRequest {
@@ -2165,7 +2084,6 @@ impl EmailMailboxResolveRecipientsRequest {
             (::windows::core::Interface::vtable(this).EmailMailboxId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Recipients(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -2174,7 +2092,6 @@ impl EmailMailboxResolveRecipientsRequest {
             (::windows::core::Interface::vtable(this).Recipients)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReportCompletedAsync<'a, P0, E0>(&self, resolutionresults: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -2187,7 +2104,6 @@ impl EmailMailboxResolveRecipientsRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), resolutionresults.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2259,7 +2175,6 @@ impl ::core::convert::From<&EmailMailboxResolveRecipientsRequest> for &::windows
 }
 unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxResolveRecipientsRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxResolveRecipientsRequestEventArgs {
@@ -2270,7 +2185,6 @@ impl EmailMailboxResolveRecipientsRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxResolveRecipientsRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2342,7 +2256,6 @@ impl ::core::convert::From<&EmailMailboxResolveRecipientsRequestEventArgs> for &
 }
 unsafe impl ::core::marker::Send for EmailMailboxResolveRecipientsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxResolveRecipientsRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxServerSearchReadBatchRequest(::windows::core::IUnknown);
 impl EmailMailboxServerSearchReadBatchRequest {
@@ -2381,7 +2294,6 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).SuggestedBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveMessageAsync<'a, P0>(&self, message: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -2393,7 +2305,6 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).SaveMessageAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2402,7 +2313,6 @@ impl EmailMailboxServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self, batchstatus: super::EmailBatchStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2474,7 +2384,6 @@ impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequest> for &::win
 }
 unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxServerSearchReadBatchRequestEventArgs {
@@ -2485,7 +2394,6 @@ impl EmailMailboxServerSearchReadBatchRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxServerSearchReadBatchRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2557,7 +2465,6 @@ impl ::core::convert::From<&EmailMailboxServerSearchReadBatchRequestEventArgs> f
 }
 unsafe impl ::core::marker::Send for EmailMailboxServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxServerSearchReadBatchRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxSetAutoReplySettingsRequest(::windows::core::IUnknown);
 impl EmailMailboxSetAutoReplySettingsRequest {
@@ -2575,7 +2482,6 @@ impl EmailMailboxSetAutoReplySettingsRequest {
             (::windows::core::Interface::vtable(this).AutoReplySettings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::EmailMailboxAutoReplySettings>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2584,7 +2490,6 @@ impl EmailMailboxSetAutoReplySettingsRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2656,7 +2561,6 @@ impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequest> for &::wind
 }
 unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxSetAutoReplySettingsRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
@@ -2667,7 +2571,6 @@ impl EmailMailboxSetAutoReplySettingsRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxSetAutoReplySettingsRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2739,7 +2642,6 @@ impl ::core::convert::From<&EmailMailboxSetAutoReplySettingsRequestEventArgs> fo
 }
 unsafe impl ::core::marker::Send for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxSyncManagerSyncRequest(::windows::core::IUnknown);
 impl EmailMailboxSyncManagerSyncRequest {
@@ -2750,7 +2652,6 @@ impl EmailMailboxSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).EmailMailboxId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2759,7 +2660,6 @@ impl EmailMailboxSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2831,7 +2731,6 @@ impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequest> for &::windows::
 }
 unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxSyncManagerSyncRequestEventArgs {
@@ -2842,7 +2741,6 @@ impl EmailMailboxSyncManagerSyncRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxSyncManagerSyncRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2914,7 +2812,6 @@ impl ::core::convert::From<&EmailMailboxSyncManagerSyncRequestEventArgs> for &::
 }
 unsafe impl ::core::marker::Send for EmailMailboxSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManagerSyncRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxUpdateMeetingResponseRequest(::windows::core::IUnknown);
 impl EmailMailboxUpdateMeetingResponseRequest {
@@ -2960,7 +2857,6 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).SendUpdate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2969,7 +2865,6 @@ impl EmailMailboxUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3041,7 +2936,6 @@ impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequest> for &::win
 }
 unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
@@ -3052,7 +2946,6 @@ impl EmailMailboxUpdateMeetingResponseRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxUpdateMeetingResponseRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -3124,7 +3017,6 @@ impl ::core::convert::From<&EmailMailboxUpdateMeetingResponseRequestEventArgs> f
 }
 unsafe impl ::core::marker::Send for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
 unsafe impl ::core::marker::Sync for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxValidateCertificatesRequest(::windows::core::IUnknown);
 impl EmailMailboxValidateCertificatesRequest {
@@ -3135,7 +3027,6 @@ impl EmailMailboxValidateCertificatesRequest {
             (::windows::core::Interface::vtable(this).EmailMailboxId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
     pub fn Certificates(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>> {
         let this = self;
@@ -3144,7 +3035,6 @@ impl EmailMailboxValidateCertificatesRequest {
             (::windows::core::Interface::vtable(this).Certificates)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReportCompletedAsync<'a, P0, E0>(&self, validationstatuses: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
     where
@@ -3157,7 +3047,6 @@ impl EmailMailboxValidateCertificatesRequest {
             (::windows::core::Interface::vtable(this).ReportCompletedAsync)(::windows::core::Interface::as_raw(this), validationstatuses.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3229,7 +3118,6 @@ impl ::core::convert::From<&EmailMailboxValidateCertificatesRequest> for &::wind
 }
 unsafe impl ::core::marker::Send for EmailMailboxValidateCertificatesRequest {}
 unsafe impl ::core::marker::Sync for EmailMailboxValidateCertificatesRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Email_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct EmailMailboxValidateCertificatesRequestEventArgs(::windows::core::IUnknown);
 impl EmailMailboxValidateCertificatesRequestEventArgs {
@@ -3240,7 +3128,6 @@ impl EmailMailboxValidateCertificatesRequestEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<EmailMailboxValidateCertificatesRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;

@@ -205,7 +205,6 @@ pub struct IUserActivityChannelStatics3_Vtbl {
     #[cfg(not(feature = "System"))]
     GetForUser: usize,
 }
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct IUserActivityContentInfo(::windows::core::IUnknown);
 impl IUserActivityContentInfo {
@@ -472,7 +471,6 @@ pub struct IUserActivityVisualElements2_Vtbl {
     pub AttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetAttributionDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivity(::windows::core::IUnknown);
 impl UserActivity {
@@ -497,7 +495,6 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).VisualElements)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityVisualElements>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -506,7 +503,6 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ContentUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetContentUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -526,7 +522,6 @@ impl UserActivity {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FallbackUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -535,7 +530,6 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).FallbackUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFallbackUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -544,7 +538,6 @@ impl UserActivity {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFallbackUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ActivationUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -553,7 +546,6 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).ActivationUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetActivationUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -577,7 +569,6 @@ impl UserActivity {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContentInfo)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -623,7 +614,6 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).TryParseFromJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(json), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryParseFromJsonArray(json: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<UserActivity>> {
         Self::IUserActivityStatics(|this| unsafe {
@@ -631,7 +621,6 @@ impl UserActivity {
             (::windows::core::Interface::vtable(this).TryParseFromJsonArray)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(json), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<UserActivity>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ToJsonArray<'a, P0, E0>(activities: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -716,7 +705,6 @@ impl ::core::convert::From<&UserActivity> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for UserActivity {}
 unsafe impl ::core::marker::Sync for UserActivity {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityAttribution(::windows::core::IUnknown);
 impl UserActivityAttribution {
@@ -727,7 +715,6 @@ impl UserActivityAttribution {
         static SHARED: ::windows::core::FactoryCache<UserActivityAttribution, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IconUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -736,7 +723,6 @@ impl UserActivityAttribution {
             (::windows::core::Interface::vtable(this).IconUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIconUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -767,7 +753,6 @@ impl UserActivityAttribution {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAddImageQuery)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateWithUri<'a, P0>(iconuri: P0) -> ::windows::core::Result<UserActivityAttribution>
     where
@@ -846,11 +831,9 @@ impl ::core::convert::From<&UserActivityAttribution> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for UserActivityAttribution {}
 unsafe impl ::core::marker::Sync for UserActivityAttribution {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityChannel(::windows::core::IUnknown);
 impl UserActivityChannel {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetOrCreateUserActivityAsync(&self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UserActivity>> {
         let this = self;
@@ -859,7 +842,6 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).GetOrCreateUserActivityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UserActivity>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteActivityAsync(&self, activityid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -868,7 +850,6 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).DeleteActivityAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activityid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAllActivitiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -877,7 +858,6 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).DeleteAllActivitiesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetRecentUserActivitiesAsync(&self, maxuniqueactivities: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows::core::Interface::cast::<IUserActivityChannel2>(self)?;
@@ -886,7 +866,6 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).GetRecentUserActivitiesAsync)(::windows::core::Interface::as_raw(this), maxuniqueactivities, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSessionHistoryItemsForUserActivityAsync(&self, activityid: &::windows::core::HSTRING, starttime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<UserActivitySessionHistoryItem>>> {
         let this = &::windows::core::Interface::cast::<IUserActivityChannel2>(self)?;
@@ -904,7 +883,6 @@ impl UserActivityChannel {
     pub fn DisableAutoSessionCreation() -> ::windows::core::Result<()> {
         Self::IUserActivityChannelStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).DisableAutoSessionCreation)(::windows::core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "*Required features: `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn TryGetForWebAccount<'a, P0>(account: P0) -> ::windows::core::Result<UserActivityChannel>
     where
@@ -915,7 +893,6 @@ impl UserActivityChannel {
             (::windows::core::Interface::vtable(this).TryGetForWebAccount)(::windows::core::Interface::as_raw(this), account.into().abi(), result__.as_mut_ptr()).from_abi::<UserActivityChannel>(result__)
         })
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<UserActivityChannel>
     where
@@ -1004,7 +981,6 @@ impl ::core::convert::From<&UserActivityChannel> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for UserActivityChannel {}
 unsafe impl ::core::marker::Sync for UserActivityChannel {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityContentInfo(::windows::core::IUnknown);
 impl UserActivityContentInfo {
@@ -1108,7 +1084,6 @@ impl<'a> ::core::convert::TryFrom<&UserActivityContentInfo> for ::windows::core:
 }
 unsafe impl ::core::marker::Send for UserActivityContentInfo {}
 unsafe impl ::core::marker::Sync for UserActivityContentInfo {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequest(::windows::core::IUnknown);
 impl UserActivityRequest {
@@ -1182,11 +1157,9 @@ impl ::core::convert::From<&UserActivityRequest> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for UserActivityRequest {}
 unsafe impl ::core::marker::Sync for UserActivityRequest {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequestManager(::windows::core::IUnknown);
 impl UserActivityRequestManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UserActivityRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1198,7 +1171,6 @@ impl UserActivityRequestManager {
             (::windows::core::Interface::vtable(this).UserActivityRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUserActivityRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -1276,7 +1248,6 @@ impl ::core::convert::From<&UserActivityRequestManager> for &::windows::core::II
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityRequestedEventArgs(::windows::core::IUnknown);
 impl UserActivityRequestedEventArgs {
@@ -1287,7 +1258,6 @@ impl UserActivityRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivityRequest>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1359,11 +1329,9 @@ impl ::core::convert::From<&UserActivityRequestedEventArgs> for &::windows::core
 }
 unsafe impl ::core::marker::Send for UserActivityRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for UserActivityRequestedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivitySession(::windows::core::IUnknown);
 impl UserActivitySession {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1461,7 +1429,6 @@ impl<'a> ::core::convert::TryFrom<&UserActivitySession> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for UserActivitySession {}
 unsafe impl ::core::marker::Sync for UserActivitySession {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivitySessionHistoryItem(::windows::core::IUnknown);
 impl UserActivitySessionHistoryItem {
@@ -1472,7 +1439,6 @@ impl UserActivitySessionHistoryItem {
             (::windows::core::Interface::vtable(this).UserActivity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserActivity>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1481,7 +1447,6 @@ impl UserActivitySessionHistoryItem {
             (::windows::core::Interface::vtable(this).StartTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EndTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
@@ -1553,7 +1518,6 @@ impl ::core::convert::From<&UserActivitySessionHistoryItem> for &::windows::core
 }
 unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserActivityState(pub i32);
@@ -1587,7 +1551,6 @@ unsafe impl ::windows::core::RuntimeType for UserActivityState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
 pub struct UserActivityVisualElements(::windows::core::IUnknown);
 impl UserActivityVisualElements {
@@ -1613,7 +1576,6 @@ impl UserActivityVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -1622,7 +1584,6 @@ impl UserActivityVisualElements {
             (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = self;
@@ -1642,7 +1603,6 @@ impl UserActivityVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAttribution)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
     pub fn SetContent<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1652,7 +1612,6 @@ impl UserActivityVisualElements {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI_Shell\"`*"]
     #[cfg(feature = "UI_Shell")]
     pub fn Content(&self) -> ::windows::core::Result<super::super::UI::Shell::IAdaptiveCard> {
         let this = self;

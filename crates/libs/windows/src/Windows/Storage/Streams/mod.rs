@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct Buffer(::windows::core::IUnknown);
 impl Buffer {
@@ -26,7 +25,6 @@ impl Buffer {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), capacity, result__.as_mut_ptr()).from_abi::<Buffer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateCopyFromMemoryBuffer<'a, P0, E0>(input: P0) -> ::windows::core::Result<Buffer>
     where
@@ -38,7 +36,6 @@ impl Buffer {
             (::windows::core::Interface::vtable(this).CreateCopyFromMemoryBuffer)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<Buffer>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateMemoryBufferOverIBuffer<'a, P0, E0>(input: P0) -> ::windows::core::Result<super::super::Foundation::MemoryBuffer>
     where
@@ -142,7 +139,6 @@ impl<'a> ::core::convert::TryFrom<&Buffer> for ::windows::core::InParam<'a, IBuf
 }
 unsafe impl ::core::marker::Send for Buffer {}
 unsafe impl ::core::marker::Sync for Buffer {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ByteOrder(pub i32);
@@ -176,11 +172,9 @@ unsafe impl ::windows::core::RuntimeType for ByteOrder {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct DataReader(::windows::core::IUnknown);
 impl DataReader {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -321,7 +315,6 @@ impl DataReader {
             (::windows::core::Interface::vtable(this).ReadString)(::windows::core::Interface::as_raw(this), codeunitcount, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadDateTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -330,7 +323,6 @@ impl DataReader {
             (::windows::core::Interface::vtable(this).ReadDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadTimeSpan(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -339,7 +331,6 @@ impl DataReader {
             (::windows::core::Interface::vtable(this).ReadTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadAsync(&self, count: u32) -> ::windows::core::Result<DataReaderLoadOperation> {
         let this = self;
@@ -496,13 +487,11 @@ impl<'a> ::core::convert::TryFrom<&DataReader> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for DataReader {}
 unsafe impl ::core::marker::Sync for DataReader {}
-#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct DataReaderLoadOperation(::windows::core::IUnknown);
 #[cfg(feature = "Foundation")]
 impl DataReaderLoadOperation {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -511,7 +500,6 @@ impl DataReaderLoadOperation {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Status(&self) -> ::windows::core::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -520,7 +508,6 @@ impl DataReaderLoadOperation {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::AsyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -529,19 +516,16 @@ impl DataReaderLoadOperation {
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
@@ -550,7 +534,6 @@ impl DataReaderLoadOperation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Completed(&self) -> ::windows::core::Result<super::super::Foundation::AsyncOperationCompletedHandler<u32>> {
         let this = self;
@@ -559,7 +542,6 @@ impl DataReaderLoadOperation {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::AsyncOperationCompletedHandler<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetResults(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -721,7 +703,6 @@ impl<'a> ::core::convert::TryFrom<&DataReaderLoadOperation> for ::windows::core:
 unsafe impl ::core::marker::Send for DataReaderLoadOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for DataReaderLoadOperation {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct DataWriter(::windows::core::IUnknown);
 impl DataWriter {
@@ -732,7 +713,6 @@ impl DataWriter {
         static SHARED: ::windows::core::FactoryCache<DataWriter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -831,13 +811,11 @@ impl DataWriter {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WriteDouble)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteDateTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WriteDateTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteTimeSpan(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -857,7 +835,6 @@ impl DataWriter {
             (::windows::core::Interface::vtable(this).MeasureString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StoreAsync(&self) -> ::windows::core::Result<DataWriterStoreOperation> {
         let this = self;
@@ -866,7 +843,6 @@ impl DataWriter {
             (::windows::core::Interface::vtable(this).StoreAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DataWriterStoreOperation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1008,13 +984,11 @@ impl<'a> ::core::convert::TryFrom<&DataWriter> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for DataWriter {}
 unsafe impl ::core::marker::Sync for DataWriter {}
-#[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 #[repr(transparent)]
 pub struct DataWriterStoreOperation(::windows::core::IUnknown);
 #[cfg(feature = "Foundation")]
 impl DataWriterStoreOperation {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -1023,7 +997,6 @@ impl DataWriterStoreOperation {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Status(&self) -> ::windows::core::Result<super::super::Foundation::AsyncStatus> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -1032,7 +1005,6 @@ impl DataWriterStoreOperation {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::AsyncStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
@@ -1041,19 +1013,16 @@ impl DataWriterStoreOperation {
             (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IAsyncInfo>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<()>
     where
@@ -1062,7 +1031,6 @@ impl DataWriterStoreOperation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Completed(&self) -> ::windows::core::Result<super::super::Foundation::AsyncOperationCompletedHandler<u32>> {
         let this = self;
@@ -1071,7 +1039,6 @@ impl DataWriterStoreOperation {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::AsyncOperationCompletedHandler<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetResults(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -1233,17 +1200,14 @@ impl<'a> ::core::convert::TryFrom<&DataWriterStoreOperation> for ::windows::core
 unsafe impl ::core::marker::Send for DataWriterStoreOperation {}
 #[cfg(feature = "Foundation")]
 unsafe impl ::core::marker::Sync for DataWriterStoreOperation {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct FileInputStream(::windows::core::IUnknown);
 impl FileInputStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -1360,7 +1324,6 @@ impl<'a> ::core::convert::TryFrom<&FileInputStream> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for FileInputStream {}
 unsafe impl ::core::marker::Sync for FileInputStream {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FileOpenDisposition(pub i32);
@@ -1397,17 +1360,14 @@ unsafe impl ::windows::core::RuntimeType for FileOpenDisposition {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct FileOutputStream(::windows::core::IUnknown);
 impl FileOutputStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1420,7 +1380,6 @@ impl FileOutputStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1533,17 +1492,14 @@ impl<'a> ::core::convert::TryFrom<&FileOutputStream> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for FileOutputStream {}
 unsafe impl ::core::marker::Sync for FileOutputStream {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct FileRandomAccessStream(::windows::core::IUnknown);
 impl FileRandomAccessStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenAsync(filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
@@ -1551,7 +1507,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), accessmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenWithOptionsAsync(filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
@@ -1559,7 +1514,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenWithOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), accessmode, sharingoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenTransactedWriteAsync(filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
@@ -1567,7 +1521,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenTransactedWriteAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenTransactedWriteWithOptionsAsync(filepath: &::windows::core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>> {
         Self::IFileRandomAccessStreamStatics(|this| unsafe {
@@ -1575,7 +1528,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenTransactedWriteWithOptionsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(filepath), openoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenForUserAsync<'a, P0>(user: P0, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>
     where
@@ -1586,7 +1538,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(filepath), accessmode, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenForUserWithOptionsAsync<'a, P0>(user: P0, filepath: &::windows::core::HSTRING, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>
     where
@@ -1597,7 +1548,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenForUserWithOptionsAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(filepath), accessmode, sharingoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<IRandomAccessStream>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenTransactedWriteForUserAsync<'a, P0>(user: P0, filepath: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>
     where
@@ -1608,7 +1558,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenTransactedWriteForUserAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(filepath), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"System\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System"))]
     pub fn OpenTransactedWriteForUserWithOptionsAsync<'a, P0>(user: P0, filepath: &::windows::core::HSTRING, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>
     where
@@ -1619,7 +1568,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).OpenTransactedWriteForUserWithOptionsAsync)(::windows::core::Interface::as_raw(this), user.into().abi(), ::core::mem::transmute_copy(filepath), openoptions, opendisposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::StorageStreamTransaction>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -1632,7 +1580,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -1645,7 +1592,6 @@ impl FileRandomAccessStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -1858,7 +1804,6 @@ impl<'a> ::core::convert::TryFrom<&FileRandomAccessStream> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for FileRandomAccessStream {}
 unsafe impl ::core::marker::Sync for FileRandomAccessStream {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IBuffer(::windows::core::IUnknown);
 impl IBuffer {
@@ -1979,7 +1924,6 @@ pub struct IBufferStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     CreateMemoryBufferOverIBuffer: usize,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IContentTypeProvider(::windows::core::IUnknown);
 impl IContentTypeProvider {
@@ -2054,7 +1998,6 @@ pub struct IContentTypeProvider_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub ContentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IDataReader(::windows::core::IUnknown);
 impl IDataReader {
@@ -2193,7 +2136,6 @@ impl IDataReader {
             (::windows::core::Interface::vtable(this).ReadString)(::windows::core::Interface::as_raw(this), codeunitcount, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadDateTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2202,7 +2144,6 @@ impl IDataReader {
             (::windows::core::Interface::vtable(this).ReadDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadTimeSpan(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -2211,7 +2152,6 @@ impl IDataReader {
             (::windows::core::Interface::vtable(this).ReadTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadAsync(&self, count: u32) -> ::windows::core::Result<DataReaderLoadOperation> {
         let this = self;
@@ -2358,7 +2298,6 @@ pub struct IDataReaderStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub FromBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IDataWriter(::windows::core::IUnknown);
 impl IDataWriter {
@@ -2455,13 +2394,11 @@ impl IDataWriter {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WriteDouble)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteDateTime(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).WriteDateTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteTimeSpan(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -2481,7 +2418,6 @@ impl IDataWriter {
             (::windows::core::Interface::vtable(this).MeasureString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StoreAsync(&self) -> ::windows::core::Result<DataWriterStoreOperation> {
         let this = self;
@@ -2490,7 +2426,6 @@ impl IDataWriter {
             (::windows::core::Interface::vtable(this).StoreAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DataWriterStoreOperation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2672,11 +2607,9 @@ pub struct IFileRandomAccessStreamStatics_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "System")))]
     OpenTransactedWriteForUserWithOptionsAsync: usize,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IInputStream(::windows::core::IUnknown);
 impl IInputStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -2689,7 +2622,6 @@ impl IInputStream {
             (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2784,11 +2716,9 @@ pub struct IInputStream_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     ReadAsync: usize,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IInputStreamReference(::windows::core::IUnknown);
 impl IInputStreamReference {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenSequentialReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IInputStream>> {
         let this = self;
@@ -2864,11 +2794,9 @@ pub struct IInputStreamReference_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     OpenSequentialReadAsync: usize,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IOutputStream(::windows::core::IUnknown);
 impl IOutputStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -2881,7 +2809,6 @@ impl IOutputStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2890,7 +2817,6 @@ impl IOutputStream {
             (::windows::core::Interface::vtable(this).FlushAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2989,11 +2915,9 @@ pub struct IOutputStream_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     FlushAsync: usize,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IPropertySetSerializer(::windows::core::IUnknown);
 impl IPropertySetSerializer {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Serialize<'a, P0, E0>(&self, propertyset: P0) -> ::windows::core::Result<IBuffer>
     where
@@ -3006,7 +2930,6 @@ impl IPropertySetSerializer {
             (::windows::core::Interface::vtable(this).Serialize)(::windows::core::Interface::as_raw(this), propertyset.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Deserialize<'a, P0, E0, P1, E1>(&self, propertyset: P0, buffer: P1) -> ::windows::core::Result<()>
     where
@@ -3089,7 +3012,6 @@ pub struct IPropertySetSerializer_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Deserialize: usize,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IRandomAccessStream(::windows::core::IUnknown);
 impl IRandomAccessStream {
@@ -3150,13 +3072,11 @@ impl IRandomAccessStream {
             (::windows::core::Interface::vtable(this).CanWrite)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -3169,7 +3089,6 @@ impl IRandomAccessStream {
             (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -3182,7 +3101,6 @@ impl IRandomAccessStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -3323,11 +3241,9 @@ pub struct IRandomAccessStream_Vtbl {
     pub CanRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub CanWrite: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IRandomAccessStreamReference(::windows::core::IUnknown);
 impl IRandomAccessStreamReference {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -3445,11 +3361,9 @@ pub struct IRandomAccessStreamStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     CopyAndCloseAsync: usize,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct IRandomAccessStreamWithContentType(::windows::core::IUnknown);
 impl IRandomAccessStreamWithContentType {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3462,7 +3376,6 @@ impl IRandomAccessStreamWithContentType {
             (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -3475,7 +3388,6 @@ impl IRandomAccessStreamWithContentType {
             (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -3488,7 +3400,6 @@ impl IRandomAccessStreamWithContentType {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -3715,7 +3626,6 @@ unsafe impl ::windows::core::Interface for IRandomAccessStreamWithContentType {
 pub struct IRandomAccessStreamWithContentType_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct InMemoryRandomAccessStream(::windows::core::IUnknown);
 impl InMemoryRandomAccessStream {
@@ -3726,13 +3636,11 @@ impl InMemoryRandomAccessStream {
         static SHARED: ::windows::core::FactoryCache<InMemoryRandomAccessStream, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -3745,7 +3653,6 @@ impl InMemoryRandomAccessStream {
             (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -3758,7 +3665,6 @@ impl InMemoryRandomAccessStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -3966,7 +3872,6 @@ impl<'a> ::core::convert::TryFrom<&InMemoryRandomAccessStream> for ::windows::co
 }
 unsafe impl ::core::marker::Send for InMemoryRandomAccessStream {}
 unsafe impl ::core::marker::Sync for InMemoryRandomAccessStream {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InputStreamOptions(pub u32);
@@ -4029,17 +3934,14 @@ unsafe impl ::windows::core::RuntimeType for InputStreamOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct InputStreamOverStream(::windows::core::IUnknown);
 impl InputStreamOverStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -4156,17 +4058,14 @@ impl<'a> ::core::convert::TryFrom<&InputStreamOverStream> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for InputStreamOverStream {}
 unsafe impl ::core::marker::Sync for InputStreamOverStream {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct OutputStreamOverStream(::windows::core::IUnknown);
 impl OutputStreamOverStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -4179,7 +4078,6 @@ impl OutputStreamOverStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4292,10 +4190,8 @@ impl<'a> ::core::convert::TryFrom<&OutputStreamOverStream> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for OutputStreamOverStream {}
 unsafe impl ::core::marker::Sync for OutputStreamOverStream {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 pub struct RandomAccessStream;
 impl RandomAccessStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CopyAsync<'a, P0, E0, P1, E1>(source: P0, destination: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
@@ -4309,7 +4205,6 @@ impl RandomAccessStream {
             (::windows::core::Interface::vtable(this).CopyAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CopySizeAsync<'a, P0, E0, P1, E1>(source: P0, destination: P1, bytestocopy: u64) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
@@ -4323,7 +4218,6 @@ impl RandomAccessStream {
             (::windows::core::Interface::vtable(this).CopySizeAsync)(::windows::core::Interface::as_raw(this), source.try_into().map_err(|e| e.into())?.abi(), destination.try_into().map_err(|e| e.into())?.abi(), bytestocopy, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CopyAndCloseAsync<'a, P0, E0, P1, E1>(source: P0, destination: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>
     where
@@ -4346,17 +4240,14 @@ impl RandomAccessStream {
 impl ::windows::core::RuntimeName for RandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStream";
 }
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct RandomAccessStreamOverStream(::windows::core::IUnknown);
 impl RandomAccessStreamOverStream {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadAsync<'a, P0, E0>(&self, buffer: P0, count: u32, options: InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>
     where
@@ -4369,7 +4260,6 @@ impl RandomAccessStreamOverStream {
             (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), count, options, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<IBuffer, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn WriteAsync<'a, P0, E0>(&self, buffer: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>
     where
@@ -4382,7 +4272,6 @@ impl RandomAccessStreamOverStream {
             (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IOutputStream>(self)?;
@@ -4590,11 +4479,9 @@ impl<'a> ::core::convert::TryFrom<&RandomAccessStreamOverStream> for ::windows::
 }
 unsafe impl ::core::marker::Send for RandomAccessStreamOverStream {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamOverStream {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 pub struct RandomAccessStreamReference(::windows::core::IUnknown);
 impl RandomAccessStreamReference {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenReadAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IRandomAccessStreamWithContentType>> {
         let this = self;
@@ -4613,7 +4500,6 @@ impl RandomAccessStreamReference {
             (::windows::core::Interface::vtable(this).CreateFromFile)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<RandomAccessStreamReference>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFromUri<'a, P0>(uri: P0) -> ::windows::core::Result<RandomAccessStreamReference>
     where
@@ -4721,7 +4607,6 @@ impl<'a> ::core::convert::TryFrom<&RandomAccessStreamReference> for ::windows::c
 }
 unsafe impl ::core::marker::Send for RandomAccessStreamReference {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamReference {}
-#[doc = "*Required features: `\"Storage_Streams\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnicodeEncoding(pub i32);

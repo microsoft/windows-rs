@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Data_Html\"`*"]
 pub struct HtmlUtilities;
 impl HtmlUtilities {
     pub fn ConvertToText(html: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {

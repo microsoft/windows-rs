@@ -1,6 +1,5 @@
 #[cfg(feature = "Devices_I2c_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct I2cBusSpeed(pub i32);
@@ -34,7 +33,6 @@ unsafe impl ::windows::core::RuntimeType for I2cBusSpeed {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
 pub struct I2cConnectionSettings(::windows::core::IUnknown);
 impl I2cConnectionSettings {
@@ -145,7 +143,6 @@ impl ::core::convert::From<&I2cConnectionSettings> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for I2cConnectionSettings {}
 unsafe impl ::core::marker::Sync for I2cConnectionSettings {}
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
 pub struct I2cController(::windows::core::IUnknown);
 impl I2cController {
@@ -159,7 +156,6 @@ impl I2cController {
             (::windows::core::Interface::vtable(this).GetDevice)(::windows::core::Interface::as_raw(this), settings.into().abi(), result__.as_mut_ptr()).from_abi::<I2cDevice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_I2c_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_I2c_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>
     where
@@ -171,7 +167,6 @@ impl I2cController {
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cController>> {
         Self::II2cControllerStatics(|this| unsafe {
@@ -247,11 +242,9 @@ impl ::core::convert::From<&I2cController> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for I2cController {}
 unsafe impl ::core::marker::Sync for I2cController {}
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
 pub struct I2cDevice(::windows::core::IUnknown);
 impl I2cDevice {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -316,7 +309,6 @@ impl I2cDevice {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, P0>(deviceid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
     where
@@ -417,7 +409,6 @@ impl<'a> ::core::convert::TryFrom<&I2cDevice> for ::windows::core::InParam<'a, s
 }
 unsafe impl ::core::marker::Send for I2cDevice {}
 unsafe impl ::core::marker::Sync for I2cDevice {}
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct I2cSharingMode(pub i32);
@@ -452,7 +443,6 @@ unsafe impl ::windows::core::RuntimeType for I2cSharingMode {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 pub struct I2cTransferResult {
     pub Status: I2cTransferStatus,
     pub BytesTransferred: u32,
@@ -489,7 +479,6 @@ impl ::core::default::Default for I2cTransferResult {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct I2cTransferStatus(pub i32);
@@ -610,7 +599,6 @@ pub struct II2cDevice_Vtbl {
     pub WriteRead: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub WriteReadPartial: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8, result__: *mut I2cTransferResult) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_I2c\"`*"]
 #[repr(transparent)]
 pub struct II2cDeviceStatics(::windows::core::IUnknown);
 impl II2cDeviceStatics {
@@ -628,7 +616,6 @@ impl II2cDeviceStatics {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, P0>(&self, deviceid: &::windows::core::HSTRING, settings: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<I2cDevice>>
     where

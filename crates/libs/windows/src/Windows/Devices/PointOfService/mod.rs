@@ -1,6 +1,5 @@
 #[cfg(feature = "Devices_PointOfService_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeScanner(::windows::core::IUnknown);
 impl BarcodeScanner {
@@ -18,7 +17,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).Capabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarcodeScannerCapabilities>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimScannerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedBarcodeScanner>> {
         let this = self;
@@ -27,7 +25,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).ClaimScannerAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedBarcodeScanner>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -36,7 +33,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedSymbologiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>> {
         let this = self;
@@ -45,7 +41,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).GetSupportedSymbologiesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsSymbologySupportedAsync(&self, barcodesymbology: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -54,7 +49,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).IsSymbologySupportedAsync)(::windows::core::Interface::as_raw(this), barcodesymbology, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn RetrieveStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
@@ -67,7 +61,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).RetrieveStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -83,7 +76,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).IsProfileSupported)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(profile), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -95,7 +87,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -108,7 +99,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).VideoDeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
@@ -116,7 +106,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
@@ -136,7 +125,6 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -237,7 +225,6 @@ impl<'a> ::core::convert::TryFrom<&BarcodeScanner> for ::windows::core::InParam<
 }
 unsafe impl ::core::marker::Send for BarcodeScanner {}
 unsafe impl ::core::marker::Sync for BarcodeScanner {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeScannerCapabilities(::windows::core::IUnknown);
 impl BarcodeScannerCapabilities {
@@ -346,7 +333,6 @@ impl ::core::convert::From<&BarcodeScannerCapabilities> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
 unsafe impl ::core::marker::Sync for BarcodeScannerCapabilities {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeScannerDataReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerDataReceivedEventArgs {
@@ -420,7 +406,6 @@ impl ::core::convert::From<&BarcodeScannerDataReceivedEventArgs> for &::windows:
 }
 unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeScannerErrorOccurredEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerErrorOccurredEventArgs {
@@ -508,11 +493,9 @@ impl ::core::convert::From<&BarcodeScannerErrorOccurredEventArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Preview(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -584,7 +567,6 @@ impl ::core::convert::From<&BarcodeScannerImagePreviewReceivedEventArgs> for &::
 }
 unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeScannerReport(::windows::core::IUnknown);
 impl BarcodeScannerReport {
@@ -595,7 +577,6 @@ impl BarcodeScannerReport {
             (::windows::core::Interface::vtable(this).ScanDataType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ScanData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -604,7 +585,6 @@ impl BarcodeScannerReport {
             (::windows::core::Interface::vtable(this).ScanData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ScanDataLabel(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -613,7 +593,6 @@ impl BarcodeScannerReport {
             (::windows::core::Interface::vtable(this).ScanDataLabel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateInstance<'a, P0, E0, P1, E1>(scandatatype: u32, scandata: P0, scandatalabel: P1) -> ::windows::core::Result<BarcodeScannerReport>
     where
@@ -695,7 +674,6 @@ impl ::core::convert::From<&BarcodeScannerReport> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BarcodeScannerStatus(pub i32);
@@ -732,7 +710,6 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStatusUpdatedEventArgs {
@@ -813,7 +790,6 @@ impl ::core::convert::From<&BarcodeScannerStatusUpdatedEventArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for BarcodeScannerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStatusUpdatedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 pub struct BarcodeSymbologies;
 impl BarcodeSymbologies {
     pub fn Unknown() -> ::windows::core::Result<u32> {
@@ -1400,7 +1376,6 @@ impl BarcodeSymbologies {
 impl ::windows::core::RuntimeName for BarcodeSymbologies {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologies";
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct BarcodeSymbologyAttributes(::windows::core::IUnknown);
 impl BarcodeSymbologyAttributes {
@@ -1543,7 +1518,6 @@ impl ::core::convert::From<&BarcodeSymbologyAttributes> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
@@ -1578,7 +1552,6 @@ unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawer(::windows::core::IUnknown);
 impl CashDrawer {
@@ -1617,7 +1590,6 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).DrawerEventSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CashDrawerEventSource>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimDrawerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedCashDrawer>> {
         let this = self;
@@ -1626,7 +1598,6 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).ClaimDrawerAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedCashDrawer>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1635,7 +1606,6 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
@@ -1648,7 +1618,6 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1660,13 +1629,11 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
@@ -1674,7 +1641,6 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
@@ -1694,7 +1660,6 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1795,7 +1760,6 @@ impl<'a> ::core::convert::TryFrom<&CashDrawer> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for CashDrawer {}
 unsafe impl ::core::marker::Sync for CashDrawer {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawerCapabilities(::windows::core::IUnknown);
 impl CashDrawerCapabilities {
@@ -1904,17 +1868,14 @@ impl ::core::convert::From<&CashDrawerCapabilities> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
 unsafe impl ::core::marker::Sync for CashDrawerCapabilities {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawerCloseAlarm(::windows::core::IUnknown);
 impl CashDrawerCloseAlarm {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetAlarmTimeout(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAlarmTimeout)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AlarmTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1934,13 +1895,11 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).BeepFrequency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBeepDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBeepDuration)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BeepDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1949,13 +1908,11 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).BeepDuration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBeepDelay(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBeepDelay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BeepDelay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1964,7 +1921,6 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).BeepDelay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AlarmTimeoutExpired<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1976,13 +1932,11 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).AlarmTimeoutExpired)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAlarmTimeoutExpired(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAlarmTimeoutExpired)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2054,7 +2008,6 @@ impl ::core::convert::From<&CashDrawerCloseAlarm> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
 unsafe impl ::core::marker::Sync for CashDrawerCloseAlarm {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl CashDrawerClosedEventArgs {
@@ -2147,11 +2100,9 @@ impl<'a> ::core::convert::TryFrom<&CashDrawerClosedEventArgs> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for CashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerClosedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawerEventSource(::windows::core::IUnknown);
 impl CashDrawerEventSource {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DrawerClosed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2163,13 +2114,11 @@ impl CashDrawerEventSource {
             (::windows::core::Interface::vtable(this).DrawerClosed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDrawerClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDrawerClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DrawerOpened<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2181,7 +2130,6 @@ impl CashDrawerEventSource {
             (::windows::core::Interface::vtable(this).DrawerOpened)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDrawerOpened(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -2250,7 +2198,6 @@ impl ::core::convert::From<&CashDrawerEventSource> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for CashDrawerEventSource {}
 unsafe impl ::core::marker::Sync for CashDrawerEventSource {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawerOpenedEventArgs(::windows::core::IUnknown);
 impl CashDrawerOpenedEventArgs {
@@ -2343,7 +2290,6 @@ impl<'a> ::core::convert::TryFrom<&CashDrawerOpenedEventArgs> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for CashDrawerOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerOpenedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawerStatus(::windows::core::IUnknown);
 impl CashDrawerStatus {
@@ -2424,7 +2370,6 @@ impl ::core::convert::From<&CashDrawerStatus> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CashDrawerStatusKind(pub i32);
@@ -2461,7 +2406,6 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerStatusKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct CashDrawerStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl CashDrawerStatusUpdatedEventArgs {
@@ -2535,7 +2479,6 @@ impl ::core::convert::From<&CashDrawerStatusUpdatedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedBarcodeScanner(::windows::core::IUnknown);
 impl ClaimedBarcodeScanner {
@@ -2575,7 +2518,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).IsDecodeDataEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2584,7 +2526,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2597,7 +2538,6 @@ impl ClaimedBarcodeScanner {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RetainDevice)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetActiveSymbologiesAsync<'a, P0, E0>(&self, symbologies: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2610,7 +2550,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).SetActiveSymbologiesAsync)(::windows::core::Interface::as_raw(this), symbologies.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2623,7 +2562,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -2636,7 +2574,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetActiveProfileAsync(&self, profile: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2645,7 +2582,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).SetActiveProfileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(profile), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2657,13 +2593,11 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TriggerPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2675,13 +2609,11 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).TriggerPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTriggerPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveTriggerPressed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TriggerReleased<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2693,13 +2625,11 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).TriggerReleased)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTriggerReleased(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveTriggerReleased)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2711,13 +2641,11 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ImagePreviewReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2729,13 +2657,11 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).ImagePreviewReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveImagePreviewReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveImagePreviewReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorOccurred<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2747,13 +2673,11 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StartSoftwareTriggerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner1>(self)?;
@@ -2762,7 +2686,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).StartSoftwareTriggerAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StopSoftwareTriggerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner1>(self)?;
@@ -2771,7 +2694,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).StopSoftwareTriggerAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSymbologyAttributesAsync(&self, barcodesymbology: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeSymbologyAttributes>> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
@@ -2780,7 +2702,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).GetSymbologyAttributesAsync)(::windows::core::Interface::as_raw(this), barcodesymbology, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeSymbologyAttributes>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSymbologyAttributesAsync<'a, P0>(&self, barcodesymbology: u32, attributes: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -2792,7 +2713,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).SetSymbologyAttributesAsync)(::windows::core::Interface::as_raw(this), barcodesymbology, attributes.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowVideoPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner3>(self)?;
@@ -2816,7 +2736,6 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).IsVideoPreviewShownOnEnable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2828,13 +2747,11 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2925,7 +2842,6 @@ impl<'a> ::core::convert::TryFrom<&ClaimedBarcodeScanner> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScanner {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScanner {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedBarcodeScannerClosedEventArgs {}
@@ -2991,7 +2907,6 @@ impl ::core::convert::From<&ClaimedBarcodeScannerClosedEventArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedCashDrawer(::windows::core::IUnknown);
 impl ClaimedCashDrawer {
@@ -3023,7 +2938,6 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).CloseAlarm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CashDrawerCloseAlarm>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenDrawerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3032,7 +2946,6 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).OpenDrawerAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3041,7 +2954,6 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3050,7 +2962,6 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RetainDeviceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3059,7 +2970,6 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).RetainDeviceAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -3072,7 +2982,6 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -3085,7 +2994,6 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3097,13 +3005,11 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3115,13 +3021,11 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3212,7 +3116,6 @@ impl<'a> ::core::convert::TryFrom<&ClaimedCashDrawer> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawer {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawer {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedCashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedCashDrawerClosedEventArgs {}
@@ -3278,7 +3181,6 @@ impl ::core::convert::From<&ClaimedCashDrawerClosedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedJournalPrinter(::windows::core::IUnknown);
 impl ClaimedJournalPrinter {
@@ -3489,7 +3391,6 @@ impl<'a> ::core::convert::TryFrom<&ClaimedJournalPrinter> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for ClaimedJournalPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedJournalPrinter {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedLineDisplay(::windows::core::IUnknown);
 impl ClaimedLineDisplay {
@@ -3553,7 +3454,6 @@ impl ClaimedLineDisplay {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RetainDevice)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3565,13 +3465,11 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
@@ -3584,7 +3482,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3593,7 +3490,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckPowerStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3602,7 +3498,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).CheckPowerStatusAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3614,13 +3509,11 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedScreenSizesInCharacters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Size>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3629,7 +3522,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).SupportedScreenSizesInCharacters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Size>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxBitmapSizeInPixels(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3638,7 +3530,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).MaxBitmapSizeInPixels)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharacterSets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3661,7 +3552,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).GetAttributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LineDisplayAttributes>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryUpdateAttributesAsync<'a, P0>(&self, attributes: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -3673,7 +3563,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).TryUpdateAttributesAsync)(::windows::core::Interface::as_raw(this), attributes.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrySetDescriptorAsync(&self, descriptor: u32, descriptorstate: LineDisplayDescriptorState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3682,7 +3571,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).TrySetDescriptorAsync)(::windows::core::Interface::as_raw(this), descriptor, descriptorstate, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryClearDescriptorsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3691,7 +3579,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).TryClearDescriptorsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateWindowAsync(&self, viewport: super::super::Foundation::Rect, windowsize: super::super::Foundation::Size) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayWindow>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3700,7 +3587,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).TryCreateWindowAsync)(::windows::core::Interface::as_raw(this), viewport, windowsize, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayWindow>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryStoreStorageFileBitmapAsync<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
     where
@@ -3712,7 +3598,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryStoreStorageFileBitmapWithAlignmentAsync<'a, P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
     where
@@ -3724,7 +3609,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment, verticalalignment, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<'a, P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>
     where
@@ -3736,7 +3620,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).TryStoreStorageFileBitmapWithAlignmentAndWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment, verticalalignment, widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -3748,13 +3631,11 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
@@ -3774,7 +3655,6 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorWithConnectionTypes)(::windows::core::Interface::as_raw(this), connectiontypes, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3870,7 +3750,6 @@ impl<'a> ::core::convert::TryFrom<&ClaimedLineDisplay> for ::windows::core::InPa
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplay {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplay {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedLineDisplayClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedLineDisplayClosedEventArgs {}
@@ -3936,7 +3815,6 @@ impl ::core::convert::From<&ClaimedLineDisplayClosedEventArgs> for &::windows::c
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReader(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReader {
@@ -4016,7 +3894,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).IsTransmitSentinelsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4025,7 +3902,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4042,7 +3918,6 @@ impl ClaimedMagneticStripeReader {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetErrorReportingType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RetrieveDeviceAuthenticationDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -4051,7 +3926,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).RetrieveDeviceAuthenticationDataAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4060,7 +3934,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).AuthenticateDeviceAsync)(::windows::core::Interface::as_raw(this), responsetoken.len() as u32, responsetoken.as_ptr(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[u8]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4069,7 +3942,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).DeAuthenticateDeviceAsync)(::windows::core::Interface::as_raw(this), responsetoken.len() as u32, responsetoken.as_ptr(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateKeyAsync(&self, key: &::windows::core::HSTRING, keyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -4078,7 +3950,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).UpdateKeyAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), ::core::mem::transmute_copy(keyname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -4091,7 +3962,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
     where
@@ -4104,7 +3974,6 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BankCardDataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4116,13 +3985,11 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).BankCardDataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBankCardDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveBankCardDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AamvaCardDataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4134,13 +4001,11 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).AamvaCardDataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAamvaCardDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAamvaCardDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn VendorSpecificDataReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4152,13 +4017,11 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).VendorSpecificDataReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVendorSpecificDataReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveVendorSpecificDataReceived)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4170,13 +4033,11 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorOccurred<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4188,13 +4049,11 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).ErrorOccurred)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorOccurred(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveErrorOccurred)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4206,13 +4065,11 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4303,7 +4160,6 @@ impl<'a> ::core::convert::TryFrom<&ClaimedMagneticStripeReader> for ::windows::c
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReader {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReader {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
@@ -4369,7 +4225,6 @@ impl ::core::convert::From<&ClaimedMagneticStripeReaderClosedEventArgs> for &::w
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedPosPrinter(::windows::core::IUnknown);
 impl ClaimedPosPrinter {
@@ -4448,7 +4303,6 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).Journal)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClaimedJournalPrinter>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4457,7 +4311,6 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4466,7 +4319,6 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RetainDeviceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4475,7 +4327,6 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).RetainDeviceAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ResetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -4488,7 +4339,6 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).ResetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn UpdateStatisticsAsync<'a, P0, E0>(&self, statistics: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -4501,7 +4351,6 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).UpdateStatisticsAsync)(::windows::core::Interface::as_raw(this), statistics.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4513,13 +4362,11 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).ReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveReleaseDeviceRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -4531,13 +4378,11 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveClosed)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4628,7 +4473,6 @@ impl<'a> ::core::convert::TryFrom<&ClaimedPosPrinter> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinter {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedPosPrinterClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedPosPrinterClosedEventArgs {}
@@ -4694,7 +4538,6 @@ impl ::core::convert::From<&ClaimedPosPrinterClosedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedReceiptPrinter(::windows::core::IUnknown);
 impl ClaimedReceiptPrinter {
@@ -4719,7 +4562,6 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).LinesToPaperCut)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PageSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -4728,7 +4570,6 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).PageSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PrintArea(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -4944,7 +4785,6 @@ impl<'a> ::core::convert::TryFrom<&ClaimedReceiptPrinter> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for ClaimedReceiptPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedReceiptPrinter {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ClaimedSlipPrinter(::windows::core::IUnknown);
 impl ClaimedSlipPrinter {
@@ -4983,7 +4823,6 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).PrintSide)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PosPrinterPrintSide>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PageSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -4992,7 +4831,6 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).PageSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PrintArea(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -5009,7 +4847,6 @@ impl ClaimedSlipPrinter {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).CloseJaws)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InsertSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -5018,7 +4855,6 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).InsertSlipAsync)(::windows::core::Interface::as_raw(this), timeout, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSlipAsync(&self, timeout: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -5746,7 +5582,6 @@ pub struct ICashDrawerEventSource_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemoveDrawerOpened: usize,
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ICashDrawerEventSourceEventArgs(::windows::core::IUnknown);
 impl ICashDrawerEventSourceEventArgs {
@@ -6586,7 +6421,6 @@ pub struct IClaimedSlipPrinter_Vtbl {
     pub ChangePrintSide: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printside: PosPrinterPrintSide) -> ::windows::core::HRESULT,
     pub CreateJob: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ICommonClaimedPosPrinterStation(::windows::core::IUnknown);
 impl ICommonClaimedPosPrinterStation {
@@ -6790,7 +6624,6 @@ pub struct ICommonClaimedPosPrinterStation_Vtbl {
     pub IsReadyToPrint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub ValidateData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ICommonPosPrintStationCapabilities(::windows::core::IUnknown);
 impl ICommonPosPrintStationCapabilities {
@@ -6878,7 +6711,6 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).IsPaperNearEndSensorSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -6966,7 +6798,6 @@ pub struct ICommonPosPrintStationCapabilities_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     SupportedCharactersPerLine: usize,
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ICommonReceiptSlipCapabilities(::windows::core::IUnknown);
 impl ICommonReceiptSlipCapabilities {
@@ -7019,7 +6850,6 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).RuledLineCapabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PosPrinterRuledLineCapabilities>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = self;
@@ -7028,7 +6858,6 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).SupportedBarcodeRotations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = self;
@@ -7121,7 +6950,6 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).IsPaperNearEndSensorSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -8052,7 +7880,6 @@ pub struct IPosPrinterFontProperty_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CharacterSizes: usize,
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct IPosPrinterJob(::windows::core::IUnknown);
 impl IPosPrinterJob {
@@ -8068,7 +7895,6 @@ impl IPosPrinterJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintNewline)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -8258,7 +8084,6 @@ pub struct IPosPrinterStatusUpdatedEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct IReceiptOrSlipJob(::windows::core::IUnknown);
 impl IReceiptOrSlipJob {
@@ -8270,13 +8095,11 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value, includebitmaps).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPrintArea(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
     where
@@ -8285,7 +8108,6 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>
     where
@@ -8294,7 +8116,6 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment, width).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
     where
@@ -8303,7 +8124,6 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
     where
@@ -8328,7 +8148,6 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<'a, P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
     where
@@ -8337,7 +8156,6 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<'a, P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>
     where
@@ -8346,7 +8164,6 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment, width).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<'a, P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
     where
@@ -8355,7 +8172,6 @@ impl IReceiptOrSlipJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
     where
@@ -8376,7 +8192,6 @@ impl IReceiptOrSlipJob {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintNewline)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -8649,7 +8464,6 @@ pub struct IUnifiedPosErrorDataFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct JournalPrintJob(::windows::core::IUnknown);
 impl JournalPrintJob {
@@ -8680,7 +8494,6 @@ impl JournalPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintNewline)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -8771,7 +8584,6 @@ impl<'a> ::core::convert::TryFrom<&JournalPrintJob> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for JournalPrintJob {}
 unsafe impl ::core::marker::Sync for JournalPrintJob {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct JournalPrinterCapabilities(::windows::core::IUnknown);
 impl JournalPrinterCapabilities {
@@ -8859,7 +8671,6 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).IsPaperNearEndSensorSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -8992,11 +8803,9 @@ impl<'a> ::core::convert::TryFrom<&JournalPrinterCapabilities> for ::windows::co
 }
 unsafe impl ::core::marker::Send for JournalPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for JournalPrinterCapabilities {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplay(::windows::core::IUnknown);
 impl LineDisplay {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -9051,7 +8860,6 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).DeviceServiceVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
         let this = self;
@@ -9060,7 +8868,6 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).ClaimAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckPowerStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>> {
         let this = &::windows::core::Interface::cast::<ILineDisplay2>(self)?;
@@ -9069,7 +8876,6 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).CheckPowerStatusAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
@@ -9077,7 +8883,6 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
@@ -9198,7 +9003,6 @@ impl<'a> ::core::convert::TryFrom<&LineDisplay> for ::windows::core::InParam<'a,
 }
 unsafe impl ::core::marker::Send for LineDisplay {}
 unsafe impl ::core::marker::Sync for LineDisplay {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayAttributes(::windows::core::IUnknown);
 impl LineDisplayAttributes {
@@ -9224,7 +9028,6 @@ impl LineDisplayAttributes {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBrightness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BlinkRate(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -9233,13 +9036,11 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).BlinkRate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBlinkRate(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBlinkRate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenSizeInCharacters(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -9248,7 +9049,6 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).ScreenSizeInCharacters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetScreenSizeInCharacters(&self, value: super::super::Foundation::Size) -> ::windows::core::Result<()> {
         let this = self;
@@ -9353,7 +9153,6 @@ impl ::core::convert::From<&LineDisplayAttributes> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for LineDisplayAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayAttributes {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayCapabilities(::windows::core::IUnknown);
 impl LineDisplayCapabilities {
@@ -9546,7 +9345,6 @@ impl ::core::convert::From<&LineDisplayCapabilities> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
 unsafe impl ::core::marker::Sync for LineDisplayCapabilities {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayCursor(::windows::core::IUnknown);
 impl LineDisplayCursor {
@@ -9606,7 +9404,6 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).GetAttributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LineDisplayCursorAttributes>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryUpdateAttributesAsync<'a, P0>(&self, attributes: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -9681,7 +9478,6 @@ impl ::core::convert::From<&LineDisplayCursor> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for LineDisplayCursor {}
 unsafe impl ::core::marker::Sync for LineDisplayCursor {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayCursorAttributes(::windows::core::IUnknown);
 impl LineDisplayCursorAttributes {
@@ -9718,7 +9514,6 @@ impl LineDisplayCursorAttributes {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsAutoAdvanceEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -9727,7 +9522,6 @@ impl LineDisplayCursorAttributes {
             (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPosition(&self, value: super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
@@ -9796,7 +9590,6 @@ impl ::core::convert::From<&LineDisplayCursorAttributes> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayCursorType(pub i32);
@@ -9834,11 +9627,9 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCursorType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayCustomGlyphs(::windows::core::IUnknown);
 impl LineDisplayCustomGlyphs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SizeInPixels(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -9847,7 +9638,6 @@ impl LineDisplayCustomGlyphs {
             (::windows::core::Interface::vtable(this).SizeInPixels)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedGlyphCodes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -9856,7 +9646,6 @@ impl LineDisplayCustomGlyphs {
             (::windows::core::Interface::vtable(this).SupportedGlyphCodes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TryRedefineAsync<'a, P0, E0>(&self, glyphcode: u32, glyphdata: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -9932,7 +9721,6 @@ impl ::core::convert::From<&LineDisplayCustomGlyphs> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayDescriptorState(pub i32);
@@ -9967,7 +9755,6 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
@@ -10002,7 +9789,6 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayHorizontalAlignment {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayMarquee(::windows::core::IUnknown);
 impl LineDisplayMarquee {
@@ -10017,7 +9803,6 @@ impl LineDisplayMarquee {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RepeatWaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -10026,13 +9811,11 @@ impl LineDisplayMarquee {
             (::windows::core::Interface::vtable(this).RepeatWaitInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRepeatWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRepeatWaitInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ScrollWaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -10041,13 +9824,11 @@ impl LineDisplayMarquee {
             (::windows::core::Interface::vtable(this).ScrollWaitInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetScrollWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScrollWaitInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryStartScrollingAsync(&self, direction: LineDisplayScrollDirection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10056,7 +9837,6 @@ impl LineDisplayMarquee {
             (::windows::core::Interface::vtable(this).TryStartScrollingAsync)(::windows::core::Interface::as_raw(this), direction, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryStopScrollingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10128,7 +9908,6 @@ impl ::core::convert::From<&LineDisplayMarquee> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayMarqueeFormat(pub i32);
@@ -10163,7 +9942,6 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayPowerStatus(pub i32);
@@ -10200,7 +9978,6 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayScrollDirection(pub i32);
@@ -10236,7 +10013,6 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayScrollDirection {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayStatisticsCategorySelector(::windows::core::IUnknown);
 impl LineDisplayStatisticsCategorySelector {
@@ -10324,7 +10100,6 @@ impl ::core::convert::From<&LineDisplayStatisticsCategorySelector> for &::window
 }
 unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
 unsafe impl ::core::marker::Sync for LineDisplayStatisticsCategorySelector {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl LineDisplayStatusUpdatedEventArgs {
@@ -10398,7 +10173,6 @@ impl ::core::convert::From<&LineDisplayStatusUpdatedEventArgs> for &::windows::c
 }
 unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayStoredBitmap(::windows::core::IUnknown);
 impl LineDisplayStoredBitmap {
@@ -10409,7 +10183,6 @@ impl LineDisplayStoredBitmap {
             (::windows::core::Interface::vtable(this).EscapeSequence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10481,7 +10254,6 @@ impl ::core::convert::From<&LineDisplayStoredBitmap> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayTextAttribute(pub i32);
@@ -10517,7 +10289,6 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
@@ -10552,7 +10323,6 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LineDisplayVerticalAlignment(pub i32);
@@ -10587,17 +10357,14 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayVerticalAlignment {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct LineDisplayWindow(::windows::core::IUnknown);
 impl LineDisplayWindow {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SizeInCharacters(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -10606,7 +10373,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).SizeInCharacters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InterCharacterWaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -10615,13 +10381,11 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).InterCharacterWaitInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInterCharacterWaitInterval(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInterCharacterWaitInterval)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryRefreshAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10630,7 +10394,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryRefreshAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayTextAsync(&self, text: &::windows::core::HSTRING, displayattribute: LineDisplayTextAttribute) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10639,7 +10402,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayTextAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), displayattribute, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayTextAtPositionAsync(&self, text: &::windows::core::HSTRING, displayattribute: LineDisplayTextAttribute, startposition: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10648,7 +10410,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayTextAtPositionAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), displayattribute, startposition, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayTextNormalAsync(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10657,7 +10418,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayTextNormalAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryScrollTextAsync(&self, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10666,7 +10426,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryScrollTextAsync)(::windows::core::Interface::as_raw(this), direction, numberofcolumnsorrows, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryClearTextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10689,7 +10448,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).Marquee)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<LineDisplayMarquee>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadCharacterAtCursorAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10698,7 +10456,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).ReadCharacterAtCursorAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayStoredBitmapAtCursorAsync<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -10710,7 +10467,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayStoredBitmapAtCursorAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtCursorAsync<'a, P0>(&self, bitmap: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -10722,7 +10478,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<'a, P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -10734,7 +10489,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment, verticalalignment, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<'a, P0>(&self, bitmap: P0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -10746,7 +10500,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), horizontalalignment, verticalalignment, widthinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtPointAsync<'a, P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -10758,7 +10511,6 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).TryDisplayStorageFileBitmapAtPointAsync)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), offsetinpixels, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<'a, P0>(&self, bitmap: P0, offsetinpixels: super::super::Foundation::Point, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -10855,11 +10607,9 @@ impl<'a> ::core::convert::TryFrom<&LineDisplayWindow> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for LineDisplayWindow {}
 unsafe impl ::core::marker::Sync for LineDisplayWindow {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReader(::windows::core::IUnknown);
 impl MagneticStripeReader {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -10893,7 +10643,6 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).DeviceAuthenticationProtocol)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagneticStripeReaderAuthenticationProtocol>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -10902,7 +10651,6 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimReaderAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedMagneticStripeReader>> {
         let this = self;
@@ -10911,7 +10659,6 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).ClaimReaderAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedMagneticStripeReader>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn RetrieveStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>
     where
@@ -10931,7 +10678,6 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).GetErrorReportingType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagneticStripeReaderErrorReportingType>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -10943,13 +10689,11 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
@@ -10957,7 +10701,6 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
@@ -11072,7 +10815,6 @@ impl<'a> ::core::convert::TryFrom<&MagneticStripeReader> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for MagneticStripeReader {}
 unsafe impl ::core::marker::Sync for MagneticStripeReader {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
@@ -11272,7 +11014,6 @@ impl ::core::convert::From<&MagneticStripeReaderAamvaCardDataReceivedEventArgs> 
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
@@ -11307,7 +11048,6 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationL
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
@@ -11341,7 +11081,6 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationP
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderBankCardDataReceivedEventArgs {
@@ -11471,7 +11210,6 @@ impl ::core::convert::From<&MagneticStripeReaderBankCardDataReceivedEventArgs> f
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderCapabilities(::windows::core::IUnknown);
 impl MagneticStripeReaderCapabilities {
@@ -11615,7 +11353,6 @@ impl ::core::convert::From<&MagneticStripeReaderCapabilities> for &::windows::co
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderCapabilities {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderCapabilities {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 pub struct MagneticStripeReaderCardTypes;
 impl MagneticStripeReaderCardTypes {
     pub fn Unknown() -> ::windows::core::Result<u32> {
@@ -11651,7 +11388,6 @@ impl MagneticStripeReaderCardTypes {
 impl ::windows::core::RuntimeName for MagneticStripeReaderCardTypes {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCardTypes";
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 pub struct MagneticStripeReaderEncryptionAlgorithms;
 impl MagneticStripeReaderEncryptionAlgorithms {
     pub fn None() -> ::windows::core::Result<u32> {
@@ -11681,7 +11417,6 @@ impl MagneticStripeReaderEncryptionAlgorithms {
 impl ::windows::core::RuntimeName for MagneticStripeReaderEncryptionAlgorithms {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms";
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderErrorOccurredEventArgs {
@@ -11790,7 +11525,6 @@ impl ::core::convert::From<&MagneticStripeReaderErrorOccurredEventArgs> for &::w
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
@@ -11824,7 +11558,6 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorReportingT
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderReport(::windows::core::IUnknown);
 impl MagneticStripeReaderReport {
@@ -11863,7 +11596,6 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).Track4)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagneticStripeReaderTrackData>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -11872,7 +11604,6 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CardAuthenticationData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -11888,7 +11619,6 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).CardAuthenticationDataLength)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AdditionalSecurityInformation(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -11960,7 +11690,6 @@ impl ::core::convert::From<&MagneticStripeReaderReport> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderStatus(pub i32);
@@ -11995,7 +11724,6 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderStatusUpdatedEventArgs {
@@ -12076,11 +11804,9 @@ impl ::core::convert::From<&MagneticStripeReaderStatusUpdatedEventArgs> for &::w
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackData(::windows::core::IUnknown);
 impl MagneticStripeReaderTrackData {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -12089,7 +11815,6 @@ impl MagneticStripeReaderTrackData {
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DiscretionaryData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -12098,7 +11823,6 @@ impl MagneticStripeReaderTrackData {
             (::windows::core::Interface::vtable(this).DiscretionaryData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn EncryptedData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -12170,7 +11894,6 @@ impl ::core::convert::From<&MagneticStripeReaderTrackData> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
@@ -12208,7 +11931,6 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType 
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
@@ -12245,7 +11967,6 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackIds {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
@@ -12319,7 +12040,6 @@ impl ::core::convert::From<&MagneticStripeReaderVendorSpecificCardDataReceivedEv
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosConnectionTypes(pub u32);
@@ -12383,11 +12103,9 @@ unsafe impl ::windows::core::RuntimeType for PosConnectionTypes {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct PosPrinter(::windows::core::IUnknown);
 impl PosPrinter {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -12407,7 +12125,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).Capabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PosPrinterCapabilities>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharacterSets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -12416,7 +12133,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).SupportedCharacterSets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedTypeFaces(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -12432,7 +12148,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PosPrinterStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimPrinterAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedPosPrinter>> {
         let this = self;
@@ -12441,7 +12156,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).ClaimPrinterAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedPosPrinter>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -12450,7 +12164,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).CheckHealthAsync)(::windows::core::Interface::as_raw(this), level, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetStatisticsAsync<'a, P0, E0>(&self, statisticscategories: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>
     where
@@ -12463,7 +12176,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).GetStatisticsAsync)(::windows::core::Interface::as_raw(this), statisticscategories.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -12475,13 +12187,11 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).StatusUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveStatusUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeSymbologies(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<IPosPrinter2>(self)?;
@@ -12497,7 +12207,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).GetFontProperty)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(typeface), result__.as_mut_ptr()).from_abi::<PosPrinterFontProperty>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
@@ -12505,7 +12214,6 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
@@ -12620,7 +12328,6 @@ impl<'a> ::core::convert::TryFrom<&PosPrinter> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for PosPrinter {}
 unsafe impl ::core::marker::Sync for PosPrinter {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterAlignment(pub i32);
@@ -12655,7 +12362,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterAlignment {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
@@ -12690,7 +12396,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterBarcodeTextPosition {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct PosPrinterCapabilities(::windows::core::IUnknown);
 impl PosPrinterCapabilities {
@@ -12827,7 +12532,6 @@ impl ::core::convert::From<&PosPrinterCapabilities> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterCartridgeSensors(pub u32);
@@ -12892,7 +12596,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 pub struct PosPrinterCharacterSetIds;
 impl PosPrinterCharacterSetIds {
     pub fn Utf16LE() -> ::windows::core::Result<u32> {
@@ -12922,7 +12625,6 @@ impl PosPrinterCharacterSetIds {
 impl ::windows::core::RuntimeName for PosPrinterCharacterSetIds {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCharacterSetIds";
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterColorCapabilities(pub u32);
@@ -12994,7 +12696,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterColorCartridge(pub i32);
@@ -13037,7 +12738,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterColorCartridge {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct PosPrinterFontProperty(::windows::core::IUnknown);
 impl PosPrinterFontProperty {
@@ -13055,7 +12755,6 @@ impl PosPrinterFontProperty {
             (::windows::core::Interface::vtable(this).IsScalableToAnySize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CharacterSizes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SizeUInt32>> {
         let this = self;
@@ -13127,7 +12826,6 @@ impl ::core::convert::From<&PosPrinterFontProperty> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterLineDirection(pub i32);
@@ -13161,7 +12859,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineDirection {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterLineStyle(pub i32);
@@ -13197,7 +12894,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineStyle {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterMapMode(pub i32);
@@ -13233,7 +12929,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMapMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
@@ -13298,7 +12993,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterMarkFeedKind(pub i32);
@@ -13334,7 +13028,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct PosPrinterPrintOptions(::windows::core::IUnknown);
 impl PosPrinterPrintOptions {
@@ -13551,7 +13244,6 @@ impl ::core::convert::From<&PosPrinterPrintOptions> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterPrintSide(pub i32);
@@ -13586,7 +13278,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterPrintSide {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(::windows::core::IUnknown);
 impl PosPrinterReleaseDeviceRequestedEventArgs {}
@@ -13652,7 +13343,6 @@ impl ::core::convert::From<&PosPrinterReleaseDeviceRequestedEventArgs> for &::wi
 }
 unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterRotation(pub i32);
@@ -13688,7 +13378,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterRotation {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
@@ -13751,7 +13440,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct PosPrinterStatus(::windows::core::IUnknown);
 impl PosPrinterStatus {
@@ -13832,7 +13520,6 @@ impl ::core::convert::From<&PosPrinterStatus> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PosPrinterStatusKind(pub i32);
@@ -13869,7 +13556,6 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterStatusKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct PosPrinterStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl PosPrinterStatusUpdatedEventArgs {
@@ -13943,7 +13629,6 @@ impl ::core::convert::From<&PosPrinterStatusUpdatedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ReceiptPrintJob(::windows::core::IUnknown);
 impl ReceiptPrintJob {
@@ -13959,7 +13644,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintNewline)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -13976,13 +13660,11 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value, includebitmaps).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPrintArea(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
     where
@@ -13991,7 +13673,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>
     where
@@ -14000,7 +13681,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment, width).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
     where
@@ -14009,7 +13689,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
     where
@@ -14034,7 +13713,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<'a, P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
     where
@@ -14043,7 +13721,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<'a, P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>
     where
@@ -14052,7 +13729,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment, width).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<'a, P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
     where
@@ -14061,7 +13737,6 @@ impl ReceiptPrintJob {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
     where
@@ -14202,7 +13877,6 @@ impl<'a> ::core::convert::TryFrom<&ReceiptPrintJob> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for ReceiptPrintJob {}
 unsafe impl ::core::marker::Sync for ReceiptPrintJob {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct ReceiptPrinterCapabilities(::windows::core::IUnknown);
 impl ReceiptPrinterCapabilities {
@@ -14290,7 +13964,6 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).IsPaperNearEndSensorSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -14348,7 +14021,6 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).RuledLineCapabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PosPrinterRuledLineCapabilities>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -14357,7 +14029,6 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).SupportedBarcodeRotations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -14531,7 +14202,6 @@ impl<'a> ::core::convert::TryFrom<&ReceiptPrinterCapabilities> for ::windows::co
 unsafe impl ::core::marker::Send for ReceiptPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for ReceiptPrinterCapabilities {}
 #[repr(C)]
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 pub struct SizeUInt32 {
     pub Width: u32,
     pub Height: u32,
@@ -14568,7 +14238,6 @@ impl ::core::default::Default for SizeUInt32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct SlipPrintJob(::windows::core::IUnknown);
 impl SlipPrintJob {
@@ -14584,7 +14253,6 @@ impl SlipPrintJob {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PrintNewline)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -14601,13 +14269,11 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintRotation)(::windows::core::Interface::as_raw(this), value, includebitmaps).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPrintArea(&self, value: super::super::Foundation::Rect) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPrintArea)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
     where
@@ -14616,7 +14282,6 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>
     where
@@ -14625,7 +14290,6 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignment, width).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
     where
@@ -14634,7 +14298,6 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmapnumber, bitmap.into().abi(), alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmapnumber: u32, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
     where
@@ -14659,7 +14322,6 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBarcodeCustomAlign)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(data), symbology, height, width, textposition, alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<'a, P0>(&self, bitmap: P0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()>
     where
@@ -14668,7 +14330,6 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<'a, P0>(&self, bitmap: P0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()>
     where
@@ -14677,7 +14338,6 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintBitmapCustomWidthStandardAlign)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignment, width).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<'a, P0>(&self, bitmap: P0, alignmentdistance: u32) -> ::windows::core::Result<()>
     where
@@ -14686,7 +14346,6 @@ impl SlipPrintJob {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).PrintCustomAlignedBitmap)(::windows::core::Interface::as_raw(this), bitmap.into().abi(), alignmentdistance).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_Imaging\"`*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<'a, P0>(&self, bitmap: P0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()>
     where
@@ -14811,7 +14470,6 @@ impl<'a> ::core::convert::TryFrom<&SlipPrintJob> for ::windows::core::InParam<'a
 }
 unsafe impl ::core::marker::Send for SlipPrintJob {}
 unsafe impl ::core::marker::Sync for SlipPrintJob {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct SlipPrinterCapabilities(::windows::core::IUnknown);
 impl SlipPrinterCapabilities {
@@ -14899,7 +14557,6 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).IsPaperNearEndSensorSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -14957,7 +14614,6 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).RuledLineCapabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PosPrinterRuledLineCapabilities>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -14966,7 +14622,6 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).SupportedBarcodeRotations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -15132,7 +14787,6 @@ impl<'a> ::core::convert::TryFrom<&SlipPrinterCapabilities> for ::windows::core:
 }
 unsafe impl ::core::marker::Send for SlipPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for SlipPrinterCapabilities {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorData(::windows::core::IUnknown);
 impl UnifiedPosErrorData {
@@ -15238,7 +14892,6 @@ impl ::core::convert::From<&UnifiedPosErrorData> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosErrorReason(pub i32);
@@ -15281,7 +14934,6 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosErrorSeverity(pub i32);
@@ -15319,7 +14971,6 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
@@ -15355,7 +15006,6 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_PointOfService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnifiedPosPowerReportingType(pub i32);

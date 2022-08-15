@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateAppContainerProfile<'a, P0, P1, P2>(pszappcontainername: P0, pszdisplayname: P1, pszdescription: P2, pcapabilities: ::core::option::Option<&[super::SID_AND_ATTRIBUTES]>) -> ::windows::core::Result<super::super::Foundation::PSID>
@@ -14,7 +13,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateAppContainerProfile(pszappcontainername.into(), pszdisplayname.into(), pszdescription.into(), ::core::mem::transmute(pcapabilities.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcapabilities.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
 pub unsafe fn DeleteAppContainerProfile<'a, P0>(pszappcontainername: P0) -> ::windows::core::Result<()>
 where
@@ -26,7 +24,6 @@ where
     }
     DeleteAppContainerProfile(pszappcontainername.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveAppContainerSidFromAppContainerName<'a, P0>(pszappcontainername: P0) -> ::windows::core::Result<super::super::Foundation::PSID>
@@ -40,7 +37,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DeriveAppContainerSidFromAppContainerName(pszappcontainername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName<'a, P0, P1>(psidappcontainersid: P0, pszrestrictedappcontainername: P1) -> ::windows::core::Result<super::super::Foundation::PSID>
@@ -55,7 +51,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(psidappcontainersid.into(), pszrestrictedappcontainername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::PSID>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[inline]
 pub unsafe fn GetAppContainerFolderPath<'a, P0>(pszappcontainersid: P0) -> ::windows::core::Result<::windows::core::PWSTR>
 where
@@ -68,7 +63,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetAppContainerFolderPath(pszappcontainersid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppContainerNamedObjectPath<'a, P0, P1>(token: P0, appcontainersid: P1, objectpath: ::core::option::Option<&mut [u16]>, returnlength: &mut u32) -> super::super::Foundation::BOOL
@@ -82,7 +76,6 @@ where
     }
     GetAppContainerNamedObjectPath(token.into(), appcontainersid.into(), objectpath.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(objectpath.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(returnlength))
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_System_Registry\"`*"]
 #[cfg(feature = "Win32_System_Registry")]
 #[inline]
 pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::core::Result<super::super::System::Registry::HKEY> {
@@ -93,11 +86,9 @@ pub unsafe fn GetAppContainerRegistryLocation(desiredaccess: u32) -> ::windows::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetAppContainerRegistryLocation(desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Registry::HKEY>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`*"]
 #[repr(transparent)]
 pub struct IIsolatedAppLauncher(::windows::core::IUnknown);
 impl IIsolatedAppLauncher {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Launch<'a, P0, P1>(&self, appusermodelid: P0, arguments: P1, telemetryparameters: &IsolatedAppLauncherTelemetryParameters) -> ::windows::core::Result<()>
     where
@@ -151,7 +142,6 @@ pub struct IIsolatedAppLauncher_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Launch: usize,
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -162,7 +152,6 @@ pub unsafe fn IsProcessInIsolatedContainer() -> ::windows::core::Result<super::s
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     IsProcessInIsolatedContainer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -173,7 +162,6 @@ pub unsafe fn IsProcessInIsolatedWindowsEnvironment() -> ::windows::core::Result
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     IsProcessInIsolatedWindowsEnvironment(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -186,7 +174,6 @@ pub unsafe fn IsProcessInWDAGContainer(reserved: *const ::core::ffi::c_void) -> 
 }
 pub const IsolatedAppLauncher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc812430_e75e_4fd1_9641_1f9f1e2d9a1f);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Isolation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IsolatedAppLauncherTelemetryParameters {
     pub EnableForLaunch: super::super::Foundation::BOOL,

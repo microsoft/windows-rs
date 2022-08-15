@@ -585,7 +585,6 @@ pub struct IPaymentTokenFactory_Vtbl {
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateWithJsonDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentmethodid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, jsondetails: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentAddress(::windows::core::IUnknown);
 impl PaymentAddress {
@@ -607,7 +606,6 @@ impl PaymentAddress {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCountry)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddressLines(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -616,7 +614,6 @@ impl PaymentAddress {
             (::windows::core::Interface::vtable(this).AddressLines)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAddressLines<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -725,7 +722,6 @@ impl PaymentAddress {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPhoneNumber)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -797,7 +793,6 @@ impl ::core::convert::From<&PaymentAddress> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PaymentAddress {}
 unsafe impl ::core::marker::Sync for PaymentAddress {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentCanMakePaymentResult(::windows::core::IUnknown);
 impl PaymentCanMakePaymentResult {
@@ -882,7 +877,6 @@ impl ::core::convert::From<&PaymentCanMakePaymentResult> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
@@ -921,7 +915,6 @@ unsafe impl ::windows::core::RuntimeType for PaymentCanMakePaymentResultStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentCurrencyAmount(::windows::core::IUnknown);
 impl PaymentCurrencyAmount {
@@ -1038,7 +1031,6 @@ impl ::core::convert::From<&PaymentCurrencyAmount> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for PaymentCurrencyAmount {}
 unsafe impl ::core::marker::Sync for PaymentCurrencyAmount {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentDetails(::windows::core::IUnknown);
 impl PaymentDetails {
@@ -1063,7 +1055,6 @@ impl PaymentDetails {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTotal)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DisplayItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>> {
         let this = self;
@@ -1072,7 +1063,6 @@ impl PaymentDetails {
             (::windows::core::Interface::vtable(this).DisplayItems)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PaymentItem>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetDisplayItems<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1082,7 +1072,6 @@ impl PaymentDetails {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDisplayItems)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ShippingOptions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>> {
         let this = self;
@@ -1091,7 +1080,6 @@ impl PaymentDetails {
             (::windows::core::Interface::vtable(this).ShippingOptions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PaymentShippingOption>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetShippingOptions<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1101,7 +1089,6 @@ impl PaymentDetails {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetShippingOptions)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Modifiers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>> {
         let this = self;
@@ -1110,7 +1097,6 @@ impl PaymentDetails {
             (::windows::core::Interface::vtable(this).Modifiers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PaymentDetailsModifier>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetModifiers<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1129,7 +1115,6 @@ impl PaymentDetails {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), total.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentDetails>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithDisplayItems<'a, P0, P1, E1>(total: P0, displayitems: P1) -> ::windows::core::Result<PaymentDetails>
     where
@@ -1210,7 +1195,6 @@ impl ::core::convert::From<&PaymentDetails> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PaymentDetails {}
 unsafe impl ::core::marker::Sync for PaymentDetails {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentDetailsModifier(::windows::core::IUnknown);
 impl PaymentDetailsModifier {
@@ -1221,7 +1205,6 @@ impl PaymentDetailsModifier {
             (::windows::core::Interface::vtable(this).JsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedMethodIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1237,7 +1220,6 @@ impl PaymentDetailsModifier {
             (::windows::core::Interface::vtable(this).Total)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentItem>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AdditionalDisplayItems(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentItem>> {
         let this = self;
@@ -1246,7 +1228,6 @@ impl PaymentDetailsModifier {
             (::windows::core::Interface::vtable(this).AdditionalDisplayItems)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<PaymentItem>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<'a, P0, E0, P1>(supportedmethodids: P0, total: P1) -> ::windows::core::Result<PaymentDetailsModifier>
     where
@@ -1259,7 +1240,6 @@ impl PaymentDetailsModifier {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), total.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAdditionalDisplayItems<'a, P0, E0, P1, P2, E2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2) -> ::windows::core::Result<PaymentDetailsModifier>
     where
@@ -1274,7 +1254,6 @@ impl PaymentDetailsModifier {
             (::windows::core::Interface::vtable(this).CreateWithAdditionalDisplayItems)(::windows::core::Interface::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), total.into().abi(), additionaldisplayitems.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentDetailsModifier>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithAdditionalDisplayItemsAndJsonData<'a, P0, E0, P1, P2, E2>(supportedmethodids: P0, total: P1, additionaldisplayitems: P2, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentDetailsModifier>
     where
@@ -1357,7 +1336,6 @@ impl ::core::convert::From<&PaymentDetailsModifier> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for PaymentDetailsModifier {}
 unsafe impl ::core::marker::Sync for PaymentDetailsModifier {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentItem(::windows::core::IUnknown);
 impl PaymentItem {
@@ -1474,7 +1452,6 @@ impl ::core::convert::From<&PaymentItem> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PaymentItem {}
 unsafe impl ::core::marker::Sync for PaymentItem {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentMediator(::windows::core::IUnknown);
 impl PaymentMediator {
@@ -1485,7 +1462,6 @@ impl PaymentMediator {
         static SHARED: ::windows::core::FactoryCache<PaymentMediator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedMethodIdsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>> {
         let this = self;
@@ -1494,7 +1470,6 @@ impl PaymentMediator {
             (::windows::core::Interface::vtable(this).GetSupportedMethodIdsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SubmitPaymentRequestAsync<'a, P0>(&self, paymentrequest: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
     where
@@ -1506,7 +1481,6 @@ impl PaymentMediator {
             (::windows::core::Interface::vtable(this).SubmitPaymentRequestAsync)(::windows::core::Interface::as_raw(this), paymentrequest.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SubmitPaymentRequestWithChangeHandlerAsync<'a, P0, P1>(&self, paymentrequest: P0, changehandler: P1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>
     where
@@ -1519,7 +1493,6 @@ impl PaymentMediator {
             (::windows::core::Interface::vtable(this).SubmitPaymentRequestWithChangeHandlerAsync)(::windows::core::Interface::as_raw(this), paymentrequest.into().abi(), changehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CanMakePaymentAsync<'a, P0>(&self, paymentrequest: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PaymentCanMakePaymentResult>>
     where
@@ -1594,7 +1567,6 @@ impl ::core::convert::From<&PaymentMediator> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for PaymentMediator {}
 unsafe impl ::core::marker::Sync for PaymentMediator {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentMerchantInfo(::windows::core::IUnknown);
 impl PaymentMerchantInfo {
@@ -1612,7 +1584,6 @@ impl PaymentMerchantInfo {
             (::windows::core::Interface::vtable(this).PackageFullName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1621,7 +1592,6 @@ impl PaymentMerchantInfo {
             (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Create<'a, P0>(uri: P0) -> ::windows::core::Result<PaymentMerchantInfo>
     where
@@ -1700,11 +1670,9 @@ impl ::core::convert::From<&PaymentMerchantInfo> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for PaymentMerchantInfo {}
 unsafe impl ::core::marker::Sync for PaymentMerchantInfo {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentMethodData(::windows::core::IUnknown);
 impl PaymentMethodData {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedMethodIds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1720,7 +1688,6 @@ impl PaymentMethodData {
             (::windows::core::Interface::vtable(this).JsonData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<'a, P0, E0>(supportedmethodids: P0) -> ::windows::core::Result<PaymentMethodData>
     where
@@ -1732,7 +1699,6 @@ impl PaymentMethodData {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), supportedmethodids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentMethodData>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithJsonData<'a, P0, E0>(supportedmethodids: P0, jsondata: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentMethodData>
     where
@@ -1812,7 +1778,6 @@ impl ::core::convert::From<&PaymentMethodData> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentOptionPresence(pub i32);
@@ -1847,7 +1812,6 @@ unsafe impl ::windows::core::RuntimeType for PaymentOptionPresence {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentOptions(::windows::core::IUnknown);
 impl PaymentOptions {
@@ -1976,7 +1940,6 @@ impl ::core::convert::From<&PaymentOptions> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PaymentOptions {}
 unsafe impl ::core::marker::Sync for PaymentOptions {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequest(::windows::core::IUnknown);
 impl PaymentRequest {
@@ -1994,7 +1957,6 @@ impl PaymentRequest {
             (::windows::core::Interface::vtable(this).Details)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PaymentDetails>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn MethodData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PaymentMethodData>> {
         let this = self;
@@ -2017,7 +1979,6 @@ impl PaymentRequest {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<'a, P0, P1, E1>(details: P0, methoddata: P1) -> ::windows::core::Result<PaymentRequest>
     where
@@ -2030,7 +1991,6 @@ impl PaymentRequest {
             (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), details.into().abi(), methoddata.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithMerchantInfo<'a, P0, P1, E1, P2>(details: P0, methoddata: P1, merchantinfo: P2) -> ::windows::core::Result<PaymentRequest>
     where
@@ -2044,7 +2004,6 @@ impl PaymentRequest {
             (::windows::core::Interface::vtable(this).CreateWithMerchantInfo)(::windows::core::Interface::as_raw(this), details.into().abi(), methoddata.try_into().map_err(|e| e.into())?.abi(), merchantinfo.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithMerchantInfoAndOptions<'a, P0, P1, E1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3) -> ::windows::core::Result<PaymentRequest>
     where
@@ -2059,7 +2018,6 @@ impl PaymentRequest {
             (::windows::core::Interface::vtable(this).CreateWithMerchantInfoAndOptions)(::windows::core::Interface::as_raw(this), details.into().abi(), methoddata.try_into().map_err(|e| e.into())?.abi(), merchantinfo.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<PaymentRequest>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithMerchantInfoOptionsAndId<'a, P0, P1, E1, P2, P3>(details: P0, methoddata: P1, merchantinfo: P2, options: P3, id: &::windows::core::HSTRING) -> ::windows::core::Result<PaymentRequest>
     where
@@ -2147,7 +2105,6 @@ impl ::core::convert::From<&PaymentRequest> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentRequestChangeKind(pub i32);
@@ -2181,7 +2138,6 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestChangeKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedArgs(::windows::core::IUnknown);
 impl PaymentRequestChangedArgs {
@@ -2276,7 +2232,6 @@ impl ::core::convert::From<&PaymentRequestChangedArgs> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for PaymentRequestChangedArgs {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedHandler(pub ::windows::core::IUnknown);
 impl PaymentRequestChangedHandler {
@@ -2364,7 +2319,6 @@ pub struct PaymentRequestChangedHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paymentrequest: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequestChangedResult(::windows::core::IUnknown);
 impl PaymentRequestChangedResult {
@@ -2487,7 +2441,6 @@ impl ::core::convert::From<&PaymentRequestChangedResult> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentRequestCompletionStatus(pub i32);
@@ -2522,7 +2475,6 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestCompletionStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentRequestStatus(pub i32);
@@ -2557,7 +2509,6 @@ unsafe impl ::windows::core::RuntimeType for PaymentRequestStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentRequestSubmitResult(::windows::core::IUnknown);
 impl PaymentRequestSubmitResult {
@@ -2638,7 +2589,6 @@ impl ::core::convert::From<&PaymentRequestSubmitResult> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for PaymentRequestSubmitResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestSubmitResult {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentResponse(::windows::core::IUnknown);
 impl PaymentResponse {
@@ -2684,7 +2634,6 @@ impl PaymentResponse {
             (::windows::core::Interface::vtable(this).PayerPhoneNumber)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2756,7 +2705,6 @@ impl ::core::convert::From<&PaymentResponse> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for PaymentResponse {}
 unsafe impl ::core::marker::Sync for PaymentResponse {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentShippingOption(::windows::core::IUnknown);
 impl PaymentShippingOption {
@@ -2902,7 +2850,6 @@ impl ::core::convert::From<&PaymentShippingOption> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PaymentShippingType(pub i32);
@@ -2937,7 +2884,6 @@ unsafe impl ::windows::core::RuntimeType for PaymentShippingType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Payments\"`*"]
 #[repr(transparent)]
 pub struct PaymentToken(::windows::core::IUnknown);
 impl PaymentToken {

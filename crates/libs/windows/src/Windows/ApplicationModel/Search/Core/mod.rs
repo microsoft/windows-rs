@@ -90,7 +90,6 @@ pub struct ISearchSuggestionsRequestedEventArgs_Vtbl {
     pub LinguisticDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct RequestingFocusOnKeyboardInputEventArgs(::windows::core::IUnknown);
 impl RequestingFocusOnKeyboardInputEventArgs {}
@@ -156,7 +155,6 @@ impl ::core::convert::From<&RequestingFocusOnKeyboardInputEventArgs> for &::wind
 }
 unsafe impl ::core::marker::Send for RequestingFocusOnKeyboardInputEventArgs {}
 unsafe impl ::core::marker::Sync for RequestingFocusOnKeyboardInputEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestion(::windows::core::IUnknown);
 impl SearchSuggestion {
@@ -188,7 +186,6 @@ impl SearchSuggestion {
             (::windows::core::Interface::vtable(this).DetailText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Image(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -265,7 +262,6 @@ impl ::core::convert::From<&SearchSuggestion> for &::windows::core::IInspectable
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SearchSuggestionKind(pub i32);
@@ -300,7 +296,6 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionManager(::windows::core::IUnknown);
 impl SearchSuggestionManager {
@@ -355,7 +350,6 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetQueryWithSearchQueryLinguisticDetails)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(querytext), ::core::mem::transmute_copy(language), linguisticdetails.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Suggestions(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IObservableVector<SearchSuggestion>> {
         let this = self;
@@ -376,7 +370,6 @@ impl SearchSuggestionManager {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ClearHistory)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SuggestionsRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -388,13 +381,11 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).SuggestionsRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSuggestionsRequested(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveSuggestionsRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestingFocusOnKeyboardInput<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -406,7 +397,6 @@ impl SearchSuggestionManager {
             (::windows::core::Interface::vtable(this).RequestingFocusOnKeyboardInput)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRequestingFocusOnKeyboardInput(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -473,7 +463,6 @@ impl ::core::convert::From<&SearchSuggestionManager> for &::windows::core::IInsp
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_Search_Core\"`*"]
 #[repr(transparent)]
 pub struct SearchSuggestionsRequestedEventArgs(::windows::core::IUnknown);
 impl SearchSuggestionsRequestedEventArgs {

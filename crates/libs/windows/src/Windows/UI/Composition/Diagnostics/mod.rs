@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct CompositionDebugHeatMaps(::windows::core::IUnknown);
 impl CompositionDebugHeatMaps {
@@ -93,7 +92,6 @@ impl ::core::convert::From<&CompositionDebugHeatMaps> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
-#[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
@@ -162,7 +160,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionDebugOverdrawContentKind
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct CompositionDebugSettings(::windows::core::IUnknown);
 impl CompositionDebugSettings {

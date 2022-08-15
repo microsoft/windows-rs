@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
@@ -24,16 +23,11 @@ impl ::core::default::Default for IPNG_ADDRESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub const MCAST_API_VERSION_0: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub const MCAST_API_VERSION_1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub struct MCAST_CLIENT_UID {
     pub ClientUID: *mut u8,
     pub ClientUIDLength: u32,
@@ -64,7 +58,6 @@ impl ::core::default::Default for MCAST_CLIENT_UID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub struct MCAST_LEASE_REQUEST {
     pub LeaseStartTime: i32,
     pub MaxLeaseStartTime: i32,
@@ -96,7 +89,6 @@ impl ::core::default::Default for MCAST_LEASE_REQUEST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub struct MCAST_LEASE_RESPONSE {
     pub LeaseStartTime: i32,
     pub LeaseEndTime: i32,
@@ -125,7 +117,6 @@ impl ::core::default::Default for MCAST_LEASE_RESPONSE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 pub struct MCAST_SCOPE_CTX {
     pub ScopeID: IPNG_ADDRESS,
     pub Interface: IPNG_ADDRESS,
@@ -152,7 +143,6 @@ impl ::core::default::Default for MCAST_SCOPE_CTX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCAST_SCOPE_ENTRY {
     pub ScopeCtx: MCAST_SCOPE_CTX,
@@ -186,7 +176,6 @@ impl ::core::default::Default for MCAST_SCOPE_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastApiCleanup() {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -195,7 +184,6 @@ pub unsafe fn McastApiCleanup() {
     }
     McastApiCleanup()
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastApiStartup(version: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -204,7 +192,6 @@ pub unsafe fn McastApiStartup(version: &mut u32) -> u32 {
     }
     McastApiStartup(::core::mem::transmute(version))
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn McastEnumerateScopes<'a, P0>(addrfamily: u16, requery: P0, pscopelist: &mut MCAST_SCOPE_ENTRY, pscopelen: &mut u32, pscopecount: &mut u32) -> u32
@@ -217,7 +204,6 @@ where
     }
     McastEnumerateScopes(addrfamily, requery.into(), ::core::mem::transmute(pscopelist), ::core::mem::transmute(pscopelen), ::core::mem::transmute(pscopecount))
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastGenUID(prequestid: &mut MCAST_CLIENT_UID) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -226,7 +212,6 @@ pub unsafe fn McastGenUID(prequestid: &mut MCAST_CLIENT_UID) -> u32 {
     }
     McastGenUID(::core::mem::transmute(prequestid))
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastReleaseAddress(addrfamily: u16, prequestid: &mut MCAST_CLIENT_UID, preleaserequest: &mut MCAST_LEASE_REQUEST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -235,7 +220,6 @@ pub unsafe fn McastReleaseAddress(addrfamily: u16, prequestid: &mut MCAST_CLIENT
     }
     McastReleaseAddress(addrfamily, ::core::mem::transmute(prequestid), ::core::mem::transmute(preleaserequest))
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastRenewAddress(addrfamily: u16, prequestid: &mut MCAST_CLIENT_UID, prenewrequest: &mut MCAST_LEASE_REQUEST, prenewresponse: &mut MCAST_LEASE_RESPONSE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -244,7 +228,6 @@ pub unsafe fn McastRenewAddress(addrfamily: u16, prequestid: &mut MCAST_CLIENT_U
     }
     McastRenewAddress(addrfamily, ::core::mem::transmute(prequestid), ::core::mem::transmute(prenewrequest), ::core::mem::transmute(prenewresponse))
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Multicast\"`*"]
 #[inline]
 pub unsafe fn McastRequestAddress(addrfamily: u16, prequestid: &mut MCAST_CLIENT_UID, pscopectx: &mut MCAST_SCOPE_CTX, paddrrequest: &mut MCAST_LEASE_REQUEST, paddrresponse: &mut MCAST_LEASE_RESPONSE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]

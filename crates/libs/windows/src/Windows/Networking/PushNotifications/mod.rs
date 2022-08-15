@@ -231,7 +231,6 @@ pub struct IRawNotification3_Vtbl {
     #[cfg(not(feature = "Storage_Streams"))]
     ContentBytes: usize,
 }
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 #[repr(transparent)]
 pub struct PushNotificationChannel(::windows::core::IUnknown);
 impl PushNotificationChannel {
@@ -242,7 +241,6 @@ impl PushNotificationChannel {
             (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -255,7 +253,6 @@ impl PushNotificationChannel {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PushNotificationReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -267,7 +264,6 @@ impl PushNotificationChannel {
             (::windows::core::Interface::vtable(this).PushNotificationReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePushNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -336,10 +332,8 @@ impl ::core::convert::From<&PushNotificationChannel> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for PushNotificationChannel {}
 unsafe impl ::core::marker::Sync for PushNotificationChannel {}
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 pub struct PushNotificationChannelManager;
 impl PushNotificationChannelManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePushNotificationChannelForApplicationAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
@@ -347,7 +341,6 @@ impl PushNotificationChannelManager {
             (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePushNotificationChannelForApplicationAsyncWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
@@ -355,7 +348,6 @@ impl PushNotificationChannelManager {
             (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePushNotificationChannelForSecondaryTileAsync(tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
@@ -363,7 +355,6 @@ impl PushNotificationChannelManager {
             (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         })
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<PushNotificationChannelManagerForUser>
     where
@@ -380,7 +371,6 @@ impl PushNotificationChannelManager {
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PushNotificationChannelManagerForUser>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ChannelsRevoked<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -391,7 +381,6 @@ impl PushNotificationChannelManager {
             (::windows::core::Interface::vtable(this).ChannelsRevoked)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChannelsRevoked(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPushNotificationChannelManagerStatics4(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveChannelsRevoked)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -420,11 +409,9 @@ impl PushNotificationChannelManager {
 impl ::windows::core::RuntimeName for PushNotificationChannelManager {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManager";
 }
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 #[repr(transparent)]
 pub struct PushNotificationChannelManagerForUser(::windows::core::IUnknown);
 impl PushNotificationChannelManagerForUser {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePushNotificationChannelForApplicationAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
@@ -433,7 +420,6 @@ impl PushNotificationChannelManagerForUser {
             (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
@@ -442,7 +428,6 @@ impl PushNotificationChannelManagerForUser {
             (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
@@ -451,7 +436,6 @@ impl PushNotificationChannelManagerForUser {
             (::windows::core::Interface::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
         let this = self;
@@ -460,7 +444,6 @@ impl PushNotificationChannelManagerForUser {
             (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<'a, P0, E0>(&self, appserverkey: P0, channelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
     where
@@ -473,7 +456,6 @@ impl PushNotificationChannelManagerForUser {
             (::windows::core::Interface::vtable(this).CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync)(::windows::core::Interface::as_raw(this), appserverkey.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(channelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId<'a, P0, E0>(&self, appserverkey: P0, channelid: &::windows::core::HSTRING, appid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PushNotificationChannel>>
     where
@@ -549,7 +531,6 @@ impl ::core::convert::From<&PushNotificationChannelManagerForUser> for &::window
 }
 unsafe impl ::core::marker::Send for PushNotificationChannelManagerForUser {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelManagerForUser {}
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 #[repr(transparent)]
 pub struct PushNotificationChannelsRevokedEventArgs(::windows::core::IUnknown);
 impl PushNotificationChannelsRevokedEventArgs {}
@@ -615,7 +596,6 @@ impl ::core::convert::From<&PushNotificationChannelsRevokedEventArgs> for &::win
 }
 unsafe impl ::core::marker::Send for PushNotificationChannelsRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationChannelsRevokedEventArgs {}
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 #[repr(transparent)]
 pub struct PushNotificationReceivedEventArgs(::windows::core::IUnknown);
 impl PushNotificationReceivedEventArgs {
@@ -637,7 +617,6 @@ impl PushNotificationReceivedEventArgs {
             (::windows::core::Interface::vtable(this).NotificationType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PushNotificationType>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn ToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = self;
@@ -646,7 +625,6 @@ impl PushNotificationReceivedEventArgs {
             (::windows::core::Interface::vtable(this).ToastNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn TileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = self;
@@ -655,7 +633,6 @@ impl PushNotificationReceivedEventArgs {
             (::windows::core::Interface::vtable(this).TileNotification)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Notifications\"`*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn BadgeNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::BadgeNotification> {
         let this = self;
@@ -734,7 +711,6 @@ impl ::core::convert::From<&PushNotificationReceivedEventArgs> for &::windows::c
 }
 unsafe impl ::core::marker::Send for PushNotificationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationReceivedEventArgs {}
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PushNotificationType(pub i32);
@@ -771,7 +747,6 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationType {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
 #[repr(transparent)]
 pub struct RawNotification(::windows::core::IUnknown);
 impl RawNotification {
@@ -782,7 +757,6 @@ impl RawNotification {
             (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Headers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IRawNotification2>(self)?;
@@ -798,7 +772,6 @@ impl RawNotification {
             (::windows::core::Interface::vtable(this).ChannelId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentBytes(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = &::windows::core::Interface::cast::<IRawNotification3>(self)?;

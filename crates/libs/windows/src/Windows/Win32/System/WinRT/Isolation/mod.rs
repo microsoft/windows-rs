@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Isolation\"`*"]
 #[repr(transparent)]
 pub struct IIsolatedEnvironmentInterop(::windows::core::IUnknown);
 impl IIsolatedEnvironmentInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHostHwndInterop<'a, P0>(&self, containerhwnd: P0) -> ::windows::core::Result<super::super::super::Foundation::HWND>
     where

@@ -26,11 +26,9 @@ pub struct IWindowManagementPreviewStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     SetPreferredMinSize: usize,
 }
-#[doc = "*Required features: `\"UI_WindowManagement_Preview\"`*"]
 #[repr(transparent)]
 pub struct WindowManagementPreview(::windows::core::IUnknown);
 impl WindowManagementPreview {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPreferredMinSize<'a, P0>(window: P0, preferredframeminsize: super::super::super::Foundation::Size) -> ::windows::core::Result<()>
     where

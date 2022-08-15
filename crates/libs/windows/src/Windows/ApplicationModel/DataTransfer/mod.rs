@@ -2,7 +2,6 @@
 pub mod DragDrop;
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 pub mod ShareTarget;
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 pub struct Clipboard;
 impl Clipboard {
     pub fn GetContent() -> ::windows::core::Result<DataPackageView> {
@@ -23,7 +22,6 @@ impl Clipboard {
     pub fn Clear() -> ::windows::core::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -34,12 +32,10 @@ impl Clipboard {
             (::windows::core::Interface::vtable(this).ContentChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContentChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveContentChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetHistoryItemsAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClipboardHistoryItemsResult>> {
         Self::IClipboardStatics2(|this| unsafe {
@@ -93,7 +89,6 @@ impl Clipboard {
             (::windows::core::Interface::vtable(this).SetContentWithOptions)(::windows::core::Interface::as_raw(this), content.into().abi(), options.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn HistoryChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -104,12 +99,10 @@ impl Clipboard {
             (::windows::core::Interface::vtable(this).HistoryChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHistoryChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IClipboardStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveHistoryChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RoamingEnabledChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -120,12 +113,10 @@ impl Clipboard {
             (::windows::core::Interface::vtable(this).RoamingEnabledChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRoamingEnabledChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IClipboardStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveRoamingEnabledChanged)(::windows::core::Interface::as_raw(this), token).ok() })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn HistoryEnabledChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -136,7 +127,6 @@ impl Clipboard {
             (::windows::core::Interface::vtable(this).HistoryEnabledChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHistoryEnabledChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IClipboardStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveHistoryEnabledChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -155,7 +145,6 @@ impl Clipboard {
 impl ::windows::core::RuntimeName for Clipboard {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.Clipboard";
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ClipboardContentOptions(::windows::core::IUnknown);
 impl ClipboardContentOptions {
@@ -188,7 +177,6 @@ impl ClipboardContentOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsAllowedInHistory)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RoamingFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -197,7 +185,6 @@ impl ClipboardContentOptions {
             (::windows::core::Interface::vtable(this).RoamingFormats)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HistoryFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -269,7 +256,6 @@ impl ::core::convert::From<&ClipboardContentOptions> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for ClipboardContentOptions {}
 unsafe impl ::core::marker::Sync for ClipboardContentOptions {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryChangedEventArgs(::windows::core::IUnknown);
 impl ClipboardHistoryChangedEventArgs {}
@@ -335,7 +321,6 @@ impl ::core::convert::From<&ClipboardHistoryChangedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for ClipboardHistoryChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryChangedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryItem(::windows::core::IUnknown);
 impl ClipboardHistoryItem {
@@ -346,7 +331,6 @@ impl ClipboardHistoryItem {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -425,7 +409,6 @@ impl ::core::convert::From<&ClipboardHistoryItem> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for ClipboardHistoryItem {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItem {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResult(::windows::core::IUnknown);
 impl ClipboardHistoryItemsResult {
@@ -436,7 +419,6 @@ impl ClipboardHistoryItemsResult {
             (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClipboardHistoryItemsResultStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Items(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ClipboardHistoryItem>> {
         let this = self;
@@ -508,7 +490,6 @@ impl ::core::convert::From<&ClipboardHistoryItemsResult> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for ClipboardHistoryItemsResult {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItemsResult {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
@@ -543,7 +524,6 @@ unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResultStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataPackage(::windows::core::IUnknown);
 impl DataPackage {
@@ -579,7 +559,6 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRequestedOperation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OperationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -591,13 +570,11 @@ impl DataPackage {
             (::windows::core::Interface::vtable(this).OperationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOperationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveOperationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Destroyed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -609,7 +586,6 @@ impl DataPackage {
             (::windows::core::Interface::vtable(this).Destroyed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDestroyed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -633,7 +609,6 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -646,7 +621,6 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHtmlFormat)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn ResourceMap(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
@@ -659,7 +633,6 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRtf)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetBitmap<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -668,7 +641,6 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBitmap)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SetStorageItemsReadOnly<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -678,7 +650,6 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStorageItemsReadOnly)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SetStorageItems<'a, P0, E0>(&self, value: P0, readonly: bool) -> ::windows::core::Result<()>
     where
@@ -688,7 +659,6 @@ impl DataPackage {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStorageItems)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi(), readonly).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetApplicationLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -697,7 +667,6 @@ impl DataPackage {
         let this = &::windows::core::Interface::cast::<IDataPackage2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetApplicationLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetWebLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -706,7 +675,6 @@ impl DataPackage {
         let this = &::windows::core::Interface::cast::<IDataPackage2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetWebLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShareCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -718,13 +686,11 @@ impl DataPackage {
             (::windows::core::Interface::vtable(this).ShareCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShareCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDataPackage3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveShareCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShareCanceled<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -736,7 +702,6 @@ impl DataPackage {
             (::windows::core::Interface::vtable(this).ShareCanceled)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShareCanceled(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDataPackage4>(self)?;
@@ -805,7 +770,6 @@ impl ::core::convert::From<&DataPackage> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DataPackage {}
 unsafe impl ::core::marker::Sync for DataPackage {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DataPackageOperation(pub u32);
@@ -869,7 +833,6 @@ unsafe impl ::windows::core::RuntimeType for DataPackageOperation {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataPackagePropertySet(::windows::core::IUnknown);
 impl DataPackagePropertySet {
@@ -895,7 +858,6 @@ impl DataPackagePropertySet {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDescription)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
@@ -904,7 +866,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetThumbnail<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -914,7 +875,6 @@ impl DataPackagePropertySet {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetThumbnail)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FileTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -934,7 +894,6 @@ impl DataPackagePropertySet {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetApplicationName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ApplicationListingUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -943,7 +902,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).ApplicationListingUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetApplicationListingUri<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -952,7 +910,6 @@ impl DataPackagePropertySet {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetApplicationListingUri)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentSourceWebLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -961,7 +918,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).ContentSourceWebLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetContentSourceWebLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -970,7 +926,6 @@ impl DataPackagePropertySet {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetContentSourceWebLink)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentSourceApplicationLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -979,7 +934,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).ContentSourceApplicationLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetContentSourceApplicationLink<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -999,7 +953,6 @@ impl DataPackagePropertySet {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetPackageFamilyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Square30x30Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -1008,7 +961,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).Square30x30Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSquare30x30Logo<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -1018,7 +970,6 @@ impl DataPackagePropertySet {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSquare30x30Logo)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn LogoBackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -1027,7 +978,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).LogoBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn SetLogoBackgroundColor(&self, value: super::super::UI::Color) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet2>(self)?;
@@ -1055,7 +1005,6 @@ impl DataPackagePropertySet {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySet4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetContentSourceUserActivityJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
@@ -1064,7 +1013,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1073,7 +1021,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1082,7 +1029,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1091,7 +1037,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1100,7 +1045,6 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<'a, P0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
@@ -1112,13 +1056,11 @@ impl DataPackagePropertySet {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value.into().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1247,7 +1189,6 @@ impl<'a> ::core::convert::TryFrom<&DataPackagePropertySet> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for DataPackagePropertySet {}
 unsafe impl ::core::marker::Sync for DataPackagePropertySet {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataPackagePropertySetView(::windows::core::IUnknown);
 impl DataPackagePropertySetView {
@@ -1265,7 +1206,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Thumbnail(&self) -> ::windows::core::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
@@ -1274,7 +1214,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FileTypes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1290,7 +1229,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).ApplicationName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ApplicationListingUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1306,7 +1244,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentSourceWebLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
@@ -1315,7 +1252,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).ContentSourceWebLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ContentSourceApplicationLink(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
@@ -1324,7 +1260,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).ContentSourceApplicationLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Square30x30Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
@@ -1333,7 +1268,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).Square30x30Logo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn LogoBackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = &::windows::core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
@@ -1363,7 +1297,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).IsFromRoamingClipboard)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(self)?;
@@ -1372,7 +1305,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1381,7 +1313,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1390,7 +1321,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1399,7 +1329,6 @@ impl DataPackagePropertySetView {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Split(&self, first: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>, second: &mut ::core::option::Option<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(self)?;
@@ -1528,7 +1457,6 @@ impl<'a> ::core::convert::TryFrom<&DataPackagePropertySetView> for ::windows::co
 }
 unsafe impl ::core::marker::Send for DataPackagePropertySetView {}
 unsafe impl ::core::marker::Sync for DataPackagePropertySetView {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataPackageView(::windows::core::IUnknown);
 impl DataPackageView {
@@ -1550,7 +1478,6 @@ impl DataPackageView {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ReportOperationCompleted)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AvailableFormats(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1566,7 +1493,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).Contains)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(formatid), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDataAsync(&self, formatid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>> {
         let this = self;
@@ -1575,7 +1501,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetDataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(formatid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::IInspectable>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetTextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1584,7 +1509,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetTextAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCustomTextAsync(&self, formatid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1593,7 +1517,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetCustomTextAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(formatid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetUriAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = self;
@@ -1602,7 +1525,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetUriAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetHtmlFormatAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1611,7 +1533,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetHtmlFormatAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetResourceMapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>>> {
         let this = self;
@@ -1620,7 +1541,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetResourceMapAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRtfAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1629,7 +1549,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetRtfAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetBitmapAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
@@ -1638,7 +1557,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetBitmapAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
     pub fn GetStorageItemsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>> {
         let this = self;
@@ -1647,7 +1565,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetStorageItemsAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetApplicationLinkAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = &::windows::core::Interface::cast::<IDataPackageView2>(self)?;
@@ -1656,7 +1573,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetApplicationLinkAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetWebLinkAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = &::windows::core::Interface::cast::<IDataPackageView2>(self)?;
@@ -1665,7 +1581,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).GetWebLinkAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_EnterpriseData\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_EnterpriseData"))]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
         let this = &::windows::core::Interface::cast::<IDataPackageView3>(self)?;
@@ -1674,7 +1589,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_EnterpriseData\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_EnterpriseData"))]
     pub fn RequestAccessWithEnterpriseIdAsync(&self, enterpriseid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
         let this = &::windows::core::Interface::cast::<IDataPackageView3>(self)?;
@@ -1683,7 +1597,6 @@ impl DataPackageView {
             (::windows::core::Interface::vtable(this).RequestAccessWithEnterpriseIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(enterpriseid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
     #[cfg(feature = "Security_EnterpriseData")]
     pub fn UnlockAndAssumeEnterpriseIdentity(&self) -> ::windows::core::Result<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult> {
         let this = &::windows::core::Interface::cast::<IDataPackageView3>(self)?;
@@ -1759,7 +1672,6 @@ impl ::core::convert::From<&DataPackageView> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for DataPackageView {}
 unsafe impl ::core::marker::Sync for DataPackageView {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataProviderDeferral(::windows::core::IUnknown);
 impl DataProviderDeferral {
@@ -1830,7 +1742,6 @@ impl ::core::convert::From<&DataProviderDeferral> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for DataProviderDeferral {}
 unsafe impl ::core::marker::Sync for DataProviderDeferral {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataProviderHandler(pub ::windows::core::IUnknown);
 impl DataProviderHandler {
@@ -1917,7 +1828,6 @@ pub struct DataProviderHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataProviderRequest(::windows::core::IUnknown);
 impl DataProviderRequest {
@@ -1928,7 +1838,6 @@ impl DataProviderRequest {
             (::windows::core::Interface::vtable(this).FormatId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2014,7 +1923,6 @@ impl ::core::convert::From<&DataProviderRequest> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for DataProviderRequest {}
 unsafe impl ::core::marker::Sync for DataProviderRequest {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataRequest(::windows::core::IUnknown);
 impl DataRequest {
@@ -2032,7 +1940,6 @@ impl DataRequest {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -2115,7 +2022,6 @@ impl ::core::convert::From<&DataRequest> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for DataRequest {}
 unsafe impl ::core::marker::Sync for DataRequest {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataRequestDeferral(::windows::core::IUnknown);
 impl DataRequestDeferral {
@@ -2186,7 +2092,6 @@ impl ::core::convert::From<&DataRequestDeferral> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for DataRequestDeferral {}
 unsafe impl ::core::marker::Sync for DataRequestDeferral {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataRequestedEventArgs(::windows::core::IUnknown);
 impl DataRequestedEventArgs {
@@ -2260,11 +2165,9 @@ impl ::core::convert::From<&DataRequestedEventArgs> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for DataRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for DataRequestedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct DataTransferManager(::windows::core::IUnknown);
 impl DataTransferManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DataRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2276,13 +2179,11 @@ impl DataTransferManager {
             (::windows::core::Interface::vtable(this).DataRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveDataRequested)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TargetApplicationChosen<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2294,13 +2195,11 @@ impl DataTransferManager {
             (::windows::core::Interface::vtable(this).TargetApplicationChosen)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTargetApplicationChosen(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveTargetApplicationChosen)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ShareProvidersRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -2312,7 +2211,6 @@ impl DataTransferManager {
             (::windows::core::Interface::vtable(this).ShareProvidersRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveShareProvidersRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDataTransferManager2>(self)?;
@@ -2415,7 +2313,6 @@ impl ::core::convert::From<&DataTransferManager> for &::windows::core::IInspecta
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 pub struct HtmlFormatHelper;
 impl HtmlFormatHelper {
     pub fn GetStaticFragment(htmlformat: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3429,7 +3326,6 @@ pub struct ITargetApplicationChosenEventArgs_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub ApplicationName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct OperationCompletedEventArgs(::windows::core::IUnknown);
 impl OperationCompletedEventArgs {
@@ -3510,7 +3406,6 @@ impl ::core::convert::From<&OperationCompletedEventArgs> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for OperationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for OperationCompletedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
@@ -3545,7 +3440,6 @@ unsafe impl ::windows::core::RuntimeType for SetHistoryItemAsContentStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ShareCompletedEventArgs(::windows::core::IUnknown);
 impl ShareCompletedEventArgs {
@@ -3619,7 +3513,6 @@ impl ::core::convert::From<&ShareCompletedEventArgs> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for ShareCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareCompletedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ShareProvider(::windows::core::IUnknown);
 impl ShareProvider {
@@ -3630,7 +3523,6 @@ impl ShareProvider {
             (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DisplayIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
@@ -3639,7 +3531,6 @@ impl ShareProvider {
             (::windows::core::Interface::vtable(this).DisplayIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::RandomAccessStreamReference>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -3662,7 +3553,6 @@ impl ShareProvider {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`, `\"UI\"`*"]
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
     pub fn Create<'a, P0, P1>(title: &::windows::core::HSTRING, displayicon: P0, backgroundcolor: super::super::UI::Color, handler: P1) -> ::windows::core::Result<ShareProvider>
     where
@@ -3742,7 +3632,6 @@ impl ::core::convert::From<&ShareProvider> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ShareProvider {}
 unsafe impl ::core::marker::Sync for ShareProvider {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ShareProviderHandler(pub ::windows::core::IUnknown);
 impl ShareProviderHandler {
@@ -3829,7 +3718,6 @@ pub struct ShareProviderHandler_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operation: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ShareProviderOperation(::windows::core::IUnknown);
 impl ShareProviderOperation {
@@ -3914,11 +3802,9 @@ impl ::core::convert::From<&ShareProviderOperation> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for ShareProviderOperation {}
 unsafe impl ::core::marker::Sync for ShareProviderOperation {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ShareProvidersRequestedEventArgs(::windows::core::IUnknown);
 impl ShareProvidersRequestedEventArgs {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Providers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ShareProvider>> {
         let this = self;
@@ -3934,7 +3820,6 @@ impl ShareProvidersRequestedEventArgs {
             (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DataPackageView>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -4006,7 +3891,6 @@ impl ::core::convert::From<&ShareProvidersRequestedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for ShareProvidersRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShareProvidersRequestedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ShareTargetInfo(::windows::core::IUnknown);
 impl ShareTargetInfo {
@@ -4087,7 +3971,6 @@ impl ::core::convert::From<&ShareTargetInfo> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for ShareTargetInfo {}
 unsafe impl ::core::marker::Sync for ShareTargetInfo {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct ShareUIOptions(::windows::core::IUnknown);
 impl ShareUIOptions {
@@ -4109,7 +3992,6 @@ impl ShareUIOptions {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTheme)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectionRect(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
         let this = self;
@@ -4118,7 +4000,6 @@ impl ShareUIOptions {
             (::windows::core::Interface::vtable(this).SelectionRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Rect>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSelectionRect<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -4191,7 +4072,6 @@ impl ::core::convert::From<&ShareUIOptions> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ShareUIOptions {}
 unsafe impl ::core::marker::Sync for ShareUIOptions {}
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShareUITheme(pub i32);
@@ -4226,10 +4106,8 @@ unsafe impl ::windows::core::RuntimeType for ShareUITheme {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 pub struct SharedStorageAccessManager;
 impl SharedStorageAccessManager {
-    #[doc = "*Required features: `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
     pub fn AddFile<'a, P0, E0>(file: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -4241,7 +4119,6 @@ impl SharedStorageAccessManager {
             (::windows::core::Interface::vtable(this).AddFile)(::windows::core::Interface::as_raw(this), file.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn RedeemTokenForFileAsync(token: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>> {
         Self::ISharedStorageAccessManagerStatics(|this| unsafe {
@@ -4261,7 +4138,6 @@ impl SharedStorageAccessManager {
 impl ::windows::core::RuntimeName for SharedStorageAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager";
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 pub struct StandardDataFormats;
 impl StandardDataFormats {
     pub fn Text() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4270,7 +4146,6 @@ impl StandardDataFormats {
             (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn Uri() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IStandardDataFormatsStatics(|this| unsafe {
@@ -4339,7 +4214,6 @@ impl StandardDataFormats {
 impl ::windows::core::RuntimeName for StandardDataFormats {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.StandardDataFormats";
 }
-#[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
 #[repr(transparent)]
 pub struct TargetApplicationChosenEventArgs(::windows::core::IUnknown);
 impl TargetApplicationChosenEventArgs {

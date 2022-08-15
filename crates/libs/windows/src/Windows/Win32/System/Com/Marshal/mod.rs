@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserFree(param0: &u32, param1: &super::super::super::Foundation::BSTR) {
@@ -8,7 +7,6 @@ pub unsafe fn BSTR_UserFree(param0: &u32, param1: &super::super::super::Foundati
     }
     BSTR_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserFree64(param0: &u32, param1: &super::super::super::Foundation::BSTR) {
@@ -18,7 +16,6 @@ pub unsafe fn BSTR_UserFree64(param0: &u32, param1: &super::super::super::Founda
     }
     BSTR_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::Foundation::BSTR) -> *mut u8 {
@@ -28,7 +25,6 @@ pub unsafe fn BSTR_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::su
     }
     BSTR_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::Foundation::BSTR) -> *mut u8 {
@@ -38,7 +34,6 @@ pub unsafe fn BSTR_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::
     }
     BSTR_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserSize(param0: &u32, param1: u32, param2: &super::super::super::Foundation::BSTR) -> u32 {
@@ -48,7 +43,6 @@ pub unsafe fn BSTR_UserSize(param0: &u32, param1: u32, param2: &super::super::su
     }
     BSTR_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::Foundation::BSTR) -> u32 {
@@ -58,7 +52,6 @@ pub unsafe fn BSTR_UserSize64(param0: &u32, param1: u32, param2: &super::super::
     }
     BSTR_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::Foundation::BSTR) -> *mut u8 {
@@ -68,7 +61,6 @@ pub unsafe fn BSTR_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut s
     }
     BSTR_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BSTR_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::Foundation::BSTR) -> *mut u8 {
@@ -78,7 +70,6 @@ pub unsafe fn BSTR_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut
     }
     BSTR_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserFree(param0: &u32, param1: &u16) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -87,7 +78,6 @@ pub unsafe fn CLIPFORMAT_UserFree(param0: &u32, param1: &u16) {
     }
     CLIPFORMAT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserFree64(param0: &u32, param1: &u16) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -96,7 +86,6 @@ pub unsafe fn CLIPFORMAT_UserFree64(param0: &u32, param1: &u16) {
     }
     CLIPFORMAT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserMarshal(param0: &u32, param1: &mut u8, param2: &u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -105,7 +94,6 @@ pub unsafe fn CLIPFORMAT_UserMarshal(param0: &u32, param1: &mut u8, param2: &u16
     }
     CLIPFORMAT_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserMarshal64(param0: &u32, param1: &mut u8, param2: &u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -114,7 +102,6 @@ pub unsafe fn CLIPFORMAT_UserMarshal64(param0: &u32, param1: &mut u8, param2: &u
     }
     CLIPFORMAT_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserSize(param0: &u32, param1: u32, param2: &u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -123,7 +110,6 @@ pub unsafe fn CLIPFORMAT_UserSize(param0: &u32, param1: u32, param2: &u16) -> u3
     }
     CLIPFORMAT_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserSize64(param0: &u32, param1: u32, param2: &u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -132,7 +118,6 @@ pub unsafe fn CLIPFORMAT_UserSize64(param0: &u32, param1: u32, param2: &u16) -> 
     }
     CLIPFORMAT_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -141,7 +126,6 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal(param0: &u32, param1: *const u8, param2: 
     }
     CLIPFORMAT_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -150,7 +134,6 @@ pub unsafe fn CLIPFORMAT_UserUnmarshal64(param0: &u32, param1: *const u8, param2
     }
     CLIPFORMAT_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoGetMarshalSizeMax<'a, P0>(pulsize: &mut u32, riid: &::windows::core::GUID, punk: P0, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>
 where
@@ -162,7 +145,6 @@ where
     }
     CoGetMarshalSizeMax(::core::mem::transmute(pulsize), ::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoGetStandardMarshal<'a, P0>(riid: &::windows::core::GUID, punk: P0, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<IMarshal>
 where
@@ -175,7 +157,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoGetStandardMarshal(::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMarshal>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoGetStdMarshalEx<'a, P0>(punkouter: P0, smexflags: u32) -> ::windows::core::Result<::windows::core::IUnknown>
 where
@@ -188,7 +169,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoGetStdMarshalEx(punkouter.into().abi(), smexflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoMarshalHresult<'a, P0>(pstm: P0, hresult: ::windows::core::HRESULT) -> ::windows::core::Result<()>
 where
@@ -200,7 +180,6 @@ where
     }
     CoMarshalHresult(pstm.into().abi(), hresult).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoMarshalInterThreadInterfaceInStream<'a, P0>(riid: &::windows::core::GUID, punk: P0) -> ::windows::core::Result<super::IStream>
 where
@@ -213,7 +192,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoMarshalInterThreadInterfaceInStream(::core::mem::transmute(riid), punk.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::IStream>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoMarshalInterface<'a, P0, P1>(pstm: P0, riid: &::windows::core::GUID, punk: P1, dwdestcontext: u32, pvdestcontext: *const ::core::ffi::c_void, mshlflags: u32) -> ::windows::core::Result<()>
 where
@@ -226,7 +204,6 @@ where
     }
     CoMarshalInterface(pstm.into().abi(), ::core::mem::transmute(riid), punk.into().abi(), dwdestcontext, ::core::mem::transmute(pvdestcontext), mshlflags).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoReleaseMarshalData<'a, P0>(pstm: P0) -> ::windows::core::Result<()>
 where
@@ -238,7 +215,6 @@ where
     }
     CoReleaseMarshalData(pstm.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoUnmarshalHresult<'a, P0>(pstm: P0) -> ::windows::core::Result<::windows::core::HRESULT>
 where
@@ -251,7 +227,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoUnmarshalHresult(pstm.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::HRESULT>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn CoUnmarshalInterface<'a, P0, T>(pstm: P0) -> ::windows::core::Result<T>
 where
@@ -265,7 +240,6 @@ where
     let mut result__ = ::core::option::Option::None;
     CoUnmarshalInterface(pstm.into().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserFree(param0: &u32, param1: &super::super::super::UI::WindowsAndMessaging::HACCEL) {
@@ -275,7 +249,6 @@ pub unsafe fn HACCEL_UserFree(param0: &u32, param1: &super::super::super::UI::Wi
     }
     HACCEL_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserFree64(param0: &u32, param1: &super::super::super::UI::WindowsAndMessaging::HACCEL) {
@@ -285,7 +258,6 @@ pub unsafe fn HACCEL_UserFree64(param0: &u32, param1: &super::super::super::UI::
     }
     HACCEL_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::UI::WindowsAndMessaging::HACCEL) -> *mut u8 {
@@ -295,7 +267,6 @@ pub unsafe fn HACCEL_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::
     }
     HACCEL_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::UI::WindowsAndMessaging::HACCEL) -> *mut u8 {
@@ -305,7 +276,6 @@ pub unsafe fn HACCEL_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super
     }
     HACCEL_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserSize(param0: &u32, param1: u32, param2: &super::super::super::UI::WindowsAndMessaging::HACCEL) -> u32 {
@@ -315,7 +285,6 @@ pub unsafe fn HACCEL_UserSize(param0: &u32, param1: u32, param2: &super::super::
     }
     HACCEL_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::UI::WindowsAndMessaging::HACCEL) -> u32 {
@@ -325,7 +294,6 @@ pub unsafe fn HACCEL_UserSize64(param0: &u32, param1: u32, param2: &super::super
     }
     HACCEL_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::UI::WindowsAndMessaging::HACCEL) -> *mut u8 {
@@ -335,7 +303,6 @@ pub unsafe fn HACCEL_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut
     }
     HACCEL_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HACCEL_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::UI::WindowsAndMessaging::HACCEL) -> *mut u8 {
@@ -345,7 +312,6 @@ pub unsafe fn HACCEL_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &m
     }
     HACCEL_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserFree(param0: &u32, param1: &super::super::super::Graphics::Gdi::HBITMAP) {
@@ -355,7 +321,6 @@ pub unsafe fn HBITMAP_UserFree(param0: &u32, param1: &super::super::super::Graph
     }
     HBITMAP_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserFree64(param0: &u32, param1: &super::super::super::Graphics::Gdi::HBITMAP) {
@@ -365,7 +330,6 @@ pub unsafe fn HBITMAP_UserFree64(param0: &u32, param1: &super::super::super::Gra
     }
     HBITMAP_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::Graphics::Gdi::HBITMAP) -> *mut u8 {
@@ -375,7 +339,6 @@ pub unsafe fn HBITMAP_UserMarshal(param0: &u32, param1: &mut u8, param2: &super:
     }
     HBITMAP_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::Graphics::Gdi::HBITMAP) -> *mut u8 {
@@ -385,7 +348,6 @@ pub unsafe fn HBITMAP_UserMarshal64(param0: &u32, param1: &mut u8, param2: &supe
     }
     HBITMAP_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserSize(param0: &u32, param1: u32, param2: &super::super::super::Graphics::Gdi::HBITMAP) -> u32 {
@@ -395,7 +357,6 @@ pub unsafe fn HBITMAP_UserSize(param0: &u32, param1: u32, param2: &super::super:
     }
     HBITMAP_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::Graphics::Gdi::HBITMAP) -> u32 {
@@ -405,7 +366,6 @@ pub unsafe fn HBITMAP_UserSize64(param0: &u32, param1: u32, param2: &super::supe
     }
     HBITMAP_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::Graphics::Gdi::HBITMAP) -> *mut u8 {
@@ -415,7 +375,6 @@ pub unsafe fn HBITMAP_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mu
     }
     HBITMAP_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HBITMAP_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::Graphics::Gdi::HBITMAP) -> *mut u8 {
@@ -425,7 +384,6 @@ pub unsafe fn HBITMAP_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &
     }
     HBITMAP_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserFree(param0: &u32, param1: &super::super::super::Graphics::Gdi::HDC) {
@@ -435,7 +393,6 @@ pub unsafe fn HDC_UserFree(param0: &u32, param1: &super::super::super::Graphics:
     }
     HDC_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserFree64(param0: &u32, param1: &super::super::super::Graphics::Gdi::HDC) {
@@ -445,7 +402,6 @@ pub unsafe fn HDC_UserFree64(param0: &u32, param1: &super::super::super::Graphic
     }
     HDC_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::Graphics::Gdi::HDC) -> *mut u8 {
@@ -455,7 +411,6 @@ pub unsafe fn HDC_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::sup
     }
     HDC_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::Graphics::Gdi::HDC) -> *mut u8 {
@@ -465,7 +420,6 @@ pub unsafe fn HDC_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::s
     }
     HDC_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserSize(param0: &u32, param1: u32, param2: &super::super::super::Graphics::Gdi::HDC) -> u32 {
@@ -475,7 +429,6 @@ pub unsafe fn HDC_UserSize(param0: &u32, param1: u32, param2: &super::super::sup
     }
     HDC_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::Graphics::Gdi::HDC) -> u32 {
@@ -485,7 +438,6 @@ pub unsafe fn HDC_UserSize64(param0: &u32, param1: u32, param2: &super::super::s
     }
     HDC_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::Graphics::Gdi::HDC) -> *mut u8 {
@@ -495,7 +447,6 @@ pub unsafe fn HDC_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut su
     }
     HDC_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HDC_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::Graphics::Gdi::HDC) -> *mut u8 {
@@ -505,7 +456,6 @@ pub unsafe fn HDC_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut 
     }
     HDC_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserFree(param0: &u32, param1: &isize) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -514,7 +464,6 @@ pub unsafe fn HGLOBAL_UserFree(param0: &u32, param1: &isize) {
     }
     HGLOBAL_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserFree64(param0: &u32, param1: &isize) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -523,7 +472,6 @@ pub unsafe fn HGLOBAL_UserFree64(param0: &u32, param1: &isize) {
     }
     HGLOBAL_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserMarshal(param0: &u32, param1: &mut u8, param2: &isize) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -532,7 +480,6 @@ pub unsafe fn HGLOBAL_UserMarshal(param0: &u32, param1: &mut u8, param2: &isize)
     }
     HGLOBAL_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserMarshal64(param0: &u32, param1: &mut u8, param2: &isize) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -541,7 +488,6 @@ pub unsafe fn HGLOBAL_UserMarshal64(param0: &u32, param1: &mut u8, param2: &isiz
     }
     HGLOBAL_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserSize(param0: &u32, param1: u32, param2: &isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -550,7 +496,6 @@ pub unsafe fn HGLOBAL_UserSize(param0: &u32, param1: u32, param2: &isize) -> u32
     }
     HGLOBAL_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserSize64(param0: &u32, param1: u32, param2: &isize) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -559,7 +504,6 @@ pub unsafe fn HGLOBAL_UserSize64(param0: &u32, param1: u32, param2: &isize) -> u
     }
     HGLOBAL_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut isize) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -568,7 +512,6 @@ pub unsafe fn HGLOBAL_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mu
     }
     HGLOBAL_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn HGLOBAL_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut isize) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -577,7 +520,6 @@ pub unsafe fn HGLOBAL_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &
     }
     HGLOBAL_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserFree(param0: &u32, param1: &super::super::super::UI::WindowsAndMessaging::HICON) {
@@ -587,7 +529,6 @@ pub unsafe fn HICON_UserFree(param0: &u32, param1: &super::super::super::UI::Win
     }
     HICON_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserFree64(param0: &u32, param1: &super::super::super::UI::WindowsAndMessaging::HICON) {
@@ -597,7 +538,6 @@ pub unsafe fn HICON_UserFree64(param0: &u32, param1: &super::super::super::UI::W
     }
     HICON_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::UI::WindowsAndMessaging::HICON) -> *mut u8 {
@@ -607,7 +547,6 @@ pub unsafe fn HICON_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::s
     }
     HICON_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::UI::WindowsAndMessaging::HICON) -> *mut u8 {
@@ -617,7 +556,6 @@ pub unsafe fn HICON_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super:
     }
     HICON_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserSize(param0: &u32, param1: u32, param2: &super::super::super::UI::WindowsAndMessaging::HICON) -> u32 {
@@ -627,7 +565,6 @@ pub unsafe fn HICON_UserSize(param0: &u32, param1: u32, param2: &super::super::s
     }
     HICON_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::UI::WindowsAndMessaging::HICON) -> u32 {
@@ -637,7 +574,6 @@ pub unsafe fn HICON_UserSize64(param0: &u32, param1: u32, param2: &super::super:
     }
     HICON_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::UI::WindowsAndMessaging::HICON) -> *mut u8 {
@@ -647,7 +583,6 @@ pub unsafe fn HICON_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut 
     }
     HICON_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HICON_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::UI::WindowsAndMessaging::HICON) -> *mut u8 {
@@ -657,7 +592,6 @@ pub unsafe fn HICON_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mu
     }
     HICON_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserFree(param0: &u32, param1: &super::super::super::UI::WindowsAndMessaging::HMENU) {
@@ -667,7 +601,6 @@ pub unsafe fn HMENU_UserFree(param0: &u32, param1: &super::super::super::UI::Win
     }
     HMENU_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserFree64(param0: &u32, param1: &super::super::super::UI::WindowsAndMessaging::HMENU) {
@@ -677,7 +610,6 @@ pub unsafe fn HMENU_UserFree64(param0: &u32, param1: &super::super::super::UI::W
     }
     HMENU_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::UI::WindowsAndMessaging::HMENU) -> *mut u8 {
@@ -687,7 +619,6 @@ pub unsafe fn HMENU_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::s
     }
     HMENU_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::UI::WindowsAndMessaging::HMENU) -> *mut u8 {
@@ -697,7 +628,6 @@ pub unsafe fn HMENU_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super:
     }
     HMENU_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserSize(param0: &u32, param1: u32, param2: &super::super::super::UI::WindowsAndMessaging::HMENU) -> u32 {
@@ -707,7 +637,6 @@ pub unsafe fn HMENU_UserSize(param0: &u32, param1: u32, param2: &super::super::s
     }
     HMENU_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::UI::WindowsAndMessaging::HMENU) -> u32 {
@@ -717,7 +646,6 @@ pub unsafe fn HMENU_UserSize64(param0: &u32, param1: u32, param2: &super::super:
     }
     HMENU_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::UI::WindowsAndMessaging::HMENU) -> *mut u8 {
@@ -727,7 +655,6 @@ pub unsafe fn HMENU_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut 
     }
     HMENU_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn HMENU_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::UI::WindowsAndMessaging::HMENU) -> *mut u8 {
@@ -737,7 +664,6 @@ pub unsafe fn HMENU_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mu
     }
     HMENU_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserFree(param0: &u32, param1: &super::super::super::Graphics::Gdi::HPALETTE) {
@@ -747,7 +673,6 @@ pub unsafe fn HPALETTE_UserFree(param0: &u32, param1: &super::super::super::Grap
     }
     HPALETTE_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserFree64(param0: &u32, param1: &super::super::super::Graphics::Gdi::HPALETTE) {
@@ -757,7 +682,6 @@ pub unsafe fn HPALETTE_UserFree64(param0: &u32, param1: &super::super::super::Gr
     }
     HPALETTE_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::Graphics::Gdi::HPALETTE) -> *mut u8 {
@@ -767,7 +691,6 @@ pub unsafe fn HPALETTE_UserMarshal(param0: &u32, param1: &mut u8, param2: &super
     }
     HPALETTE_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::Graphics::Gdi::HPALETTE) -> *mut u8 {
@@ -777,7 +700,6 @@ pub unsafe fn HPALETTE_UserMarshal64(param0: &u32, param1: &mut u8, param2: &sup
     }
     HPALETTE_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserSize(param0: &u32, param1: u32, param2: &super::super::super::Graphics::Gdi::HPALETTE) -> u32 {
@@ -787,7 +709,6 @@ pub unsafe fn HPALETTE_UserSize(param0: &u32, param1: u32, param2: &super::super
     }
     HPALETTE_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::Graphics::Gdi::HPALETTE) -> u32 {
@@ -797,7 +718,6 @@ pub unsafe fn HPALETTE_UserSize64(param0: &u32, param1: u32, param2: &super::sup
     }
     HPALETTE_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::Graphics::Gdi::HPALETTE) -> *mut u8 {
@@ -807,7 +727,6 @@ pub unsafe fn HPALETTE_UserUnmarshal(param0: &u32, param1: *const u8, param2: &m
     }
     HPALETTE_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn HPALETTE_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::Graphics::Gdi::HPALETTE) -> *mut u8 {
@@ -817,7 +736,6 @@ pub unsafe fn HPALETTE_UserUnmarshal64(param0: &u32, param1: *const u8, param2: 
     }
     HPALETTE_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserFree(param0: &u32, param1: &super::super::super::Foundation::HWND) {
@@ -827,7 +745,6 @@ pub unsafe fn HWND_UserFree(param0: &u32, param1: &super::super::super::Foundati
     }
     HWND_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserFree64(param0: &u32, param1: &super::super::super::Foundation::HWND) {
@@ -837,7 +754,6 @@ pub unsafe fn HWND_UserFree64(param0: &u32, param1: &super::super::super::Founda
     }
     HWND_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::super::super::Foundation::HWND) -> *mut u8 {
@@ -847,7 +763,6 @@ pub unsafe fn HWND_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::su
     }
     HWND_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::super::super::Foundation::HWND) -> *mut u8 {
@@ -857,7 +772,6 @@ pub unsafe fn HWND_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::
     }
     HWND_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserSize(param0: &u32, param1: u32, param2: &super::super::super::Foundation::HWND) -> u32 {
@@ -867,7 +781,6 @@ pub unsafe fn HWND_UserSize(param0: &u32, param1: u32, param2: &super::super::su
     }
     HWND_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserSize64(param0: &u32, param1: u32, param2: &super::super::super::Foundation::HWND) -> u32 {
@@ -877,7 +790,6 @@ pub unsafe fn HWND_UserSize64(param0: &u32, param1: u32, param2: &super::super::
     }
     HWND_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::super::super::Foundation::HWND) -> *mut u8 {
@@ -887,7 +799,6 @@ pub unsafe fn HWND_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut s
     }
     HWND_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HWND_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::super::super::Foundation::HWND) -> *mut u8 {
@@ -897,7 +808,6 @@ pub unsafe fn HWND_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut
     }
     HWND_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
 pub struct IMarshal(::windows::core::IUnknown);
 impl IMarshal {
@@ -975,7 +885,6 @@ pub struct IMarshal_Vtbl {
     pub ReleaseMarshalData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstm: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DisconnectObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
 pub struct IMarshal2(::windows::core::IUnknown);
 impl IMarshal2 {
@@ -1062,7 +971,6 @@ unsafe impl ::windows::core::Interface for IMarshal2 {
 pub struct IMarshal2_Vtbl {
     pub base__: IMarshal_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
 pub struct IMarshalingStream(::windows::core::IUnknown);
 impl IMarshalingStream {
@@ -1097,7 +1005,6 @@ impl IMarshalingStream {
     pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.UnlockRegion)(::windows::core::Interface::as_raw(self), liboffset, cb, dwlocktype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Stat(&self, pstatstg: &mut super::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatstg), grfstatflag).ok()
@@ -1182,7 +1089,6 @@ pub struct IMarshalingStream_Vtbl {
     pub base__: super::IStream_Vtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserFree(param0: &u32, param1: &*const super::SAFEARRAY) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1191,7 +1097,6 @@ pub unsafe fn LPSAFEARRAY_UserFree(param0: &u32, param1: &*const super::SAFEARRA
     }
     LPSAFEARRAY_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserFree64(param0: &u32, param1: &*const super::SAFEARRAY) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1200,7 +1105,6 @@ pub unsafe fn LPSAFEARRAY_UserFree64(param0: &u32, param1: &*const super::SAFEAR
     }
     LPSAFEARRAY_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserMarshal(param0: &u32, param1: &mut u8, param2: &*const super::SAFEARRAY) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1209,7 +1113,6 @@ pub unsafe fn LPSAFEARRAY_UserMarshal(param0: &u32, param1: &mut u8, param2: &*c
     }
     LPSAFEARRAY_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserMarshal64(param0: &u32, param1: &mut u8, param2: &*const super::SAFEARRAY) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1218,7 +1121,6 @@ pub unsafe fn LPSAFEARRAY_UserMarshal64(param0: &u32, param1: &mut u8, param2: &
     }
     LPSAFEARRAY_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserSize(param0: &u32, param1: u32, param2: &*const super::SAFEARRAY) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1227,7 +1129,6 @@ pub unsafe fn LPSAFEARRAY_UserSize(param0: &u32, param1: u32, param2: &*const su
     }
     LPSAFEARRAY_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserSize64(param0: &u32, param1: u32, param2: &*const super::SAFEARRAY) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1236,7 +1137,6 @@ pub unsafe fn LPSAFEARRAY_UserSize64(param0: &u32, param1: u32, param2: &*const 
     }
     LPSAFEARRAY_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut *mut super::SAFEARRAY) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1245,7 +1145,6 @@ pub unsafe fn LPSAFEARRAY_UserUnmarshal(param0: &u32, param1: *const u8, param2:
     }
     LPSAFEARRAY_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn LPSAFEARRAY_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut *mut super::SAFEARRAY) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1254,7 +1153,6 @@ pub unsafe fn LPSAFEARRAY_UserUnmarshal64(param0: &u32, param1: *const u8, param
     }
     LPSAFEARRAY_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserFree(param0: &u32, param1: &*const *const u16) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1263,7 +1161,6 @@ pub unsafe fn SNB_UserFree(param0: &u32, param1: &*const *const u16) {
     }
     SNB_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserFree64(param0: &u32, param1: &*const *const u16) {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1272,7 +1169,6 @@ pub unsafe fn SNB_UserFree64(param0: &u32, param1: &*const *const u16) {
     }
     SNB_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserMarshal(param0: &u32, param1: &mut u8, param2: &*const *const u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1281,7 +1177,6 @@ pub unsafe fn SNB_UserMarshal(param0: &u32, param1: &mut u8, param2: &*const *co
     }
     SNB_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserMarshal64(param0: &u32, param1: &mut u8, param2: &*const *const u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1290,7 +1185,6 @@ pub unsafe fn SNB_UserMarshal64(param0: &u32, param1: &mut u8, param2: &*const *
     }
     SNB_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserSize(param0: &u32, param1: u32, param2: &*const *const u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1299,7 +1193,6 @@ pub unsafe fn SNB_UserSize(param0: &u32, param1: u32, param2: &*const *const u16
     }
     SNB_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserSize64(param0: &u32, param1: u32, param2: &*const *const u16) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1308,7 +1201,6 @@ pub unsafe fn SNB_UserSize64(param0: &u32, param1: u32, param2: &*const *const u
     }
     SNB_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut *mut *mut u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1317,7 +1209,6 @@ pub unsafe fn SNB_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut *m
     }
     SNB_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[inline]
 pub unsafe fn SNB_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut *mut *mut u16) -> *mut u8 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1326,13 +1217,10 @@ pub unsafe fn SNB_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut 
     }
     SNB_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct STDMSHLFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`*"]
 pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
 impl ::core::marker::Copy for STDMSHLFLAGS {}
 impl ::core::clone::Clone for STDMSHLFLAGS {
@@ -1353,7 +1241,6 @@ impl ::core::fmt::Debug for STDMSHLFLAGS {
         f.debug_tuple("STDMSHLFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserFree(param0: &u32, param1: &super::STGMEDIUM) {
@@ -1363,7 +1250,6 @@ pub unsafe fn STGMEDIUM_UserFree(param0: &u32, param1: &super::STGMEDIUM) {
     }
     STGMEDIUM_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserFree64(param0: &u32, param1: &super::STGMEDIUM) {
@@ -1373,7 +1259,6 @@ pub unsafe fn STGMEDIUM_UserFree64(param0: &u32, param1: &super::STGMEDIUM) {
     }
     STGMEDIUM_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::STGMEDIUM) -> *mut u8 {
@@ -1383,7 +1268,6 @@ pub unsafe fn STGMEDIUM_UserMarshal(param0: &u32, param1: &mut u8, param2: &supe
     }
     STGMEDIUM_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::STGMEDIUM) -> *mut u8 {
@@ -1393,7 +1277,6 @@ pub unsafe fn STGMEDIUM_UserMarshal64(param0: &u32, param1: &mut u8, param2: &su
     }
     STGMEDIUM_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserSize(param0: &u32, param1: u32, param2: &super::STGMEDIUM) -> u32 {
@@ -1403,7 +1286,6 @@ pub unsafe fn STGMEDIUM_UserSize(param0: &u32, param1: u32, param2: &super::STGM
     }
     STGMEDIUM_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserSize64(param0: &u32, param1: u32, param2: &super::STGMEDIUM) -> u32 {
@@ -1413,7 +1295,6 @@ pub unsafe fn STGMEDIUM_UserSize64(param0: &u32, param1: u32, param2: &super::ST
     }
     STGMEDIUM_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::STGMEDIUM) -> *mut u8 {
@@ -1423,7 +1304,6 @@ pub unsafe fn STGMEDIUM_UserUnmarshal(param0: &u32, param1: *const u8, param2: &
     }
     STGMEDIUM_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::STGMEDIUM) -> *mut u8 {
@@ -1433,7 +1313,6 @@ pub unsafe fn STGMEDIUM_UserUnmarshal64(param0: &u32, param1: *const u8, param2:
     }
     STGMEDIUM_UserUnmarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree(param0: &u32, param1: &super::VARIANT) {
@@ -1443,7 +1322,6 @@ pub unsafe fn VARIANT_UserFree(param0: &u32, param1: &super::VARIANT) {
     }
     VARIANT_UserFree(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserFree64(param0: &u32, param1: &super::VARIANT) {
@@ -1453,7 +1331,6 @@ pub unsafe fn VARIANT_UserFree64(param0: &u32, param1: &super::VARIANT) {
     }
     VARIANT_UserFree64(::core::mem::transmute(param0), ::core::mem::transmute(param1))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserMarshal(param0: &u32, param1: &mut u8, param2: &super::VARIANT) -> *mut u8 {
@@ -1463,7 +1340,6 @@ pub unsafe fn VARIANT_UserMarshal(param0: &u32, param1: &mut u8, param2: &super:
     }
     VARIANT_UserMarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserMarshal64(param0: &u32, param1: &mut u8, param2: &super::VARIANT) -> *mut u8 {
@@ -1473,7 +1349,6 @@ pub unsafe fn VARIANT_UserMarshal64(param0: &u32, param1: &mut u8, param2: &supe
     }
     VARIANT_UserMarshal64(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserSize(param0: &u32, param1: u32, param2: &super::VARIANT) -> u32 {
@@ -1483,7 +1358,6 @@ pub unsafe fn VARIANT_UserSize(param0: &u32, param1: u32, param2: &super::VARIAN
     }
     VARIANT_UserSize(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserSize64(param0: &u32, param1: u32, param2: &super::VARIANT) -> u32 {
@@ -1493,7 +1367,6 @@ pub unsafe fn VARIANT_UserSize64(param0: &u32, param1: u32, param2: &super::VARI
     }
     VARIANT_UserSize64(::core::mem::transmute(param0), param1, ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mut super::VARIANT) -> *mut u8 {
@@ -1503,7 +1376,6 @@ pub unsafe fn VARIANT_UserUnmarshal(param0: &u32, param1: *const u8, param2: &mu
     }
     VARIANT_UserUnmarshal(::core::mem::transmute(param0), ::core::mem::transmute(param1), ::core::mem::transmute(param2))
 }
-#[doc = "*Required features: `\"Win32_System_Com_Marshal\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VARIANT_UserUnmarshal64(param0: &u32, param1: *const u8, param2: &mut super::VARIANT) -> *mut u8 {

@@ -78,11 +78,9 @@ pub struct ISystemSupportInfoStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub LocalDeviceInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 #[repr(transparent)]
 pub struct OemSupportInfo(::windows::core::IUnknown);
 impl OemSupportInfo {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SupportLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -91,7 +89,6 @@ impl OemSupportInfo {
             (::windows::core::Interface::vtable(this).SupportLink)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SupportAppLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -170,7 +167,6 @@ impl ::core::convert::From<&OemSupportInfo> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for OemSupportInfo {}
 unsafe impl ::core::marker::Sync for OemSupportInfo {}
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 pub struct SmbiosInformation;
 impl SmbiosInformation {
     pub fn SerialNumber() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -188,7 +184,6 @@ impl SmbiosInformation {
 impl ::windows::core::RuntimeName for SmbiosInformation {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SmbiosInformation";
 }
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 #[repr(transparent)]
 pub struct SystemSupportDeviceInfo(::windows::core::IUnknown);
 impl SystemSupportDeviceInfo {
@@ -304,7 +299,6 @@ impl ::core::convert::From<&SystemSupportDeviceInfo> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::core::marker::Sync for SystemSupportDeviceInfo {}
-#[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
 pub struct SystemSupportInfo;
 impl SystemSupportInfo {
     pub fn LocalSystemEdition() -> ::windows::core::Result<::windows::core::HSTRING> {

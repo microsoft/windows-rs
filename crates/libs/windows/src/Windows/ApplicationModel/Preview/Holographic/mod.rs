@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`*"]
 pub struct HolographicApplicationPreview;
 impl HolographicApplicationPreview {
     pub fn IsCurrentViewPresentedOnHolographicDisplay() -> ::windows::core::Result<bool> {
@@ -7,7 +6,6 @@ impl HolographicApplicationPreview {
             (::windows::core::Interface::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
     #[cfg(feature = "ApplicationModel_Activation")]
     pub fn IsHolographicActivation<'a, P0, E0>(activatedeventargs: P0) -> ::windows::core::Result<bool>
     where
@@ -28,13 +26,11 @@ impl HolographicApplicationPreview {
 impl ::windows::core::RuntimeName for HolographicApplicationPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Holographic.HolographicApplicationPreview";
 }
-#[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct HolographicKeyboardPlacementOverridePreview(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl HolographicKeyboardPlacementOverridePreview {
-    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
     pub fn SetPlacementOverride<'a, P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()>
     where
@@ -43,7 +39,6 @@ impl HolographicKeyboardPlacementOverridePreview {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverride)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), topcenterposition, normal).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`, `\"Perception_Spatial\"`, `\"deprecated\"`*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial", feature = "deprecated"))]
     pub fn SetPlacementOverrideWithMaxSize<'a, P0>(&self, coordinatesystem: P0, topcenterposition: super::super::super::Foundation::Numerics::Vector3, normal: super::super::super::Foundation::Numerics::Vector3, maxsize: super::super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()>
     where
@@ -52,13 +47,11 @@ impl HolographicKeyboardPlacementOverridePreview {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(::windows::core::Interface::as_raw(this), coordinatesystem.into().abi(), topcenterposition, normal, maxsize).ok() }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ResetPlacementOverride(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).ResetPlacementOverride)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn GetForCurrentView() -> ::windows::core::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {

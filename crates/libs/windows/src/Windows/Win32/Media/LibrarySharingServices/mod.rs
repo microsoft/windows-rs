@@ -1,10 +1,8 @@
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDevice(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDevice {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -17,7 +15,6 @@ impl IWindowsMediaLibrarySharingDevice {
     pub unsafe fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAuthorization)(::windows::core::Interface::as_raw(self), authorization).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperties> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -101,13 +98,11 @@ pub struct IWindowsMediaLibrarySharingDevice_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDeviceProperties(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDeviceProperties {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -117,7 +112,6 @@ impl IWindowsMediaLibrarySharingDeviceProperties {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetProperty<'a, P0>(&self, name: P0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDeviceProperty>
     where
@@ -203,19 +197,16 @@ pub struct IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDeviceProperty(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDeviceProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -297,13 +288,11 @@ pub struct IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     Value: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingDevices(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDevices {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, index: i32) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -313,7 +302,6 @@ impl IWindowsMediaLibrarySharingDevices {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetDevice<'a, P0>(&self, deviceid: P0) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevice>
     where
@@ -399,13 +387,11 @@ pub struct IWindowsMediaLibrarySharingDevices_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetDevice: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IWindowsMediaLibrarySharingServices(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingServices {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn showShareMediaCPL<'a, P0>(&self, device: P0) -> ::windows::core::Result<()>
     where
@@ -420,13 +406,11 @@ impl IWindowsMediaLibrarySharingServices {
     pub unsafe fn SetuserHomeMediaSharingState(&self, sharingenabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetuserHomeMediaSharingState)(::windows::core::Interface::as_raw(self), sharingenabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn userHomeMediaSharingLibraryName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).userHomeMediaSharingLibraryName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetuserHomeMediaSharingLibraryName<'a, P0>(&self, libraryname: P0) -> ::windows::core::Result<()>
     where
@@ -455,13 +439,11 @@ impl IWindowsMediaLibrarySharingServices {
     pub unsafe fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(::windows::core::Interface::as_raw(self), sharingallowed).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn internetMediaSharingSecurityGroup(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).internetMediaSharingSecurityGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetinternetMediaSharingSecurityGroup<'a, P0>(&self, securitygroup: P0) -> ::windows::core::Result<()>
     where
@@ -476,7 +458,6 @@ impl IWindowsMediaLibrarySharingServices {
     pub unsafe fn SetallowSharingToAllDevices(&self, sharingenabled: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetallowSharingToAllDevices)(::windows::core::Interface::as_raw(self), sharingenabled).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setDefaultAuthorization<'a, P0, P1>(&self, macaddresses: P0, friendlyname: P1, authorization: i16) -> ::windows::core::Result<()>
     where
@@ -485,7 +466,6 @@ impl IWindowsMediaLibrarySharingServices {
     {
         (::windows::core::Interface::vtable(self).setDefaultAuthorization)(::windows::core::Interface::as_raw(self), macaddresses.into().abi(), friendlyname.into().abi(), authorization).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setAuthorizationState<'a, P0>(&self, macaddress: P0, authorizationstate: i16) -> ::windows::core::Result<()>
     where
@@ -493,7 +473,6 @@ impl IWindowsMediaLibrarySharingServices {
     {
         (::windows::core::Interface::vtable(self).setAuthorizationState)(::windows::core::Interface::as_raw(self), macaddress.into().abi(), authorizationstate).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAllDevices(&self) -> ::windows::core::Result<IWindowsMediaLibrarySharingDevices> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -614,15 +593,11 @@ pub struct IWindowsMediaLibrarySharingServices_Vtbl {
     getAllDevices: usize,
     pub customSettingsApplied: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customsettingsapplied: *mut i16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 pub const DEVICE_AUTHORIZATION_ALLOWED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(1i32);
-#[doc = "*Required features: `\"Win32_Media_LibrarySharingServices\"`*"]
 pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(2i32);
 impl ::core::marker::Copy for WindowsMediaLibrarySharingDeviceAuthorizationStatus {}
 impl ::core::clone::Clone for WindowsMediaLibrarySharingDeviceAuthorizationStatus {

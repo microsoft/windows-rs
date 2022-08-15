@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::super::super::System::Com::StructuredStorage::PROPVARIANT]) {
@@ -8,7 +7,6 @@ pub unsafe fn ClearPropVariantArray(rgpropvar: &mut [super::super::super::System
     }
     ClearPropVariantArray(::core::mem::transmute(rgpropvar.as_ptr()), rgpropvar.len() as _)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::VARIANT]) {
@@ -18,21 +16,14 @@ pub unsafe fn ClearVariantArray(pvars: &mut [super::super::super::System::Com::V
     }
     ClearVariantArray(::core::mem::transmute(pvars.as_ptr()), pvars.len() as _)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DRAWPROGRESSFLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const DPF_NONE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const DPF_MARQUEE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const DPF_MARQUEE_COMPLETE: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const DPF_ERROR: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const DPF_WARNING: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const DPF_STOPPED: DRAWPROGRESSFLAGS = DRAWPROGRESSFLAGS(16u32);
 impl ::core::marker::Copy for DRAWPROGRESSFLAGS {}
 impl ::core::clone::Clone for DRAWPROGRESSFLAGS {
@@ -81,39 +72,23 @@ impl ::core::ops::Not for DRAWPROGRESSFLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GETPROPERTYSTOREFLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_DEFAULT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_HANDLERPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_READWRITE: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_TEMPORARY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_FASTPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_OPENSLOWITEM: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_DELAYCREATION: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_BESTEFFORT: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_NO_OPLOCK: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_PREFERQUERYPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_EXTRINSICPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_EXTRINSICPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_VOLATILEPROPERTIES: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_VOLATILEPROPERTIESONLY: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const GPS_MASK_VALID: GETPROPERTYSTOREFLAGS = GETPROPERTYSTOREFLAGS(8191u32);
 impl ::core::marker::Copy for GETPROPERTYSTOREFLAGS {}
 impl ::core::clone::Clone for GETPROPERTYSTOREFLAGS {
@@ -162,7 +137,6 @@ impl ::core::ops::Not for GETPROPERTYSTOREFLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct ICreateObject(::windows::core::IUnknown);
 impl ICreateObject {
@@ -216,7 +190,6 @@ pub struct ICreateObject_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CreateObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clsid: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IDelayedPropertyStoreFactory(::windows::core::IUnknown);
 impl IDelayedPropertyStoreFactory {
@@ -299,7 +272,6 @@ pub struct IDelayedPropertyStoreFactory_Vtbl {
     pub base__: IPropertyStoreFactory_Vtbl,
     pub GetDelayedPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, dwstoreid: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IInitializeWithFile(::windows::core::IUnknown);
 impl IInitializeWithFile {
@@ -351,11 +323,9 @@ pub struct IInitializeWithFile_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszfilepath: ::windows::core::PCWSTR, grfmode: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IInitializeWithStream(::windows::core::IUnknown);
 impl IInitializeWithStream {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<'a, P0>(&self, pstream: P0, grfmode: u32) -> ::windows::core::Result<()>
     where
@@ -408,11 +378,9 @@ pub struct IInitializeWithStream_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Initialize: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct INamedPropertyStore(::windows::core::IUnknown);
 impl INamedPropertyStore {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetNamedValue<'a, P0>(&self, pszname: P0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
     where
@@ -421,7 +389,6 @@ impl INamedPropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNamedValue)(::windows::core::Interface::as_raw(self), pszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetNamedValue<'a, P0>(&self, pszname: P0, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
     where
@@ -433,7 +400,6 @@ impl INamedPropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNameCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNameAt(&self, iprop: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -493,7 +459,6 @@ pub struct INamedPropertyStore_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetNameAt: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IObjectWithPropertyKey(::windows::core::IUnknown);
 impl IObjectWithPropertyKey {
@@ -547,7 +512,6 @@ pub struct IObjectWithPropertyKey_Vtbl {
     pub SetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows::core::HRESULT,
     pub GetPropertyKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *mut PROPERTYKEY) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPersistSerializedPropStorage(::windows::core::IUnknown);
 impl IPersistSerializedPropStorage {
@@ -604,7 +568,6 @@ pub struct IPersistSerializedPropStorage_Vtbl {
     pub SetPropertyStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psps: *const SERIALIZEDPROPSTORAGE, cb: u32) -> ::windows::core::HRESULT,
     pub GetPropertyStorage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsps: *mut *mut SERIALIZEDPROPSTORAGE, pcb: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPersistSerializedPropStorage2(::windows::core::IUnknown);
 impl IPersistSerializedPropStorage2 {
@@ -682,7 +645,6 @@ pub struct IPersistSerializedPropStorage2_Vtbl {
     pub GetPropertyStorageSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows::core::HRESULT,
     pub GetPropertyStorageBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psps: *mut SERIALIZEDPROPSTORAGE, cb: u32, pcbwritten: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyChange(::windows::core::IUnknown);
 impl IPropertyChange {
@@ -693,7 +655,6 @@ impl IPropertyChange {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPropertyKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn ApplyToPropVariant(&self, propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -759,7 +720,6 @@ pub struct IPropertyChange_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     ApplyToPropVariant: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyChangeArray(::windows::core::IUnknown);
 impl IPropertyChangeArray {
@@ -846,7 +806,6 @@ pub struct IPropertyChangeArray_Vtbl {
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iindex: u32) -> ::windows::core::HRESULT,
     pub IsKeyInArray: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyDescription(::windows::core::IUnknown);
 impl IPropertyDescription {
@@ -898,7 +857,6 @@ impl IPropertyDescription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRelativeDescriptionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_RELATIVEDESCRIPTION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: &mut ::windows::core::PWSTR, ppszdesc2: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetRelativeDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(ppszdesc1), ::core::mem::transmute(ppszdesc2)).ok()
@@ -907,7 +865,6 @@ impl IPropertyDescription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSortDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_SORTDESCRIPTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSortDescriptionLabel<'a, P0>(&self, fdescending: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -920,7 +877,6 @@ impl IPropertyDescription {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAggregationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_AGGREGATION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
     #[cfg(feature = "Win32_System_Search_Common")]
     pub unsafe fn GetConditionType(&self, pcontype: &mut PROPDESC_CONDITION_TYPE, popdefault: &mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetConditionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontype), ::core::mem::transmute(popdefault)).ok()
@@ -932,18 +888,15 @@ impl IPropertyDescription {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetEnumTypeList)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CoerceToCanonicalValue(&self, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CoerceToCanonicalValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn IsValueCanonical(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsValueCanonical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar)).ok()
@@ -1028,7 +981,6 @@ pub struct IPropertyDescription_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     IsValueCanonical: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyDescription2(::windows::core::IUnknown);
 impl IPropertyDescription2 {
@@ -1080,7 +1032,6 @@ impl IPropertyDescription2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescriptionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_RELATIVEDESCRIPTION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: &mut ::windows::core::PWSTR, ppszdesc2: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(ppszdesc1), ::core::mem::transmute(ppszdesc2)).ok()
@@ -1089,7 +1040,6 @@ impl IPropertyDescription2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSortDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_SORTDESCRIPTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSortDescriptionLabel<'a, P0>(&self, fdescending: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -1102,7 +1052,6 @@ impl IPropertyDescription2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAggregationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_AGGREGATION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
     #[cfg(feature = "Win32_System_Search_Common")]
     pub unsafe fn GetConditionType(&self, pcontype: &mut PROPDESC_CONDITION_TYPE, popdefault: &mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetConditionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontype), ::core::mem::transmute(popdefault)).ok()
@@ -1114,23 +1063,19 @@ impl IPropertyDescription2 {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetEnumTypeList)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CoerceToCanonicalValue(&self, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CoerceToCanonicalValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn IsValueCanonical(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.IsValueCanonical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetImageReferenceForValue(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1196,7 +1141,6 @@ pub struct IPropertyDescription2_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     GetImageReferenceForValue: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyDescriptionAliasInfo(::windows::core::IUnknown);
 impl IPropertyDescriptionAliasInfo {
@@ -1248,7 +1192,6 @@ impl IPropertyDescriptionAliasInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescriptionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_RELATIVEDESCRIPTION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: &mut ::windows::core::PWSTR, ppszdesc2: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(ppszdesc1), ::core::mem::transmute(ppszdesc2)).ok()
@@ -1257,7 +1200,6 @@ impl IPropertyDescriptionAliasInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSortDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_SORTDESCRIPTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSortDescriptionLabel<'a, P0>(&self, fdescending: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -1270,7 +1212,6 @@ impl IPropertyDescriptionAliasInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAggregationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_AGGREGATION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
     #[cfg(feature = "Win32_System_Search_Common")]
     pub unsafe fn GetConditionType(&self, pcontype: &mut PROPDESC_CONDITION_TYPE, popdefault: &mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetConditionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontype), ::core::mem::transmute(popdefault)).ok()
@@ -1282,18 +1223,15 @@ impl IPropertyDescriptionAliasInfo {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetEnumTypeList)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CoerceToCanonicalValue(&self, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CoerceToCanonicalValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn IsValueCanonical(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.IsValueCanonical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar)).ok()
@@ -1370,7 +1308,6 @@ pub struct IPropertyDescriptionAliasInfo_Vtbl {
     pub GetSortByAlias: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAdditionalSortByAliases: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyDescriptionList(::windows::core::IUnknown);
 impl IPropertyDescriptionList {
@@ -1428,7 +1365,6 @@ pub struct IPropertyDescriptionList_Vtbl {
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcelem: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ielem: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyDescriptionRelatedPropertyInfo(::windows::core::IUnknown);
 impl IPropertyDescriptionRelatedPropertyInfo {
@@ -1480,7 +1416,6 @@ impl IPropertyDescriptionRelatedPropertyInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescriptionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_RELATIVEDESCRIPTION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: &mut ::windows::core::PWSTR, ppszdesc2: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(ppszdesc1), ::core::mem::transmute(ppszdesc2)).ok()
@@ -1489,7 +1424,6 @@ impl IPropertyDescriptionRelatedPropertyInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSortDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_SORTDESCRIPTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSortDescriptionLabel<'a, P0>(&self, fdescending: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -1502,7 +1436,6 @@ impl IPropertyDescriptionRelatedPropertyInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAggregationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_AGGREGATION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
     #[cfg(feature = "Win32_System_Search_Common")]
     pub unsafe fn GetConditionType(&self, pcontype: &mut PROPDESC_CONDITION_TYPE, popdefault: &mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetConditionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontype), ::core::mem::transmute(popdefault)).ok()
@@ -1514,18 +1447,15 @@ impl IPropertyDescriptionRelatedPropertyInfo {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetEnumTypeList)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CoerceToCanonicalValue(&self, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CoerceToCanonicalValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn IsValueCanonical(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.IsValueCanonical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar)).ok()
@@ -1595,7 +1525,6 @@ pub struct IPropertyDescriptionRelatedPropertyInfo_Vtbl {
     pub base__: IPropertyDescription_Vtbl,
     pub GetRelatedProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszrelationshipname: ::windows::core::PCWSTR, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyDescriptionSearchInfo(::windows::core::IUnknown);
 impl IPropertyDescriptionSearchInfo {
@@ -1647,7 +1576,6 @@ impl IPropertyDescriptionSearchInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescriptionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_RELATIVEDESCRIPTION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ppszdesc1: &mut ::windows::core::PWSTR, ppszdesc2: &mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetRelativeDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), ::core::mem::transmute(ppszdesc1), ::core::mem::transmute(ppszdesc2)).ok()
@@ -1656,7 +1584,6 @@ impl IPropertyDescriptionSearchInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetSortDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_SORTDESCRIPTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSortDescriptionLabel<'a, P0>(&self, fdescending: P0) -> ::windows::core::Result<::windows::core::PWSTR>
     where
@@ -1669,7 +1596,6 @@ impl IPropertyDescriptionSearchInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAggregationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPDESC_AGGREGATION_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Search_Common\"`*"]
     #[cfg(feature = "Win32_System_Search_Common")]
     pub unsafe fn GetConditionType(&self, pcontype: &mut PROPDESC_CONDITION_TYPE, popdefault: &mut super::super::super::System::Search::Common::CONDITION_OPERATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetConditionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcontype), ::core::mem::transmute(popdefault)).ok()
@@ -1681,18 +1607,15 @@ impl IPropertyDescriptionSearchInfo {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).base__.GetEnumTypeList)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn CoerceToCanonicalValue(&self, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.CoerceToCanonicalValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppropvar)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar), pdfflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn IsValueCanonical(&self, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.IsValueCanonical)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(propvar)).ok()
@@ -1773,7 +1696,6 @@ pub struct IPropertyDescriptionSearchInfo_Vtbl {
     pub GetProjectionString: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszprojection: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetMaxSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbmaxsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyEnumType(::windows::core::IUnknown);
 impl IPropertyEnumType {
@@ -1781,19 +1703,16 @@ impl IPropertyEnumType {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnumType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPENUMTYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRangeMinValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRangeMinValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRangeSetValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1858,7 +1777,6 @@ pub struct IPropertyEnumType_Vtbl {
     GetRangeSetValue: usize,
     pub GetDisplayText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszdisplay: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyEnumType2(::windows::core::IUnknown);
 impl IPropertyEnumType2 {
@@ -1866,19 +1784,16 @@ impl IPropertyEnumType2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetEnumType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPENUMTYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRangeMinValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetRangeMinValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetRangeSetValue(&self) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1949,7 +1864,6 @@ pub struct IPropertyEnumType2_Vtbl {
     pub base__: IPropertyEnumType_Vtbl,
     pub GetImageReference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppszimageres: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyEnumTypeList(::windows::core::IUnknown);
 impl IPropertyEnumTypeList {
@@ -1971,7 +1885,6 @@ impl IPropertyEnumTypeList {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).GetConditionAt)(::windows::core::Interface::as_raw(self), nindex, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FindMatchingIndex(&self, propvarcmp: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2025,7 +1938,6 @@ pub struct IPropertyEnumTypeList_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     FindMatchingIndex: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyStore(::windows::core::IUnknown);
 impl IPropertyStore {
@@ -2037,13 +1949,11 @@ impl IPropertyStore {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), iprop, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, key: &PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetValue(&self, key: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar)).ok()
@@ -2103,7 +2013,6 @@ pub struct IPropertyStore_Vtbl {
     SetValue: usize,
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyStoreCache(::windows::core::IUnknown);
 impl IPropertyStoreCache {
@@ -2115,13 +2024,11 @@ impl IPropertyStoreCache {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAt)(::windows::core::Interface::as_raw(self), iprop, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValue(&self, key: &PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetValue(&self, key: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar)).ok()
@@ -2133,7 +2040,6 @@ impl IPropertyStoreCache {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PSC_STATE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetValueAndState(&self, key: &PROPERTYKEY, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstate: &mut PSC_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetValueAndState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), ::core::mem::transmute(pstate)).ok()
@@ -2141,7 +2047,6 @@ impl IPropertyStoreCache {
     pub unsafe fn SetState(&self, key: &PROPERTYKEY, state: PSC_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), state).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetValueAndState(&self, key: &PROPERTYKEY, ppropvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, state: PSC_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValueAndState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(ppropvar), state).ok()
@@ -2212,7 +2117,6 @@ pub struct IPropertyStoreCache_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage")))]
     SetValueAndState: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyStoreCapabilities(::windows::core::IUnknown);
 impl IPropertyStoreCapabilities {
@@ -2261,7 +2165,6 @@ pub struct IPropertyStoreCapabilities_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub IsPropertyWritable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: *const PROPERTYKEY) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyStoreFactory(::windows::core::IUnknown);
 impl IPropertyStoreFactory {
@@ -2323,7 +2226,6 @@ pub struct IPropertyStoreFactory_Vtbl {
     pub GetPropertyStore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: GETPROPERTYSTOREFLAGS, punkfactory: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetPropertyStoreForKeys: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rgkeys: *const PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertySystem(::windows::core::IUnknown);
 impl IPropertySystem {
@@ -2357,12 +2259,10 @@ impl IPropertySystem {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).EnumeratePropertyDescriptions)(::windows::core::Interface::as_raw(self), filteron, &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, key: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(key), ::core::mem::transmute(propvar), pdff, ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplayAlloc(&self, key: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2439,7 +2339,6 @@ pub struct IPropertySystem_Vtbl {
     pub UnregisterPropertySchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub RefreshPropertySchema: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertySystemChangeNotify(::windows::core::IUnknown);
 impl IPropertySystemChangeNotify {
@@ -2488,7 +2387,6 @@ pub struct IPropertySystemChangeNotify_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub SchemaRefreshed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 pub struct IPropertyUI(::windows::core::IUnknown);
 impl IPropertyUI {
@@ -2515,7 +2413,6 @@ impl IPropertyUI {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmtid), pid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYUI_FLAGS>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn FormatForDisplay(&self, fmtid: &::windows::core::GUID, pid: u32, ppropvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FormatForDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmtid), pid, ::core::mem::transmute(ppropvar), puiff, ::core::mem::transmute(pwsztext.as_ptr()), pwsztext.len() as _).ok()
@@ -2577,7 +2474,6 @@ pub struct IPropertyUI_Vtbl {
 }
 pub const InMemoryPropertyStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a02e012_6303_4e1e_b9a1_630f802592c5);
 pub const InMemoryPropertyStoreMarshalByValue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4ca0e2d_6da7_4b75_a97c_5f306f0eaedc);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromBooleanVector(prgf: ::core::option::Option<&[super::super::super::Foundation::BOOL]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2588,7 +2484,6 @@ pub unsafe fn InitPropVariantFromBooleanVector(prgf: ::core::option::Option<&[su
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromBooleanVector(::core::mem::transmute(prgf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgf.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromBuffer(pv: &[u8]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2599,7 +2494,6 @@ pub unsafe fn InitPropVariantFromBuffer(pv: &[u8]) -> ::windows::core::Result<su
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromBuffer(::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromCLSID(clsid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2610,7 +2504,6 @@ pub unsafe fn InitPropVariantFromCLSID(clsid: &::windows::core::GUID) -> ::windo
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromCLSID(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromDoubleVector(prgn: ::core::option::Option<&[f64]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2621,7 +2514,6 @@ pub unsafe fn InitPropVariantFromDoubleVector(prgn: ::core::option::Option<&[f64
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromDoubleVector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTime(pftin: &super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2632,7 +2524,6 @@ pub unsafe fn InitPropVariantFromFileTime(pftin: &super::super::super::Foundatio
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromFileTime(::core::mem::transmute(pftin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromFileTimeVector(prgft: ::core::option::Option<&[super::super::super::Foundation::FILETIME]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2643,7 +2534,6 @@ pub unsafe fn InitPropVariantFromFileTimeVector(prgft: ::core::option::Option<&[
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromFileTimeVector(::core::mem::transmute(prgft.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromGUIDAsString(guid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2654,7 +2544,6 @@ pub unsafe fn InitPropVariantFromGUIDAsString(guid: &::windows::core::GUID) -> :
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt16Vector(prgn: ::core::option::Option<&[i16]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2665,7 +2554,6 @@ pub unsafe fn InitPropVariantFromInt16Vector(prgn: ::core::option::Option<&[i16]
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromInt16Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt32Vector(prgn: ::core::option::Option<&[i32]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2676,7 +2564,6 @@ pub unsafe fn InitPropVariantFromInt32Vector(prgn: ::core::option::Option<&[i32]
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromInt32Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromInt64Vector(prgn: ::core::option::Option<&[i64]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2687,7 +2574,6 @@ pub unsafe fn InitPropVariantFromInt64Vector(prgn: ::core::option::Option<&[i64]
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromInt64Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2698,7 +2584,6 @@ pub unsafe fn InitPropVariantFromPropVariantVectorElem(propvarin: &super::super:
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromPropVariantVectorElem(::core::mem::transmute(propvarin), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromResource<'a, P0>(hinst: P0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
@@ -2712,7 +2597,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromResource(hinst.into(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStrRet(pstrret: &mut super::Common::STRRET, pidl: ::core::option::Option<&super::Common::ITEMIDLIST>, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
@@ -2722,7 +2606,6 @@ pub unsafe fn InitPropVariantFromStrRet(pstrret: &mut super::Common::STRRET, pid
     }
     InitPropVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl), ::core::mem::transmute(ppropvar)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStringAsVector<'a, P0>(psz: P0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
@@ -2736,7 +2619,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromStringAsVector(psz.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromStringVector(prgsz: ::core::option::Option<&[::windows::core::PWSTR]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2747,7 +2629,6 @@ pub unsafe fn InitPropVariantFromStringVector(prgsz: ::core::option::Option<&[::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromStringVector(::core::mem::transmute(prgsz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgsz.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt16Vector(prgn: ::core::option::Option<&[u16]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2758,7 +2639,6 @@ pub unsafe fn InitPropVariantFromUInt16Vector(prgn: ::core::option::Option<&[u16
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromUInt16Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt32Vector(prgn: ::core::option::Option<&[u32]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2769,7 +2649,6 @@ pub unsafe fn InitPropVariantFromUInt32Vector(prgn: ::core::option::Option<&[u32
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromUInt32Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantFromUInt64Vector(prgn: ::core::option::Option<&[u64]>) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2780,7 +2659,6 @@ pub unsafe fn InitPropVariantFromUInt64Vector(prgn: ::core::option::Option<&[u64
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantFromUInt64Vector(::core::mem::transmute(prgn.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgn.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -2791,7 +2669,6 @@ pub unsafe fn InitPropVariantVectorFromPropVariant(propvarsingle: &super::super:
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitPropVariantVectorFromPropVariant(::core::mem::transmute(propvarsingle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundation::BOOL]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2802,7 +2679,6 @@ pub unsafe fn InitVariantFromBooleanArray(prgf: &[super::super::super::Foundatio
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromBooleanArray(::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromBuffer(pv: &[u8]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2813,7 +2689,6 @@ pub unsafe fn InitVariantFromBuffer(pv: &[u8]) -> ::windows::core::Result<super:
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromBuffer(::core::mem::transmute(pv.as_ptr()), pv.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2824,7 +2699,6 @@ pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> ::windows::core::Resul
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromDoubleArray(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromFileTime(pft: &super::super::super::Foundation::FILETIME) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2835,7 +2709,6 @@ pub unsafe fn InitVariantFromFileTime(pft: &super::super::super::Foundation::FIL
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromFileTime(::core::mem::transmute(pft), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromFileTimeArray(prgft: ::core::option::Option<&[super::super::super::Foundation::FILETIME]>) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2846,7 +2719,6 @@ pub unsafe fn InitVariantFromFileTimeArray(prgft: ::core::option::Option<&[super
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromFileTimeArray(::core::mem::transmute(prgft.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), prgft.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromGUIDAsString(guid: &::windows::core::GUID) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2857,7 +2729,6 @@ pub unsafe fn InitVariantFromGUIDAsString(guid: &::windows::core::GUID) -> ::win
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromGUIDAsString(::core::mem::transmute(guid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2868,7 +2739,6 @@ pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> ::windows::core::Result
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2879,7 +2749,6 @@ pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> ::windows::core::Result
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2890,7 +2759,6 @@ pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> ::windows::core::Result
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromResource<'a, P0>(hinst: P0, id: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT>
@@ -2904,7 +2772,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromResource(hinst.into(), id, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn InitVariantFromStrRet(pstrret: &super::Common::STRRET, pidl: &super::Common::ITEMIDLIST) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2915,7 +2782,6 @@ pub unsafe fn InitVariantFromStrRet(pstrret: &super::Common::STRRET, pidl: &supe
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromStrRet(::core::mem::transmute(pstrret), ::core::mem::transmute(pidl), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PWSTR]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2926,7 +2792,6 @@ pub unsafe fn InitVariantFromStringArray(prgsz: &[::windows::core::PWSTR]) -> ::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromStringArray(::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2937,7 +2802,6 @@ pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> ::windows::core::Resul
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt16Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2948,7 +2812,6 @@ pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> ::windows::core::Resul
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt32Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2959,7 +2822,6 @@ pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> ::windows::core::Resul
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromUInt64Array(::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn InitVariantFromVariantArrayElem(varin: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -2970,19 +2832,13 @@ pub unsafe fn InitVariantFromVariantArrayElem(varin: &super::super::super::Syste
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     InitVariantFromVariantArrayElem(::core::mem::transmute(varin), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PDOPSTATUS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDOPS_RUNNING: PDOPSTATUS = PDOPSTATUS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDOPS_PAUSED: PDOPSTATUS = PDOPSTATUS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDOPS_CANCELLED: PDOPSTATUS = PDOPSTATUS(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDOPS_STOPPED: PDOPSTATUS = PDOPSTATUS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDOPS_ERRORS: PDOPSTATUS = PDOPSTATUS(5i32);
 impl ::core::marker::Copy for PDOPSTATUS {}
 impl ::core::clone::Clone for PDOPSTATUS {
@@ -3003,15 +2859,11 @@ impl ::core::fmt::Debug for PDOPSTATUS {
         f.debug_tuple("PDOPSTATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PKA_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PKA_SET: PKA_FLAGS = PKA_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PKA_APPEND: PKA_FLAGS = PKA_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PKA_DELETE: PKA_FLAGS = PKA_FLAGS(2u32);
 impl ::core::marker::Copy for PKA_FLAGS {}
 impl ::core::clone::Clone for PKA_FLAGS {
@@ -3060,25 +2912,16 @@ impl ::core::ops::Not for PKA_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PKEY_PIDSTR_MAX: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PLACEHOLDER_STATES(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_NONE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_MARKED_FOR_OFFLINE_AVAILABILITY: PLACEHOLDER_STATES = PLACEHOLDER_STATES(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_FULL_PRIMARY_STREAM_AVAILABLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_CREATE_FILE_ACCESSIBLE: PLACEHOLDER_STATES = PLACEHOLDER_STATES(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_CLOUDFILE_PLACEHOLDER: PLACEHOLDER_STATES = PLACEHOLDER_STATES(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_DEFAULT: PLACEHOLDER_STATES = PLACEHOLDER_STATES(7u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PS_ALL: PLACEHOLDER_STATES = PLACEHOLDER_STATES(15u32);
 impl ::core::marker::Copy for PLACEHOLDER_STATES {}
 impl ::core::clone::Clone for PLACEHOLDER_STATES {
@@ -3127,25 +2970,16 @@ impl ::core::ops::Not for PLACEHOLDER_STATES {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_AGGREGATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_DEFAULT: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_FIRST: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_SUM: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_AVERAGE: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_DATERANGE: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_UNION: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_MAX: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDAT_MIN: PROPDESC_AGGREGATION_TYPE = PROPDESC_AGGREGATION_TYPE(7i32);
 impl ::core::marker::Copy for PROPDESC_AGGREGATION_TYPE {}
 impl ::core::clone::Clone for PROPDESC_AGGREGATION_TYPE {
@@ -3166,21 +3000,14 @@ impl ::core::fmt::Debug for PROPDESC_AGGREGATION_TYPE {
         f.debug_tuple("PROPDESC_AGGREGATION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_COLUMNINDEX_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCIT_NONE: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCIT_ONDISK: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCIT_INMEMORY: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCIT_ONDEMAND: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCIT_ONDISKALL: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCIT_ONDISKVECTOR: PROPDESC_COLUMNINDEX_TYPE = PROPDESC_COLUMNINDEX_TYPE(5i32);
 impl ::core::marker::Copy for PROPDESC_COLUMNINDEX_TYPE {}
 impl ::core::clone::Clone for PROPDESC_COLUMNINDEX_TYPE {
@@ -3201,21 +3028,14 @@ impl ::core::fmt::Debug for PROPDESC_COLUMNINDEX_TYPE {
         f.debug_tuple("PROPDESC_COLUMNINDEX_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_CONDITION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCOT_NONE: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCOT_STRING: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCOT_SIZE: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCOT_DATETIME: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCOT_BOOLEAN: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDCOT_NUMBER: PROPDESC_CONDITION_TYPE = PROPDESC_CONDITION_TYPE(5i32);
 impl ::core::marker::Copy for PROPDESC_CONDITION_TYPE {}
 impl ::core::clone::Clone for PROPDESC_CONDITION_TYPE {
@@ -3236,19 +3056,13 @@ impl ::core::fmt::Debug for PROPDESC_CONDITION_TYPE {
         f.debug_tuple("PROPDESC_CONDITION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_DISPLAYTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDDT_STRING: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDDT_NUMBER: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDDT_BOOLEAN: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDDT_DATETIME: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDDT_ENUMERATED: PROPDESC_DISPLAYTYPE = PROPDESC_DISPLAYTYPE(4i32);
 impl ::core::marker::Copy for PROPDESC_DISPLAYTYPE {}
 impl ::core::clone::Clone for PROPDESC_DISPLAYTYPE {
@@ -3269,23 +3083,15 @@ impl ::core::fmt::Debug for PROPDESC_DISPLAYTYPE {
         f.debug_tuple("PROPDESC_DISPLAYTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_ENUMFILTER(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_ALL: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_SYSTEM: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_NONSYSTEM: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_VIEWABLE: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_QUERYABLE: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_INFULLTEXTQUERY: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(5i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDEF_COLUMN: PROPDESC_ENUMFILTER = PROPDESC_ENUMFILTER(6i32);
 impl ::core::marker::Copy for PROPDESC_ENUMFILTER {}
 impl ::core::clone::Clone for PROPDESC_ENUMFILTER {
@@ -3306,39 +3112,23 @@ impl ::core::fmt::Debug for PROPDESC_ENUMFILTER {
         f.debug_tuple("PROPDESC_ENUMFILTER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_FORMAT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_DEFAULT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_PREFIXNAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_FILENAME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_ALWAYSKB: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_RESERVED_RIGHTTOLEFT: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_SHORTTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_LONGTIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_HIDETIME: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_SHORTDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_LONGDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_HIDEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_RELATIVEDATE: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_USEEDITINVITATION: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_READONLY: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDFF_NOAUTOREADINGORDER: PROPDESC_FORMAT_FLAGS = PROPDESC_FORMAT_FLAGS(8192u32);
 impl ::core::marker::Copy for PROPDESC_FORMAT_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_FORMAT_FLAGS {
@@ -3387,23 +3177,15 @@ impl ::core::ops::Not for PROPDESC_FORMAT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_GROUPING_RANGE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_DISCRETE: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_ALPHANUMERIC: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_SIZE: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_DYNAMIC: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_DATE: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_PERCENT: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDGR_ENUMERATED: PROPDESC_GROUPING_RANGE = PROPDESC_GROUPING_RANGE(6i32);
 impl ::core::marker::Copy for PROPDESC_GROUPING_RANGE {}
 impl ::core::clone::Clone for PROPDESC_GROUPING_RANGE {
@@ -3424,31 +3206,19 @@ impl ::core::fmt::Debug for PROPDESC_GROUPING_RANGE {
         f.debug_tuple("PROPDESC_GROUPING_RANGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_RELATIVEDESCRIPTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_GENERAL: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_DATE: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_SIZE: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_COUNT: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_REVISION: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_LENGTH: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_DURATION: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_SPEED: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_RATE: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_RATING: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDRDT_PRIORITY: PROPDESC_RELATIVEDESCRIPTION_TYPE = PROPDESC_RELATIVEDESCRIPTION_TYPE(10i32);
 impl ::core::marker::Copy for PROPDESC_RELATIVEDESCRIPTION_TYPE {}
 impl ::core::clone::Clone for PROPDESC_RELATIVEDESCRIPTION_TYPE {
@@ -3469,21 +3239,14 @@ impl ::core::fmt::Debug for PROPDESC_RELATIVEDESCRIPTION_TYPE {
         f.debug_tuple("PROPDESC_RELATIVEDESCRIPTION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_SEARCHINFO_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSIF_DEFAULT: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSIF_ININVERTEDINDEX: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSIF_ISCOLUMN: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSIF_ISCOLUMNSPARSE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSIF_ALWAYSINCLUDE: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSIF_USEFORTYPEAHEAD: PROPDESC_SEARCHINFO_FLAGS = PROPDESC_SEARCHINFO_FLAGS(16u32);
 impl ::core::marker::Copy for PROPDESC_SEARCHINFO_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_SEARCHINFO_FLAGS {
@@ -3532,19 +3295,13 @@ impl ::core::ops::Not for PROPDESC_SEARCHINFO_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_SORTDESCRIPTION(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSD_GENERAL: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSD_A_Z: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSD_LOWEST_HIGHEST: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSD_SMALLEST_BIGGEST: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDSD_OLDEST_NEWEST: PROPDESC_SORTDESCRIPTION = PROPDESC_SORTDESCRIPTION(4i32);
 impl ::core::marker::Copy for PROPDESC_SORTDESCRIPTION {}
 impl ::core::clone::Clone for PROPDESC_SORTDESCRIPTION {
@@ -3565,41 +3322,24 @@ impl ::core::fmt::Debug for PROPDESC_SORTDESCRIPTION {
         f.debug_tuple("PROPDESC_SORTDESCRIPTION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_TYPE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_DEFAULT: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_MULTIPLEVALUES: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_ISINNATE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_ISGROUP: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_CANGROUPBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_CANSTACKBY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_ISTREEPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_INCLUDEINFULLTEXTQUERY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_ISVIEWABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_ISQUERYABLE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_CANBEPURGED: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_SEARCHRAWVALUE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_DONTCOERCEEMPTYSTRINGS: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_ALWAYSINSUPPLEMENTALSTORE: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_ISSYSTEMPROPERTY: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDTF_MASK_ALL: PROPDESC_TYPE_FLAGS = PROPDESC_TYPE_FLAGS(2147491839u32);
 impl ::core::marker::Copy for PROPDESC_TYPE_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_TYPE_FLAGS {
@@ -3648,37 +3388,22 @@ impl ::core::ops::Not for PROPDESC_TYPE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPDESC_VIEW_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_DEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_CENTERALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_RIGHTALIGN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_BEGINNEWGROUP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_FILLAREA: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_SORTDESCENDING: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_SHOWONLYIFPRESENT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_SHOWBYDEFAULT: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_SHOWINPRIMARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_SHOWINSECONDARYLIST: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_HIDELABEL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_HIDDEN: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(2048u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_CANWRAP: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PDVF_MASK_ALL: PROPDESC_VIEW_FLAGS = PROPDESC_VIEW_FLAGS(7167u32);
 impl ::core::marker::Copy for PROPDESC_VIEW_FLAGS {}
 impl ::core::clone::Clone for PROPDESC_VIEW_FLAGS {
@@ -3727,17 +3452,12 @@ impl ::core::ops::Not for PROPDESC_VIEW_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPENUMTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PET_DISCRETEVALUE: PROPENUMTYPE = PROPENUMTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PET_RANGEDVALUE: PROPENUMTYPE = PROPENUMTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PET_DEFAULTVALUE: PROPENUMTYPE = PROPENUMTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PET_ENDRANGE: PROPENUMTYPE = PROPENUMTYPE(3i32);
 impl ::core::marker::Copy for PROPENUMTYPE {}
 impl ::core::clone::Clone for PROPENUMTYPE {
@@ -3759,7 +3479,6 @@ impl ::core::fmt::Debug for PROPENUMTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub struct PROPERTYKEY {
     pub fmtid: ::windows::core::GUID,
     pub pid: u32,
@@ -3789,15 +3508,11 @@ impl ::core::default::Default for PROPERTYKEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYUI_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIF_DEFAULT: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIF_RIGHTALIGN: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIF_NOLABELININFOTIP: PROPERTYUI_FLAGS = PROPERTYUI_FLAGS(2u32);
 impl ::core::marker::Copy for PROPERTYUI_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_FLAGS {
@@ -3846,19 +3561,13 @@ impl ::core::ops::Not for PROPERTYUI_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYUI_FORMAT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFFDF_DEFAULT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFFDF_RIGHTTOLEFT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFFDF_SHORTFORMAT: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFFDF_NOTIME: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFFDF_FRIENDLYDATE: PROPERTYUI_FORMAT_FLAGS = PROPERTYUI_FORMAT_FLAGS(8u32);
 impl ::core::marker::Copy for PROPERTYUI_FORMAT_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_FORMAT_FLAGS {
@@ -3907,13 +3616,10 @@ impl ::core::ops::Not for PROPERTYUI_FORMAT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPERTYUI_NAME_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFNF_DEFAULT: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PUIFNF_MNEMONIC: PROPERTYUI_NAME_FLAGS = PROPERTYUI_NAME_FLAGS(1u32);
 impl ::core::marker::Copy for PROPERTYUI_NAME_FLAGS {}
 impl ::core::clone::Clone for PROPERTYUI_NAME_FLAGS {
@@ -3963,7 +3669,6 @@ impl ::core::ops::Not for PROPERTYUI_NAME_FLAGS {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPPRG {
     pub flPrg: u16,
@@ -4005,21 +3710,14 @@ impl ::core::default::Default for PROPPRG {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_CHANGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCHF_DEFAULT: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCHF_NOVALUEPROP: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCHF_ALPHABOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCHF_NOUSEROVERRIDE: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCHF_LOCALBOOL: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCHF_NOHEXSTRING: PROPVAR_CHANGE_FLAGS = PROPVAR_CHANGE_FLAGS(16u32);
 impl ::core::marker::Copy for PROPVAR_CHANGE_FLAGS {}
 impl ::core::clone::Clone for PROPVAR_CHANGE_FLAGS {
@@ -4068,23 +3766,15 @@ impl ::core::ops::Not for PROPVAR_CHANGE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_COMPARE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_DEFAULT: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_TREATEMPTYASGREATERTHAN: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_USESTRCMP: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_USESTRCMPC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_USESTRCMPI: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_USESTRCMPIC: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCF_DIGITSASNUMBERS_CASESENSITIVE: PROPVAR_COMPARE_FLAGS = PROPVAR_COMPARE_FLAGS(32u32);
 impl ::core::marker::Copy for PROPVAR_COMPARE_FLAGS {}
 impl ::core::clone::Clone for PROPVAR_COMPARE_FLAGS {
@@ -4133,23 +3823,15 @@ impl ::core::ops::Not for PROPVAR_COMPARE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PROPVAR_COMPARE_UNIT(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_DEFAULT: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_SECOND: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_MINUTE: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_HOUR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(3i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_DAY: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(4i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_MONTH: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(5i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PVCU_YEAR: PROPVAR_COMPARE_UNIT = PROPVAR_COMPARE_UNIT(6i32);
 impl ::core::marker::Copy for PROPVAR_COMPARE_UNIT {}
 impl ::core::clone::Clone for PROPVAR_COMPARE_UNIT {
@@ -4170,17 +3852,12 @@ impl ::core::fmt::Debug for PROPVAR_COMPARE_UNIT {
         f.debug_tuple("PROPVAR_COMPARE_UNIT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSC_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSC_NORMAL: PSC_STATE = PSC_STATE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSC_NOTINSOURCE: PSC_STATE = PSC_STATE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSC_DIRTY: PSC_STATE = PSC_STATE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSC_READONLY: PSC_STATE = PSC_STATE(3i32);
 impl ::core::marker::Copy for PSC_STATE {}
 impl ::core::clone::Clone for PSC_STATE {
@@ -4201,7 +3878,6 @@ impl ::core::fmt::Debug for PSC_STATE {
         f.debug_tuple("PSC_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSCoerceToCanonicalValue(key: &PROPERTYKEY, ppropvar: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
@@ -4211,7 +3887,6 @@ pub unsafe fn PSCoerceToCanonicalValue(key: &PROPERTYKEY, ppropvar: &mut super::
     }
     PSCoerceToCanonicalValue(::core::mem::transmute(key), ::core::mem::transmute(ppropvar)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateAdapterFromPropertyStore<'a, P0>(pps: P0, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -4223,7 +3898,6 @@ where
     }
     PSCreateAdapterFromPropertyStore(pps.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateDelayedMultiplexPropertyStore<'a, P0>(flags: GETPROPERTYSTOREFLAGS, pdpsf: P0, rgstoreids: &[u32], riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -4235,7 +3909,6 @@ where
     }
     PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.into().abi(), ::core::mem::transmute(rgstoreids.as_ptr()), rgstoreids.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateMemoryPropertyStore(riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -4244,7 +3917,6 @@ pub unsafe fn PSCreateMemoryPropertyStore(riid: &::windows::core::GUID, ppv: *mu
     }
     PSCreateMemoryPropertyStore(::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::core::option::Option<::windows::core::IUnknown>], riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -4253,7 +3925,6 @@ pub unsafe fn PSCreateMultiplexPropertyStore(prgpunkstores: &[::core::option::Op
     }
     PSCreateMultiplexPropertyStore(::core::mem::transmute(prgpunkstores.as_ptr()), prgpunkstores.len() as _, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags: *const PKA_FLAGS, rgpropvar: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, cchanges: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -4263,7 +3934,6 @@ pub unsafe fn PSCreatePropertyChangeArray(rgpropkey: *const PROPERTYKEY, rgflags
     }
     PSCreatePropertyChangeArray(::core::mem::transmute(rgpropkey), ::core::mem::transmute(rgflags), ::core::mem::transmute(rgpropvar), ::core::mem::transmute(cchanges), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSCreatePropertyStoreFromObject<'a, P0>(punk: P0, grfmode: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -4275,7 +3945,6 @@ where
     }
     PSCreatePropertyStoreFromObject(punk.into().abi(), grfmode, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSCreatePropertyStoreFromPropertySetStorage<'a, P0>(ppss: P0, grfmode: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -4288,7 +3957,6 @@ where
     }
     PSCreatePropertyStoreFromPropertySetStorage(ppss.into().abi(), grfmode, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -4298,7 +3966,6 @@ pub unsafe fn PSCreateSimplePropertyChange(flags: PKA_FLAGS, key: &PROPERTYKEY, 
     }
     PSCreateSimplePropertyChange(flags, ::core::mem::transmute(key), ::core::mem::transmute(propvar), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -4307,7 +3974,6 @@ pub unsafe fn PSEnumeratePropertyDescriptions(filteron: PROPDESC_ENUMFILTER, rii
     }
     PSEnumeratePropertyDescriptions(filteron, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSFormatForDisplay(propkey: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> ::windows::core::Result<()> {
@@ -4317,7 +3983,6 @@ pub unsafe fn PSFormatForDisplay(propkey: &PROPERTYKEY, propvar: &super::super::
     }
     PSFormatForDisplay(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), pdfflags, ::core::mem::transmute(pwsztext.as_ptr()), pwsztext.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSFormatForDisplayAlloc(key: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4328,7 +3993,6 @@ pub unsafe fn PSFormatForDisplayAlloc(key: &PROPERTYKEY, propvar: &super::super:
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSFormatForDisplayAlloc(::core::mem::transmute(key), ::core::mem::transmute(propvar), pdff, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSFormatPropertyValue<'a, P0, P1>(pps: P0, ppd: P1, pdff: PROPDESC_FORMAT_FLAGS) -> ::windows::core::Result<::windows::core::PWSTR>
 where
@@ -4342,7 +4006,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSFormatPropertyValue(pps.into().abi(), ppd.into().abi(), pdff, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetImageReferenceForValue(propkey: &PROPERTYKEY, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -4353,7 +4016,6 @@ pub unsafe fn PSGetImageReferenceForValue(propkey: &PROPERTYKEY, propvar: &super
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetImageReferenceForValue(::core::mem::transmute(propkey), ::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PSGetItemPropertyHandler<'a, P0, P1>(punkitem: P0, freadwrite: P1, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -4367,7 +4029,6 @@ where
     }
     PSGetItemPropertyHandler(punkitem.into().abi(), freadwrite.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PSGetItemPropertyHandlerWithCreateObject<'a, P0, P1, P2>(punkitem: P0, freadwrite: P1, punkcreateobject: P2, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -4382,7 +4043,6 @@ where
     }
     PSGetItemPropertyHandlerWithCreateObject(punkitem.into().abi(), freadwrite.into(), punkcreateobject.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetNameFromPropertyKey(propkey: &PROPERTYKEY) -> ::windows::core::Result<::windows::core::PWSTR> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -4392,7 +4052,6 @@ pub unsafe fn PSGetNameFromPropertyKey(propkey: &PROPERTYKEY) -> ::windows::core
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetNameFromPropertyKey(::core::mem::transmute(propkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetNamedPropertyFromPropertyStorage<'a, P0>(psps: &[u8], pszname: P0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
@@ -4406,7 +4065,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetNamedPropertyFromPropertyStorage(::core::mem::transmute(psps.as_ptr()), psps.len() as _, pszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyDescription(propkey: &PROPERTYKEY, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -4415,7 +4073,6 @@ pub unsafe fn PSGetPropertyDescription(propkey: &PROPERTYKEY, riid: &::windows::
     }
     PSGetPropertyDescription(::core::mem::transmute(propkey), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyDescriptionByName<'a, P0>(pszcanonicalname: P0, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -4427,7 +4084,6 @@ where
     }
     PSGetPropertyDescriptionByName(pszcanonicalname.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyDescriptionListFromString<'a, P0>(pszproplist: P0, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -4439,7 +4095,6 @@ where
     }
     PSGetPropertyDescriptionListFromString(pszproplist.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetPropertyFromPropertyStorage(psps: &[u8], rpkey: &PROPERTYKEY) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -4450,7 +4105,6 @@ pub unsafe fn PSGetPropertyFromPropertyStorage(psps: &[u8], rpkey: &PROPERTYKEY)
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetPropertyFromPropertyStorage(::core::mem::transmute(psps.as_ptr()), psps.len() as _, ::core::mem::transmute(rpkey), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertyKeyFromName<'a, P0>(pszname: P0) -> ::windows::core::Result<PROPERTYKEY>
 where
@@ -4463,7 +4117,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetPropertyKeyFromName(pszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSGetPropertySystem(riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -4472,7 +4125,6 @@ pub unsafe fn PSGetPropertySystem(riid: &::windows::core::GUID, ppv: *mut *mut :
     }
     PSGetPropertySystem(::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSGetPropertyValue<'a, P0, P1>(pps: P0, ppd: P1) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
@@ -4487,7 +4139,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSGetPropertyValue(pps.into().abi(), ppd.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSLookupPropertyHandlerCLSID<'a, P0>(pszfilepath: P0) -> ::windows::core::Result<::windows::core::GUID>
 where
@@ -4500,7 +4151,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSLookupPropertyHandlerCLSID(pszfilepath.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_Delete<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<()>
@@ -4514,7 +4164,6 @@ where
     }
     PSPropertyBag_Delete(propbag.into().abi(), propname.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadBOOL<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<super::super::super::Foundation::BOOL>
@@ -4529,7 +4178,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadBOOL(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadBSTR<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<super::super::super::Foundation::BSTR>
@@ -4544,7 +4192,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadBSTR(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadDWORD<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<u32>
@@ -4559,7 +4206,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadDWORD(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadGUID<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<::windows::core::GUID>
@@ -4574,7 +4220,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadGUID(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadInt<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<i32>
@@ -4589,7 +4234,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadInt(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadLONG<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<i32>
@@ -4604,7 +4248,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadLONG(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTL<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<super::super::super::Foundation::POINTL>
@@ -4619,7 +4262,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadPOINTL(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINTL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadPOINTS<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<super::super::super::Foundation::POINTS>
@@ -4634,7 +4276,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadPOINTS(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::POINTS>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadPropertyKey<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<PROPERTYKEY>
@@ -4649,7 +4290,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadPropertyKey(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadRECTL<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<super::super::super::Foundation::RECTL>
@@ -4664,7 +4304,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadRECTL(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::RECTL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadSHORT<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<i16>
@@ -4679,7 +4318,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadSHORT(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadStr<'a, P0, P1>(propbag: P0, propname: P1, value: &mut [u16]) -> ::windows::core::Result<()>
@@ -4693,7 +4331,6 @@ where
     }
     PSPropertyBag_ReadStr(propbag.into().abi(), propname.into(), ::core::mem::transmute(value.as_ptr()), value.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadStrAlloc<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<::windows::core::PWSTR>
@@ -4708,7 +4345,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadStrAlloc(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadStream<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<super::super::super::System::Com::IStream>
@@ -4723,7 +4359,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadStream(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::IStream>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadType<'a, P0, P1>(propbag: P0, propname: P1, var: &mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::Result<()>
@@ -4737,7 +4372,6 @@ where
     }
     PSPropertyBag_ReadType(propbag.into().abi(), propname.into(), ::core::mem::transmute(var), r#type).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadULONGLONG<'a, P0, P1>(propbag: P0, propname: P1) -> ::windows::core::Result<u64>
@@ -4752,7 +4386,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyBag_ReadULONGLONG(propbag.into().abi(), propname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_ReadUnknown<'a, P0, P1>(propbag: P0, propname: P1, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -4766,7 +4399,6 @@ where
     }
     PSPropertyBag_ReadUnknown(propbag.into().abi(), propname.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteBOOL<'a, P0, P1, P2>(propbag: P0, propname: P1, value: P2) -> ::windows::core::Result<()>
@@ -4781,7 +4413,6 @@ where
     }
     PSPropertyBag_WriteBOOL(propbag.into().abi(), propname.into(), value.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteBSTR<'a, P0, P1, P2>(propbag: P0, propname: P1, value: P2) -> ::windows::core::Result<()>
@@ -4796,7 +4427,6 @@ where
     }
     PSPropertyBag_WriteBSTR(propbag.into().abi(), propname.into(), value.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteDWORD<'a, P0, P1>(propbag: P0, propname: P1, value: u32) -> ::windows::core::Result<()>
@@ -4810,7 +4440,6 @@ where
     }
     PSPropertyBag_WriteDWORD(propbag.into().abi(), propname.into(), value).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteGUID<'a, P0, P1>(propbag: P0, propname: P1, value: &::windows::core::GUID) -> ::windows::core::Result<()>
@@ -4824,7 +4453,6 @@ where
     }
     PSPropertyBag_WriteGUID(propbag.into().abi(), propname.into(), ::core::mem::transmute(value)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteInt<'a, P0, P1>(propbag: P0, propname: P1, value: i32) -> ::windows::core::Result<()>
@@ -4838,7 +4466,6 @@ where
     }
     PSPropertyBag_WriteInt(propbag.into().abi(), propname.into(), value).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteLONG<'a, P0, P1>(propbag: P0, propname: P1, value: i32) -> ::windows::core::Result<()>
@@ -4852,7 +4479,6 @@ where
     }
     PSPropertyBag_WriteLONG(propbag.into().abi(), propname.into(), value).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WritePOINTL<'a, P0, P1>(propbag: P0, propname: P1, value: &super::super::super::Foundation::POINTL) -> ::windows::core::Result<()>
@@ -4866,7 +4492,6 @@ where
     }
     PSPropertyBag_WritePOINTL(propbag.into().abi(), propname.into(), ::core::mem::transmute(value)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WritePOINTS<'a, P0, P1>(propbag: P0, propname: P1, value: &super::super::super::Foundation::POINTS) -> ::windows::core::Result<()>
@@ -4880,7 +4505,6 @@ where
     }
     PSPropertyBag_WritePOINTS(propbag.into().abi(), propname.into(), ::core::mem::transmute(value)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WritePropertyKey<'a, P0, P1>(propbag: P0, propname: P1, value: &PROPERTYKEY) -> ::windows::core::Result<()>
@@ -4894,7 +4518,6 @@ where
     }
     PSPropertyBag_WritePropertyKey(propbag.into().abi(), propname.into(), ::core::mem::transmute(value)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteRECTL<'a, P0, P1>(propbag: P0, propname: P1, value: &super::super::super::Foundation::RECTL) -> ::windows::core::Result<()>
@@ -4908,7 +4531,6 @@ where
     }
     PSPropertyBag_WriteRECTL(propbag.into().abi(), propname.into(), ::core::mem::transmute(value)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteSHORT<'a, P0, P1>(propbag: P0, propname: P1, value: i16) -> ::windows::core::Result<()>
@@ -4922,7 +4544,6 @@ where
     }
     PSPropertyBag_WriteSHORT(propbag.into().abi(), propname.into(), value).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteStr<'a, P0, P1, P2>(propbag: P0, propname: P1, value: P2) -> ::windows::core::Result<()>
@@ -4937,7 +4558,6 @@ where
     }
     PSPropertyBag_WriteStr(propbag.into().abi(), propname.into(), value.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteStream<'a, P0, P1, P2>(propbag: P0, propname: P1, value: P2) -> ::windows::core::Result<()>
@@ -4952,7 +4572,6 @@ where
     }
     PSPropertyBag_WriteStream(propbag.into().abi(), propname.into(), value.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteULONGLONG<'a, P0, P1>(propbag: P0, propname: P1, value: u64) -> ::windows::core::Result<()>
@@ -4966,7 +4585,6 @@ where
     }
     PSPropertyBag_WriteULONGLONG(propbag.into().abi(), propname.into(), value).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn PSPropertyBag_WriteUnknown<'a, P0, P1, P2>(propbag: P0, propname: P1, punk: P2) -> ::windows::core::Result<()>
@@ -4981,7 +4599,6 @@ where
     }
     PSPropertyBag_WriteUnknown(propbag.into().abi(), propname.into(), punk.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSPropertyKeyFromString<'a, P0>(pszstring: P0) -> ::windows::core::Result<PROPERTYKEY>
 where
@@ -4994,7 +4611,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PSPropertyKeyFromString(pszstring.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPERTYKEY>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSRefreshPropertySchema() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -5003,7 +4619,6 @@ pub unsafe fn PSRefreshPropertySchema() -> ::windows::core::Result<()> {
     }
     PSRefreshPropertySchema().ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSRegisterPropertySchema<'a, P0>(pszpath: P0) -> ::windows::core::Result<()>
 where
@@ -5015,7 +4630,6 @@ where
     }
     PSRegisterPropertySchema(pszpath.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PSSetPropertyValue<'a, P0, P1>(pps: P0, ppd: P1, propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
@@ -5029,7 +4643,6 @@ where
     }
     PSSetPropertyValue(pps.into().abi(), ppd.into().abi(), ::core::mem::transmute(propvar)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSStringFromPropertyKey(pkey: &PROPERTYKEY, psz: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -5038,13 +4651,10 @@ pub unsafe fn PSStringFromPropertyKey(pkey: &PROPERTYKEY, psz: &mut [u16]) -> ::
     }
     PSStringFromPropertyKey(::core::mem::transmute(pkey), ::core::mem::transmute(psz.as_ptr()), psz.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSTIME_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSTF_UTC: PSTIME_FLAGS = PSTIME_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const PSTF_LOCAL: PSTIME_FLAGS = PSTIME_FLAGS(1u32);
 impl ::core::marker::Copy for PSTIME_FLAGS {}
 impl ::core::clone::Clone for PSTIME_FLAGS {
@@ -5093,7 +4703,6 @@ impl ::core::ops::Not for PSTIME_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn PSUnregisterPropertySchema<'a, P0>(pszpath: P0) -> ::windows::core::Result<()>
 where
@@ -5105,7 +4714,6 @@ where
     }
     PSUnregisterPropertySchema(pszpath.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_CloseProperties<'a, P0>(hprops: P0, flopt: u32) -> super::super::super::Foundation::HANDLE
@@ -5118,7 +4726,6 @@ where
     }
     PifMgr_CloseProperties(hprops.into(), flopt)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_GetProperties<'a, P0, P1>(hprops: P0, pszgroup: P1, lpprops: ::core::option::Option<&mut [u8]>, flopt: u32) -> i32
@@ -5132,7 +4739,6 @@ where
     }
     PifMgr_GetProperties(hprops.into(), pszgroup.into(), ::core::mem::transmute(lpprops.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpprops.as_deref().map_or(0, |slice| slice.len() as _), flopt)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_OpenProperties<'a, P0, P1>(pszapp: P0, pszpif: P1, hinf: u32, flopt: u32) -> super::super::super::Foundation::HANDLE
@@ -5146,7 +4752,6 @@ where
     }
     PifMgr_OpenProperties(pszapp.into(), pszpif.into(), hinf, flopt)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PifMgr_SetProperties<'a, P0, P1>(hprops: P0, pszgroup: P1, lpprops: &[u8], flopt: u32) -> i32
@@ -5160,7 +4765,6 @@ where
     }
     PifMgr_SetProperties(hprops.into(), pszgroup.into(), ::core::mem::transmute(lpprops.as_ptr()), lpprops.len() as _, flopt)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantChangeType(ppropvardest: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::Result<()> {
@@ -5170,7 +4774,6 @@ pub unsafe fn PropVariantChangeType(ppropvardest: &mut super::super::super::Syst
     }
     PropVariantChangeType(::core::mem::transmute(ppropvardest), ::core::mem::transmute(propvarsrc), flags, vt).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantCompareEx(propvar1: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvar2: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS) -> i32 {
@@ -5180,7 +4783,6 @@ pub unsafe fn PropVariantCompareEx(propvar1: &super::super::super::System::Com::
     }
     PropVariantCompareEx(::core::mem::transmute(propvar1), ::core::mem::transmute(propvar2), unit, flags)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetBooleanElem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
@@ -5191,7 +4793,6 @@ pub unsafe fn PropVariantGetBooleanElem(propvar: &super::super::super::System::C
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetBooleanElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetDoubleElem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<f64> {
@@ -5202,7 +4803,6 @@ pub unsafe fn PropVariantGetDoubleElem(propvar: &super::super::super::System::Co
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetDoubleElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetElementCount(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> u32 {
@@ -5212,7 +4812,6 @@ pub unsafe fn PropVariantGetElementCount(propvar: &super::super::super::System::
     }
     PropVariantGetElementCount(::core::mem::transmute(propvar))
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetFileTimeElem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
@@ -5223,7 +4822,6 @@ pub unsafe fn PropVariantGetFileTimeElem(propvar: &super::super::super::System::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetFileTimeElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetInt16Elem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i16> {
@@ -5234,7 +4832,6 @@ pub unsafe fn PropVariantGetInt16Elem(propvar: &super::super::super::System::Com
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetInt16Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetInt32Elem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i32> {
@@ -5245,7 +4842,6 @@ pub unsafe fn PropVariantGetInt32Elem(propvar: &super::super::super::System::Com
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetInt32Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetInt64Elem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<i64> {
@@ -5256,7 +4852,6 @@ pub unsafe fn PropVariantGetInt64Elem(propvar: &super::super::super::System::Com
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetInt64Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetStringElem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5267,7 +4862,6 @@ pub unsafe fn PropVariantGetStringElem(propvar: &super::super::super::System::Co
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetStringElem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt16Elem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u16> {
@@ -5278,7 +4872,6 @@ pub unsafe fn PropVariantGetUInt16Elem(propvar: &super::super::super::System::Co
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetUInt16Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt32Elem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u32> {
@@ -5289,7 +4882,6 @@ pub unsafe fn PropVariantGetUInt32Elem(propvar: &super::super::super::System::Co
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetUInt32Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantGetUInt64Elem(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ielem: u32) -> ::windows::core::Result<u64> {
@@ -5300,7 +4892,6 @@ pub unsafe fn PropVariantGetUInt64Elem(propvar: &super::super::super::System::Co
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantGetUInt64Elem(::core::mem::transmute(propvar), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBSTR(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -5311,7 +4902,6 @@ pub unsafe fn PropVariantToBSTR(propvar: &super::super::super::System::Com::Stru
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToBSTR(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBoolean(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
@@ -5322,7 +4912,6 @@ pub unsafe fn PropVariantToBoolean(propvarin: &super::super::super::System::Com:
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToBoolean(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanVector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5332,7 +4921,6 @@ pub unsafe fn PropVariantToBooleanVector(propvar: &super::super::super::System::
     }
     PropVariantToBooleanVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgf: &mut *mut super::super::super::Foundation::BOOL, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5342,7 +4930,6 @@ pub unsafe fn PropVariantToBooleanVectorAlloc(propvar: &super::super::super::Sys
     }
     PropVariantToBooleanVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBooleanWithDefault<'a, P0>(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, fdefault: P0) -> super::super::super::Foundation::BOOL
@@ -5355,7 +4942,6 @@ where
     }
     PropVariantToBooleanWithDefault(::core::mem::transmute(propvarin), fdefault.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToBuffer(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pv: &mut [u8]) -> ::windows::core::Result<()> {
@@ -5365,7 +4951,6 @@ pub unsafe fn PropVariantToBuffer(propvar: &super::super::super::System::Com::St
     }
     PropVariantToBuffer(::core::mem::transmute(propvar), ::core::mem::transmute(pv.as_ptr()), pv.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDouble(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<f64> {
@@ -5376,7 +4961,6 @@ pub unsafe fn PropVariantToDouble(propvarin: &super::super::super::System::Com::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToDouble(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleVector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [f64], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5386,7 +4970,6 @@ pub unsafe fn PropVariantToDoubleVector(propvar: &super::super::super::System::C
     }
     PropVariantToDoubleVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: &mut *mut f64, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5396,7 +4979,6 @@ pub unsafe fn PropVariantToDoubleVectorAlloc(propvar: &super::super::super::Syst
     }
     PropVariantToDoubleVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToDoubleWithDefault(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, dbldefault: f64) -> f64 {
@@ -5406,7 +4988,6 @@ pub unsafe fn PropVariantToDoubleWithDefault(propvarin: &super::super::super::Sy
     }
     PropVariantToDoubleWithDefault(::core::mem::transmute(propvarin), dbldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToFileTime(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pstfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
@@ -5417,7 +4998,6 @@ pub unsafe fn PropVariantToFileTime(propvar: &super::super::super::System::Com::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToFileTime(::core::mem::transmute(propvar), pstfout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgft: &mut [super::super::super::Foundation::FILETIME], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5427,7 +5007,6 @@ pub unsafe fn PropVariantToFileTimeVector(propvar: &super::super::super::System:
     }
     PropVariantToFileTimeVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgft.as_ptr()), prgft.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgft: &mut *mut super::super::super::Foundation::FILETIME, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5437,7 +5016,6 @@ pub unsafe fn PropVariantToFileTimeVectorAlloc(propvar: &super::super::super::Sy
     }
     PropVariantToFileTimeVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgft), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToGUID(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::GUID> {
@@ -5448,7 +5026,6 @@ pub unsafe fn PropVariantToGUID(propvar: &super::super::super::System::Com::Stru
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToGUID(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i16> {
@@ -5459,7 +5036,6 @@ pub unsafe fn PropVariantToInt16(propvarin: &super::super::super::System::Com::S
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16Vector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i16], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5469,7 +5045,6 @@ pub unsafe fn PropVariantToInt16Vector(propvar: &super::super::super::System::Co
     }
     PropVariantToInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16VectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: &mut *mut i16, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5479,7 +5054,6 @@ pub unsafe fn PropVariantToInt16VectorAlloc(propvar: &super::super::super::Syste
     }
     PropVariantToInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt16WithDefault(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, idefault: i16) -> i16 {
@@ -5489,7 +5063,6 @@ pub unsafe fn PropVariantToInt16WithDefault(propvarin: &super::super::super::Sys
     }
     PropVariantToInt16WithDefault(::core::mem::transmute(propvarin), idefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i32> {
@@ -5500,7 +5073,6 @@ pub unsafe fn PropVariantToInt32(propvarin: &super::super::super::System::Com::S
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32Vector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i32], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5510,7 +5082,6 @@ pub unsafe fn PropVariantToInt32Vector(propvar: &super::super::super::System::Co
     }
     PropVariantToInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32VectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: &mut *mut i32, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5520,7 +5091,6 @@ pub unsafe fn PropVariantToInt32VectorAlloc(propvar: &super::super::super::Syste
     }
     PropVariantToInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt32WithDefault(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ldefault: i32) -> i32 {
@@ -5530,7 +5100,6 @@ pub unsafe fn PropVariantToInt32WithDefault(propvarin: &super::super::super::Sys
     }
     PropVariantToInt32WithDefault(::core::mem::transmute(propvarin), ldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<i64> {
@@ -5541,7 +5110,6 @@ pub unsafe fn PropVariantToInt64(propvarin: &super::super::super::System::Com::S
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64Vector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [i64], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5551,7 +5119,6 @@ pub unsafe fn PropVariantToInt64Vector(propvar: &super::super::super::System::Co
     }
     PropVariantToInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64VectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: &mut *mut i64, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5561,7 +5128,6 @@ pub unsafe fn PropVariantToInt64VectorAlloc(propvar: &super::super::super::Syste
     }
     PropVariantToInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToInt64WithDefault(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, lldefault: i64) -> i64 {
@@ -5571,7 +5137,6 @@ pub unsafe fn PropVariantToInt64WithDefault(propvarin: &super::super::super::Sys
     }
     PropVariantToInt64WithDefault(::core::mem::transmute(propvarin), lldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn PropVariantToStrRet(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::Common::STRRET> {
@@ -5582,7 +5147,6 @@ pub unsafe fn PropVariantToStrRet(propvar: &super::super::super::System::Com::St
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToStrRet(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToString(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, psz: &mut [u16]) -> ::windows::core::Result<()> {
@@ -5592,7 +5156,6 @@ pub unsafe fn PropVariantToString(propvar: &super::super::super::System::Com::St
     }
     PropVariantToString(::core::mem::transmute(propvar), ::core::mem::transmute(psz.as_ptr()), psz.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -5603,7 +5166,6 @@ pub unsafe fn PropVariantToStringAlloc(propvar: &super::super::super::System::Co
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToStringAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringVector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5613,7 +5175,6 @@ pub unsafe fn PropVariantToStringVector(propvar: &super::super::super::System::C
     }
     PropVariantToStringVector(::core::mem::transmute(propvar), ::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringVectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgsz: &mut *mut ::windows::core::PWSTR, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5623,7 +5184,6 @@ pub unsafe fn PropVariantToStringVectorAlloc(propvar: &super::super::super::Syst
     }
     PropVariantToStringVectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToStringWithDefault<'a, P0>(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pszdefault: P0) -> ::windows::core::PWSTR
@@ -5636,7 +5196,6 @@ where
     }
     PropVariantToStringWithDefault(::core::mem::transmute(propvarin), pszdefault.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u16> {
@@ -5647,7 +5206,6 @@ pub unsafe fn PropVariantToUInt16(propvarin: &super::super::super::System::Com::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToUInt16(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16Vector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u16], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5657,7 +5215,6 @@ pub unsafe fn PropVariantToUInt16Vector(propvar: &super::super::super::System::C
     }
     PropVariantToUInt16Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: &mut *mut u16, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5667,7 +5224,6 @@ pub unsafe fn PropVariantToUInt16VectorAlloc(propvar: &super::super::super::Syst
     }
     PropVariantToUInt16VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt16WithDefault(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, uidefault: u16) -> u16 {
@@ -5677,7 +5233,6 @@ pub unsafe fn PropVariantToUInt16WithDefault(propvarin: &super::super::super::Sy
     }
     PropVariantToUInt16WithDefault(::core::mem::transmute(propvarin), uidefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u32> {
@@ -5688,7 +5243,6 @@ pub unsafe fn PropVariantToUInt32(propvarin: &super::super::super::System::Com::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToUInt32(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32Vector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u32], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5698,7 +5252,6 @@ pub unsafe fn PropVariantToUInt32Vector(propvar: &super::super::super::System::C
     }
     PropVariantToUInt32Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: &mut *mut u32, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5708,7 +5261,6 @@ pub unsafe fn PropVariantToUInt32VectorAlloc(propvar: &super::super::super::Syst
     }
     PropVariantToUInt32VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt32WithDefault(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, uldefault: u32) -> u32 {
@@ -5718,7 +5270,6 @@ pub unsafe fn PropVariantToUInt32WithDefault(propvarin: &super::super::super::Sy
     }
     PropVariantToUInt32WithDefault(::core::mem::transmute(propvarin), uldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<u64> {
@@ -5729,7 +5280,6 @@ pub unsafe fn PropVariantToUInt64(propvarin: &super::super::super::System::Com::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToUInt64(::core::mem::transmute(propvarin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64Vector(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, prgn: &mut [u64], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5739,7 +5289,6 @@ pub unsafe fn PropVariantToUInt64Vector(propvar: &super::super::super::System::C
     }
     PropVariantToUInt64Vector(::core::mem::transmute(propvar), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, pprgn: &mut *mut u64, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -5749,7 +5298,6 @@ pub unsafe fn PropVariantToUInt64VectorAlloc(propvar: &super::super::super::Syst
     }
     PropVariantToUInt64VectorAlloc(::core::mem::transmute(propvar), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToUInt64WithDefault(propvarin: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, ulldefault: u64) -> u64 {
@@ -5759,7 +5307,6 @@ pub unsafe fn PropVariantToUInt64WithDefault(propvarin: &super::super::super::Sy
     }
     PropVariantToUInt64WithDefault(::core::mem::transmute(propvarin), ulldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn PropVariantToVariant(ppropvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<super::super::super::System::Com::VARIANT> {
@@ -5770,7 +5317,6 @@ pub unsafe fn PropVariantToVariant(ppropvar: &super::super::super::System::Com::
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PropVariantToVariant(::core::mem::transmute(ppropvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::VARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn PropVariantToWinRTPropertyValue<T>(propvar: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()>
@@ -5786,7 +5332,6 @@ where
 pub const PropertySystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8967f85_58ae_4f46_9fb2_5d7904798f4b);
 #[repr(C)]
 pub struct SERIALIZEDPROPSTORAGE(pub u8);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[inline]
 pub unsafe fn SHAddDefaultPropertiesByExt<'a, P0, P1>(pszext: P0, ppropstore: P1) -> ::windows::core::Result<()>
 where
@@ -5799,7 +5344,6 @@ where
     }
     SHAddDefaultPropertiesByExt(pszext.into(), ppropstore.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SHGetPropertyStoreForWindow<'a, P0>(hwnd: P0, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -5812,7 +5356,6 @@ where
     }
     SHGetPropertyStoreForWindow(hwnd.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(feature = "Win32_UI_Shell_Common")]
 #[inline]
 pub unsafe fn SHGetPropertyStoreFromIDList(pidl: &super::Common::ITEMIDLIST, flags: GETPROPERTYSTOREFLAGS, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -5822,7 +5365,6 @@ pub unsafe fn SHGetPropertyStoreFromIDList(pidl: &super::Common::ITEMIDLIST, fla
     }
     SHGetPropertyStoreFromIDList(::core::mem::transmute(pidl), flags, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn SHGetPropertyStoreFromParsingName<'a, P0, P1>(pszpath: P0, pbc: P1, flags: GETPROPERTYSTOREFLAGS, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -5836,7 +5378,6 @@ where
     }
     SHGetPropertyStoreFromParsingName(pszpath.into(), pbc.into().abi(), flags, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
 pub unsafe fn SHPropStgCreate<'a, P0>(psstg: P0, fmtid: &::windows::core::GUID, pclsid: ::core::option::Option<&::windows::core::GUID>, grfflags: u32, grfmode: u32, dwdisposition: u32, ppstg: &mut ::core::option::Option<super::super::super::System::Com::StructuredStorage::IPropertyStorage>, pucodepage: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
@@ -5849,7 +5390,6 @@ where
     }
     SHPropStgCreate(psstg.into().abi(), ::core::mem::transmute(fmtid), ::core::mem::transmute(pclsid), grfflags, grfmode, dwdisposition, ::core::mem::transmute(ppstg), ::core::mem::transmute(pucodepage)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn SHPropStgReadMultiple<'a, P0>(pps: P0, ucodepage: u32, rgpspec: &[super::super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
@@ -5863,7 +5403,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     SHPropStgReadMultiple(pps.into().abi(), ucodepage, rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn SHPropStgWriteMultiple<'a, P0>(pps: P0, pucodepage: ::core::option::Option<&mut u32>, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propidnamefirst: u32) -> ::windows::core::Result<()>
@@ -5876,31 +5415,19 @@ where
     }
     SHPropStgWriteMultiple(pps.into().abi(), ::core::mem::transmute(pucodepage), ::core::mem::transmute(cpspec), ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgvar), propidnamefirst).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_ENGINE_STATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_NONE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_SERVICE_QUOTA_NEARING_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_SERVICE_QUOTA_EXCEEDED_LIMIT: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_AUTHENTICATION_ERROR: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_PAUSED_DUE_TO_METERED_NETWORK: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_PAUSED_DUE_TO_DISK_SPACE_FULL: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_PAUSED_DUE_TO_CLIENT_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_PAUSED_DUE_TO_SERVICE_POLICY: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_SERVICE_UNAVAILABLE: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_PAUSED_DUE_TO_USER_REQUEST: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const SESF_ALL_FLAGS: SYNC_ENGINE_STATE_FLAGS = SYNC_ENGINE_STATE_FLAGS(511u32);
 impl ::core::marker::Copy for SYNC_ENGINE_STATE_FLAGS {}
 impl ::core::clone::Clone for SYNC_ENGINE_STATE_FLAGS {
@@ -5949,33 +5476,20 @@ impl ::core::ops::Not for SYNC_ENGINE_STATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SYNC_TRANSFER_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_NONE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_NEEDSUPLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_NEEDSDOWNLOAD: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_PAUSED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_HASERROR: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_FETCHING_METADATA: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_HASWARNING: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_EXCLUDED: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_INCOMPLETE: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const STS_PLACEHOLDER_IFEMPTY: SYNC_TRANSFER_STATUS = SYNC_TRANSFER_STATUS(1024u32);
 impl ::core::marker::Copy for SYNC_TRANSFER_STATUS {}
 impl ::core::clone::Clone for SYNC_TRANSFER_STATUS {
@@ -6024,7 +5538,6 @@ impl ::core::ops::Not for SYNC_TRANSFER_STATUS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantCompare(var1: &super::super::super::System::Com::VARIANT, var2: &super::super::super::System::Com::VARIANT) -> i32 {
@@ -6034,7 +5547,6 @@ pub unsafe fn VariantCompare(var1: &super::super::super::System::Com::VARIANT, v
     }
     VariantCompare(::core::mem::transmute(var1), ::core::mem::transmute(var2))
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetBooleanElem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
@@ -6045,7 +5557,6 @@ pub unsafe fn VariantGetBooleanElem(var: &super::super::super::System::Com::VARI
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetBooleanElem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetDoubleElem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<f64> {
@@ -6056,7 +5567,6 @@ pub unsafe fn VariantGetDoubleElem(var: &super::super::super::System::Com::VARIA
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetDoubleElem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetElementCount(varin: &super::super::super::System::Com::VARIANT) -> u32 {
@@ -6066,7 +5576,6 @@ pub unsafe fn VariantGetElementCount(varin: &super::super::super::System::Com::V
     }
     VariantGetElementCount(::core::mem::transmute(varin))
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetInt16Elem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i16> {
@@ -6077,7 +5586,6 @@ pub unsafe fn VariantGetInt16Elem(var: &super::super::super::System::Com::VARIAN
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetInt16Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetInt32Elem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i32> {
@@ -6088,7 +5596,6 @@ pub unsafe fn VariantGetInt32Elem(var: &super::super::super::System::Com::VARIAN
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetInt32Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetInt64Elem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<i64> {
@@ -6099,7 +5606,6 @@ pub unsafe fn VariantGetInt64Elem(var: &super::super::super::System::Com::VARIAN
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetInt64Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetStringElem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -6110,7 +5616,6 @@ pub unsafe fn VariantGetStringElem(var: &super::super::super::System::Com::VARIA
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetStringElem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetUInt16Elem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u16> {
@@ -6121,7 +5626,6 @@ pub unsafe fn VariantGetUInt16Elem(var: &super::super::super::System::Com::VARIA
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetUInt16Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetUInt32Elem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u32> {
@@ -6132,7 +5636,6 @@ pub unsafe fn VariantGetUInt32Elem(var: &super::super::super::System::Com::VARIA
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetUInt32Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantGetUInt64Elem(var: &super::super::super::System::Com::VARIANT, ielem: u32) -> ::windows::core::Result<u64> {
@@ -6143,7 +5646,6 @@ pub unsafe fn VariantGetUInt64Elem(var: &super::super::super::System::Com::VARIA
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantGetUInt64Elem(::core::mem::transmute(var), ielem, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBoolean(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
@@ -6154,7 +5656,6 @@ pub unsafe fn VariantToBoolean(varin: &super::super::super::System::Com::VARIANT
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToBoolean(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBooleanArray(var: &super::super::super::System::Com::VARIANT, prgf: &mut [super::super::super::Foundation::BOOL], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6164,7 +5665,6 @@ pub unsafe fn VariantToBooleanArray(var: &super::super::super::System::Com::VARI
     }
     VariantToBooleanArray(::core::mem::transmute(var), ::core::mem::transmute(prgf.as_ptr()), prgf.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBooleanArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgf: &mut *mut super::super::super::Foundation::BOOL, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6174,7 +5674,6 @@ pub unsafe fn VariantToBooleanArrayAlloc(var: &super::super::super::System::Com:
     }
     VariantToBooleanArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgf), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBooleanWithDefault<'a, P0>(varin: &super::super::super::System::Com::VARIANT, fdefault: P0) -> super::super::super::Foundation::BOOL
@@ -6187,7 +5686,6 @@ where
     }
     VariantToBooleanWithDefault(::core::mem::transmute(varin), fdefault.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToBuffer(varin: &super::super::super::System::Com::VARIANT, pv: &mut [u8]) -> ::windows::core::Result<()> {
@@ -6197,7 +5695,6 @@ pub unsafe fn VariantToBuffer(varin: &super::super::super::System::Com::VARIANT,
     }
     VariantToBuffer(::core::mem::transmute(varin), ::core::mem::transmute(pv.as_ptr()), pv.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDosDateTime(varin: &super::super::super::System::Com::VARIANT, pwdate: &mut u16, pwtime: &mut u16) -> ::windows::core::Result<()> {
@@ -6207,7 +5704,6 @@ pub unsafe fn VariantToDosDateTime(varin: &super::super::super::System::Com::VAR
     }
     VariantToDosDateTime(::core::mem::transmute(varin), ::core::mem::transmute(pwdate), ::core::mem::transmute(pwtime)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDouble(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<f64> {
@@ -6218,7 +5714,6 @@ pub unsafe fn VariantToDouble(varin: &super::super::super::System::Com::VARIANT)
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToDouble(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDoubleArray(var: &super::super::super::System::Com::VARIANT, prgn: &mut [f64], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6228,7 +5723,6 @@ pub unsafe fn VariantToDoubleArray(var: &super::super::super::System::Com::VARIA
     }
     VariantToDoubleArray(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDoubleArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgn: &mut *mut f64, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6238,7 +5732,6 @@ pub unsafe fn VariantToDoubleArrayAlloc(var: &super::super::super::System::Com::
     }
     VariantToDoubleArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToDoubleWithDefault(varin: &super::super::super::System::Com::VARIANT, dbldefault: f64) -> f64 {
@@ -6248,7 +5741,6 @@ pub unsafe fn VariantToDoubleWithDefault(varin: &super::super::super::System::Co
     }
     VariantToDoubleWithDefault(::core::mem::transmute(varin), dbldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToFileTime(varin: &super::super::super::System::Com::VARIANT, stfout: PSTIME_FLAGS) -> ::windows::core::Result<super::super::super::Foundation::FILETIME> {
@@ -6259,7 +5751,6 @@ pub unsafe fn VariantToFileTime(varin: &super::super::super::System::Com::VARIAN
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToFileTime(::core::mem::transmute(varin), stfout, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::FILETIME>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToGUID(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::GUID> {
@@ -6270,7 +5761,6 @@ pub unsafe fn VariantToGUID(varin: &super::super::super::System::Com::VARIANT) -
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToGUID(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i16> {
@@ -6281,7 +5771,6 @@ pub unsafe fn VariantToInt16(varin: &super::super::super::System::Com::VARIANT) 
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16Array(var: &super::super::super::System::Com::VARIANT, prgn: &mut [i16], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6291,7 +5780,6 @@ pub unsafe fn VariantToInt16Array(var: &super::super::super::System::Com::VARIAN
     }
     VariantToInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16ArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgn: &mut *mut i16, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6301,7 +5789,6 @@ pub unsafe fn VariantToInt16ArrayAlloc(var: &super::super::super::System::Com::V
     }
     VariantToInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt16WithDefault(varin: &super::super::super::System::Com::VARIANT, idefault: i16) -> i16 {
@@ -6311,7 +5798,6 @@ pub unsafe fn VariantToInt16WithDefault(varin: &super::super::super::System::Com
     }
     VariantToInt16WithDefault(::core::mem::transmute(varin), idefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i32> {
@@ -6322,7 +5808,6 @@ pub unsafe fn VariantToInt32(varin: &super::super::super::System::Com::VARIANT) 
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32Array(var: &super::super::super::System::Com::VARIANT, prgn: &mut [i32], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6332,7 +5817,6 @@ pub unsafe fn VariantToInt32Array(var: &super::super::super::System::Com::VARIAN
     }
     VariantToInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32ArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgn: &mut *mut i32, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6342,7 +5826,6 @@ pub unsafe fn VariantToInt32ArrayAlloc(var: &super::super::super::System::Com::V
     }
     VariantToInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt32WithDefault(varin: &super::super::super::System::Com::VARIANT, ldefault: i32) -> i32 {
@@ -6352,7 +5835,6 @@ pub unsafe fn VariantToInt32WithDefault(varin: &super::super::super::System::Com
     }
     VariantToInt32WithDefault(::core::mem::transmute(varin), ldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<i64> {
@@ -6363,7 +5845,6 @@ pub unsafe fn VariantToInt64(varin: &super::super::super::System::Com::VARIANT) 
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64Array(var: &super::super::super::System::Com::VARIANT, prgn: &mut [i64], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6373,7 +5854,6 @@ pub unsafe fn VariantToInt64Array(var: &super::super::super::System::Com::VARIAN
     }
     VariantToInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64ArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgn: &mut *mut i64, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6383,7 +5863,6 @@ pub unsafe fn VariantToInt64ArrayAlloc(var: &super::super::super::System::Com::V
     }
     VariantToInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToInt64WithDefault(varin: &super::super::super::System::Com::VARIANT, lldefault: i64) -> i64 {
@@ -6393,7 +5872,6 @@ pub unsafe fn VariantToInt64WithDefault(varin: &super::super::super::System::Com
     }
     VariantToInt64WithDefault(::core::mem::transmute(varin), lldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToPropVariant(pvar: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT> {
@@ -6404,7 +5882,6 @@ pub unsafe fn VariantToPropVariant(pvar: &super::super::super::System::Com::VARI
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToPropVariant(::core::mem::transmute(pvar), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_Common"))]
 #[inline]
 pub unsafe fn VariantToStrRet(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<super::Common::STRRET> {
@@ -6415,7 +5892,6 @@ pub unsafe fn VariantToStrRet(varin: &super::super::super::System::Com::VARIANT)
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToStrRet(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Common::STRRET>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToString(varin: &super::super::super::System::Com::VARIANT, pszbuf: &mut [u16]) -> ::windows::core::Result<()> {
@@ -6425,7 +5901,6 @@ pub unsafe fn VariantToString(varin: &super::super::super::System::Com::VARIANT,
     }
     VariantToString(::core::mem::transmute(varin), ::core::mem::transmute(pszbuf.as_ptr()), pszbuf.len() as _).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringAlloc(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<::windows::core::PWSTR> {
@@ -6436,7 +5911,6 @@ pub unsafe fn VariantToStringAlloc(varin: &super::super::super::System::Com::VAR
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToStringAlloc(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringArray(var: &super::super::super::System::Com::VARIANT, prgsz: &mut [::windows::core::PWSTR], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6446,7 +5920,6 @@ pub unsafe fn VariantToStringArray(var: &super::super::super::System::Com::VARIA
     }
     VariantToStringArray(::core::mem::transmute(var), ::core::mem::transmute(prgsz.as_ptr()), prgsz.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgsz: &mut *mut ::windows::core::PWSTR, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6456,7 +5929,6 @@ pub unsafe fn VariantToStringArrayAlloc(var: &super::super::super::System::Com::
     }
     VariantToStringArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgsz), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToStringWithDefault<'a, P0>(varin: &super::super::super::System::Com::VARIANT, pszdefault: P0) -> ::windows::core::PWSTR
@@ -6469,7 +5941,6 @@ where
     }
     VariantToStringWithDefault(::core::mem::transmute(varin), pszdefault.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u16> {
@@ -6480,7 +5951,6 @@ pub unsafe fn VariantToUInt16(varin: &super::super::super::System::Com::VARIANT)
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToUInt16(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u16>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16Array(var: &super::super::super::System::Com::VARIANT, prgn: &mut [u16], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6490,7 +5960,6 @@ pub unsafe fn VariantToUInt16Array(var: &super::super::super::System::Com::VARIA
     }
     VariantToUInt16Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16ArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgn: &mut *mut u16, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6500,7 +5969,6 @@ pub unsafe fn VariantToUInt16ArrayAlloc(var: &super::super::super::System::Com::
     }
     VariantToUInt16ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt16WithDefault(varin: &super::super::super::System::Com::VARIANT, uidefault: u16) -> u16 {
@@ -6510,7 +5978,6 @@ pub unsafe fn VariantToUInt16WithDefault(varin: &super::super::super::System::Co
     }
     VariantToUInt16WithDefault(::core::mem::transmute(varin), uidefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u32> {
@@ -6521,7 +5988,6 @@ pub unsafe fn VariantToUInt32(varin: &super::super::super::System::Com::VARIANT)
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToUInt32(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32Array(var: &super::super::super::System::Com::VARIANT, prgn: &mut [u32], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6531,7 +5997,6 @@ pub unsafe fn VariantToUInt32Array(var: &super::super::super::System::Com::VARIA
     }
     VariantToUInt32Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32ArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgn: &mut *mut u32, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6541,7 +6006,6 @@ pub unsafe fn VariantToUInt32ArrayAlloc(var: &super::super::super::System::Com::
     }
     VariantToUInt32ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt32WithDefault(varin: &super::super::super::System::Com::VARIANT, uldefault: u32) -> u32 {
@@ -6551,7 +6015,6 @@ pub unsafe fn VariantToUInt32WithDefault(varin: &super::super::super::System::Co
     }
     VariantToUInt32WithDefault(::core::mem::transmute(varin), uldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64(varin: &super::super::super::System::Com::VARIANT) -> ::windows::core::Result<u64> {
@@ -6562,7 +6025,6 @@ pub unsafe fn VariantToUInt64(varin: &super::super::super::System::Com::VARIANT)
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     VariantToUInt64(::core::mem::transmute(varin), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64Array(var: &super::super::super::System::Com::VARIANT, prgn: &mut [u64], pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6572,7 +6034,6 @@ pub unsafe fn VariantToUInt64Array(var: &super::super::super::System::Com::VARIA
     }
     VariantToUInt64Array(::core::mem::transmute(var), ::core::mem::transmute(prgn.as_ptr()), prgn.len() as _, ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64ArrayAlloc(var: &super::super::super::System::Com::VARIANT, pprgn: &mut *mut u64, pcelem: &mut u32) -> ::windows::core::Result<()> {
@@ -6582,7 +6043,6 @@ pub unsafe fn VariantToUInt64ArrayAlloc(var: &super::super::super::System::Com::
     }
     VariantToUInt64ArrayAlloc(::core::mem::transmute(var), ::core::mem::transmute(pprgn), ::core::mem::transmute(pcelem)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
 pub unsafe fn VariantToUInt64WithDefault(varin: &super::super::super::System::Com::VARIANT, ulldefault: u64) -> u64 {
@@ -6592,7 +6052,6 @@ pub unsafe fn VariantToUInt64WithDefault(varin: &super::super::super::System::Co
     }
     VariantToUInt64WithDefault(::core::mem::transmute(varin), ulldefault)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
 pub unsafe fn WinRTPropertyValueToPropVariant<'a, P0>(punkpropertyvalue: P0) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
@@ -6606,15 +6065,11 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WinRTPropertyValueToPropVariant(punkpropertyvalue.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _PERSIST_SPROPSTORE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const FPSPS_DEFAULT: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const FPSPS_READONLY: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
 pub const FPSPS_TREAT_NEW_VALUES_AS_DIRTY: _PERSIST_SPROPSTORE_FLAGS = _PERSIST_SPROPSTORE_FLAGS(2i32);
 impl ::core::marker::Copy for _PERSIST_SPROPSTORE_FLAGS {}
 impl ::core::clone::Clone for _PERSIST_SPROPSTORE_FLAGS {

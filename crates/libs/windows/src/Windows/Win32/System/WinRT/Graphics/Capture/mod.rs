@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Capture\"`*"]
 #[repr(transparent)]
 pub struct IGraphicsCaptureItemInterop(::windows::core::IUnknown);
 impl IGraphicsCaptureItemInterop {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateForWindow<'a, P0, T>(&self, window: P0) -> ::windows::core::Result<T>
     where
@@ -12,7 +10,6 @@ impl IGraphicsCaptureItemInterop {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).CreateForWindow)(::windows::core::Interface::as_raw(self), window.into(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateForMonitor<'a, P0, T>(&self, monitor: P0) -> ::windows::core::Result<T>
     where

@@ -67,12 +67,10 @@ fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -
         quote! { struct }
     };
 
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     let mut tokens = quote! {
         #repr
-        #doc
         #features
         pub #struct_or_union #name {#(#fields)*}
     };

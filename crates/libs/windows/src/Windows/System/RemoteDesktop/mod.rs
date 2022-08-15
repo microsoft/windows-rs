@@ -13,7 +13,6 @@ pub struct IInteractiveSessionStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub IsRemote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"System_RemoteDesktop\"`*"]
 pub struct InteractiveSession;
 impl InteractiveSession {
     pub fn IsRemote() -> ::windows::core::Result<bool> {

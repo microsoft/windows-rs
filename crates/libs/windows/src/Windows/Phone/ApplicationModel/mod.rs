@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 pub struct ApplicationProfile;
 impl ApplicationProfile {
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
@@ -16,7 +15,6 @@ impl ApplicationProfile {
 impl ::windows::core::RuntimeName for ApplicationProfile {
     const NAME: &'static str = "Windows.Phone.ApplicationModel.ApplicationProfile";
 }
-#[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ApplicationProfileModes(pub u32);

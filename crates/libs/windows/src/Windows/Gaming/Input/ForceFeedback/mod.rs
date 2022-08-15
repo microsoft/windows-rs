@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 pub struct ConditionForceEffect(::windows::core::IUnknown);
 impl ConditionForceEffect {
@@ -9,7 +8,6 @@ impl ConditionForceEffect {
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ConditionForceEffectKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, direction: super::super::super::Foundation::Numerics::Vector3, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConditionForceEffect>(self)?;
@@ -134,7 +132,6 @@ impl<'a> ::core::convert::TryFrom<&ConditionForceEffect> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for ConditionForceEffect {}
 unsafe impl ::core::marker::Sync for ConditionForceEffect {}
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ConditionForceEffectKind(pub i32);
@@ -170,7 +167,6 @@ unsafe impl ::windows::core::RuntimeType for ConditionForceEffectKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 pub struct ConstantForceEffect(::windows::core::IUnknown);
 impl ConstantForceEffect {
@@ -181,13 +177,11 @@ impl ConstantForceEffect {
         static SHARED: ::windows::core::FactoryCache<ConstantForceEffect, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector, duration).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
@@ -301,7 +295,6 @@ impl<'a> ::core::convert::TryFrom<&ConstantForceEffect> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for ConstantForceEffect {}
 unsafe impl ::core::marker::Sync for ConstantForceEffect {}
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForceFeedbackEffectAxes(pub u32);
@@ -365,7 +358,6 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectAxes {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForceFeedbackEffectState(pub i32);
@@ -401,7 +393,6 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackEffectState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
@@ -436,7 +427,6 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackLoadEffectResult {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 pub struct ForceFeedbackMotor(::windows::core::IUnknown);
 impl ForceFeedbackMotor {
@@ -472,7 +462,6 @@ impl ForceFeedbackMotor {
             (::windows::core::Interface::vtable(this).SupportedAxes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ForceFeedbackEffectAxes>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadEffectAsync<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>
     where
@@ -497,7 +486,6 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StopAllEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisableAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -506,7 +494,6 @@ impl ForceFeedbackMotor {
             (::windows::core::Interface::vtable(this).TryDisableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryEnableAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -515,7 +502,6 @@ impl ForceFeedbackMotor {
             (::windows::core::Interface::vtable(this).TryEnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryResetAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -524,7 +510,6 @@ impl ForceFeedbackMotor {
             (::windows::core::Interface::vtable(this).TryResetAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryUnloadEffectAsync<'a, P0, E0>(&self, effect: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>>
     where
@@ -650,7 +635,6 @@ pub struct IConstantForceEffect_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetParametersWithEnvelope: usize,
 }
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 pub struct IForceFeedbackEffect(::windows::core::IUnknown);
 impl IForceFeedbackEffect {
@@ -842,7 +826,6 @@ pub struct IRampForceEffect_Vtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetParametersWithEnvelope: usize,
 }
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 pub struct PeriodicForceEffect(::windows::core::IUnknown);
 impl PeriodicForceEffect {
@@ -879,13 +862,11 @@ impl PeriodicForceEffect {
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PeriodicForceEffectKind>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector, frequency, phase, bias, duration).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
@@ -984,7 +965,6 @@ impl<'a> ::core::convert::TryFrom<&PeriodicForceEffect> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for PeriodicForceEffect {}
 unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PeriodicForceEffectKind(pub i32);
@@ -1021,7 +1001,6 @@ unsafe impl ::windows::core::RuntimeType for PeriodicForceEffectKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
 #[repr(transparent)]
 pub struct RampForceEffect(::windows::core::IUnknown);
 impl RampForceEffect {
@@ -1058,13 +1037,11 @@ impl RampForceEffect {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), startvector, endvector, duration).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope(&self, startvector: super::super::super::Foundation::Numerics::Vector3, endvector: super::super::super::Foundation::Numerics::Vector3, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: super::super::super::Foundation::TimeSpan, attackduration: super::super::super::Foundation::TimeSpan, sustainduration: super::super::super::Foundation::TimeSpan, releaseduration: super::super::super::Foundation::TimeSpan, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;

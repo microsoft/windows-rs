@@ -205,7 +205,6 @@ pub struct IInputInjectorStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub TryCreateForAppBroadcastOnly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputButtonChangeKind(pub i32);
@@ -248,7 +247,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputGamepadInfo(::windows::core::IUnknown);
 impl InjectedInputGamepadInfo {
@@ -259,7 +257,6 @@ impl InjectedInputGamepadInfo {
         static SHARED: ::windows::core::FactoryCache<InjectedInputGamepadInfo, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
     pub fn Buttons(&self) -> ::windows::core::Result<super::super::super::super::Gaming::Input::GamepadButtons> {
         let this = self;
@@ -268,7 +265,6 @@ impl InjectedInputGamepadInfo {
             (::windows::core::Interface::vtable(this).Buttons)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Gaming::Input::GamepadButtons>(result__)
         }
     }
-    #[doc = "*Required features: `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
     pub fn SetButtons(&self, value: super::super::super::super::Gaming::Input::GamepadButtons) -> ::windows::core::Result<()> {
         let this = self;
@@ -340,7 +336,6 @@ impl InjectedInputGamepadInfo {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRightTrigger)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Gaming_Input\"`*"]
     #[cfg(feature = "Gaming_Input")]
     pub fn CreateInstanceFromGamepadReading(reading: super::super::super::super::Gaming::Input::GamepadReading) -> ::windows::core::Result<InjectedInputGamepadInfo> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
@@ -414,7 +409,6 @@ impl ::core::convert::From<&InjectedInputGamepadInfo> for &::windows::core::IIns
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputKeyOptions(pub u32);
@@ -479,7 +473,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputKeyboardInfo(::windows::core::IUnknown);
 impl InjectedInputKeyboardInfo {
@@ -584,7 +577,6 @@ impl ::core::convert::From<&InjectedInputKeyboardInfo> for &::windows::core::IIn
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputMouseInfo(::windows::core::IUnknown);
 impl InjectedInputMouseInfo {
@@ -711,7 +703,6 @@ impl ::core::convert::From<&InjectedInputMouseInfo> for &::windows::core::IInspe
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputMouseOptions(pub u32);
@@ -786,7 +777,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputPenButtons(pub u32);
@@ -850,7 +840,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPenButtons {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputPenInfo(::windows::core::IUnknown);
 impl InjectedInputPenInfo {
@@ -999,7 +988,6 @@ impl ::core::convert::From<&InjectedInputPenInfo> for &::windows::core::IInspect
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputPenParameters(pub u32);
@@ -1065,7 +1053,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPenParameters {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
@@ -1103,7 +1090,6 @@ impl ::core::default::Default for InjectedInputPoint {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -1143,7 +1129,6 @@ impl ::core::default::Default for InjectedInputPointerInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputPointerOptions(pub u32);
@@ -1217,7 +1202,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPointerOptions {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,
@@ -1256,7 +1240,6 @@ impl ::core::default::Default for InjectedInputRectangle {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputShortcut(pub i32);
@@ -1291,7 +1274,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputShortcut {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InjectedInputTouchInfo(::windows::core::IUnknown);
 impl InjectedInputTouchInfo {
@@ -1418,7 +1400,6 @@ impl ::core::convert::From<&InjectedInputTouchInfo> for &::windows::core::IInspe
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputTouchParameters(pub u32);
@@ -1482,7 +1463,6 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct InjectedInputVisualizationMode(pub i32);
@@ -1517,11 +1497,9 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
 pub struct InputInjector(::windows::core::IUnknown);
 impl InputInjector {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectKeyboardInput<'a, P0, E0>(&self, input: P0) -> ::windows::core::Result<()>
     where
@@ -1531,7 +1509,6 @@ impl InputInjector {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InjectKeyboardInput)(::windows::core::Interface::as_raw(this), input.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectMouseInput<'a, P0, E0>(&self, input: P0) -> ::windows::core::Result<()>
     where
@@ -1545,7 +1522,6 @@ impl InputInjector {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InitializeTouchInjection)(::windows::core::Interface::as_raw(this), visualmode).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InjectTouchInput<'a, P0, E0>(&self, input: P0) -> ::windows::core::Result<()>
     where

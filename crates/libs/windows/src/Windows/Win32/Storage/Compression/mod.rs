@@ -30,17 +30,12 @@ impl ::core::convert::From<::core::option::Option<COMPRESSOR_HANDLE>> for COMPRE
 unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESS_ALGORITHM(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
 impl ::core::marker::Copy for COMPRESS_ALGORITHM {}
 impl ::core::clone::Clone for COMPRESS_ALGORITHM {
@@ -61,14 +56,10 @@ impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
         f.debug_tuple("COMPRESS_ALGORITHM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,
@@ -99,15 +90,11 @@ impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPRESS_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
 impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
 impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
@@ -128,9 +115,7 @@ impl ::core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
         f.debug_tuple("COMPRESS_INFORMATION_CLASS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub const COMPRESS_RAW: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseCompressor<'a, P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
@@ -143,7 +128,6 @@ where
     }
     CloseCompressor(compressorhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
@@ -153,7 +137,6 @@ pub unsafe fn CloseDecompressor(decompressorhandle: isize) -> super::super::Foun
     }
     CloseDecompressor(decompressorhandle)
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Compress<'a, P0>(compressorhandle: P0, uncompresseddata: ::core::option::Option<&[u8]>, compressedbuffer: ::core::option::Option<&mut [u8]>, compresseddatasize: &mut usize) -> super::super::Foundation::BOOL
@@ -166,7 +149,6 @@ where
     }
     Compress(compressorhandle.into(), ::core::mem::transmute(uncompresseddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), uncompresseddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(compressedbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), compressedbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(compresseddatasize))
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<&COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: &mut isize) -> super::super::Foundation::BOOL {
@@ -176,7 +158,6 @@ pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines
     }
     CreateCompressor(algorithm, ::core::mem::transmute(allocationroutines), ::core::mem::transmute(compressorhandle))
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: ::core::option::Option<&COMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: &mut isize) -> super::super::Foundation::BOOL {
@@ -186,7 +167,6 @@ pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutin
     }
     CreateDecompressor(algorithm, ::core::mem::transmute(allocationroutines), ::core::mem::transmute(decompressorhandle))
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: ::core::option::Option<&[u8]>, uncompressedbuffer: ::core::option::Option<&mut [u8]>, uncompresseddatasize: ::core::option::Option<&mut usize>) -> super::super::Foundation::BOOL {
@@ -196,11 +176,8 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: ::core::opti
     }
     Decompress(decompressorhandle, ::core::mem::transmute(compresseddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), compresseddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompressedbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), uncompressedbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompresseddatasize))
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub type PFN_COMPRESS_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
 pub type PFN_COMPRESS_FREE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryCompressorInformation<'a, P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: &mut [u8]) -> super::super::Foundation::BOOL
@@ -213,7 +190,6 @@ where
     }
     QueryCompressorInformation(compressorhandle.into(), compressinformationclass, ::core::mem::transmute(compressinformation.as_ptr()), compressinformation.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: &mut [u8]) -> super::super::Foundation::BOOL {
@@ -223,7 +199,6 @@ pub unsafe fn QueryDecompressorInformation(decompressorhandle: isize, compressin
     }
     QueryDecompressorInformation(decompressorhandle, compressinformationclass, ::core::mem::transmute(compressinformation.as_ptr()), compressinformation.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetCompressor<'a, P0>(compressorhandle: P0) -> super::super::Foundation::BOOL
@@ -236,7 +211,6 @@ where
     }
     ResetCompressor(compressorhandle.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foundation::BOOL {
@@ -246,7 +220,6 @@ pub unsafe fn ResetDecompressor(decompressorhandle: isize) -> super::super::Foun
     }
     ResetDecompressor(decompressorhandle)
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCompressorInformation<'a, P0>(compressorhandle: P0, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: &[u8]) -> super::super::Foundation::BOOL
@@ -259,7 +232,6 @@ where
     }
     SetCompressorInformation(compressorhandle.into(), compressinformationclass, ::core::mem::transmute(compressinformation.as_ptr()), compressinformation.len() as _)
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDecompressorInformation(decompressorhandle: isize, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: &[u8]) -> super::super::Foundation::BOOL {

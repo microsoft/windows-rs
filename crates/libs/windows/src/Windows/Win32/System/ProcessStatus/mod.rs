@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct ENUM_PAGE_FILE_INFORMATION {
     pub cb: u32,
     pub Reserved: u32,
@@ -32,17 +31,12 @@ impl ::core::default::Default for ENUM_PAGE_FILE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_DEFAULT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_32BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const LIST_MODULES_64BIT: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(2u32);
 impl ::core::marker::Copy for ENUM_PROCESS_MODULES_EX_FLAGS {}
 impl ::core::clone::Clone for ENUM_PROCESS_MODULES_EX_FLAGS {
@@ -63,7 +57,6 @@ impl ::core::fmt::Debug for ENUM_PROCESS_MODULES_EX_FLAGS {
         f.debug_tuple("ENUM_PROCESS_MODULES_EX_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EmptyWorkingSet<'a, P0>(hprocess: P0) -> super::super::Foundation::BOOL
@@ -76,7 +69,6 @@ where
     }
     K32EmptyWorkingSet(hprocess.into())
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EnumDeviceDrivers(lpimagebase: &mut [u8], lpcbneeded: &mut u32) -> super::super::Foundation::BOOL {
@@ -86,7 +78,6 @@ pub unsafe fn K32EnumDeviceDrivers(lpimagebase: &mut [u8], lpcbneeded: &mut u32)
     }
     K32EnumDeviceDrivers(::core::mem::transmute(lpimagebase.as_ptr()), lpimagebase.len() as _, ::core::mem::transmute(lpcbneeded))
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -96,7 +87,6 @@ pub unsafe fn K32EnumPageFilesA(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKA, pco
     }
     K32EnumPageFilesA(::core::mem::transmute(pcallbackroutine), ::core::mem::transmute(pcontext))
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -106,7 +96,6 @@ pub unsafe fn K32EnumPageFilesW(pcallbackroutine: PENUM_PAGE_FILE_CALLBACKW, pco
     }
     K32EnumPageFilesW(::core::mem::transmute(pcallbackroutine), ::core::mem::transmute(pcontext))
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EnumProcessModules<'a, P0>(hprocess: P0, lphmodule: &mut [u8], lpcbneeded: &mut u32) -> super::super::Foundation::BOOL
@@ -119,7 +108,6 @@ where
     }
     K32EnumProcessModules(hprocess.into(), ::core::mem::transmute(lphmodule.as_ptr()), lphmodule.len() as _, ::core::mem::transmute(lpcbneeded))
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EnumProcessModulesEx<'a, P0>(hprocess: P0, lphmodule: &mut [u8], lpcbneeded: &mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL
@@ -132,7 +120,6 @@ where
     }
     K32EnumProcessModulesEx(hprocess.into(), ::core::mem::transmute(lphmodule.as_ptr()), lphmodule.len() as _, ::core::mem::transmute(lpcbneeded), dwfilterflag)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32EnumProcesses(lpidprocess: &mut [u8], lpcbneeded: &mut u32) -> super::super::Foundation::BOOL {
@@ -142,7 +129,6 @@ pub unsafe fn K32EnumProcesses(lpidprocess: &mut [u8], lpcbneeded: &mut u32) -> 
     }
     K32EnumProcesses(::core::mem::transmute(lpidprocess.as_ptr()), lpidprocess.len() as _, ::core::mem::transmute(lpcbneeded))
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -151,7 +137,6 @@ pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::core::ffi::c_void,
     }
     K32GetDeviceDriverBaseNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void, lpbasename: &mut [u16]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -160,7 +145,6 @@ pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::core::ffi::c_void,
     }
     K32GetDeviceDriverBaseNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -169,7 +153,6 @@ pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::core::ffi::c_void,
     }
     K32GetDeviceDriverFileNameA(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 #[inline]
 pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -178,7 +161,6 @@ pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::core::ffi::c_void,
     }
     K32GetDeviceDriverFileNameW(::core::mem::transmute(imagebase), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetMappedFileNameA<'a, P0>(hprocess: P0, lpv: *const ::core::ffi::c_void, lpfilename: &mut [u8]) -> u32
@@ -191,7 +173,6 @@ where
     }
     K32GetMappedFileNameA(hprocess.into(), ::core::mem::transmute(lpv), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetMappedFileNameW<'a, P0>(hprocess: P0, lpv: *const ::core::ffi::c_void, lpfilename: &mut [u16]) -> u32
@@ -204,7 +185,6 @@ where
     }
     K32GetMappedFileNameW(hprocess.into(), ::core::mem::transmute(lpv), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetModuleBaseNameA<'a, P0, P1>(hprocess: P0, hmodule: P1, lpbasename: &mut [u8]) -> u32
@@ -218,7 +198,6 @@ where
     }
     K32GetModuleBaseNameA(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetModuleBaseNameW<'a, P0, P1>(hprocess: P0, hmodule: P1, lpbasename: &mut [u16]) -> u32
@@ -232,7 +211,6 @@ where
     }
     K32GetModuleBaseNameW(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpbasename.as_ptr()), lpbasename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetModuleFileNameExA<'a, P0, P1>(hprocess: P0, hmodule: P1, lpfilename: &mut [u8]) -> u32
@@ -246,7 +224,6 @@ where
     }
     K32GetModuleFileNameExA(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetModuleFileNameExW<'a, P0, P1>(hprocess: P0, hmodule: P1, lpfilename: &mut [u16]) -> u32
@@ -260,7 +237,6 @@ where
     }
     K32GetModuleFileNameExW(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpfilename.as_ptr()), lpfilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetModuleInformation<'a, P0, P1>(hprocess: P0, hmodule: P1, lpmodinfo: &mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL
@@ -274,7 +250,6 @@ where
     }
     K32GetModuleInformation(hprocess.into(), hmodule.into(), ::core::mem::transmute(lpmodinfo), cb)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: &mut PERFORMANCE_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
@@ -284,7 +259,6 @@ pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: &mut PERFORMANCE_IN
     }
     K32GetPerformanceInfo(::core::mem::transmute(pperformanceinformation), cb)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameA<'a, P0>(hprocess: P0, lpimagefilename: &mut [u8]) -> u32
@@ -297,7 +271,6 @@ where
     }
     K32GetProcessImageFileNameA(hprocess.into(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetProcessImageFileNameW<'a, P0>(hprocess: P0, lpimagefilename: &mut [u16]) -> u32
@@ -310,7 +283,6 @@ where
     }
     K32GetProcessImageFileNameW(hprocess.into(), ::core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetProcessMemoryInfo<'a, P0>(process: P0, ppsmemcounters: &mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL
@@ -323,7 +295,6 @@ where
     }
     K32GetProcessMemoryInfo(process.into(), ::core::mem::transmute(ppsmemcounters), cb)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetWsChanges<'a, P0>(hprocess: P0, lpwatchinfo: &mut [u8]) -> super::super::Foundation::BOOL
@@ -336,7 +307,6 @@ where
     }
     K32GetWsChanges(hprocess.into(), ::core::mem::transmute(lpwatchinfo.as_ptr()), lpwatchinfo.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32GetWsChangesEx<'a, P0>(hprocess: P0, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: &mut u32) -> super::super::Foundation::BOOL
@@ -349,7 +319,6 @@ where
     }
     K32GetWsChangesEx(hprocess.into(), ::core::mem::transmute(lpwatchinfoex), ::core::mem::transmute(cb))
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32InitializeProcessForWsWatch<'a, P0>(hprocess: P0) -> super::super::Foundation::BOOL
@@ -362,7 +331,6 @@ where
     }
     K32InitializeProcessForWsWatch(hprocess.into())
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32QueryWorkingSet<'a, P0>(hprocess: P0, pv: &mut [u8]) -> super::super::Foundation::BOOL
@@ -375,7 +343,6 @@ where
     }
     K32QueryWorkingSet(hprocess.into(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _)
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn K32QueryWorkingSetEx<'a, P0>(hprocess: P0, pv: &mut [u8]) -> super::super::Foundation::BOOL
@@ -389,7 +356,6 @@ where
     K32QueryWorkingSetEx(hprocess.into(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _)
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut ::core::ffi::c_void,
     pub SizeOfImage: u32,
@@ -420,14 +386,11 @@ impl ::core::default::Default for MODULEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUM_PAGE_FILE_CALLBACKA = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUM_PAGE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut ::core::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL>;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PERFORMANCE_INFORMATION {
     pub cb: u32,
     pub CommitTotal: usize,
@@ -485,7 +448,6 @@ impl ::core::default::Default for PERFORMANCE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PROCESS_MEMORY_COUNTERS {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -535,7 +497,6 @@ impl ::core::default::Default for PROCESS_MEMORY_COUNTERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -586,10 +547,8 @@ impl ::core::default::Default for PROCESS_MEMORY_COUNTERS_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub const PSAPI_VERSION: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub union PSAPI_WORKING_SET_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_BLOCK_0,
@@ -615,7 +574,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_BLOCK {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
     pub _bitfield: usize,
 }
@@ -645,7 +603,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub union PSAPI_WORKING_SET_EX_BLOCK {
     pub Flags: usize,
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0,
@@ -671,7 +628,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub union PSAPI_WORKING_SET_EX_BLOCK_0 {
     pub Anonymous: PSAPI_WORKING_SET_EX_BLOCK_0_0,
     pub Invalid: PSAPI_WORKING_SET_EX_BLOCK_0_1,
@@ -697,7 +653,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     pub _bitfield: usize,
 }
@@ -727,7 +682,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     pub _bitfield: usize,
 }
@@ -757,7 +711,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PSAPI_WORKING_SET_EX_INFORMATION {
     pub VirtualAddress: *mut ::core::ffi::c_void,
     pub VirtualAttributes: PSAPI_WORKING_SET_EX_BLOCK,
@@ -783,7 +736,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_EX_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PSAPI_WORKING_SET_INFORMATION {
     pub NumberOfEntries: usize,
     pub WorkingSetInfo: [PSAPI_WORKING_SET_BLOCK; 1],
@@ -809,7 +761,6 @@ impl ::core::default::Default for PSAPI_WORKING_SET_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut ::core::ffi::c_void,
     pub FaultingVa: *mut ::core::ffi::c_void,
@@ -840,7 +791,6 @@ impl ::core::default::Default for PSAPI_WS_WATCH_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ProcessStatus\"`*"]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
     pub BasicInfo: PSAPI_WS_WATCH_INFORMATION,
     pub FaultingThreadId: usize,

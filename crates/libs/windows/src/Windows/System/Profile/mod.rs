@@ -1,6 +1,5 @@
 #[cfg(feature = "System_Profile_SystemManufacturers")]
 pub mod SystemManufacturers;
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct AnalyticsInfo;
 impl AnalyticsInfo {
     pub fn VersionInfo() -> ::windows::core::Result<AnalyticsVersionInfo> {
@@ -15,7 +14,6 @@ impl AnalyticsInfo {
             (::windows::core::Interface::vtable(this).DeviceForm)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSystemPropertiesAsync<'a, P0, E0>(attributenames: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>
     where
@@ -41,7 +39,6 @@ impl AnalyticsInfo {
 impl ::windows::core::RuntimeName for AnalyticsInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsInfo";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 pub struct AnalyticsVersionInfo(::windows::core::IUnknown);
 impl AnalyticsVersionInfo {
@@ -129,10 +126,8 @@ impl ::core::convert::From<&AnalyticsVersionInfo> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct AppApplicability;
 impl AppApplicability {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnsupportedAppRequirements<'a, P0, E0>(capabilities: P0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>
     where
@@ -153,7 +148,6 @@ impl AppApplicability {
 impl ::windows::core::RuntimeName for AppApplicability {
     const NAME: &'static str = "Windows.System.Profile.AppApplicability";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct EducationSettings;
 impl EducationSettings {
     pub fn IsEducationEnvironment() -> ::windows::core::Result<bool> {
@@ -171,10 +165,8 @@ impl EducationSettings {
 impl ::windows::core::RuntimeName for EducationSettings {
     const NAME: &'static str = "Windows.System.Profile.EducationSettings";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct HardwareIdentification;
 impl HardwareIdentification {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetPackageSpecificToken<'a, P0, E0>(nonce: P0) -> ::windows::core::Result<HardwareToken>
     where
@@ -195,11 +187,9 @@ impl HardwareIdentification {
 impl ::windows::core::RuntimeName for HardwareIdentification {
     const NAME: &'static str = "Windows.System.Profile.HardwareIdentification";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 pub struct HardwareToken(::windows::core::IUnknown);
 impl HardwareToken {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -208,7 +198,6 @@ impl HardwareToken {
             (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Signature(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -217,7 +206,6 @@ impl HardwareToken {
             (::windows::core::Interface::vtable(this).Signature)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Certificate(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -604,7 +592,6 @@ pub struct IWindowsIntegrityPolicyStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     RemovePolicyChanged: usize,
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct KnownRetailInfoProperties;
 impl KnownRetailInfoProperties {
     pub fn RetailAccessCode() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -748,7 +735,6 @@ impl KnownRetailInfoProperties {
 impl ::windows::core::RuntimeName for KnownRetailInfoProperties {
     const NAME: &'static str = "Windows.System.Profile.KnownRetailInfoProperties";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PlatformDataCollectionLevel(pub i32);
@@ -784,7 +770,6 @@ unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct PlatformDiagnosticsAndUsageDataSettings;
 impl PlatformDiagnosticsAndUsageDataSettings {
     pub fn CollectionLevel() -> ::windows::core::Result<PlatformDataCollectionLevel> {
@@ -793,7 +778,6 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows::core::Interface::vtable(this).CollectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PlatformDataCollectionLevel>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CollectionLevelChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -804,7 +788,6 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows::core::Interface::vtable(this).CollectionLevelChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCollectionLevelChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveCollectionLevelChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -824,7 +807,6 @@ impl PlatformDiagnosticsAndUsageDataSettings {
 impl ::windows::core::RuntimeName for PlatformDiagnosticsAndUsageDataSettings {
     const NAME: &'static str = "Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct RetailInfo;
 impl RetailInfo {
     pub fn IsDemoModeEnabled() -> ::windows::core::Result<bool> {
@@ -833,7 +815,6 @@ impl RetailInfo {
             (::windows::core::Interface::vtable(this).IsDemoModeEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties() -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
@@ -850,7 +831,6 @@ impl RetailInfo {
 impl ::windows::core::RuntimeName for RetailInfo {
     const NAME: &'static str = "Windows.System.Profile.RetailInfo";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct SharedModeSettings;
 impl SharedModeSettings {
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
@@ -879,7 +859,6 @@ impl SharedModeSettings {
 impl ::windows::core::RuntimeName for SharedModeSettings {
     const NAME: &'static str = "Windows.System.Profile.SharedModeSettings";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct SystemIdentification;
 impl SystemIdentification {
     pub fn GetSystemIdForPublisher() -> ::windows::core::Result<SystemIdentificationInfo> {
@@ -906,11 +885,9 @@ impl SystemIdentification {
 impl ::windows::core::RuntimeName for SystemIdentification {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentification";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 pub struct SystemIdentificationInfo(::windows::core::IUnknown);
 impl SystemIdentificationInfo {
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -989,7 +966,6 @@ impl ::core::convert::From<&SystemIdentificationInfo> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemIdentificationSource(pub i32);
@@ -1025,7 +1001,6 @@ unsafe impl ::windows::core::RuntimeType for SystemIdentificationSource {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
@@ -1060,7 +1035,6 @@ unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct SystemSetupInfo;
 impl SystemSetupInfo {
     pub fn OutOfBoxExperienceState() -> ::windows::core::Result<SystemOutOfBoxExperienceState> {
@@ -1069,7 +1043,6 @@ impl SystemSetupInfo {
             (::windows::core::Interface::vtable(this).OutOfBoxExperienceState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemOutOfBoxExperienceState>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn OutOfBoxExperienceStateChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1080,7 +1053,6 @@ impl SystemSetupInfo {
             (::windows::core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOutOfBoxExperienceStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -1094,7 +1066,6 @@ impl SystemSetupInfo {
 impl ::windows::core::RuntimeName for SystemSetupInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemSetupInfo";
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 pub struct UnsupportedAppRequirement(::windows::core::IUnknown);
 impl UnsupportedAppRequirement {
@@ -1175,7 +1146,6 @@ impl ::core::convert::From<&UnsupportedAppRequirement> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
-#[doc = "*Required features: `\"System_Profile\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
@@ -1237,7 +1207,6 @@ unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Profile\"`*"]
 pub struct WindowsIntegrityPolicy;
 impl WindowsIntegrityPolicy {
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
@@ -1264,7 +1233,6 @@ impl WindowsIntegrityPolicy {
             (::windows::core::Interface::vtable(this).IsDisableSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PolicyChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -1275,7 +1243,6 @@ impl WindowsIntegrityPolicy {
             (::windows::core::Interface::vtable(this).PolicyChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePolicyChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePolicyChanged)(::windows::core::Interface::as_raw(this), token).ok() })

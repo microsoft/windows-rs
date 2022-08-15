@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastingMonitor(::windows::core::IUnknown);
 impl AppBroadcastingMonitor {
@@ -16,7 +15,6 @@ impl AppBroadcastingMonitor {
             (::windows::core::Interface::vtable(this).IsCurrentAppBroadcasting)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsCurrentAppBroadcastingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -28,7 +26,6 @@ impl AppBroadcastingMonitor {
             (::windows::core::Interface::vtable(this).IsCurrentAppBroadcastingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveIsCurrentAppBroadcastingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -97,7 +94,6 @@ impl ::core::convert::From<&AppBroadcastingMonitor> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for AppBroadcastingMonitor {}
 unsafe impl ::core::marker::Sync for AppBroadcastingMonitor {}
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastingStatus(::windows::core::IUnknown);
 impl AppBroadcastingStatus {
@@ -178,7 +174,6 @@ impl ::core::convert::From<&AppBroadcastingStatus> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for AppBroadcastingStatus {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatus {}
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastingStatusDetails(::windows::core::IUnknown);
 impl AppBroadcastingStatusDetails {
@@ -301,7 +296,6 @@ impl ::core::convert::From<&AppBroadcastingStatusDetails> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for AppBroadcastingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppBroadcastingStatusDetails {}
-#[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastingUI(::windows::core::IUnknown);
 impl AppBroadcastingUI {
@@ -322,7 +316,6 @@ impl AppBroadcastingUI {
             (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AppBroadcastingUI>(result__)
         })
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<AppBroadcastingUI>
     where

@@ -1,8 +1,5 @@
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const CCF_SCESVC_ATTACHMENT: &str = "CCF_SCESVC_ATTACHMENT";
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const CCF_SCESVC_ATTACHMENT_DATA: &str = "CCF_SCESVC_ATTACHMENT_DATA";
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
 pub struct ISceSvcAttachmentData(::windows::core::IUnknown);
 impl ISceSvcAttachmentData {
@@ -66,11 +63,9 @@ pub struct ISceSvcAttachmentData_Vtbl {
     pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CloseHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
 pub struct ISceSvcAttachmentPersistInfo(::windows::core::IUnknown);
 impl ISceSvcAttachmentPersistInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save(&self, lptemplatename: &mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lptemplatename), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(ppvdata), ::core::mem::transmute(pboverwriteall)).ok()
@@ -128,64 +123,37 @@ pub struct ISceSvcAttachmentPersistInfo_Vtbl {
     pub IsDirty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lptemplatename: *mut i8) -> ::windows::core::HRESULT,
     pub FreeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub type PFSCE_FREE_INFO = ::core::option::Option<unsafe extern "system" fn(pvserviceinfo: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub type PFSCE_LOG_INFO = ::core::option::Option<unsafe extern "system" fn(errlevel: SCE_LOG_ERR_LEVEL, win32rc: u32, perrfmt: *mut i8) -> u32>;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_QUERY_INFO = ::core::option::Option<unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, ppvinfo: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFSCE_SET_INFO = ::core::option::Option<unsafe extern "system" fn(scehandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, lpprefix: *mut i8, bexact: super::super::Foundation::BOOL, pvinfo: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_ConfigAnalyzeService = ::core::option::Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_UpdateService = ::core::option::Option<unsafe extern "system" fn(pscecbinfo: *mut SCESVC_CALLBACK_INFO, serviceinfo: *mut SCESVC_CONFIGURATION_INFO) -> u32>;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_ACCESS_DENIED: i32 = 9i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_ALREADY_RUNNING: i32 = 13i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_BAD_FORMAT: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_BUFFER_TOO_SMALL: i32 = 5i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_CANT_DELETE: i32 = 10i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_EXCEPTION_IN_SERVER: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_INVALID_DATA: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_INVALID_PARAMETER: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_MOD_NOT_FOUND: i32 = 15i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_NOT_ENOUGH_RESOURCE: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_NO_MAPPING: i32 = 18i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_NO_TEMPLATE_GIVEN: i32 = 17i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_OBJECT_EXIST: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_OTHER_ERROR: i32 = 12i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_PREFIX_OVERFLOW: i32 = 11i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_PROFILE_NOT_FOUND: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_RECORD_NOT_FOUND: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_SERVICE_NOT_SUPPORT: i32 = 14i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_SUCCESS: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESTATUS_TRUST_FAIL: i32 = 19i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub struct SCESVC_ANALYSIS_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_ANALYSIS_LINE,
@@ -216,7 +184,6 @@ impl ::core::default::Default for SCESVC_ANALYSIS_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub struct SCESVC_ANALYSIS_LINE {
     pub Key: *mut i8,
     pub Value: *mut u8,
@@ -248,7 +215,6 @@ impl ::core::default::Default for SCESVC_ANALYSIS_LINE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCESVC_CALLBACK_INFO {
     pub sceHandle: *mut ::core::ffi::c_void,
@@ -290,7 +256,6 @@ impl ::core::default::Default for SCESVC_CALLBACK_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub struct SCESVC_CONFIGURATION_INFO {
     pub Count: u32,
     pub Lines: *mut SCESVC_CONFIGURATION_LINE,
@@ -321,7 +286,6 @@ impl ::core::default::Default for SCESVC_CONFIGURATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub struct SCESVC_CONFIGURATION_LINE {
     pub Key: *mut i8,
     pub Value: *mut i8,
@@ -352,19 +316,13 @@ impl ::core::default::Default for SCESVC_CONFIGURATION_LINE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCESVC_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3i32);
 impl ::core::marker::Copy for SCESVC_INFO_TYPE {}
 impl ::core::clone::Clone for SCESVC_INFO_TYPE {
@@ -385,17 +343,12 @@ impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
         f.debug_tuple("SCESVC_INFO_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SCE_LOG_ERR_LEVEL(pub u32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0u32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1u32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2u32);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3u32);
 impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
 impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
@@ -416,22 +369,15 @@ impl ::core::fmt::Debug for SCE_LOG_ERR_LEVEL {
         f.debug_tuple("SCE_LOG_ERR_LEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const SCE_ROOT_PATH: &str = "Software\\Microsoft\\Windows NT\\CurrentVersion\\SeCEdit";
 pub const cNodetypeSceAnalysisServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
 pub const cNodetypeSceEventLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
 pub const cNodetypeSceTemplateServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const lstruuidNodetypeSceAnalysisServices: &str = "{678050c7-1ff8-11d1-affb-00c04fb984f9}";
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const lstruuidNodetypeSceEventLog: &str = "{2ce06698-4bf3-11d1-8c30-00c04fb984f9}";
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const lstruuidNodetypeSceTemplateServices: &str = "{24a7f717-1f0c-11d1-affb-00c04fb984f9}";
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const struuidNodetypeSceAnalysisServices: &str = "{678050c7-1ff8-11d1-affb-00c04fb984f9}";
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const struuidNodetypeSceEventLog: &str = "{2ce06698-4bf3-11d1-8c30-00c04fb984f9}";
-#[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
 pub const struuidNodetypeSceTemplateServices: &str = "{24a7f717-1f0c-11d1-affb-00c04fb984f9}";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

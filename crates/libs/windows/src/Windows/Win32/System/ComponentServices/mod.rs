@@ -1,6 +1,5 @@
 pub const AppDomainHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessRecycleInfo {
     pub IsRecyclable: super::super::Foundation::BOOL,
@@ -66,7 +65,6 @@ impl ::core::default::Default for ApplicationProcessRecycleInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct ApplicationProcessStatistics {
     pub NumCallsOutstanding: u32,
     pub NumTrackedComponents: u32,
@@ -103,7 +101,6 @@ impl ::core::default::Default for ApplicationProcessStatistics {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ApplicationProcessSummary {
     pub PartitionIdPrimaryApplication: ::windows::core::GUID,
@@ -159,7 +156,6 @@ impl ::core::default::Default for ApplicationProcessSummary {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct ApplicationSummary {
     pub ApplicationInstanceId: ::windows::core::GUID,
     pub PartitionId: ::windows::core::GUID,
@@ -194,61 +190,34 @@ impl ::core::default::Default for ApplicationSummary {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AutoSvcs_Error_Constants(pub u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803138u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxAborting: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803139u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxNoContext: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803140u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxNotRegistered: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803141u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxSynchTimeout: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803142u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxOldReference: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803143u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxRoleNotFound: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803148u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxNoSecurity: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803149u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803150u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const mtsErrCtxTMNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803151u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comQCErrApplicationNotQueued: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599296u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comQCErrNoQueueableInterfaces: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599297u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comQCErrQueuingServiceNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599298u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comQCErrQueueTransactMismatch: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599299u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrRecorderMarshalled: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599300u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrOutParam: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599301u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrRecorderNotTrusted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599302u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrPSLoad: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599303u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrMarshaledObjSameTxn: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599304u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrInvalidMessage: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599376u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrMsmqSidUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599377u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrWrongMsgExtension: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599378u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599379u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
 impl ::core::marker::Copy for AutoSvcs_Error_Constants {}
 impl ::core::clone::Clone for AutoSvcs_Error_Constants {
@@ -271,7 +240,6 @@ impl ::core::fmt::Debug for AutoSvcs_Error_Constants {
 }
 pub const ByotServerEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct CAppData {
     pub m_idApp: u32,
     pub m_szAppGuid: [u16; 40],
@@ -304,7 +272,6 @@ impl ::core::default::Default for CAppData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct CAppStatistics {
     pub m_cTotalCalls: u32,
     pub m_cTotalInstances: u32,
@@ -337,7 +304,6 @@ impl ::core::default::Default for CAppStatistics {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct CCLSIDData {
     pub m_clsid: ::windows::core::GUID,
     pub m_cReferences: u32,
@@ -374,7 +340,6 @@ impl ::core::default::Default for CCLSIDData {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct CCLSIDData2 {
     pub m_clsid: ::windows::core::GUID,
     pub m_appid: ::windows::core::GUID,
@@ -429,13 +394,10 @@ impl ::core::default::Default for CCLSIDData2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAccessChecksLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(1i32);
 impl ::core::marker::Copy for COMAdminAccessChecksLevelOptions {}
 impl ::core::clone::Clone for COMAdminAccessChecksLevelOptions {
@@ -456,13 +418,10 @@ impl ::core::fmt::Debug for COMAdminAccessChecksLevelOptions {
         f.debug_tuple("COMAdminAccessChecksLevelOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminActivationOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminActivationLocal: COMAdminActivationOptions = COMAdminActivationOptions(1i32);
 impl ::core::marker::Copy for COMAdminActivationOptions {}
 impl ::core::clone::Clone for COMAdminActivationOptions {
@@ -483,19 +442,13 @@ impl ::core::fmt::Debug for COMAdminActivationOptions {
         f.debug_tuple("COMAdminActivationOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminApplicationExportOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminExportUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(16i32);
 impl ::core::marker::Copy for COMAdminApplicationExportOptions {}
 impl ::core::clone::Clone for COMAdminApplicationExportOptions {
@@ -516,15 +469,11 @@ impl ::core::fmt::Debug for COMAdminApplicationExportOptions {
         f.debug_tuple("COMAdminApplicationExportOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminApplicationInstallOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(2i32);
 impl ::core::marker::Copy for COMAdminApplicationInstallOptions {}
 impl ::core::clone::Clone for COMAdminApplicationInstallOptions {
@@ -545,17 +494,12 @@ impl ::core::fmt::Debug for COMAdminApplicationInstallOptions {
         f.debug_tuple("COMAdminApplicationInstallOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(64i32);
 impl ::core::marker::Copy for COMAdminAuthenticationCapabilitiesOptions {}
 impl ::core::clone::Clone for COMAdminAuthenticationCapabilitiesOptions {
@@ -576,23 +520,15 @@ impl ::core::fmt::Debug for COMAdminAuthenticationCapabilitiesOptions {
         f.debug_tuple("COMAdminAuthenticationCapabilitiesOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminAuthenticationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationNone: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationConnect: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
 impl ::core::marker::Copy for COMAdminAuthenticationLevelOptions {}
 impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
@@ -616,21 +552,14 @@ impl ::core::fmt::Debug for COMAdminAuthenticationLevelOptions {
 pub const COMAdminCatalog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
 pub const COMAdminCatalogCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c516_dfb8_11d1_a2cf_00805fc79235);
 pub const COMAdminCatalogObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminComponentFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCompFlagCOMPlusPropertiesFound: COMAdminComponentFlags = COMAdminComponentFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = COMAdminComponentFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = COMAdminComponentFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = COMAdminComponentFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = COMAdminComponentFlags(32i32);
 impl ::core::marker::Copy for COMAdminComponentFlags {}
 impl ::core::clone::Clone for COMAdminComponentFlags {
@@ -651,13 +580,10 @@ impl ::core::fmt::Debug for COMAdminComponentFlags {
         f.debug_tuple("COMAdminComponentFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminComponentType(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
 impl ::core::marker::Copy for COMAdminComponentType {}
 impl ::core::clone::Clone for COMAdminComponentType {
@@ -678,185 +604,96 @@ impl ::core::fmt::Debug for COMAdminComponentType {
         f.debug_tuple("COMAdminComponentType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminErrorCodes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrObjectInvalid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368510i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrKeyMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146368509i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrAlreadyInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368508i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrAppFileWriteFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368505i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrAppFileReadFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368504i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrAppFileVersion: COMAdminErrorCodes = COMAdminErrorCodes(-2146368503i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrBadPath: COMAdminErrorCodes = COMAdminErrorCodes(-2146368502i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrApplicationExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368501i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRoleExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368500i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCantCopyFile: COMAdminErrorCodes = COMAdminErrorCodes(-2146368499i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrNoUser: COMAdminErrorCodes = COMAdminErrorCodes(-2146368497i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrInvalidUserids: COMAdminErrorCodes = COMAdminErrorCodes(-2146368496i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrNoRegistryCLSID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368495i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrBadRegistryProgID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368494i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrAuthenticationLevel: COMAdminErrorCodes = COMAdminErrorCodes(-2146368493i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrUserPasswdNotValid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368492i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCLSIDOrIIDMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368488i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRemoteInterface: COMAdminErrorCodes = COMAdminErrorCodes(-2146368487i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrDllRegisterServer: COMAdminErrorCodes = COMAdminErrorCodes(-2146368486i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrNoServerShare: COMAdminErrorCodes = COMAdminErrorCodes(-2146368485i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrDllLoadFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368483i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrBadRegistryLibID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368482i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrAppDirNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368481i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRegistrarFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368477i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompFileDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368476i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompFileLoadDLLFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368475i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompFileGetClassObj: COMAdminErrorCodes = COMAdminErrorCodes(-2146368474i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompFileClassNotAvail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368473i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompFileBadTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368472i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompFileNotInstallable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368471i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrNotChangeable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368470i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrNotDeletable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368469i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrSession: COMAdminErrorCodes = COMAdminErrorCodes(-2146368468i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompMoveLocked: COMAdminErrorCodes = COMAdminErrorCodes(-2146368467i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompMoveBadDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146368466i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRegisterTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368464i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368461i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompFileNoRegistrar: COMAdminErrorCodes = COMAdminErrorCodes(-2146368460i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCoReqCompInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368459i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrServiceNotInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368458i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrPropertySaveFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368457i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrObjectExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368456i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrComponentExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368455i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRegFileCorrupt: COMAdminErrorCodes = COMAdminErrorCodes(-2146368453i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrPropertyOverflow: COMAdminErrorCodes = COMAdminErrorCodes(-2146368452i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrNotInRegistry: COMAdminErrorCodes = COMAdminErrorCodes(-2146368450i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrObjectNotPoolable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368449i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrApplidMatchesClsid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368442i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRoleDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368441i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrStartAppNeedsComponents: COMAdminErrorCodes = COMAdminErrorCodes(-2146368440i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRequiresDifferentPlatform: COMAdminErrorCodes = COMAdminErrorCodes(-2146368439i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrQueuingServiceNotAvailable: COMAdminErrorCodes = COMAdminErrorCodes(-2146367998i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrObjectParentMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146367480i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrObjectDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146367479i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCanNotExportAppProxy: COMAdminErrorCodes = COMAdminErrorCodes(-2146368438i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCanNotStartApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368437i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCanNotExportSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368436i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCanNotSubscribeToComponent: COMAdminErrorCodes = COMAdminErrorCodes(-2146368435i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrAppNotRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146367478i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrEventClassCannotBeSubscriber: COMAdminErrorCodes = COMAdminErrorCodes(-2146368434i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrLibAppProxyIncompatible: COMAdminErrorCodes = COMAdminErrorCodes(-2146368433i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrBasePartitionOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146368432i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrDuplicatePartitionName: COMAdminErrorCodes = COMAdminErrorCodes(-2146368425i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrPartitionInUse: COMAdminErrorCodes = COMAdminErrorCodes(-2146368423i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrImportedComponentsNotAllowed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368421i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRegdbNotInitialized: COMAdminErrorCodes = COMAdminErrorCodes(-2146368398i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRegdbNotOpen: COMAdminErrorCodes = COMAdminErrorCodes(-2146368397i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRegdbSystemErr: COMAdminErrorCodes = COMAdminErrorCodes(-2146368396i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrRegdbAlreadyRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146368395i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrMigVersionNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368384i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrMigSchemaNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368383i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCatBitnessMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368382i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCatUnacceptableBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368381i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCatWrongAppBitnessBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368380i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCatPauseResumeNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368379i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCatServerFault: COMAdminErrorCodes = COMAdminErrorCodes(-2146368378i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCantRecycleLibraryApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367473i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCantRecycleServiceApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367471i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrProcessAlreadyRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367470i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrPausedProcessMayNotBeRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367469i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrInvalidPartition: COMAdminErrorCodes = COMAdminErrorCodes(-2146367477i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrPartitionMsiOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146367463i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrStartAppDisabled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368431i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = COMAdminErrorCodes(-2146367460i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146367459i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = COMAdminErrorCodes(-2146367458i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = COMAdminErrorCodes(-2146367456i32);
 impl ::core::marker::Copy for COMAdminErrorCodes {}
 impl ::core::clone::Clone for COMAdminErrorCodes {
@@ -877,47 +714,27 @@ impl ::core::fmt::Debug for COMAdminErrorCodes {
         f.debug_tuple("COMAdminErrorCodes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminFileFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagCOM: COMAdminFileFlags = COMAdminFileFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagContainsPS: COMAdminFileFlags = COMAdminFileFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagContainsComp: COMAdminFileFlags = COMAdminFileFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagContainsTLB: COMAdminFileFlags = COMAdminFileFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagSelfReg: COMAdminFileFlags = COMAdminFileFlags(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagSelfUnReg: COMAdminFileFlags = COMAdminFileFlags(64i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagUnloadableDLL: COMAdminFileFlags = COMAdminFileFlags(128i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagDoesNotExist: COMAdminFileFlags = COMAdminFileFlags(256i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagAlreadyInstalled: COMAdminFileFlags = COMAdminFileFlags(512i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagBadTLB: COMAdminFileFlags = COMAdminFileFlags(1024i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagGetClassObjFailed: COMAdminFileFlags = COMAdminFileFlags(2048i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagClassNotAvailable: COMAdminFileFlags = COMAdminFileFlags(4096i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagRegistrar: COMAdminFileFlags = COMAdminFileFlags(8192i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagNoRegistrar: COMAdminFileFlags = COMAdminFileFlags(16384i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = COMAdminFileFlags(32768i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = COMAdminFileFlags(65536i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = COMAdminFileFlags(131072i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminFileFlagError: COMAdminFileFlags = COMAdminFileFlags(262144i32);
 impl ::core::marker::Copy for COMAdminFileFlags {}
 impl ::core::clone::Clone for COMAdminFileFlags {
@@ -938,17 +755,12 @@ impl ::core::fmt::Debug for COMAdminFileFlags {
         f.debug_tuple("COMAdminFileFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminImpersonationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(4i32);
 impl ::core::marker::Copy for COMAdminImpersonationLevelOptions {}
 impl ::core::clone::Clone for COMAdminImpersonationLevelOptions {
@@ -969,21 +781,14 @@ impl ::core::fmt::Debug for COMAdminImpersonationLevelOptions {
         f.debug_tuple("COMAdminImpersonationLevelOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminInUse(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInUseByCatalog: COMAdminInUse = COMAdminInUse(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = COMAdminInUse(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = COMAdminInUse(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = COMAdminInUse(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminInUseByRegistryClsid: COMAdminInUse = COMAdminInUse(5i32);
 impl ::core::marker::Copy for COMAdminInUse {}
 impl ::core::clone::Clone for COMAdminInUse {
@@ -1004,83 +809,45 @@ impl ::core::fmt::Debug for COMAdminInUse {
         f.debug_tuple("COMAdminInUse").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminOS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows3_1: COMAdminOS = COMAdminOS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows9x: COMAdminOS = COMAdminOS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows2000: COMAdminOS = COMAdminOS(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows2000AdvancedServer: COMAdminOS = COMAdminOS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows2000Unknown: COMAdminOS = COMAdminOS(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSUnknown: COMAdminOS = COMAdminOS(6i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsXPPersonal: COMAdminOS = COMAdminOS(11i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsXPProfessional: COMAdminOS = COMAdminOS(12i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsNETStandardServer: COMAdminOS = COMAdminOS(13i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsNETEnterpriseServer: COMAdminOS = COMAdminOS(14i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsNETDatacenterServer: COMAdminOS = COMAdminOS(15i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsNETWebServer: COMAdminOS = COMAdminOS(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsLonghornPersonal: COMAdminOS = COMAdminOS(17i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsLonghornProfessional: COMAdminOS = COMAdminOS(18i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsLonghornStandardServer: COMAdminOS = COMAdminOS(19i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsLonghornEnterpriseServer: COMAdminOS = COMAdminOS(20i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsLonghornDatacenterServer: COMAdminOS = COMAdminOS(21i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsLonghornWebServer: COMAdminOS = COMAdminOS(22i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows7Personal: COMAdminOS = COMAdminOS(23i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows7Professional: COMAdminOS = COMAdminOS(24i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows7StandardServer: COMAdminOS = COMAdminOS(25i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows7EnterpriseServer: COMAdminOS = COMAdminOS(26i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows7DatacenterServer: COMAdminOS = COMAdminOS(27i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows7WebServer: COMAdminOS = COMAdminOS(28i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows8Personal: COMAdminOS = COMAdminOS(29i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows8Professional: COMAdminOS = COMAdminOS(30i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows8StandardServer: COMAdminOS = COMAdminOS(31i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows8EnterpriseServer: COMAdminOS = COMAdminOS(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows8DatacenterServer: COMAdminOS = COMAdminOS(33i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindows8WebServer: COMAdminOS = COMAdminOS(34i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsBluePersonal: COMAdminOS = COMAdminOS(35i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsBlueProfessional: COMAdminOS = COMAdminOS(36i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = COMAdminOS(37i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = COMAdminOS(38i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = COMAdminOS(39i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = COMAdminOS(40i32);
 impl ::core::marker::Copy for COMAdminOS {}
 impl ::core::clone::Clone for COMAdminOS {
@@ -1101,15 +868,11 @@ impl ::core::fmt::Debug for COMAdminOS {
         f.debug_tuple("COMAdminOS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(2i32);
 impl ::core::marker::Copy for COMAdminQCMessageAuthenticateOptions {}
 impl ::core::clone::Clone for COMAdminQCMessageAuthenticateOptions {
@@ -1130,11 +893,9 @@ impl ::core::fmt::Debug for COMAdminQCMessageAuthenticateOptions {
         f.debug_tuple("COMAdminQCMessageAuthenticateOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminServiceOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
 impl ::core::marker::Copy for COMAdminServiceOptions {}
 impl ::core::clone::Clone for COMAdminServiceOptions {
@@ -1155,25 +916,16 @@ impl ::core::fmt::Debug for COMAdminServiceOptions {
         f.debug_tuple("COMAdminServiceOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminServiceStatusOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceStartPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceStopPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceRunning: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServicePaused: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(6i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(7i32);
 impl ::core::marker::Copy for COMAdminServiceStatusOptions {}
 impl ::core::clone::Clone for COMAdminServiceStatusOptions {
@@ -1194,19 +946,13 @@ impl ::core::fmt::Debug for COMAdminServiceStatusOptions {
         f.debug_tuple("COMAdminServiceStatusOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminSynchronizationOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(4i32);
 impl ::core::marker::Copy for COMAdminSynchronizationOptions {}
 impl ::core::clone::Clone for COMAdminSynchronizationOptions {
@@ -1227,21 +973,14 @@ impl ::core::fmt::Debug for COMAdminSynchronizationOptions {
         f.debug_tuple("COMAdminSynchronizationOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminThreadingModels(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminThreadingModelFree: COMAdminThreadingModels = COMAdminThreadingModels(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminThreadingModelMain: COMAdminThreadingModels = COMAdminThreadingModels(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = COMAdminThreadingModels(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = COMAdminThreadingModels(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = COMAdminThreadingModels(5i32);
 impl ::core::marker::Copy for COMAdminThreadingModels {}
 impl ::core::clone::Clone for COMAdminThreadingModels {
@@ -1262,19 +1001,13 @@ impl ::core::fmt::Debug for COMAdminThreadingModels {
         f.debug_tuple("COMAdminThreadingModels").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminTransactionOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTransactionNone: COMAdminTransactionOptions = COMAdminTransactionOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTransactionSupported: COMAdminTransactionOptions = COMAdminTransactionOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTransactionRequired: COMAdminTransactionOptions = COMAdminTransactionOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = COMAdminTransactionOptions(4i32);
 impl ::core::marker::Copy for COMAdminTransactionOptions {}
 impl ::core::clone::Clone for COMAdminTransactionOptions {
@@ -1295,19 +1028,13 @@ impl ::core::fmt::Debug for COMAdminTransactionOptions {
         f.debug_tuple("COMAdminTransactionOptions").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMAdminTxIsolationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
 impl ::core::marker::Copy for COMAdminTxIsolationLevelOptions {}
 impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
@@ -1329,17 +1056,12 @@ impl ::core::fmt::Debug for COMAdminTxIsolationLevelOptions {
     }
 }
 pub const COMEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMPLUS_APPTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
 impl ::core::marker::Copy for COMPLUS_APPTYPE {}
 impl ::core::clone::Clone for COMPLUS_APPTYPE {
@@ -1361,7 +1083,6 @@ impl ::core::fmt::Debug for COMPLUS_APPTYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct COMSVCSEVENTINFO {
     pub cbSize: u32,
     pub dwPid: u32,
@@ -1397,23 +1118,15 @@ impl ::core::default::Default for COMSVCSEVENTINFO {
     }
 }
 pub const CRMClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRMFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_WRITTENDURINGPREPARE: CRMFLAGS = CRMFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_WRITTENDURINGCOMMIT: CRMFLAGS = CRMFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = CRMFLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = CRMFLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = CRMFLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = CRMFLAGS(64i32);
 impl ::core::marker::Copy for CRMFLAGS {}
 impl ::core::clone::Clone for CRMFLAGS {
@@ -1434,19 +1147,13 @@ impl ::core::fmt::Debug for CRMFLAGS {
         f.debug_tuple("CRMFLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CRMREGFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
 impl ::core::marker::Copy for CRMREGFLAGS {}
 impl ::core::clone::Clone for CRMREGFLAGS {
@@ -1468,25 +1175,16 @@ impl ::core::fmt::Debug for CRMREGFLAGS {
     }
 }
 pub const CRMRecoveryClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRR_MEMORY_LIMIT: u32 = 4294967292u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_Binding(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_BindToPoolThread: CSC_Binding = CSC_Binding(1i32);
 impl ::core::marker::Copy for CSC_Binding {}
 impl ::core::clone::Clone for CSC_Binding {
@@ -1507,13 +1205,10 @@ impl ::core::fmt::Debug for CSC_Binding {
         f.debug_tuple("CSC_Binding").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_COMTIIntrinsicsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(1i32);
 impl ::core::marker::Copy for CSC_COMTIIntrinsicsConfig {}
 impl ::core::clone::Clone for CSC_COMTIIntrinsicsConfig {
@@ -1534,13 +1229,10 @@ impl ::core::fmt::Debug for CSC_COMTIIntrinsicsConfig {
         f.debug_tuple("CSC_COMTIIntrinsicsConfig").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_IISIntrinsicsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(1i32);
 impl ::core::marker::Copy for CSC_IISIntrinsicsConfig {}
 impl ::core::clone::Clone for CSC_IISIntrinsicsConfig {
@@ -1561,13 +1253,10 @@ impl ::core::fmt::Debug for CSC_IISIntrinsicsConfig {
         f.debug_tuple("CSC_IISIntrinsicsConfig").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_InheritanceConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_Ignore: CSC_InheritanceConfig = CSC_InheritanceConfig(1i32);
 impl ::core::marker::Copy for CSC_InheritanceConfig {}
 impl ::core::clone::Clone for CSC_InheritanceConfig {
@@ -1588,15 +1277,11 @@ impl ::core::fmt::Debug for CSC_InheritanceConfig {
         f.debug_tuple("CSC_InheritanceConfig").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_PartitionConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_InheritPartition: CSC_PartitionConfig = CSC_PartitionConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NewPartition: CSC_PartitionConfig = CSC_PartitionConfig(2i32);
 impl ::core::marker::Copy for CSC_PartitionConfig {}
 impl ::core::clone::Clone for CSC_PartitionConfig {
@@ -1617,15 +1302,11 @@ impl ::core::fmt::Debug for CSC_PartitionConfig {
         f.debug_tuple("CSC_PartitionConfig").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_SxsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_InheritSxs: CSC_SxsConfig = CSC_SxsConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NewSxs: CSC_SxsConfig = CSC_SxsConfig(2i32);
 impl ::core::marker::Copy for CSC_SxsConfig {}
 impl ::core::clone::Clone for CSC_SxsConfig {
@@ -1646,17 +1327,12 @@ impl ::core::fmt::Debug for CSC_SxsConfig {
         f.debug_tuple("CSC_SxsConfig").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_SynchronizationConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = CSC_SynchronizationConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = CSC_SynchronizationConfig(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NewSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(3i32);
 impl ::core::marker::Copy for CSC_SynchronizationConfig {}
 impl ::core::clone::Clone for CSC_SynchronizationConfig {
@@ -1677,17 +1353,12 @@ impl ::core::fmt::Debug for CSC_SynchronizationConfig {
         f.debug_tuple("CSC_SynchronizationConfig").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_ThreadPool(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_ThreadPoolInherit: CSC_ThreadPool = CSC_ThreadPool(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_STAThreadPool: CSC_ThreadPool = CSC_ThreadPool(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_MTAThreadPool: CSC_ThreadPool = CSC_ThreadPool(3i32);
 impl ::core::marker::Copy for CSC_ThreadPool {}
 impl ::core::clone::Clone for CSC_ThreadPool {
@@ -1708,13 +1379,10 @@ impl ::core::fmt::Debug for CSC_ThreadPool {
         f.debug_tuple("CSC_ThreadPool").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_TrackerConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_UseTracker: CSC_TrackerConfig = CSC_TrackerConfig(1i32);
 impl ::core::marker::Copy for CSC_TrackerConfig {}
 impl ::core::clone::Clone for CSC_TrackerConfig {
@@ -1735,17 +1403,12 @@ impl ::core::fmt::Debug for CSC_TrackerConfig {
         f.debug_tuple("CSC_TrackerConfig").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CSC_TransactionConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
 impl ::core::marker::Copy for CSC_TransactionConfig {}
 impl ::core::clone::Clone for CSC_TransactionConfig {
@@ -1768,7 +1431,6 @@ impl ::core::fmt::Debug for CSC_TransactionConfig {
 }
 pub const CServiceConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
 pub const ClrAssemblyLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn CoCreateActivity<'a, P0>(piunknown: P0, riid: &::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -1780,7 +1442,6 @@ where
     }
     CoCreateActivity(piunknown.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobj)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn CoEnterServiceDomain<'a, P0>(pconfigobject: P0) -> ::windows::core::Result<()>
 where
@@ -1792,7 +1453,6 @@ where
     }
     CoEnterServiceDomain(pconfigobject.into().abi()).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -1802,7 +1462,6 @@ pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: &::windows
     }
     CoGetDefaultContext(apttype, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn CoLeaveServiceDomain<'a, P0>(punkstatus: P0)
 where
@@ -1818,7 +1477,6 @@ pub const CoMTSLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128
 pub const ComServiceEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
 pub const ComSystemAppEventData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ComponentHangMonitorInfo {
     pub IsMonitored: super::super::Foundation::BOOL,
@@ -1858,7 +1516,6 @@ impl ::core::default::Default for ComponentHangMonitorInfo {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct ComponentStatistics {
     pub NumInstances: u32,
     pub NumBoundReferences: u32,
@@ -1914,7 +1571,6 @@ impl ::core::default::Default for ComponentStatistics {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct ComponentSummary {
     pub ApplicationInstanceId: ::windows::core::GUID,
     pub PartitionId: ::windows::core::GUID,
@@ -1948,7 +1604,6 @@ impl ::core::default::Default for ComponentSummary {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ContextInfo(::windows::core::IUnknown);
@@ -1962,19 +1617,16 @@ impl ContextInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTransactionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetTransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetActivityId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetActivityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2062,7 +1714,6 @@ pub struct ContextInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetContextId: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ContextInfo2(::windows::core::IUnknown);
@@ -2076,37 +1727,31 @@ impl ContextInfo2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTransaction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTransactionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetTransactionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetActivityId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetActivityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContextId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetContextId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPartitionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPartitionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetApplicationId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationInstanceId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2211,7 +1856,6 @@ pub struct ContextInfo2_Vtbl {
     GetApplicationInstanceId: usize,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 pub struct CrmLogRecordRead {
     pub dwCrmFlags: u32,
@@ -2250,17 +1894,12 @@ impl ::core::default::Default for CrmLogRecordRead {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CrmTransactionState(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxState_Committed: CrmTransactionState = CrmTransactionState(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxState_Aborted: CrmTransactionState = CrmTransactionState(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxState_Indoubt: CrmTransactionState = CrmTransactionState(3i32);
 impl ::core::marker::Copy for CrmTransactionState {}
 impl ::core::clone::Clone for CrmTransactionState {
@@ -2281,17 +1920,12 @@ impl ::core::fmt::Debug for CrmTransactionState {
         f.debug_tuple("CrmTransactionState").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DUMPTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
 impl ::core::marker::Copy for DUMPTYPE {}
 impl ::core::clone::Clone for DUMPTYPE {
@@ -2315,21 +1949,14 @@ impl ::core::fmt::Debug for DUMPTYPE {
 pub const DispenserManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
 pub const Dummy30040732: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
 pub const EventServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GUID_STRING_SIZE: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GetAppTrackerDataFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
 impl ::core::marker::Copy for GetAppTrackerDataFlags {}
 impl ::core::clone::Clone for GetAppTrackerDataFlags {
@@ -2350,7 +1977,6 @@ impl ::core::fmt::Debug for GetAppTrackerDataFlags {
         f.debug_tuple("GetAppTrackerDataFlags").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2360,7 +1986,6 @@ pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetDispenserManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDispenserManager>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn GetManagedExtensions(dwexts: &mut u32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2371,7 +1996,6 @@ pub unsafe fn GetManagedExtensions(dwexts: &mut u32) -> ::windows::core::Result<
 }
 pub const GetSecurityCallContextAppObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HANG_INFO {
     pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
@@ -2413,7 +2037,6 @@ impl ::core::default::Default for HANG_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IAppDomainHelper(::windows::core::IUnknown);
@@ -2501,13 +2124,11 @@ pub struct IAppDomainHelper_Vtbl {
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0000: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub DoCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkad: *mut ::core::ffi::c_void, __midl__iappdomainhelper0001: isize, ppool: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IAssemblyLocator(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAssemblyLocator {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetModules<'a, P0, P1, P2>(&self, applicationdir: P0, applicationname: P1, assemblyname: P2) -> ::windows::core::Result<*mut super::Com::SAFEARRAY>
     where
@@ -2590,7 +2211,6 @@ pub struct IAssemblyLocator_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetModules: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IAsyncErrorNotify(::windows::core::IUnknown);
 impl IAsyncErrorNotify {
@@ -2639,13 +2259,11 @@ pub struct IAsyncErrorNotify_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ICOMAdminCatalog(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICOMAdminCatalog {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCollection<'a, P0>(&self, bstrcollname: P0) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -2654,7 +2272,6 @@ impl ICOMAdminCatalog {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCollection)(::windows::core::Interface::as_raw(self), bstrcollname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Connect<'a, P0>(&self, bstrcatalogservername: P0) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -2671,7 +2288,6 @@ impl ICOMAdminCatalog {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCollectionByQuery<'a, P0>(&self, bstrcollname: P0, ppsavarquery: &*const super::Com::SAFEARRAY) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -2680,7 +2296,6 @@ impl ICOMAdminCatalog {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCollectionByQuery)(::windows::core::Interface::as_raw(self), bstrcollname.into().abi(), ::core::mem::transmute(ppsavarquery), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImportComponent<'a, P0, P1>(&self, bstrapplidorname: P0, bstrclsidorprogid: P1) -> ::windows::core::Result<()>
     where
@@ -2689,7 +2304,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).ImportComponent)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrclsidorprogid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallComponent<'a, P0, P1, P2, P3>(&self, bstrapplidorname: P0, bstrdll: P1, bstrtlb: P2, bstrpsdll: P3) -> ::windows::core::Result<()>
     where
@@ -2700,7 +2314,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).InstallComponent)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrdll.into().abi(), bstrtlb.into().abi(), bstrpsdll.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShutdownApplication<'a, P0>(&self, bstrapplidorname: P0) -> ::windows::core::Result<()>
     where
@@ -2708,7 +2321,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).ShutdownApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExportApplication<'a, P0, P1>(&self, bstrapplidorname: P0, bstrapplicationfile: P1, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>
     where
@@ -2717,7 +2329,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), loptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallApplication<'a, P0, P1, P2, P3, P4>(&self, bstrapplicationfile: P0, bstrdestinationdirectory: P1, loptions: COMAdminApplicationInstallOptions, bstruserid: P2, bstrpassword: P3, bstrrsn: P4) -> ::windows::core::Result<()>
     where
@@ -2744,7 +2355,6 @@ impl ICOMAdminCatalog {
     pub unsafe fn Reserved2(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Reserved2)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InstallMultipleComponents<'a, P0>(&self, bstrapplidorname: P0, ppsavarfilenames: &*const super::Com::SAFEARRAY, ppsavarclsids: &*const super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -2752,7 +2362,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).InstallMultipleComponents)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), ::core::mem::transmute(ppsavarfilenames), ::core::mem::transmute(ppsavarclsids)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetMultipleComponentsInfo<'a, P0>(&self, bstrapplidorname: P0, ppsavarfilenames: &*const super::Com::SAFEARRAY, ppsavarclsids: &mut *mut super::Com::SAFEARRAY, ppsavarclassnames: &mut *mut super::Com::SAFEARRAY, ppsavarfileflags: &mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -2763,7 +2372,6 @@ impl ICOMAdminCatalog {
     pub unsafe fn RefreshComponents(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RefreshComponents)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BackupREGDB<'a, P0>(&self, bstrbackupfilepath: P0) -> ::windows::core::Result<()>
     where
@@ -2771,7 +2379,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).BackupREGDB)(::windows::core::Interface::as_raw(self), bstrbackupfilepath.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RestoreREGDB<'a, P0>(&self, bstrbackupfilepath: P0) -> ::windows::core::Result<()>
     where
@@ -2779,7 +2386,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).RestoreREGDB)(::windows::core::Interface::as_raw(self), bstrbackupfilepath.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryApplicationFile<'a, P0>(&self, bstrapplicationfile: P0, pbstrapplicationname: &mut super::super::Foundation::BSTR, pbstrapplicationdescription: &mut super::super::Foundation::BSTR, pbhasusers: &mut i16, pbisproxy: &mut i16, ppsavarfilenames: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -2787,7 +2393,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).QueryApplicationFile)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), ::core::mem::transmute(pbstrapplicationname), ::core::mem::transmute(pbstrapplicationdescription), ::core::mem::transmute(pbhasusers), ::core::mem::transmute(pbisproxy), ::core::mem::transmute(ppsavarfilenames)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartApplication<'a, P0>(&self, bstrapplidorname: P0) -> ::windows::core::Result<()>
     where
@@ -2799,7 +2404,6 @@ impl ICOMAdminCatalog {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ServiceCheck)(::windows::core::Interface::as_raw(self), lservice, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InstallMultipleEventClasses<'a, P0>(&self, bstrapplidorname: P0, ppsavarfilenames: &*const super::Com::SAFEARRAY, ppsavarclsids: &*const super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -2807,7 +2411,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).InstallMultipleEventClasses)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), ::core::mem::transmute(ppsavarfilenames), ::core::mem::transmute(ppsavarclsids)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallEventClass<'a, P0, P1, P2, P3>(&self, bstrapplidorname: P0, bstrdll: P1, bstrtlb: P2, bstrpsdll: P3) -> ::windows::core::Result<()>
     where
@@ -2818,7 +2421,6 @@ impl ICOMAdminCatalog {
     {
         (::windows::core::Interface::vtable(self).InstallEventClass)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrdll.into().abi(), bstrtlb.into().abi(), bstrpsdll.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEventClassesForIID<'a, P0>(&self, bstriid: P0, ppsavarclsids: &mut *mut super::Com::SAFEARRAY, ppsavarprogids: &mut *mut super::Com::SAFEARRAY, ppsavardescriptions: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -2971,13 +2573,11 @@ pub struct ICOMAdminCatalog_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     GetEventClassesForIID: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ICOMAdminCatalog2(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICOMAdminCatalog2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCollection<'a, P0>(&self, bstrcollname: P0) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -2986,7 +2586,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCollection)(::windows::core::Interface::as_raw(self), bstrcollname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Connect<'a, P0>(&self, bstrcatalogservername: P0) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -3003,7 +2602,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetCollectionByQuery<'a, P0>(&self, bstrcollname: P0, ppsavarquery: &*const super::Com::SAFEARRAY) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -3012,7 +2610,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetCollectionByQuery)(::windows::core::Interface::as_raw(self), bstrcollname.into().abi(), ::core::mem::transmute(ppsavarquery), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImportComponent<'a, P0, P1>(&self, bstrapplidorname: P0, bstrclsidorprogid: P1) -> ::windows::core::Result<()>
     where
@@ -3021,7 +2618,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.ImportComponent)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrclsidorprogid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallComponent<'a, P0, P1, P2, P3>(&self, bstrapplidorname: P0, bstrdll: P1, bstrtlb: P2, bstrpsdll: P3) -> ::windows::core::Result<()>
     where
@@ -3032,7 +2628,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.InstallComponent)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrdll.into().abi(), bstrtlb.into().abi(), bstrpsdll.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShutdownApplication<'a, P0>(&self, bstrapplidorname: P0) -> ::windows::core::Result<()>
     where
@@ -3040,7 +2635,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.ShutdownApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExportApplication<'a, P0, P1>(&self, bstrapplidorname: P0, bstrapplicationfile: P1, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>
     where
@@ -3049,7 +2643,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.ExportApplication)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrapplicationfile.into().abi(), loptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallApplication<'a, P0, P1, P2, P3, P4>(&self, bstrapplicationfile: P0, bstrdestinationdirectory: P1, loptions: COMAdminApplicationInstallOptions, bstruserid: P2, bstrpassword: P3, bstrrsn: P4) -> ::windows::core::Result<()>
     where
@@ -3076,7 +2669,6 @@ impl ICOMAdminCatalog2 {
     pub unsafe fn Reserved2(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Reserved2)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InstallMultipleComponents<'a, P0>(&self, bstrapplidorname: P0, ppsavarfilenames: &*const super::Com::SAFEARRAY, ppsavarclsids: &*const super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -3084,7 +2676,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.InstallMultipleComponents)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), ::core::mem::transmute(ppsavarfilenames), ::core::mem::transmute(ppsavarclsids)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetMultipleComponentsInfo<'a, P0>(&self, bstrapplidorname: P0, ppsavarfilenames: &*const super::Com::SAFEARRAY, ppsavarclsids: &mut *mut super::Com::SAFEARRAY, ppsavarclassnames: &mut *mut super::Com::SAFEARRAY, ppsavarfileflags: &mut *mut super::Com::SAFEARRAY, ppsavarcomponentflags: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -3095,7 +2686,6 @@ impl ICOMAdminCatalog2 {
     pub unsafe fn RefreshComponents(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RefreshComponents)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BackupREGDB<'a, P0>(&self, bstrbackupfilepath: P0) -> ::windows::core::Result<()>
     where
@@ -3103,7 +2693,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.BackupREGDB)(::windows::core::Interface::as_raw(self), bstrbackupfilepath.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RestoreREGDB<'a, P0>(&self, bstrbackupfilepath: P0) -> ::windows::core::Result<()>
     where
@@ -3111,7 +2700,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.RestoreREGDB)(::windows::core::Interface::as_raw(self), bstrbackupfilepath.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryApplicationFile<'a, P0>(&self, bstrapplicationfile: P0, pbstrapplicationname: &mut super::super::Foundation::BSTR, pbstrapplicationdescription: &mut super::super::Foundation::BSTR, pbhasusers: &mut i16, pbisproxy: &mut i16, ppsavarfilenames: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -3119,7 +2707,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.QueryApplicationFile)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), ::core::mem::transmute(pbstrapplicationname), ::core::mem::transmute(pbstrapplicationdescription), ::core::mem::transmute(pbhasusers), ::core::mem::transmute(pbisproxy), ::core::mem::transmute(ppsavarfilenames)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartApplication<'a, P0>(&self, bstrapplidorname: P0) -> ::windows::core::Result<()>
     where
@@ -3131,7 +2718,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.ServiceCheck)(::windows::core::Interface::as_raw(self), lservice, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InstallMultipleEventClasses<'a, P0>(&self, bstrapplidorname: P0, ppsavarfilenames: &*const super::Com::SAFEARRAY, ppsavarclsids: &*const super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -3139,7 +2725,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.InstallMultipleEventClasses)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), ::core::mem::transmute(ppsavarfilenames), ::core::mem::transmute(ppsavarclsids)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallEventClass<'a, P0, P1, P2, P3>(&self, bstrapplidorname: P0, bstrdll: P1, bstrtlb: P2, bstrpsdll: P3) -> ::windows::core::Result<()>
     where
@@ -3150,7 +2735,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.InstallEventClass)(::windows::core::Interface::as_raw(self), bstrapplidorname.into().abi(), bstrdll.into().abi(), bstrtlb.into().abi(), bstrpsdll.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetEventClassesForIID<'a, P0>(&self, bstriid: P0, ppsavarclsids: &mut *mut super::Com::SAFEARRAY, ppsavarprogids: &mut *mut super::Com::SAFEARRAY, ppsavardescriptions: &mut *mut super::Com::SAFEARRAY) -> ::windows::core::Result<()>
     where
@@ -3158,7 +2742,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).base__.GetEventClassesForIID)(::windows::core::Interface::as_raw(self), bstriid.into().abi(), ::core::mem::transmute(ppsavarclsids), ::core::mem::transmute(ppsavarprogids), ::core::mem::transmute(ppsavardescriptions)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCollectionByQuery2<'a, P0>(&self, bstrcollectionname: P0, pvarquerystrings: &super::Com::VARIANT) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -3167,39 +2750,32 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCollectionByQuery2)(::windows::core::Interface::as_raw(self), bstrcollectionname.into().abi(), ::core::mem::transmute(pvarquerystrings), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationInstanceIDFromProcessID(&self, lprocessid: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetApplicationInstanceIDFromProcessID)(::windows::core::Interface::as_raw(self), lprocessid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ShutdownApplicationInstances(&self, pvarapplicationinstanceid: &super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShutdownApplicationInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarapplicationinstanceid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PauseApplicationInstances(&self, pvarapplicationinstanceid: &super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PauseApplicationInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarapplicationinstanceid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ResumeApplicationInstances(&self, pvarapplicationinstanceid: &super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ResumeApplicationInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarapplicationinstanceid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RecycleApplicationInstances(&self, pvarapplicationinstanceid: &super::Com::VARIANT, lreasoncode: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RecycleApplicationInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarapplicationinstanceid), lreasoncode).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AreApplicationInstancesPaused(&self, pvarapplicationinstanceid: &super::Com::VARIANT) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).AreApplicationInstancesPaused)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarapplicationinstanceid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DumpApplicationInstance<'a, P0, P1>(&self, bstrapplicationinstanceid: P0, bstrdirectory: P1, lmaximages: i32) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -3213,7 +2789,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsApplicationInstanceDumpSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateServiceForApplication<'a, P0, P1, P2, P3, P4, P5, P6>(&self, bstrapplicationidorname: P0, bstrservicename: P1, bstrstarttype: P2, bstrerrorcontrol: P3, bstrdependencies: P4, bstrrunas: P5, bstrpassword: P6, bdesktopok: i16) -> ::windows::core::Result<()>
     where
@@ -3227,7 +2802,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).CreateServiceForApplication)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi(), bstrservicename.into().abi(), bstrstarttype.into().abi(), bstrerrorcontrol.into().abi(), bstrdependencies.into().abi(), bstrrunas.into().abi(), bstrpassword.into().abi(), bdesktopok).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteServiceForApplication<'a, P0>(&self, bstrapplicationidorname: P0) -> ::windows::core::Result<()>
     where
@@ -3235,7 +2809,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).DeleteServiceForApplication)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPartitionID<'a, P0>(&self, bstrapplicationidorname: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -3244,7 +2817,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPartitionID)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPartitionName<'a, P0>(&self, bstrapplicationidorname: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -3253,7 +2825,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPartitionName)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCurrentPartition<'a, P0>(&self, bstrpartitionidorname: P0) -> ::windows::core::Result<()>
     where
@@ -3261,19 +2832,16 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).SetCurrentPartition)(::windows::core::Interface::as_raw(self), bstrpartitionidorname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPartitionID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CurrentPartitionID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPartitionName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CurrentPartitionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GlobalPartitionID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3282,7 +2850,6 @@ impl ICOMAdminCatalog2 {
     pub unsafe fn FlushPartitionCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FlushPartitionCache)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CopyApplications<'a, P0, P1>(&self, bstrsourcepartitionidorname: P0, pvarapplicationid: &super::Com::VARIANT, bstrdestinationpartitionidorname: P1) -> ::windows::core::Result<()>
     where
@@ -3291,7 +2858,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).CopyApplications)(::windows::core::Interface::as_raw(self), bstrsourcepartitionidorname.into().abi(), ::core::mem::transmute(pvarapplicationid), bstrdestinationpartitionidorname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CopyComponents<'a, P0, P1>(&self, bstrsourceapplicationidorname: P0, pvarclsidorprogid: &super::Com::VARIANT, bstrdestinationapplicationidorname: P1) -> ::windows::core::Result<()>
     where
@@ -3300,7 +2866,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).CopyComponents)(::windows::core::Interface::as_raw(self), bstrsourceapplicationidorname.into().abi(), ::core::mem::transmute(pvarclsidorprogid), bstrdestinationapplicationidorname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MoveComponents<'a, P0, P1>(&self, bstrsourceapplicationidorname: P0, pvarclsidorprogid: &super::Com::VARIANT, bstrdestinationapplicationidorname: P1) -> ::windows::core::Result<()>
     where
@@ -3309,7 +2874,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).MoveComponents)(::windows::core::Interface::as_raw(self), bstrsourceapplicationidorname.into().abi(), ::core::mem::transmute(pvarclsidorprogid), bstrdestinationapplicationidorname.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AliasComponent<'a, P0, P1, P2, P3, P4>(&self, bstrsrcapplicationidorname: P0, bstrclsidorprogid: P1, bstrdestapplicationidorname: P2, bstrnewprogid: P3, bstrnewclsid: P4) -> ::windows::core::Result<()>
     where
@@ -3321,7 +2885,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).AliasComponent)(::windows::core::Interface::as_raw(self), bstrsrcapplicationidorname.into().abi(), bstrclsidorprogid.into().abi(), bstrdestapplicationidorname.into().abi(), bstrnewprogid.into().abi(), bstrnewclsid.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSafeToDelete<'a, P0>(&self, bstrdllname: P0) -> ::windows::core::Result<COMAdminInUse>
     where
@@ -3330,7 +2893,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSafeToDelete)(::windows::core::Interface::as_raw(self), bstrdllname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<COMAdminInUse>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportUnconfiguredComponents<'a, P0>(&self, bstrapplicationidorname: P0, pvarclsidorprogid: &super::Com::VARIANT, pvarcomponenttype: &super::Com::VARIANT) -> ::windows::core::Result<()>
     where
@@ -3338,7 +2900,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).ImportUnconfiguredComponents)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi(), ::core::mem::transmute(pvarclsidorprogid), ::core::mem::transmute(pvarcomponenttype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PromoteUnconfiguredComponents<'a, P0>(&self, bstrapplicationidorname: P0, pvarclsidorprogid: &super::Com::VARIANT, pvarcomponenttype: &super::Com::VARIANT) -> ::windows::core::Result<()>
     where
@@ -3346,7 +2907,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).PromoteUnconfiguredComponents)(::windows::core::Interface::as_raw(self), bstrapplicationidorname.into().abi(), ::core::mem::transmute(pvarclsidorprogid), ::core::mem::transmute(pvarcomponenttype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ImportComponents<'a, P0>(&self, bstrapplicationidorname: P0, pvarclsidorprogid: &super::Com::VARIANT, pvarcomponenttype: &super::Com::VARIANT) -> ::windows::core::Result<()>
     where
@@ -3358,7 +2918,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Is64BitCatalogServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExportPartition<'a, P0, P1>(&self, bstrpartitionidorname: P0, bstrpartitionfilename: P1, loptions: COMAdminApplicationExportOptions) -> ::windows::core::Result<()>
     where
@@ -3367,7 +2926,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).ExportPartition)(::windows::core::Interface::as_raw(self), bstrpartitionidorname.into().abi(), bstrpartitionfilename.into().abi(), loptions).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InstallPartition<'a, P0, P1, P2, P3, P4>(&self, bstrfilename: P0, bstrdestdirectory: P1, loptions: COMAdminApplicationInstallOptions, bstruserid: P2, bstrpassword: P3, bstrrsn: P4) -> ::windows::core::Result<()>
     where
@@ -3379,7 +2937,6 @@ impl ICOMAdminCatalog2 {
     {
         (::windows::core::Interface::vtable(self).InstallPartition)(::windows::core::Interface::as_raw(self), bstrfilename.into().abi(), bstrdestdirectory.into().abi(), loptions, bstruserid.into().abi(), bstrpassword.into().abi(), bstrrsn.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn QueryApplicationFile2<'a, P0>(&self, bstrapplicationfile: P0) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -3388,7 +2945,6 @@ impl ICOMAdminCatalog2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).QueryApplicationFile2)(::windows::core::Interface::as_raw(self), bstrapplicationfile.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetComponentVersionCount<'a, P0>(&self, bstrclsidorprogid: P0) -> ::windows::core::Result<i32>
     where
@@ -3598,7 +3154,6 @@ pub struct ICOMAdminCatalog2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetComponentVersionCount: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICOMLBArguments(::windows::core::IUnknown);
 impl ICOMLBArguments {
@@ -3659,7 +3214,6 @@ pub struct ICOMLBArguments_Vtbl {
     pub GetMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchsvr: u32, szservername: ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetMachineName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cchsvr: u32, szservername: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ICatalogCollection(::windows::core::IUnknown);
@@ -3669,7 +3223,6 @@ impl ICatalogCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3682,7 +3235,6 @@ impl ICatalogCollection {
     pub unsafe fn Remove(&self, lindex: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), lindex).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3695,7 +3247,6 @@ impl ICatalogCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SaveChanges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCollection<'a, P0, P1>(&self, bstrcollname: P0, varobjectkey: P1) -> ::windows::core::Result<super::Com::IDispatch>
     where
@@ -3705,7 +3256,6 @@ impl ICatalogCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCollection)(::windows::core::Interface::as_raw(self), bstrcollname.into().abi(), varobjectkey.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::IDispatch>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3719,7 +3269,6 @@ impl ICatalogCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).RemoveEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetUtilInterface(&self) -> ::windows::core::Result<super::Com::IDispatch> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3733,12 +3282,10 @@ impl ICatalogCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DataStoreMinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PopulateByKey(&self, psakeys: &super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PopulateByKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psakeys)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PopulateByQuery<'a, P0>(&self, bstrquerystring: P0, lquerytype: i32) -> ::windows::core::Result<()>
     where
@@ -3851,13 +3398,11 @@ pub struct ICatalogCollection_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     PopulateByQuery: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ICatalogObject(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICatalogObject {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Value<'a, P0>(&self, bstrpropname: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -3866,7 +3411,6 @@ impl ICatalogObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_Value)(::windows::core::Interface::as_raw(self), bstrpropname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn put_Value<'a, P0, P1>(&self, bstrpropname: P0, val: P1) -> ::windows::core::Result<()>
     where
@@ -3875,19 +3419,16 @@ impl ICatalogObject {
     {
         (::windows::core::Interface::vtable(self).put_Value)(::windows::core::Interface::as_raw(self), bstrpropname.into().abi(), val.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Key(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Key)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPropertyReadOnly<'a, P0>(&self, bstrpropname: P0) -> ::windows::core::Result<i16>
     where
@@ -3900,7 +3441,6 @@ impl ICatalogObject {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Valid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPropertyWriteOnly<'a, P0>(&self, bstrpropname: P0) -> ::windows::core::Result<i16>
     where
@@ -4002,7 +3542,6 @@ pub struct ICatalogObject_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsPropertyWriteOnly: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICheckSxsConfig(::windows::core::IUnknown);
 impl ICheckSxsConfig {
@@ -4056,7 +3595,6 @@ pub struct ICheckSxsConfig_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub IsSameSxsConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszsxsname: ::windows::core::PCWSTR, wszsxsdirectory: ::windows::core::PCWSTR, wszsxsappname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComActivityEvents(::windows::core::IUnknown);
 impl IComActivityEvents {
@@ -4129,7 +3667,6 @@ pub struct IComActivityEvents_Vtbl {
     pub OnActivityLeave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, guidleft: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnActivityLeaveSame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidcurrent: *const ::windows::core::GUID, dwcalldepth: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComApp2Events(::windows::core::IUnknown);
 impl IComApp2Events {
@@ -4142,7 +3679,6 @@ impl IComApp2Events {
     pub unsafe fn OnAppForceShutdown2(&self, pinfo: &COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnAppForceShutdown2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidapp)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnAppPaused2<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, bpaused: P0) -> ::windows::core::Result<()>
     where
@@ -4202,7 +3738,6 @@ pub struct IComApp2Events_Vtbl {
     OnAppPaused2: usize,
     pub OnAppRecycle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID, guidprocess: ::windows::core::GUID, lreason: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComAppEvents(::windows::core::IUnknown);
 impl IComAppEvents {
@@ -4259,7 +3794,6 @@ pub struct IComAppEvents_Vtbl {
     pub OnAppShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnAppForceShutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidapp: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComCRMEvents(::windows::core::IUnknown);
 impl IComCRMEvents {
@@ -4296,7 +3830,6 @@ impl IComCRMEvents {
     pub unsafe fn OnCRMAnalyze(&self, pinfo: &COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnCRMAnalyze)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid), dwcrmrecordtype, dwrecordsize).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnCRMWrite<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: P0, dwrecordsize: u32) -> ::windows::core::Result<()>
     where
@@ -4310,7 +3843,6 @@ impl IComCRMEvents {
     pub unsafe fn OnCRMForce(&self, pinfo: &COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnCRMForce)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidclerkclsid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnCRMDeliver<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidclerkclsid: ::windows::core::GUID, fvariants: P0, dwrecordsize: u32) -> ::windows::core::Result<()>
     where
@@ -4380,7 +3912,6 @@ pub struct IComCRMEvents_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnCRMDeliver: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComExceptionEvents(::windows::core::IUnknown);
 impl IComExceptionEvents {
@@ -4432,7 +3963,6 @@ pub struct IComExceptionEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnExceptionUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, code: u32, address: u64, pszstacktrace: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComIdentityEvents(::windows::core::IUnknown);
 impl IComIdentityEvents {
@@ -4486,7 +4016,6 @@ pub struct IComIdentityEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnIISRequestInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, pszclientip: ::windows::core::PCWSTR, pszserverip: ::windows::core::PCWSTR, pszurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComInstance2Events(::windows::core::IUnknown);
 impl IComInstance2Events {
@@ -4539,7 +4068,6 @@ pub struct IComInstance2Events_Vtbl {
     pub OnObjectCreate2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnObjectDestroy2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComInstanceEvents(::windows::core::IUnknown);
 impl IComInstanceEvents {
@@ -4592,11 +4120,9 @@ pub struct IComInstanceEvents_Vtbl {
     pub OnObjectCreate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, clsid: *const ::windows::core::GUID, tsid: *const ::windows::core::GUID, ctxtid: u64, objectid: u64) -> ::windows::core::HRESULT,
     pub OnObjectDestroy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComLTxEvents(::windows::core::IUnknown);
 impl IComLTxEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnLtxTransactionStart<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, tsid: ::windows::core::GUID, froot: P0, nisolationlevel: i32) -> ::windows::core::Result<()>
     where
@@ -4604,7 +4130,6 @@ impl IComLTxEvents {
     {
         (::windows::core::Interface::vtable(self).OnLtxTransactionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidltx), ::core::mem::transmute(tsid), froot.into(), nisolationlevel).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnLtxTransactionPrepare<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, fvote: P0) -> ::windows::core::Result<()>
     where
@@ -4673,7 +4198,6 @@ pub struct IComLTxEvents_Vtbl {
     pub OnLtxTransactionCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnLtxTransactionPromote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidltx: ::windows::core::GUID, txnid: ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComMethod2Events(::windows::core::IUnknown);
 impl IComMethod2Events {
@@ -4730,7 +4254,6 @@ pub struct IComMethod2Events_Vtbl {
     pub OnMethodReturn2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnMethodException2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, dwthread: u32, imeth: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComMethodEvents(::windows::core::IUnknown);
 impl IComMethodEvents {
@@ -4787,7 +4310,6 @@ pub struct IComMethodEvents_Vtbl {
     pub OnMethodReturn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32, hresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub OnMethodException: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, oid: u64, guidcid: *const ::windows::core::GUID, guidrid: *const ::windows::core::GUID, imeth: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComMtaThreadPoolKnobs(::windows::core::IUnknown);
 impl IComMtaThreadPoolKnobs {
@@ -4850,7 +4372,6 @@ pub struct IComMtaThreadPoolKnobs_Vtbl {
     pub MTASetThrottleValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthrottle: u32) -> ::windows::core::HRESULT,
     pub MTAGetThrottleValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwthrottle: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComObjectConstruction2Events(::windows::core::IUnknown);
 impl IComObjectConstruction2Events {
@@ -4902,7 +4423,6 @@ pub struct IComObjectConstruction2Events_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnObjectConstruct2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: ::windows::core::PCWSTR, oid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComObjectConstructionEvents(::windows::core::IUnknown);
 impl IComObjectConstructionEvents {
@@ -4954,7 +4474,6 @@ pub struct IComObjectConstructionEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnObjectConstruct: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, sconstructstring: ::windows::core::PCWSTR, oid: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComObjectEvents(::windows::core::IUnknown);
 impl IComObjectEvents {
@@ -5023,7 +4542,6 @@ pub struct IComObjectEvents_Vtbl {
     pub OnSetComplete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT,
     pub OnSetAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, ctxtid: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComObjectPool2Events(::windows::core::IUnknown);
 impl IComObjectPool2Events {
@@ -5084,7 +4602,6 @@ pub struct IComObjectPool2Events_Vtbl {
     pub OnObjPoolRecycleToTx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT,
     pub OnObjPoolGetFromTx2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64, guidpartition: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComObjectPoolEvents(::windows::core::IUnknown);
 impl IComObjectPoolEvents {
@@ -5145,7 +4662,6 @@ pub struct IComObjectPoolEvents_Vtbl {
     pub OnObjPoolRecycleToTx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT,
     pub OnObjPoolGetFromTx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, guidobject: *const ::windows::core::GUID, guidtx: *const ::windows::core::GUID, objid: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComObjectPoolEvents2(::windows::core::IUnknown);
 impl IComObjectPoolEvents2 {
@@ -5210,7 +4726,6 @@ pub struct IComObjectPoolEvents2_Vtbl {
     pub OnObjPoolTimeout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, guidactivity: *const ::windows::core::GUID, dwtimeout: u32) -> ::windows::core::HRESULT,
     pub OnObjPoolCreatePool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidobject: *const ::windows::core::GUID, dwmin: u32, dwmax: u32, dwtimeout: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComQCEvents(::windows::core::IUnknown);
 impl IComQCEvents {
@@ -5283,11 +4798,9 @@ pub struct IComQCEvents_Vtbl {
     pub OnQCMoveToDeadQueue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnQCPlayback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, objid: u64, guidmsgid: *const ::windows::core::GUID, guidworkflowid: *const ::windows::core::GUID, hr: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComResourceEvents(::windows::core::IUnknown);
 impl IComResourceEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResourceCreate<'a, P0, P1>(&self, pinfo: &COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
     where
@@ -5296,7 +4809,6 @@ impl IComResourceEvents {
     {
         (::windows::core::Interface::vtable(self).OnResourceCreate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objectid, psztype.into(), resid, enlisted.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResourceAllocate<'a, P0, P1>(&self, pinfo: &COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1, numrated: u32, rating: u32) -> ::windows::core::Result<()>
     where
@@ -5317,7 +4829,6 @@ impl IComResourceEvents {
     {
         (::windows::core::Interface::vtable(self).OnResourceDestroy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), objectid, hr, psztype.into(), resid).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResourceTrack<'a, P0, P1>(&self, pinfo: &COMSVCSEVENTINFO, objectid: u64, psztype: P0, resid: u64, enlisted: P1) -> ::windows::core::Result<()>
     where
@@ -5381,11 +4892,9 @@ pub struct IComResourceEvents_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnResourceTrack: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComSecurityEvents(::windows::core::IUnknown);
 impl IComSecurityEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnAuthenticate<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, objectid: u64, guidiid: &::windows::core::GUID, imeth: u32, psidoriginaluser: &[u8], psidcurrentuser: &[u8], bcurrentuserinpersonatinginproc: P0) -> ::windows::core::Result<()>
     where
@@ -5393,7 +4902,6 @@ impl IComSecurityEvents {
     {
         (::windows::core::Interface::vtable(self).OnAuthenticate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidactivity), objectid, ::core::mem::transmute(guidiid), imeth, psidoriginaluser.len() as _, ::core::mem::transmute(psidoriginaluser.as_ptr()), psidcurrentuser.len() as _, ::core::mem::transmute(psidcurrentuser.as_ptr()), bcurrentuserinpersonatinginproc.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnAuthenticateFail<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidactivity: &::windows::core::GUID, objectid: u64, guidiid: &::windows::core::GUID, imeth: u32, psidoriginaluser: &[u8], psidcurrentuser: &[u8], bcurrentuserinpersonatinginproc: P0) -> ::windows::core::Result<()>
     where
@@ -5450,7 +4958,6 @@ pub struct IComSecurityEvents_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnAuthenticateFail: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComStaThreadPoolKnobs(::windows::core::IUnknown);
 impl IComStaThreadPoolKnobs {
@@ -5545,7 +5052,6 @@ pub struct IComStaThreadPoolKnobs_Vtbl {
     pub GetQueueDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwqdepth: *mut u32) -> ::windows::core::HRESULT,
     pub SetQueueDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwqdepth: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComStaThreadPoolKnobs2(::windows::core::IUnknown);
 impl IComStaThreadPoolKnobs2 {
@@ -5595,13 +5101,11 @@ impl IComStaThreadPoolKnobs2 {
     pub unsafe fn SetMaxCPULoad(&self, pdwload: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMaxCPULoad)(::windows::core::Interface::as_raw(self), pdwload).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCPUMetricEnabled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCPUMetricEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCPUMetricEnabled<'a, P0>(&self, bmetricenabled: P0) -> ::windows::core::Result<()>
     where
@@ -5609,13 +5113,11 @@ impl IComStaThreadPoolKnobs2 {
     {
         (::windows::core::Interface::vtable(self).SetCPUMetricEnabled)(::windows::core::Interface::as_raw(self), bmetricenabled.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCreateThreadsAggressively(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCreateThreadsAggressively)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCreateThreadsAggressively<'a, P0>(&self, bmetricenabled: P0) -> ::windows::core::Result<()>
     where
@@ -5715,7 +5217,6 @@ pub struct IComStaThreadPoolKnobs2_Vtbl {
     pub GetWaitTimeForThreadCleanup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwthreadcleanupwaittime: *mut u32) -> ::windows::core::HRESULT,
     pub SetWaitTimeForThreadCleanup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwthreadcleanupwaittime: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComThreadEvents(::windows::core::IUnknown);
 impl IComThreadEvents {
@@ -5804,7 +5305,6 @@ pub struct IComThreadEvents_Vtbl {
     pub OnThreadAssignApartment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidactivity: *const ::windows::core::GUID, aptid: u64) -> ::windows::core::HRESULT,
     pub OnThreadUnassignApartment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, aptid: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoCollection(::windows::core::IUnknown);
 impl IComTrackingInfoCollection {
@@ -5863,7 +5363,6 @@ pub struct IComTrackingInfoCollection_Vtbl {
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoEvents(::windows::core::IUnknown);
 impl IComTrackingInfoEvents {
@@ -5915,11 +5414,9 @@ pub struct IComTrackingInfoEvents_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnNewTrackingInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoplevelcollection: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoObject(::windows::core::IUnknown);
 impl IComTrackingInfoObject {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetValue<'a, P0>(&self, szpropertyname: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -5973,7 +5470,6 @@ pub struct IComTrackingInfoObject_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComTrackingInfoProperties(::windows::core::IUnknown);
 impl IComTrackingInfoProperties {
@@ -6028,11 +5524,9 @@ pub struct IComTrackingInfoProperties_Vtbl {
     pub PropCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetPropName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ulindex: u32, ppszpropname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComTransaction2Events(::windows::core::IUnknown);
 impl IComTransaction2Events {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTransactionStart2<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, tsid: &::windows::core::GUID, froot: P0, nisolationlevel: i32) -> ::windows::core::Result<()>
     where
@@ -6040,7 +5534,6 @@ impl IComTransaction2Events {
     {
         (::windows::core::Interface::vtable(self).OnTransactionStart2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidtx), ::core::mem::transmute(tsid), froot.into(), nisolationlevel).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTransactionPrepare2<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, fvoteyes: P0) -> ::windows::core::Result<()>
     where
@@ -6105,11 +5598,9 @@ pub struct IComTransaction2Events_Vtbl {
     pub OnTransactionAbort2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnTransactionCommit2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComTransactionEvents(::windows::core::IUnknown);
 impl IComTransactionEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTransactionStart<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, tsid: &::windows::core::GUID, froot: P0) -> ::windows::core::Result<()>
     where
@@ -6117,7 +5608,6 @@ impl IComTransactionEvents {
     {
         (::windows::core::Interface::vtable(self).OnTransactionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(guidtx), ::core::mem::transmute(tsid), froot.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTransactionPrepare<'a, P0>(&self, pinfo: &COMSVCSEVENTINFO, guidtx: &::windows::core::GUID, fvoteyes: P0) -> ::windows::core::Result<()>
     where
@@ -6182,11 +5672,9 @@ pub struct IComTransactionEvents_Vtbl {
     pub OnTransactionAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub OnTransactionCommit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *const COMSVCSEVENTINFO, guidtx: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IComUserEvent(::windows::core::IUnknown);
 impl IComUserEvent {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OnUserEvent(&self, pinfo: &COMSVCSEVENTINFO, pvarevent: &super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnUserEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinfo), ::core::mem::transmute(pvarevent)).ok()
@@ -6236,14 +5724,12 @@ pub struct IComUserEvent_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     OnUserEvent: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IContextProperties(::windows::core::IUnknown);
 impl IContextProperties {
     pub unsafe fn Count(&self, plcount: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty<'a, P0>(&self, name: P0, pproperty: &mut super::Com::VARIANT) -> ::windows::core::Result<()>
     where
@@ -6255,7 +5741,6 @@ impl IContextProperties {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EnumNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumNames>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetProperty<'a, P0, P1>(&self, name: P0, property: P1) -> ::windows::core::Result<()>
     where
@@ -6264,7 +5749,6 @@ impl IContextProperties {
     {
         (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), property.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveProperty<'a, P0>(&self, name: P0) -> ::windows::core::Result<()>
     where
@@ -6327,16 +5811,13 @@ pub struct IContextProperties_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     RemoveProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IContextSecurityPerimeter(::windows::core::IUnknown);
 impl IContextSecurityPerimeter {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPerimeterFlag(&self, pflag: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPerimeterFlag)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pflag)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPerimeterFlag<'a, P0>(&self, fflag: P0) -> ::windows::core::Result<()>
     where
@@ -6393,7 +5874,6 @@ pub struct IContextSecurityPerimeter_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetPerimeterFlag: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IContextState(::windows::core::IUnknown);
 impl IContextState {
@@ -6454,7 +5934,6 @@ pub struct IContextState_Vtbl {
     pub SetMyTransactionVote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, txvote: TransactionVote) -> ::windows::core::HRESULT,
     pub GetMyTransactionVote: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptxvote: *mut TransactionVote) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICreateWithLocalTransaction(::windows::core::IUnknown);
 impl ICreateWithLocalTransaction {
@@ -6506,11 +5985,9 @@ pub struct ICreateWithLocalTransaction_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CreateInstanceWithSysTx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptransaction: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICreateWithTipTransactionEx(::windows::core::IUnknown);
 impl ICreateWithTipTransactionEx {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateInstance<'a, P0, T>(&self, bstrtipurl: P0, rclsid: &::windows::core::GUID) -> ::windows::core::Result<T>
     where
@@ -6565,11 +6042,9 @@ pub struct ICreateWithTipTransactionEx_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CreateInstance: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICreateWithTransactionEx(::windows::core::IUnknown);
 impl ICreateWithTransactionEx {
-    #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn CreateInstance<'a, P0, T>(&self, ptransaction: P0, rclsid: &::windows::core::GUID) -> ::windows::core::Result<T>
     where
@@ -6624,7 +6099,6 @@ pub struct ICreateWithTransactionEx_Vtbl {
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
     CreateInstance: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICrmCompensator(::windows::core::IUnknown);
 impl ICrmCompensator {
@@ -6637,19 +6111,16 @@ impl ICrmCompensator {
     pub unsafe fn BeginPrepare(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginPrepare)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn PrepareRecord(&self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PrepareRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crmlogrec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EndPrepare(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).EndPrepare)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginCommit<'a, P0>(&self, frecovery: P0) -> ::windows::core::Result<()>
     where
@@ -6657,7 +6128,6 @@ impl ICrmCompensator {
     {
         (::windows::core::Interface::vtable(self).BeginCommit)(::windows::core::Interface::as_raw(self), frecovery.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CommitRecord(&self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6666,7 +6136,6 @@ impl ICrmCompensator {
     pub unsafe fn EndCommit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EndCommit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginAbort<'a, P0>(&self, frecovery: P0) -> ::windows::core::Result<()>
     where
@@ -6674,7 +6143,6 @@ impl ICrmCompensator {
     {
         (::windows::core::Interface::vtable(self).BeginAbort)(::windows::core::Interface::as_raw(self), frecovery.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AbortRecord(&self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6752,7 +6220,6 @@ pub struct ICrmCompensator_Vtbl {
     AbortRecord: usize,
     pub EndAbort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICrmCompensatorVariants(::windows::core::IUnknown);
 impl ICrmCompensatorVariants {
@@ -6765,7 +6232,6 @@ impl ICrmCompensatorVariants {
     pub unsafe fn BeginPrepareVariants(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginPrepareVariants)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PrepareRecordVariants(&self, plogrecord: &super::Com::VARIANT) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6778,7 +6244,6 @@ impl ICrmCompensatorVariants {
     pub unsafe fn BeginCommitVariants(&self, brecovery: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginCommitVariants)(::windows::core::Interface::as_raw(self), brecovery).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CommitRecordVariants(&self, plogrecord: &super::Com::VARIANT) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6790,7 +6255,6 @@ impl ICrmCompensatorVariants {
     pub unsafe fn BeginAbortVariants(&self, brecovery: i16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginAbortVariants)(::windows::core::Interface::as_raw(self), brecovery).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AbortRecordVariants(&self, plogrecord: &super::Com::VARIANT) -> ::windows::core::Result<i16> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6859,7 +6323,6 @@ pub struct ICrmCompensatorVariants_Vtbl {
     AbortRecordVariants: usize,
     pub EndAbortVariants: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICrmFormatLogRecords(::windows::core::IUnknown);
 impl ICrmFormatLogRecords {
@@ -6867,19 +6330,16 @@ impl ICrmFormatLogRecords {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetColumnCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetColumnHeaders(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetColumnHeaders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetColumn(&self, crmlogrec: CrmLogRecordRead) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(crmlogrec), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetColumnVariants<'a, P0>(&self, logrecord: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -6942,11 +6402,9 @@ pub struct ICrmFormatLogRecords_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetColumnVariants: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICrmLogControl(::windows::core::IUnknown);
 impl ICrmLogControl {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransactionUOW(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6959,7 +6417,6 @@ impl ICrmLogControl {
     {
         (::windows::core::Interface::vtable(self).RegisterCompensator)(::windows::core::Interface::as_raw(self), lpcwstrprogidcompensator.into(), lpcwstrdescription.into(), lcrmregflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn WriteLogRecordVariants(&self, plogrecord: &super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteLogRecordVariants)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plogrecord)).ok()
@@ -6973,7 +6430,6 @@ impl ICrmLogControl {
     pub unsafe fn ForceTransactionToAbort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ForceTransactionToAbort)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteLogRecord(&self, rgblob: &[super::Com::BLOB]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteLogRecord)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(rgblob.as_ptr()), rgblob.len() as _).ok()
@@ -7035,17 +6491,14 @@ pub struct ICrmLogControl_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     WriteLogRecord: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICrmMonitor(::windows::core::IUnknown);
 impl ICrmMonitor {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClerks(&self) -> ::windows::core::Result<ICrmMonitorClerks> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetClerks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ICrmMonitorClerks>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn HoldClerk<'a, P0>(&self, index: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -7103,13 +6556,11 @@ pub struct ICrmMonitor_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     HoldClerk: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ICrmMonitorClerks(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ICrmMonitorClerks {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Item<'a, P0>(&self, index: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -7126,7 +6577,6 @@ impl ICrmMonitorClerks {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ProgIdCompensator<'a, P0>(&self, index: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -7135,7 +6585,6 @@ impl ICrmMonitorClerks {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).ProgIdCompensator)(::windows::core::Interface::as_raw(self), index.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Description<'a, P0>(&self, index: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -7144,7 +6593,6 @@ impl ICrmMonitorClerks {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), index.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn TransactionUOW<'a, P0>(&self, index: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -7153,7 +6601,6 @@ impl ICrmMonitorClerks {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).TransactionUOW)(::windows::core::Interface::as_raw(self), index.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ActivityId<'a, P0>(&self, index: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -7252,7 +6699,6 @@ pub struct ICrmMonitorClerks_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     ActivityId: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ICrmMonitorLogRecords(::windows::core::IUnknown);
 impl ICrmMonitorLogRecords {
@@ -7268,12 +6714,10 @@ impl ICrmMonitorLogRecords {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).StructuredRecords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetLogRecord(&self, dwindex: u32, pcrmlogrec: &mut CrmLogRecordRead) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetLogRecord)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pcrmlogrec)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetLogRecordVariants<'a, P0>(&self, indexnumber: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -7334,14 +6778,12 @@ pub struct ICrmMonitorLogRecords_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetLogRecordVariants: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IDispenserDriver(::windows::core::IUnknown);
 impl IDispenserDriver {
     pub unsafe fn CreateResource(&self, restypid: usize, presid: &mut usize, psecsfreebeforedestroy: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreateResource)(::windows::core::Interface::as_raw(self), restypid, ::core::mem::transmute(presid), ::core::mem::transmute(psecsfreebeforedestroy)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RateResource<'a, P0>(&self, restypid: usize, resid: usize, frequirestransactionenlistment: P0, prating: &mut u32) -> ::windows::core::Result<()>
     where
@@ -7411,7 +6853,6 @@ pub struct IDispenserDriver_Vtbl {
     pub DestroyResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: usize) -> ::windows::core::HRESULT,
     pub DestroyResourceS: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resid: *mut u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IDispenserManager(::windows::core::IUnknown);
 impl IDispenserManager {
@@ -7469,11 +6910,9 @@ pub struct IDispenserManager_Vtbl {
     pub RegisterDispenser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idispensermanager0000: *mut ::core::ffi::c_void, szdispensername: ::windows::core::PCWSTR, __midl__idispensermanager0001: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__idispensermanager0002: *mut usize, __midl__idispensermanager0003: *mut usize) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IEnumNames(::windows::core::IUnknown);
 impl IEnumNames {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Next(&self, celt: u32, rgname: &mut super::super::Foundation::BSTR, pceltfetched: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), celt, ::core::mem::transmute(rgname), ::core::mem::transmute(pceltfetched)).ok()
@@ -7536,13 +6975,11 @@ pub struct IEnumNames_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IEventServerTrace(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IEventServerTrace {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartTraceGuid<'a, P0, P1>(&self, bstrguidevent: P0, bstrguidfilter: P1, lpidfilter: i32) -> ::windows::core::Result<()>
     where
@@ -7551,7 +6988,6 @@ impl IEventServerTrace {
     {
         (::windows::core::Interface::vtable(self).StartTraceGuid)(::windows::core::Interface::as_raw(self), bstrguidevent.into().abi(), bstrguidfilter.into().abi(), lpidfilter).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StopTraceGuid<'a, P0, P1>(&self, bstrguidevent: P0, bstrguidfilter: P1, lpidfilter: i32) -> ::windows::core::Result<()>
     where
@@ -7560,7 +6996,6 @@ impl IEventServerTrace {
     {
         (::windows::core::Interface::vtable(self).StopTraceGuid)(::windows::core::Interface::as_raw(self), bstrguidevent.into().abi(), bstrguidfilter.into().abi(), lpidfilter).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumTraceGuid(&self, plcntguids: &mut i32, pbstrguidlist: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnumTraceGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcntguids), ::core::mem::transmute(pbstrguidlist)).ok()
@@ -7645,16 +7080,13 @@ pub struct IEventServerTrace_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     EnumTraceGuid: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IGetAppTrackerData(::windows::core::IUnknown);
 impl IGetAppTrackerData {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationProcesses(&self, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numapplicationprocesses: &mut u32, applicationprocesses: *mut *mut ApplicationProcessSummary) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetApplicationProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), flags, ::core::mem::transmute(numapplicationprocesses), ::core::mem::transmute(applicationprocesses)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationProcessDetails(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, flags: u32, summary: ::core::option::Option<&mut ApplicationProcessSummary>, statistics: ::core::option::Option<&mut ApplicationProcessStatistics>, recycleinfo: ::core::option::Option<&mut ApplicationProcessRecycleInfo>, anycomponentshangmonitored: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetApplicationProcessDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, flags, ::core::mem::transmute(summary), ::core::mem::transmute(statistics), ::core::mem::transmute(recycleinfo), ::core::mem::transmute(anycomponentshangmonitored)).ok()
@@ -7665,7 +7097,6 @@ impl IGetAppTrackerData {
     pub unsafe fn GetComponentsInProcess(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, partitionid: &::windows::core::GUID, applicationid: &::windows::core::GUID, flags: u32, numcomponentsinprocess: &mut u32, components: *mut *mut ComponentSummary) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetComponentsInProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, ::core::mem::transmute(partitionid), ::core::mem::transmute(applicationid), flags, ::core::mem::transmute(numcomponentsinprocess), ::core::mem::transmute(components)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetComponentDetails(&self, applicationinstanceid: &::windows::core::GUID, processid: u32, clsid: &::windows::core::GUID, flags: u32, summary: ::core::option::Option<&mut ComponentSummary>, statistics: ::core::option::Option<&mut ComponentStatistics>, hangmonitorinfo: ::core::option::Option<&mut ComponentHangMonitorInfo>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetComponentDetails)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(applicationinstanceid), processid, ::core::mem::transmute(clsid), flags, ::core::mem::transmute(summary), ::core::mem::transmute(statistics), ::core::mem::transmute(hangmonitorinfo)).ok()
@@ -7735,14 +7166,12 @@ pub struct IGetAppTrackerData_Vtbl {
     pub GetTrackerDataAsCollectionObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, toplevelcollection: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetSuggestedPollingInterval: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pollingintervalinseconds: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IGetContextProperties(::windows::core::IUnknown);
 impl IGetContextProperties {
     pub unsafe fn Count(&self, plcount: &mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty<'a, P0>(&self, name: P0, pproperty: &mut super::Com::VARIANT) -> ::windows::core::Result<()>
     where
@@ -7801,13 +7230,11 @@ pub struct IGetContextProperties_Vtbl {
     GetProperty: usize,
     pub EnumNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IGetSecurityCallContext(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IGetSecurityCallContext {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSecurityCallContext(&self) -> ::windows::core::Result<ISecurityCallContext> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7885,7 +7312,6 @@ pub struct IGetSecurityCallContext_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     GetSecurityCallContext: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IHolder(::windows::core::IUnknown);
 impl IHolder {
@@ -7901,7 +7327,6 @@ impl IHolder {
     pub unsafe fn TrackResourceS(&self, __midl__iholder0004: &mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TrackResourceS)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(__midl__iholder0004)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UntrackResource<'a, P0>(&self, __midl__iholder0005: usize, __midl__iholder0006: P0) -> ::windows::core::Result<()>
     where
@@ -7909,7 +7334,6 @@ impl IHolder {
     {
         (::windows::core::Interface::vtable(self).UntrackResource)(::windows::core::Interface::as_raw(self), __midl__iholder0005, __midl__iholder0006.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UntrackResourceS<'a, P0>(&self, __midl__iholder0007: &mut u16, __midl__iholder0008: P0) -> ::windows::core::Result<()>
     where
@@ -7978,11 +7402,9 @@ pub struct IHolder_Vtbl {
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RequestDestroyResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__iholder0009: usize) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ILBEvents(::windows::core::IUnknown);
 impl ILBEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TargetUp<'a, P0, P1>(&self, bstrservername: P0, bstrclsideng: P1) -> ::windows::core::Result<()>
     where
@@ -7991,7 +7413,6 @@ impl ILBEvents {
     {
         (::windows::core::Interface::vtable(self).TargetUp)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), bstrclsideng.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TargetDown<'a, P0, P1>(&self, bstrservername: P0, bstrclsideng: P1) -> ::windows::core::Result<()>
     where
@@ -8000,7 +7421,6 @@ impl ILBEvents {
     {
         (::windows::core::Interface::vtable(self).TargetDown)(::windows::core::Interface::as_raw(self), bstrservername.into().abi(), bstrclsideng.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EngineDefined<'a, P0, P1>(&self, bstrpropname: P0, varpropvalue: &super::Com::VARIANT, bstrclsideng: P1) -> ::windows::core::Result<()>
     where
@@ -8062,7 +7482,6 @@ pub struct ILBEvents_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     EngineDefined: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IMTSActivity(::windows::core::IUnknown);
 impl IMTSActivity {
@@ -8133,7 +7552,6 @@ pub struct IMTSActivity_Vtbl {
     pub BindToCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnbindFromThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IMTSCall(::windows::core::IUnknown);
 impl IMTSCall {
@@ -8182,7 +7600,6 @@ pub struct IMTSCall_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMTSLocator(::windows::core::IUnknown);
@@ -8261,11 +7678,9 @@ pub struct IMTSLocator_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
     pub GetEventDispatcher: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IManagedActivationEvents(::windows::core::IUnknown);
 impl IManagedActivationEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateManagedStub<'a, P0, P1>(&self, pinfo: P0, fdist: P1) -> ::windows::core::Result<()>
     where
@@ -8326,7 +7741,6 @@ pub struct IManagedActivationEvents_Vtbl {
     CreateManagedStub: usize,
     pub DestroyManagedStub: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IManagedObjectInfo(::windows::core::IUnknown);
 impl IManagedObjectInfo {
@@ -8338,7 +7752,6 @@ impl IManagedObjectInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIObjectControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IObjectControl>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInPool<'a, P0, P1>(&self, binpool: P0, ppooledobj: P1) -> ::windows::core::Result<()>
     where
@@ -8347,7 +7760,6 @@ impl IManagedObjectInfo {
     {
         (::windows::core::Interface::vtable(self).SetInPool)(::windows::core::Interface::as_raw(self), binpool.into(), ppooledobj.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWrapperStrength<'a, P0>(&self, bstrong: P0) -> ::windows::core::Result<()>
     where
@@ -8406,7 +7818,6 @@ pub struct IManagedObjectInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetWrapperStrength: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IManagedPoolAction(::windows::core::IUnknown);
 impl IManagedPoolAction {
@@ -8455,11 +7866,9 @@ pub struct IManagedPoolAction_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub LastRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IManagedPooledObj(::windows::core::IUnknown);
 impl IManagedPooledObj {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHeld<'a, P0>(&self, m_bheld: P0) -> ::windows::core::Result<()>
     where
@@ -8512,19 +7921,16 @@ pub struct IManagedPooledObj_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetHeld: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMessageMover(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMessageMover {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SourcePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).SourcePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourcePath<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
     where
@@ -8532,13 +7938,11 @@ impl IMessageMover {
     {
         (::windows::core::Interface::vtable(self).SetSourcePath)(::windows::core::Interface::as_raw(self), newval.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DestPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DestPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDestPath<'a, P0>(&self, newval: P0) -> ::windows::core::Result<()>
     where
@@ -8644,7 +8048,6 @@ pub struct IMessageMover_Vtbl {
     pub SetCommitBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows::core::HRESULT,
     pub MoveMessages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plmessagesmoved: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMtsEventInfo(::windows::core::IUnknown);
@@ -8654,13 +8057,11 @@ impl IMtsEventInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Names)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8670,7 +8071,6 @@ impl IMtsEventInfo {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Value<'a, P0>(&self, skey: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -8761,25 +8161,21 @@ pub struct IMtsEventInfo_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Value: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMtsEvents(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IMtsEvents {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PackageName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PackageName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PackageGuid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).PackageGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PostEvent(&self, vevent: &super::Com::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PostEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vevent)).ok()
@@ -8874,7 +8270,6 @@ pub struct IMtsEvents_Vtbl {
     pub FireEvents: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut i16) -> ::windows::core::HRESULT,
     pub GetProcessID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IMtsGrp(::windows::core::IUnknown);
@@ -8962,7 +8357,6 @@ pub struct IMtsGrp_Vtbl {
     pub Item: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lindex: i32, ppunkdispatcher: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Refresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjPool(::windows::core::IUnknown);
 impl IObjPool {
@@ -9038,11 +8432,9 @@ pub struct IObjPool_Vtbl {
     pub Reserved5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Reserved6: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjectConstruct(::windows::core::IUnknown);
 impl IObjectConstruct {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Construct<'a, P0>(&self, pctorobj: P0) -> ::windows::core::Result<()>
     where
@@ -9095,13 +8487,11 @@ pub struct IObjectConstruct_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Construct: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IObjectConstructString(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IObjectConstructString {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConstructString(&self, pval: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ConstructString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pval)).ok()
@@ -9178,7 +8568,6 @@ pub struct IObjectConstructString_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ConstructString: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjectContext(::windows::core::IUnknown);
 impl IObjectContext {
@@ -9197,17 +8586,14 @@ impl IObjectContext {
     pub unsafe fn DisableCommit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DisableCommit)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInTransaction(&self) -> super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).IsInTransaction)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSecurityEnabled(&self) -> super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCallerInRole<'a, P0>(&self, bstrrole: P0, pfisinrole: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -9273,7 +8659,6 @@ pub struct IObjectContext_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsCallerInRole: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjectContextActivity(::windows::core::IUnknown);
 impl IObjectContextActivity {
@@ -9322,11 +8707,9 @@ pub struct IObjectContextActivity_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjectContextInfo(::windows::core::IUnknown);
 impl IObjectContextInfo {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInTransaction(&self) -> super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).IsInTransaction)(::windows::core::Interface::as_raw(self))
@@ -9393,11 +8776,9 @@ pub struct IObjectContextInfo_Vtbl {
     pub GetActivityId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetContextId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjectContextInfo2(::windows::core::IUnknown);
 impl IObjectContextInfo2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsInTransaction(&self) -> super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).base__.IsInTransaction)(::windows::core::Interface::as_raw(self))
@@ -9483,11 +8864,9 @@ pub struct IObjectContextInfo2_Vtbl {
     pub GetApplicationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub GetApplicationInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjectContextTip(::windows::core::IUnknown);
 impl IObjectContextTip {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTipUrl(&self, ptipurl: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTipUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptipurl)).ok()
@@ -9537,7 +8916,6 @@ pub struct IObjectContextTip_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetTipUrl: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IObjectControl(::windows::core::IUnknown);
 impl IObjectControl {
@@ -9547,7 +8925,6 @@ impl IObjectControl {
     pub unsafe fn Deactivate(&self) {
         (::windows::core::Interface::vtable(self).Deactivate)(::windows::core::Interface::as_raw(self))
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanBePooled(&self) -> super::super::Foundation::BOOL {
         (::windows::core::Interface::vtable(self).CanBePooled)(::windows::core::Interface::as_raw(self))
@@ -9599,7 +8976,6 @@ pub struct IObjectControl_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     CanBePooled: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IPlaybackControl(::windows::core::IUnknown);
 impl IPlaybackControl {
@@ -9652,13 +9028,11 @@ pub struct IPlaybackControl_Vtbl {
     pub FinalClientRetry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FinalServerRetry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct IPoolManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IPoolManager {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShutdownPool<'a, P0>(&self, clsidorprogid: P0) -> ::windows::core::Result<()>
     where
@@ -9738,7 +9112,6 @@ pub struct IPoolManager_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ShutdownPool: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IProcessInitializer(::windows::core::IUnknown);
 impl IProcessInitializer {
@@ -9794,7 +9167,6 @@ pub struct IProcessInitializer_Vtbl {
     pub Startup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punkprocesscontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISecurityCallContext(::windows::core::IUnknown);
@@ -9804,7 +9176,6 @@ impl ISecurityCallContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, P0>(&self, name: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -9817,7 +9188,6 @@ impl ISecurityCallContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCallerInRole<'a, P0>(&self, bstrrole: P0) -> ::windows::core::Result<i16>
     where
@@ -9830,7 +9200,6 @@ impl ISecurityCallContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn IsUserInRole<'a, P0>(&self, puser: &super::Com::VARIANT, bstrrole: P0) -> ::windows::core::Result<i16>
     where
@@ -9922,7 +9291,6 @@ pub struct ISecurityCallContext_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     IsUserInRole: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISecurityCallersColl(::windows::core::IUnknown);
@@ -9932,7 +9300,6 @@ impl ISecurityCallersColl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows::core::Result<ISecurityIdentityColl> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10016,7 +9383,6 @@ pub struct ISecurityCallersColl_Vtbl {
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISecurityIdentityColl(::windows::core::IUnknown);
@@ -10026,7 +9392,6 @@ impl ISecurityIdentityColl {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, P0>(&self, name: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -10113,31 +9478,25 @@ pub struct ISecurityIdentityColl_Vtbl {
     get_Item: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ISecurityProperty(::windows::core::IUnknown);
 impl ISecurityProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDirectCreatorSID(&self, psid: &mut super::super::Foundation::PSID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDirectCreatorSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOriginalCreatorSID(&self, psid: &mut super::super::Foundation::PSID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOriginalCreatorSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDirectCallerSID(&self, psid: &mut super::super::Foundation::PSID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDirectCallerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOriginalCallerSID(&self, psid: &mut super::super::Foundation::PSID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetOriginalCallerSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psid)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseSID<'a, P0>(&self, psid: P0) -> ::windows::core::Result<()>
     where
@@ -10206,7 +9565,6 @@ pub struct ISecurityProperty_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ReleaseSID: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ISelectCOMLBServer(::windows::core::IUnknown);
 impl ISelectCOMLBServer {
@@ -10262,7 +9620,6 @@ pub struct ISelectCOMLBServer_Vtbl {
     pub Init: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetLBServer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ISendMethodEvents(::windows::core::IUnknown);
 impl ISendMethodEvents {
@@ -10315,7 +9672,6 @@ pub struct ISendMethodEvents_Vtbl {
     pub SendMethodCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32) -> ::windows::core::HRESULT,
     pub SendMethodReturn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidentity: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, dwmeth: u32, hrcall: ::windows::core::HRESULT, hrserver: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceActivity(::windows::core::IUnknown);
 impl IServiceActivity {
@@ -10382,7 +9738,6 @@ pub struct IServiceActivity_Vtbl {
     pub BindToCurrentThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub UnbindFromThread: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceCall(::windows::core::IUnknown);
 impl IServiceCall {
@@ -10431,7 +9786,6 @@ pub struct IServiceCall_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnCall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceComTIIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceComTIIntrinsicsConfig {
@@ -10480,7 +9834,6 @@ pub struct IServiceComTIIntrinsicsConfig_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ComTIIntrinsicsConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, comtiintrinsicsconfig: CSC_COMTIIntrinsicsConfig) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceIISIntrinsicsConfig(::windows::core::IUnknown);
 impl IServiceIISIntrinsicsConfig {
@@ -10529,7 +9882,6 @@ pub struct IServiceIISIntrinsicsConfig_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub IISIntrinsicsConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iisintrinsicsconfig: CSC_IISIntrinsicsConfig) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceInheritanceConfig(::windows::core::IUnknown);
 impl IServiceInheritanceConfig {
@@ -10578,7 +9930,6 @@ pub struct IServiceInheritanceConfig_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ContainingContextTreatment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inheritanceconfig: CSC_InheritanceConfig) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServicePartitionConfig(::windows::core::IUnknown);
 impl IServicePartitionConfig {
@@ -10631,7 +9982,6 @@ pub struct IServicePartitionConfig_Vtbl {
     pub PartitionConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, partitionconfig: CSC_PartitionConfig) -> ::windows::core::HRESULT,
     pub PartitionID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpartitionid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServicePool(::windows::core::IUnknown);
 impl IServicePool {
@@ -10691,7 +10041,6 @@ pub struct IServicePool_Vtbl {
     pub GetObject: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServicePoolConfig(::windows::core::IUnknown);
 impl IServicePoolConfig {
@@ -10713,7 +10062,6 @@ impl IServicePoolConfig {
     pub unsafe fn CreationTimeout(&self, pdwcreationtimeout: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreationTimeout)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcreationtimeout)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTransactionAffinity<'a, P0>(&self, ftxaffinity: P0) -> ::windows::core::Result<()>
     where
@@ -10721,12 +10069,10 @@ impl IServicePoolConfig {
     {
         (::windows::core::Interface::vtable(self).SetTransactionAffinity)(::windows::core::Interface::as_raw(self), ftxaffinity.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TransactionAffinity(&self, pftxaffinity: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TransactionAffinity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pftxaffinity)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetClassFactory<'a, P0>(&self, pfactory: P0) -> ::windows::core::Result<()>
     where
@@ -10734,7 +10080,6 @@ impl IServicePoolConfig {
     {
         (::windows::core::Interface::vtable(self).SetClassFactory)(::windows::core::Interface::as_raw(self), pfactory.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ClassFactory(&self) -> ::windows::core::Result<super::Com::IClassFactory> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10803,7 +10148,6 @@ pub struct IServicePoolConfig_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ClassFactory: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceSxsConfig(::windows::core::IUnknown);
 impl IServiceSxsConfig {
@@ -10866,7 +10210,6 @@ pub struct IServiceSxsConfig_Vtbl {
     pub SxsName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsxsname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub SxsDirectory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, szsxsdirectory: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceSynchronizationConfig(::windows::core::IUnknown);
 impl IServiceSynchronizationConfig {
@@ -10915,7 +10258,6 @@ pub struct IServiceSynchronizationConfig_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ConfigureSynchronization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, synchconfig: CSC_SynchronizationConfig) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceSysTxnConfig(::windows::core::IUnknown);
 impl IServiceSysTxnConfig {
@@ -10940,7 +10282,6 @@ impl IServiceSysTxnConfig {
     {
         (::windows::core::Interface::vtable(self).base__.base__.NewTransactionDescription)(::windows::core::Interface::as_raw(self), sztxdesc.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn ConfigureBYOT<'a, P0>(&self, pitxbyot: P0) -> ::windows::core::Result<()>
     where
@@ -11026,7 +10367,6 @@ pub struct IServiceSysTxnConfig_Vtbl {
     pub base__: IServiceTransactionConfig_Vtbl,
     pub ConfigureBYOTSysTxn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptxproxy: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceThreadPoolConfig(::windows::core::IUnknown);
 impl IServiceThreadPoolConfig {
@@ -11079,7 +10419,6 @@ pub struct IServiceThreadPoolConfig_Vtbl {
     pub SelectThreadPool: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, threadpool: CSC_ThreadPool) -> ::windows::core::HRESULT,
     pub SetBindingInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, binding: CSC_Binding) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceTrackerConfig(::windows::core::IUnknown);
 impl IServiceTrackerConfig {
@@ -11132,7 +10471,6 @@ pub struct IServiceTrackerConfig_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub TrackerConfig: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, trackerconfig: CSC_TrackerConfig, sztrackerappname: ::windows::core::PCWSTR, sztrackerctxname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceTransactionConfig(::windows::core::IUnknown);
 impl IServiceTransactionConfig {
@@ -11157,7 +10495,6 @@ impl IServiceTransactionConfig {
     {
         (::windows::core::Interface::vtable(self).base__.NewTransactionDescription)(::windows::core::Interface::as_raw(self), sztxdesc.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn ConfigureBYOT<'a, P0>(&self, pitxbyot: P0) -> ::windows::core::Result<()>
     where
@@ -11225,7 +10562,6 @@ pub struct IServiceTransactionConfig_Vtbl {
     #[cfg(not(feature = "Win32_System_DistributedTransactionCoordinator"))]
     ConfigureBYOT: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IServiceTransactionConfigBase(::windows::core::IUnknown);
 impl IServiceTransactionConfigBase {
@@ -11296,19 +10632,16 @@ pub struct IServiceTransactionConfigBase_Vtbl {
     pub BringYourOwnTransaction: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sztipurl: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub NewTransactionDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sztxdesc: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISharedProperty(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISharedProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Com::VARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue<'a, P0>(&self, val: P0) -> ::windows::core::Result<()>
     where
@@ -11392,24 +10725,20 @@ pub struct ISharedProperty_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     SetValue: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISharedPropertyGroup(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISharedPropertyGroup {
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreatePropertyByPosition(&self, index: i32, fexists: &mut i16, ppprop: &mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).CreatePropertyByPosition)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(fexists), ::core::mem::transmute(ppprop)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_PropertyByPosition(&self, index: i32) -> ::windows::core::Result<ISharedProperty> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).get_PropertyByPosition)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ISharedProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateProperty<'a, P0>(&self, name: P0, fexists: &mut i16, ppprop: &mut ::core::option::Option<ISharedProperty>) -> ::windows::core::Result<()>
     where
@@ -11417,7 +10746,6 @@ impl ISharedPropertyGroup {
     {
         (::windows::core::Interface::vtable(self).CreateProperty)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(fexists), ::core::mem::transmute(ppprop)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn get_Property<'a, P0>(&self, name: P0) -> ::windows::core::Result<ISharedProperty>
     where
@@ -11510,13 +10838,11 @@ pub struct ISharedPropertyGroup_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     get_Property: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ISharedPropertyGroupManager(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ISharedPropertyGroupManager {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePropertyGroup<'a, P0>(&self, name: P0, dwisomode: &mut i32, dwrelmode: &mut i32, fexists: &mut i16, ppgroup: &mut ::core::option::Option<ISharedPropertyGroup>) -> ::windows::core::Result<()>
     where
@@ -11524,7 +10850,6 @@ impl ISharedPropertyGroupManager {
     {
         (::windows::core::Interface::vtable(self).CreatePropertyGroup)(::windows::core::Interface::as_raw(self), name.into().abi(), ::core::mem::transmute(dwisomode), ::core::mem::transmute(dwrelmode), ::core::mem::transmute(fexists), ::core::mem::transmute(ppgroup)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn get_Group<'a, P0>(&self, name: P0) -> ::windows::core::Result<ISharedPropertyGroup>
     where
@@ -11614,14 +10939,12 @@ pub struct ISharedPropertyGroupManager_Vtbl {
     get_Group: usize,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ISystemAppEventData(::windows::core::IUnknown);
 impl ISystemAppEventData {
     pub unsafe fn Startup(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Startup)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDataChanged<'a, P0>(&self, dwpid: u32, dwmask: u32, dwnumbersinks: u32, bstrdwmethodmask: P0, dwreason: u32, u64tracehandle: u64) -> ::windows::core::Result<()>
     where
@@ -11675,7 +10998,6 @@ pub struct ISystemAppEventData_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     OnDataChanged: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct IThreadPoolKnobs(::windows::core::IUnknown);
 impl IThreadPoolKnobs {
@@ -11760,13 +11082,11 @@ pub struct IThreadPoolKnobs_Vtbl {
     pub SetMinThreads: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcminthreads: i32) -> ::windows::core::HRESULT,
     pub SetQueueDepth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lcqueuedepth: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ITransactionContext(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITransactionContext {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateInstance<'a, P0>(&self, pszprogid: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -11855,7 +11175,6 @@ pub struct ITransactionContext_Vtbl {
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ITransactionContextEx(::windows::core::IUnknown);
 impl ITransactionContextEx {
@@ -11916,7 +11235,6 @@ pub struct ITransactionContextEx_Vtbl {
     pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Abort: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ITransactionProperty(::windows::core::IUnknown);
 impl ITransactionProperty {
@@ -12034,7 +11352,6 @@ pub struct ITransactionProperty_Vtbl {
     pub Reserved16: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     pub Reserved17: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ITransactionProxy(::windows::core::IUnknown);
 impl ITransactionProxy {
@@ -12044,13 +11361,11 @@ impl ITransactionProxy {
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Abort)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn Promote(&self) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransaction> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Promote)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::DistributedTransactionCoordinator::ITransaction>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_DistributedTransactionCoordinator\"`*"]
     #[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
     pub unsafe fn CreateVoter<'a, P0>(&self, ptxasync: P0) -> ::windows::core::Result<super::DistributedTransactionCoordinator::ITransactionVoterBallotAsync2>
     where
@@ -12065,7 +11380,6 @@ impl ITransactionProxy {
     pub unsafe fn GetIdentifier(&self, pbstridentifier: &mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetIdentifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstridentifier)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsReusable(&self, pfisreusable: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsReusable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfisreusable)).ok()
@@ -12127,7 +11441,6 @@ pub struct ITransactionProxy_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsReusable: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ITransactionResourcePool(::windows::core::IUnknown);
 impl ITransactionResourcePool {
@@ -12188,7 +11501,6 @@ pub struct ITransactionResourcePool_Vtbl {
     pub PutResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppool: *mut ::core::ffi::c_void, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppool: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ITransactionStatus(::windows::core::IUnknown);
 impl ITransactionStatus {
@@ -12241,7 +11553,6 @@ pub struct ITransactionStatus_Vtbl {
     pub SetTransactionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrstatus: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub GetTransactionStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ITxProxyHolder(::windows::core::IUnknown);
 impl ITxProxyHolder {
@@ -12291,13 +11602,10 @@ pub struct ITxProxyHolder_Vtbl {
     pub GetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidltx: *mut ::windows::core::GUID),
 }
 pub const LBEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LockModes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const LockSetGet: LockModes = LockModes(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const LockMethod: LockModes = LockModes(1i32);
 impl ::core::marker::Copy for LockModes {}
 impl ::core::clone::Clone for LockModes {
@@ -12318,7 +11626,6 @@ impl ::core::fmt::Debug for LockModes {
         f.debug_tuple("LockModes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn MTSCreateActivity(riid: &::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -12327,17 +11634,14 @@ pub unsafe fn MTSCreateActivity(riid: &::windows::core::GUID, ppobj: *mut *mut :
     }
     MTSCreateActivity(::core::mem::transmute(riid), ::core::mem::transmute(ppobj)).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
 pub const MessageMover: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
 pub const MtsGrp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct ObjectContext(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ObjectContext {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CreateInstance<'a, P0>(&self, bstrprogid: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -12366,7 +11670,6 @@ impl ObjectContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsSecurityEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i16>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCallerInRole<'a, P0>(&self, bstrrole: P0) -> ::windows::core::Result<i16>
     where
@@ -12379,7 +11682,6 @@ impl ObjectContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, P0>(&self, name: P0) -> ::windows::core::Result<super::Com::VARIANT>
     where
@@ -12392,13 +11694,11 @@ impl ObjectContext {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security(&self) -> ::windows::core::Result<SecurityProperty> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Security)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SecurityProperty>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ContextInfo(&self) -> ::windows::core::Result<ContextInfo> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12500,7 +11800,6 @@ pub struct ObjectContext_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ContextInfo: usize,
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 pub struct ObjectControl(::windows::core::IUnknown);
 impl ObjectControl {
@@ -12559,7 +11858,6 @@ pub struct ObjectControl_Vtbl {
 }
 pub const PoolMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub struct RECYCLE_INFO {
     pub guidCombaseProcessIdentifier: ::windows::core::GUID,
     pub ProcessStartTime: i64,
@@ -12592,7 +11890,6 @@ impl ::core::default::Default for RECYCLE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -12601,13 +11898,10 @@ pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> 
     }
     RecycleSurrogate(lreasoncode).ok()
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ReleaseModes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const Standard: ReleaseModes = ReleaseModes(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const Process: ReleaseModes = ReleaseModes(1i32);
 impl ::core::marker::Copy for ReleaseModes {}
 impl ::core::clone::Clone for ReleaseModes {
@@ -12628,7 +11922,6 @@ impl ::core::fmt::Debug for ReleaseModes {
         f.debug_tuple("ReleaseModes").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn SafeRef<'a, P0>(rid: &::windows::core::GUID, punk: P0) -> *mut ::core::ffi::c_void
 where
@@ -12643,31 +11936,26 @@ where
 pub const SecurityCallContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityCallers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
 pub const SecurityIdentity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
 pub struct SecurityProperty(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl SecurityProperty {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDirectCallerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDirectCallerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDirectCreatorName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDirectCreatorName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOriginalCallerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetOriginalCallerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOriginalCreatorName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12762,19 +12050,13 @@ pub const ServicePoolConfig: ::windows::core::GUID = ::windows::core::GUID::from
 pub const SharedProperty: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c05_a5de_11cf_9e66_00aa00a3f464);
 pub const SharedPropertyGroup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c0b_a5de_11cf_9e66_00aa00a3f464);
 pub const SharedPropertyGroupManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c11_a5de_11cf_9e66_00aa00a3f464);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRACKER_INIT_EVENT: &str = "Global\\COM+ Tracker Init Event";
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRACKER_STARTSTOP_EVENT: &str = "Global\\COM+ Tracker Push Event";
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRACKING_COLL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRKCOLL_PROCESSES: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRKCOLL_APPLICATIONS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRKCOLL_COMPONENTS: TRACKING_COLL_TYPE = TRACKING_COLL_TYPE(2i32);
 impl ::core::marker::Copy for TRACKING_COLL_TYPE {}
 impl ::core::clone::Clone for TRACKING_COLL_TYPE {
@@ -12798,13 +12080,10 @@ impl ::core::fmt::Debug for TRACKING_COLL_TYPE {
 pub const TrackerServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb9_7f19_11d2_978e_0000f8757e2a);
 pub const TransactionContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7999fc25_d3c6_11cf_acab_00a024a55aef);
 pub const TransactionContextEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TransactionVote(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxCommit: TransactionVote = TransactionVote(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TxAbort: TransactionVote = TransactionVote(1i32);
 impl ::core::marker::Copy for TransactionVote {}
 impl ::core::clone::Clone for TransactionVote {

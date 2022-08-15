@@ -32,7 +32,6 @@ pub struct IPowerManagerStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub PowerSavingModeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Phone_System_Power\"`*"]
 pub struct PowerManager;
 impl PowerManager {
     pub fn PowerSavingMode() -> ::windows::core::Result<PowerSavingMode> {
@@ -41,7 +40,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).PowerSavingMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PowerSavingMode>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn PowerSavingModeChanged<'a, P0>(changehandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -52,7 +50,6 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).PowerSavingModeChanged)(::windows::core::Interface::as_raw(this), changehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePowerSavingModeChanged(token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemovePowerSavingModeChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -77,7 +74,6 @@ impl PowerManager {
 impl ::windows::core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.Phone.System.Power.PowerManager";
 }
-#[doc = "*Required features: `\"Phone_System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PowerSavingMode(pub i32);

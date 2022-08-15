@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct CurrencyFormatter(::windows::core::IUnknown);
 impl CurrencyFormatter {
@@ -9,7 +8,6 @@ impl CurrencyFormatter {
             (::windows::core::Interface::vtable(this).Currency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn SetCurrency(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
@@ -36,7 +34,6 @@ impl CurrencyFormatter {
             (::windows::core::Interface::vtable(this).CreateCurrencyFormatterCode)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(currencycode), result__.as_mut_ptr()).from_abi::<CurrencyFormatter>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateCurrencyFormatterCodeContext<'a, P0, E0>(currencycode: &::windows::core::HSTRING, languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<CurrencyFormatter>
     where
@@ -90,7 +87,6 @@ impl CurrencyFormatter {
             (::windows::core::Interface::vtable(this).FormatDouble)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -175,7 +171,6 @@ impl CurrencyFormatter {
             (::windows::core::Interface::vtable(this).ResolvedGeographicRegion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -184,7 +179,6 @@ impl CurrencyFormatter {
             (::windows::core::Interface::vtable(this).ParseInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -193,7 +187,6 @@ impl CurrencyFormatter {
             (::windows::core::Interface::vtable(this).ParseUInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -440,7 +433,6 @@ impl<'a> ::core::convert::TryFrom<&CurrencyFormatter> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for CurrencyFormatter {}
 unsafe impl ::core::marker::Sync for CurrencyFormatter {}
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CurrencyFormatterMode(pub i32);
@@ -474,7 +466,6 @@ unsafe impl ::windows::core::RuntimeType for CurrencyFormatterMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct DecimalFormatter(::windows::core::IUnknown);
 impl DecimalFormatter {
@@ -485,7 +476,6 @@ impl DecimalFormatter {
         static SHARED: ::windows::core::FactoryCache<DecimalFormatter, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDecimalFormatter<'a, P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<DecimalFormatter>
     where
@@ -539,7 +529,6 @@ impl DecimalFormatter {
             (::windows::core::Interface::vtable(this).FormatDouble)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -624,7 +613,6 @@ impl DecimalFormatter {
             (::windows::core::Interface::vtable(this).ResolvedGeographicRegion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -633,7 +621,6 @@ impl DecimalFormatter {
             (::windows::core::Interface::vtable(this).ParseInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -642,7 +629,6 @@ impl DecimalFormatter {
             (::windows::core::Interface::vtable(this).ParseUInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -970,7 +956,6 @@ pub struct IIncrementNumberRounder_Vtbl {
     pub Increment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub SetIncrement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct INumberFormatter(::windows::core::IUnknown);
 impl INumberFormatter {
@@ -1061,7 +1046,6 @@ pub struct INumberFormatter_Vtbl {
     pub FormatUInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FormatDouble: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct INumberFormatter2(::windows::core::IUnknown);
 impl INumberFormatter2 {
@@ -1152,11 +1136,9 @@ pub struct INumberFormatter2_Vtbl {
     pub FormatUInt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub FormatDouble: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct INumberFormatterOptions(::windows::core::IUnknown);
 impl INumberFormatterOptions {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1321,11 +1303,9 @@ pub struct INumberFormatterOptions_Vtbl {
     pub ResolvedLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub ResolvedGeographicRegion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct INumberParser(::windows::core::IUnknown);
 impl INumberParser {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
         let this = self;
@@ -1334,7 +1314,6 @@ impl INumberParser {
             (::windows::core::Interface::vtable(this).ParseInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
         let this = self;
@@ -1343,7 +1322,6 @@ impl INumberParser {
             (::windows::core::Interface::vtable(this).ParseUInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1427,7 +1405,6 @@ pub struct INumberParser_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     ParseDouble: usize,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct INumberRounder(::windows::core::IUnknown);
 impl INumberRounder {
@@ -1542,7 +1519,6 @@ pub struct INumberRounder_Vtbl {
     pub RoundSingle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32, result__: *mut f32) -> ::windows::core::HRESULT,
     pub RoundDouble: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut f64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct INumberRounderOption(::windows::core::IUnknown);
 impl INumberRounderOption {
@@ -1694,7 +1670,6 @@ pub struct IPermilleFormatterFactory_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     CreatePermilleFormatter: usize,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct ISignedZeroOption(::windows::core::IUnknown);
 impl ISignedZeroOption {
@@ -1790,7 +1765,6 @@ pub struct ISignificantDigitsNumberRounder_Vtbl {
     pub SignificantDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub SetSignificantDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct ISignificantDigitsOption(::windows::core::IUnknown);
 impl ISignificantDigitsOption {
@@ -1870,7 +1844,6 @@ pub struct ISignificantDigitsOption_Vtbl {
     pub SignificantDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub SetSignificantDigits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct IncrementNumberRounder(::windows::core::IUnknown);
 impl IncrementNumberRounder {
@@ -2027,7 +2000,6 @@ impl<'a> ::core::convert::TryFrom<&IncrementNumberRounder> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for IncrementNumberRounder {}
 unsafe impl ::core::marker::Sync for IncrementNumberRounder {}
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct NumeralSystemTranslator(::windows::core::IUnknown);
 impl NumeralSystemTranslator {
@@ -2038,7 +2010,6 @@ impl NumeralSystemTranslator {
         static SHARED: ::windows::core::FactoryCache<NumeralSystemTranslator, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -2072,7 +2043,6 @@ impl NumeralSystemTranslator {
             (::windows::core::Interface::vtable(this).TranslateNumerals)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<'a, P0, E0>(languages: P0) -> ::windows::core::Result<NumeralSystemTranslator>
     where
@@ -2152,7 +2122,6 @@ impl ::core::convert::From<&NumeralSystemTranslator> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for NumeralSystemTranslator {}
 unsafe impl ::core::marker::Sync for NumeralSystemTranslator {}
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct PercentFormatter(::windows::core::IUnknown);
 impl PercentFormatter {
@@ -2205,7 +2174,6 @@ impl PercentFormatter {
             (::windows::core::Interface::vtable(this).FormatDouble)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -2290,7 +2258,6 @@ impl PercentFormatter {
             (::windows::core::Interface::vtable(this).ResolvedGeographicRegion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -2299,7 +2266,6 @@ impl PercentFormatter {
             (::windows::core::Interface::vtable(this).ParseInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -2308,7 +2274,6 @@ impl PercentFormatter {
             (::windows::core::Interface::vtable(this).ParseUInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -2332,7 +2297,6 @@ impl PercentFormatter {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePercentFormatter<'a, P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PercentFormatter>
     where
@@ -2567,7 +2531,6 @@ impl<'a> ::core::convert::TryFrom<&PercentFormatter> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for PercentFormatter {}
 unsafe impl ::core::marker::Sync for PercentFormatter {}
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct PermilleFormatter(::windows::core::IUnknown);
 impl PermilleFormatter {
@@ -2620,7 +2583,6 @@ impl PermilleFormatter {
             (::windows::core::Interface::vtable(this).FormatDouble)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<INumberFormatterOptions>(self)?;
@@ -2705,7 +2667,6 @@ impl PermilleFormatter {
             (::windows::core::Interface::vtable(this).ResolvedGeographicRegion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<i64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -2714,7 +2675,6 @@ impl PermilleFormatter {
             (::windows::core::Interface::vtable(this).ParseInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseUInt(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<u64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -2723,7 +2683,6 @@ impl PermilleFormatter {
             (::windows::core::Interface::vtable(this).ParseUInt)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(text), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u64>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ParseDouble(&self, text: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = &::windows::core::Interface::cast::<INumberParser>(self)?;
@@ -2747,7 +2706,6 @@ impl PermilleFormatter {
         let this = &::windows::core::Interface::cast::<INumberRounderOption>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreatePermilleFormatter<'a, P0, E0>(languages: P0, geographicregion: &::windows::core::HSTRING) -> ::windows::core::Result<PermilleFormatter>
     where
@@ -2982,7 +2940,6 @@ impl<'a> ::core::convert::TryFrom<&PermilleFormatter> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for PermilleFormatter {}
 unsafe impl ::core::marker::Sync for PermilleFormatter {}
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RoundingAlgorithm(pub i32);
@@ -3025,7 +2982,6 @@ unsafe impl ::windows::core::RuntimeType for RoundingAlgorithm {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization_NumberFormatting\"`*"]
 #[repr(transparent)]
 pub struct SignificantDigitsNumberRounder(::windows::core::IUnknown);
 impl SignificantDigitsNumberRounder {

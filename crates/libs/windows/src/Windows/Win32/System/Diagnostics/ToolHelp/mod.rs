@@ -1,20 +1,12 @@
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_SNAPALL: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(15u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_SNAPHEAPLIST: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_SNAPMODULE: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(4u32);
 impl ::core::marker::Copy for CREATE_TOOLHELP_SNAPSHOT_FLAGS {}
 impl ::core::clone::Clone for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
@@ -63,7 +55,6 @@ impl ::core::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> ::windows::core::Result<super::super::super::Foundation::HANDLE> {
@@ -75,7 +66,6 @@ pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, 
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HEAPENTRY32 {
     pub dwSize: usize,
@@ -120,15 +110,11 @@ impl ::core::default::Default for HEAPENTRY32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const LF32_FIXED: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const LF32_FREE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const LF32_MOVEABLE: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(4u32);
 impl ::core::marker::Copy for HEAPENTRY32_FLAGS {}
 impl ::core::clone::Clone for HEAPENTRY32_FLAGS {
@@ -150,7 +136,6 @@ impl ::core::fmt::Debug for HEAPENTRY32_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub struct HEAPLIST32 {
     pub dwSize: usize,
     pub th32ProcessID: u32,
@@ -182,11 +167,8 @@ impl ::core::default::Default for HEAPLIST32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const HF32_DEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const HF32_SHARED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32First(lphe: &mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL {
@@ -196,7 +178,6 @@ pub unsafe fn Heap32First(lphe: &mut HEAPENTRY32, th32processid: u32, th32heapid
     }
     Heap32First(::core::mem::transmute(lphe), th32processid, th32heapid)
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32ListFirst<'a, P0>(hsnapshot: P0, lphl: &mut HEAPLIST32) -> super::super::super::Foundation::BOOL
@@ -209,7 +190,6 @@ where
     }
     Heap32ListFirst(hsnapshot.into(), ::core::mem::transmute(lphl))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32ListNext<'a, P0>(hsnapshot: P0, lphl: &mut HEAPLIST32) -> super::super::super::Foundation::BOOL
@@ -222,7 +202,6 @@ where
     }
     Heap32ListNext(hsnapshot.into(), ::core::mem::transmute(lphl))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Heap32Next(lphe: &mut HEAPENTRY32) -> super::super::super::Foundation::BOOL {
@@ -232,10 +211,8 @@ pub unsafe fn Heap32Next(lphe: &mut HEAPENTRY32) -> super::super::super::Foundat
     }
     Heap32Next(::core::mem::transmute(lphe))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub const MAX_MODULE_NAME32: u32 = 255u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY32 {
     pub dwSize: u32,
@@ -282,7 +259,6 @@ impl ::core::default::Default for MODULEENTRY32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY32W {
     pub dwSize: u32,
@@ -328,7 +304,6 @@ impl ::core::default::Default for MODULEENTRY32W {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32First<'a, P0>(hsnapshot: P0, lpme: &mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
@@ -341,7 +316,6 @@ where
     }
     Module32First(hsnapshot.into(), ::core::mem::transmute(lpme))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32FirstW<'a, P0>(hsnapshot: P0, lpme: &mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
@@ -354,7 +328,6 @@ where
     }
     Module32FirstW(hsnapshot.into(), ::core::mem::transmute(lpme))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32Next<'a, P0>(hsnapshot: P0, lpme: &mut MODULEENTRY32) -> super::super::super::Foundation::BOOL
@@ -367,7 +340,6 @@ where
     }
     Module32Next(hsnapshot.into(), ::core::mem::transmute(lpme))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32NextW<'a, P0>(hsnapshot: P0, lpme: &mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL
@@ -381,7 +353,6 @@ where
     Module32NextW(hsnapshot.into(), ::core::mem::transmute(lpme))
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROCESSENTRY32 {
     pub dwSize: u32,
@@ -428,7 +399,6 @@ impl ::core::default::Default for PROCESSENTRY32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub struct PROCESSENTRY32W {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -466,7 +436,6 @@ impl ::core::default::Default for PROCESSENTRY32W {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32First<'a, P0>(hsnapshot: P0, lppe: &mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
@@ -479,7 +448,6 @@ where
     }
     Process32First(hsnapshot.into(), ::core::mem::transmute(lppe))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32FirstW<'a, P0>(hsnapshot: P0, lppe: &mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
@@ -492,7 +460,6 @@ where
     }
     Process32FirstW(hsnapshot.into(), ::core::mem::transmute(lppe))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32Next<'a, P0>(hsnapshot: P0, lppe: &mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL
@@ -505,7 +472,6 @@ where
     }
     Process32Next(hsnapshot.into(), ::core::mem::transmute(lppe))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32NextW<'a, P0>(hsnapshot: P0, lppe: &mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL
@@ -519,7 +485,6 @@ where
     Process32NextW(hsnapshot.into(), ::core::mem::transmute(lppe))
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`*"]
 pub struct THREADENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -554,7 +519,6 @@ impl ::core::default::Default for THREADENTRY32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Thread32First<'a, P0>(hsnapshot: P0, lpte: &mut THREADENTRY32) -> super::super::super::Foundation::BOOL
@@ -567,7 +531,6 @@ where
     }
     Thread32First(hsnapshot.into(), ::core::mem::transmute(lpte))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Thread32Next<'a, P0>(hsnapshot: P0, lpte: &mut THREADENTRY32) -> super::super::super::Foundation::BOOL
@@ -580,7 +543,6 @@ where
     }
     Thread32Next(hsnapshot.into(), ::core::mem::transmute(lpte))
 }
-#[doc = "*Required features: `\"Win32_System_Diagnostics_ToolHelp\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, cbread: usize, lpnumberofbytesread: &mut usize) -> super::super::super::Foundation::BOOL {

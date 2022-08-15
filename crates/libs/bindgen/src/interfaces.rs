@@ -37,14 +37,13 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let phantoms = gen.generic_phantoms(generics);
     let constraints = gen.generic_constraints(generics);
     let cfg = gen.reader.type_def_cfg(def, &[]);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec()))); // TODO: how to avoid copy?
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
     } else {
-        quote! { #doc }
+        quote! { }
     };
 
     tokens.combine(&quote! {

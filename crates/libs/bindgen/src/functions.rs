@@ -12,7 +12,6 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let name = to_ident(gen.reader.method_def_name(def));
     let signature = gen.reader.method_def_signature(def, &[]);
     let cfg = gen.reader.signature_cfg(&signature);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let mut return_type = gen.return_sig(&signature);
 
@@ -27,7 +26,6 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
     });
 
     quote! {
-        #doc
         #features
         pub fn #name(#(#params),*) #return_type;
     }
@@ -62,7 +60,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
     };
 
     let cfg = gen.reader.signature_cfg(&signature);
-    let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
     let kind = gen.reader.signature_kind(&signature);
@@ -74,7 +71,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<T> #where_clause {
@@ -94,7 +90,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Interface));
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
@@ -114,7 +109,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let return_type_tokens = gen.type_name(&return_type);
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
@@ -132,7 +126,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let params = gen.win32_params(&signature.params, kind);
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<()> #where_clause {
@@ -151,7 +144,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 let return_type = gen.type_name(&signature.return_type.unwrap());
 
                 quote! {
-                    #doc
                     #features
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
@@ -168,7 +160,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 let params = gen.win32_params(&signature.params, kind);
 
                 quote! {
-                    #doc
                     #features
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
@@ -187,7 +178,6 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
             let does_not_return = does_not_return(gen, def);
 
             quote! {
-                #doc
                 #features
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) #does_not_return #where_clause {

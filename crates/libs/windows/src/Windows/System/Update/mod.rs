@@ -102,7 +102,6 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
     pub RebootToCompleteInstall: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartCancelUpdates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
@@ -139,7 +138,6 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateAttentionRequiredReason
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
 pub struct SystemUpdateItem(::windows::core::IUnknown);
 impl SystemUpdateItem {
@@ -262,7 +260,6 @@ impl ::core::convert::From<&SystemUpdateItem> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for SystemUpdateItem {}
 unsafe impl ::core::marker::Sync for SystemUpdateItem {}
-#[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateItemState(pub i32);
@@ -303,7 +300,6 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateItemState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
 pub struct SystemUpdateLastErrorInfo(::windows::core::IUnknown);
 impl SystemUpdateLastErrorInfo {
@@ -391,7 +387,6 @@ impl ::core::convert::From<&SystemUpdateLastErrorInfo> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for SystemUpdateLastErrorInfo {}
 unsafe impl ::core::marker::Sync for SystemUpdateLastErrorInfo {}
-#[doc = "*Required features: `\"System_Update\"`*"]
 pub struct SystemUpdateManager;
 impl SystemUpdateManager {
     pub fn IsSupported() -> ::windows::core::Result<bool> {
@@ -406,7 +401,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemUpdateManagerState>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -417,7 +411,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() })
@@ -434,7 +427,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).InstallProgress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UserActiveHoursStart() -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -442,7 +434,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).UserActiveHoursStart)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UserActiveHoursEnd() -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -456,7 +447,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).UserActiveHoursMax)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TrySetUserActiveHours(start: super::super::Foundation::TimeSpan, end: super::super::Foundation::TimeSpan) -> ::windows::core::Result<bool> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -464,7 +454,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).TrySetUserActiveHours)(::windows::core::Interface::as_raw(this), start, end, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastUpdateCheckTime() -> ::windows::core::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -472,7 +461,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).LastUpdateCheckTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn LastUpdateInstallTime() -> ::windows::core::Result<super::super::Foundation::DateTime> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -486,7 +474,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).LastErrorInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SystemUpdateLastErrorInfo>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAutomaticRebootBlockIds() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -494,7 +481,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).GetAutomaticRebootBlockIds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn BlockAutomaticRebootAsync(lockid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -502,7 +488,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).BlockAutomaticRebootAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(lockid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn UnblockAutomaticRebootAsync(lockid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -516,7 +501,6 @@ impl SystemUpdateManager {
             (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUpdateItems() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SystemUpdateItem>> {
         Self::ISystemUpdateManagerStatics(|this| unsafe {
@@ -560,7 +544,6 @@ impl SystemUpdateManager {
 impl ::windows::core::RuntimeName for SystemUpdateManager {
     const NAME: &'static str = "Windows.System.Update.SystemUpdateManager";
 }
-#[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateManagerState(pub i32);
@@ -604,7 +587,6 @@ unsafe impl ::windows::core::RuntimeType for SystemUpdateManagerState {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"System_Update\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SystemUpdateStartInstallAction(pub i32);

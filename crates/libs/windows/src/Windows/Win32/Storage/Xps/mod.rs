@@ -1,9 +1,7 @@
 #[cfg(feature = "Win32_Storage_Xps_Printing")]
 pub mod Printing;
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub type ABORTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Graphics::Gdi::HDC, param1: i32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn AbortDoc<'a, P0>(hdc: P0) -> i32
@@ -16,69 +14,38 @@ where
     }
     AbortDoc(hdc.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DEVICE_CAPABILITIES(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_BINNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(12u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_BINS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(6u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_COLLATE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(22u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_COLORDEVICE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(32u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_COPIES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(18u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_DRIVER: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(11u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_DUPLEX: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(7u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_ENUMRESOLUTIONS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(13u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_EXTRA: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(9u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_FIELDS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(1u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_FILEDEPENDENCIES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(14u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_MAXEXTENT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(5u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_MEDIAREADY: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(29u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_MEDIATYPENAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(34u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_MEDIATYPES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(35u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_MINEXTENT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(4u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_ORIENTATION: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(17u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_NUP: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(33u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PAPERNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(16u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PAPERS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(2u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PAPERSIZE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(3u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PERSONALITY: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(25u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PRINTERMEM: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(28u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PRINTRATE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(26u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PRINTRATEPPM: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(31u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_PRINTRATEUNIT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(27u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_SIZE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(8u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_STAPLE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(30u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_TRUETYPE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(15u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const DC_VERSION: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(10u32);
 impl ::core::marker::Copy for DEVICE_CAPABILITIES {}
 impl ::core::clone::Clone for DEVICE_CAPABILITIES {
@@ -100,7 +67,6 @@ impl ::core::fmt::Debug for DEVICE_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct DOCINFOA {
     pub cbSize: i32,
     pub lpszDocName: ::windows::core::PCSTR,
@@ -134,7 +100,6 @@ impl ::core::default::Default for DOCINFOA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct DOCINFOW {
     pub cbSize: i32,
     pub lpszDocName: ::windows::core::PCWSTR,
@@ -168,7 +133,6 @@ impl ::core::default::Default for DOCINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRAWPATRECT {
     pub ptPosition: super::super::Foundation::POINT,
@@ -208,7 +172,6 @@ impl ::core::default::Default for DRAWPATRECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DeviceCapabilitiesA<'a, P0, P1>(pdevice: P0, pport: P1, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PSTR, pdevmode: ::core::option::Option<&super::super::Graphics::Gdi::DEVMODEA>) -> i32
@@ -222,7 +185,6 @@ where
     }
     DeviceCapabilitiesA(pdevice.into(), pport.into(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode))
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DeviceCapabilitiesW<'a, P0, P1>(pdevice: P0, pport: P1, fwcapability: DEVICE_CAPABILITIES, poutput: ::windows::core::PWSTR, pdevmode: ::core::option::Option<&super::super::Graphics::Gdi::DEVMODEW>) -> i32
@@ -236,7 +198,6 @@ where
     }
     DeviceCapabilitiesW(pdevice.into(), pport.into(), fwcapability, ::core::mem::transmute(poutput), ::core::mem::transmute(pdevmode))
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn EndDoc<'a, P0>(hdc: P0) -> i32
@@ -249,7 +210,6 @@ where
     }
     EndDoc(hdc.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn EndPage<'a, P0>(hdc: P0) -> i32
@@ -262,7 +222,6 @@ where
     }
     EndPage(hdc.into())
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn Escape<'a, P0>(hdc: P0, iescape: i32, pvin: ::core::option::Option<&[u8]>, pvout: *mut ::core::ffi::c_void) -> i32
@@ -275,7 +234,6 @@ where
     }
     Escape(hdc.into(), iescape, pvin.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pvin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pvout))
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ExtEscape<'a, P0>(hdc: P0, iescape: i32, lpindata: ::core::option::Option<&[u8]>, lpoutdata: ::core::option::Option<&mut [u8]>) -> i32
@@ -320,11 +278,9 @@ impl ::core::convert::From<::core::option::Option<HPTPROVIDER>> for HPTPROVIDER 
 unsafe impl ::windows::core::Abi for HPTPROVIDER {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsDocumentPackageTarget(::windows::core::IUnknown);
 impl IXpsDocumentPackageTarget {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetXpsOMPackageWriter<'a, P0, P1>(&self, documentsequencepartname: P0, discardcontrolpartname: P1) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -389,11 +345,9 @@ pub struct IXpsDocumentPackageTarget_Vtbl {
     pub GetXpsOMFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpsfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetXpsType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, documenttype: *mut XPS_DOCUMENT_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsDocumentPackageTarget3D(::windows::core::IUnknown);
 impl IXpsDocumentPackageTarget3D {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetXpsOMPackageWriter3D<'a, P0, P1, P2, P3>(&self, documentsequencepartname: P0, discardcontrolpartname: P1, modelpartname: P2, modeldata: P3) -> ::windows::core::Result<IXpsOMPackageWriter3D>
     where
@@ -455,7 +409,6 @@ pub struct IXpsDocumentPackageTarget3D_Vtbl {
     GetXpsOMPackageWriter3D: usize,
     pub GetXpsOMFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xpsfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMBrush(::windows::core::IUnknown);
 impl IXpsOMBrush {
@@ -532,7 +485,6 @@ pub struct IXpsOMBrush_Vtbl {
     pub GetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: *mut f32) -> ::windows::core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMCanvas(::windows::core::IUnknown);
 impl IXpsOMCanvas {
@@ -633,13 +585,11 @@ impl IXpsOMCanvas {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHyperlinkTarget<'a, P0>(&self, ishyperlink: P0) -> ::windows::core::Result<()>
     where
@@ -647,13 +597,11 @@ impl IXpsOMCanvas {
     {
         (::windows::core::Interface::vtable(self).base__.SetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ishyperlink.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetHyperlinkNavigateUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHyperlinkNavigateUri<'a, P0>(&self, hyperlinkuri: P0) -> ::windows::core::Result<()>
     where
@@ -675,13 +623,11 @@ impl IXpsOMCanvas {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetVisuals)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMVisualCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUseAliasedEdgeMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUseAliasedEdgeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUseAliasedEdgeMode<'a, P0>(&self, usealiasededgemode: P0) -> ::windows::core::Result<()>
     where
@@ -827,17 +773,14 @@ pub struct IXpsOMCanvas_Vtbl {
     pub SetDictionaryResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotedictionaryresource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, canvas: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMColorProfileResource(::windows::core::IUnknown);
 impl IXpsOMColorProfileResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -845,13 +788,11 @@ impl IXpsOMColorProfileResource {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetPartName)(::windows::core::Interface::as_raw(self), parturi.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, P0, P1>(&self, sourcestream: P0, partname: P1) -> ::windows::core::Result<()>
     where
@@ -939,7 +880,6 @@ pub struct IXpsOMColorProfileResource_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     SetContent: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMColorProfileResourceCollection(::windows::core::IUnknown);
 impl IXpsOMColorProfileResourceCollection {
@@ -972,7 +912,6 @@ impl IXpsOMColorProfileResourceCollection {
     {
         (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), object.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetByPartName<'a, P0>(&self, partname: P0) -> ::windows::core::Result<IXpsOMColorProfileResource>
     where
@@ -1032,17 +971,14 @@ pub struct IXpsOMColorProfileResourceCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     GetByPartName: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMCoreProperties(::windows::core::IUnknown);
 impl IXpsOMCoreProperties {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -1084,13 +1020,11 @@ impl IXpsOMCoreProperties {
     {
         (::windows::core::Interface::vtable(self).SetContentType)(::windows::core::Interface::as_raw(self), contenttype.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCreated(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCreated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCreated(&self, created: &super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCreated)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(created)).ok()
@@ -1155,24 +1089,20 @@ impl IXpsOMCoreProperties {
     {
         (::windows::core::Interface::vtable(self).SetLastModifiedBy)(::windows::core::Interface::as_raw(self), lastmodifiedby.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastPrinted(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetLastPrinted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLastPrinted(&self, lastprinted: &super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLastPrinted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lastprinted)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetModified(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModified(&self, modified: &super::super::Foundation::SYSTEMTIME) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetModified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(modified)).ok()
@@ -1329,7 +1259,6 @@ pub struct IXpsOMCoreProperties_Vtbl {
     pub SetVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, version: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coreproperties: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMDashCollection(::windows::core::IUnknown);
 impl IXpsOMDashCollection {
@@ -1400,7 +1329,6 @@ pub struct IXpsOMDashCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, dash: *const XPS_DASH) -> ::windows::core::HRESULT,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dash: *const XPS_DASH) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMDictionary(::windows::core::IUnknown);
 impl IXpsOMDictionary {
@@ -1509,17 +1437,14 @@ pub struct IXpsOMDictionary_Vtbl {
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, key: ::windows::core::PCWSTR, entry: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMDocument(::windows::core::IUnknown);
 impl IXpsOMDocument {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -1627,7 +1552,6 @@ pub struct IXpsOMDocument_Vtbl {
     pub GetSignatureBlockResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signatureblockresources: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMDocumentCollection(::windows::core::IUnknown);
 impl IXpsOMDocumentCollection {
@@ -1707,17 +1631,14 @@ pub struct IXpsOMDocumentCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, document: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMDocumentSequence(::windows::core::IUnknown);
 impl IXpsOMDocumentSequence {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -1803,17 +1724,14 @@ pub struct IXpsOMDocumentSequence_Vtbl {
     pub GetPrintTicketResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticketresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetPrintTicketResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printticketresource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMDocumentStructureResource(::windows::core::IUnknown);
 impl IXpsOMDocumentStructureResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -1825,13 +1743,11 @@ impl IXpsOMDocumentStructureResource {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDocument>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, P0, P1>(&self, sourcestream: P0, partname: P1) -> ::windows::core::Result<()>
     where
@@ -1920,17 +1836,14 @@ pub struct IXpsOMDocumentStructureResource_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     SetContent: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMFontResource(::windows::core::IUnknown);
 impl IXpsOMFontResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -1938,13 +1851,11 @@ impl IXpsOMFontResource {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetPartName)(::windows::core::Interface::as_raw(self), parturi.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, P0, P1>(&self, sourcestream: P0, embeddingoption: XPS_FONT_EMBEDDING, partname: P1) -> ::windows::core::Result<()>
     where
@@ -2037,7 +1948,6 @@ pub struct IXpsOMFontResource_Vtbl {
     SetContent: usize,
     pub GetEmbeddingOption: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, embeddingoption: *mut XPS_FONT_EMBEDDING) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMFontResourceCollection(::windows::core::IUnknown);
 impl IXpsOMFontResourceCollection {
@@ -2070,7 +1980,6 @@ impl IXpsOMFontResourceCollection {
     pub unsafe fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetByPartName<'a, P0>(&self, partname: P0) -> ::windows::core::Result<IXpsOMFontResource>
     where
@@ -2130,7 +2039,6 @@ pub struct IXpsOMFontResourceCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     GetByPartName: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGeometry(::windows::core::IUnknown);
 impl IXpsOMGeometry {
@@ -2246,7 +2154,6 @@ pub struct IXpsOMGeometry_Vtbl {
     pub SetTransformLookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookup: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometry: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGeometryFigure(::windows::core::IUnknown);
 impl IXpsOMGeometryFigure {
@@ -2260,12 +2167,10 @@ impl IXpsOMGeometryFigure {
     pub unsafe fn GetSegmentTypes(&self, segmentcount: &mut u32, segmenttypes: &mut XPS_SEGMENT_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSegmentTypes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(segmentcount), ::core::mem::transmute(segmenttypes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSegmentStrokes(&self, segmentcount: &mut u32, segmentstrokes: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSegmentStrokes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(segmentcount), ::core::mem::transmute(segmentstrokes)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSegments(&self, segmentcount: u32, segmentdatacount: u32, segmenttypes: &XPS_SEGMENT_TYPE, segmentdata: &f32, segmentstrokes: &super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSegments)(::windows::core::Interface::as_raw(self), segmentcount, segmentdatacount, ::core::mem::transmute(segmenttypes), ::core::mem::transmute(segmentdata), ::core::mem::transmute(segmentstrokes)).ok()
@@ -2277,13 +2182,11 @@ impl IXpsOMGeometryFigure {
     pub unsafe fn SetStartPoint(&self, startpoint: &XPS_POINT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStartPoint)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIsClosed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsClosed<'a, P0>(&self, isclosed: P0) -> ::windows::core::Result<()>
     where
@@ -2291,13 +2194,11 @@ impl IXpsOMGeometryFigure {
     {
         (::windows::core::Interface::vtable(self).SetIsClosed)(::windows::core::Interface::as_raw(self), isclosed.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsFilled(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIsFilled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsFilled<'a, P0>(&self, isfilled: P0) -> ::windows::core::Result<()>
     where
@@ -2395,7 +2296,6 @@ pub struct IXpsOMGeometryFigure_Vtbl {
     pub GetSegmentStrokePattern: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, segmentstrokepattern: *mut XPS_SEGMENT_STROKE_PATTERN) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometryfigure: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGeometryFigureCollection(::windows::core::IUnknown);
 impl IXpsOMGeometryFigureCollection {
@@ -2475,7 +2375,6 @@ pub struct IXpsOMGeometryFigureCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, geometryfigure: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, geometryfigure: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGlyphs(::windows::core::IUnknown);
 impl IXpsOMGlyphs {
@@ -2576,13 +2475,11 @@ impl IXpsOMGlyphs {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHyperlinkTarget<'a, P0>(&self, ishyperlink: P0) -> ::windows::core::Result<()>
     where
@@ -2590,13 +2487,11 @@ impl IXpsOMGlyphs {
     {
         (::windows::core::Interface::vtable(self).base__.SetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ishyperlink.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetHyperlinkNavigateUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHyperlinkNavigateUri<'a, P0>(&self, hyperlinkuri: P0) -> ::windows::core::Result<()>
     where
@@ -2643,7 +2538,6 @@ impl IXpsOMGlyphs {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetBidiLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsSideways(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -2824,7 +2718,6 @@ pub struct IXpsOMGlyphs_Vtbl {
     pub GetGlyphsEditor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, editor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphs: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGlyphsEditor(::windows::core::IUnknown);
 impl IXpsOMGlyphsEditor {
@@ -2878,13 +2771,11 @@ impl IXpsOMGlyphsEditor {
     pub unsafe fn SetBidiLevel(&self, bidilevel: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBidiLevel)(::windows::core::Interface::as_raw(self), bidilevel).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsSideways(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIsSideways)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsSideways<'a, P0>(&self, issideways: P0) -> ::windows::core::Result<()>
     where
@@ -2967,7 +2858,6 @@ pub struct IXpsOMGlyphsEditor_Vtbl {
     pub GetDeviceFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicefontname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetDeviceFontName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicefontname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGradientBrush(::windows::core::IUnknown);
 impl IXpsOMGradientBrush {
@@ -3109,7 +2999,6 @@ pub struct IXpsOMGradientBrush_Vtbl {
     pub GetColorInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorinterpolationmode: *mut XPS_COLOR_INTERPOLATION) -> ::windows::core::HRESULT,
     pub SetColorInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGradientStop(::windows::core::IUnknown);
 impl IXpsOMGradientStop {
@@ -3184,7 +3073,6 @@ pub struct IXpsOMGradientStop_Vtbl {
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientstop: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMGradientStopCollection(::windows::core::IUnknown);
 impl IXpsOMGradientStopCollection {
@@ -3264,7 +3152,6 @@ pub struct IXpsOMGradientStopCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, stop: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stop: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMImageBrush(::windows::core::IUnknown);
 impl IXpsOMImageBrush {
@@ -3443,17 +3330,14 @@ pub struct IXpsOMImageBrush_Vtbl {
     pub SetColorProfileResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorprofileresource: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagebrush: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMImageResource(::windows::core::IUnknown);
 impl IXpsOMImageResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -3461,13 +3345,11 @@ impl IXpsOMImageResource {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetPartName)(::windows::core::Interface::as_raw(self), parturi.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, P0, P1>(&self, sourcestream: P0, imagetype: XPS_IMAGE_TYPE, partname: P1) -> ::windows::core::Result<()>
     where
@@ -3560,7 +3442,6 @@ pub struct IXpsOMImageResource_Vtbl {
     SetContent: usize,
     pub GetImageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagetype: *mut XPS_IMAGE_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMImageResourceCollection(::windows::core::IUnknown);
 impl IXpsOMImageResourceCollection {
@@ -3593,7 +3474,6 @@ impl IXpsOMImageResourceCollection {
     {
         (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), object.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetByPartName<'a, P0>(&self, partname: P0) -> ::windows::core::Result<IXpsOMImageResource>
     where
@@ -3653,7 +3533,6 @@ pub struct IXpsOMImageResourceCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     GetByPartName: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMLinearGradientBrush(::windows::core::IUnknown);
 impl IXpsOMLinearGradientBrush {
@@ -3823,7 +3702,6 @@ pub struct IXpsOMLinearGradientBrush_Vtbl {
     pub SetEndPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, endpoint: *const XPS_POINT) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lineargradientbrush: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMMatrixTransform(::windows::core::IUnknown);
 impl IXpsOMMatrixTransform {
@@ -3905,7 +3783,6 @@ pub struct IXpsOMMatrixTransform_Vtbl {
     pub SetMatrix: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const XPS_MATRIX) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrixtransform: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMNameCollection(::windows::core::IUnknown);
 impl IXpsOMNameCollection {
@@ -3960,7 +3837,6 @@ pub struct IXpsOMNameCollection_Vtbl {
     pub GetCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT,
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, name: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMObjectFactory(::windows::core::IUnknown);
 impl IXpsOMObjectFactory {
@@ -3968,7 +3844,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePackageFromFile<'a, P0, P1>(&self, filename: P0, reuseobjects: P1) -> ::windows::core::Result<IXpsOMPackage>
     where
@@ -3978,7 +3853,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageFromFile)(::windows::core::Interface::as_raw(self), filename.into(), reuseobjects.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageFromStream<'a, P0, P1>(&self, stream: P0, reuseobjects: P1) -> ::windows::core::Result<IXpsOMPackage>
     where
@@ -3988,7 +3862,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageFromStream)(::windows::core::Interface::as_raw(self), stream.into().abi(), reuseobjects.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateStoryFragmentsResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMStoryFragmentsResource>
     where
@@ -3998,7 +3871,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateStoryFragmentsResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMStoryFragmentsResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentStructureResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMDocumentStructureResource>
     where
@@ -4008,7 +3880,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateDocumentStructureResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDocumentStructureResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSignatureBlockResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMSignatureBlockResource>
     where
@@ -4018,7 +3889,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateSignatureBlockResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMSignatureBlockResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResource<'a, P0, P1>(&self, dictionary: P0, parturi: P1) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>
     where
@@ -4028,7 +3898,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRemoteDictionaryResource)(::windows::core::Interface::as_raw(self), dictionary.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResourceFromStream<'a, P0, P1, P2>(&self, dictionarymarkupstream: P0, dictionaryparturi: P1, resources: P2) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>
     where
@@ -4043,7 +3912,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePartResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPartResources>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentSequence<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<IXpsOMDocumentSequence>
     where
@@ -4052,7 +3920,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateDocumentSequence)(::windows::core::Interface::as_raw(self), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDocumentSequence>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocument<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<IXpsOMDocument>
     where
@@ -4065,7 +3932,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePageReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(advisorypagedimensions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPageReference>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePage<'a, P0, P1>(&self, pagedimensions: &XPS_SIZE, language: P0, parturi: P1) -> ::windows::core::Result<IXpsOMPage>
     where
@@ -4075,7 +3941,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pagedimensions), language.into(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePageFromStream<'a, P0, P1, P2, P3>(&self, pagemarkupstream: P0, parturi: P1, resources: P2, reuseobjects: P3) -> ::windows::core::Result<IXpsOMPage>
     where
@@ -4121,7 +3986,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateSolidColorBrush)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color), colorprofile.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMSolidColorBrush>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateColorProfileResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMColorProfileResource>
     where
@@ -4142,7 +4006,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateVisualBrush)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(viewbox), ::core::mem::transmute(viewport), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMVisualBrush>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateImageResource<'a, P0, P1>(&self, acquiredstream: P0, contenttype: XPS_IMAGE_TYPE, parturi: P1) -> ::windows::core::Result<IXpsOMImageResource>
     where
@@ -4152,7 +4015,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateImageResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), contenttype, parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMImageResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePrintTicketResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMPrintTicketResource>
     where
@@ -4162,7 +4024,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePrintTicketResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPrintTicketResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateFontResource<'a, P0, P1, P2>(&self, acquiredstream: P0, fontembedding: XPS_FONT_EMBEDDING, parturi: P1, isobfsourcestream: P2) -> ::windows::core::Result<IXpsOMFontResource>
     where
@@ -4196,7 +4057,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateRadialGradientBrush)(::windows::core::Interface::as_raw(self), gradstop1.into().abi(), gradstop2.into().abi(), ::core::mem::transmute(centerpoint), ::core::mem::transmute(gradientorigin), ::core::mem::transmute(radiisizes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRadialGradientBrush>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateCoreProperties<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<IXpsOMCoreProperties>
     where
@@ -4213,7 +4073,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePartUriCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPartUriCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriterOnFile<'a, P0, P1, P2, P3, P4, P5, P6>(&self, filename: P0, securityattributes: &super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -4228,7 +4087,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageWriterOnFile)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(securityattributes), flagsandattributes, optimizemarkupsize.into(), interleaving, documentsequencepartname.into().abi(), coreproperties.into().abi(), packagethumbnail.into().abi(), documentsequenceprintticket.into().abi(), discardcontrolpartname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackageWriter>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriterOnStream<'a, P0, P1, P2, P3, P4, P5, P6>(&self, outputstream: P0, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -4243,7 +4101,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageWriterOnStream)(::windows::core::Interface::as_raw(self), outputstream.into().abi(), optimizemarkupsize.into(), interleaving, documentsequencepartname.into().abi(), coreproperties.into().abi(), packagethumbnail.into().abi(), documentsequenceprintticket.into().abi(), discardcontrolpartname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackageWriter>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePartUri<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>
     where
@@ -4252,7 +4109,6 @@ impl IXpsOMObjectFactory {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePartUri)(::windows::core::Interface::as_raw(self), uri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReadOnlyStreamOnFile<'a, P0>(&self, filename: P0) -> ::windows::core::Result<super::super::System::Com::IStream>
     where
@@ -4399,7 +4255,6 @@ pub struct IXpsOMObjectFactory_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     CreateReadOnlyStreamOnFile: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMObjectFactory1(::windows::core::IUnknown);
 impl IXpsOMObjectFactory1 {
@@ -4407,7 +4262,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePackage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePackageFromFile<'a, P0, P1>(&self, filename: P0, reuseobjects: P1) -> ::windows::core::Result<IXpsOMPackage>
     where
@@ -4417,7 +4271,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePackageFromFile)(::windows::core::Interface::as_raw(self), filename.into(), reuseobjects.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageFromStream<'a, P0, P1>(&self, stream: P0, reuseobjects: P1) -> ::windows::core::Result<IXpsOMPackage>
     where
@@ -4427,7 +4280,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePackageFromStream)(::windows::core::Interface::as_raw(self), stream.into().abi(), reuseobjects.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateStoryFragmentsResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMStoryFragmentsResource>
     where
@@ -4437,7 +4289,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateStoryFragmentsResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMStoryFragmentsResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentStructureResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMDocumentStructureResource>
     where
@@ -4447,7 +4298,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateDocumentStructureResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDocumentStructureResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSignatureBlockResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMSignatureBlockResource>
     where
@@ -4457,7 +4307,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateSignatureBlockResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMSignatureBlockResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResource<'a, P0, P1>(&self, dictionary: P0, parturi: P1) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>
     where
@@ -4467,7 +4316,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateRemoteDictionaryResource)(::windows::core::Interface::as_raw(self), dictionary.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResourceFromStream<'a, P0, P1, P2>(&self, dictionarymarkupstream: P0, dictionaryparturi: P1, resources: P2) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>
     where
@@ -4482,7 +4330,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePartResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPartResources>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentSequence<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<IXpsOMDocumentSequence>
     where
@@ -4491,7 +4338,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateDocumentSequence)(::windows::core::Interface::as_raw(self), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDocumentSequence>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocument<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<IXpsOMDocument>
     where
@@ -4504,7 +4350,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePageReference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(advisorypagedimensions), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPageReference>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePage<'a, P0, P1>(&self, pagedimensions: &XPS_SIZE, language: P0, parturi: P1) -> ::windows::core::Result<IXpsOMPage>
     where
@@ -4514,7 +4359,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pagedimensions), language.into(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPage>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePageFromStream<'a, P0, P1, P2, P3>(&self, pagemarkupstream: P0, parturi: P1, resources: P2, reuseobjects: P3) -> ::windows::core::Result<IXpsOMPage>
     where
@@ -4560,7 +4404,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateSolidColorBrush)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color), colorprofile.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMSolidColorBrush>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateColorProfileResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMColorProfileResource>
     where
@@ -4581,7 +4424,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateVisualBrush)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(viewbox), ::core::mem::transmute(viewport), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMVisualBrush>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateImageResource<'a, P0, P1>(&self, acquiredstream: P0, contenttype: XPS_IMAGE_TYPE, parturi: P1) -> ::windows::core::Result<IXpsOMImageResource>
     where
@@ -4591,7 +4433,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateImageResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), contenttype, parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMImageResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePrintTicketResource<'a, P0, P1>(&self, acquiredstream: P0, parturi: P1) -> ::windows::core::Result<IXpsOMPrintTicketResource>
     where
@@ -4601,7 +4442,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePrintTicketResource)(::windows::core::Interface::as_raw(self), acquiredstream.into().abi(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPrintTicketResource>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateFontResource<'a, P0, P1, P2>(&self, acquiredstream: P0, fontembedding: XPS_FONT_EMBEDDING, parturi: P1, isobfsourcestream: P2) -> ::windows::core::Result<IXpsOMFontResource>
     where
@@ -4635,7 +4475,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreateRadialGradientBrush)(::windows::core::Interface::as_raw(self), gradstop1.into().abi(), gradstop2.into().abi(), ::core::mem::transmute(centerpoint), ::core::mem::transmute(gradientorigin), ::core::mem::transmute(radiisizes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMRadialGradientBrush>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateCoreProperties<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<IXpsOMCoreProperties>
     where
@@ -4652,7 +4491,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePartUriCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPartUriCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriterOnFile<'a, P0, P1, P2, P3, P4, P5, P6>(&self, filename: P0, securityattributes: &super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -4667,7 +4505,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePackageWriterOnFile)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(securityattributes), flagsandattributes, optimizemarkupsize.into(), interleaving, documentsequencepartname.into().abi(), coreproperties.into().abi(), packagethumbnail.into().abi(), documentsequenceprintticket.into().abi(), discardcontrolpartname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackageWriter>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriterOnStream<'a, P0, P1, P2, P3, P4, P5, P6>(&self, outputstream: P0, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -4682,7 +4519,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePackageWriterOnStream)(::windows::core::Interface::as_raw(self), outputstream.into().abi(), optimizemarkupsize.into(), interleaving, documentsequencepartname.into().abi(), coreproperties.into().abi(), packagethumbnail.into().abi(), documentsequenceprintticket.into().abi(), discardcontrolpartname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackageWriter>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePartUri<'a, P0>(&self, uri: P0) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri>
     where
@@ -4691,7 +4527,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.CreatePartUri)(::windows::core::Interface::as_raw(self), uri.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReadOnlyStreamOnFile<'a, P0>(&self, filename: P0) -> ::windows::core::Result<super::super::System::Com::IStream>
     where
@@ -4707,7 +4542,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentTypeFromFile)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentTypeFromStream<'a, P0>(&self, xpsdocumentstream: P0) -> ::windows::core::Result<XPS_DOCUMENT_TYPE>
     where
@@ -4728,7 +4562,6 @@ impl IXpsOMObjectFactory1 {
     {
         (::windows::core::Interface::vtable(self).ConvertJpegXRToHDPhoto)(::windows::core::Interface::as_raw(self), imageresource.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriterOnFile1<'a, P0, P1, P2, P3, P4, P5, P6>(&self, filename: P0, securityattributes: &super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -4743,7 +4576,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageWriterOnFile1)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(securityattributes), flagsandattributes, optimizemarkupsize.into(), interleaving, documentsequencepartname.into().abi(), coreproperties.into().abi(), packagethumbnail.into().abi(), documentsequenceprintticket.into().abi(), discardcontrolpartname.into().abi(), documenttype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackageWriter>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageWriterOnStream1<'a, P0, P1, P2, P3, P4, P5, P6>(&self, outputstream: P0, optimizemarkupsize: P1, interleaving: XPS_INTERLEAVING, documentsequencepartname: P2, coreproperties: P3, packagethumbnail: P4, documentsequenceprintticket: P5, discardcontrolpartname: P6, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -4762,7 +4594,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackage1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage1>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageFromStream1<'a, P0, P1>(&self, stream: P0, reuseobjects: P1) -> ::windows::core::Result<IXpsOMPackage1>
     where
@@ -4772,7 +4603,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageFromStream1)(::windows::core::Interface::as_raw(self), stream.into().abi(), reuseobjects.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage1>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePackageFromFile1<'a, P0, P1>(&self, filename: P0, reuseobjects: P1) -> ::windows::core::Result<IXpsOMPackage1>
     where
@@ -4782,7 +4612,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePackageFromFile1)(::windows::core::Interface::as_raw(self), filename.into(), reuseobjects.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPackage1>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePage1<'a, P0, P1>(&self, pagedimensions: &XPS_SIZE, language: P0, parturi: P1) -> ::windows::core::Result<IXpsOMPage1>
     where
@@ -4792,7 +4621,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePage1)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pagedimensions), language.into(), parturi.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPage1>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePageFromStream1<'a, P0, P1, P2, P3>(&self, pagemarkupstream: P0, parturi: P1, resources: P2, reuseobjects: P3) -> ::windows::core::Result<IXpsOMPage1>
     where
@@ -4804,7 +4632,6 @@ impl IXpsOMObjectFactory1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreatePageFromStream1)(::windows::core::Interface::as_raw(self), pagemarkupstream.into().abi(), parturi.into().abi(), resources.into().abi(), reuseobjects.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPage1>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResourceFromStream1<'a, P0, P1, P2>(&self, dictionarymarkupstream: P0, parturi: P1, resources: P2) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>
     where
@@ -4907,7 +4734,6 @@ pub struct IXpsOMObjectFactory1_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreateRemoteDictionaryResourceFromStream1: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPackage(::windows::core::IUnknown);
 impl IXpsOMPackage {
@@ -4931,13 +4757,11 @@ impl IXpsOMPackage {
     {
         (::windows::core::Interface::vtable(self).SetCoreProperties)(::windows::core::Interface::as_raw(self), coreproperties.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetDiscardControlPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDiscardControlPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetDiscardControlPartName<'a, P0>(&self, discardcontrolparturi: P0) -> ::windows::core::Result<()>
     where
@@ -4955,7 +4779,6 @@ impl IXpsOMPackage {
     {
         (::windows::core::Interface::vtable(self).SetThumbnailResource)(::windows::core::Interface::as_raw(self), imageresource.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn WriteToFile<'a, P0, P1>(&self, filename: P0, securityattributes: &super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1) -> ::windows::core::Result<()>
     where
@@ -4964,7 +4787,6 @@ impl IXpsOMPackage {
     {
         (::windows::core::Interface::vtable(self).WriteToFile)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(securityattributes), flagsandattributes, optimizemarkupsize.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn WriteToStream<'a, P0, P1>(&self, stream: P0, optimizemarkupsize: P1) -> ::windows::core::Result<()>
     where
@@ -5036,7 +4858,6 @@ pub struct IXpsOMPackage_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     WriteToStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPackage1(::windows::core::IUnknown);
 impl IXpsOMPackage1 {
@@ -5060,13 +4881,11 @@ impl IXpsOMPackage1 {
     {
         (::windows::core::Interface::vtable(self).base__.SetCoreProperties)(::windows::core::Interface::as_raw(self), coreproperties.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetDiscardControlPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDiscardControlPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetDiscardControlPartName<'a, P0>(&self, discardcontrolparturi: P0) -> ::windows::core::Result<()>
     where
@@ -5084,7 +4903,6 @@ impl IXpsOMPackage1 {
     {
         (::windows::core::Interface::vtable(self).base__.SetThumbnailResource)(::windows::core::Interface::as_raw(self), imageresource.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn WriteToFile<'a, P0, P1>(&self, filename: P0, securityattributes: &super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1) -> ::windows::core::Result<()>
     where
@@ -5093,7 +4911,6 @@ impl IXpsOMPackage1 {
     {
         (::windows::core::Interface::vtable(self).base__.WriteToFile)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(securityattributes), flagsandattributes, optimizemarkupsize.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn WriteToStream<'a, P0, P1>(&self, stream: P0, optimizemarkupsize: P1) -> ::windows::core::Result<()>
     where
@@ -5106,7 +4923,6 @@ impl IXpsOMPackage1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn WriteToFile1<'a, P0, P1>(&self, filename: P0, securityattributes: &super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: P1, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>
     where
@@ -5115,7 +4931,6 @@ impl IXpsOMPackage1 {
     {
         (::windows::core::Interface::vtable(self).WriteToFile1)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(securityattributes), flagsandattributes, optimizemarkupsize.into(), documenttype).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn WriteToStream1<'a, P0, P1>(&self, outputstream: P0, optimizemarkupsize: P1, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>
     where
@@ -5189,11 +5004,9 @@ pub struct IXpsOMPackage1_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     WriteToStream1: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPackageTarget(::windows::core::IUnknown);
 impl IXpsOMPackageTarget {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateXpsOMPackageWriter<'a, P0, P1, P2>(&self, documentsequencepartname: P0, documentsequenceprintticket: P1, discardcontrolpartname: P2) -> ::windows::core::Result<IXpsOMPackageWriter>
     where
@@ -5249,11 +5062,9 @@ pub struct IXpsOMPackageTarget_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     CreateXpsOMPackageWriter: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPackageWriter(::windows::core::IUnknown);
 impl IXpsOMPackageWriter {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn StartNewDocument<'a, P0, P1, P2, P3, P4>(&self, documentpartname: P0, documentprintticket: P1, documentstructure: P2, signatureblockresources: P3, restrictedfonts: P4) -> ::windows::core::Result<()>
     where
@@ -5284,7 +5095,6 @@ impl IXpsOMPackageWriter {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5342,11 +5152,9 @@ pub struct IXpsOMPackageWriter_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsClosed: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPackageWriter3D(::windows::core::IUnknown);
 impl IXpsOMPackageWriter3D {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn StartNewDocument<'a, P0, P1, P2, P3, P4>(&self, documentpartname: P0, documentprintticket: P1, documentstructure: P2, signatureblockresources: P3, restrictedfonts: P4) -> ::windows::core::Result<()>
     where
@@ -5377,13 +5185,11 @@ impl IXpsOMPackageWriter3D {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsClosed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn AddModelTexture<'a, P0, P1>(&self, texturepartname: P0, texturedata: P1) -> ::windows::core::Result<()>
     where
@@ -5392,7 +5198,6 @@ impl IXpsOMPackageWriter3D {
     {
         (::windows::core::Interface::vtable(self).AddModelTexture)(::windows::core::Interface::as_raw(self), texturepartname.into().abi(), texturedata.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetModelPrintTicket<'a, P0, P1>(&self, printticketpartname: P0, printticketdata: P1) -> ::windows::core::Result<()>
     where
@@ -5465,17 +5270,14 @@ pub struct IXpsOMPackageWriter3D_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     SetModelPrintTicket: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPage(::windows::core::IUnknown);
 impl IXpsOMPage {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -5532,13 +5334,11 @@ impl IXpsOMPage {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHyperlinkTarget<'a, P0>(&self, ishyperlinktarget: P0) -> ::windows::core::Result<()>
     where
@@ -5570,7 +5370,6 @@ impl IXpsOMPage {
     {
         (::windows::core::Interface::vtable(self).SetDictionaryResource)(::windows::core::Interface::as_raw(self), remotedictionaryresource.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Write<'a, P0, P1>(&self, stream: P0, optimizemarkupsize: P1) -> ::windows::core::Result<()>
     where
@@ -5674,17 +5473,14 @@ pub struct IXpsOMPage_Vtbl {
     pub GenerateUnusedLookupKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: XPS_OBJECT_TYPE, key: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, page: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPage1(::windows::core::IUnknown);
 impl IXpsOMPage1 {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -5741,13 +5537,11 @@ impl IXpsOMPage1 {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHyperlinkTarget<'a, P0>(&self, ishyperlinktarget: P0) -> ::windows::core::Result<()>
     where
@@ -5779,7 +5573,6 @@ impl IXpsOMPage1 {
     {
         (::windows::core::Interface::vtable(self).base__.SetDictionaryResource)(::windows::core::Interface::as_raw(self), remotedictionaryresource.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Write<'a, P0, P1>(&self, stream: P0, optimizemarkupsize: P1) -> ::windows::core::Result<()>
     where
@@ -5800,7 +5593,6 @@ impl IXpsOMPage1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Write1<'a, P0, P1>(&self, stream: P0, optimizemarkupsize: P1, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>
     where
@@ -5885,7 +5677,6 @@ pub struct IXpsOMPage1_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))]
     Write1: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPageReference(::windows::core::IUnknown);
 impl IXpsOMPageReference {
@@ -5906,7 +5697,6 @@ impl IXpsOMPageReference {
     pub unsafe fn DiscardPage(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DiscardPage)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsPageLoaded(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5957,7 +5747,6 @@ impl IXpsOMPageReference {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CollectPartResources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPartResources>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasRestrictedFonts(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6031,7 +5820,6 @@ pub struct IXpsOMPageReference_Vtbl {
     HasRestrictedFonts: usize,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagereference: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPageReferenceCollection(::windows::core::IUnknown);
 impl IXpsOMPageReferenceCollection {
@@ -6111,17 +5899,14 @@ pub struct IXpsOMPageReferenceCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, pagereference: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pagereference: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPart(::windows::core::IUnknown);
 impl IXpsOMPart {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -6178,7 +5963,6 @@ pub struct IXpsOMPart_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     SetPartName: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPartResources(::windows::core::IUnknown);
 impl IXpsOMPartResources {
@@ -6243,7 +6027,6 @@ pub struct IXpsOMPartResources_Vtbl {
     pub GetColorProfileResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, colorprofileresources: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRemoteDictionaryResources: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionaryresources: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPartUriCollection(::windows::core::IUnknown);
 impl IXpsOMPartUriCollection {
@@ -6251,13 +6034,11 @@ impl IXpsOMPartUriCollection {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetAt(&self, index: u32) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn InsertAt<'a, P0>(&self, index: u32, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -6268,7 +6049,6 @@ impl IXpsOMPartUriCollection {
     pub unsafe fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAt)(::windows::core::Interface::as_raw(self), index).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetAt<'a, P0>(&self, index: u32, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -6276,7 +6056,6 @@ impl IXpsOMPartUriCollection {
     {
         (::windows::core::Interface::vtable(self).SetAt)(::windows::core::Interface::as_raw(self), index, parturi.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn Append<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -6343,7 +6122,6 @@ pub struct IXpsOMPartUriCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     Append: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPath(::windows::core::IUnknown);
 impl IXpsOMPath {
@@ -6444,13 +6222,11 @@ impl IXpsOMPath {
     {
         (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHyperlinkTarget<'a, P0>(&self, ishyperlink: P0) -> ::windows::core::Result<()>
     where
@@ -6458,13 +6234,11 @@ impl IXpsOMPath {
     {
         (::windows::core::Interface::vtable(self).base__.SetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ishyperlink.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetHyperlinkNavigateUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHyperlinkNavigateUri<'a, P0>(&self, hyperlinkuri: P0) -> ::windows::core::Result<()>
     where
@@ -6526,13 +6300,11 @@ impl IXpsOMPath {
     {
         (::windows::core::Interface::vtable(self).SetAccessibilityLongDescription)(::windows::core::Interface::as_raw(self), longdescription.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSnapsToPixels(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSnapsToPixels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSnapsToPixels<'a, P0>(&self, snapstopixels: P0) -> ::windows::core::Result<()>
     where
@@ -6759,17 +6531,14 @@ pub struct IXpsOMPath_Vtbl {
     pub SetFillBrushLookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookup: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMPrintTicketResource(::windows::core::IUnknown);
 impl IXpsOMPrintTicketResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -6777,13 +6546,11 @@ impl IXpsOMPrintTicketResource {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetPartName)(::windows::core::Interface::as_raw(self), parturi.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, P0, P1>(&self, sourcestream: P0, partname: P1) -> ::windows::core::Result<()>
     where
@@ -6871,7 +6638,6 @@ pub struct IXpsOMPrintTicketResource_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     SetContent: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMRadialGradientBrush(::windows::core::IUnknown);
 impl IXpsOMRadialGradientBrush {
@@ -7050,17 +6816,14 @@ pub struct IXpsOMRadialGradientBrush_Vtbl {
     pub SetGradientOrigin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origin: *const XPS_POINT) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radialgradientbrush: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -7151,17 +6914,14 @@ pub struct IXpsOMRemoteDictionaryResource_Vtbl {
     pub GetDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetDictionary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dictionary: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource1(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResource1 {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -7183,7 +6943,6 @@ impl IXpsOMRemoteDictionaryResource1 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write1<'a, P0>(&self, stream: P0, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()>
     where
@@ -7282,7 +7041,6 @@ pub struct IXpsOMRemoteDictionaryResource1_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Write1: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResourceCollection(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResourceCollection {
@@ -7315,7 +7073,6 @@ impl IXpsOMRemoteDictionaryResourceCollection {
     {
         (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), object.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetByPartName<'a, P0>(&self, partname: P0) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource>
     where
@@ -7375,17 +7132,14 @@ pub struct IXpsOMRemoteDictionaryResourceCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     GetByPartName: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMResource(::windows::core::IUnknown);
 impl IXpsOMResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -7449,7 +7203,6 @@ unsafe impl ::windows::core::Interface for IXpsOMResource {
 pub struct IXpsOMResource_Vtbl {
     pub base__: IXpsOMPart_Vtbl,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMShareable(::windows::core::IUnknown);
 impl IXpsOMShareable {
@@ -7504,17 +7257,14 @@ pub struct IXpsOMShareable_Vtbl {
     pub GetOwner: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, owner: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: *mut XPS_OBJECT_TYPE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMSignatureBlockResource(::windows::core::IUnknown);
 impl IXpsOMSignatureBlockResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -7526,13 +7276,11 @@ impl IXpsOMSignatureBlockResource {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMDocument>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, P0, P1>(&self, sourcestream: P0, partname: P1) -> ::windows::core::Result<()>
     where
@@ -7621,7 +7369,6 @@ pub struct IXpsOMSignatureBlockResource_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     SetContent: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMSignatureBlockResourceCollection(::windows::core::IUnknown);
 impl IXpsOMSignatureBlockResourceCollection {
@@ -7654,7 +7401,6 @@ impl IXpsOMSignatureBlockResourceCollection {
     {
         (::windows::core::Interface::vtable(self).Append)(::windows::core::Interface::as_raw(self), signatureblockresource.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetByPartName<'a, P0>(&self, partname: P0) -> ::windows::core::Result<IXpsOMSignatureBlockResource>
     where
@@ -7714,7 +7460,6 @@ pub struct IXpsOMSignatureBlockResourceCollection_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     GetByPartName: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMSolidColorBrush(::windows::core::IUnknown);
 impl IXpsOMSolidColorBrush {
@@ -7820,17 +7565,14 @@ pub struct IXpsOMSolidColorBrush_Vtbl {
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const XPS_COLOR, colorprofile: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, solidcolorbrush: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMStoryFragmentsResource(::windows::core::IUnknown);
 impl IXpsOMStoryFragmentsResource {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetPartName<'a, P0>(&self, parturi: P0) -> ::windows::core::Result<()>
     where
@@ -7842,13 +7584,11 @@ impl IXpsOMStoryFragmentsResource {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsOMPageReference>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, P0, P1>(&self, sourcestream: P0, partname: P1) -> ::windows::core::Result<()>
     where
@@ -7937,11 +7677,9 @@ pub struct IXpsOMStoryFragmentsResource_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     SetContent: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMThumbnailGenerator(::windows::core::IUnknown);
 impl IXpsOMThumbnailGenerator {
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GenerateThumbnail<'a, P0, P1>(&self, page: P0, thumbnailtype: XPS_IMAGE_TYPE, thumbnailsize: XPS_THUMBNAIL_SIZE, imageresourcepartname: P1) -> ::windows::core::Result<IXpsOMImageResource>
     where
@@ -7996,7 +7734,6 @@ pub struct IXpsOMThumbnailGenerator_Vtbl {
     #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))]
     GenerateThumbnail: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMTileBrush(::windows::core::IUnknown);
 impl IXpsOMTileBrush {
@@ -8142,7 +7879,6 @@ pub struct IXpsOMTileBrush_Vtbl {
     pub GetTileMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tilemode: *mut XPS_TILE_MODE) -> ::windows::core::HRESULT,
     pub SetTileMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tilemode: XPS_TILE_MODE) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMVisual(::windows::core::IUnknown);
 impl IXpsOMVisual {
@@ -8243,13 +7979,11 @@ impl IXpsOMVisual {
     {
         (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsHyperlinkTarget<'a, P0>(&self, ishyperlink: P0) -> ::windows::core::Result<()>
     where
@@ -8257,13 +7991,11 @@ impl IXpsOMVisual {
     {
         (::windows::core::Interface::vtable(self).SetIsHyperlinkTarget)(::windows::core::Interface::as_raw(self), ishyperlink.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetHyperlinkNavigateUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::IUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetHyperlinkNavigateUri<'a, P0>(&self, hyperlinkuri: P0) -> ::windows::core::Result<()>
     where
@@ -8374,7 +8106,6 @@ pub struct IXpsOMVisual_Vtbl {
     pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, language: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMVisualBrush(::windows::core::IUnknown);
 impl IXpsOMVisualBrush {
@@ -8558,7 +8289,6 @@ pub struct IXpsOMVisualBrush_Vtbl {
     pub SetVisualLookup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lookup: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visualbrush: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsOMVisualCollection(::windows::core::IUnknown);
 impl IXpsOMVisualCollection {
@@ -8638,7 +8368,6 @@ pub struct IXpsOMVisualCollection_Vtbl {
     pub SetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, object: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Append: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, object: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSignature(::windows::core::IUnknown);
 impl IXpsSignature {
@@ -8649,7 +8378,6 @@ impl IXpsSignature {
     pub unsafe fn GetSignatureValue(&self, signaturehashvalue: *mut *mut u8, count: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSignatureValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(signaturehashvalue), ::core::mem::transmute(count)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCertificateEnumerator(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcCertificateEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8659,19 +8387,16 @@ impl IXpsSignature {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSigningTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetSigningTimeFormat(&self) -> ::windows::core::Result<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSigningTimeFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetSignaturePartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSignaturePartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Verify(&self, x509certificate: &super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<XPS_SIGNATURE_STATUS> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8681,13 +8406,11 @@ impl IXpsSignature {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_SIGN_POLICY>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCustomObjectEnumerator(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureCustomObjectEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomObjectEnumerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcSignatureCustomObjectEnumerator>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCustomReferenceEnumerator(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureReferenceEnumerator> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8770,7 +8493,6 @@ pub struct IXpsSignature_Vtbl {
     pub GetSignatureXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturexml: *mut *mut u8, count: *mut u32) -> ::windows::core::HRESULT,
     pub SetSignatureXml: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signaturexml: *const u8, count: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSignatureBlock(::windows::core::IUnknown);
 impl IXpsSignatureBlock {
@@ -8778,7 +8500,6 @@ impl IXpsSignatureBlock {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetRequests)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsSignatureRequestCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8788,7 +8509,6 @@ impl IXpsSignatureBlock {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetDocumentName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8853,7 +8573,6 @@ pub struct IXpsSignatureBlock_Vtbl {
     GetDocumentName: usize,
     pub CreateRequest: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: ::windows::core::PCWSTR, signaturerequest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSignatureBlockCollection(::windows::core::IUnknown);
 impl IXpsSignatureBlockCollection {
@@ -8912,7 +8631,6 @@ pub struct IXpsSignatureBlockCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signatureblock: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSignatureCollection(::windows::core::IUnknown);
 impl IXpsSignatureCollection {
@@ -8971,7 +8689,6 @@ pub struct IXpsSignatureCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSignatureManager(::windows::core::IUnknown);
 impl IXpsSignatureManager {
@@ -8981,7 +8698,6 @@ impl IXpsSignatureManager {
     {
         (::windows::core::Interface::vtable(self).LoadPackageFile)(::windows::core::Interface::as_raw(self), filename.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadPackageStream<'a, P0>(&self, stream: P0) -> ::windows::core::Result<()>
     where
@@ -8989,7 +8705,6 @@ impl IXpsSignatureManager {
     {
         (::windows::core::Interface::vtable(self).LoadPackageStream)(::windows::core::Interface::as_raw(self), stream.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Sign<'a, P0>(&self, signoptions: P0, x509certificate: &super::super::Security::Cryptography::CERT_CONTEXT) -> ::windows::core::Result<IXpsSignature>
     where
@@ -8998,13 +8713,11 @@ impl IXpsSignatureManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).Sign)(::windows::core::Interface::as_raw(self), signoptions.into().abi(), ::core::mem::transmute(x509certificate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsSignature>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetSignatureOriginPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatureOriginPartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetSignatureOriginPartName<'a, P0>(&self, signatureoriginpartname: P0) -> ::windows::core::Result<()>
     where
@@ -9016,7 +8729,6 @@ impl IXpsSignatureManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSignatures)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsSignatureCollection>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn AddSignatureBlock<'a, P0>(&self, partname: P0, fixeddocumentindex: u32) -> ::windows::core::Result<IXpsSignatureBlock>
     where
@@ -9033,7 +8745,6 @@ impl IXpsSignatureManager {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).CreateSigningOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXpsSigningOptions>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub unsafe fn SavePackageToFile<'a, P0>(&self, filename: P0, securityattributes: &super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32) -> ::windows::core::Result<()>
     where
@@ -9041,7 +8752,6 @@ impl IXpsSignatureManager {
     {
         (::windows::core::Interface::vtable(self).SavePackageToFile)(::windows::core::Interface::as_raw(self), filename.into(), ::core::mem::transmute(securityattributes), flagsandattributes).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SavePackageToStream<'a, P0>(&self, stream: P0) -> ::windows::core::Result<()>
     where
@@ -9122,7 +8832,6 @@ pub struct IXpsSignatureManager_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SavePackageToStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSignatureRequest(::windows::core::IUnknown);
 impl IXpsSignatureRequest {
@@ -9166,7 +8875,6 @@ impl IXpsSignatureRequest {
     {
         (::windows::core::Interface::vtable(self).SetSigningLocale)(::windows::core::Interface::as_raw(self), place.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetSpotLocation(&self, pageindex: &mut i32, pagepartname: &mut ::core::option::Option<super::Packaging::Opc::IOpcPartUri>, x: &mut f32, y: &mut f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSpotLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pageindex), ::core::mem::transmute(pagepartname), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
@@ -9238,7 +8946,6 @@ pub struct IXpsSignatureRequest_Vtbl {
     pub GetRequestId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub GetSignature: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, signature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSignatureRequestCollection(::windows::core::IUnknown);
 impl IXpsSignatureRequestCollection {
@@ -9297,7 +9004,6 @@ pub struct IXpsSignatureRequestCollection_Vtbl {
     pub GetAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, signaturerequest: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 pub struct IXpsSigningOptions(::windows::core::IUnknown);
 impl IXpsSigningOptions {
@@ -9331,13 +9037,11 @@ impl IXpsSigningOptions {
     {
         (::windows::core::Interface::vtable(self).SetDigestMethod)(::windows::core::Interface::as_raw(self), digestmethod.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetSignaturePartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSignaturePartName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetSignaturePartName<'a, P0>(&self, signaturepartname: P0) -> ::windows::core::Result<()>
     where
@@ -9352,30 +9056,25 @@ impl IXpsSigningOptions {
     pub unsafe fn SetPolicy(&self, policy: XPS_SIGN_POLICY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPolicy)(::windows::core::Interface::as_raw(self), policy).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetSigningTimeFormat(&self) -> ::windows::core::Result<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSigningTimeFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn SetSigningTimeFormat(&self, timeformat: super::Packaging::Opc::OPC_SIGNATURE_TIME_FORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSigningTimeFormat)(::windows::core::Interface::as_raw(self), timeformat).ok()
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCustomObjects(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureCustomObjectSet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomObjects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcSignatureCustomObjectSet>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCustomReferences(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcSignatureReferenceSet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetCustomReferences)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Packaging::Opc::IOpcSignatureReferenceSet>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Storage_Packaging_Opc\"`*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetCertificateSet(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcCertificateSet> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9467,11 +9166,9 @@ pub struct IXpsSigningOptions_Vtbl {
     pub GetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: *mut XPS_SIGN_FLAGS) -> ::windows::core::HRESULT,
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: XPS_SIGN_FLAGS) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PRINT_WINDOW_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PW_CLIENTONLY: PRINT_WINDOW_FLAGS = PRINT_WINDOW_FLAGS(1u32);
 impl ::core::marker::Copy for PRINT_WINDOW_FLAGS {}
 impl ::core::clone::Clone for PRINT_WINDOW_FLAGS {
@@ -9493,7 +9190,6 @@ impl ::core::fmt::Debug for PRINT_WINDOW_FLAGS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct PSFEATURE_CUSTPAPER {
     pub lOrientation: i32,
     pub lWidth: i32,
@@ -9527,7 +9223,6 @@ impl ::core::default::Default for PSFEATURE_CUSTPAPER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PSFEATURE_OUTPUT {
     pub bPageIndependent: super::super::Foundation::BOOL,
@@ -9566,7 +9261,6 @@ impl ::core::default::Default for PSFEATURE_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct PSINJECTDATA {
     pub DataBytes: u32,
     pub InjectionPoint: PSINJECT_POINT,
@@ -9597,71 +9291,39 @@ impl ::core::default::Default for PSINJECTDATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PSINJECT_POINT(pub u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_BEGINSTREAM: PSINJECT_POINT = PSINJECT_POINT(1u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PSADOBE: PSINJECT_POINT = PSINJECT_POINT(2u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PAGESATEND: PSINJECT_POINT = PSINJECT_POINT(3u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PAGES: PSINJECT_POINT = PSINJECT_POINT(4u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_DOCNEEDEDRES: PSINJECT_POINT = PSINJECT_POINT(5u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_DOCSUPPLIEDRES: PSINJECT_POINT = PSINJECT_POINT(6u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PAGEORDER: PSINJECT_POINT = PSINJECT_POINT(7u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_ORIENTATION: PSINJECT_POINT = PSINJECT_POINT(8u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_BOUNDINGBOX: PSINJECT_POINT = PSINJECT_POINT(9u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_DOCUMENTPROCESSCOLORS: PSINJECT_POINT = PSINJECT_POINT(10u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_COMMENTS: PSINJECT_POINT = PSINJECT_POINT(11u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_BEGINDEFAULTS: PSINJECT_POINT = PSINJECT_POINT(12u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_ENDDEFAULTS: PSINJECT_POINT = PSINJECT_POINT(13u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_BEGINPROLOG: PSINJECT_POINT = PSINJECT_POINT(14u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_ENDPROLOG: PSINJECT_POINT = PSINJECT_POINT(15u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_BEGINSETUP: PSINJECT_POINT = PSINJECT_POINT(16u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_ENDSETUP: PSINJECT_POINT = PSINJECT_POINT(17u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_TRAILER: PSINJECT_POINT = PSINJECT_POINT(18u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_EOF: PSINJECT_POINT = PSINJECT_POINT(19u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_ENDSTREAM: PSINJECT_POINT = PSINJECT_POINT(20u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_DOCUMENTPROCESSCOLORSATEND: PSINJECT_POINT = PSINJECT_POINT(21u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PAGENUMBER: PSINJECT_POINT = PSINJECT_POINT(100u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_BEGINPAGESETUP: PSINJECT_POINT = PSINJECT_POINT(101u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_ENDPAGESETUP: PSINJECT_POINT = PSINJECT_POINT(102u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PAGETRAILER: PSINJECT_POINT = PSINJECT_POINT(103u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PLATECOLOR: PSINJECT_POINT = PSINJECT_POINT(104u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_SHOWPAGE: PSINJECT_POINT = PSINJECT_POINT(105u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_PAGEBBOX: PSINJECT_POINT = PSINJECT_POINT(106u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_ENDPAGECOMMENTS: PSINJECT_POINT = PSINJECT_POINT(107u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_VMSAVE: PSINJECT_POINT = PSINJECT_POINT(200u16);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const PSINJECT_VMRESTORE: PSINJECT_POINT = PSINJECT_POINT(201u16);
 impl ::core::marker::Copy for PSINJECT_POINT {}
 impl ::core::clone::Clone for PSINJECT_POINT {
@@ -9710,7 +9372,6 @@ impl ::core::ops::Not for PSINJECT_POINT {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn PrintWindow<'a, P0, P1>(hwnd: P0, hdcblt: P1, nflags: PRINT_WINDOW_FLAGS) -> super::super::Foundation::BOOL
@@ -9724,7 +9385,6 @@ where
     }
     PrintWindow(hwnd.into(), hdcblt.into(), nflags)
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetAbortProc<'a, P0>(hdc: P0, proc: ABORTPROC) -> i32
@@ -9737,7 +9397,6 @@ where
     }
     SetAbortProc(hdc.into(), ::core::mem::transmute(proc))
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn StartDocA<'a, P0>(hdc: P0, lpdi: &DOCINFOA) -> i32
@@ -9750,7 +9409,6 @@ where
     }
     StartDocA(hdc.into(), ::core::mem::transmute(lpdi))
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn StartDocW<'a, P0>(hdc: P0, lpdi: &DOCINFOW) -> i32
@@ -9763,7 +9421,6 @@ where
     }
     StartDocW(hdc.into(), ::core::mem::transmute(lpdi))
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn StartPage<'a, P0>(hdc: P0) -> i32
@@ -9777,7 +9434,6 @@ where
     StartPage(hdc.into())
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_COLOR {
     pub colorType: XPS_COLOR_TYPE,
     pub value: XPS_COLOR_0,
@@ -9803,7 +9459,6 @@ impl ::core::default::Default for XPS_COLOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub union XPS_COLOR_0 {
     pub sRGB: XPS_COLOR_0_1,
     pub scRGB: XPS_COLOR_0_2,
@@ -9830,7 +9485,6 @@ impl ::core::default::Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_COLOR_0_0 {
     pub channelCount: u8,
     pub channels: [f32; 9],
@@ -9861,7 +9515,6 @@ impl ::core::default::Default for XPS_COLOR_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_COLOR_0_1 {
     pub alpha: u8,
     pub red: u8,
@@ -9894,7 +9547,6 @@ impl ::core::default::Default for XPS_COLOR_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_COLOR_0_2 {
     pub alpha: f32,
     pub red: f32,
@@ -9926,13 +9578,10 @@ impl ::core::default::Default for XPS_COLOR_0_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_COLOR_INTERPOLATION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = XPS_COLOR_INTERPOLATION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_COLOR_INTERPOLATION_SRGBLINEAR: XPS_COLOR_INTERPOLATION = XPS_COLOR_INTERPOLATION(2i32);
 impl ::core::marker::Copy for XPS_COLOR_INTERPOLATION {}
 impl ::core::clone::Clone for XPS_COLOR_INTERPOLATION {
@@ -9953,15 +9602,11 @@ impl ::core::fmt::Debug for XPS_COLOR_INTERPOLATION {
         f.debug_tuple("XPS_COLOR_INTERPOLATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_COLOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = XPS_COLOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = XPS_COLOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = XPS_COLOR_TYPE(3i32);
 impl ::core::marker::Copy for XPS_COLOR_TYPE {}
 impl ::core::clone::Clone for XPS_COLOR_TYPE {
@@ -9983,7 +9628,6 @@ impl ::core::fmt::Debug for XPS_COLOR_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_DASH {
     pub length: f32,
     pub gap: f32,
@@ -10013,17 +9657,12 @@ impl ::core::default::Default for XPS_DASH {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_DASH_CAP(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = XPS_DASH_CAP(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DASH_CAP_ROUND: XPS_DASH_CAP = XPS_DASH_CAP(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DASH_CAP_SQUARE: XPS_DASH_CAP = XPS_DASH_CAP(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DASH_CAP_TRIANGLE: XPS_DASH_CAP = XPS_DASH_CAP(4i32);
 impl ::core::marker::Copy for XPS_DASH_CAP {}
 impl ::core::clone::Clone for XPS_DASH_CAP {
@@ -10044,15 +9683,11 @@ impl ::core::fmt::Debug for XPS_DASH_CAP {
         f.debug_tuple("XPS_DASH_CAP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_DOCUMENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DOCUMENT_TYPE_UNSPECIFIED: XPS_DOCUMENT_TYPE = XPS_DOCUMENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DOCUMENT_TYPE_XPS: XPS_DOCUMENT_TYPE = XPS_DOCUMENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_DOCUMENT_TYPE_OPENXPS: XPS_DOCUMENT_TYPE = XPS_DOCUMENT_TYPE(3i32);
 impl ::core::marker::Copy for XPS_DOCUMENT_TYPE {}
 impl ::core::clone::Clone for XPS_DOCUMENT_TYPE {
@@ -10073,183 +9708,95 @@ impl ::core::fmt::Debug for XPS_DOCUMENT_TYPE {
         f.debug_tuple("XPS_DOCUMENT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_ABSOLUTE_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108159i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_ALREADY_OWNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108413i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_BLEED_BOX_PAGE_DIMENSIONS_NOT_IN_SYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108407i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_BOTH_PATHFIGURE_AND_ABBR_SYNTAX_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108409i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_BOTH_RESOURCE_AND_SOURCEATTR_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108408i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_CARET_OUTSIDE_STRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108923i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_CARET_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108922i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_COLOR_COMPONENT_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108410i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_DICTIONARY_ITEM_NAMED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108671i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_DUPLICATE_NAMES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109175i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_DUPLICATE_RESOURCE_KEYS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109184i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INDEX_OUT_OF_RANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108416i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_BLEED_BOX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109692i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_CONTENT_BOX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109685i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109682i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_FLOAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109689i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_FONT_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109686i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_LANGUAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109696i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_LOOKUP_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109690i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_MARKUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109684i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109695i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_NUMBER_OF_COLOR_CHANNELS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108158i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_NUMBER_OF_POINTS_IN_CURVE_SEGMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108160i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_OBFUSCATED_FONT_URI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109681i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_PAGE_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109693i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_RESOURCE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109694i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_SIGNATUREBLOCK_MARKUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108789i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_THUMBNAIL_IMAGE_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109691i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_INVALID_XML_ENCODING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109683i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MAPPING_OUTSIDE_INDICES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108924i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MAPPING_OUTSIDE_STRING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108925i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MAPPING_OUT_OF_ORDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108926i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MARKUP_COMPATIBILITY_ELEMENTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108791i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_COLORPROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109436i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_DISCARDCONTROL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109422i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109431i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_DOCUMENTSEQUENCE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109432i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_FONTURI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109433i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_GLYPHS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109438i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_IMAGE_IN_IMAGEBRUSH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109426i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_LOOKUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109439i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109440i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_PAGE_IN_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109428i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_PAGE_IN_PAGEREFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109427i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_PART_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109424i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_PART_STREAM: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109421i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_REFERRED_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109430i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_REFERRED_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109429i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_RELATIONSHIP_TARGET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109435i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_RESOURCE_KEY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109425i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_RESOURCE_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109434i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_RESTRICTED_FONT_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109423i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MISSING_SEGMENT_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109437i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_DOCUMENTSEQUENCE_RELATIONSHIPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109182i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109178i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_DOCUMENTSEQUENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109177i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_PRINTTICKETS_ON_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109179i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_REFERENCES_TO_PART: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109176i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_RESOURCES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109183i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109180i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_MULTIPLE_THUMBNAILS_ON_PAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109181i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_NEGATIVE_FLOAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108918i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_NESTED_REMOTE_DICTIONARY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108670i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_NOT_ENOUGH_GRADIENT_STOPS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108405i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_NO_CUSTOM_OBJECTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108414i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_OBJECT_DETACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108790i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_ODD_BIDILEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108921i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_ONE_TO_ONE_MAPPING_EXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108920i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_PACKAGE_ALREADY_OPENED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108793i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_PACKAGE_NOT_OPENED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108794i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_PACKAGE_WRITER_NOT_CLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108404i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_RELATIONSHIP_EXTERNAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108406i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_RESOURCE_NOT_OWNED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108412i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_RESTRICTED_FONT_NOT_OBFUSCATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108919i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_SIGNATUREID_DUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108792i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_SIGREQUESTID_DUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108795i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_STRING_TOO_LONG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108928i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_TOO_MANY_INDICES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108927i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_UNAVAILABLE_PACKAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109420i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_UNEXPECTED_COLORPROFILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108411i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_UNEXPECTED_CONTENT_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109688i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_UNEXPECTED_RELATIONSHIP_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109680i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_UNEXPECTED_RESTRICTED_FONT_RELATIONSHIP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142109679i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_VISUAL_CIRCULAR_REF: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108415i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108672i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_FILL_RULE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = XPS_FILL_RULE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FILL_RULE_NONZERO: XPS_FILL_RULE = XPS_FILL_RULE(2i32);
 impl ::core::marker::Copy for XPS_FILL_RULE {}
 impl ::core::clone::Clone for XPS_FILL_RULE {
@@ -10270,17 +9817,12 @@ impl ::core::fmt::Debug for XPS_FILL_RULE {
         f.debug_tuple("XPS_FILL_RULE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_FONT_EMBEDDING(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FONT_EMBEDDING_NORMAL: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(4i32);
 impl ::core::marker::Copy for XPS_FONT_EMBEDDING {}
 impl ::core::clone::Clone for XPS_FONT_EMBEDDING {
@@ -10302,7 +9844,6 @@ impl ::core::fmt::Debug for XPS_FONT_EMBEDDING {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_GLYPH_INDEX {
     pub index: i32,
     pub advanceWidth: f32,
@@ -10335,7 +9876,6 @@ impl ::core::default::Default for XPS_GLYPH_INDEX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_GLYPH_MAPPING {
     pub unicodeStringStart: u32,
     pub unicodeStringLength: u16,
@@ -10367,19 +9907,13 @@ impl ::core::default::Default for XPS_GLYPH_MAPPING {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_IMAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_IMAGE_TYPE_PNG: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_IMAGE_TYPE_TIFF: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_IMAGE_TYPE_WDP: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_IMAGE_TYPE_JXR: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(5i32);
 impl ::core::marker::Copy for XPS_IMAGE_TYPE {}
 impl ::core::clone::Clone for XPS_IMAGE_TYPE {
@@ -10400,13 +9934,10 @@ impl ::core::fmt::Debug for XPS_IMAGE_TYPE {
         f.debug_tuple("XPS_IMAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_INTERLEAVING(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_INTERLEAVING_OFF: XPS_INTERLEAVING = XPS_INTERLEAVING(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_INTERLEAVING_ON: XPS_INTERLEAVING = XPS_INTERLEAVING(2i32);
 impl ::core::marker::Copy for XPS_INTERLEAVING {}
 impl ::core::clone::Clone for XPS_INTERLEAVING {
@@ -10427,17 +9958,12 @@ impl ::core::fmt::Debug for XPS_INTERLEAVING {
         f.debug_tuple("XPS_INTERLEAVING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_LINE_CAP(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_CAP_FLAT: XPS_LINE_CAP = XPS_LINE_CAP(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_CAP_ROUND: XPS_LINE_CAP = XPS_LINE_CAP(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_CAP_SQUARE: XPS_LINE_CAP = XPS_LINE_CAP(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_CAP_TRIANGLE: XPS_LINE_CAP = XPS_LINE_CAP(4i32);
 impl ::core::marker::Copy for XPS_LINE_CAP {}
 impl ::core::clone::Clone for XPS_LINE_CAP {
@@ -10458,15 +9984,11 @@ impl ::core::fmt::Debug for XPS_LINE_CAP {
         f.debug_tuple("XPS_LINE_CAP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_LINE_JOIN(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = XPS_LINE_JOIN(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = XPS_LINE_JOIN(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = XPS_LINE_JOIN(3i32);
 impl ::core::marker::Copy for XPS_LINE_JOIN {}
 impl ::core::clone::Clone for XPS_LINE_JOIN {
@@ -10488,7 +10010,6 @@ impl ::core::fmt::Debug for XPS_LINE_JOIN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_MATRIX {
     pub m11: f32,
     pub m12: f32,
@@ -10522,29 +10043,18 @@ impl ::core::default::Default for XPS_MATRIX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_OBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_GLYPHS: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_PATH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_MATRIX_TRANSFORM: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_GEOMETRY: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_IMAGE_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(10i32);
 impl ::core::marker::Copy for XPS_OBJECT_TYPE {}
 impl ::core::clone::Clone for XPS_OBJECT_TYPE {
@@ -10566,7 +10076,6 @@ impl ::core::fmt::Debug for XPS_OBJECT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_POINT {
     pub x: f32,
     pub y: f32,
@@ -10597,7 +10106,6 @@ impl ::core::default::Default for XPS_POINT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_RECT {
     pub x: f32,
     pub y: f32,
@@ -10629,15 +10137,11 @@ impl ::core::default::Default for XPS_RECT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_STROKE_PATTERN_NONE: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_STROKE_PATTERN_MIXED: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(3i32);
 impl ::core::marker::Copy for XPS_SEGMENT_STROKE_PATTERN {}
 impl ::core::clone::Clone for XPS_SEGMENT_STROKE_PATTERN {
@@ -10658,23 +10162,15 @@ impl ::core::fmt::Debug for XPS_SEGMENT_STROKE_PATTERN {
         f.debug_tuple("XPS_SEGMENT_STROKE_PATTERN").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SEGMENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_BEZIER: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_LINE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(7i32);
 impl ::core::marker::Copy for XPS_SEGMENT_TYPE {}
 impl ::core::clone::Clone for XPS_SEGMENT_TYPE {
@@ -10695,19 +10191,13 @@ impl ::core::fmt::Debug for XPS_SEGMENT_TYPE {
         f.debug_tuple("XPS_SEGMENT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SIGNATURE_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGNATURE_STATUS_INCOMPLIANT: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGNATURE_STATUS_INCOMPLETE: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGNATURE_STATUS_BROKEN: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGNATURE_STATUS_QUESTIONABLE: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGNATURE_STATUS_VALID: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(5i32);
 impl ::core::marker::Copy for XPS_SIGNATURE_STATUS {}
 impl ::core::clone::Clone for XPS_SIGNATURE_STATUS {
@@ -10728,13 +10218,10 @@ impl ::core::fmt::Debug for XPS_SIGNATURE_STATUS {
         f.debug_tuple("XPS_SIGNATURE_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SIGN_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_FLAGS_NONE: XPS_SIGN_FLAGS = XPS_SIGN_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_FLAGS_IGNORE_MARKUP_COMPATIBILITY: XPS_SIGN_FLAGS = XPS_SIGN_FLAGS(1i32);
 impl ::core::marker::Copy for XPS_SIGN_FLAGS {}
 impl ::core::clone::Clone for XPS_SIGN_FLAGS {
@@ -10755,21 +10242,14 @@ impl ::core::fmt::Debug for XPS_SIGN_FLAGS {
         f.debug_tuple("XPS_SIGN_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SIGN_POLICY(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_POLICY_NONE: XPS_SIGN_POLICY = XPS_SIGN_POLICY(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_POLICY_CORE_PROPERTIES: XPS_SIGN_POLICY = XPS_SIGN_POLICY(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS: XPS_SIGN_POLICY = XPS_SIGN_POLICY(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_POLICY_PRINT_TICKET: XPS_SIGN_POLICY = XPS_SIGN_POLICY(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_POLICY_DISCARD_CONTROL: XPS_SIGN_POLICY = XPS_SIGN_POLICY(8i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SIGN_POLICY_ALL: XPS_SIGN_POLICY = XPS_SIGN_POLICY(15i32);
 impl ::core::marker::Copy for XPS_SIGN_POLICY {}
 impl ::core::clone::Clone for XPS_SIGN_POLICY {
@@ -10791,7 +10271,6 @@ impl ::core::fmt::Debug for XPS_SIGN_POLICY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub struct XPS_SIZE {
     pub width: f32,
     pub height: f32,
@@ -10821,15 +10300,11 @@ impl ::core::default::Default for XPS_SIZE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_SPREAD_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SPREAD_METHOD_REFLECT: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_SPREAD_METHOD_REPEAT: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(3i32);
 impl ::core::marker::Copy for XPS_SPREAD_METHOD {}
 impl ::core::clone::Clone for XPS_SPREAD_METHOD {
@@ -10850,17 +10325,12 @@ impl ::core::fmt::Debug for XPS_SPREAD_METHOD {
         f.debug_tuple("XPS_SPREAD_METHOD").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_STYLE_SIMULATION(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_STYLE_SIMULATION_NONE: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_STYLE_SIMULATION_ITALIC: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_STYLE_SIMULATION_BOLD: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_STYLE_SIMULATION_BOLDITALIC: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(4i32);
 impl ::core::marker::Copy for XPS_STYLE_SIMULATION {}
 impl ::core::clone::Clone for XPS_STYLE_SIMULATION {
@@ -10881,17 +10351,12 @@ impl ::core::fmt::Debug for XPS_STYLE_SIMULATION {
         f.debug_tuple("XPS_STYLE_SIMULATION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_THUMBNAIL_SIZE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_THUMBNAIL_SIZE_VERYSMALL: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_THUMBNAIL_SIZE_SMALL: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_THUMBNAIL_SIZE_MEDIUM: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_THUMBNAIL_SIZE_LARGE: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(4i32);
 impl ::core::marker::Copy for XPS_THUMBNAIL_SIZE {}
 impl ::core::clone::Clone for XPS_THUMBNAIL_SIZE {
@@ -10912,19 +10377,13 @@ impl ::core::fmt::Debug for XPS_THUMBNAIL_SIZE {
         f.debug_tuple("XPS_THUMBNAIL_SIZE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct XPS_TILE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = XPS_TILE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = XPS_TILE_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_TILE_MODE_FLIPX: XPS_TILE_MODE = XPS_TILE_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = XPS_TILE_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Storage_Xps\"`*"]
 pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = XPS_TILE_MODE(5i32);
 impl ::core::marker::Copy for XPS_TILE_MODE {}
 impl ::core::clone::Clone for XPS_TILE_MODE {

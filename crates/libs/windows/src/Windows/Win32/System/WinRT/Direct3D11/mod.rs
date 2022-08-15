@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, P0>(dxgidevice: P0) -> ::windows::core::Result<::windows::core::IInspectable>
@@ -12,7 +11,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateDirect3D11DeviceFromDXGIDevice(dxgidevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, P0>(dgxisurface: P0) -> ::windows::core::Result<::windows::core::IInspectable>
@@ -26,7 +24,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CreateDirect3D11SurfaceFromDXGISurface(dgxisurface.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IInspectable>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Direct3D11\"`*"]
 #[repr(transparent)]
 pub struct IDirect3DDxgiInterfaceAccess(::windows::core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {

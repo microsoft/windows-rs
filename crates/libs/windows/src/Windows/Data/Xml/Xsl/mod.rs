@@ -46,11 +46,9 @@ pub struct IXsltProcessorFactory_Vtbl {
     #[cfg(not(feature = "Data_Xml_Dom"))]
     CreateInstance: usize,
 }
-#[doc = "*Required features: `\"Data_Xml_Xsl\"`*"]
 #[repr(transparent)]
 pub struct XsltProcessor(::windows::core::IUnknown);
 impl XsltProcessor {
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToString<'a, P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -63,7 +61,6 @@ impl XsltProcessor {
             (::windows::core::Interface::vtable(this).TransformToString)(::windows::core::Interface::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToDocument<'a, P0, E0>(&self, inputnode: P0) -> ::windows::core::Result<super::Dom::XmlDocument>
     where
@@ -76,7 +73,6 @@ impl XsltProcessor {
             (::windows::core::Interface::vtable(this).TransformToDocument)(::windows::core::Interface::as_raw(this), inputnode.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::Dom::XmlDocument>(result__)
         }
     }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance<'a, P0>(document: P0) -> ::windows::core::Result<XsltProcessor>
     where

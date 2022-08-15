@@ -1,18 +1,11 @@
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WNV_API_MINOR_VERSION_0: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WNV_CA_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvCustomerAddressAdded: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvCustomerAddressDeleted: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvCustomerAddressMoved: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvCustomerAddressMax: WNV_CA_NOTIFICATION_TYPE = WNV_CA_NOTIFICATION_TYPE(3i32);
 impl ::core::marker::Copy for WNV_CA_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for WNV_CA_NOTIFICATION_TYPE {
@@ -34,7 +27,6 @@ impl ::core::fmt::Debug for WNV_CA_NOTIFICATION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub MACAddress: super::super::Networking::WinSock::DL_EUI48,
@@ -72,7 +64,6 @@ impl ::core::default::Default for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_IP_ADDRESS {
     pub IP: WNV_IP_ADDRESS_0,
@@ -104,7 +95,6 @@ impl ::core::default::Default for WNV_IP_ADDRESS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union WNV_IP_ADDRESS_0 {
     pub v4: super::super::Networking::WinSock::IN_ADDR,
@@ -138,7 +128,6 @@ impl ::core::default::Default for WNV_IP_ADDRESS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub struct WNV_NOTIFICATION_PARAM {
     pub Header: WNV_OBJECT_HEADER,
     pub NotificationType: WNV_NOTIFICATION_TYPE,
@@ -170,17 +159,12 @@ impl ::core::default::Default for WNV_NOTIFICATION_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WNV_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(3i32);
 impl ::core::marker::Copy for WNV_NOTIFICATION_TYPE {}
 impl ::core::clone::Clone for WNV_NOTIFICATION_TYPE {
@@ -202,7 +186,6 @@ impl ::core::fmt::Debug for WNV_NOTIFICATION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectType: WNV_OBJECT_TYPE,
@@ -235,7 +218,6 @@ impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub union WNV_OBJECT_CHANGE_PARAM_0 {
     pub ProviderAddressChange: WNV_PROVIDER_ADDRESS_CHANGE_PARAM,
@@ -268,7 +250,6 @@ impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub struct WNV_OBJECT_HEADER {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -299,15 +280,11 @@ impl ::core::default::Default for WNV_OBJECT_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WNV_OBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvProviderAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(2i32);
 impl ::core::marker::Copy for WNV_OBJECT_TYPE {}
 impl ::core::clone::Clone for WNV_OBJECT_TYPE {
@@ -329,7 +306,6 @@ impl ::core::fmt::Debug for WNV_OBJECT_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_POLICY_MISMATCH_PARAM {
     pub CAFamily: u16,
@@ -365,7 +341,6 @@ impl ::core::default::Default for WNV_POLICY_MISMATCH_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     pub PAFamily: u16,
@@ -399,7 +374,6 @@ impl ::core::default::Default for WNV_PROVIDER_ADDRESS_CHANGE_PARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_REDIRECT_PARAM {
     pub CAFamily: u16,
@@ -436,7 +410,6 @@ impl ::core::default::Default for WNV_REDIRECT_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
@@ -446,7 +419,6 @@ pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
     }
     WnvOpen()
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WnvRequestNotification<'a, P0>(wnvhandle: P0, notificationparam: &mut WNV_NOTIFICATION_PARAM, overlapped: &mut super::super::System::IO::OVERLAPPED, bytestransferred: &mut u32) -> u32

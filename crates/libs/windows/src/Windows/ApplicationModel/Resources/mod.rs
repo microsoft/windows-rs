@@ -105,7 +105,6 @@ pub struct IResourceLoaderStatics4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub GetDefaultPriPath: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagefullname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Resources\"`*"]
 #[repr(transparent)]
 pub struct ResourceLoader(::windows::core::IUnknown);
 impl ResourceLoader {
@@ -123,7 +122,6 @@ impl ResourceLoader {
             (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(resource), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetStringForUri<'a, P0>(&self, uri: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -141,7 +139,6 @@ impl ResourceLoader {
             (::windows::core::Interface::vtable(this).CreateResourceLoaderByName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetStringForReference<'a, P0>(uri: P0) -> ::windows::core::Result<::windows::core::HSTRING>
     where
@@ -176,7 +173,6 @@ impl ResourceLoader {
             (::windows::core::Interface::vtable(this).GetForViewIndependentUseWithName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<ResourceLoader>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn GetForUIContext<'a, P0>(context: P0) -> ::windows::core::Result<ResourceLoader>
     where

@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_Power\"`*"]
 #[repr(transparent)]
 pub struct Battery(::windows::core::IUnknown);
 impl Battery {
@@ -16,7 +15,6 @@ impl Battery {
             (::windows::core::Interface::vtable(this).GetReport)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BatteryReport>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportUpdated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -28,7 +26,6 @@ impl Battery {
             (::windows::core::Interface::vtable(this).ReportUpdated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReportUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -40,7 +37,6 @@ impl Battery {
             (::windows::core::Interface::vtable(this).AggregateBattery)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Battery>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Battery>> {
         Self::IBatteryStatics(|this| unsafe {
@@ -122,11 +118,9 @@ impl ::core::convert::From<&Battery> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Battery {}
 unsafe impl ::core::marker::Sync for Battery {}
-#[doc = "*Required features: `\"Devices_Power\"`*"]
 #[repr(transparent)]
 pub struct BatteryReport(::windows::core::IUnknown);
 impl BatteryReport {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn ChargeRateInMilliwatts(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -135,7 +129,6 @@ impl BatteryReport {
             (::windows::core::Interface::vtable(this).ChargeRateInMilliwatts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DesignCapacityInMilliwattHours(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -144,7 +137,6 @@ impl BatteryReport {
             (::windows::core::Interface::vtable(this).DesignCapacityInMilliwattHours)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FullChargeCapacityInMilliwattHours(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -153,7 +145,6 @@ impl BatteryReport {
             (::windows::core::Interface::vtable(this).FullChargeCapacityInMilliwattHours)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemainingCapacityInMilliwattHours(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
@@ -162,7 +153,6 @@ impl BatteryReport {
             (::windows::core::Interface::vtable(this).RemainingCapacityInMilliwattHours)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"System_Power\"`*"]
     #[cfg(feature = "System_Power")]
     pub fn Status(&self) -> ::windows::core::Result<super::super::System::Power::BatteryStatus> {
         let this = self;

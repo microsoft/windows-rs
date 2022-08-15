@@ -10,7 +10,6 @@ pub mod Effects;
 pub mod Interactions;
 #[cfg(feature = "UI_Composition_Scenes")]
 pub mod Scenes;
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct AmbientLight(::windows::core::IUnknown);
 impl AmbientLight {
@@ -43,7 +42,6 @@ impl AmbientLight {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -81,7 +79,6 @@ impl AmbientLight {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -149,7 +146,6 @@ impl AmbientLight {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -299,7 +295,6 @@ impl<'a> ::core::convert::From<&AmbientLight> for ::windows::core::InParam<'a, C
 }
 unsafe impl ::core::marker::Send for AmbientLight {}
 unsafe impl ::core::marker::Sync for AmbientLight {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct AnimationController(::windows::core::IUnknown);
 impl AnimationController {
@@ -363,7 +358,6 @@ impl AnimationController {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -376,7 +370,6 @@ impl AnimationController {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -444,7 +437,6 @@ impl AnimationController {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -584,7 +576,6 @@ impl<'a> ::core::convert::From<&AnimationController> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for AnimationController {}
 unsafe impl ::core::marker::Sync for AnimationController {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationControllerProgressBehavior(pub i32);
@@ -618,7 +609,6 @@ unsafe impl ::windows::core::RuntimeType for AnimationControllerProgressBehavior
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationDelayBehavior(pub i32);
@@ -652,7 +642,6 @@ unsafe impl ::windows::core::RuntimeType for AnimationDelayBehavior {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationDirection(pub i32);
@@ -688,7 +677,6 @@ unsafe impl ::windows::core::RuntimeType for AnimationDirection {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationIterationBehavior(pub i32);
@@ -722,7 +710,6 @@ unsafe impl ::windows::core::RuntimeType for AnimationIterationBehavior {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationPropertyAccessMode(pub i32);
@@ -758,7 +745,6 @@ unsafe impl ::windows::core::RuntimeType for AnimationPropertyAccessMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct AnimationPropertyInfo(::windows::core::IUnknown);
 impl AnimationPropertyInfo {
@@ -794,7 +780,6 @@ impl AnimationPropertyInfo {
             (::windows::core::Interface::vtable(this).GetResolvedCompositionObjectProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -807,7 +792,6 @@ impl AnimationPropertyInfo {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -875,7 +859,6 @@ impl AnimationPropertyInfo {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -1010,7 +993,6 @@ impl<'a> ::core::convert::From<&AnimationPropertyInfo> for ::windows::core::InPa
 }
 unsafe impl ::core::marker::Send for AnimationPropertyInfo {}
 unsafe impl ::core::marker::Sync for AnimationPropertyInfo {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AnimationStopBehavior(pub i32);
@@ -1045,7 +1027,6 @@ unsafe impl ::windows::core::RuntimeType for AnimationStopBehavior {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct BackEasingFunction(::windows::core::IUnknown);
 impl BackEasingFunction {
@@ -1070,7 +1051,6 @@ impl BackEasingFunction {
             (::windows::core::Interface::vtable(this).Amplitude)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1083,7 +1063,6 @@ impl BackEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -1151,7 +1130,6 @@ impl BackEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -1301,7 +1279,6 @@ impl<'a> ::core::convert::From<&BackEasingFunction> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for BackEasingFunction {}
 unsafe impl ::core::marker::Sync for BackEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct BooleanKeyFrameAnimation(::windows::core::IUnknown);
 impl BooleanKeyFrameAnimation {
@@ -1316,7 +1293,6 @@ impl BooleanKeyFrameAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertKeyFrame)(::windows::core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1334,19 +1310,16 @@ impl BooleanKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -1363,19 +1336,16 @@ impl BooleanKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -1396,7 +1366,6 @@ impl BooleanKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -1420,7 +1389,6 @@ impl BooleanKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -1488,7 +1456,6 @@ impl BooleanKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -1504,7 +1471,6 @@ impl BooleanKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -1513,13 +1479,11 @@ impl BooleanKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -1528,7 +1492,6 @@ impl BooleanKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -1775,7 +1738,6 @@ impl<'a> ::core::convert::From<&BooleanKeyFrameAnimation> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for BooleanKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for BooleanKeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct BounceEasingFunction(::windows::core::IUnknown);
 impl BounceEasingFunction {
@@ -1807,7 +1769,6 @@ impl BounceEasingFunction {
             (::windows::core::Interface::vtable(this).Bounciness)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -1820,7 +1781,6 @@ impl BounceEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -1888,7 +1848,6 @@ impl BounceEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -2038,7 +1997,6 @@ impl<'a> ::core::convert::From<&BounceEasingFunction> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for BounceEasingFunction {}
 unsafe impl ::core::marker::Sync for BounceEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct BounceScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceScalarNaturalMotionAnimation {
@@ -2071,7 +2029,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRestitution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2089,19 +2046,16 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -2118,19 +2072,16 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -2151,7 +2102,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -2175,7 +2125,6 @@ impl BounceScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -2243,7 +2192,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -2270,7 +2218,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -2279,7 +2226,6 @@ impl BounceScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -2296,7 +2242,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
@@ -2305,7 +2250,6 @@ impl BounceScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2315,7 +2259,6 @@ impl BounceScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
@@ -2324,7 +2267,6 @@ impl BounceScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2528,7 +2470,6 @@ impl<'a> ::core::convert::From<&BounceScalarNaturalMotionAnimation> for ::window
 }
 unsafe impl ::core::marker::Send for BounceScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceScalarNaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct BounceVector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceVector2NaturalMotionAnimation {
@@ -2561,7 +2502,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRestitution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2579,19 +2519,16 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -2608,19 +2545,16 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -2641,7 +2575,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -2665,7 +2598,6 @@ impl BounceVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -2733,7 +2665,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -2760,7 +2691,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -2769,7 +2699,6 @@ impl BounceVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -2786,7 +2715,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -2795,7 +2723,6 @@ impl BounceVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2805,7 +2732,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -2814,7 +2740,6 @@ impl BounceVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -2824,7 +2749,6 @@ impl BounceVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -2833,7 +2757,6 @@ impl BounceVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -3022,7 +2945,6 @@ impl<'a> ::core::convert::From<&BounceVector2NaturalMotionAnimation> for ::windo
 }
 unsafe impl ::core::marker::Send for BounceVector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceVector2NaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct BounceVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl BounceVector3NaturalMotionAnimation {
@@ -3055,7 +2977,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRestitution)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3073,19 +2994,16 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -3102,19 +3020,16 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -3135,7 +3050,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -3159,7 +3073,6 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -3227,7 +3140,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -3254,7 +3166,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -3263,7 +3174,6 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -3280,7 +3190,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -3289,7 +3198,6 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3299,7 +3207,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -3308,7 +3215,6 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -3318,7 +3224,6 @@ impl BounceVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -3327,7 +3232,6 @@ impl BounceVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -3516,7 +3420,6 @@ impl<'a> ::core::convert::From<&BounceVector3NaturalMotionAnimation> for ::windo
 }
 unsafe impl ::core::marker::Send for BounceVector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for BounceVector3NaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CircleEasingFunction(::windows::core::IUnknown);
 impl CircleEasingFunction {
@@ -3534,7 +3437,6 @@ impl CircleEasingFunction {
             (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionEasingFunctionMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3547,7 +3449,6 @@ impl CircleEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -3615,7 +3516,6 @@ impl CircleEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -3765,7 +3665,6 @@ impl<'a> ::core::convert::From<&CircleEasingFunction> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for CircleEasingFunction {}
 unsafe impl ::core::marker::Sync for CircleEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ColorKeyFrameAnimation(::windows::core::IUnknown);
 impl ColorKeyFrameAnimation {
@@ -3776,7 +3675,6 @@ impl ColorKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3816,19 +3714,16 @@ impl ColorKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -3845,19 +3740,16 @@ impl ColorKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -3878,7 +3770,6 @@ impl ColorKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -3902,7 +3793,6 @@ impl ColorKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -3970,7 +3860,6 @@ impl ColorKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -3986,7 +3875,6 @@ impl ColorKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -3995,13 +3883,11 @@ impl ColorKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -4010,7 +3896,6 @@ impl ColorKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -4257,7 +4142,6 @@ impl<'a> ::core::convert::From<&ColorKeyFrameAnimation> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for ColorKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for ColorKeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionAnimation(::windows::core::IUnknown);
 impl CompositionAnimation {
@@ -4268,7 +4152,6 @@ impl CompositionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4286,19 +4169,16 @@ impl CompositionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
@@ -4315,19 +4195,16 @@ impl CompositionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = self;
@@ -4348,7 +4225,6 @@ impl CompositionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -4372,7 +4248,6 @@ impl CompositionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -4440,7 +4315,6 @@ impl CompositionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -4594,7 +4468,6 @@ impl<'a> ::core::convert::From<&CompositionAnimation> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for CompositionAnimation {}
 unsafe impl ::core::marker::Sync for CompositionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionAnimationGroup(::windows::core::IUnknown);
 impl CompositionAnimationGroup {
@@ -4605,7 +4478,6 @@ impl CompositionAnimationGroup {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4643,7 +4515,6 @@ impl CompositionAnimationGroup {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -4711,7 +4582,6 @@ impl CompositionAnimationGroup {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -4727,7 +4597,6 @@ impl CompositionAnimationGroup {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionAnimation>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionAnimation>>(self)?;
@@ -4912,7 +4781,6 @@ impl<'a> ::core::convert::From<&CompositionAnimationGroup> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for CompositionAnimationGroup {}
 unsafe impl ::core::marker::Sync for CompositionAnimationGroup {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionBackdropBrush(::windows::core::IUnknown);
 impl CompositionBackdropBrush {
@@ -4923,7 +4791,6 @@ impl CompositionBackdropBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4936,7 +4803,6 @@ impl CompositionBackdropBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -5004,7 +4870,6 @@ impl CompositionBackdropBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -5154,7 +5019,6 @@ impl<'a> ::core::convert::From<&CompositionBackdropBrush> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for CompositionBackdropBrush {}
 unsafe impl ::core::marker::Sync for CompositionBackdropBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBackfaceVisibility(pub i32);
@@ -5189,7 +5053,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionBackfaceVisibility {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionBatchCompletedEventArgs(::windows::core::IUnknown);
 impl CompositionBatchCompletedEventArgs {
@@ -5200,7 +5063,6 @@ impl CompositionBatchCompletedEventArgs {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -5213,7 +5075,6 @@ impl CompositionBatchCompletedEventArgs {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -5281,7 +5142,6 @@ impl CompositionBatchCompletedEventArgs {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -5416,7 +5276,6 @@ impl<'a> ::core::convert::From<&CompositionBatchCompletedEventArgs> for ::window
 }
 unsafe impl ::core::marker::Send for CompositionBatchCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CompositionBatchCompletedEventArgs {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBatchTypes(pub u32);
@@ -5481,7 +5340,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionBatchTypes {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
@@ -5523,7 +5381,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionBitmapInterpolationMode 
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionBorderMode(pub i32);
@@ -5558,7 +5415,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionBorderMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionBrush(::windows::core::IUnknown);
 impl CompositionBrush {
@@ -5569,7 +5425,6 @@ impl CompositionBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -5582,7 +5437,6 @@ impl CompositionBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -5650,7 +5504,6 @@ impl CompositionBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -5785,7 +5638,6 @@ impl<'a> ::core::convert::From<&CompositionBrush> for ::windows::core::InParam<'
 }
 unsafe impl ::core::marker::Send for CompositionBrush {}
 unsafe impl ::core::marker::Sync for CompositionBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionCapabilities(::windows::core::IUnknown);
 impl CompositionCapabilities {
@@ -5803,7 +5655,6 @@ impl CompositionCapabilities {
             (::windows::core::Interface::vtable(this).AreEffectsFast)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -5815,7 +5666,6 @@ impl CompositionCapabilities {
             (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -5895,7 +5745,6 @@ impl ::core::convert::From<&CompositionCapabilities> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for CompositionCapabilities {}
 unsafe impl ::core::marker::Sync for CompositionCapabilities {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionClip(::windows::core::IUnknown);
 impl CompositionClip {
@@ -5906,13 +5755,11 @@ impl CompositionClip {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -5921,13 +5768,11 @@ impl CompositionClip {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -5936,13 +5781,11 @@ impl CompositionClip {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -5951,7 +5794,6 @@ impl CompositionClip {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -5979,7 +5821,6 @@ impl CompositionClip {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -5988,13 +5829,11 @@ impl CompositionClip {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -6003,7 +5842,6 @@ impl CompositionClip {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -6016,7 +5854,6 @@ impl CompositionClip {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -6084,7 +5921,6 @@ impl CompositionClip {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -6219,7 +6055,6 @@ impl<'a> ::core::convert::From<&CompositionClip> for ::windows::core::InParam<'a
 }
 unsafe impl ::core::marker::Send for CompositionClip {}
 unsafe impl ::core::marker::Sync for CompositionClip {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionColorBrush(::windows::core::IUnknown);
 impl CompositionColorBrush {
@@ -6230,7 +6065,6 @@ impl CompositionColorBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -6254,7 +6088,6 @@ impl CompositionColorBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -6322,7 +6155,6 @@ impl CompositionColorBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -6472,7 +6304,6 @@ impl<'a> ::core::convert::From<&CompositionColorBrush> for ::windows::core::InPa
 }
 unsafe impl ::core::marker::Send for CompositionColorBrush {}
 unsafe impl ::core::marker::Sync for CompositionColorBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionColorGradientStop(::windows::core::IUnknown);
 impl CompositionColorGradientStop {
@@ -6483,7 +6314,6 @@ impl CompositionColorGradientStop {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -6518,7 +6348,6 @@ impl CompositionColorGradientStop {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -6586,7 +6415,6 @@ impl CompositionColorGradientStop {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -6721,11 +6549,9 @@ impl<'a> ::core::convert::From<&CompositionColorGradientStop> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for CompositionColorGradientStop {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStop {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionColorGradientStopCollection(::windows::core::IUnknown);
 impl CompositionColorGradientStopCollection {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionColorGradientStop>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionColorGradientStop>>(self)?;
@@ -6734,7 +6560,6 @@ impl CompositionColorGradientStopCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<CompositionColorGradientStop>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<CompositionColorGradientStop> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
@@ -6743,7 +6568,6 @@ impl CompositionColorGradientStopCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<CompositionColorGradientStop>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
@@ -6752,7 +6576,6 @@ impl CompositionColorGradientStopCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CompositionColorGradientStop>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
@@ -6761,7 +6584,6 @@ impl CompositionColorGradientStopCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<CompositionColorGradientStop>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -6773,7 +6595,6 @@ impl CompositionColorGradientStopCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -6782,7 +6603,6 @@ impl CompositionColorGradientStopCollection {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -6791,13 +6611,11 @@ impl CompositionColorGradientStopCollection {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -6806,19 +6624,16 @@ impl CompositionColorGradientStopCollection {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<CompositionColorGradientStop>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
@@ -6827,7 +6642,6 @@ impl CompositionColorGradientStopCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<CompositionColorGradientStop>]) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<CompositionColorGradientStop>>(self)?;
@@ -6956,7 +6770,6 @@ impl<'a> ::core::convert::TryFrom<&CompositionColorGradientStopCollection> for :
 }
 unsafe impl ::core::marker::Send for CompositionColorGradientStopCollection {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStopCollection {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionColorSpace(pub i32);
@@ -6993,7 +6806,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionColorSpace {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionCommitBatch(::windows::core::IUnknown);
 impl CompositionCommitBatch {
@@ -7004,7 +6816,6 @@ impl CompositionCommitBatch {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -7024,7 +6835,6 @@ impl CompositionCommitBatch {
             (::windows::core::Interface::vtable(this).IsEnded)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -7036,7 +6846,6 @@ impl CompositionCommitBatch {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -7049,7 +6858,6 @@ impl CompositionCommitBatch {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -7117,7 +6925,6 @@ impl CompositionCommitBatch {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -7252,7 +7059,6 @@ impl<'a> ::core::convert::From<&CompositionCommitBatch> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for CompositionCommitBatch {}
 unsafe impl ::core::marker::Sync for CompositionCommitBatch {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionCompositeMode(pub i32);
@@ -7288,7 +7094,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionCompositeMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionContainerShape(::windows::core::IUnknown);
 impl CompositionContainerShape {
@@ -7299,13 +7104,11 @@ impl CompositionContainerShape {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shapes(&self) -> ::windows::core::Result<CompositionShapeCollection> {
         let this = self;
@@ -7321,7 +7124,6 @@ impl CompositionContainerShape {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -7389,7 +7191,6 @@ impl CompositionContainerShape {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -7405,7 +7206,6 @@ impl CompositionContainerShape {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -7414,13 +7214,11 @@ impl CompositionContainerShape {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -7429,7 +7227,6 @@ impl CompositionContainerShape {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -7457,7 +7254,6 @@ impl CompositionContainerShape {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -7466,13 +7262,11 @@ impl CompositionContainerShape {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -7481,7 +7275,6 @@ impl CompositionContainerShape {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -7621,7 +7414,6 @@ impl<'a> ::core::convert::From<&CompositionContainerShape> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for CompositionContainerShape {}
 unsafe impl ::core::marker::Sync for CompositionContainerShape {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionDrawingSurface(::windows::core::IUnknown);
 impl CompositionDrawingSurface {
@@ -7632,13 +7424,11 @@ impl CompositionDrawingSurface {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn AlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode> {
         let this = self;
@@ -7647,7 +7437,6 @@ impl CompositionDrawingSurface {
             (::windows::core::Interface::vtable(this).AlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::DirectX::DirectXAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn PixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -7656,7 +7445,6 @@ impl CompositionDrawingSurface {
             (::windows::core::Interface::vtable(this).PixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -7665,7 +7453,6 @@ impl CompositionDrawingSurface {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn SizeInt32(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
@@ -7674,31 +7461,26 @@ impl CompositionDrawingSurface {
             (::windows::core::Interface::vtable(this).SizeInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::SizeInt32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Resize(&self, sizepixels: super::super::Graphics::SizeInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Resize)(::windows::core::Interface::as_raw(this), sizepixels).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Scroll(&self, offset: super::super::Graphics::PointInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Scroll)(::windows::core::Interface::as_raw(this), offset).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn ScrollRect(&self, offset: super::super::Graphics::PointInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ScrollRect)(::windows::core::Interface::as_raw(this), offset, scrollrect).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn ScrollWithClip(&self, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ScrollWithClip)(::windows::core::Interface::as_raw(this), offset, cliprect).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn ScrollRectWithClip(&self, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
@@ -7711,7 +7493,6 @@ impl CompositionDrawingSurface {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -7779,7 +7560,6 @@ impl CompositionDrawingSurface {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -7933,7 +7713,6 @@ impl<'a> ::core::convert::From<&CompositionDrawingSurface> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for CompositionDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionDrawingSurface {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
@@ -7967,7 +7746,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionDropShadowSourcePolicy {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionEasingFunction(::windows::core::IUnknown);
 impl CompositionEasingFunction {
@@ -7978,13 +7756,11 @@ impl CompositionEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCubicBezierEasingFunction<'a, P0>(owner: P0, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CubicBezierEasingFunction>
     where
@@ -8092,7 +7868,6 @@ impl CompositionEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -8160,7 +7935,6 @@ impl CompositionEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -8300,7 +8074,6 @@ impl<'a> ::core::convert::From<&CompositionEasingFunction> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for CompositionEasingFunction {}
 unsafe impl ::core::marker::Sync for CompositionEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionEasingFunctionMode(pub i32);
@@ -8335,7 +8108,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionEasingFunctionMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionEffectBrush(::windows::core::IUnknown);
 impl CompositionEffectBrush {
@@ -8346,7 +8118,6 @@ impl CompositionEffectBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -8373,7 +8144,6 @@ impl CompositionEffectBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -8441,7 +8211,6 @@ impl CompositionEffectBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -8591,7 +8360,6 @@ impl<'a> ::core::convert::From<&CompositionEffectBrush> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for CompositionEffectBrush {}
 unsafe impl ::core::marker::Sync for CompositionEffectBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionEffectFactory(::windows::core::IUnknown);
 impl CompositionEffectFactory {
@@ -8602,7 +8370,6 @@ impl CompositionEffectFactory {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -8636,7 +8403,6 @@ impl CompositionEffectFactory {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -8704,7 +8470,6 @@ impl CompositionEffectFactory {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -8839,7 +8604,6 @@ impl<'a> ::core::convert::From<&CompositionEffectFactory> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for CompositionEffectFactory {}
 unsafe impl ::core::marker::Sync for CompositionEffectFactory {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
@@ -8875,7 +8639,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionEffectFactoryLoadStatus 
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionEffectSourceParameter(::windows::core::IUnknown);
 impl CompositionEffectSourceParameter {
@@ -8982,7 +8745,6 @@ impl<'a> ::core::convert::TryFrom<&CompositionEffectSourceParameter> for ::windo
 }
 unsafe impl ::core::marker::Send for CompositionEffectSourceParameter {}
 unsafe impl ::core::marker::Sync for CompositionEffectSourceParameter {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionEllipseGeometry(::windows::core::IUnknown);
 impl CompositionEllipseGeometry {
@@ -8993,13 +8755,11 @@ impl CompositionEllipseGeometry {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Center(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -9008,13 +8768,11 @@ impl CompositionEllipseGeometry {
             (::windows::core::Interface::vtable(this).Center)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenter(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenter)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Radius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -9023,7 +8781,6 @@ impl CompositionEllipseGeometry {
             (::windows::core::Interface::vtable(this).Radius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -9069,7 +8826,6 @@ impl CompositionEllipseGeometry {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -9137,7 +8893,6 @@ impl CompositionEllipseGeometry {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -9287,7 +9042,6 @@ impl<'a> ::core::convert::From<&CompositionEllipseGeometry> for ::windows::core:
 }
 unsafe impl ::core::marker::Send for CompositionEllipseGeometry {}
 unsafe impl ::core::marker::Sync for CompositionEllipseGeometry {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionGeometricClip(::windows::core::IUnknown);
 impl CompositionGeometricClip {
@@ -9298,13 +9052,11 @@ impl CompositionGeometricClip {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -9313,13 +9065,11 @@ impl CompositionGeometricClip {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -9328,13 +9078,11 @@ impl CompositionGeometricClip {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -9343,7 +9091,6 @@ impl CompositionGeometricClip {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -9371,7 +9118,6 @@ impl CompositionGeometricClip {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -9380,13 +9126,11 @@ impl CompositionGeometricClip {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -9395,7 +9139,6 @@ impl CompositionGeometricClip {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -9436,7 +9179,6 @@ impl CompositionGeometricClip {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -9504,7 +9246,6 @@ impl CompositionGeometricClip {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -9654,7 +9395,6 @@ impl<'a> ::core::convert::From<&CompositionGeometricClip> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for CompositionGeometricClip {}
 unsafe impl ::core::marker::Sync for CompositionGeometricClip {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionGeometry(::windows::core::IUnknown);
 impl CompositionGeometry {
@@ -9665,7 +9405,6 @@ impl CompositionGeometry {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -9711,7 +9450,6 @@ impl CompositionGeometry {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -9779,7 +9517,6 @@ impl CompositionGeometry {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -9914,7 +9651,6 @@ impl<'a> ::core::convert::From<&CompositionGeometry> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for CompositionGeometry {}
 unsafe impl ::core::marker::Sync for CompositionGeometry {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionGetValueStatus(pub i32);
@@ -9949,7 +9685,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionGetValueStatus {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionGradientBrush(::windows::core::IUnknown);
 impl CompositionGradientBrush {
@@ -9960,13 +9695,11 @@ impl CompositionGradientBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -9975,13 +9708,11 @@ impl CompositionGradientBrush {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -9990,7 +9721,6 @@ impl CompositionGradientBrush {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -10025,7 +9755,6 @@ impl CompositionGradientBrush {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -10034,7 +9763,6 @@ impl CompositionGradientBrush {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -10062,7 +9790,6 @@ impl CompositionGradientBrush {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -10071,13 +9798,11 @@ impl CompositionGradientBrush {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = self;
@@ -10086,7 +9811,6 @@ impl CompositionGradientBrush {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = self;
@@ -10110,7 +9834,6 @@ impl CompositionGradientBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -10178,7 +9901,6 @@ impl CompositionGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -10328,7 +10050,6 @@ impl<'a> ::core::convert::From<&CompositionGradientBrush> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for CompositionGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionGradientBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionGradientExtendMode(pub i32);
@@ -10363,7 +10084,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionGradientExtendMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionGraphicsDevice(::windows::core::IUnknown);
 impl CompositionGraphicsDevice {
@@ -10374,13 +10094,11 @@ impl CompositionGraphicsDevice {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
     pub fn CreateDrawingSurface(&self, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = self;
@@ -10389,7 +10107,6 @@ impl CompositionGraphicsDevice {
             (::windows::core::Interface::vtable(this).CreateDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RenderingDeviceReplaced<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -10401,13 +10118,11 @@ impl CompositionGraphicsDevice {
             (::windows::core::Interface::vtable(this).RenderingDeviceReplaced)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRenderingDeviceReplaced(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveRenderingDeviceReplaced)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateDrawingSurface2(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
@@ -10416,7 +10131,6 @@ impl CompositionGraphicsDevice {
             (::windows::core::Interface::vtable(this).CreateDrawingSurface2)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionDrawingSurface>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateVirtualDrawingSurface(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionVirtualDrawingSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice2>(self)?;
@@ -10425,7 +10139,6 @@ impl CompositionGraphicsDevice {
             (::windows::core::Interface::vtable(this).CreateVirtualDrawingSurface)(::windows::core::Interface::as_raw(this), sizepixels, pixelformat, alphamode, result__.as_mut_ptr()).from_abi::<CompositionVirtualDrawingSurface>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn CreateMipmapSurface(&self, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode) -> ::windows::core::Result<CompositionMipmapSurface> {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice3>(self)?;
@@ -10438,7 +10151,6 @@ impl CompositionGraphicsDevice {
         let this = &::windows::core::Interface::cast::<ICompositionGraphicsDevice3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Trim)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))]
     pub fn CaptureAsync<'a, P0>(&self, capturevisual: P0, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ICompositionSurface>>
     where
@@ -10457,7 +10169,6 @@ impl CompositionGraphicsDevice {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -10525,7 +10236,6 @@ impl CompositionGraphicsDevice {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -10660,7 +10370,6 @@ impl<'a> ::core::convert::From<&CompositionGraphicsDevice> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for CompositionGraphicsDevice {}
 unsafe impl ::core::marker::Sync for CompositionGraphicsDevice {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionLight(::windows::core::IUnknown);
 impl CompositionLight {
@@ -10671,7 +10380,6 @@ impl CompositionLight {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -10709,7 +10417,6 @@ impl CompositionLight {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -10777,7 +10484,6 @@ impl CompositionLight {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -10912,7 +10618,6 @@ impl<'a> ::core::convert::From<&CompositionLight> for ::windows::core::InParam<'
 }
 unsafe impl ::core::marker::Send for CompositionLight {}
 unsafe impl ::core::marker::Sync for CompositionLight {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionLineGeometry(::windows::core::IUnknown);
 impl CompositionLineGeometry {
@@ -10923,7 +10628,6 @@ impl CompositionLineGeometry {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -10962,7 +10666,6 @@ impl CompositionLineGeometry {
         let this = &::windows::core::Interface::cast::<ICompositionGeometry>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTrimStart)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Start(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -10971,13 +10674,11 @@ impl CompositionLineGeometry {
             (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetStart(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStart)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn End(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -10986,7 +10687,6 @@ impl CompositionLineGeometry {
             (::windows::core::Interface::vtable(this).End)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetEnd(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -10999,7 +10699,6 @@ impl CompositionLineGeometry {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -11067,7 +10766,6 @@ impl CompositionLineGeometry {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -11217,7 +10915,6 @@ impl<'a> ::core::convert::From<&CompositionLineGeometry> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for CompositionLineGeometry {}
 unsafe impl ::core::marker::Sync for CompositionLineGeometry {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionLinearGradientBrush(::windows::core::IUnknown);
 impl CompositionLinearGradientBrush {
@@ -11228,13 +10925,11 @@ impl CompositionLinearGradientBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11243,13 +10938,11 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11258,7 +10951,6 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11293,7 +10985,6 @@ impl CompositionLinearGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11302,7 +10993,6 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11330,7 +11020,6 @@ impl CompositionLinearGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11339,13 +11028,11 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11354,7 +11041,6 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -11371,7 +11057,6 @@ impl CompositionLinearGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMappingMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn EndPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -11380,13 +11065,11 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).EndPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetEndPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEndPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn StartPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -11395,7 +11078,6 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).StartPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetStartPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -11408,7 +11090,6 @@ impl CompositionLinearGradientBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -11476,7 +11157,6 @@ impl CompositionLinearGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -11641,7 +11321,6 @@ impl<'a> ::core::convert::From<&CompositionLinearGradientBrush> for ::windows::c
 }
 unsafe impl ::core::marker::Send for CompositionLinearGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionLinearGradientBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionMappingMode(pub i32);
@@ -11675,7 +11354,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionMappingMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionMaskBrush(::windows::core::IUnknown);
 impl CompositionMaskBrush {
@@ -11686,7 +11364,6 @@ impl CompositionMaskBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -11727,7 +11404,6 @@ impl CompositionMaskBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -11795,7 +11471,6 @@ impl CompositionMaskBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -11945,7 +11620,6 @@ impl<'a> ::core::convert::From<&CompositionMaskBrush> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for CompositionMaskBrush {}
 unsafe impl ::core::marker::Sync for CompositionMaskBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionMipmapSurface(::windows::core::IUnknown);
 impl CompositionMipmapSurface {
@@ -11956,7 +11630,6 @@ impl CompositionMipmapSurface {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -11969,7 +11642,6 @@ impl CompositionMipmapSurface {
             (::windows::core::Interface::vtable(this).LevelCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn AlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode> {
         let this = self;
@@ -11978,7 +11650,6 @@ impl CompositionMipmapSurface {
             (::windows::core::Interface::vtable(this).AlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::DirectX::DirectXAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn PixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -11987,7 +11658,6 @@ impl CompositionMipmapSurface {
             (::windows::core::Interface::vtable(this).PixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn SizeInt32(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -12010,7 +11680,6 @@ impl CompositionMipmapSurface {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -12078,7 +11747,6 @@ impl CompositionMipmapSurface {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -12232,7 +11900,6 @@ impl<'a> ::core::convert::From<&CompositionMipmapSurface> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for CompositionMipmapSurface {}
 unsafe impl ::core::marker::Sync for CompositionMipmapSurface {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionNineGridBrush(::windows::core::IUnknown);
 impl CompositionNineGridBrush {
@@ -12243,7 +11910,6 @@ impl CompositionNineGridBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -12385,7 +12051,6 @@ impl CompositionNineGridBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -12453,7 +12118,6 @@ impl CompositionNineGridBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -12603,7 +12267,6 @@ impl<'a> ::core::convert::From<&CompositionNineGridBrush> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for CompositionNineGridBrush {}
 unsafe impl ::core::marker::Sync for CompositionNineGridBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionObject(::windows::core::IUnknown);
 impl CompositionObject {
@@ -12614,7 +12277,6 @@ impl CompositionObject {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -12627,7 +12289,6 @@ impl CompositionObject {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = self;
@@ -12695,7 +12356,6 @@ impl CompositionObject {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -12837,11 +12497,9 @@ impl<'a> ::core::convert::TryFrom<&CompositionObject> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for CompositionObject {}
 unsafe impl ::core::marker::Sync for CompositionObject {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionPath(::windows::core::IUnknown);
 impl CompositionPath {
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Create<'a, P0, E0>(source: P0) -> ::windows::core::Result<CompositionPath>
     where
@@ -12943,7 +12601,6 @@ impl<'a> ::core::convert::TryFrom<&CompositionPath> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for CompositionPath {}
 unsafe impl ::core::marker::Sync for CompositionPath {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionPathGeometry(::windows::core::IUnknown);
 impl CompositionPathGeometry {
@@ -12954,7 +12611,6 @@ impl CompositionPathGeometry {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -13000,7 +12656,6 @@ impl CompositionPathGeometry {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -13068,7 +12723,6 @@ impl CompositionPathGeometry {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -13232,7 +12886,6 @@ impl<'a> ::core::convert::From<&CompositionPathGeometry> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for CompositionPathGeometry {}
 unsafe impl ::core::marker::Sync for CompositionPathGeometry {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadow(::windows::core::IUnknown);
 impl CompositionProjectedShadow {
@@ -13243,7 +12896,6 @@ impl CompositionProjectedShadow {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -13256,7 +12908,6 @@ impl CompositionProjectedShadow {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -13324,7 +12975,6 @@ impl CompositionProjectedShadow {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -13520,7 +13170,6 @@ impl<'a> ::core::convert::From<&CompositionProjectedShadow> for ::windows::core:
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadow {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadow {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowCaster(::windows::core::IUnknown);
 impl CompositionProjectedShadowCaster {
@@ -13531,7 +13180,6 @@ impl CompositionProjectedShadowCaster {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -13544,7 +13192,6 @@ impl CompositionProjectedShadowCaster {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -13612,7 +13259,6 @@ impl CompositionProjectedShadowCaster {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -13775,7 +13421,6 @@ impl<'a> ::core::convert::From<&CompositionProjectedShadowCaster> for ::windows:
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowCaster {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowCaster {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowCasterCollection(::windows::core::IUnknown);
 impl CompositionProjectedShadowCasterCollection {
@@ -13786,7 +13431,6 @@ impl CompositionProjectedShadowCasterCollection {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -13799,7 +13443,6 @@ impl CompositionProjectedShadowCasterCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -13867,7 +13510,6 @@ impl CompositionProjectedShadowCasterCollection {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -13937,7 +13579,6 @@ impl CompositionProjectedShadowCasterCollection {
             (::windows::core::Interface::vtable(this).MaxRespectedCasters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>>(self)?;
@@ -14108,7 +13749,6 @@ impl<'a> ::core::convert::From<&CompositionProjectedShadowCasterCollection> for 
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowCasterCollection {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowCasterCollection {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowReceiver(::windows::core::IUnknown);
 impl CompositionProjectedShadowReceiver {
@@ -14119,7 +13759,6 @@ impl CompositionProjectedShadowReceiver {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -14132,7 +13771,6 @@ impl CompositionProjectedShadowReceiver {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -14200,7 +13838,6 @@ impl CompositionProjectedShadowReceiver {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -14349,7 +13986,6 @@ impl<'a> ::core::convert::From<&CompositionProjectedShadowReceiver> for ::window
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiver {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiver {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionProjectedShadowReceiverUnorderedCollection(::windows::core::IUnknown);
 impl CompositionProjectedShadowReceiverUnorderedCollection {
@@ -14360,7 +13996,6 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -14373,7 +14008,6 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -14441,7 +14075,6 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -14482,7 +14115,6 @@ impl CompositionProjectedShadowReceiverUnorderedCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAll)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowReceiver>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>>(self)?;
@@ -14648,7 +14280,6 @@ impl<'a> ::core::convert::From<&CompositionProjectedShadowReceiverUnorderedColle
 }
 unsafe impl ::core::marker::Send for CompositionProjectedShadowReceiverUnorderedCollection {}
 unsafe impl ::core::marker::Sync for CompositionProjectedShadowReceiverUnorderedCollection {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionPropertySet(::windows::core::IUnknown);
 impl CompositionPropertySet {
@@ -14659,7 +14290,6 @@ impl CompositionPropertySet {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -14672,7 +14302,6 @@ impl CompositionPropertySet {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -14740,7 +14369,6 @@ impl CompositionPropertySet {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -14760,19 +14388,16 @@ impl CompositionPropertySet {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertColor)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertMatrix3x2(&self, propertyname: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertMatrix3x2)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertMatrix4x4(&self, propertyname: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertMatrix4x4)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertQuaternion(&self, propertyname: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
@@ -14782,19 +14407,16 @@ impl CompositionPropertySet {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertScalar)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertVector2(&self, propertyname: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertVector2)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertVector3(&self, propertyname: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertVector3)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertVector4(&self, propertyname: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = self;
@@ -14807,7 +14429,6 @@ impl CompositionPropertySet {
             (::windows::core::Interface::vtable(this).TryGetColor)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value, result__.as_mut_ptr()).from_abi::<CompositionGetValueStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetMatrix3x2(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<CompositionGetValueStatus> {
         let this = self;
@@ -14816,7 +14437,6 @@ impl CompositionPropertySet {
             (::windows::core::Interface::vtable(this).TryGetMatrix3x2)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value, result__.as_mut_ptr()).from_abi::<CompositionGetValueStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetMatrix4x4(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<CompositionGetValueStatus> {
         let this = self;
@@ -14825,7 +14445,6 @@ impl CompositionPropertySet {
             (::windows::core::Interface::vtable(this).TryGetMatrix4x4)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value, result__.as_mut_ptr()).from_abi::<CompositionGetValueStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetQuaternion(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<CompositionGetValueStatus> {
         let this = self;
@@ -14841,7 +14460,6 @@ impl CompositionPropertySet {
             (::windows::core::Interface::vtable(this).TryGetScalar)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value, result__.as_mut_ptr()).from_abi::<CompositionGetValueStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetVector2(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CompositionGetValueStatus> {
         let this = self;
@@ -14850,7 +14468,6 @@ impl CompositionPropertySet {
             (::windows::core::Interface::vtable(this).TryGetVector2)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value, result__.as_mut_ptr()).from_abi::<CompositionGetValueStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetVector3(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<CompositionGetValueStatus> {
         let this = self;
@@ -14859,7 +14476,6 @@ impl CompositionPropertySet {
             (::windows::core::Interface::vtable(this).TryGetVector3)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), value, result__.as_mut_ptr()).from_abi::<CompositionGetValueStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TryGetVector4(&self, propertyname: &::windows::core::HSTRING, value: &mut super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<CompositionGetValueStatus> {
         let this = self;
@@ -14998,7 +14614,6 @@ impl<'a> ::core::convert::From<&CompositionPropertySet> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for CompositionPropertySet {}
 unsafe impl ::core::marker::Sync for CompositionPropertySet {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionRadialGradientBrush(::windows::core::IUnknown);
 impl CompositionRadialGradientBrush {
@@ -15009,13 +14624,11 @@ impl CompositionRadialGradientBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15024,13 +14637,11 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15039,7 +14650,6 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15074,7 +14684,6 @@ impl CompositionRadialGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInterpolationSpace)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15083,7 +14692,6 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15111,7 +14719,6 @@ impl CompositionRadialGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15120,13 +14727,11 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15135,7 +14740,6 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionGradientBrush>(self)?;
@@ -15159,7 +14763,6 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -15227,7 +14830,6 @@ impl CompositionRadialGradientBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -15243,7 +14845,6 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn EllipseCenter(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15252,13 +14853,11 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).EllipseCenter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetEllipseCenter(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEllipseCenter)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn EllipseRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15267,13 +14866,11 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).EllipseRadius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetEllipseRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetEllipseRadius)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn GradientOriginOffset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15282,7 +14879,6 @@ impl CompositionRadialGradientBrush {
             (::windows::core::Interface::vtable(this).GradientOriginOffset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetGradientOriginOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -15437,7 +15033,6 @@ impl<'a> ::core::convert::From<&CompositionRadialGradientBrush> for ::windows::c
 }
 unsafe impl ::core::marker::Send for CompositionRadialGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionRadialGradientBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionRectangleGeometry(::windows::core::IUnknown);
 impl CompositionRectangleGeometry {
@@ -15448,7 +15043,6 @@ impl CompositionRectangleGeometry {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -15494,7 +15088,6 @@ impl CompositionRectangleGeometry {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -15562,7 +15155,6 @@ impl CompositionRectangleGeometry {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -15578,7 +15170,6 @@ impl CompositionRectangleGeometry {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15587,13 +15178,11 @@ impl CompositionRectangleGeometry {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15602,7 +15191,6 @@ impl CompositionRectangleGeometry {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -15742,7 +15330,6 @@ impl<'a> ::core::convert::From<&CompositionRectangleGeometry> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for CompositionRectangleGeometry {}
 unsafe impl ::core::marker::Sync for CompositionRectangleGeometry {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionRoundedRectangleGeometry(::windows::core::IUnknown);
 impl CompositionRoundedRectangleGeometry {
@@ -15753,7 +15340,6 @@ impl CompositionRoundedRectangleGeometry {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -15799,7 +15385,6 @@ impl CompositionRoundedRectangleGeometry {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -15867,7 +15452,6 @@ impl CompositionRoundedRectangleGeometry {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -15883,7 +15467,6 @@ impl CompositionRoundedRectangleGeometry {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CornerRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15892,13 +15475,11 @@ impl CompositionRoundedRectangleGeometry {
             (::windows::core::Interface::vtable(this).CornerRadius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCornerRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCornerRadius)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15907,13 +15488,11 @@ impl CompositionRoundedRectangleGeometry {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -15922,7 +15501,6 @@ impl CompositionRoundedRectangleGeometry {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -16062,7 +15640,6 @@ impl<'a> ::core::convert::From<&CompositionRoundedRectangleGeometry> for ::windo
 }
 unsafe impl ::core::marker::Send for CompositionRoundedRectangleGeometry {}
 unsafe impl ::core::marker::Sync for CompositionRoundedRectangleGeometry {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionScopedBatch(::windows::core::IUnknown);
 impl CompositionScopedBatch {
@@ -16073,7 +15650,6 @@ impl CompositionScopedBatch {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -16086,7 +15662,6 @@ impl CompositionScopedBatch {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -16154,7 +15729,6 @@ impl CompositionScopedBatch {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -16196,7 +15770,6 @@ impl CompositionScopedBatch {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Suspend)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Completed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
     where
@@ -16208,7 +15781,6 @@ impl CompositionScopedBatch {
             (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -16333,7 +15905,6 @@ impl<'a> ::core::convert::From<&CompositionScopedBatch> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for CompositionScopedBatch {}
 unsafe impl ::core::marker::Sync for CompositionScopedBatch {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionShadow(::windows::core::IUnknown);
 impl CompositionShadow {
@@ -16344,7 +15915,6 @@ impl CompositionShadow {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -16357,7 +15927,6 @@ impl CompositionShadow {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -16425,7 +15994,6 @@ impl CompositionShadow {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -16560,7 +16128,6 @@ impl<'a> ::core::convert::From<&CompositionShadow> for ::windows::core::InParam<
 }
 unsafe impl ::core::marker::Send for CompositionShadow {}
 unsafe impl ::core::marker::Sync for CompositionShadow {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionShape(::windows::core::IUnknown);
 impl CompositionShape {
@@ -16571,7 +16138,6 @@ impl CompositionShape {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -16584,7 +16150,6 @@ impl CompositionShape {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -16652,7 +16217,6 @@ impl CompositionShape {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -16668,7 +16232,6 @@ impl CompositionShape {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -16677,13 +16240,11 @@ impl CompositionShape {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -16692,7 +16253,6 @@ impl CompositionShape {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -16720,7 +16280,6 @@ impl CompositionShape {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -16729,13 +16288,11 @@ impl CompositionShape {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = self;
@@ -16744,7 +16301,6 @@ impl CompositionShape {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = self;
@@ -16869,7 +16425,6 @@ impl<'a> ::core::convert::From<&CompositionShape> for ::windows::core::InParam<'
 }
 unsafe impl ::core::marker::Send for CompositionShape {}
 unsafe impl ::core::marker::Sync for CompositionShape {}
-#[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct CompositionShapeCollection(::windows::core::IUnknown);
@@ -16882,7 +16437,6 @@ impl CompositionShapeCollection {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -16895,7 +16449,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -16963,7 +16516,6 @@ impl CompositionShapeCollection {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -16979,7 +16531,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<CompositionShape>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<CompositionShape>>(self)?;
@@ -16988,7 +16539,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<CompositionShape>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<CompositionShape> {
         let this = self;
@@ -16997,7 +16547,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<CompositionShape>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -17006,7 +16555,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<CompositionShape>> {
         let this = self;
@@ -17015,7 +16563,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<CompositionShape>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
     where
@@ -17027,7 +16574,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -17036,7 +16582,6 @@ impl CompositionShapeCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt<'a, P0>(&self, index: u32, value: P0) -> ::windows::core::Result<()>
     where
@@ -17045,13 +16590,11 @@ impl CompositionShapeCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -17060,19 +16603,16 @@ impl CompositionShapeCollection {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<CompositionShape>]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -17081,7 +16621,6 @@ impl CompositionShapeCollection {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[::core::option::Option<CompositionShape>]) -> ::windows::core::Result<()> {
         let this = self;
@@ -17287,7 +16826,6 @@ impl<'a> ::core::convert::From<&CompositionShapeCollection> for ::windows::core:
 unsafe impl ::core::marker::Send for CompositionShapeCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for CompositionShapeCollection {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionSpriteShape(::windows::core::IUnknown);
 impl CompositionSpriteShape {
@@ -17298,7 +16836,6 @@ impl CompositionSpriteShape {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -17311,7 +16848,6 @@ impl CompositionSpriteShape {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -17379,7 +16915,6 @@ impl CompositionSpriteShape {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -17395,7 +16930,6 @@ impl CompositionSpriteShape {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -17404,13 +16938,11 @@ impl CompositionSpriteShape {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -17419,7 +16951,6 @@ impl CompositionSpriteShape {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -17447,7 +16978,6 @@ impl CompositionSpriteShape {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -17456,13 +16986,11 @@ impl CompositionSpriteShape {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -17471,7 +16999,6 @@ impl CompositionSpriteShape {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionShape>(self)?;
@@ -17530,7 +17057,6 @@ impl CompositionSpriteShape {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetStrokeBrush)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StrokeDashArray(&self) -> ::windows::core::Result<CompositionStrokeDashArray> {
         let this = self;
@@ -17750,7 +17276,6 @@ impl<'a> ::core::convert::From<&CompositionSpriteShape> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for CompositionSpriteShape {}
 unsafe impl ::core::marker::Sync for CompositionSpriteShape {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionStretch(pub i32);
@@ -17786,7 +17311,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionStretch {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionStrokeCap(pub i32);
@@ -17822,7 +17346,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionStrokeCap {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct CompositionStrokeDashArray(::windows::core::IUnknown);
@@ -17835,7 +17358,6 @@ impl CompositionStrokeDashArray {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -17848,7 +17370,6 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -17916,7 +17437,6 @@ impl CompositionStrokeDashArray {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -17932,7 +17452,6 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<f32>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<f32>>(self)?;
@@ -17941,7 +17460,6 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<f32> {
         let this = self;
@@ -17950,7 +17468,6 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -17959,7 +17476,6 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<f32>> {
         let this = self;
@@ -17968,7 +17484,6 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn IndexOf(&self, value: f32, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
@@ -17977,43 +17492,36 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value, index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetAt(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAt)(::windows::core::Interface::as_raw(this), index, value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InsertAt(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertAt)(::windows::core::Interface::as_raw(this), index, value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAt)(::windows::core::Interface::as_raw(this), index).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Append(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Append)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveAtEnd)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetMany(&self, startindex: u32, items: &mut [f32]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -18022,7 +17530,6 @@ impl CompositionStrokeDashArray {
             (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, items.as_mut_ptr(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ReplaceAll(&self, items: &[f32]) -> ::windows::core::Result<()> {
         let this = self;
@@ -18228,7 +17735,6 @@ impl<'a> ::core::convert::From<&CompositionStrokeDashArray> for ::windows::core:
 unsafe impl ::core::marker::Send for CompositionStrokeDashArray {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for CompositionStrokeDashArray {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CompositionStrokeLineJoin(pub i32);
@@ -18264,7 +17770,6 @@ unsafe impl ::windows::core::RuntimeType for CompositionStrokeLineJoin {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionSurfaceBrush(::windows::core::IUnknown);
 impl CompositionSurfaceBrush {
@@ -18275,7 +17780,6 @@ impl CompositionSurfaceBrush {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -18288,7 +17792,6 @@ impl CompositionSurfaceBrush {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -18356,7 +17859,6 @@ impl CompositionSurfaceBrush {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -18431,7 +17933,6 @@ impl CompositionSurfaceBrush {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetVerticalAlignmentRatio)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
@@ -18440,13 +17941,11 @@ impl CompositionSurfaceBrush {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
@@ -18455,13 +17954,11 @@ impl CompositionSurfaceBrush {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
@@ -18470,7 +17967,6 @@ impl CompositionSurfaceBrush {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
@@ -18498,7 +17994,6 @@ impl CompositionSurfaceBrush {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
@@ -18507,13 +18002,11 @@ impl CompositionSurfaceBrush {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
@@ -18522,7 +18015,6 @@ impl CompositionSurfaceBrush {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionSurfaceBrush2>(self)?;
@@ -18673,7 +18165,6 @@ impl<'a> ::core::convert::From<&CompositionSurfaceBrush> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for CompositionSurfaceBrush {}
 unsafe impl ::core::marker::Sync for CompositionSurfaceBrush {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionTarget(::windows::core::IUnknown);
 impl CompositionTarget {
@@ -18684,7 +18175,6 @@ impl CompositionTarget {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -18697,7 +18187,6 @@ impl CompositionTarget {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -18765,7 +18254,6 @@ impl CompositionTarget {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -18914,7 +18402,6 @@ impl<'a> ::core::convert::From<&CompositionTarget> for ::windows::core::InParam<
 }
 unsafe impl ::core::marker::Send for CompositionTarget {}
 unsafe impl ::core::marker::Sync for CompositionTarget {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionTransform(::windows::core::IUnknown);
 impl CompositionTransform {
@@ -18925,7 +18412,6 @@ impl CompositionTransform {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -18938,7 +18424,6 @@ impl CompositionTransform {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -19006,7 +18491,6 @@ impl CompositionTransform {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -19141,7 +18625,6 @@ impl<'a> ::core::convert::From<&CompositionTransform> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for CompositionTransform {}
 unsafe impl ::core::marker::Sync for CompositionTransform {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionViewBox(::windows::core::IUnknown);
 impl CompositionViewBox {
@@ -19152,7 +18635,6 @@ impl CompositionViewBox {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -19165,7 +18647,6 @@ impl CompositionViewBox {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -19233,7 +18714,6 @@ impl CompositionViewBox {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -19260,7 +18740,6 @@ impl CompositionViewBox {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetHorizontalAlignmentRatio)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -19269,13 +18748,11 @@ impl CompositionViewBox {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -19284,7 +18761,6 @@ impl CompositionViewBox {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -19431,7 +18907,6 @@ impl<'a> ::core::convert::From<&CompositionViewBox> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for CompositionViewBox {}
 unsafe impl ::core::marker::Sync for CompositionViewBox {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionVirtualDrawingSurface(::windows::core::IUnknown);
 impl CompositionVirtualDrawingSurface {
@@ -19442,13 +18917,11 @@ impl CompositionVirtualDrawingSurface {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn AlphaMode(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXAlphaMode> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface>(self)?;
@@ -19457,7 +18930,6 @@ impl CompositionVirtualDrawingSurface {
             (::windows::core::Interface::vtable(this).AlphaMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::DirectX::DirectXAlphaMode>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn PixelFormat(&self) -> ::windows::core::Result<super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface>(self)?;
@@ -19466,7 +18938,6 @@ impl CompositionVirtualDrawingSurface {
             (::windows::core::Interface::vtable(this).PixelFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface>(self)?;
@@ -19475,7 +18946,6 @@ impl CompositionVirtualDrawingSurface {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn SizeInt32(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
@@ -19484,31 +18954,26 @@ impl CompositionVirtualDrawingSurface {
             (::windows::core::Interface::vtable(this).SizeInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::SizeInt32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Resize(&self, sizepixels: super::super::Graphics::SizeInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Resize)(::windows::core::Interface::as_raw(this), sizepixels).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Scroll(&self, offset: super::super::Graphics::PointInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Scroll)(::windows::core::Interface::as_raw(this), offset).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn ScrollRect(&self, offset: super::super::Graphics::PointInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ScrollRect)(::windows::core::Interface::as_raw(this), offset, scrollrect).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn ScrollWithClip(&self, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).ScrollWithClip)(::windows::core::Interface::as_raw(this), offset, cliprect).ok() }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn ScrollRectWithClip(&self, offset: super::super::Graphics::PointInt32, cliprect: super::super::Graphics::RectInt32, scrollrect: super::super::Graphics::RectInt32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionDrawingSurface2>(self)?;
@@ -19521,7 +18986,6 @@ impl CompositionVirtualDrawingSurface {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -19589,7 +19053,6 @@ impl CompositionVirtualDrawingSurface {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -19605,7 +19068,6 @@ impl CompositionVirtualDrawingSurface {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics\"`*"]
     #[cfg(feature = "Graphics")]
     pub fn Trim(&self, rects: &[super::super::Graphics::RectInt32]) -> ::windows::core::Result<()> {
         let this = self;
@@ -19764,7 +19226,6 @@ impl<'a> ::core::convert::From<&CompositionVirtualDrawingSurface> for ::windows:
 }
 unsafe impl ::core::marker::Send for CompositionVirtualDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionVirtualDrawingSurface {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CompositionVisualSurface(::windows::core::IUnknown);
 impl CompositionVisualSurface {
@@ -19775,7 +19236,6 @@ impl CompositionVisualSurface {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -19788,7 +19248,6 @@ impl CompositionVisualSurface {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -19856,7 +19315,6 @@ impl CompositionVisualSurface {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -19886,7 +19344,6 @@ impl CompositionVisualSurface {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSourceVisual)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SourceOffset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -19895,13 +19352,11 @@ impl CompositionVisualSurface {
             (::windows::core::Interface::vtable(this).SourceOffset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSourceOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSourceOffset)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SourceSize(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -19910,7 +19365,6 @@ impl CompositionVisualSurface {
             (::windows::core::Interface::vtable(this).SourceSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSourceSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -20054,7 +19508,6 @@ impl<'a> ::core::convert::From<&CompositionVisualSurface> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for CompositionVisualSurface {}
 unsafe impl ::core::marker::Sync for CompositionVisualSurface {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct Compositor(::windows::core::IUnknown);
 impl Compositor {
@@ -20065,7 +19518,6 @@ impl Compositor {
         static SHARED: ::windows::core::FactoryCache<Compositor, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
         SHARED.call(callback)
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -20099,7 +19551,6 @@ impl Compositor {
             (::windows::core::Interface::vtable(this).CreateContainerVisual)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContainerVisual>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateCubicBezierEasingFunction(&self, controlpoint1: super::super::Foundation::Numerics::Vector2, controlpoint2: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<CubicBezierEasingFunction> {
         let this = self;
@@ -20108,7 +19559,6 @@ impl Compositor {
             (::windows::core::Interface::vtable(this).CreateCubicBezierEasingFunction)(::windows::core::Interface::as_raw(this), controlpoint1, controlpoint2, result__.as_mut_ptr()).from_abi::<CubicBezierEasingFunction>(result__)
         }
     }
-    #[doc = "*Required features: `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn CreateEffectFactory<'a, P0, E0>(&self, graphicseffect: P0) -> ::windows::core::Result<CompositionEffectFactory>
     where
@@ -20121,7 +19571,6 @@ impl Compositor {
             (::windows::core::Interface::vtable(this).CreateEffectFactory)(::windows::core::Interface::as_raw(this), graphicseffect.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<CompositionEffectFactory>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Graphics_Effects\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Effects"))]
     pub fn CreateEffectFactoryWithProperties<'a, P0, E0, P1, E1>(&self, graphicseffect: P0, animatableproperties: P1) -> ::windows::core::Result<CompositionEffectFactory>
     where
@@ -20532,7 +19981,6 @@ impl Compositor {
             (::windows::core::Interface::vtable(this).CreateViewBox)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompositionViewBox>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestCommitAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<ICompositor5>(self)?;
@@ -20582,7 +20030,6 @@ impl Compositor {
             (::windows::core::Interface::vtable(this).CreateBooleanKeyFrameAnimation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BooleanKeyFrameAnimation>(result__)
         }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
@@ -20612,7 +20059,6 @@ impl Compositor {
             (::windows::core::Interface::vtable(this).CreateRectangleClipWithSides)(::windows::core::Interface::as_raw(this), left, top, right, bottom, result__.as_mut_ptr()).from_abi::<RectangleClip>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CreateRectangleClipWithSidesAndRadius(&self, left: f32, top: f32, right: f32, bottom: f32, topleftradius: super::super::Foundation::Numerics::Vector2, toprightradius: super::super::Foundation::Numerics::Vector2, bottomrightradius: super::super::Foundation::Numerics::Vector2, bottomleftradius: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<RectangleClip> {
         let this = &::windows::core::Interface::cast::<ICompositor7>(self)?;
@@ -20765,7 +20211,6 @@ impl<'a> ::core::convert::TryFrom<&Compositor> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for Compositor {}
 unsafe impl ::core::marker::Sync for Compositor {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ContainerVisual(::windows::core::IUnknown);
 impl ContainerVisual {
@@ -20776,7 +20221,6 @@ impl ContainerVisual {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -20789,7 +20233,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -20857,7 +20300,6 @@ impl ContainerVisual {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -20880,7 +20322,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -20889,7 +20330,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -20917,7 +20357,6 @@ impl ContainerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -20926,7 +20365,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -20968,7 +20406,6 @@ impl ContainerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -20977,7 +20414,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -20994,7 +20430,6 @@ impl ContainerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21003,7 +20438,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21038,7 +20472,6 @@ impl ContainerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21047,13 +20480,11 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).RotationAxis)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAxis)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21062,13 +20493,11 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21077,13 +20506,11 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21092,7 +20519,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21112,7 +20538,6 @@ impl ContainerVisual {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParentForTransform)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -21121,13 +20546,11 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).RelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -21136,7 +20559,6 @@ impl ContainerVisual {
             (::windows::core::Interface::vtable(this).RelativeSizeAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -21298,7 +20720,6 @@ impl<'a> ::core::convert::From<&ContainerVisual> for ::windows::core::InParam<'a
 }
 unsafe impl ::core::marker::Send for ContainerVisual {}
 unsafe impl ::core::marker::Sync for ContainerVisual {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct CubicBezierEasingFunction(::windows::core::IUnknown);
 impl CubicBezierEasingFunction {
@@ -21309,7 +20730,6 @@ impl CubicBezierEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -21322,7 +20742,6 @@ impl CubicBezierEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -21390,7 +20809,6 @@ impl CubicBezierEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -21406,7 +20824,6 @@ impl CubicBezierEasingFunction {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ControlPoint1(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -21415,7 +20832,6 @@ impl CubicBezierEasingFunction {
             (::windows::core::Interface::vtable(this).ControlPoint1)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn ControlPoint2(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -21558,7 +20974,6 @@ impl<'a> ::core::convert::From<&CubicBezierEasingFunction> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for CubicBezierEasingFunction {}
 unsafe impl ::core::marker::Sync for CubicBezierEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct DelegatedInkTrailVisual(::windows::core::IUnknown);
 impl DelegatedInkTrailVisual {
@@ -21569,7 +20984,6 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -21582,7 +20996,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -21650,7 +21063,6 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -21666,7 +21078,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AddTrailPoints(&self, inkpoints: &[InkTrailPoint]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -21675,7 +21086,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).AddTrailPoints)(::windows::core::Interface::as_raw(this), inkpoints.len() as u32, inkpoints.as_ptr(), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AddTrailPointsWithPrediction(&self, inkpoints: &[InkTrailPoint], predictedinkpoints: &[InkTrailPoint]) -> ::windows::core::Result<u32> {
         let this = self;
@@ -21712,7 +21122,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).CreateForSwapChain)(::windows::core::Interface::as_raw(this), compositor.into().abi(), swapchain.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DelegatedInkTrailVisual>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21721,7 +21130,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21749,7 +21157,6 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21758,7 +21165,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21800,7 +21206,6 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21809,7 +21214,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21826,7 +21230,6 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21835,7 +21238,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21870,7 +21272,6 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21879,13 +21280,11 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).RotationAxis)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAxis)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21894,13 +21293,11 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21909,13 +21306,11 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21924,7 +21319,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -21944,7 +21338,6 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParentForTransform)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -21953,13 +21346,11 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).RelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -21968,7 +21359,6 @@ impl DelegatedInkTrailVisual {
             (::windows::core::Interface::vtable(this).RelativeSizeAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -22135,7 +21525,6 @@ impl<'a> ::core::convert::From<&DelegatedInkTrailVisual> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for DelegatedInkTrailVisual {}
 unsafe impl ::core::marker::Sync for DelegatedInkTrailVisual {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct DistantLight(::windows::core::IUnknown);
 impl DistantLight {
@@ -22146,7 +21535,6 @@ impl DistantLight {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -22184,7 +21572,6 @@ impl DistantLight {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -22252,7 +21639,6 @@ impl DistantLight {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -22293,7 +21679,6 @@ impl DistantLight {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCoordinateSpace)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Direction(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -22302,7 +21687,6 @@ impl DistantLight {
             (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetDirection(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -22453,7 +21837,6 @@ impl<'a> ::core::convert::From<&DistantLight> for ::windows::core::InParam<'a, C
 }
 unsafe impl ::core::marker::Send for DistantLight {}
 unsafe impl ::core::marker::Sync for DistantLight {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct DropShadow(::windows::core::IUnknown);
 impl DropShadow {
@@ -22464,7 +21847,6 @@ impl DropShadow {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -22477,7 +21859,6 @@ impl DropShadow {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -22545,7 +21926,6 @@ impl DropShadow {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -22597,7 +21977,6 @@ impl DropShadow {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetMask)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -22606,7 +21985,6 @@ impl DropShadow {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -22768,7 +22146,6 @@ impl<'a> ::core::convert::From<&DropShadow> for ::windows::core::InParam<'a, Com
 }
 unsafe impl ::core::marker::Send for DropShadow {}
 unsafe impl ::core::marker::Sync for DropShadow {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ElasticEasingFunction(::windows::core::IUnknown);
 impl ElasticEasingFunction {
@@ -22779,7 +22156,6 @@ impl ElasticEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -22792,7 +22168,6 @@ impl ElasticEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -22860,7 +22235,6 @@ impl ElasticEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -23031,7 +22405,6 @@ impl<'a> ::core::convert::From<&ElasticEasingFunction> for ::windows::core::InPa
 }
 unsafe impl ::core::marker::Send for ElasticEasingFunction {}
 unsafe impl ::core::marker::Sync for ElasticEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ExponentialEasingFunction(::windows::core::IUnknown);
 impl ExponentialEasingFunction {
@@ -23042,7 +22415,6 @@ impl ExponentialEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -23055,7 +22427,6 @@ impl ExponentialEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -23123,7 +22494,6 @@ impl ExponentialEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -23287,7 +22657,6 @@ impl<'a> ::core::convert::From<&ExponentialEasingFunction> for ::windows::core::
 }
 unsafe impl ::core::marker::Send for ExponentialEasingFunction {}
 unsafe impl ::core::marker::Sync for ExponentialEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ExpressionAnimation(::windows::core::IUnknown);
 impl ExpressionAnimation {
@@ -23298,7 +22667,6 @@ impl ExpressionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -23316,19 +22684,16 @@ impl ExpressionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -23345,19 +22710,16 @@ impl ExpressionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -23378,7 +22740,6 @@ impl ExpressionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -23402,7 +22763,6 @@ impl ExpressionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -23470,7 +22830,6 @@ impl ExpressionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -23712,7 +23071,6 @@ pub struct IAnimationControllerStatics_Vtbl {
     pub MaxPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub MinPlaybackRate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct IAnimationObject(::windows::core::IUnknown);
 impl IAnimationObject {
@@ -24019,7 +23377,6 @@ pub struct ICompositionAnimation4_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub SetExpressionReferenceParameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, parametername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, source: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ICompositionAnimationBase(::windows::core::IUnknown);
 impl ICompositionAnimationBase {}
@@ -25517,7 +24874,6 @@ pub struct ICompositionSpriteShape_Vtbl {
     pub StrokeThickness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
     pub SetStrokeThickness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ICompositionSupportsSystemBackdrop(::windows::core::IUnknown);
 impl ICompositionSupportsSystemBackdrop {
@@ -25600,7 +24956,6 @@ pub struct ICompositionSupportsSystemBackdrop_Vtbl {
     pub SystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetSystemBackdrop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ICompositionSurface(::windows::core::IUnknown);
 impl ICompositionSurface {}
@@ -25758,7 +25113,6 @@ pub struct ICompositionSurfaceBrush3_Vtbl {
     pub SnapToPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetSnapToPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ICompositionSurfaceFacade(::windows::core::IUnknown);
 impl ICompositionSurfaceFacade {
@@ -27404,7 +26758,6 @@ pub struct IVisualCollection_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, child: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct IVisualElement(::windows::core::IUnknown);
 impl IVisualElement {}
@@ -27470,7 +26823,6 @@ unsafe impl ::windows::core::Interface for IVisualElement {
 pub struct IVisualElement_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct IVisualElement2(::windows::core::IUnknown);
 impl IVisualElement2 {
@@ -27573,7 +26925,6 @@ pub struct IVisualUnorderedCollection_Vtbl {
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub RemoveAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ImplicitAnimationCollection(::windows::core::IUnknown);
 impl ImplicitAnimationCollection {
@@ -27584,7 +26935,6 @@ impl ImplicitAnimationCollection {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -27597,7 +26947,6 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -27665,7 +27014,6 @@ impl ImplicitAnimationCollection {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -27681,7 +27029,6 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ICompositionAnimationBase>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ICompositionAnimationBase>>>(self)?;
@@ -27690,7 +27037,6 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ICompositionAnimationBase>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<ICompositionAnimationBase> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
@@ -27699,7 +27045,6 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<ICompositionAnimationBase>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
@@ -27708,7 +27053,6 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
@@ -27717,7 +27061,6 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ICompositionAnimationBase>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
@@ -27726,7 +27069,6 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ICompositionAnimationBase>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert<'a, P0, E0>(&self, key: &::windows::core::HSTRING, value: P0) -> ::windows::core::Result<bool>
     where
@@ -27739,13 +27081,11 @@ impl ImplicitAnimationCollection {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ICompositionAnimationBase>>(self)?;
@@ -27930,7 +27270,6 @@ impl<'a> ::core::convert::From<&ImplicitAnimationCollection> for ::windows::core
 }
 unsafe impl ::core::marker::Send for ImplicitAnimationCollection {}
 unsafe impl ::core::marker::Sync for ImplicitAnimationCollection {}
-#[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
 pub struct InitialValueExpressionCollection(::windows::core::IUnknown);
@@ -27943,7 +27282,6 @@ impl InitialValueExpressionCollection {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -27956,7 +27294,6 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -28024,7 +27361,6 @@ impl InitialValueExpressionCollection {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -28040,7 +27376,6 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(self)?;
@@ -28049,7 +27384,6 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Lookup(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -28058,7 +27392,6 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).Lookup)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
@@ -28067,7 +27400,6 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn HasKey(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
@@ -28076,7 +27408,6 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).HasKey)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetView(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -28085,7 +27416,6 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).GetView)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Insert(&self, key: &::windows::core::HSTRING, value: &::windows::core::HSTRING) -> ::windows::core::Result<bool> {
         let this = self;
@@ -28094,13 +27424,11 @@ impl InitialValueExpressionCollection {
             (::windows::core::Interface::vtable(this).Insert)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Remove(&self, key: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
@@ -28307,7 +27635,6 @@ unsafe impl ::core::marker::Send for InitialValueExpressionCollection {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for InitialValueExpressionCollection {}
 #[repr(C)]
-#[doc = "*Required features: `\"UI_Composition\"`, `\"Foundation\"`*"]
 #[cfg(feature = "Foundation")]
 pub struct InkTrailPoint {
     pub Point: super::super::Foundation::Point,
@@ -28353,7 +27680,6 @@ impl ::core::default::Default for InkTrailPoint {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct InsetClip(::windows::core::IUnknown);
 impl InsetClip {
@@ -28364,13 +27690,11 @@ impl InsetClip {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -28379,13 +27703,11 @@ impl InsetClip {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -28394,13 +27716,11 @@ impl InsetClip {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -28409,7 +27729,6 @@ impl InsetClip {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -28437,7 +27756,6 @@ impl InsetClip {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -28446,13 +27764,11 @@ impl InsetClip {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -28461,7 +27777,6 @@ impl InsetClip {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -28474,7 +27789,6 @@ impl InsetClip {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -28542,7 +27856,6 @@ impl InsetClip {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -28736,7 +28049,6 @@ impl<'a> ::core::convert::From<&InsetClip> for ::windows::core::InParam<'a, Comp
 }
 unsafe impl ::core::marker::Send for InsetClip {}
 unsafe impl ::core::marker::Sync for InsetClip {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct KeyFrameAnimation(::windows::core::IUnknown);
 impl KeyFrameAnimation {
@@ -28747,7 +28059,6 @@ impl KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -28765,19 +28076,16 @@ impl KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -28794,19 +28102,16 @@ impl KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -28827,7 +28132,6 @@ impl KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -28851,7 +28155,6 @@ impl KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -28919,7 +28222,6 @@ impl KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -28935,7 +28237,6 @@ impl KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -28944,13 +28245,11 @@ impl KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -28959,7 +28258,6 @@ impl KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -29191,7 +28489,6 @@ impl<'a> ::core::convert::From<&KeyFrameAnimation> for ::windows::core::InParam<
 }
 unsafe impl ::core::marker::Send for KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for KeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct LayerVisual(::windows::core::IUnknown);
 impl LayerVisual {
@@ -29202,7 +28499,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -29215,7 +28511,6 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -29283,7 +28578,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -29334,7 +28628,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<ILayerVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetShadow)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29343,7 +28636,6 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29371,7 +28663,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29380,7 +28671,6 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29422,7 +28712,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29431,7 +28720,6 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29448,7 +28736,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29457,7 +28744,6 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29492,7 +28778,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29501,13 +28786,11 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).RotationAxis)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAxis)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29516,13 +28799,11 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29531,13 +28812,11 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29546,7 +28825,6 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -29566,7 +28844,6 @@ impl LayerVisual {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParentForTransform)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -29575,13 +28852,11 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).RelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -29590,7 +28865,6 @@ impl LayerVisual {
             (::windows::core::Interface::vtable(this).RelativeSizeAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -29767,7 +29041,6 @@ impl<'a> ::core::convert::From<&LayerVisual> for ::windows::core::InParam<'a, Co
 }
 unsafe impl ::core::marker::Send for LayerVisual {}
 unsafe impl ::core::marker::Sync for LayerVisual {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct LinearEasingFunction(::windows::core::IUnknown);
 impl LinearEasingFunction {
@@ -29778,7 +29051,6 @@ impl LinearEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -29791,7 +29063,6 @@ impl LinearEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -29859,7 +29130,6 @@ impl LinearEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -30009,7 +29279,6 @@ impl<'a> ::core::convert::From<&LinearEasingFunction> for ::windows::core::InPar
 }
 unsafe impl ::core::marker::Send for LinearEasingFunction {}
 unsafe impl ::core::marker::Sync for LinearEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct NaturalMotionAnimation(::windows::core::IUnknown);
 impl NaturalMotionAnimation {
@@ -30020,7 +29289,6 @@ impl NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -30038,19 +29306,16 @@ impl NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -30067,19 +29332,16 @@ impl NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -30100,7 +29362,6 @@ impl NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -30124,7 +29385,6 @@ impl NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -30192,7 +29452,6 @@ impl NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -30219,7 +29478,6 @@ impl NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -30228,7 +29486,6 @@ impl NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -30398,7 +29655,6 @@ impl<'a> ::core::convert::From<&NaturalMotionAnimation> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for NaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct PathKeyFrameAnimation(::windows::core::IUnknown);
 impl PathKeyFrameAnimation {
@@ -30409,7 +29665,6 @@ impl PathKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -30427,19 +29682,16 @@ impl PathKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -30456,19 +29708,16 @@ impl PathKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -30489,7 +29738,6 @@ impl PathKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -30513,7 +29761,6 @@ impl PathKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -30581,7 +29828,6 @@ impl PathKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -30597,7 +29843,6 @@ impl PathKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -30606,13 +29851,11 @@ impl PathKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -30621,7 +29864,6 @@ impl PathKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -30883,7 +30125,6 @@ impl<'a> ::core::convert::From<&PathKeyFrameAnimation> for ::windows::core::InPa
 }
 unsafe impl ::core::marker::Send for PathKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for PathKeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct PointLight(::windows::core::IUnknown);
 impl PointLight {
@@ -30894,7 +30135,6 @@ impl PointLight {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -30932,7 +30172,6 @@ impl PointLight {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -31000,7 +30239,6 @@ impl PointLight {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -31063,7 +30301,6 @@ impl PointLight {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLinearAttenuation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -31072,7 +30309,6 @@ impl PointLight {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -31256,7 +30492,6 @@ impl<'a> ::core::convert::From<&PointLight> for ::windows::core::InParam<'a, Com
 }
 unsafe impl ::core::marker::Send for PointLight {}
 unsafe impl ::core::marker::Sync for PointLight {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct PowerEasingFunction(::windows::core::IUnknown);
 impl PowerEasingFunction {
@@ -31267,7 +30502,6 @@ impl PowerEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -31280,7 +30514,6 @@ impl PowerEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -31348,7 +30581,6 @@ impl PowerEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -31512,7 +30744,6 @@ impl<'a> ::core::convert::From<&PowerEasingFunction> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for PowerEasingFunction {}
 unsafe impl ::core::marker::Sync for PowerEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct QuaternionKeyFrameAnimation(::windows::core::IUnknown);
 impl QuaternionKeyFrameAnimation {
@@ -31523,7 +30754,6 @@ impl QuaternionKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -31541,19 +30771,16 @@ impl QuaternionKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -31570,19 +30797,16 @@ impl QuaternionKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -31603,7 +30827,6 @@ impl QuaternionKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -31627,7 +30850,6 @@ impl QuaternionKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -31695,7 +30917,6 @@ impl QuaternionKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -31711,7 +30932,6 @@ impl QuaternionKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -31720,13 +30940,11 @@ impl QuaternionKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -31735,7 +30953,6 @@ impl QuaternionKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -31814,13 +31031,11 @@ impl QuaternionKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertKeyFrame)(::windows::core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrameWithEasingFunction<'a, P0>(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Quaternion, easingfunction: P0) -> ::windows::core::Result<()>
     where
@@ -31997,7 +31212,6 @@ impl<'a> ::core::convert::From<&QuaternionKeyFrameAnimation> for ::windows::core
 }
 unsafe impl ::core::marker::Send for QuaternionKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for QuaternionKeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct RectangleClip(::windows::core::IUnknown);
 impl RectangleClip {
@@ -32008,13 +31222,11 @@ impl RectangleClip {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -32023,13 +31235,11 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetAnchorPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -32038,13 +31248,11 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetCenterPoint)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -32053,7 +31261,6 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -32081,7 +31288,6 @@ impl RectangleClip {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -32090,13 +31296,11 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix3x2> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -32105,7 +31309,6 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix3x2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionClip2>(self)?;
@@ -32118,7 +31321,6 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -32186,7 +31388,6 @@ impl RectangleClip {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -32213,7 +31414,6 @@ impl RectangleClip {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBottom)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn BottomLeftRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -32222,13 +31422,11 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).BottomLeftRadius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetBottomLeftRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBottomLeftRadius)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn BottomRightRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -32237,7 +31435,6 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).BottomRightRadius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetBottomRightRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -32276,7 +31473,6 @@ impl RectangleClip {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTop)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TopLeftRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -32285,13 +31481,11 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).TopLeftRadius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTopLeftRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetTopLeftRadius)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TopRightRadius(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -32300,7 +31494,6 @@ impl RectangleClip {
             (::windows::core::Interface::vtable(this).TopRightRadius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTopRightRadius(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -32440,7 +31633,6 @@ impl<'a> ::core::convert::From<&RectangleClip> for ::windows::core::InParam<'a, 
 }
 unsafe impl ::core::marker::Send for RectangleClip {}
 unsafe impl ::core::marker::Sync for RectangleClip {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct RedirectVisual(::windows::core::IUnknown);
 impl RedirectVisual {
@@ -32451,7 +31643,6 @@ impl RedirectVisual {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -32464,7 +31655,6 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -32532,7 +31722,6 @@ impl RedirectVisual {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -32569,7 +31758,6 @@ impl RedirectVisual {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32578,7 +31766,6 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32606,7 +31793,6 @@ impl RedirectVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32615,7 +31801,6 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32657,7 +31842,6 @@ impl RedirectVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32666,7 +31850,6 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32683,7 +31866,6 @@ impl RedirectVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32692,7 +31874,6 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32727,7 +31908,6 @@ impl RedirectVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32736,13 +31916,11 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).RotationAxis)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAxis)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32751,13 +31929,11 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32766,13 +31942,11 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32781,7 +31955,6 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -32801,7 +31974,6 @@ impl RedirectVisual {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParentForTransform)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -32810,13 +31982,11 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).RelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -32825,7 +31995,6 @@ impl RedirectVisual {
             (::windows::core::Interface::vtable(this).RelativeSizeAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -33002,7 +32171,6 @@ impl<'a> ::core::convert::From<&RedirectVisual> for ::windows::core::InParam<'a,
 }
 unsafe impl ::core::marker::Send for RedirectVisual {}
 unsafe impl ::core::marker::Sync for RedirectVisual {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct RenderingDeviceReplacedEventArgs(::windows::core::IUnknown);
 impl RenderingDeviceReplacedEventArgs {
@@ -33013,7 +32181,6 @@ impl RenderingDeviceReplacedEventArgs {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -33026,7 +32193,6 @@ impl RenderingDeviceReplacedEventArgs {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -33094,7 +32260,6 @@ impl RenderingDeviceReplacedEventArgs {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -33236,7 +32401,6 @@ impl<'a> ::core::convert::From<&RenderingDeviceReplacedEventArgs> for ::windows:
 }
 unsafe impl ::core::marker::Send for RenderingDeviceReplacedEventArgs {}
 unsafe impl ::core::marker::Sync for RenderingDeviceReplacedEventArgs {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ScalarKeyFrameAnimation(::windows::core::IUnknown);
 impl ScalarKeyFrameAnimation {
@@ -33247,7 +32411,6 @@ impl ScalarKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -33265,19 +32428,16 @@ impl ScalarKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -33294,19 +32454,16 @@ impl ScalarKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -33327,7 +32484,6 @@ impl ScalarKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -33351,7 +32507,6 @@ impl ScalarKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -33419,7 +32574,6 @@ impl ScalarKeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -33435,7 +32589,6 @@ impl ScalarKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -33444,13 +32597,11 @@ impl ScalarKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -33459,7 +32610,6 @@ impl ScalarKeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -33717,7 +32867,6 @@ impl<'a> ::core::convert::From<&ScalarKeyFrameAnimation> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for ScalarKeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for ScalarKeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl ScalarNaturalMotionAnimation {
@@ -33728,7 +32877,6 @@ impl ScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -33746,19 +32894,16 @@ impl ScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -33775,19 +32920,16 @@ impl ScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -33808,7 +32950,6 @@ impl ScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -33832,7 +32973,6 @@ impl ScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -33900,7 +33040,6 @@ impl ScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -33927,7 +33066,6 @@ impl ScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -33936,7 +33074,6 @@ impl ScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -33953,7 +33090,6 @@ impl ScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -33962,7 +33098,6 @@ impl ScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -33972,7 +33107,6 @@ impl ScalarNaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = self;
@@ -33981,7 +33115,6 @@ impl ScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -34170,7 +33303,6 @@ impl<'a> ::core::convert::From<&ScalarNaturalMotionAnimation> for ::windows::cor
 }
 unsafe impl ::core::marker::Send for ScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for ScalarNaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct ShapeVisual(::windows::core::IUnknown);
 impl ShapeVisual {
@@ -34181,7 +33313,6 @@ impl ShapeVisual {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -34194,7 +33325,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -34262,7 +33392,6 @@ impl ShapeVisual {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -34285,7 +33414,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VisualCollection>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Shapes(&self) -> ::windows::core::Result<CompositionShapeCollection> {
         let this = self;
@@ -34308,7 +33436,6 @@ impl ShapeVisual {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetViewBox)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34317,7 +33444,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34345,7 +33471,6 @@ impl ShapeVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34354,7 +33479,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34396,7 +33520,6 @@ impl ShapeVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34405,7 +33528,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34422,7 +33544,6 @@ impl ShapeVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34431,7 +33552,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34466,7 +33586,6 @@ impl ShapeVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34475,13 +33594,11 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).RotationAxis)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAxis)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34490,13 +33607,11 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34505,13 +33620,11 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34520,7 +33633,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -34540,7 +33652,6 @@ impl ShapeVisual {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParentForTransform)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -34549,13 +33660,11 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).RelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -34564,7 +33673,6 @@ impl ShapeVisual {
             (::windows::core::Interface::vtable(this).RelativeSizeAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -34741,7 +33849,6 @@ impl<'a> ::core::convert::From<&ShapeVisual> for ::windows::core::InParam<'a, Co
 }
 unsafe impl ::core::marker::Send for ShapeVisual {}
 unsafe impl ::core::marker::Sync for ShapeVisual {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct SineEasingFunction(::windows::core::IUnknown);
 impl SineEasingFunction {
@@ -34752,7 +33859,6 @@ impl SineEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -34765,7 +33871,6 @@ impl SineEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -34833,7 +33938,6 @@ impl SineEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -34990,7 +34094,6 @@ impl<'a> ::core::convert::From<&SineEasingFunction> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for SineEasingFunction {}
 unsafe impl ::core::marker::Sync for SineEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct SpotLight(::windows::core::IUnknown);
 impl SpotLight {
@@ -35001,7 +34104,6 @@ impl SpotLight {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -35039,7 +34141,6 @@ impl SpotLight {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -35107,7 +34208,6 @@ impl SpotLight {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -35148,7 +34248,6 @@ impl SpotLight {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetCoordinateSpace)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Direction(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -35157,7 +34256,6 @@ impl SpotLight {
             (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetDirection(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -35207,7 +34305,6 @@ impl SpotLight {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetLinearAttenuation)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -35216,7 +34313,6 @@ impl SpotLight {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -35444,7 +34540,6 @@ impl<'a> ::core::convert::From<&SpotLight> for ::windows::core::InParam<'a, Comp
 }
 unsafe impl ::core::marker::Send for SpotLight {}
 unsafe impl ::core::marker::Sync for SpotLight {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct SpringScalarNaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringScalarNaturalMotionAnimation {
@@ -35455,7 +34550,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -35473,19 +34567,16 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -35502,19 +34593,16 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -35535,7 +34623,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -35559,7 +34646,6 @@ impl SpringScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -35627,7 +34713,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -35654,7 +34739,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -35663,7 +34747,6 @@ impl SpringScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -35680,7 +34763,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
@@ -35689,7 +34771,6 @@ impl SpringScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -35699,7 +34780,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f32>> {
         let this = &::windows::core::Interface::cast::<IScalarNaturalMotionAnimation>(self)?;
@@ -35708,7 +34788,6 @@ impl SpringScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f32>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -35740,7 +34819,6 @@ impl SpringScalarNaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDampingRatio)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -35749,7 +34827,6 @@ impl SpringScalarNaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Period)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
@@ -35938,7 +35015,6 @@ impl<'a> ::core::convert::From<&SpringScalarNaturalMotionAnimation> for ::window
 }
 unsafe impl ::core::marker::Send for SpringScalarNaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringScalarNaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct SpringVector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringVector2NaturalMotionAnimation {
@@ -35949,7 +35025,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -35967,19 +35042,16 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -35996,19 +35068,16 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -36029,7 +35098,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -36053,7 +35121,6 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -36121,7 +35188,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -36148,7 +35214,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -36157,7 +35222,6 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -36185,7 +35249,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDampingRatio)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -36194,13 +35257,11 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Period)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPeriod)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -36209,7 +35270,6 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -36219,7 +35279,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -36228,7 +35287,6 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -36238,7 +35296,6 @@ impl SpringVector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -36247,7 +35304,6 @@ impl SpringVector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector2NaturalMotionAnimation>(self)?;
@@ -36436,7 +35492,6 @@ impl<'a> ::core::convert::From<&SpringVector2NaturalMotionAnimation> for ::windo
 }
 unsafe impl ::core::marker::Send for SpringVector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringVector2NaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct SpringVector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl SpringVector3NaturalMotionAnimation {
@@ -36447,7 +35502,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -36465,19 +35519,16 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -36494,19 +35545,16 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -36527,7 +35575,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -36551,7 +35598,6 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -36619,7 +35665,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -36646,7 +35691,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -36655,7 +35699,6 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -36683,7 +35726,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetDampingRatio)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Period(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -36692,13 +35734,11 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Period)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPeriod(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetPeriod)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -36707,7 +35747,6 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -36717,7 +35756,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -36726,7 +35764,6 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -36736,7 +35773,6 @@ impl SpringVector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -36745,7 +35781,6 @@ impl SpringVector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVector3NaturalMotionAnimation>(self)?;
@@ -36934,7 +35969,6 @@ impl<'a> ::core::convert::From<&SpringVector3NaturalMotionAnimation> for ::windo
 }
 unsafe impl ::core::marker::Send for SpringVector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for SpringVector3NaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct SpriteVisual(::windows::core::IUnknown);
 impl SpriteVisual {
@@ -36945,7 +35979,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -36958,7 +35991,6 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -37026,7 +36058,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -37077,7 +36108,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<ISpriteVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetShadow)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37086,7 +36116,6 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37114,7 +36143,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37123,7 +36151,6 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37165,7 +36192,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37174,7 +36200,6 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37191,7 +36216,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37200,7 +36224,6 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37235,7 +36258,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37244,13 +36266,11 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).RotationAxis)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAxis)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37259,13 +36279,11 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37274,13 +36292,11 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37289,7 +36305,6 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual>(self)?;
@@ -37309,7 +36324,6 @@ impl SpriteVisual {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParentForTransform)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -37318,13 +36332,11 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).RelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -37333,7 +36345,6 @@ impl SpriteVisual {
             (::windows::core::Interface::vtable(this).RelativeSizeAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -37510,7 +36521,6 @@ impl<'a> ::core::convert::From<&SpriteVisual> for ::windows::core::InParam<'a, C
 }
 unsafe impl ::core::marker::Send for SpriteVisual {}
 unsafe impl ::core::marker::Sync for SpriteVisual {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct StepEasingFunction(::windows::core::IUnknown);
 impl StepEasingFunction {
@@ -37521,7 +36531,6 @@ impl StepEasingFunction {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -37534,7 +36543,6 @@ impl StepEasingFunction {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -37602,7 +36610,6 @@ impl StepEasingFunction {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -37807,7 +36814,6 @@ impl<'a> ::core::convert::From<&StepEasingFunction> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for StepEasingFunction {}
 unsafe impl ::core::marker::Sync for StepEasingFunction {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct Vector2KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector2KeyFrameAnimation {
@@ -37818,7 +36824,6 @@ impl Vector2KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -37836,19 +36841,16 @@ impl Vector2KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -37865,19 +36867,16 @@ impl Vector2KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -37898,7 +36897,6 @@ impl Vector2KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -37922,7 +36920,6 @@ impl Vector2KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -37990,7 +36987,6 @@ impl Vector2KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -38006,7 +37002,6 @@ impl Vector2KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -38015,13 +37010,11 @@ impl Vector2KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -38030,7 +37023,6 @@ impl Vector2KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -38109,13 +37101,11 @@ impl Vector2KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertKeyFrame)(::windows::core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrameWithEasingFunction<'a, P0>(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector2, easingfunction: P0) -> ::windows::core::Result<()>
     where
@@ -38292,7 +37282,6 @@ impl<'a> ::core::convert::From<&Vector2KeyFrameAnimation> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for Vector2KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector2KeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct Vector2NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector2NaturalMotionAnimation {
@@ -38303,7 +37292,6 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -38321,19 +37309,16 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -38350,19 +37335,16 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -38383,7 +37365,6 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -38407,7 +37388,6 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -38475,7 +37455,6 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -38502,7 +37481,6 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -38511,7 +37489,6 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -38528,7 +37505,6 @@ impl Vector2NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
@@ -38537,7 +37513,6 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -38547,7 +37522,6 @@ impl Vector2NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>> {
         let this = self;
@@ -38556,7 +37530,6 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -38566,7 +37539,6 @@ impl Vector2NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -38575,7 +37547,6 @@ impl Vector2NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -38749,7 +37720,6 @@ impl<'a> ::core::convert::From<&Vector2NaturalMotionAnimation> for ::windows::co
 }
 unsafe impl ::core::marker::Send for Vector2NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for Vector2NaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct Vector3KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector3KeyFrameAnimation {
@@ -38760,7 +37730,6 @@ impl Vector3KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -38778,19 +37747,16 @@ impl Vector3KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -38807,19 +37773,16 @@ impl Vector3KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -38840,7 +37803,6 @@ impl Vector3KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -38864,7 +37826,6 @@ impl Vector3KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -38932,7 +37893,6 @@ impl Vector3KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -38948,7 +37908,6 @@ impl Vector3KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -38957,13 +37916,11 @@ impl Vector3KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -38972,7 +37929,6 @@ impl Vector3KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -39051,13 +38007,11 @@ impl Vector3KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertKeyFrame)(::windows::core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrameWithEasingFunction<'a, P0>(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector3, easingfunction: P0) -> ::windows::core::Result<()>
     where
@@ -39234,7 +38188,6 @@ impl<'a> ::core::convert::From<&Vector3KeyFrameAnimation> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for Vector3KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector3KeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct Vector3NaturalMotionAnimation(::windows::core::IUnknown);
 impl Vector3NaturalMotionAnimation {
@@ -39245,7 +38198,6 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -39263,19 +38215,16 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -39292,19 +38241,16 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -39325,7 +38271,6 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -39349,7 +38294,6 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -39417,7 +38361,6 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -39444,7 +38387,6 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -39453,7 +38395,6 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
@@ -39470,7 +38411,6 @@ impl Vector3NaturalMotionAnimation {
         let this = &::windows::core::Interface::cast::<INaturalMotionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetStopBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn FinalValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = self;
@@ -39479,7 +38419,6 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).FinalValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetFinalValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -39489,7 +38428,6 @@ impl Vector3NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetFinalValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialValue(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>> {
         let this = self;
@@ -39498,7 +38436,6 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
     where
@@ -39508,7 +38445,6 @@ impl Vector3NaturalMotionAnimation {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetInitialValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InitialVelocity(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -39517,7 +38453,6 @@ impl Vector3NaturalMotionAnimation {
             (::windows::core::Interface::vtable(this).InitialVelocity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetInitialVelocity(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -39691,7 +38626,6 @@ impl<'a> ::core::convert::From<&Vector3NaturalMotionAnimation> for ::windows::co
 }
 unsafe impl ::core::marker::Send for Vector3NaturalMotionAnimation {}
 unsafe impl ::core::marker::Sync for Vector3NaturalMotionAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct Vector4KeyFrameAnimation(::windows::core::IUnknown);
 impl Vector4KeyFrameAnimation {
@@ -39702,7 +38636,6 @@ impl Vector4KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -39720,19 +38653,16 @@ impl Vector4KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetColorParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix3x2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix3x2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetMatrix4x4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetMatrix4x4Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetQuaternionParameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -39749,19 +38679,16 @@ impl Vector4KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetScalarParameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector2Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector2Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector3Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetVector3Parameter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(key), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetVector4Parameter(&self, key: &::windows::core::HSTRING, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation>(self)?;
@@ -39782,7 +38709,6 @@ impl Vector4KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetTarget)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn InitialValueExpressions(&self) -> ::windows::core::Result<InitialValueExpressionCollection> {
         let this = &::windows::core::Interface::cast::<ICompositionAnimation3>(self)?;
@@ -39806,7 +38732,6 @@ impl Vector4KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -39874,7 +38799,6 @@ impl Vector4KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -39890,7 +38814,6 @@ impl Vector4KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn DelayTime(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -39899,13 +38822,11 @@ impl Vector4KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).DelayTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDelayTime(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayTime)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -39914,7 +38835,6 @@ impl Vector4KeyFrameAnimation {
             (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation>(self)?;
@@ -39993,13 +38913,11 @@ impl Vector4KeyFrameAnimation {
         let this = &::windows::core::Interface::cast::<IKeyFrameAnimation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetDelayBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrame(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).InsertKeyFrame)(::windows::core::Interface::as_raw(this), normalizedprogresskey, value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn InsertKeyFrameWithEasingFunction<'a, P0>(&self, normalizedprogresskey: f32, value: super::super::Foundation::Numerics::Vector4, easingfunction: P0) -> ::windows::core::Result<()>
     where
@@ -40176,7 +39094,6 @@ impl<'a> ::core::convert::From<&Vector4KeyFrameAnimation> for ::windows::core::I
 }
 unsafe impl ::core::marker::Send for Vector4KeyFrameAnimation {}
 unsafe impl ::core::marker::Sync for Vector4KeyFrameAnimation {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct Visual(::windows::core::IUnknown);
 impl Visual {
@@ -40187,7 +39104,6 @@ impl Visual {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -40200,7 +39116,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -40268,7 +39183,6 @@ impl Visual {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -40284,7 +39198,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn AnchorPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -40293,7 +39206,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).AnchorPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetAnchorPoint(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
@@ -40321,7 +39233,6 @@ impl Visual {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetBorderMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn CenterPoint(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -40330,7 +39241,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).CenterPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetCenterPoint(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -40372,7 +39282,6 @@ impl Visual {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetIsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -40381,7 +39290,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).Offset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOffset(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
@@ -40398,7 +39306,6 @@ impl Visual {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetOpacity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Orientation(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
@@ -40407,7 +39314,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::Result<()> {
         let this = self;
@@ -40442,7 +39348,6 @@ impl Visual {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAngleInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RotationAxis(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -40451,13 +39356,11 @@ impl Visual {
             (::windows::core::Interface::vtable(this).RotationAxis)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRotationAxis(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetRotationAxis)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Scale(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = self;
@@ -40466,13 +39369,11 @@ impl Visual {
             (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = self;
@@ -40481,13 +39382,11 @@ impl Visual {
             (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetSize(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn TransformMatrix(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Matrix4x4> {
         let this = self;
@@ -40496,7 +39395,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).TransformMatrix)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Matrix4x4>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetTransformMatrix(&self, value: super::super::Foundation::Numerics::Matrix4x4) -> ::windows::core::Result<()> {
         let this = self;
@@ -40516,7 +39414,6 @@ impl Visual {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetParentForTransform)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeOffsetAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector3> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -40525,13 +39422,11 @@ impl Visual {
             (::windows::core::Interface::vtable(this).RelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeOffsetAdjustment(&self, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).SetRelativeOffsetAdjustment)(::windows::core::Interface::as_raw(this), value).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn RelativeSizeAdjustment(&self) -> ::windows::core::Result<super::super::Foundation::Numerics::Vector2> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -40540,7 +39435,6 @@ impl Visual {
             (::windows::core::Interface::vtable(this).RelativeSizeAdjustment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Numerics::Vector2>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetRelativeSizeAdjustment(&self, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IVisual2>(self)?;
@@ -40687,7 +39581,6 @@ impl<'a> ::core::convert::From<&Visual> for ::windows::core::InParam<'a, Composi
 }
 unsafe impl ::core::marker::Send for Visual {}
 unsafe impl ::core::marker::Sync for Visual {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct VisualCollection(::windows::core::IUnknown);
 impl VisualCollection {
@@ -40698,7 +39591,6 @@ impl VisualCollection {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -40711,7 +39603,6 @@ impl VisualCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -40779,7 +39670,6 @@ impl VisualCollection {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -40795,7 +39685,6 @@ impl VisualCollection {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;
@@ -41009,7 +39898,6 @@ impl<'a> ::core::convert::From<&VisualCollection> for ::windows::core::InParam<'
 }
 unsafe impl ::core::marker::Send for VisualCollection {}
 unsafe impl ::core::marker::Sync for VisualCollection {}
-#[doc = "*Required features: `\"UI_Composition\"`*"]
 #[repr(transparent)]
 pub struct VisualUnorderedCollection(::windows::core::IUnknown);
 impl VisualUnorderedCollection {
@@ -41020,7 +39908,6 @@ impl VisualUnorderedCollection {
         let this = &::windows::core::Interface::cast::<IAnimationObject>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -41033,7 +39920,6 @@ impl VisualUnorderedCollection {
             (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compositor>(result__)
         }
     }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
     #[cfg(feature = "UI_Core")]
     pub fn Dispatcher(&self) -> ::windows::core::Result<super::Core::CoreDispatcher> {
         let this = &::windows::core::Interface::cast::<ICompositionObject>(self)?;
@@ -41101,7 +39987,6 @@ impl VisualUnorderedCollection {
         let this = &::windows::core::Interface::cast::<ICompositionObject2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
     }
-    #[doc = "*Required features: `\"System\"`*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = &::windows::core::Interface::cast::<ICompositionObject3>(self)?;
@@ -41117,7 +40002,6 @@ impl VisualUnorderedCollection {
             (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<AnimationController>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<Visual>> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<Visual>>(self)?;

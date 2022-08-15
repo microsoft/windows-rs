@@ -33,7 +33,6 @@ pub struct IProviderSpiConnectionSettingsFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, chipselectline: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ISpiControllerProvider(::windows::core::IUnknown);
 impl ISpiControllerProvider {
@@ -111,7 +110,6 @@ pub struct ISpiControllerProvider_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub GetDeviceProvider: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ISpiDeviceProvider(::windows::core::IUnknown);
 impl ISpiDeviceProvider {
@@ -145,7 +143,6 @@ impl ISpiDeviceProvider {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).TransferFullDuplex)(::windows::core::Interface::as_raw(this), writebuffer.len() as u32, writebuffer.as_ptr(), readbuffer.len() as u32, readbuffer.as_mut_ptr()).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -242,11 +239,9 @@ pub struct ISpiDeviceProvider_Vtbl {
     pub TransferSequential: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
     pub TransferFullDuplex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, writeBuffer_array_size: u32, writebuffer: *const u8, readBuffer_array_size: u32, readbuffer: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ISpiProvider(::windows::core::IUnknown);
 impl ISpiProvider {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllersAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>> {
         let this = self;
@@ -322,7 +317,6 @@ pub struct ISpiProvider_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     GetControllersAsync: usize,
 }
-#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 pub struct ProviderSpiConnectionSettings(::windows::core::IUnknown);
 impl ProviderSpiConnectionSettings {
@@ -455,7 +449,6 @@ impl ::core::convert::From<&ProviderSpiConnectionSettings> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
-#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderSpiMode(pub i32);
@@ -491,7 +484,6 @@ unsafe impl ::windows::core::RuntimeType for ProviderSpiMode {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Devices_Spi_Provider\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ProviderSpiSharingMode(pub i32);

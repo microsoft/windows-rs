@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 #[repr(transparent)]
 pub struct AddAppointmentOperation(::windows::core::IUnknown);
 impl AddAppointmentOperation {
@@ -95,7 +94,6 @@ impl ::core::convert::From<&AddAppointmentOperation> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for AddAppointmentOperation {}
 unsafe impl ::core::marker::Sync for AddAppointmentOperation {}
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 pub struct AppointmentsProviderLaunchActionVerbs;
 impl AppointmentsProviderLaunchActionVerbs {
     pub fn AddAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -234,7 +232,6 @@ pub struct IReplaceAppointmentOperation_Vtbl {
     pub ReportError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub DismissUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 #[repr(transparent)]
 pub struct RemoveAppointmentOperation(::windows::core::IUnknown);
 impl RemoveAppointmentOperation {
@@ -245,7 +242,6 @@ impl RemoveAppointmentOperation {
             (::windows::core::Interface::vtable(this).AppointmentId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -340,7 +336,6 @@ impl ::core::convert::From<&RemoveAppointmentOperation> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for RemoveAppointmentOperation {}
 unsafe impl ::core::marker::Sync for RemoveAppointmentOperation {}
-#[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
 #[repr(transparent)]
 pub struct ReplaceAppointmentOperation(::windows::core::IUnknown);
 impl ReplaceAppointmentOperation {
@@ -358,7 +353,6 @@ impl ReplaceAppointmentOperation {
             (::windows::core::Interface::vtable(this).AppointmentInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Appointment>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;

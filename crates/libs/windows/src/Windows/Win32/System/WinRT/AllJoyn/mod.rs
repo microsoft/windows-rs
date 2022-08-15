@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentFactoryInterop {
@@ -66,7 +65,6 @@ pub struct IWindowsDevicesAllJoynBusAttachmentFactoryInterop_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, enableaboutdata: u8, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusAttachmentInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusAttachmentInterop {
@@ -131,7 +129,6 @@ pub struct IWindowsDevicesAllJoynBusAttachmentInterop_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Win32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectFactoryInterop {
@@ -199,7 +196,6 @@ pub struct IWindowsDevicesAllJoynBusObjectFactoryInterop_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub CreateFromWin32Handle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, win32handle: u64, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_AllJoyn\"`*"]
 #[repr(transparent)]
 pub struct IWindowsDevicesAllJoynBusObjectInterop(::windows::core::IUnknown);
 impl IWindowsDevicesAllJoynBusObjectInterop {

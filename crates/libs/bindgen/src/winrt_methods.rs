@@ -19,7 +19,6 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
     let where_clause = gen.where_clause(params);
     let mut cfg = gen.reader.signature_cfg(&signature);
     gen.reader.type_def_cfg_combine(def, generic_types, &mut cfg);
-    let doc = gen.cfg_method_doc(&cfg);
     let features = gen.cfg_features(&cfg);
     let args = gen_winrt_abi_args(gen, params);
     let params = gen_winrt_params(gen, params);
@@ -88,7 +87,6 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
 
     match kind {
         InterfaceKind::Default => quote! {
-            #doc
             #features
             pub fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                 let this = self;
@@ -99,7 +97,6 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
         },
         InterfaceKind::None | InterfaceKind::Base | InterfaceKind::Overridable => {
             quote! {
-                #doc
                 #features
                 pub fn #name<#generics>(&self, #params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
@@ -111,7 +108,6 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
         }
         InterfaceKind::Static => {
             quote! {
-                #doc
                 #features
                 pub fn #name<#generics>(#params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     Self::#interface_name(|this| unsafe { #vcall })
@@ -122,12 +118,10 @@ pub fn gen(gen: &Gen, def: TypeDef, generic_types: &[Type], kind: InterfaceKind,
             let generics = expand_generics(generics, quote!(T));
             let where_clause = expand_where_clause(where_clause, quote!(T: ::windows::core::Compose));
             quote! {
-                #doc
                 #features
                 pub fn #name<#generics>(#params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     Self::#interface_name(|this| unsafe { #vcall_none })
                 }
-                #doc
                 #features
                 pub fn #name_compose<#generics, T>(#params  compose: T) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     Self::#interface_name(|this| unsafe {

@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Graphics_Effects\"`*"]
 #[repr(transparent)]
 pub struct IGraphicsEffect(::windows::core::IUnknown);
 impl IGraphicsEffect {
@@ -97,7 +96,6 @@ pub struct IGraphicsEffect_Vtbl {
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub SetName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Graphics_Effects\"`*"]
 #[repr(transparent)]
 pub struct IGraphicsEffectSource(::windows::core::IUnknown);
 impl IGraphicsEffectSource {}

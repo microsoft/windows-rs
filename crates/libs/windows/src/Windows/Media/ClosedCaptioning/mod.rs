@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClosedCaptionColor(pub i32);
@@ -39,7 +38,6 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionColor {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
@@ -77,7 +75,6 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionEdgeEffect {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClosedCaptionOpacity(pub i32);
@@ -114,7 +111,6 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 pub struct ClosedCaptionProperties;
 impl ClosedCaptionProperties {
     pub fn FontColor() -> ::windows::core::Result<ClosedCaptionColor> {
@@ -123,7 +119,6 @@ impl ClosedCaptionProperties {
             (::windows::core::Interface::vtable(this).FontColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionColor>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn ComputedFontColor() -> ::windows::core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
@@ -161,7 +156,6 @@ impl ClosedCaptionProperties {
             (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionColor>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn ComputedBackgroundColor() -> ::windows::core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
@@ -181,7 +175,6 @@ impl ClosedCaptionProperties {
             (::windows::core::Interface::vtable(this).RegionColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionColor>(result__)
         })
     }
-    #[doc = "*Required features: `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn ComputedRegionColor() -> ::windows::core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
@@ -204,7 +197,6 @@ impl ClosedCaptionProperties {
 impl ::windows::core::RuntimeName for ClosedCaptionProperties {
     const NAME: &'static str = "Windows.Media.ClosedCaptioning.ClosedCaptionProperties";
 }
-#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClosedCaptionSize(pub i32);
@@ -241,7 +233,6 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionSize {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ClosedCaptionStyle(pub i32);

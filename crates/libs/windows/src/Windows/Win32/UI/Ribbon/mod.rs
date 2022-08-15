@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIApplication(::windows::core::IUnknown);
 impl IUIApplication {
@@ -62,7 +61,6 @@ pub struct IUIApplication_Vtbl {
     pub OnCreateUICommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnDestroyUICommand: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUICollection(::windows::core::IUnknown);
 impl IUICollection {
@@ -146,7 +144,6 @@ pub struct IUICollection_Vtbl {
     pub Replace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indexreplaced: u32, itemreplacewith: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUICollectionChangedEvent(::windows::core::IUnknown);
 impl IUICollectionChangedEvent {
@@ -199,11 +196,9 @@ pub struct IUICollectionChangedEvent_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: *mut ::core::ffi::c_void, newindex: u32, newitem: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUICommandHandler(::windows::core::IUnknown);
 impl IUICommandHandler {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn Execute<'a, P0>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: ::core::option::Option<&super::Shell::PropertiesSystem::PROPERTYKEY>, currentvalue: ::core::option::Option<&super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P0) -> ::windows::core::Result<()>
     where
@@ -211,7 +206,6 @@ impl IUICommandHandler {
     {
         (::windows::core::Interface::vtable(self).Execute)(::windows::core::Interface::as_raw(self), commandid, verb, ::core::mem::transmute(key), ::core::mem::transmute(currentvalue), commandexecutionproperties.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn UpdateProperty(&self, commandid: u32, key: &super::Shell::PropertiesSystem::PROPERTYKEY, currentvalue: ::core::option::Option<&super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -266,7 +260,6 @@ pub struct IUICommandHandler_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))]
     UpdateProperty: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIContextualUI(::windows::core::IUnknown);
 impl IUIContextualUI {
@@ -315,7 +308,6 @@ pub struct IUIContextualUI_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ShowAtLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, x: i32, y: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIEventLogger(::windows::core::IUnknown);
 impl IUIEventLogger {
@@ -364,7 +356,6 @@ pub struct IUIEventLogger_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnUIEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peventparams: *const UI_EVENTPARAMS),
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIEventingManager(::windows::core::IUnknown);
 impl IUIEventingManager {
@@ -416,11 +407,9 @@ pub struct IUIEventingManager_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub SetEventLogger: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventlogger: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIFramework(::windows::core::IUnknown);
 impl IUIFramework {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, framewnd: P0, application: P1) -> ::windows::core::Result<()>
     where
@@ -432,7 +421,6 @@ impl IUIFramework {
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Destroy)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadUI<'a, P0, P1>(&self, instance: P0, resourcename: P1) -> ::windows::core::Result<()>
     where
@@ -444,18 +432,15 @@ impl IUIFramework {
     pub unsafe fn GetView(&self, viewid: u32, riid: &::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetView)(::windows::core::Interface::as_raw(self), viewid, ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: &super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetUICommandProperty)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: &super::Shell::PropertiesSystem::PROPERTYKEY, value: &super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetUICommandProperty)(::windows::core::Interface::as_raw(self), commandid, ::core::mem::transmute(key), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
     pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: ::core::option::Option<&super::Shell::PropertiesSystem::PROPERTYKEY>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InvalidateUICommand)(::windows::core::Interface::as_raw(self), commandid, flags, ::core::mem::transmute(key)).ok()
@@ -531,11 +516,9 @@ pub struct IUIFramework_Vtbl {
     pub FlushPendingInvalidations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub SetModes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imodes: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIImage(::windows::core::IUnknown);
 impl IUIImage {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn GetBitmap(&self) -> ::windows::core::Result<super::super::Graphics::Gdi::HBITMAP> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -586,11 +569,9 @@ pub struct IUIImage_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetBitmap: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIImageFromBitmap(::windows::core::IUnknown);
 impl IUIImageFromBitmap {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn CreateImage<'a, P0>(&self, bitmap: P0, options: UI_OWNERSHIP) -> ::windows::core::Result<IUIImage>
     where
@@ -644,7 +625,6 @@ pub struct IUIImageFromBitmap_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     CreateImage: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUIRibbon(::windows::core::IUnknown);
 impl IUIRibbon {
@@ -652,7 +632,6 @@ impl IUIRibbon {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetHeight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadSettingsFromStream<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<()>
     where
@@ -660,7 +639,6 @@ impl IUIRibbon {
     {
         (::windows::core::Interface::vtable(self).LoadSettingsFromStream)(::windows::core::Interface::as_raw(self), pstream.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SaveSettingsToStream<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<()>
     where
@@ -718,11 +696,9 @@ pub struct IUIRibbon_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     SaveSettingsToStream: usize,
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 pub struct IUISimplePropertySet(::windows::core::IUnknown);
 impl IUISimplePropertySet {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, key: &super::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -776,19 +752,13 @@ pub struct IUISimplePropertySet_Vtbl {
 pub const LIBID_UIRibbon: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x942f35c2_e83b_45ef_b085_ac295dd63d5b);
 pub const UIRibbonFramework: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x926749fa_2615_4987_8845_c33e65f2b957);
 pub const UIRibbonImageFromBitmapFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f7434b6_59b6_4250_999e_d168d6ae4293);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_ALL_COMMANDS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_COLLECTIONCHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COLLECTIONCHANGE_INSERT: UI_COLLECTIONCHANGE = UI_COLLECTIONCHANGE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COLLECTIONCHANGE_REMOVE: UI_COLLECTIONCHANGE = UI_COLLECTIONCHANGE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COLLECTIONCHANGE_REPLACE: UI_COLLECTIONCHANGE = UI_COLLECTIONCHANGE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COLLECTIONCHANGE_RESET: UI_COLLECTIONCHANGE = UI_COLLECTIONCHANGE(3i32);
 impl ::core::marker::Copy for UI_COLLECTIONCHANGE {}
 impl ::core::clone::Clone for UI_COLLECTIONCHANGE {
@@ -809,37 +779,22 @@ impl ::core::fmt::Debug for UI_COLLECTIONCHANGE {
         f.debug_tuple("UI_COLLECTIONCHANGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COLLECTION_INVALIDINDEX: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_COMMANDTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_UNKNOWN: UI_COMMANDTYPE = UI_COMMANDTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_GROUP: UI_COMMANDTYPE = UI_COMMANDTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_ACTION: UI_COMMANDTYPE = UI_COMMANDTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_ANCHOR: UI_COMMANDTYPE = UI_COMMANDTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_CONTEXT: UI_COMMANDTYPE = UI_COMMANDTYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_COLLECTION: UI_COMMANDTYPE = UI_COMMANDTYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_COMMANDCOLLECTION: UI_COMMANDTYPE = UI_COMMANDTYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_DECIMAL: UI_COMMANDTYPE = UI_COMMANDTYPE(7i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_BOOLEAN: UI_COMMANDTYPE = UI_COMMANDTYPE(8i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_FONT: UI_COMMANDTYPE = UI_COMMANDTYPE(9i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_RECENTITEMS: UI_COMMANDTYPE = UI_COMMANDTYPE(10i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_COLORANCHOR: UI_COMMANDTYPE = UI_COMMANDTYPE(11i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_COMMANDTYPE_COLORCOLLECTION: UI_COMMANDTYPE = UI_COMMANDTYPE(12i32);
 impl ::core::marker::Copy for UI_COMMANDTYPE {}
 impl ::core::clone::Clone for UI_COMMANDTYPE {
@@ -860,15 +815,11 @@ impl ::core::fmt::Debug for UI_COMMANDTYPE {
         f.debug_tuple("UI_COMMANDTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_CONTEXTAVAILABILITY(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_CONTEXTAVAILABILITY_NOTAVAILABLE: UI_CONTEXTAVAILABILITY = UI_CONTEXTAVAILABILITY(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_CONTEXTAVAILABILITY_AVAILABLE: UI_CONTEXTAVAILABILITY = UI_CONTEXTAVAILABILITY(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_CONTEXTAVAILABILITY_ACTIVE: UI_CONTEXTAVAILABILITY = UI_CONTEXTAVAILABILITY(2i32);
 impl ::core::marker::Copy for UI_CONTEXTAVAILABILITY {}
 impl ::core::clone::Clone for UI_CONTEXTAVAILABILITY {
@@ -889,13 +840,10 @@ impl ::core::fmt::Debug for UI_CONTEXTAVAILABILITY {
         f.debug_tuple("UI_CONTEXTAVAILABILITY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_CONTROLDOCK(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_CONTROLDOCK_TOP: UI_CONTROLDOCK = UI_CONTROLDOCK(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_CONTROLDOCK_BOTTOM: UI_CONTROLDOCK = UI_CONTROLDOCK(3i32);
 impl ::core::marker::Copy for UI_CONTROLDOCK {}
 impl ::core::clone::Clone for UI_CONTROLDOCK {
@@ -916,17 +864,12 @@ impl ::core::fmt::Debug for UI_CONTROLDOCK {
         f.debug_tuple("UI_CONTROLDOCK").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_EVENTLOCATION(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTLOCATION_Ribbon: UI_EVENTLOCATION = UI_EVENTLOCATION(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTLOCATION_QAT: UI_EVENTLOCATION = UI_EVENTLOCATION(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTLOCATION_ApplicationMenu: UI_EVENTLOCATION = UI_EVENTLOCATION(2i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTLOCATION_ContextPopup: UI_EVENTLOCATION = UI_EVENTLOCATION(3i32);
 impl ::core::marker::Copy for UI_EVENTLOCATION {}
 impl ::core::clone::Clone for UI_EVENTLOCATION {
@@ -948,7 +891,6 @@ impl ::core::fmt::Debug for UI_EVENTLOCATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub struct UI_EVENTPARAMS {
     pub EventType: UI_EVENTTYPE,
     pub Anonymous: UI_EVENTPARAMS_0,
@@ -974,7 +916,6 @@ impl ::core::default::Default for UI_EVENTPARAMS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub union UI_EVENTPARAMS_0 {
     pub Modes: i32,
     pub Params: UI_EVENTPARAMS_COMMAND,
@@ -1000,7 +941,6 @@ impl ::core::default::Default for UI_EVENTPARAMS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub struct UI_EVENTPARAMS_COMMAND {
     pub CommandID: u32,
     pub CommandName: ::windows::core::PCWSTR,
@@ -1034,25 +974,16 @@ impl ::core::default::Default for UI_EVENTPARAMS_COMMAND {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_EVENTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_ApplicationMenuOpened: UI_EVENTTYPE = UI_EVENTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_RibbonMinimized: UI_EVENTTYPE = UI_EVENTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_RibbonExpanded: UI_EVENTTYPE = UI_EVENTTYPE(2i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_ApplicationModeSwitched: UI_EVENTTYPE = UI_EVENTTYPE(3i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_TabActivated: UI_EVENTTYPE = UI_EVENTTYPE(4i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_MenuOpened: UI_EVENTTYPE = UI_EVENTTYPE(5i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_CommandExecuted: UI_EVENTTYPE = UI_EVENTTYPE(6i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EVENTTYPE_TooltipShown: UI_EVENTTYPE = UI_EVENTTYPE(7i32);
 impl ::core::marker::Copy for UI_EVENTTYPE {}
 impl ::core::clone::Clone for UI_EVENTTYPE {
@@ -1073,15 +1004,11 @@ impl ::core::fmt::Debug for UI_EVENTTYPE {
         f.debug_tuple("UI_EVENTTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_EXECUTIONVERB(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EXECUTIONVERB_EXECUTE: UI_EXECUTIONVERB = UI_EXECUTIONVERB(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EXECUTIONVERB_PREVIEW: UI_EXECUTIONVERB = UI_EXECUTIONVERB(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_EXECUTIONVERB_CANCELPREVIEW: UI_EXECUTIONVERB = UI_EXECUTIONVERB(2i32);
 impl ::core::marker::Copy for UI_EXECUTIONVERB {}
 impl ::core::clone::Clone for UI_EXECUTIONVERB {
@@ -1102,13 +1029,10 @@ impl ::core::fmt::Debug for UI_EXECUTIONVERB {
         f.debug_tuple("UI_EXECUTIONVERB").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTDELTASIZE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTDELTASIZE_GROW: UI_FONTDELTASIZE = UI_FONTDELTASIZE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTDELTASIZE_SHRINK: UI_FONTDELTASIZE = UI_FONTDELTASIZE(1i32);
 impl ::core::marker::Copy for UI_FONTDELTASIZE {}
 impl ::core::clone::Clone for UI_FONTDELTASIZE {
@@ -1129,15 +1053,11 @@ impl ::core::fmt::Debug for UI_FONTDELTASIZE {
         f.debug_tuple("UI_FONTDELTASIZE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTPROPERTIES(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTPROPERTIES_NOTAVAILABLE: UI_FONTPROPERTIES = UI_FONTPROPERTIES(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTPROPERTIES_NOTSET: UI_FONTPROPERTIES = UI_FONTPROPERTIES(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTPROPERTIES_SET: UI_FONTPROPERTIES = UI_FONTPROPERTIES(2i32);
 impl ::core::marker::Copy for UI_FONTPROPERTIES {}
 impl ::core::clone::Clone for UI_FONTPROPERTIES {
@@ -1158,15 +1078,11 @@ impl ::core::fmt::Debug for UI_FONTPROPERTIES {
         f.debug_tuple("UI_FONTPROPERTIES").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTUNDERLINE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTUNDERLINE_NOTAVAILABLE: UI_FONTUNDERLINE = UI_FONTUNDERLINE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTUNDERLINE_NOTSET: UI_FONTUNDERLINE = UI_FONTUNDERLINE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTUNDERLINE_SET: UI_FONTUNDERLINE = UI_FONTUNDERLINE(2i32);
 impl ::core::marker::Copy for UI_FONTUNDERLINE {}
 impl ::core::clone::Clone for UI_FONTUNDERLINE {
@@ -1187,17 +1103,12 @@ impl ::core::fmt::Debug for UI_FONTUNDERLINE {
         f.debug_tuple("UI_FONTUNDERLINE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_FONTVERTICALPOSITION(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTVERTICALPOSITION_NOTAVAILABLE: UI_FONTVERTICALPOSITION = UI_FONTVERTICALPOSITION(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTVERTICALPOSITION_NOTSET: UI_FONTVERTICALPOSITION = UI_FONTVERTICALPOSITION(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTVERTICALPOSITION_SUPERSCRIPT: UI_FONTVERTICALPOSITION = UI_FONTVERTICALPOSITION(2i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_FONTVERTICALPOSITION_SUBSCRIPT: UI_FONTVERTICALPOSITION = UI_FONTVERTICALPOSITION(3i32);
 impl ::core::marker::Copy for UI_FONTVERTICALPOSITION {}
 impl ::core::clone::Clone for UI_FONTVERTICALPOSITION {
@@ -1218,17 +1129,12 @@ impl ::core::fmt::Debug for UI_FONTVERTICALPOSITION {
         f.debug_tuple("UI_FONTVERTICALPOSITION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_INVALIDATIONS(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_INVALIDATIONS_STATE: UI_INVALIDATIONS = UI_INVALIDATIONS(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_INVALIDATIONS_VALUE: UI_INVALIDATIONS = UI_INVALIDATIONS(2i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_INVALIDATIONS_PROPERTY: UI_INVALIDATIONS = UI_INVALIDATIONS(4i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_INVALIDATIONS_ALLPROPERTIES: UI_INVALIDATIONS = UI_INVALIDATIONS(8i32);
 impl ::core::marker::Copy for UI_INVALIDATIONS {}
 impl ::core::clone::Clone for UI_INVALIDATIONS {
@@ -1249,13 +1155,10 @@ impl ::core::fmt::Debug for UI_INVALIDATIONS {
         f.debug_tuple("UI_INVALIDATIONS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_OWNERSHIP(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_OWNERSHIP_TRANSFER: UI_OWNERSHIP = UI_OWNERSHIP(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_OWNERSHIP_COPY: UI_OWNERSHIP = UI_OWNERSHIP(1i32);
 impl ::core::marker::Copy for UI_OWNERSHIP {}
 impl ::core::clone::Clone for UI_OWNERSHIP {
@@ -1276,13 +1179,10 @@ impl ::core::fmt::Debug for UI_OWNERSHIP {
         f.debug_tuple("UI_OWNERSHIP").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_SWATCHCOLORMODE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_SWATCHCOLORMODE_NORMAL: UI_SWATCHCOLORMODE = UI_SWATCHCOLORMODE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_SWATCHCOLORMODE_MONOCHROME: UI_SWATCHCOLORMODE = UI_SWATCHCOLORMODE(1i32);
 impl ::core::marker::Copy for UI_SWATCHCOLORMODE {}
 impl ::core::clone::Clone for UI_SWATCHCOLORMODE {
@@ -1303,15 +1203,11 @@ impl ::core::fmt::Debug for UI_SWATCHCOLORMODE {
         f.debug_tuple("UI_SWATCHCOLORMODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_SWATCHCOLORTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_SWATCHCOLORTYPE_NOCOLOR: UI_SWATCHCOLORTYPE = UI_SWATCHCOLORTYPE(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_SWATCHCOLORTYPE_AUTOMATIC: UI_SWATCHCOLORTYPE = UI_SWATCHCOLORTYPE(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_SWATCHCOLORTYPE_RGB: UI_SWATCHCOLORTYPE = UI_SWATCHCOLORTYPE(2i32);
 impl ::core::marker::Copy for UI_SWATCHCOLORTYPE {}
 impl ::core::clone::Clone for UI_SWATCHCOLORTYPE {
@@ -1332,11 +1228,9 @@ impl ::core::fmt::Debug for UI_SWATCHCOLORTYPE {
         f.debug_tuple("UI_SWATCHCOLORTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_VIEWTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_VIEWTYPE_RIBBON: UI_VIEWTYPE = UI_VIEWTYPE(1i32);
 impl ::core::marker::Copy for UI_VIEWTYPE {}
 impl ::core::clone::Clone for UI_VIEWTYPE {
@@ -1357,17 +1251,12 @@ impl ::core::fmt::Debug for UI_VIEWTYPE {
         f.debug_tuple("UI_VIEWTYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_VIEWVERB(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_VIEWVERB_CREATE: UI_VIEWVERB = UI_VIEWVERB(0i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_VIEWVERB_DESTROY: UI_VIEWVERB = UI_VIEWVERB(1i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_VIEWVERB_SIZE: UI_VIEWVERB = UI_VIEWVERB(2i32);
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_VIEWVERB_ERROR: UI_VIEWVERB = UI_VIEWVERB(3i32);
 impl ::core::marker::Copy for UI_VIEWVERB {}
 impl ::core::clone::Clone for UI_VIEWVERB {

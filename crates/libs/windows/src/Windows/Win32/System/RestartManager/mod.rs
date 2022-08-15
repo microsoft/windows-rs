@@ -1,30 +1,17 @@
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const CCH_RM_MAX_APP_NAME: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const CCH_RM_MAX_SVC_NAME: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const CCH_RM_SESSION_KEY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_APP_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusUnknown: RM_APP_STATUS = RM_APP_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusRunning: RM_APP_STATUS = RM_APP_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusStopped: RM_APP_STATUS = RM_APP_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusStoppedOther: RM_APP_STATUS = RM_APP_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusRestarted: RM_APP_STATUS = RM_APP_STATUS(8i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusErrorOnStop: RM_APP_STATUS = RM_APP_STATUS(16i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusErrorOnRestart: RM_APP_STATUS = RM_APP_STATUS(32i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusShutdownMasked: RM_APP_STATUS = RM_APP_STATUS(64i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmStatusRestartMasked: RM_APP_STATUS = RM_APP_STATUS(128i32);
 impl ::core::marker::Copy for RM_APP_STATUS {}
 impl ::core::clone::Clone for RM_APP_STATUS {
@@ -45,23 +32,15 @@ impl ::core::fmt::Debug for RM_APP_STATUS {
         f.debug_tuple("RM_APP_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_APP_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmUnknownApp: RM_APP_TYPE = RM_APP_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmMainWindow: RM_APP_TYPE = RM_APP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmOtherWindow: RM_APP_TYPE = RM_APP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmService: RM_APP_TYPE = RM_APP_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmExplorer: RM_APP_TYPE = RM_APP_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmConsole: RM_APP_TYPE = RM_APP_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmCritical: RM_APP_TYPE = RM_APP_TYPE(1000i32);
 impl ::core::marker::Copy for RM_APP_TYPE {}
 impl ::core::clone::Clone for RM_APP_TYPE {
@@ -82,15 +61,11 @@ impl ::core::fmt::Debug for RM_APP_TYPE {
         f.debug_tuple("RM_APP_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_FILTER_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmInvalidFilterAction: RM_FILTER_ACTION = RM_FILTER_ACTION(0i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmNoRestart: RM_FILTER_ACTION = RM_FILTER_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmNoShutdown: RM_FILTER_ACTION = RM_FILTER_ACTION(2i32);
 impl ::core::marker::Copy for RM_FILTER_ACTION {}
 impl ::core::clone::Clone for RM_FILTER_ACTION {
@@ -112,7 +87,6 @@ impl ::core::fmt::Debug for RM_FILTER_ACTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_FILTER_INFO {
     pub FilterAction: RM_FILTER_ACTION,
@@ -147,7 +121,6 @@ impl ::core::default::Default for RM_FILTER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union RM_FILTER_INFO_0 {
     pub strFilename: ::windows::core::PWSTR,
@@ -180,17 +153,12 @@ impl ::core::default::Default for RM_FILTER_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_FILTER_TRIGGER(pub i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmFilterTriggerInvalid: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(0i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmFilterTriggerFile: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(1i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmFilterTriggerProcess: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(2i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmFilterTriggerService: RM_FILTER_TRIGGER = RM_FILTER_TRIGGER(3i32);
 impl ::core::marker::Copy for RM_FILTER_TRIGGER {}
 impl ::core::clone::Clone for RM_FILTER_TRIGGER {
@@ -211,12 +179,9 @@ impl ::core::fmt::Debug for RM_FILTER_TRIGGER {
         f.debug_tuple("RM_FILTER_TRIGGER").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RM_INVALID_PROCESS: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RM_INVALID_TS_SESSION: i32 = -1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
@@ -259,21 +224,14 @@ impl ::core::default::Default for RM_PROCESS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_REBOOT_REASON(pub i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmRebootReasonNone: RM_REBOOT_REASON = RM_REBOOT_REASON(0i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmRebootReasonPermissionDenied: RM_REBOOT_REASON = RM_REBOOT_REASON(1i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmRebootReasonSessionMismatch: RM_REBOOT_REASON = RM_REBOOT_REASON(2i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmRebootReasonCriticalProcess: RM_REBOOT_REASON = RM_REBOOT_REASON(4i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmRebootReasonCriticalService: RM_REBOOT_REASON = RM_REBOOT_REASON(8i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmRebootReasonDetectedSelf: RM_REBOOT_REASON = RM_REBOOT_REASON(16i32);
 impl ::core::marker::Copy for RM_REBOOT_REASON {}
 impl ::core::clone::Clone for RM_REBOOT_REASON {
@@ -294,13 +252,10 @@ impl ::core::fmt::Debug for RM_REBOOT_REASON {
         f.debug_tuple("RM_REBOOT_REASON").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RM_SHUTDOWN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmForceShutdown: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub const RmShutdownOnlyRegistered: RM_SHUTDOWN_TYPE = RM_SHUTDOWN_TYPE(16i32);
 impl ::core::marker::Copy for RM_SHUTDOWN_TYPE {}
 impl ::core::clone::Clone for RM_SHUTDOWN_TYPE {
@@ -322,7 +277,6 @@ impl ::core::fmt::Debug for RM_SHUTDOWN_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
@@ -360,9 +314,7 @@ impl ::core::default::Default for RM_UNIQUE_PROCESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 pub type RM_WRITE_STATUS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(npercentcomplete: u32)>;
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RmAddFilter<'a, P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: ::core::option::Option<&RM_UNIQUE_PROCESS>, strserviceshortname: P1, filteraction: RM_FILTER_ACTION) -> u32
@@ -376,7 +328,6 @@ where
     }
     RmAddFilter(dwsessionhandle, strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into(), filteraction)
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -385,7 +336,6 @@ pub unsafe fn RmCancelCurrentTask(dwsessionhandle: u32) -> u32 {
     }
     RmCancelCurrentTask(dwsessionhandle)
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -394,7 +344,6 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
     }
     RmEndSession(dwsessionhandle)
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: ::core::option::Option<&mut [u8]>, cbfilterbufneeded: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -403,7 +352,6 @@ pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: ::core::option:
     }
     RmGetFilterList(dwsessionhandle, ::core::mem::transmute(pbfilterbuf.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(cbfilterbufneeded))
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: &mut u32, pnprocinfo: &mut u32, rgaffectedapps: *mut RM_PROCESS_INFO, lpdwrebootreasons: &mut u32) -> u32 {
@@ -413,7 +361,6 @@ pub unsafe fn RmGetList(dwsessionhandle: u32, pnprocinfoneeded: &mut u32, pnproc
     }
     RmGetList(dwsessionhandle, ::core::mem::transmute(pnprocinfoneeded), ::core::mem::transmute(pnprocinfo), ::core::mem::transmute(rgaffectedapps), ::core::mem::transmute(lpdwrebootreasons))
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmJoinSession<'a, P0>(psessionhandle: &mut u32, strsessionkey: P0) -> u32
 where
@@ -425,7 +372,6 @@ where
     }
     RmJoinSession(::core::mem::transmute(psessionhandle), strsessionkey.into())
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: ::core::option::Option<&[::windows::core::PWSTR]>, rgapplications: ::core::option::Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: ::core::option::Option<&[::windows::core::PWSTR]>) -> u32 {
@@ -443,7 +389,6 @@ pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: ::core::op
         ::core::mem::transmute(rgsservicenames.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
     )
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RmRemoveFilter<'a, P0, P1>(dwsessionhandle: u32, strmodulename: P0, pprocess: ::core::option::Option<&RM_UNIQUE_PROCESS>, strserviceshortname: P1) -> u32
@@ -457,7 +402,6 @@ where
     }
     RmRemoveFilter(dwsessionhandle, strmodulename.into(), ::core::mem::transmute(pprocess), strserviceshortname.into())
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -466,7 +410,6 @@ pub unsafe fn RmRestart(dwsessionhandle: u32, dwrestartflags: u32, fnstatus: RM_
     }
     RmRestart(dwsessionhandle, dwrestartflags, ::core::mem::transmute(fnstatus))
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_WRITE_STATUS_CALLBACK) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -475,7 +418,6 @@ pub unsafe fn RmShutdown(dwsessionhandle: u32, lactionflags: u32, fnstatus: RM_W
     }
     RmShutdown(dwsessionhandle, lactionflags, ::core::mem::transmute(fnstatus))
 }
-#[doc = "*Required features: `\"Win32_System_RestartManager\"`*"]
 #[inline]
 pub unsafe fn RmStartSession(psessionhandle: &mut u32, dwsessionflags: u32, strsessionkey: ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]

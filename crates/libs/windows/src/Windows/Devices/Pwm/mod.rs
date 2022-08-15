@@ -88,7 +88,6 @@ pub struct IPwmPin_Vtbl {
     pub Stop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub IsStarted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Pwm\"`*"]
 #[repr(transparent)]
 pub struct PwmController(::windows::core::IUnknown);
 impl PwmController {
@@ -134,7 +133,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).OpenPin)(::windows::core::Interface::as_raw(this), pinnumber, result__.as_mut_ptr()).from_abi::<PwmPin>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Pwm_Provider", feature = "Foundation_Collections"))]
     pub fn GetControllersAsync<'a, P0, E0>(provider: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>
     where
@@ -146,7 +144,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics2(|this| unsafe {
@@ -166,7 +163,6 @@ impl PwmController {
             (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(friendlyname), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics3(|this| unsafe {
@@ -252,11 +248,9 @@ impl ::core::convert::From<&PwmController> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PwmController {}
 unsafe impl ::core::marker::Sync for PwmController {}
-#[doc = "*Required features: `\"Devices_Pwm\"`*"]
 #[repr(transparent)]
 pub struct PwmPin(::windows::core::IUnknown);
 impl PwmPin {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -391,7 +385,6 @@ impl<'a> ::core::convert::TryFrom<&PwmPin> for ::windows::core::InParam<'a, supe
 }
 unsafe impl ::core::marker::Send for PwmPin {}
 unsafe impl ::core::marker::Sync for PwmPin {}
-#[doc = "*Required features: `\"Devices_Pwm\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PwmPulsePolarity(pub i32);

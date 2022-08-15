@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
@@ -52,7 +51,6 @@ pub struct INotificationActivationCallback_Vtbl {
     pub Activate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appusermodelid: ::windows::core::PCWSTR, invokedargs: ::windows::core::PCWSTR, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::HRESULT,
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Notifications\"`*"]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: ::windows::core::PCWSTR,
     pub Value: ::windows::core::PCWSTR,

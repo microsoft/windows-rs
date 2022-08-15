@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioRoutingEndpoint(pub i32);
@@ -38,7 +37,6 @@ unsafe impl ::windows::core::RuntimeType for AudioRoutingEndpoint {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct AudioRoutingManager(::windows::core::IUnknown);
 impl AudioRoutingManager {
@@ -53,7 +51,6 @@ impl AudioRoutingManager {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetAudioEndpoint)(::windows::core::Interface::as_raw(this), endpoint).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn AudioEndpointChanged<'a, P0>(&self, endpointchangehandler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -65,7 +62,6 @@ impl AudioRoutingManager {
             (::windows::core::Interface::vtable(this).AudioEndpointChanged)(::windows::core::Interface::as_raw(this), endpointchangehandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAudioEndpointChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
@@ -152,7 +148,6 @@ impl ::core::convert::From<&AudioRoutingManager> for &::windows::core::IInspecta
 }
 unsafe impl ::core::marker::Send for AudioRoutingManager {}
 unsafe impl ::core::marker::Sync for AudioRoutingManager {}
-#[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AvailableAudioRoutingEndpoints(pub u32);

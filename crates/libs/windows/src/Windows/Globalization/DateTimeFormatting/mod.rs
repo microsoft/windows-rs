@@ -1,8 +1,6 @@
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 pub struct DateTimeFormatter(::windows::core::IUnknown);
 impl DateTimeFormatter {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Languages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -43,7 +41,6 @@ impl DateTimeFormatter {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).SetNumeralSystem)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Patterns(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -59,7 +56,6 @@ impl DateTimeFormatter {
             (::windows::core::Interface::vtable(this).Template)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Format(&self, value: super::super::Foundation::DateTime) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -131,7 +127,6 @@ impl DateTimeFormatter {
             (::windows::core::Interface::vtable(this).ResolvedGeographicRegion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FormatUsingTimeZone(&self, datetime: super::super::Foundation::DateTime, timezoneid: &::windows::core::HSTRING) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IDateTimeFormatter2>(self)?;
@@ -146,7 +141,6 @@ impl DateTimeFormatter {
             (::windows::core::Interface::vtable(this).CreateDateTimeFormatter)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterLanguages<'a, P0, E0>(formattemplate: &::windows::core::HSTRING, languages: P0) -> ::windows::core::Result<DateTimeFormatter>
     where
@@ -158,7 +152,6 @@ impl DateTimeFormatter {
             (::windows::core::Interface::vtable(this).CreateDateTimeFormatterLanguages)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(formattemplate), languages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterContext<'a, P0, E0>(formattemplate: &::windows::core::HSTRING, languages: P0, geographicregion: &::windows::core::HSTRING, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>
     where
@@ -182,7 +175,6 @@ impl DateTimeFormatter {
             (::windows::core::Interface::vtable(this).CreateDateTimeFormatterTime)(::windows::core::Interface::as_raw(this), hourformat, minuteformat, secondformat, result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeLanguages<'a, P0, E0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0) -> ::windows::core::Result<DateTimeFormatter>
     where
@@ -194,7 +186,6 @@ impl DateTimeFormatter {
             (::windows::core::Interface::vtable(this).CreateDateTimeFormatterDateTimeLanguages)(::windows::core::Interface::as_raw(this), yearformat, monthformat, dayformat, dayofweekformat, hourformat, minuteformat, secondformat, languages.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<DateTimeFormatter>(result__)
         })
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateDateTimeFormatterDateTimeContext<'a, P0, E0>(yearformat: YearFormat, monthformat: MonthFormat, dayformat: DayFormat, dayofweekformat: DayOfWeekFormat, hourformat: HourFormat, minuteformat: MinuteFormat, secondformat: SecondFormat, languages: P0, geographicregion: &::windows::core::HSTRING, calendar: &::windows::core::HSTRING, clock: &::windows::core::HSTRING) -> ::windows::core::Result<DateTimeFormatter>
     where
@@ -303,7 +294,6 @@ impl ::core::convert::From<&DateTimeFormatter> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DayFormat(pub i32);
@@ -337,7 +327,6 @@ unsafe impl ::windows::core::RuntimeType for DayFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct DayOfWeekFormat(pub i32);
@@ -373,7 +362,6 @@ unsafe impl ::windows::core::RuntimeType for DayOfWeekFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HourFormat(pub i32);
@@ -509,7 +497,6 @@ pub struct IDateTimeFormatterStatics_Vtbl {
     pub ShortDate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ShortTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MinuteFormat(pub i32);
@@ -543,7 +530,6 @@ unsafe impl ::windows::core::RuntimeType for MinuteFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MonthFormat(pub i32);
@@ -580,7 +566,6 @@ unsafe impl ::windows::core::RuntimeType for MonthFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SecondFormat(pub i32);
@@ -614,7 +599,6 @@ unsafe impl ::windows::core::RuntimeType for SecondFormat {
         Ok(*from)
     }
 }
-#[doc = "*Required features: `\"Globalization_DateTimeFormatting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct YearFormat(pub i32);

@@ -1,12 +1,7 @@
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 pub const CDB_REPORT_BITS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 pub const CDB_REPORT_BYTES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBClaimNextFreePort<'a, P0>(hcomdb: P0, comnumber: &mut u32) -> i32
 where
@@ -18,7 +13,6 @@ where
     }
     ComDBClaimNextFreePort(hcomdb.into(), ::core::mem::transmute(comnumber))
 }
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ComDBClaimPort<'a, P0, P1>(hcomdb: P0, comnumber: u32, forceclaim: P1, forced: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> i32
@@ -32,7 +26,6 @@ where
     }
     ComDBClaimPort(hcomdb.into(), comnumber, forceclaim.into(), ::core::mem::transmute(forced))
 }
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBClose<'a, P0>(hcomdb: P0) -> i32
 where
@@ -44,7 +37,6 @@ where
     }
     ComDBClose(hcomdb.into())
 }
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBGetCurrentPortUsage<'a, P0>(hcomdb: P0, buffer: ::core::option::Option<&mut [u8]>, reporttype: u32, maxportsreported: ::core::option::Option<&mut u32>) -> i32
 where
@@ -56,7 +48,6 @@ where
     }
     ComDBGetCurrentPortUsage(hcomdb.into(), ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len() as _), reporttype, ::core::mem::transmute(maxportsreported))
 }
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBOpen(phcomdb: &mut isize) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -65,7 +56,6 @@ pub unsafe fn ComDBOpen(phcomdb: &mut isize) -> i32 {
     }
     ComDBOpen(::core::mem::transmute(phcomdb))
 }
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBReleasePort<'a, P0>(hcomdb: P0, comnumber: u32) -> i32
 where
@@ -77,7 +67,6 @@ where
     }
     ComDBReleasePort(hcomdb.into(), comnumber)
 }
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBResizeDatabase<'a, P0>(hcomdb: P0, newsize: u32) -> i32
 where

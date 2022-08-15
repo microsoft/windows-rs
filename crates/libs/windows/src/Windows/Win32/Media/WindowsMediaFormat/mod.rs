@@ -1,5 +1,4 @@
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct AM_WMT_EVENT_DATA {
     pub hrStatus: ::windows::core::HRESULT,
     pub pData: *mut ::core::ffi::c_void,
@@ -37,7 +36,6 @@ pub const CLSID_WMMUTEX_Language: ::windows::core::GUID = ::windows::core::GUID:
 pub const CLSID_WMMUTEX_Presentation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a02_35da_11d1_9034_00a0c90349be);
 pub const CLSID_WMMUTEX_Unknown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6e22a03_35da_11d1_9034_00a0c90349be);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct DRM_COPY_OPL {
     pub wMinimumCopyLevel: u16,
     pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
@@ -69,7 +67,6 @@ impl ::core::default::Default for DRM_COPY_OPL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalVideo: u16,
     pub wUncompressedDigitalVideo: u16,
@@ -103,7 +100,6 @@ impl ::core::default::Default for DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut ::windows::core::GUID,
@@ -133,10 +129,8 @@ impl ::core::default::Default for DRM_OPL_OUTPUT_IDS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const DRM_OPL_TYPES: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct DRM_OUTPUT_PROTECTION {
     pub guidId: ::windows::core::GUID,
     pub bConfigData: u8,
@@ -167,7 +161,6 @@ impl ::core::default::Default for DRM_OUTPUT_PROTECTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct DRM_PLAY_OPL {
     pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
     pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
@@ -199,7 +192,6 @@ impl ::core::default::Default for DRM_PLAY_OPL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct DRM_VAL16 {
     pub val: [u8; 16],
 }
@@ -229,7 +221,6 @@ impl ::core::default::Default for DRM_VAL16 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_OUTPUT_PROTECTION,
@@ -259,7 +250,6 @@ impl ::core::default::Default for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct INSNetSourceCreator(::windows::core::IUnknown);
 impl INSNetSourceCreator {
@@ -286,7 +276,6 @@ impl INSNetSourceCreator {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNetSourceSharedNamespace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetNetSourceAdminInterface<'a, P0>(&self, pszstreamname: P0) -> ::windows::core::Result<super::super::System::Com::VARIANT>
     where
@@ -357,7 +346,6 @@ pub struct INSNetSourceCreator_Vtbl {
     pub GetProtocolName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprotocolnum: u32, pwszprotocolname: ::windows::core::PWSTR, pcchprotocolname: *mut u16) -> ::windows::core::HRESULT,
     pub Shutdown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct INSSBuffer(::windows::core::IUnknown);
 impl INSSBuffer {
@@ -425,7 +413,6 @@ pub struct INSSBuffer_Vtbl {
     pub GetBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwbuffer: *mut *mut u8) -> ::windows::core::HRESULT,
     pub GetBufferAndLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdwbuffer: *mut *mut u8, pdwlength: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct INSSBuffer2(::windows::core::IUnknown);
 impl INSSBuffer2 {
@@ -512,7 +499,6 @@ pub struct INSSBuffer2_Vtbl {
     pub GetSampleProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *mut u8) -> ::windows::core::HRESULT,
     pub SetSampleProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cbproperties: u32, pbproperties: *const u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct INSSBuffer3(::windows::core::IUnknown);
 impl INSSBuffer3 {
@@ -620,7 +606,6 @@ pub struct INSSBuffer3_Vtbl {
     pub SetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidbufferproperty: ::windows::core::GUID, pvbufferproperty: *const ::core::ffi::c_void, dwbufferpropertysize: u32) -> ::windows::core::HRESULT,
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidbufferproperty: ::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct INSSBuffer4(::windows::core::IUnknown);
 impl INSSBuffer4 {
@@ -750,7 +735,6 @@ pub struct INSSBuffer4_Vtbl {
     pub GetPropertyCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbufferproperties: *mut u32) -> ::windows::core::HRESULT,
     pub GetPropertyByIndex: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbufferpropertyindex: u32, pguidbufferproperty: *mut ::windows::core::GUID, pvbufferproperty: *mut ::core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMAddressAccess(::windows::core::IUnknown);
 impl IWMAddressAccess {
@@ -813,7 +797,6 @@ pub struct IWMAddressAccess_Vtbl {
     pub AddAccessEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, paddraccessentry: *const WM_ADDRESS_ACCESSENTRY) -> ::windows::core::HRESULT,
     pub RemoveAccessEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMAddressAccess2(::windows::core::IUnknown);
 impl IWMAddressAccess2 {
@@ -831,12 +814,10 @@ impl IWMAddressAccess2 {
     pub unsafe fn RemoveAccessEntry(&self, aetype: WM_AETYPE, dwentrynum: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.RemoveAccessEntry)(::windows::core::Interface::as_raw(self), aetype, dwentrynum).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAccessEntryEx(&self, aetype: WM_AETYPE, dwentrynum: u32, pbstraddress: &mut super::super::Foundation::BSTR, pbstrmask: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAccessEntryEx)(::windows::core::Interface::as_raw(self), aetype, dwentrynum, ::core::mem::transmute(pbstraddress), ::core::mem::transmute(pbstrmask)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddAccessEntryEx<'a, P0, P1>(&self, aetype: WM_AETYPE, bstraddress: P0, bstrmask: P1) -> ::windows::core::Result<()>
     where
@@ -909,7 +890,6 @@ pub struct IWMAddressAccess2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddAccessEntryEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMAuthorizer(::windows::core::IUnknown);
 impl IWMAuthorizer {
@@ -969,7 +949,6 @@ pub struct IWMAuthorizer_Vtbl {
     pub GetCert: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppbcertdata: *mut *mut u8) -> ::windows::core::HRESULT,
     pub GetSharedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcertindex: u32, pbshareddata: *const u8, pbcert: *const u8, ppbshareddata: *mut *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMBackupRestoreProps(::windows::core::IUnknown);
 impl IWMBackupRestoreProps {
@@ -1048,7 +1027,6 @@ pub struct IWMBackupRestoreProps_Vtbl {
     pub RemoveProp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcwszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub RemoveAllProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMBandwidthSharing(::windows::core::IUnknown);
 impl IWMBandwidthSharing {
@@ -1134,7 +1112,6 @@ pub struct IWMBandwidthSharing_Vtbl {
     pub GetBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwbitrate: *mut u32, pmsbufferwindow: *mut u32) -> ::windows::core::HRESULT,
     pub SetBandwidth: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbitrate: u32, msbufferwindow: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMClientConnections(::windows::core::IUnknown);
 impl IWMClientConnections {
@@ -1189,7 +1166,6 @@ pub struct IWMClientConnections_Vtbl {
     pub GetClientCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcclients: *mut u32) -> ::windows::core::HRESULT,
     pub GetClientProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwclientnum: u32, pclientproperties: *mut WM_CLIENT_PROPERTIES) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMClientConnections2(::windows::core::IUnknown);
 impl IWMClientConnections2 {
@@ -1261,7 +1237,6 @@ pub struct IWMClientConnections2_Vtbl {
     pub base__: IWMClientConnections_Vtbl,
     pub GetClientInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwclientnum: u32, pwsznetworkaddress: ::windows::core::PWSTR, pcchnetworkaddress: *mut u32, pwszport: ::windows::core::PWSTR, pcchport: *mut u32, pwszdnsname: ::windows::core::PWSTR, pcchdnsname: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMCodecInfo(::windows::core::IUnknown);
 impl IWMCodecInfo {
@@ -1321,7 +1296,6 @@ pub struct IWMCodecInfo_Vtbl {
     pub GetCodecFormatCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pcformat: *mut u32) -> ::windows::core::HRESULT,
     pub GetCodecFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMCodecInfo2(::windows::core::IUnknown);
 impl IWMCodecInfo2 {
@@ -1401,7 +1375,6 @@ pub struct IWMCodecInfo2_Vtbl {
     pub GetCodecName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, wszname: ::windows::core::PWSTR, pcchname: *mut u32) -> ::windows::core::HRESULT,
     pub GetCodecFormatDesc: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, dwformatindex: u32, ppistreamconfig: *mut *mut ::core::ffi::c_void, wszdesc: ::windows::core::PWSTR, pcchdesc: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMCodecInfo3(::windows::core::IUnknown);
 impl IWMCodecInfo3 {
@@ -1522,7 +1495,6 @@ pub struct IWMCodecInfo3_Vtbl {
     pub SetCodecEnumerationSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: ::windows::core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, dwsize: u32) -> ::windows::core::HRESULT,
     pub GetCodecEnumerationSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID, dwcodecindex: u32, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMCredentialCallback(::windows::core::IUnknown);
 impl IWMCredentialCallback {
@@ -1575,7 +1547,6 @@ pub struct IWMCredentialCallback_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub AcquireCredentials: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszrealm: ::windows::core::PCWSTR, pwszsite: ::windows::core::PCWSTR, pwszuser: ::windows::core::PWSTR, cchuser: u32, pwszpassword: ::windows::core::PWSTR, cchpassword: u32, hrstatus: ::windows::core::HRESULT, pdwflags: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMEditor(::windows::core::IUnknown);
 impl IWMDRMEditor {
@@ -1627,14 +1598,12 @@ pub struct IWMDRMEditor_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetDRMProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrname: ::windows::core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMMessageParser(::windows::core::IUnknown);
 impl IWMDRMMessageParser {
     pub unsafe fn ParseRegistrationReqMsg(&self, pbregistrationreqmsg: &[u8], ppdevicecert: &mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: &mut DRM_VAL16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ParseRegistrationReqMsg)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbregistrationreqmsg.as_ptr()), pbregistrationreqmsg.len() as _, ::core::mem::transmute(ppdevicecert), ::core::mem::transmute(pdeviceserialnumber)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ParseLicenseRequestMsg(&self, pblicenserequestmsg: &[u8], ppdevicecert: &mut ::core::option::Option<INSSBuffer>, pdeviceserialnumber: &mut DRM_VAL16, pbstraction: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ParseLicenseRequestMsg)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pblicenserequestmsg.as_ptr()), pblicenserequestmsg.len() as _, ::core::mem::transmute(ppdevicecert), ::core::mem::transmute(pdeviceserialnumber), ::core::mem::transmute(pbstraction)).ok()
@@ -1685,7 +1654,6 @@ pub struct IWMDRMMessageParser_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     ParseLicenseRequestMsg: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMReader(::windows::core::IUnknown);
 impl IWMDRMReader {
@@ -1768,7 +1736,6 @@ pub struct IWMDRMReader_Vtbl {
     pub SetDRMProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrname: ::windows::core::PCWSTR, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::HRESULT,
     pub GetDRMProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrname: ::windows::core::PCWSTR, pdwtype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMReader2(::windows::core::IUnknown);
 impl IWMDRMReader2 {
@@ -1802,7 +1769,6 @@ impl IWMDRMReader2 {
     {
         (::windows::core::Interface::vtable(self).base__.GetDRMProperty)(::windows::core::Interface::as_raw(self), pwstrname.into(), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pcblength)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEvaluateOutputLevelLicenses<'a, P0>(&self, fevaluate: P0) -> ::windows::core::Result<()>
     where
@@ -1882,7 +1848,6 @@ pub struct IWMDRMReader2_Vtbl {
     pub GetCopyOutputLevels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcopyopl: *mut DRM_COPY_OPL, pcblength: *mut u32, pdwminappcompliancelevel: *mut u32) -> ::windows::core::HRESULT,
     pub TryNextLicense: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMReader3(::windows::core::IUnknown);
 impl IWMDRMReader3 {
@@ -1916,7 +1881,6 @@ impl IWMDRMReader3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.GetDRMProperty)(::windows::core::Interface::as_raw(self), pwstrname.into(), ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvalue), ::core::mem::transmute(pcblength)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEvaluateOutputLevelLicenses<'a, P0>(&self, fevaluate: P0) -> ::windows::core::Result<()>
     where
@@ -2008,7 +1972,6 @@ pub struct IWMDRMReader3_Vtbl {
     pub base__: IWMDRMReader2_Vtbl,
     pub GetInclusionList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppguids: *mut *mut ::windows::core::GUID, pcguids: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMTranscryptionManager(::windows::core::IUnknown);
 impl IWMDRMTranscryptionManager {
@@ -2058,11 +2021,9 @@ pub struct IWMDRMTranscryptionManager_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CreateTranscryptor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pptranscryptor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMTranscryptor(::windows::core::IUnknown);
 impl IWMDRMTranscryptor {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: &mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: &mut ::core::option::Option<INSSBuffer>, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -2128,11 +2089,9 @@ pub struct IWMDRMTranscryptor_Vtbl {
     pub Read: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *const u8, pcbdata: *const u32) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMTranscryptor2(::windows::core::IUnknown);
 impl IWMDRMTranscryptor2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, P0, P1>(&self, bstrfilename: P0, pblicenserequestmsg: &mut u8, cblicenserequestmsg: u32, pplicenseresponsemsg: &mut ::core::option::Option<INSSBuffer>, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -2150,7 +2109,6 @@ impl IWMDRMTranscryptor2 {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SeekEx<'a, P0>(&self, cnsstarttime: u64, cnsduration: u64, flrate: f32, fincludefileheader: P0) -> ::windows::core::Result<()>
     where
@@ -2158,7 +2116,6 @@ impl IWMDRMTranscryptor2 {
     {
         (::windows::core::Interface::vtable(self).SeekEx)(::windows::core::Interface::as_raw(self), cnsstarttime, cnsduration, flrate, fincludefileheader.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ZeroAdjustTimestamps<'a, P0>(&self, fenable: P0) -> ::windows::core::Result<()>
     where
@@ -2240,7 +2197,6 @@ pub struct IWMDRMTranscryptor2_Vtbl {
     pub GetSeekStartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnstime: *mut u64) -> ::windows::core::HRESULT,
     pub GetDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcnsduration: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMWriter(::windows::core::IUnknown);
 impl IWMDRMWriter {
@@ -2304,7 +2260,6 @@ pub struct IWMDRMWriter_Vtbl {
     pub GenerateSigningKeyPair: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszprivkey: ::windows::core::PWSTR, pcwchprivkeylength: *mut u32, pwszpubkey: ::windows::core::PWSTR, pcwchpubkeylength: *mut u32) -> ::windows::core::HRESULT,
     pub SetDRMAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pszname: ::windows::core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMWriter2(::windows::core::IUnknown);
 impl IWMDRMWriter2 {
@@ -2323,7 +2278,6 @@ impl IWMDRMWriter2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetDRMAttribute)(::windows::core::Interface::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWMDRMNetEncryption<'a, P0>(&self, fsamplesencrypted: P0, pbkeyid: &u8, cbkeyid: u32) -> ::windows::core::Result<()>
     where
@@ -2391,7 +2345,6 @@ pub struct IWMDRMWriter2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetWMDRMNetEncryption: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDRMWriter3(::windows::core::IUnknown);
 impl IWMDRMWriter3 {
@@ -2410,7 +2363,6 @@ impl IWMDRMWriter3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetDRMAttribute)(::windows::core::Interface::as_raw(self), wstreamnum, pszname.into(), r#type, ::core::mem::transmute(pvalue.as_ptr()), pvalue.len() as _).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWMDRMNetEncryption<'a, P0>(&self, fsamplesencrypted: P0, pbkeyid: &u8, cbkeyid: u32) -> ::windows::core::Result<()>
     where
@@ -2493,7 +2445,6 @@ pub struct IWMDRMWriter3_Vtbl {
     pub base__: IWMDRMWriter2_Vtbl,
     pub SetProtectStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimportinitstruct: *const WMDRM_IMPORT_INIT_STRUCT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMDeviceRegistration(::windows::core::IUnknown);
 impl IWMDeviceRegistration {
@@ -2567,7 +2518,6 @@ pub struct IWMDeviceRegistration_Vtbl {
     pub GetNextRegisteredDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetRegisteredDeviceByID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16, ppdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMGetSecureChannel(::windows::core::IUnknown);
 impl IWMGetSecureChannel {
@@ -2617,7 +2567,6 @@ pub struct IWMGetSecureChannel_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetPeerSecureChannelInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppeer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMHeaderInfo(::windows::core::IUnknown);
 impl IWMHeaderInfo {
@@ -2726,7 +2675,6 @@ pub struct IWMHeaderInfo_Vtbl {
     pub AddScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwsztype: ::windows::core::PCWSTR, pwszcommand: ::windows::core::PCWSTR, cnsscripttime: u64) -> ::windows::core::HRESULT,
     pub RemoveScript: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMHeaderInfo2(::windows::core::IUnknown);
 impl IWMHeaderInfo2 {
@@ -2847,7 +2795,6 @@ pub struct IWMHeaderInfo2_Vtbl {
     pub GetCodecInfoCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pccodecinfos: *mut u32) -> ::windows::core::HRESULT,
     pub GetCodecInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u32, pcchname: *mut u16, pwszname: ::windows::core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows::core::PWSTR, pcodectype: *mut WMT_CODEC_INFO_TYPE, pcbcodecinfo: *mut u16, pbcodecinfo: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMHeaderInfo3(::windows::core::IUnknown);
 impl IWMHeaderInfo3 {
@@ -3020,7 +2967,6 @@ pub struct IWMHeaderInfo3_Vtbl {
     pub DeleteAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, windex: u16) -> ::windows::core::HRESULT,
     pub AddCodecInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pwszdescription: ::windows::core::PCWSTR, codectype: WMT_CODEC_INFO_TYPE, cbcodecinfo: u16, pbcodecinfo: *const u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMIStreamProps(::windows::core::IUnknown);
 impl IWMIStreamProps {
@@ -3072,7 +3018,6 @@ pub struct IWMIStreamProps_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetProperty: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMImageInfo(::windows::core::IUnknown);
 impl IWMImageInfo {
@@ -3126,7 +3071,6 @@ pub struct IWMImageInfo_Vtbl {
     pub GetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcimages: *mut u32) -> ::windows::core::HRESULT,
     pub GetImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u32, pcchmimetype: *mut u16, pwszmimetype: ::windows::core::PWSTR, pcchdescription: *mut u16, pwszdescription: ::windows::core::PWSTR, pimagetype: *mut u16, pcbimagedata: *mut u32, pbimagedata: *mut u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMIndexer(::windows::core::IUnknown);
 impl IWMIndexer {
@@ -3183,7 +3127,6 @@ pub struct IWMIndexer_Vtbl {
     pub StartIndexing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PCWSTR, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMIndexer2(::windows::core::IUnknown);
 impl IWMIndexer2 {
@@ -3257,7 +3200,6 @@ pub struct IWMIndexer2_Vtbl {
     pub base__: IWMIndexer_Vtbl,
     pub Configure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, nindexertype: WMT_INDEXER_TYPE, pvinterval: *const ::core::ffi::c_void, pvindextype: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMInputMediaProps(::windows::core::IUnknown);
 impl IWMInputMediaProps {
@@ -3265,12 +3207,10 @@ impl IWMInputMediaProps {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: &mut WM_MEDIA_TYPE, pcbtype: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype), ::core::mem::transmute(pcbtype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: &WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
@@ -3339,7 +3279,6 @@ pub struct IWMInputMediaProps_Vtbl {
     pub GetConnectionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::HRESULT,
     pub GetGroupName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMLanguageList(::windows::core::IUnknown);
 impl IWMLanguageList {
@@ -3401,7 +3340,6 @@ pub struct IWMLanguageList_Vtbl {
     pub GetLanguageDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, windex: u16, pwszlanguagestring: ::windows::core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::HRESULT,
     pub AddLanguageByRFC1766String: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszlanguagestring: ::windows::core::PCWSTR, pwindex: *mut u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMLicenseBackup(::windows::core::IUnknown);
 impl IWMLicenseBackup {
@@ -3457,7 +3395,6 @@ pub struct IWMLicenseBackup_Vtbl {
     pub BackupLicenses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CancelLicenseBackup: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMLicenseRestore(::windows::core::IUnknown);
 impl IWMLicenseRestore {
@@ -3513,7 +3450,6 @@ pub struct IWMLicenseRestore_Vtbl {
     pub RestoreLicenses: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CancelLicenseRestore: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMLicenseRevocationAgent(::windows::core::IUnknown);
 impl IWMLicenseRevocationAgent {
@@ -3566,7 +3502,6 @@ pub struct IWMLicenseRevocationAgent_Vtbl {
     pub GetLRBChallenge: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmachineid: *const u8, dwmachineidlength: u32, pchallenge: *const u8, dwchallengelength: u32, pchallengeoutput: *mut u8, pdwchallengeoutputlength: *mut u32) -> ::windows::core::HRESULT,
     pub ProcessLRB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psignedlrb: *const u8, dwsignedlrblength: u32, psignedack: *mut u8, pdwsignedacklength: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMMediaProps(::windows::core::IUnknown);
 impl IWMMediaProps {
@@ -3574,12 +3509,10 @@ impl IWMMediaProps {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: &mut WM_MEDIA_TYPE, pcbtype: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype), ::core::mem::transmute(pcbtype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: &WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
@@ -3634,7 +3567,6 @@ pub struct IWMMediaProps_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetMediaType: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMMetadataEditor(::windows::core::IUnknown);
 impl IWMMetadataEditor {
@@ -3694,7 +3626,6 @@ pub struct IWMMetadataEditor_Vtbl {
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMMetadataEditor2(::windows::core::IUnknown);
 impl IWMMetadataEditor2 {
@@ -3773,7 +3704,6 @@ pub struct IWMMetadataEditor2_Vtbl {
     pub base__: IWMMetadataEditor_Vtbl,
     pub OpenEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR, dwdesiredaccess: u32, dwsharemode: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMMutualExclusion(::windows::core::IUnknown);
 impl IWMMutualExclusion {
@@ -3851,7 +3781,6 @@ pub struct IWMMutualExclusion_Vtbl {
     pub GetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub SetType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMMutualExclusion2(::windows::core::IUnknown);
 impl IWMMutualExclusion2 {
@@ -3989,7 +3918,6 @@ pub struct IWMMutualExclusion2_Vtbl {
     pub AddStreamForRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::HRESULT,
     pub RemoveStreamForRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wrecordnumber: u16, wstreamnumber: u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMOutputMediaProps(::windows::core::IUnknown);
 impl IWMOutputMediaProps {
@@ -3997,12 +3925,10 @@ impl IWMOutputMediaProps {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: &mut WM_MEDIA_TYPE, pcbtype: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype), ::core::mem::transmute(pcbtype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: &WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
@@ -4071,7 +3997,6 @@ pub struct IWMOutputMediaProps_Vtbl {
     pub GetStreamGroupName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::HRESULT,
     pub GetConnectionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PWSTR, pcchname: *mut u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMPacketSize(::windows::core::IUnknown);
 impl IWMPacketSize {
@@ -4125,7 +4050,6 @@ pub struct IWMPacketSize_Vtbl {
     pub GetMaxPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxpacketsize: *mut u32) -> ::windows::core::HRESULT,
     pub SetMaxPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxpacketsize: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMPacketSize2(::windows::core::IUnknown);
 impl IWMPacketSize2 {
@@ -4201,7 +4125,6 @@ pub struct IWMPacketSize2_Vtbl {
     pub GetMinPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwminpacketsize: *mut u32) -> ::windows::core::HRESULT,
     pub SetMinPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwminpacketsize: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMPlayerHook(::windows::core::IUnknown);
 impl IWMPlayerHook {
@@ -4250,7 +4173,6 @@ pub struct IWMPlayerHook_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub PreDecode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMPlayerTimestampHook(::windows::core::IUnknown);
 impl IWMPlayerTimestampHook {
@@ -4300,7 +4222,6 @@ pub struct IWMPlayerTimestampHook_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub MapTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rtin: i64, prtout: *mut i64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMProfile(::windows::core::IUnknown);
 impl IWMProfile {
@@ -4446,7 +4367,6 @@ pub struct IWMProfile_Vtbl {
     pub AddMutualExclusion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pme: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CreateNewMutualExclusion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppme: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMProfile2(::windows::core::IUnknown);
 impl IWMProfile2 {
@@ -4594,7 +4514,6 @@ pub struct IWMProfile2_Vtbl {
     pub base__: IWMProfile_Vtbl,
     pub GetProfileID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMProfile3(::windows::core::IUnknown);
 impl IWMProfile3 {
@@ -4820,7 +4739,6 @@ pub struct IWMProfile3_Vtbl {
     pub CreateNewStreamPrioritization: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetExpectedPacketCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msduration: u64, pcpackets: *mut u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMProfileManager(::windows::core::IUnknown);
 impl IWMProfileManager {
@@ -4901,7 +4819,6 @@ pub struct IWMProfileManager_Vtbl {
     pub GetSystemProfileCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcprofiles: *mut u32) -> ::windows::core::HRESULT,
     pub LoadSystemProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwprofileindex: u32, ppprofile: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMProfileManager2(::windows::core::IUnknown);
 impl IWMProfileManager2 {
@@ -4999,7 +4916,6 @@ pub struct IWMProfileManager2_Vtbl {
     pub GetSystemProfileVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwversion: *mut WMT_VERSION) -> ::windows::core::HRESULT,
     pub SetSystemProfileVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwversion: WMT_VERSION) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMProfileManagerLanguage(::windows::core::IUnknown);
 impl IWMProfileManagerLanguage {
@@ -5052,7 +4968,6 @@ pub struct IWMProfileManagerLanguage_Vtbl {
     pub GetUserLanguageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wlangid: *mut u16) -> ::windows::core::HRESULT,
     pub SetUserLanguageID: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wlangid: u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMPropertyVault(::windows::core::IUnknown);
 impl IWMPropertyVault {
@@ -5130,7 +5045,6 @@ pub struct IWMPropertyVault_Vtbl {
     pub CopyPropertiesFrom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piwmpropertyvault: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clear: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMProximityDetection(::windows::core::IUnknown);
 impl IWMProximityDetection {
@@ -5182,7 +5096,6 @@ pub struct IWMProximityDetection_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub StartDetection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbregistrationmsg: *const u8, cbregistrationmsg: u32, pblocaladdress: *const u8, cblocaladdress: u32, dwextraportsallowed: u32, ppregistrationresponsemsg: *mut *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReader(::windows::core::IUnknown);
 impl IWMReader {
@@ -5282,14 +5195,12 @@ pub struct IWMReader_Vtbl {
     pub Pause: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Resume: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAccelerator(::windows::core::IUnknown);
 impl IWMReaderAccelerator {
     pub unsafe fn GetCodecInterface(&self, dwoutputnum: u32, riid: &::windows::core::GUID, ppvcodecinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCodecInterface)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(riid), ::core::mem::transmute(ppvcodecinterface)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Notify(&self, dwoutputnum: u32, psubtype: &WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(psubtype)).ok()
@@ -5340,11 +5251,9 @@ pub struct IWMReaderAccelerator_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     Notify: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAdvanced(::windows::core::IUnknown);
 impl IWMReaderAdvanced {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<'a, P0>(&self, fuserclock: P0) -> ::windows::core::Result<()>
     where
@@ -5352,7 +5261,6 @@ impl IWMReaderAdvanced {
     {
         (::windows::core::Interface::vtable(self).SetUserProvidedClock)(::windows::core::Interface::as_raw(self), fuserclock.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5361,7 +5269,6 @@ impl IWMReaderAdvanced {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeliverTime)(::windows::core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<'a, P0>(&self, fselection: P0) -> ::windows::core::Result<()>
     where
@@ -5369,7 +5276,6 @@ impl IWMReaderAdvanced {
     {
         (::windows::core::Interface::vtable(self).SetManualStreamSelection)(::windows::core::Interface::as_raw(self), fselection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5382,7 +5288,6 @@ impl IWMReaderAdvanced {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, P0>(&self, fgetcallbacks: P0) -> ::windows::core::Result<()>
     where
@@ -5390,13 +5295,11 @@ impl IWMReaderAdvanced {
     {
         (::windows::core::Interface::vtable(self).SetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), fgetcallbacks.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<'a, P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows::core::Result<()>
     where
@@ -5404,13 +5307,11 @@ impl IWMReaderAdvanced {
     {
         (::windows::core::Interface::vtable(self).SetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<'a, P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -5418,13 +5319,11 @@ impl IWMReaderAdvanced {
     {
         (::windows::core::Interface::vtable(self).SetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<'a, P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -5432,7 +5331,6 @@ impl IWMReaderAdvanced {
     {
         (::windows::core::Interface::vtable(self).SetAllocateForStream)(::windows::core::Interface::as_raw(self), wstreamnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5441,7 +5339,6 @@ impl IWMReaderAdvanced {
     pub unsafe fn GetStatistics(&self, pstatistics: &mut WM_READER_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatistics)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: &WM_READER_CLIENTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClientInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclientinfo)).ok()
@@ -5557,11 +5454,9 @@ pub struct IWMReaderAdvanced_Vtbl {
     pub GetMaxStreamSampleSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstream: u16, pcbmax: *mut u32) -> ::windows::core::HRESULT,
     pub NotifyLateDelivery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnslateness: u64) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAdvanced2(::windows::core::IUnknown);
 impl IWMReaderAdvanced2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<'a, P0>(&self, fuserclock: P0) -> ::windows::core::Result<()>
     where
@@ -5569,7 +5464,6 @@ impl IWMReaderAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetUserProvidedClock)(::windows::core::Interface::as_raw(self), fuserclock.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5578,7 +5472,6 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.DeliverTime)(::windows::core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<'a, P0>(&self, fselection: P0) -> ::windows::core::Result<()>
     where
@@ -5586,7 +5479,6 @@ impl IWMReaderAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetManualStreamSelection)(::windows::core::Interface::as_raw(self), fselection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5599,7 +5491,6 @@ impl IWMReaderAdvanced2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, P0>(&self, fgetcallbacks: P0) -> ::windows::core::Result<()>
     where
@@ -5607,13 +5498,11 @@ impl IWMReaderAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), fgetcallbacks.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<'a, P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows::core::Result<()>
     where
@@ -5621,13 +5510,11 @@ impl IWMReaderAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<'a, P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -5635,13 +5522,11 @@ impl IWMReaderAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<'a, P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -5649,7 +5534,6 @@ impl IWMReaderAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetAllocateForStream)(::windows::core::Interface::as_raw(self), wstreamnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5658,7 +5542,6 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn GetStatistics(&self, pstatistics: &mut WM_READER_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatistics)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: &WM_READER_CLIENTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetClientInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclientinfo)).ok()
@@ -5718,7 +5601,6 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Preroll)(::windows::core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<'a, P0>(&self, flogclientid: P0) -> ::windows::core::Result<()>
     where
@@ -5726,7 +5608,6 @@ impl IWMReaderAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).SetLogClientID)(::windows::core::Interface::as_raw(self), flogclientid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5735,7 +5616,6 @@ impl IWMReaderAdvanced2 {
     pub unsafe fn StopBuffering(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).StopBuffering)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<'a, P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -5824,11 +5704,9 @@ pub struct IWMReaderAdvanced2_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAdvanced3(::windows::core::IUnknown);
 impl IWMReaderAdvanced3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<'a, P0>(&self, fuserclock: P0) -> ::windows::core::Result<()>
     where
@@ -5836,7 +5714,6 @@ impl IWMReaderAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetUserProvidedClock)(::windows::core::Interface::as_raw(self), fuserclock.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5845,7 +5722,6 @@ impl IWMReaderAdvanced3 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.DeliverTime)(::windows::core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<'a, P0>(&self, fselection: P0) -> ::windows::core::Result<()>
     where
@@ -5853,7 +5729,6 @@ impl IWMReaderAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetManualStreamSelection)(::windows::core::Interface::as_raw(self), fselection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5866,7 +5741,6 @@ impl IWMReaderAdvanced3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, P0>(&self, fgetcallbacks: P0) -> ::windows::core::Result<()>
     where
@@ -5874,13 +5748,11 @@ impl IWMReaderAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), fgetcallbacks.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<'a, P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows::core::Result<()>
     where
@@ -5888,13 +5760,11 @@ impl IWMReaderAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<'a, P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -5902,13 +5772,11 @@ impl IWMReaderAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<'a, P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -5916,7 +5784,6 @@ impl IWMReaderAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetAllocateForStream)(::windows::core::Interface::as_raw(self), wstreamnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -5925,7 +5792,6 @@ impl IWMReaderAdvanced3 {
     pub unsafe fn GetStatistics(&self, pstatistics: &mut WM_READER_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatistics)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: &WM_READER_CLIENTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SetClientInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclientinfo)).ok()
@@ -5985,7 +5851,6 @@ impl IWMReaderAdvanced3 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Preroll)(::windows::core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<'a, P0>(&self, flogclientid: P0) -> ::windows::core::Result<()>
     where
@@ -5993,7 +5858,6 @@ impl IWMReaderAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.SetLogClientID)(::windows::core::Interface::as_raw(self), flogclientid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6002,7 +5866,6 @@ impl IWMReaderAdvanced3 {
     pub unsafe fn StopBuffering(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.StopBuffering)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<'a, P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -6090,11 +5953,9 @@ pub struct IWMReaderAdvanced3_Vtbl {
     pub StopNetStreaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub StartAtPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pvoffsetstart: *const ::core::ffi::c_void, pvduration: *const ::core::ffi::c_void, dwoffsetformat: WMT_OFFSET_FORMAT, frate: f32, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAdvanced4(::windows::core::IUnknown);
 impl IWMReaderAdvanced4 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<'a, P0>(&self, fuserclock: P0) -> ::windows::core::Result<()>
     where
@@ -6102,7 +5963,6 @@ impl IWMReaderAdvanced4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetUserProvidedClock)(::windows::core::Interface::as_raw(self), fuserclock.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6111,7 +5971,6 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.DeliverTime)(::windows::core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<'a, P0>(&self, fselection: P0) -> ::windows::core::Result<()>
     where
@@ -6119,7 +5978,6 @@ impl IWMReaderAdvanced4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetManualStreamSelection)(::windows::core::Interface::as_raw(self), fselection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6132,7 +5990,6 @@ impl IWMReaderAdvanced4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, P0>(&self, fgetcallbacks: P0) -> ::windows::core::Result<()>
     where
@@ -6140,13 +5997,11 @@ impl IWMReaderAdvanced4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), fgetcallbacks.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<'a, P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows::core::Result<()>
     where
@@ -6154,13 +6009,11 @@ impl IWMReaderAdvanced4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<'a, P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -6168,13 +6021,11 @@ impl IWMReaderAdvanced4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<'a, P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -6182,7 +6033,6 @@ impl IWMReaderAdvanced4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetAllocateForStream)(::windows::core::Interface::as_raw(self), wstreamnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6191,7 +6041,6 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn GetStatistics(&self, pstatistics: &mut WM_READER_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatistics)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: &WM_READER_CLIENTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetClientInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclientinfo)).ok()
@@ -6251,7 +6100,6 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.Preroll)(::windows::core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<'a, P0>(&self, flogclientid: P0) -> ::windows::core::Result<()>
     where
@@ -6259,7 +6107,6 @@ impl IWMReaderAdvanced4 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetLogClientID)(::windows::core::Interface::as_raw(self), flogclientid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6268,7 +6115,6 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn StopBuffering(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.StopBuffering)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<'a, P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -6294,7 +6140,6 @@ impl IWMReaderAdvanced4 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMaxSpeedFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6311,7 +6156,6 @@ impl IWMReaderAdvanced4 {
     pub unsafe fn SendLogParams(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SendLogParams)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6424,11 +6268,9 @@ pub struct IWMReaderAdvanced4_Vtbl {
     pub CancelSaveFileAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetURL: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: ::windows::core::PWSTR, pcchurl: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAdvanced5(::windows::core::IUnknown);
 impl IWMReaderAdvanced5 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<'a, P0>(&self, fuserclock: P0) -> ::windows::core::Result<()>
     where
@@ -6436,7 +6278,6 @@ impl IWMReaderAdvanced5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetUserProvidedClock)(::windows::core::Interface::as_raw(self), fuserclock.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6445,7 +6286,6 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.DeliverTime)(::windows::core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<'a, P0>(&self, fselection: P0) -> ::windows::core::Result<()>
     where
@@ -6453,7 +6293,6 @@ impl IWMReaderAdvanced5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetManualStreamSelection)(::windows::core::Interface::as_raw(self), fselection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6466,7 +6305,6 @@ impl IWMReaderAdvanced5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, P0>(&self, fgetcallbacks: P0) -> ::windows::core::Result<()>
     where
@@ -6474,13 +6312,11 @@ impl IWMReaderAdvanced5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), fgetcallbacks.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<'a, P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows::core::Result<()>
     where
@@ -6488,13 +6324,11 @@ impl IWMReaderAdvanced5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<'a, P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -6502,13 +6336,11 @@ impl IWMReaderAdvanced5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<'a, P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -6516,7 +6348,6 @@ impl IWMReaderAdvanced5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetAllocateForStream)(::windows::core::Interface::as_raw(self), wstreamnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6525,7 +6356,6 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn GetStatistics(&self, pstatistics: &mut WM_READER_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatistics)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: &WM_READER_CLIENTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetClientInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclientinfo)).ok()
@@ -6585,7 +6415,6 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.Preroll)(::windows::core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<'a, P0>(&self, flogclientid: P0) -> ::windows::core::Result<()>
     where
@@ -6593,7 +6422,6 @@ impl IWMReaderAdvanced5 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.SetLogClientID)(::windows::core::Interface::as_raw(self), flogclientid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6602,7 +6430,6 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn StopBuffering(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.StopBuffering)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<'a, P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -6628,7 +6455,6 @@ impl IWMReaderAdvanced5 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetMaxSpeedFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6645,7 +6471,6 @@ impl IWMReaderAdvanced5 {
     pub unsafe fn SendLogParams(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SendLogParams)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6765,11 +6590,9 @@ pub struct IWMReaderAdvanced5_Vtbl {
     pub base__: IWMReaderAdvanced4_Vtbl,
     pub SetPlayerHook: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, phook: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAdvanced6(::windows::core::IUnknown);
 impl IWMReaderAdvanced6 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUserProvidedClock<'a, P0>(&self, fuserclock: P0) -> ::windows::core::Result<()>
     where
@@ -6777,7 +6600,6 @@ impl IWMReaderAdvanced6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetUserProvidedClock)(::windows::core::Interface::as_raw(self), fuserclock.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUserProvidedClock(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6786,7 +6608,6 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn DeliverTime(&self, cnstime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.DeliverTime)(::windows::core::Interface::as_raw(self), cnstime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManualStreamSelection<'a, P0>(&self, fselection: P0) -> ::windows::core::Result<()>
     where
@@ -6794,7 +6615,6 @@ impl IWMReaderAdvanced6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetManualStreamSelection)(::windows::core::Interface::as_raw(self), fselection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetManualStreamSelection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6807,7 +6627,6 @@ impl IWMReaderAdvanced6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveSelectionCallbacks<'a, P0>(&self, fgetcallbacks: P0) -> ::windows::core::Result<()>
     where
@@ -6815,13 +6634,11 @@ impl IWMReaderAdvanced6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), fgetcallbacks.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveSelectionCallbacks(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReceiveSelectionCallbacks)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiveStreamSamples<'a, P0>(&self, wstreamnum: u16, freceivestreamsamples: P0) -> ::windows::core::Result<()>
     where
@@ -6829,13 +6646,11 @@ impl IWMReaderAdvanced6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, freceivestreamsamples.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceiveStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetReceiveStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForOutput<'a, P0>(&self, dwoutputnum: u32, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -6843,13 +6658,11 @@ impl IWMReaderAdvanced6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForOutput(&self, dwoutputnum: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetAllocateForOutput)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForStream<'a, P0>(&self, wstreamnum: u16, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -6857,7 +6670,6 @@ impl IWMReaderAdvanced6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetAllocateForStream)(::windows::core::Interface::as_raw(self), wstreamnum, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForStream(&self, dwsreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6866,7 +6678,6 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn GetStatistics(&self, pstatistics: &mut WM_READER_STATISTICS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstatistics)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetClientInfo(&self, pclientinfo: &WM_READER_CLIENTINFO) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.base__.SetClientInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pclientinfo)).ok()
@@ -6926,7 +6737,6 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn Preroll(&self, cnsstart: u64, cnsduration: u64, frate: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.Preroll)(::windows::core::Interface::as_raw(self), cnsstart, cnsduration, frate).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogClientID<'a, P0>(&self, flogclientid: P0) -> ::windows::core::Result<()>
     where
@@ -6934,7 +6744,6 @@ impl IWMReaderAdvanced6 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.SetLogClientID)(::windows::core::Interface::as_raw(self), flogclientid.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLogClientID(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6943,7 +6752,6 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn StopBuffering(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.base__.base__.StopBuffering)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<'a, P0, P1>(&self, pstream: P0, pcallback: P1, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()>
     where
@@ -6969,7 +6777,6 @@ impl IWMReaderAdvanced6 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.base__.GetMaxSpeedFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingFastCache(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -6986,7 +6793,6 @@ impl IWMReaderAdvanced6 {
     pub unsafe fn SendLogParams(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.base__.SendLogParams)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanSaveFileAs(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -7124,7 +6930,6 @@ pub struct IWMReaderAdvanced6_Vtbl {
     pub base__: IWMReaderAdvanced5_Vtbl,
     pub SetProtectStreamSamples: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbcertificate: *const u8, cbcertificate: u32, dwcertificatetype: u32, dwflags: u32, pbinitializationvector: *mut u8, pcbinitializationvector: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderAllocatorEx(::windows::core::IUnknown);
 impl IWMReaderAllocatorEx {
@@ -7177,7 +6982,6 @@ pub struct IWMReaderAllocatorEx_Vtbl {
     pub AllocateForStreamEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllocateForOutputEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, dwflags: u32, cnssampletime: u64, cnssampleduration: u64, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderCallback(::windows::core::IUnknown);
 impl IWMReaderCallback {
@@ -7247,7 +7051,6 @@ pub struct IWMReaderCallback_Vtbl {
     pub base__: IWMStatusCallback_Vtbl,
     pub OnSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderCallbackAdvanced(::windows::core::IUnknown);
 impl IWMReaderCallbackAdvanced {
@@ -7263,7 +7066,6 @@ impl IWMReaderCallbackAdvanced {
     pub unsafe fn OnStreamSelection(&self, wstreamcount: u16, pstreamnumbers: &u16, pselections: &WMT_STREAM_SELECTION, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnStreamSelection)(::windows::core::Interface::as_raw(self), wstreamcount, ::core::mem::transmute(pstreamnumbers), ::core::mem::transmute(pselections), ::core::mem::transmute(pvcontext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: &WM_MEDIA_TYPE, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnOutputPropsChanged)(::windows::core::Interface::as_raw(self), dwoutputnum, ::core::mem::transmute(pmediatype), ::core::mem::transmute(pvcontext)).ok()
@@ -7324,7 +7126,6 @@ pub struct IWMReaderCallbackAdvanced_Vtbl {
     pub AllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllocateForOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderNetworkConfig(::windows::core::IUnknown);
 impl IWMReaderNetworkConfig {
@@ -7393,7 +7194,6 @@ impl IWMReaderNetworkConfig {
     {
         (::windows::core::Interface::vtable(self).SetProxyExceptionList)(::windows::core::Interface::as_raw(self), pwszprotocol.into(), pwszexceptionlist.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProxyBypassForLocal<'a, P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -7402,7 +7202,6 @@ impl IWMReaderNetworkConfig {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetProxyBypassForLocal)(::windows::core::Interface::as_raw(self), pwszprotocol.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProxyBypassForLocal<'a, P0, P1>(&self, pwszprotocol: P0, fbypassforlocal: P1) -> ::windows::core::Result<()>
     where
@@ -7411,13 +7210,11 @@ impl IWMReaderNetworkConfig {
     {
         (::windows::core::Interface::vtable(self).SetProxyBypassForLocal)(::windows::core::Interface::as_raw(self), pwszprotocol.into(), fbypassforlocal.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForceRerunAutoProxyDetection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetForceRerunAutoProxyDetection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetForceRerunAutoProxyDetection<'a, P0>(&self, fforcererundetection: P0) -> ::windows::core::Result<()>
     where
@@ -7425,13 +7222,11 @@ impl IWMReaderNetworkConfig {
     {
         (::windows::core::Interface::vtable(self).SetForceRerunAutoProxyDetection)(::windows::core::Interface::as_raw(self), fforcererundetection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableMulticast(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableMulticast)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableMulticast<'a, P0>(&self, fenablemulticast: P0) -> ::windows::core::Result<()>
     where
@@ -7439,13 +7234,11 @@ impl IWMReaderNetworkConfig {
     {
         (::windows::core::Interface::vtable(self).SetEnableMulticast)(::windows::core::Interface::as_raw(self), fenablemulticast.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableHTTP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableHTTP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableHTTP<'a, P0>(&self, fenablehttp: P0) -> ::windows::core::Result<()>
     where
@@ -7453,13 +7246,11 @@ impl IWMReaderNetworkConfig {
     {
         (::windows::core::Interface::vtable(self).SetEnableHTTP)(::windows::core::Interface::as_raw(self), fenablehttp.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableUDP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableUDP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableUDP<'a, P0>(&self, fenableudp: P0) -> ::windows::core::Result<()>
     where
@@ -7467,13 +7258,11 @@ impl IWMReaderNetworkConfig {
     {
         (::windows::core::Interface::vtable(self).SetEnableUDP)(::windows::core::Interface::as_raw(self), fenableudp.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableTCP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableTCP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableTCP<'a, P0>(&self, fenabletcp: P0) -> ::windows::core::Result<()>
     where
@@ -7624,7 +7413,6 @@ pub struct IWMReaderNetworkConfig_Vtbl {
     pub GetLoggingUrlCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwurlcount: *mut u32) -> ::windows::core::HRESULT,
     pub ResetLoggingUrlList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderNetworkConfig2(::windows::core::IUnknown);
 impl IWMReaderNetworkConfig2 {
@@ -7693,7 +7481,6 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetProxyExceptionList)(::windows::core::Interface::as_raw(self), pwszprotocol.into(), pwszexceptionlist.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetProxyBypassForLocal<'a, P0>(&self, pwszprotocol: P0) -> ::windows::core::Result<super::super::Foundation::BOOL>
     where
@@ -7702,7 +7489,6 @@ impl IWMReaderNetworkConfig2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetProxyBypassForLocal)(::windows::core::Interface::as_raw(self), pwszprotocol.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProxyBypassForLocal<'a, P0, P1>(&self, pwszprotocol: P0, fbypassforlocal: P1) -> ::windows::core::Result<()>
     where
@@ -7711,13 +7497,11 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetProxyBypassForLocal)(::windows::core::Interface::as_raw(self), pwszprotocol.into(), fbypassforlocal.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForceRerunAutoProxyDetection(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetForceRerunAutoProxyDetection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetForceRerunAutoProxyDetection<'a, P0>(&self, fforcererundetection: P0) -> ::windows::core::Result<()>
     where
@@ -7725,13 +7509,11 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetForceRerunAutoProxyDetection)(::windows::core::Interface::as_raw(self), fforcererundetection.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableMulticast(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetEnableMulticast)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableMulticast<'a, P0>(&self, fenablemulticast: P0) -> ::windows::core::Result<()>
     where
@@ -7739,13 +7521,11 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetEnableMulticast)(::windows::core::Interface::as_raw(self), fenablemulticast.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableHTTP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetEnableHTTP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableHTTP<'a, P0>(&self, fenablehttp: P0) -> ::windows::core::Result<()>
     where
@@ -7753,13 +7533,11 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetEnableHTTP)(::windows::core::Interface::as_raw(self), fenablehttp.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableUDP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetEnableUDP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableUDP<'a, P0>(&self, fenableudp: P0) -> ::windows::core::Result<()>
     where
@@ -7767,13 +7545,11 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetEnableUDP)(::windows::core::Interface::as_raw(self), fenableudp.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableTCP(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetEnableTCP)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableTCP<'a, P0>(&self, fenabletcp: P0) -> ::windows::core::Result<()>
     where
@@ -7814,13 +7590,11 @@ impl IWMReaderNetworkConfig2 {
     pub unsafe fn ResetLoggingUrlList(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.ResetLoggingUrlList)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableContentCaching(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableContentCaching)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableContentCaching<'a, P0>(&self, fenablecontentcaching: P0) -> ::windows::core::Result<()>
     where
@@ -7828,13 +7602,11 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).SetEnableContentCaching)(::windows::core::Interface::as_raw(self), fenablecontentcaching.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableFastCache(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableFastCache)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableFastCache<'a, P0>(&self, fenablefastcache: P0) -> ::windows::core::Result<()>
     where
@@ -7856,13 +7628,11 @@ impl IWMReaderNetworkConfig2 {
     pub unsafe fn SetAutoReconnectLimit(&self, dwautoreconnectlimit: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAutoReconnectLimit)(::windows::core::Interface::as_raw(self), dwautoreconnectlimit).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableResends(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableResends)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableResends<'a, P0>(&self, fenableresends: P0) -> ::windows::core::Result<()>
     where
@@ -7870,13 +7640,11 @@ impl IWMReaderNetworkConfig2 {
     {
         (::windows::core::Interface::vtable(self).SetEnableResends)(::windows::core::Interface::as_raw(self), fenableresends.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnableThinning(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetEnableThinning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnableThinning<'a, P0>(&self, fenablethinning: P0) -> ::windows::core::Result<()>
     where
@@ -7981,7 +7749,6 @@ pub struct IWMReaderNetworkConfig2_Vtbl {
     SetEnableThinning: usize,
     pub GetMaxNetPacketSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwmaxnetpacketsize: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderPlaylistBurn(::windows::core::IUnknown);
 impl IWMReaderPlaylistBurn {
@@ -8046,7 +7813,6 @@ pub struct IWMReaderPlaylistBurn_Vtbl {
     pub Cancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndPlaylistBurn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hrburnresult: ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderStreamClock(::windows::core::IUnknown);
 impl IWMReaderStreamClock {
@@ -8104,7 +7870,6 @@ pub struct IWMReaderStreamClock_Vtbl {
     pub SetTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cnswhen: u64, pvparam: *const ::core::ffi::c_void, pdwtimerid: *mut u32) -> ::windows::core::HRESULT,
     pub KillTimer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwtimerid: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderTimecode(::windows::core::IUnknown);
 impl IWMReaderTimecode {
@@ -8158,7 +7923,6 @@ pub struct IWMReaderTimecode_Vtbl {
     pub GetTimecodeRangeCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pwrangecount: *mut u16) -> ::windows::core::HRESULT,
     pub GetTimecodeRangeBounds: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, wrangenum: u16, pstarttimecode: *mut u32, pendtimecode: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMReaderTypeNegotiation(::windows::core::IUnknown);
 impl IWMReaderTypeNegotiation {
@@ -8210,7 +7974,6 @@ pub struct IWMReaderTypeNegotiation_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub TryOutputProps: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputnum: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMRegisterCallback(::windows::core::IUnknown);
 impl IWMRegisterCallback {
@@ -8269,7 +8032,6 @@ pub struct IWMRegisterCallback_Vtbl {
     pub Advise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Unadvise: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMRegisteredDevice(::windows::core::IUnknown);
 impl IWMRegisteredDevice {
@@ -8289,12 +8051,10 @@ impl IWMRegisteredDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAttributeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributeByIndex(&self, dwindex: u32, pbstrname: &mut super::super::Foundation::BSTR, pbstrvalue: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetAttributeByIndex)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrvalue)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAttributeByName<'a, P0>(&self, bstrname: P0) -> ::windows::core::Result<super::super::Foundation::BSTR>
     where
@@ -8303,7 +8063,6 @@ impl IWMRegisteredDevice {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAttributeByName)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAttributeByName<'a, P0, P1>(&self, bstrname: P0, bstrvalue: P1) -> ::windows::core::Result<()>
     where
@@ -8312,7 +8071,6 @@ impl IWMRegisteredDevice {
     {
         (::windows::core::Interface::vtable(self).SetAttributeByName)(::windows::core::Interface::as_raw(self), bstrname.into().abi(), bstrvalue.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Approve<'a, P0>(&self, fapprove: P0) -> ::windows::core::Result<()>
     where
@@ -8320,25 +8078,21 @@ impl IWMRegisteredDevice {
     {
         (::windows::core::Interface::vtable(self).Approve)(::windows::core::Interface::as_raw(self), fapprove.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsValid(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsValid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsApproved(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsApproved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsWmdrmCompliant(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsWmdrmCompliant)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsOpened(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8429,7 +8183,6 @@ pub struct IWMRegisteredDevice_Vtbl {
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMSBufferAllocator(::windows::core::IUnknown);
 impl IWMSBufferAllocator {
@@ -8484,11 +8237,9 @@ pub struct IWMSBufferAllocator_Vtbl {
     pub AllocateBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxbuffersize: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllocatePageSizeBuffer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxbuffersize: u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMSInternalAdminNetSource(::windows::core::IUnknown);
 impl IWMSInternalAdminNetSource {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, P0, P1, P2, P3>(&self, psharednamespace: P0, pnamespacenode: P1, pnetsourcecreator: P2, fembeddedinserver: P3) -> ::windows::core::Result<()>
     where
@@ -8503,7 +8254,6 @@ impl IWMSInternalAdminNetSource {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNetSourceCreator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INSNetSourceCreator>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentials<'a, P0, P1, P2, P3, P4>(&self, bstrrealm: P0, bstrname: P1, bstrpassword: P2, fpersist: P3, fconfirmedgood: P4) -> ::windows::core::Result<()>
     where
@@ -8515,7 +8265,6 @@ impl IWMSInternalAdminNetSource {
     {
         (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrname.into().abi(), bstrpassword.into().abi(), fpersist.into(), fconfirmedgood.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentials<'a, P0>(&self, bstrrealm: P0, pbstrname: &mut super::super::Foundation::BSTR, pbstrpassword: &mut super::super::Foundation::BSTR, pfconfirmedgood: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -8523,7 +8272,6 @@ impl IWMSInternalAdminNetSource {
     {
         (::windows::core::Interface::vtable(self).GetCredentials)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), ::core::mem::transmute(pfconfirmedgood)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteCredentials<'a, P0>(&self, bstrrealm: P0) -> ::windows::core::Result<()>
     where
@@ -8538,7 +8286,6 @@ impl IWMSInternalAdminNetSource {
     pub unsafe fn SetCredentialFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCredentialFlags)(::windows::core::Interface::as_raw(self), dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURL<'a, P0, P1>(&self, bstrprotocol: P0, bstrhost: P1, pfproxyenabled: &mut super::super::Foundation::BOOL, pbstrproxyserver: &mut super::super::Foundation::BSTR, pdwproxyport: &mut u32, pdwproxycontext: &mut u32) -> ::windows::core::Result<()>
     where
@@ -8553,7 +8300,6 @@ impl IWMSInternalAdminNetSource {
     pub unsafe fn ShutdownProxyContext(&self, dwproxycontext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShutdownProxyContext)(::windows::core::Interface::as_raw(self), dwproxycontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingIE(&self, dwproxycontext: u32) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -8629,11 +8375,9 @@ pub struct IWMSInternalAdminNetSource_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsUsingIE: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMSInternalAdminNetSource2(::windows::core::IUnknown);
 impl IWMSInternalAdminNetSource2 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentialsEx<'a, P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> ::windows::core::Result<()>
     where
@@ -8647,7 +8391,6 @@ impl IWMSInternalAdminNetSource2 {
     {
         (::windows::core::Interface::vtable(self).SetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrurl.into().abi(), fproxy.into(), bstrname.into().abi(), bstrpassword.into().abi(), fpersist.into(), fconfirmedgood.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentialsEx<'a, P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, pdwurlpolicy: &mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: &mut super::super::Foundation::BSTR, pbstrpassword: &mut super::super::Foundation::BSTR, pfconfirmedgood: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -8657,7 +8400,6 @@ impl IWMSInternalAdminNetSource2 {
     {
         (::windows::core::Interface::vtable(self).GetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrurl.into().abi(), fproxy.into(), ::core::mem::transmute(pdwurlpolicy), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), ::core::mem::transmute(pfconfirmedgood)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteCredentialsEx<'a, P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2) -> ::windows::core::Result<()>
     where
@@ -8667,7 +8409,6 @@ impl IWMSInternalAdminNetSource2 {
     {
         (::windows::core::Interface::vtable(self).DeleteCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrurl.into().abi(), fproxy.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURLEx<'a, P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: &mut super::super::Foundation::BOOL, pbstrproxyserver: &mut super::super::Foundation::BSTR, pdwproxyport: &mut u32, pdwproxycontext: &mut u32) -> ::windows::core::Result<()>
     where
@@ -8734,11 +8475,9 @@ pub struct IWMSInternalAdminNetSource2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     FindProxyForURLEx: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMSInternalAdminNetSource3(::windows::core::IUnknown);
 impl IWMSInternalAdminNetSource3 {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentialsEx<'a, P0, P1, P2, P3, P4, P5, P6>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6) -> ::windows::core::Result<()>
     where
@@ -8752,7 +8491,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows::core::Interface::vtable(self).base__.SetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrurl.into().abi(), fproxy.into(), bstrname.into().abi(), bstrpassword.into().abi(), fpersist.into(), fconfirmedgood.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentialsEx<'a, P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, pdwurlpolicy: &mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: &mut super::super::Foundation::BSTR, pbstrpassword: &mut super::super::Foundation::BSTR, pfconfirmedgood: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -8762,7 +8500,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows::core::Interface::vtable(self).base__.GetCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrurl.into().abi(), fproxy.into(), ::core::mem::transmute(pdwurlpolicy), ::core::mem::transmute(pbstrname), ::core::mem::transmute(pbstrpassword), ::core::mem::transmute(pfconfirmedgood)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteCredentialsEx<'a, P0, P1, P2>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2) -> ::windows::core::Result<()>
     where
@@ -8772,7 +8509,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows::core::Interface::vtable(self).base__.DeleteCredentialsEx)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrurl.into().abi(), fproxy.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURLEx<'a, P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: &mut super::super::Foundation::BOOL, pbstrproxyserver: &mut super::super::Foundation::BSTR, pdwproxyport: &mut u32, pdwproxycontext: &mut u32) -> ::windows::core::Result<()>
     where
@@ -8786,7 +8522,6 @@ impl IWMSInternalAdminNetSource3 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetNetSourceCreator2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindProxyForURLEx2<'a, P0, P1, P2>(&self, bstrprotocol: P0, bstrhost: P1, bstrurl: P2, pfproxyenabled: &mut super::super::Foundation::BOOL, pbstrproxyserver: &mut super::super::Foundation::BSTR, pdwproxyport: &mut u32, pqwproxycontext: &mut u64) -> ::windows::core::Result<()>
     where
@@ -8802,13 +8537,11 @@ impl IWMSInternalAdminNetSource3 {
     pub unsafe fn ShutdownProxyContext2(&self, qwproxycontext: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShutdownProxyContext2)(::windows::core::Interface::as_raw(self), qwproxycontext).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsUsingIE2(&self, qwproxycontext: u64) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).IsUsingIE2)(::windows::core::Interface::as_raw(self), qwproxycontext, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentialsEx2<'a, P0, P1, P2, P3, P4, P5, P6, P7>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, bstrname: P3, bstrpassword: P4, fpersist: P5, fconfirmedgood: P6, fcleartextauthentication: P7) -> ::windows::core::Result<()>
     where
@@ -8823,7 +8556,6 @@ impl IWMSInternalAdminNetSource3 {
     {
         (::windows::core::Interface::vtable(self).SetCredentialsEx2)(::windows::core::Interface::as_raw(self), bstrrealm.into().abi(), bstrurl.into().abi(), fproxy.into(), bstrname.into().abi(), bstrpassword.into().abi(), fpersist.into(), fconfirmedgood.into(), fcleartextauthentication.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCredentialsEx2<'a, P0, P1, P2, P3>(&self, bstrrealm: P0, bstrurl: P1, fproxy: P2, fcleartextauthentication: P3, pdwurlpolicy: &mut NETSOURCE_URLCREDPOLICY_SETTINGS, pbstrname: &mut super::super::Foundation::BSTR, pbstrpassword: &mut super::super::Foundation::BSTR, pfconfirmedgood: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
     where
@@ -8909,7 +8641,6 @@ pub struct IWMSInternalAdminNetSource3_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetCredentialsEx2: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMSecureChannel(::windows::core::IUnknown);
 impl IWMSecureChannel {
@@ -8940,7 +8671,6 @@ impl IWMSecureChannel {
     {
         (::windows::core::Interface::vtable(self).WMSC_Connect)(::windows::core::Interface::as_raw(self), potherside.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WMSC_IsConnected(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9037,7 +8767,6 @@ pub struct IWMSecureChannel_Vtbl {
     pub WMSC_Unlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub WMSC_SetSharedData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwcertindex: u32, pbshareddata: *const u8) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMStatusCallback(::windows::core::IUnknown);
 impl IWMStatusCallback {
@@ -9086,7 +8815,6 @@ pub struct IWMStatusCallback_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub OnStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, status: WMT_STATUS, hr: ::windows::core::HRESULT, dwtype: WMT_ATTR_DATATYPE, pvalue: *const u8, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMStreamConfig(::windows::core::IUnknown);
 impl IWMStreamConfig {
@@ -9185,7 +8913,6 @@ pub struct IWMStreamConfig_Vtbl {
     pub GetBufferWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmsbufferwindow: *mut u32) -> ::windows::core::HRESULT,
     pub SetBufferWindow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, msbufferwindow: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMStreamConfig2(::windows::core::IUnknown);
 impl IWMStreamConfig2 {
@@ -9314,7 +9041,6 @@ pub struct IWMStreamConfig2_Vtbl {
     pub GetDataUnitExtension: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wdataunitextensionnumber: u16, pguidextensionsystemid: *mut ::windows::core::GUID, pcbextensiondatasize: *mut u16, pbextensionsysteminfo: *mut u8, pcbextensionsysteminfo: *mut u32) -> ::windows::core::HRESULT,
     pub RemoveAllDataUnitExtensions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMStreamConfig3(::windows::core::IUnknown);
 impl IWMStreamConfig3 {
@@ -9463,7 +9189,6 @@ pub struct IWMStreamConfig3_Vtbl {
     pub GetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszlanguagestring: ::windows::core::PWSTR, pcchlanguagestringlength: *mut u16) -> ::windows::core::HRESULT,
     pub SetLanguage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszlanguagestring: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMStreamList(::windows::core::IUnknown);
 impl IWMStreamList {
@@ -9520,16 +9245,13 @@ pub struct IWMStreamList_Vtbl {
     pub AddStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16) -> ::windows::core::HRESULT,
     pub RemoveStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMStreamPrioritization(::windows::core::IUnknown);
 impl IWMStreamPrioritization {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPriorityRecords(&self, precordarray: *mut WM_STREAM_PRIORITY_RECORD, pcrecords: &mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPriorityRecords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(precordarray), ::core::mem::transmute(pcrecords)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPriorityRecords(&self, precordarray: &WM_STREAM_PRIORITY_RECORD, crecords: u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPriorityRecords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(precordarray), crecords).ok()
@@ -9583,7 +9305,6 @@ pub struct IWMStreamPrioritization_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetPriorityRecords: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMSyncReader(::windows::core::IUnknown);
 impl IWMSyncReader {
@@ -9612,7 +9333,6 @@ impl IWMSyncReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadStreamSamples<'a, P0>(&self, wstreamnum: u16, fcompressed: P0) -> ::windows::core::Result<()>
     where
@@ -9620,7 +9340,6 @@ impl IWMSyncReader {
     {
         (::windows::core::Interface::vtable(self).SetReadStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, fcompressed.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9676,7 +9395,6 @@ impl IWMSyncReader {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMaxStreamSampleSize)(::windows::core::Interface::as_raw(self), wstream, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<()>
     where
@@ -9755,7 +9473,6 @@ pub struct IWMSyncReader_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     OpenStream: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMSyncReader2(::windows::core::IUnknown);
 impl IWMSyncReader2 {
@@ -9784,7 +9501,6 @@ impl IWMSyncReader2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetStreamSelected)(::windows::core::Interface::as_raw(self), wstreamnum, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WMT_STREAM_SELECTION>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReadStreamSamples<'a, P0>(&self, wstreamnum: u16, fcompressed: P0) -> ::windows::core::Result<()>
     where
@@ -9792,7 +9508,6 @@ impl IWMSyncReader2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetReadStreamSamples)(::windows::core::Interface::as_raw(self), wstreamnum, fcompressed.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReadStreamSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -9848,7 +9563,6 @@ impl IWMSyncReader2 {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetMaxStreamSampleSize)(::windows::core::Interface::as_raw(self), wstream, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenStream<'a, P0>(&self, pstream: P0) -> ::windows::core::Result<()>
     where
@@ -9945,7 +9659,6 @@ pub struct IWMSyncReader2_Vtbl {
     pub SetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pallocator: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub GetAllocateForStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsreamnum: u16, ppallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMVideoMediaProps(::windows::core::IUnknown);
 impl IWMVideoMediaProps {
@@ -9953,12 +9666,10 @@ impl IWMVideoMediaProps {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMediaType(&self, ptype: &mut WM_MEDIA_TYPE, pcbtype: &mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.GetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype), ::core::mem::transmute(pcbtype)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMediaType(&self, ptype: &WM_MEDIA_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetMediaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ptype)).ok()
@@ -10037,7 +9748,6 @@ pub struct IWMVideoMediaProps_Vtbl {
     pub GetQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwquality: *mut u32) -> ::windows::core::HRESULT,
     pub SetQuality: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwquality: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWatermarkInfo(::windows::core::IUnknown);
 impl IWMWatermarkInfo {
@@ -10092,7 +9802,6 @@ pub struct IWMWatermarkInfo_Vtbl {
     pub GetWatermarkEntryCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmettype: WMT_WATERMARK_ENTRY_TYPE, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetWatermarkEntry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wmettype: WMT_WATERMARK_ENTRY_TYPE, dwentrynum: u32, pentry: *mut WMT_WATERMARK_ENTRY) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriter(::windows::core::IUnknown);
 impl IWMWriter {
@@ -10206,7 +9915,6 @@ pub struct IWMWriter_Vtbl {
     pub WriteSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterAdvanced(::windows::core::IUnknown);
 impl IWMWriterAdvanced {
@@ -10236,7 +9944,6 @@ impl IWMWriterAdvanced {
     {
         (::windows::core::Interface::vtable(self).WriteStreamSample)(::windows::core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLiveSource<'a, P0>(&self, fislivesource: P0) -> ::windows::core::Result<()>
     where
@@ -10244,7 +9951,6 @@ impl IWMWriterAdvanced {
     {
         (::windows::core::Interface::vtable(self).SetLiveSource)(::windows::core::Interface::as_raw(self), fislivesource.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10323,7 +10029,6 @@ pub struct IWMWriterAdvanced_Vtbl {
     pub SetSyncTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mswindow: u32) -> ::windows::core::HRESULT,
     pub GetSyncTolerance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmswindow: *mut u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterAdvanced2(::windows::core::IUnknown);
 impl IWMWriterAdvanced2 {
@@ -10353,7 +10058,6 @@ impl IWMWriterAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.WriteStreamSample)(::windows::core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLiveSource<'a, P0>(&self, fislivesource: P0) -> ::windows::core::Result<()>
     where
@@ -10361,7 +10065,6 @@ impl IWMWriterAdvanced2 {
     {
         (::windows::core::Interface::vtable(self).base__.SetLiveSource)(::windows::core::Interface::as_raw(self), fislivesource.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10452,7 +10155,6 @@ pub struct IWMWriterAdvanced2_Vtbl {
     pub GetInputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, pszname: ::windows::core::PCWSTR, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pcblength: *mut u16) -> ::windows::core::HRESULT,
     pub SetInputSetting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, pszname: ::windows::core::PCWSTR, r#type: WMT_ATTR_DATATYPE, pvalue: *const u8, cblength: u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterAdvanced3(::windows::core::IUnknown);
 impl IWMWriterAdvanced3 {
@@ -10482,7 +10184,6 @@ impl IWMWriterAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.WriteStreamSample)(::windows::core::Interface::as_raw(self), wstreamnum, cnssampletime, mssamplesendtime, cnssampleduration, dwflags, psample.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLiveSource<'a, P0>(&self, fislivesource: P0) -> ::windows::core::Result<()>
     where
@@ -10490,7 +10191,6 @@ impl IWMWriterAdvanced3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.SetLiveSource)(::windows::core::Interface::as_raw(self), fislivesource.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10603,7 +10303,6 @@ pub struct IWMWriterAdvanced3_Vtbl {
     pub GetStatisticsEx: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, pstats: *mut WM_WRITER_STATISTICS_EX) -> ::windows::core::HRESULT,
     pub SetNonBlocking: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterFileSink(::windows::core::IUnknown);
 impl IWMWriterFileSink {
@@ -10613,7 +10312,6 @@ impl IWMWriterFileSink {
     {
         (::windows::core::Interface::vtable(self).base__.OnHeader)(::windows::core::Interface::as_raw(self), pheader.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10695,7 +10393,6 @@ pub struct IWMWriterFileSink_Vtbl {
     pub base__: IWMWriterSink_Vtbl,
     pub Open: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszfilename: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterFileSink2(::windows::core::IUnknown);
 impl IWMWriterFileSink2 {
@@ -10705,7 +10402,6 @@ impl IWMWriterFileSink2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.OnHeader)(::windows::core::Interface::as_raw(self), pheader.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10736,7 +10432,6 @@ impl IWMWriterFileSink2 {
     pub unsafe fn Stop(&self, cnsstoptime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), cnsstoptime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStopped(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10753,7 +10448,6 @@ impl IWMWriterFileSink2 {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10843,7 +10537,6 @@ pub struct IWMWriterFileSink2_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsClosed: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterFileSink3(::windows::core::IUnknown);
 impl IWMWriterFileSink3 {
@@ -10853,7 +10546,6 @@ impl IWMWriterFileSink3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.OnHeader)(::windows::core::Interface::as_raw(self), pheader.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10884,7 +10576,6 @@ impl IWMWriterFileSink3 {
     pub unsafe fn Stop(&self, cnsstoptime: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Stop)(::windows::core::Interface::as_raw(self), cnsstoptime).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsStopped(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -10901,13 +10592,11 @@ impl IWMWriterFileSink3 {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Close)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.IsClosed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAutoIndexing<'a, P0>(&self, fdoautoindexing: P0) -> ::windows::core::Result<()>
     where
@@ -10915,13 +10604,11 @@ impl IWMWriterFileSink3 {
     {
         (::windows::core::Interface::vtable(self).SetAutoIndexing)(::windows::core::Interface::as_raw(self), fdoautoindexing.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAutoIndexing(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetAutoIndexing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetControlStream<'a, P0>(&self, wstreamnumber: u16, fshouldcontrolstartandstop: P0) -> ::windows::core::Result<()>
     where
@@ -10936,7 +10623,6 @@ impl IWMWriterFileSink3 {
     pub unsafe fn OnDataUnitEx(&self, pfilesinkdataunit: &WMT_FILESINK_DATA_UNIT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnDataUnitEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfilesinkdataunit)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUnbufferedIO<'a, P0, P1>(&self, funbufferedio: P0, frestrictmemusage: P1) -> ::windows::core::Result<()>
     where
@@ -10945,7 +10631,6 @@ impl IWMWriterFileSink3 {
     {
         (::windows::core::Interface::vtable(self).SetUnbufferedIO)(::windows::core::Interface::as_raw(self), funbufferedio.into(), frestrictmemusage.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUnbufferedIO(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11063,7 +10748,6 @@ pub struct IWMWriterFileSink3_Vtbl {
     GetUnbufferedIO: usize,
     pub CompleteOperations: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterNetworkSink(::windows::core::IUnknown);
 impl IWMWriterNetworkSink {
@@ -11073,7 +10757,6 @@ impl IWMWriterNetworkSink {
     {
         (::windows::core::Interface::vtable(self).base__.OnHeader)(::windows::core::Interface::as_raw(self), pheader.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11182,7 +10865,6 @@ pub struct IWMWriterNetworkSink_Vtbl {
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterPostView(::windows::core::IUnknown);
 impl IWMWriterPostView {
@@ -11192,7 +10874,6 @@ impl IWMWriterPostView {
     {
         (::windows::core::Interface::vtable(self).SetPostViewCallback)(::windows::core::Interface::as_raw(self), pcallback.into().abi(), ::core::mem::transmute(pvcontext)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceivePostViewSamples<'a, P0>(&self, wstreamnum: u16, freceivepostviewsamples: P0) -> ::windows::core::Result<()>
     where
@@ -11200,7 +10881,6 @@ impl IWMWriterPostView {
     {
         (::windows::core::Interface::vtable(self).SetReceivePostViewSamples)(::windows::core::Interface::as_raw(self), wstreamnum, freceivepostviewsamples.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetReceivePostViewSamples(&self, wstreamnum: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11224,7 +10904,6 @@ impl IWMWriterPostView {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetPostViewFormat)(::windows::core::Interface::as_raw(self), wstreamnumber, dwformatnumber, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMMediaProps>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAllocateForPostView<'a, P0>(&self, wstreamnumber: u16, fallocate: P0) -> ::windows::core::Result<()>
     where
@@ -11232,7 +10911,6 @@ impl IWMWriterPostView {
     {
         (::windows::core::Interface::vtable(self).SetAllocateForPostView)(::windows::core::Interface::as_raw(self), wstreamnumber, fallocate.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllocateForPostView(&self, wstreamnumber: u16) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11300,7 +10978,6 @@ pub struct IWMWriterPostView_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetAllocateForPostView: usize,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterPostViewCallback(::windows::core::IUnknown);
 impl IWMWriterPostViewCallback {
@@ -11374,7 +11051,6 @@ pub struct IWMWriterPostViewCallback_Vtbl {
     pub OnPostViewSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnumber: u16, cnssampletime: u64, cnssampleduration: u64, dwflags: u32, psample: *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AllocateForPostView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut *mut ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterPreprocess(::windows::core::IUnknown);
 impl IWMWriterPreprocess {
@@ -11443,7 +11119,6 @@ pub struct IWMWriterPreprocess_Vtbl {
     pub PreprocessSample: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, cnssampletime: u64, dwflags: u32, psample: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndPreprocessingPass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputnum: u32, dwflags: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterPushSink(::windows::core::IUnknown);
 impl IWMWriterPushSink {
@@ -11453,7 +11128,6 @@ impl IWMWriterPushSink {
     {
         (::windows::core::Interface::vtable(self).base__.OnHeader)(::windows::core::Interface::as_raw(self), pheader.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11472,7 +11146,6 @@ impl IWMWriterPushSink {
     pub unsafe fn OnEndWriting(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnEndWriting)(::windows::core::Interface::as_raw(self)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<'a, P0, P1, P2>(&self, pwszurl: P0, pwsztemplateurl: P1, fautodestroy: P2) -> ::windows::core::Result<()>
     where
@@ -11550,7 +11223,6 @@ pub struct IWMWriterPushSink_Vtbl {
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub EndSession: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 pub struct IWMWriterSink(::windows::core::IUnknown);
 impl IWMWriterSink {
@@ -11560,7 +11232,6 @@ impl IWMWriterSink {
     {
         (::windows::core::Interface::vtable(self).OnHeader)(::windows::core::Interface::as_raw(self), pheader.into().abi()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRealTime(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -11628,15 +11299,11 @@ pub struct IWMWriterSink_Vtbl {
     pub OnDataUnit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdataunit: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub OnEndWriting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETSOURCE_URLCREDPOLICY_SETTINGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const NETSOURCE_URLCREDPOLICY_SETTING_SILENTLOGONOK: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const NETSOURCE_URLCREDPOLICY_SETTING_MUSTPROMPTUSER: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const NETSOURCE_URLCREDPOLICY_SETTING_ANONYMOUSONLY: NETSOURCE_URLCREDPOLICY_SETTINGS = NETSOURCE_URLCREDPOLICY_SETTINGS(2i32);
 impl ::core::marker::Copy for NETSOURCE_URLCREDPOLICY_SETTINGS {}
 impl ::core::clone::Clone for NETSOURCE_URLCREDPOLICY_SETTINGS {
@@ -11657,13 +11324,10 @@ impl ::core::fmt::Debug for NETSOURCE_URLCREDPOLICY_SETTINGS {
         f.debug_tuple("NETSOURCE_URLCREDPOLICY_SETTINGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WEBSTREAM_SAMPLE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WEBSTREAM_SAMPLE_TYPE_FILE: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WEBSTREAM_SAMPLE_TYPE_RENDER: WEBSTREAM_SAMPLE_TYPE = WEBSTREAM_SAMPLE_TYPE(2i32);
 impl ::core::marker::Copy for WEBSTREAM_SAMPLE_TYPE {}
 impl ::core::clone::Clone for WEBSTREAM_SAMPLE_TYPE {
@@ -11684,7 +11348,6 @@ impl ::core::fmt::Debug for WEBSTREAM_SAMPLE_TYPE {
         f.debug_tuple("WEBSTREAM_SAMPLE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateBackupRestorer<'a, P0>(pcallback: P0) -> ::windows::core::Result<IWMLicenseBackup>
 where
@@ -11697,7 +11360,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateBackupRestorer(pcallback.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMLicenseBackup>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -11707,7 +11369,6 @@ pub unsafe fn WMCreateEditor() -> ::windows::core::Result<IWMMetadataEditor> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateEditor(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMMetadataEditor>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -11717,7 +11378,6 @@ pub unsafe fn WMCreateIndexer() -> ::windows::core::Result<IWMIndexer> {
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateIndexer(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMIndexer>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileManager> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -11727,7 +11387,6 @@ pub unsafe fn WMCreateProfileManager() -> ::windows::core::Result<IWMProfileMana
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateProfileManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMProfileManager>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMReader>
 where
@@ -11740,7 +11399,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMReader>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateSyncReader<'a, P0>(punkcert: P0, dwrights: u32) -> ::windows::core::Result<IWMSyncReader>
 where
@@ -11753,7 +11411,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateSyncReader(punkcert.into().abi(), dwrights, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMSyncReader>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriter<'a, P0>(punkcert: P0) -> ::windows::core::Result<IWMWriter>
 where
@@ -11766,7 +11423,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateWriter(punkcert.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriter>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileSink> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -11776,7 +11432,6 @@ pub unsafe fn WMCreateWriterFileSink() -> ::windows::core::Result<IWMWriterFileS
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateWriterFileSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterFileSink>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNetworkSink> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -11786,7 +11441,6 @@ pub unsafe fn WMCreateWriterNetworkSink() -> ::windows::core::Result<IWMWriterNe
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     WMCreateWriterNetworkSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterNetworkSink>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[inline]
 pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushSink> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -11797,7 +11451,6 @@ pub unsafe fn WMCreateWriterPushSink() -> ::windows::core::Result<IWMWriterPushS
     WMCreateWriterPushSink(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IWMWriterPushSink>(result__)
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
     pub cbEncryptedSessionKeyMessage: u32,
@@ -11830,14 +11483,12 @@ impl ::core::default::Default for WMDRM_IMPORT_INIT_STRUCT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1u32;
 pub const WMFORMAT_MPEG2Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
 pub const WMFORMAT_Script: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c8510f2_debe_4ca7_bba5_f07a104f8dff);
 pub const WMFORMAT_VideoInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
 pub const WMFORMAT_WaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
 pub const WMFORMAT_WebStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1e6b13_8359_4050_b398_388e965bf00c);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WMIsContentProtected<'a, P0>(pwszfilename: P0, pfisprotected: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
@@ -11899,7 +11550,6 @@ pub const WMMEDIATYPE_Script: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const WMMEDIATYPE_Text: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bba1ea7_5ab2_4829_ba57_0940209bcf3e);
 pub const WMMEDIATYPE_Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
@@ -11943,7 +11593,6 @@ impl ::core::default::Default for WMMPEG2VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMSCRIPTFORMAT {
     pub scriptType: ::windows::core::GUID,
 }
@@ -11973,23 +11622,15 @@ impl ::core::default::Default for WMSCRIPTFORMAT {
     }
 }
 pub const WMSCRIPTTYPE_TwoStrings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82f38a70_c29f_11d1_97ad_00a0c95ea850);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_ATTR_DATATYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TYPE_DWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TYPE_STRING: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TYPE_BINARY: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TYPE_BOOL: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TYPE_QWORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TYPE_WORD: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TYPE_GUID: WMT_ATTR_DATATYPE = WMT_ATTR_DATATYPE(6i32);
 impl ::core::marker::Copy for WMT_ATTR_DATATYPE {}
 impl ::core::clone::Clone for WMT_ATTR_DATATYPE {
@@ -12010,15 +11651,11 @@ impl ::core::fmt::Debug for WMT_ATTR_DATATYPE {
         f.debug_tuple("WMT_ATTR_DATATYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_ATTR_IMAGETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IMAGETYPE_BITMAP: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IMAGETYPE_JPEG: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IMAGETYPE_GIF: WMT_ATTR_IMAGETYPE = WMT_ATTR_IMAGETYPE(3i32);
 impl ::core::marker::Copy for WMT_ATTR_IMAGETYPE {}
 impl ::core::clone::Clone for WMT_ATTR_IMAGETYPE {
@@ -12040,7 +11677,6 @@ impl ::core::fmt::Debug for WMT_ATTR_IMAGETYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: ::core::option::Option<INSSBuffer>,
     pub cbOffset: u32,
@@ -12070,15 +11706,11 @@ impl ::core::default::Default for WMT_BUFFER_SEGMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_CODEC_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CODECINFO_AUDIO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = WMT_CODEC_INFO_TYPE(-1i32);
 impl ::core::marker::Copy for WMT_CODEC_INFO_TYPE {}
 impl ::core::clone::Clone for WMT_CODEC_INFO_TYPE {
@@ -12100,7 +11732,6 @@ impl ::core::fmt::Debug for WMT_CODEC_INFO_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
     pub ucColorTransferChar: u8,
@@ -12131,19 +11762,13 @@ impl ::core::default::Default for WMT_COLORSPACEINFO_EXTENSION_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_CREDENTIAL_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CREDENTIAL_SAVE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CREDENTIAL_DONT_CACHE: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CREDENTIAL_CLEAR_TEXT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CREDENTIAL_PROXY: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CREDENTIAL_ENCRYPT: WMT_CREDENTIAL_FLAGS = WMT_CREDENTIAL_FLAGS(16i32);
 impl ::core::marker::Copy for WMT_CREDENTIAL_FLAGS {}
 impl ::core::clone::Clone for WMT_CREDENTIAL_FLAGS {
@@ -12166,15 +11791,11 @@ impl ::core::fmt::Debug for WMT_CREDENTIAL_FLAGS {
 }
 pub const WMT_DMOCATEGORY_AUDIO_WATERMARK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65221c5a_fa75_4b39_b50c_06c336b6a3ef);
 pub const WMT_DMOCATEGORY_VIDEO_WATERMARK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x187cc922_8efc_4404_9daf_63f4830df1bc);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_DRMLA_TRUST(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_DRMLA_UNTRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_DRMLA_TRUSTED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_DRMLA_TAMPERED: WMT_DRMLA_TRUST = WMT_DRMLA_TRUST(2i32);
 impl ::core::marker::Copy for WMT_DRMLA_TRUST {}
 impl ::core::clone::Clone for WMT_DRMLA_TRUST {
@@ -12196,7 +11817,6 @@ impl ::core::fmt::Debug for WMT_DRMLA_TRUST {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
@@ -12234,15 +11854,11 @@ impl ::core::default::Default for WMT_FILESINK_DATA_UNIT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_FILESINK_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_FM_SINGLE_BUFFERS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_FM_FILESINK_DATA_UNITS: WMT_FILESINK_MODE = WMT_FILESINK_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_FM_FILESINK_UNBUFFERED: WMT_FILESINK_MODE = WMT_FILESINK_MODE(4i32);
 impl ::core::marker::Copy for WMT_FILESINK_MODE {}
 impl ::core::clone::Clone for WMT_FILESINK_MODE {
@@ -12263,17 +11879,12 @@ impl ::core::fmt::Debug for WMT_FILESINK_MODE {
         f.debug_tuple("WMT_FILESINK_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_IMAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_NONE: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_BITMAP: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_JPEG: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_GIF: WMT_IMAGE_TYPE = WMT_IMAGE_TYPE(3i32);
 impl ::core::marker::Copy for WMT_IMAGE_TYPE {}
 impl ::core::clone::Clone for WMT_IMAGE_TYPE {
@@ -12294,15 +11905,11 @@ impl ::core::fmt::Debug for WMT_IMAGE_TYPE {
         f.debug_tuple("WMT_IMAGE_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_INDEXER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_PRESENTATION_TIME: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_FRAME_NUMBERS: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_TIMECODE: WMT_INDEXER_TYPE = WMT_INDEXER_TYPE(2i32);
 impl ::core::marker::Copy for WMT_INDEXER_TYPE {}
 impl ::core::clone::Clone for WMT_INDEXER_TYPE {
@@ -12323,15 +11930,11 @@ impl ::core::fmt::Debug for WMT_INDEXER_TYPE {
         f.debug_tuple("WMT_INDEXER_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_INDEX_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_NEAREST_DATA_UNIT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_NEAREST_OBJECT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_IT_NEAREST_CLEAN_POINT: WMT_INDEX_TYPE = WMT_INDEX_TYPE(3i32);
 impl ::core::marker::Copy for WMT_INDEX_TYPE {}
 impl ::core::clone::Clone for WMT_INDEX_TYPE {
@@ -12352,15 +11955,11 @@ impl ::core::fmt::Debug for WMT_INDEX_TYPE {
         f.debug_tuple("WMT_INDEX_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_MUSICSPEECH_CLASS_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_MS_CLASS_MUSIC: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_MS_CLASS_SPEECH: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_MS_CLASS_MIXED: WMT_MUSICSPEECH_CLASS_MODE = WMT_MUSICSPEECH_CLASS_MODE(2i32);
 impl ::core::marker::Copy for WMT_MUSICSPEECH_CLASS_MODE {}
 impl ::core::clone::Clone for WMT_MUSICSPEECH_CLASS_MODE {
@@ -12381,11 +11980,9 @@ impl ::core::fmt::Debug for WMT_MUSICSPEECH_CLASS_MODE {
         f.debug_tuple("WMT_MUSICSPEECH_CLASS_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_NET_PROTOCOL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROTOCOL_HTTP: WMT_NET_PROTOCOL = WMT_NET_PROTOCOL(0i32);
 impl ::core::marker::Copy for WMT_NET_PROTOCOL {}
 impl ::core::clone::Clone for WMT_NET_PROTOCOL {
@@ -12406,19 +12003,13 @@ impl ::core::fmt::Debug for WMT_NET_PROTOCOL {
         f.debug_tuple("WMT_NET_PROTOCOL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_OFFSET_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_OFFSET_FORMAT_100NS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_OFFSET_FORMAT_FRAME_NUMBERS: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_OFFSET_FORMAT_PLAYLIST_OFFSET: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_OFFSET_FORMAT_TIMECODE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_OFFSET_FORMAT_100NS_APPROXIMATE: WMT_OFFSET_FORMAT = WMT_OFFSET_FORMAT(4i32);
 impl ::core::marker::Copy for WMT_OFFSET_FORMAT {}
 impl ::core::clone::Clone for WMT_OFFSET_FORMAT {
@@ -12440,7 +12031,6 @@ impl ::core::fmt::Debug for WMT_OFFSET_FORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
@@ -12469,17 +12059,12 @@ impl ::core::default::Default for WMT_PAYLOAD_FRAGMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_PLAY_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PLAY_MODE_AUTOSELECT: WMT_PLAY_MODE = WMT_PLAY_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PLAY_MODE_LOCAL: WMT_PLAY_MODE = WMT_PLAY_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PLAY_MODE_DOWNLOAD: WMT_PLAY_MODE = WMT_PLAY_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PLAY_MODE_STREAMING: WMT_PLAY_MODE = WMT_PLAY_MODE(3i32);
 impl ::core::marker::Copy for WMT_PLAY_MODE {}
 impl ::core::clone::Clone for WMT_PLAY_MODE {
@@ -12500,19 +12085,13 @@ impl ::core::fmt::Debug for WMT_PLAY_MODE {
         f.debug_tuple("WMT_PLAY_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_PROXY_SETTINGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROXY_SETTING_NONE: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROXY_SETTING_MANUAL: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROXY_SETTING_AUTO: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROXY_SETTING_BROWSER: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROXY_SETTING_MAX: WMT_PROXY_SETTINGS = WMT_PROXY_SETTINGS(4i32);
 impl ::core::marker::Copy for WMT_PROXY_SETTINGS {}
 impl ::core::clone::Clone for WMT_PROXY_SETTINGS {
@@ -12533,29 +12112,18 @@ impl ::core::fmt::Debug for WMT_PROXY_SETTINGS {
         f.debug_tuple("WMT_PROXY_SETTINGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_RIGHTS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_PLAYBACK: WMT_RIGHTS = WMT_RIGHTS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_COPY_TO_NON_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_COPY_TO_CD: WMT_RIGHTS = WMT_RIGHTS(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_COPY_TO_SDMI_DEVICE: WMT_RIGHTS = WMT_RIGHTS(16i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_ONE_TIME: WMT_RIGHTS = WMT_RIGHTS(32i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_SAVE_STREAM_PROTECTED: WMT_RIGHTS = WMT_RIGHTS(64i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_COPY: WMT_RIGHTS = WMT_RIGHTS(128i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_COLLABORATIVE_PLAY: WMT_RIGHTS = WMT_RIGHTS(256i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_SDMI_TRIGGER: WMT_RIGHTS = WMT_RIGHTS(65536i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RIGHT_SDMI_NOMORECOPIES: WMT_RIGHTS = WMT_RIGHTS(131072i32);
 impl ::core::marker::Copy for WMT_RIGHTS {}
 impl ::core::clone::Clone for WMT_RIGHTS {
@@ -12576,115 +12144,61 @@ impl ::core::fmt::Debug for WMT_RIGHTS {
         f.debug_tuple("WMT_RIGHTS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_ERROR: WMT_STATUS = WMT_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_OPENED: WMT_STATUS = WMT_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_BUFFERING_START: WMT_STATUS = WMT_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_BUFFERING_STOP: WMT_STATUS = WMT_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_EOF: WMT_STATUS = WMT_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_END_OF_FILE: WMT_STATUS = WMT_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_END_OF_SEGMENT: WMT_STATUS = WMT_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_END_OF_STREAMING: WMT_STATUS = WMT_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_LOCATING: WMT_STATUS = WMT_STATUS(7i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CONNECTING: WMT_STATUS = WMT_STATUS(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_NO_RIGHTS: WMT_STATUS = WMT_STATUS(9i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_MISSING_CODEC: WMT_STATUS = WMT_STATUS(10i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_STARTED: WMT_STATUS = WMT_STATUS(11i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_STOPPED: WMT_STATUS = WMT_STATUS(12i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CLOSED: WMT_STATUS = WMT_STATUS(13i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_STRIDING: WMT_STATUS = WMT_STATUS(14i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TIMER: WMT_STATUS = WMT_STATUS(15i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_INDEX_PROGRESS: WMT_STATUS = WMT_STATUS(16i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_SAVEAS_START: WMT_STATUS = WMT_STATUS(17i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_SAVEAS_STOP: WMT_STATUS = WMT_STATUS(18i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_NEW_SOURCEFLAGS: WMT_STATUS = WMT_STATUS(19i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_NEW_METADATA: WMT_STATUS = WMT_STATUS(20i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_BACKUPRESTORE_BEGIN: WMT_STATUS = WMT_STATUS(21i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_SOURCE_SWITCH: WMT_STATUS = WMT_STATUS(22i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_ACQUIRE_LICENSE: WMT_STATUS = WMT_STATUS(23i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_INDIVIDUALIZE: WMT_STATUS = WMT_STATUS(24i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_NEEDS_INDIVIDUALIZATION: WMT_STATUS = WMT_STATUS(25i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_NO_RIGHTS_EX: WMT_STATUS = WMT_STATUS(26i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_BACKUPRESTORE_END: WMT_STATUS = WMT_STATUS(27i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_BACKUPRESTORE_CONNECTING: WMT_STATUS = WMT_STATUS(28i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_BACKUPRESTORE_DISCONNECTING: WMT_STATUS = WMT_STATUS(29i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_ERROR_WITHURL: WMT_STATUS = WMT_STATUS(30i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RESTRICTED_LICENSE: WMT_STATUS = WMT_STATUS(31i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CLIENT_CONNECT: WMT_STATUS = WMT_STATUS(32i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CLIENT_DISCONNECT: WMT_STATUS = WMT_STATUS(33i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_NATIVE_OUTPUT_PROPS_CHANGED: WMT_STATUS = WMT_STATUS(34i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RECONNECT_START: WMT_STATUS = WMT_STATUS(35i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_RECONNECT_END: WMT_STATUS = WMT_STATUS(36i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CLIENT_CONNECT_EX: WMT_STATUS = WMT_STATUS(37i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CLIENT_DISCONNECT_EX: WMT_STATUS = WMT_STATUS(38i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_SET_FEC_SPAN: WMT_STATUS = WMT_STATUS(39i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PREROLL_READY: WMT_STATUS = WMT_STATUS(40i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PREROLL_COMPLETE: WMT_STATUS = WMT_STATUS(41i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CLIENT_PROPERTIES: WMT_STATUS = WMT_STATUS(42i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_LICENSEURL_SIGNATURE_STATE: WMT_STATUS = WMT_STATUS(43i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_INIT_PLAYLIST_BURN: WMT_STATUS = WMT_STATUS(44i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TRANSCRYPTOR_INIT: WMT_STATUS = WMT_STATUS(45i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TRANSCRYPTOR_SEEKED: WMT_STATUS = WMT_STATUS(46i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TRANSCRYPTOR_READ: WMT_STATUS = WMT_STATUS(47i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TRANSCRYPTOR_CLOSED: WMT_STATUS = WMT_STATUS(48i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROXIMITY_RESULT: WMT_STATUS = WMT_STATUS(49i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_PROXIMITY_COMPLETED: WMT_STATUS = WMT_STATUS(50i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CONTENT_ENABLER: WMT_STATUS = WMT_STATUS(51i32);
 impl ::core::marker::Copy for WMT_STATUS {}
 impl ::core::clone::Clone for WMT_STATUS {
@@ -12705,13 +12219,10 @@ impl ::core::fmt::Debug for WMT_STATUS {
         f.debug_tuple("WMT_STATUS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_STORAGE_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_Storage_Format_MP3: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_Storage_Format_V1: WMT_STORAGE_FORMAT = WMT_STORAGE_FORMAT(1i32);
 impl ::core::marker::Copy for WMT_STORAGE_FORMAT {}
 impl ::core::clone::Clone for WMT_STORAGE_FORMAT {
@@ -12732,15 +12243,11 @@ impl ::core::fmt::Debug for WMT_STORAGE_FORMAT {
         f.debug_tuple("WMT_STORAGE_FORMAT").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_STREAM_SELECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_OFF: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_CLEANPOINT_ONLY: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_ON: WMT_STREAM_SELECTION = WMT_STREAM_SELECTION(2i32);
 impl ::core::marker::Copy for WMT_STREAM_SELECTION {}
 impl ::core::clone::Clone for WMT_STREAM_SELECTION {
@@ -12762,7 +12269,6 @@ impl ::core::fmt::Debug for WMT_STREAM_SELECTION {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_TIMECODE_EXTENSION_DATA {
     pub wRange: u16,
     pub dwTimecode: u32,
@@ -12789,17 +12295,12 @@ impl ::core::default::Default for WMT_TIMECODE_EXTENSION_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_TIMECODE_FRAMERATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TIMECODE_FRAMERATE_30: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TIMECODE_FRAMERATE_30DROP: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TIMECODE_FRAMERATE_25: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_TIMECODE_FRAMERATE_24: WMT_TIMECODE_FRAMERATE = WMT_TIMECODE_FRAMERATE(3i32);
 impl ::core::marker::Copy for WMT_TIMECODE_FRAMERATE {}
 impl ::core::clone::Clone for WMT_TIMECODE_FRAMERATE {
@@ -12820,13 +12321,10 @@ impl ::core::fmt::Debug for WMT_TIMECODE_FRAMERATE {
         f.debug_tuple("WMT_TIMECODE_FRAMERATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_TRANSPORT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_Transport_Type_Unreliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_Transport_Type_Reliable: WMT_TRANSPORT_TYPE = WMT_TRANSPORT_TYPE(1i32);
 impl ::core::marker::Copy for WMT_TRANSPORT_TYPE {}
 impl ::core::clone::Clone for WMT_TRANSPORT_TYPE {
@@ -12847,17 +12345,12 @@ impl ::core::fmt::Debug for WMT_TRANSPORT_TYPE {
         f.debug_tuple("WMT_TRANSPORT_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VER_4_0: WMT_VERSION = WMT_VERSION(262144i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VER_7_0: WMT_VERSION = WMT_VERSION(458752i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VER_8_0: WMT_VERSION = WMT_VERSION(524288i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VER_9_0: WMT_VERSION = WMT_VERSION(589824i32);
 impl ::core::marker::Copy for WMT_VERSION {}
 impl ::core::clone::Clone for WMT_VERSION {
@@ -12878,14 +12371,10 @@ impl ::core::fmt::Debug for WMT_VERSION {
         f.debug_tuple("WMT_VERSION").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: i32 = 65536i32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub dwMagic: u32,
     pub cbStruct: u32,
@@ -12957,7 +12446,6 @@ impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WMT_VIDEOIMAGE_SAMPLE2 {
     pub dwMagic: u32,
@@ -13048,58 +12536,32 @@ impl ::core::default::Default for WMT_VIDEOIMAGE_SAMPLE2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_BLENDING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_MOTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_ROTATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_BOW_TIE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_CIRCLE: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_DIAGONAL: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_DIAMOND: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_FILLED_V: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_FLIP: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_INSET: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_IRIS: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_RECTANGLE: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_REVEAL: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_SLIDE: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_WATERMARK_ENTRY {
     pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
     pub clsid: ::windows::core::GUID,
@@ -13131,13 +12593,10 @@ impl ::core::default::Default for WMT_WATERMARK_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WMT_WATERMARK_ENTRY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = WMT_WATERMARK_ENTRY_TYPE(2i32);
 impl ::core::marker::Copy for WMT_WATERMARK_ENTRY_TYPE {}
 impl ::core::clone::Clone for WMT_WATERMARK_ENTRY_TYPE {
@@ -13159,7 +12618,6 @@ impl ::core::fmt::Debug for WMT_WATERMARK_ENTRY_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
     pub cbSampleHeaderFixedData: u16,
@@ -13192,7 +12650,6 @@ impl ::core::default::Default for WMT_WEBSTREAM_FORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub cbLength: u16,
     pub wPart: u16,
@@ -13226,7 +12683,6 @@ impl ::core::default::Default for WMT_WEBSTREAM_SAMPLE_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::super::Foundation::RECT,
@@ -13269,7 +12725,6 @@ impl ::core::default::Default for WMVIDEOINFOHEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::super::Foundation::RECT,
@@ -13331,7 +12786,6 @@ impl ::core::default::Default for WMVIDEOINFOHEADER2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_ADDRESS_ACCESSENTRY {
     pub dwIPAddress: u32,
     pub dwMask: u32,
@@ -13361,13 +12815,10 @@ impl ::core::default::Default for WM_ADDRESS_ACCESSENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WM_AETYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_AETYPE_INCLUDE: WM_AETYPE = WM_AETYPE(105i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_AETYPE_EXCLUDE: WM_AETYPE = WM_AETYPE(101i32);
 impl ::core::marker::Copy for WM_AETYPE {}
 impl ::core::clone::Clone for WM_AETYPE {
@@ -13389,7 +12840,6 @@ impl ::core::fmt::Debug for WM_AETYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
     pub dwPort: u32,
@@ -13420,7 +12870,6 @@ impl ::core::default::Default for WM_CLIENT_PROPERTIES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_CLIENT_PROPERTIES_EX {
     pub cbSize: u32,
     pub pwszIPAddress: ::windows::core::PCWSTR,
@@ -13452,33 +12901,20 @@ impl ::core::default::Default for WM_CLIENT_PROPERTIES_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CL_INTERLACED420: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CL_PROGRESSIVE420: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CT_BOTTOM_FIELD_FIRST: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CT_INTERLACED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CT_REPEAT_FIRST_FIELD: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_CT_TOP_FIELD_FIRST: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WM_DM_INTERLACED_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_NOTINTERLACED: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_DEINTERLACE_NORMAL: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_DEINTERLACE_HALFSIZE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_DEINTERLACE_HALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_DEINTERLACE_INVERSETELECINE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_DEINTERLACE_VERTICALHALFSIZEDOUBLERATE: WM_DM_INTERLACED_TYPE = WM_DM_INTERLACED_TYPE(5i32);
 impl ::core::marker::Copy for WM_DM_INTERLACED_TYPE {}
 impl ::core::clone::Clone for WM_DM_INTERLACED_TYPE {
@@ -13499,31 +12935,19 @@ impl ::core::fmt::Debug for WM_DM_INTERLACED_TYPE {
         f.debug_tuple("WM_DM_INTERLACED_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WM_DM_IT_FIRST_FRAME_COHERENCY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_DISABLE_COHERENT_MODE: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(3i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(4i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_TOP: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(5i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_AA_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(6i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BB_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(7i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_BC_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(8i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_CD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(9i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_DM_IT_FIRST_FRAME_IN_CLIP_IS_DD_BOTTOM: WM_DM_IT_FIRST_FRAME_COHERENCY = WM_DM_IT_FIRST_FRAME_COHERENCY(10i32);
 impl ::core::marker::Copy for WM_DM_IT_FIRST_FRAME_COHERENCY {}
 impl ::core::clone::Clone for WM_DM_IT_FIRST_FRAME_COHERENCY {
@@ -13545,7 +12969,6 @@ impl ::core::fmt::Debug for WM_DM_IT_FIRST_FRAME_COHERENCY {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_LEAKY_BUCKET_PAIR {
     pub dwBitrate: u32,
     pub msBufferWindow: u32,
@@ -13570,12 +12993,9 @@ impl ::core::default::Default for WM_LEAKY_BUCKET_PAIR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_MAX_STREAMS: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_MEDIA_TYPE {
     pub majortype: ::windows::core::GUID,
@@ -13629,7 +13049,6 @@ impl ::core::default::Default for WM_MEDIA_TYPE {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_PICTURE {
     pub pwszMIMEType: ::windows::core::PWSTR,
     pub bPictureType: u8,
@@ -13657,15 +13076,11 @@ impl ::core::default::Default for WM_PICTURE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WM_PLAYBACK_DRC_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_PLAYBACK_DRC_HIGH: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_PLAYBACK_DRC_MEDIUM: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_PLAYBACK_DRC_LOW: WM_PLAYBACK_DRC_LEVEL = WM_PLAYBACK_DRC_LEVEL(2i32);
 impl ::core::marker::Copy for WM_PLAYBACK_DRC_LEVEL {}
 impl ::core::clone::Clone for WM_PLAYBACK_DRC_LEVEL {
@@ -13687,7 +13102,6 @@ impl ::core::fmt::Debug for WM_PLAYBACK_DRC_LEVEL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
     pub wPortEnd: u16,
@@ -13718,7 +13132,6 @@ impl ::core::default::Default for WM_PORT_NUMBER_RANGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
@@ -13764,7 +13177,6 @@ impl ::core::default::Default for WM_READER_CLIENTINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_READER_STATISTICS {
     pub cbSize: u32,
     pub dwBandwidth: u32,
@@ -13798,13 +13210,10 @@ impl ::core::default::Default for WM_READER_STATISTICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WM_SFEX_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SFEX_NOTASYNCPOINT: WM_SFEX_TYPE = WM_SFEX_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SFEX_DATALOSS: WM_SFEX_TYPE = WM_SFEX_TYPE(4i32);
 impl ::core::marker::Copy for WM_SFEX_TYPE {}
 impl ::core::clone::Clone for WM_SFEX_TYPE {
@@ -13825,15 +13234,11 @@ impl ::core::fmt::Debug for WM_SFEX_TYPE {
         f.debug_tuple("WM_SFEX_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WM_SF_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SF_CLEANPOINT: WM_SF_TYPE = WM_SF_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SF_DISCONTINUITY: WM_SF_TYPE = WM_SF_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SF_DATALOSS: WM_SF_TYPE = WM_SF_TYPE(4i32);
 impl ::core::marker::Copy for WM_SF_TYPE {}
 impl ::core::clone::Clone for WM_SF_TYPE {
@@ -13855,7 +13260,6 @@ impl ::core::fmt::Debug for WM_SF_TYPE {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WM_STREAM_PRIORITY_RECORD {
     pub wStreamNumber: u16,
@@ -13888,7 +13292,6 @@ impl ::core::default::Default for WM_STREAM_PRIORITY_RECORD {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_STREAM_TYPE_INFO {
     pub guidMajorType: ::windows::core::GUID,
     pub cbFormat: u32,
@@ -13914,7 +13317,6 @@ impl ::core::default::Default for WM_STREAM_TYPE_INFO {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_SYNCHRONISED_LYRICS {
     pub bTimeStampFormat: u8,
     pub bContentType: u8,
@@ -13952,20 +13354,13 @@ pub const WM_SampleExtensionGUID_SampleDuration: ::windows::core::GUID = ::windo
 pub const WM_SampleExtensionGUID_SampleProtectionSalt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5403deee_b9ee_438f_aa83_3804997e569d);
 pub const WM_SampleExtensionGUID_Timecode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x399595ec_8667_4e2d_8fdb_98814ce76c1e);
 pub const WM_SampleExtensionGUID_UserDataInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x732bb4fa_78be_4549_99bd_02db1a55b7a8);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SampleExtension_ChromaLocation_Size: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SampleExtension_ColorSpaceInfo_Size: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SampleExtension_ContentType_Size: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SampleExtension_PixelAspectRatio_Size: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SampleExtension_SampleDuration_Size: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const WM_SampleExtension_Timecode_Size: u32 = 14u32;
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_USER_TEXT {
     pub pwszDescription: ::windows::core::PWSTR,
     pub pwszText: ::windows::core::PWSTR,
@@ -13991,7 +13386,6 @@ impl ::core::default::Default for WM_USER_TEXT {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_USER_WEB_URL {
     pub pwszDescription: ::windows::core::PWSTR,
     pub pwszURL: ::windows::core::PWSTR,
@@ -14017,7 +13411,6 @@ impl ::core::default::Default for WM_USER_WEB_URL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_WRITER_STATISTICS {
     pub qwSampleCount: u64,
     pub qwByteCount: u64,
@@ -14067,7 +13460,6 @@ impl ::core::default::Default for WM_WRITER_STATISTICS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub struct WM_WRITER_STATISTICS_EX {
     pub dwBitratePlusOverhead: u32,
     pub dwCurrentSampleDropRateInQueue: u32,
@@ -14110,15 +13502,11 @@ impl ::core::default::Default for WM_WRITER_STATISTICS_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct _AM_ASFWRITERCONFIG_PARAM(pub i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(1i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const AM_CONFIGASFWRITER_PARAM_MULTIPASS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(2i32);
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const AM_CONFIGASFWRITER_PARAM_DONTCOMPRESS: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(3i32);
 impl ::core::marker::Copy for _AM_ASFWRITERCONFIG_PARAM {}
 impl ::core::clone::Clone for _AM_ASFWRITERCONFIG_PARAM {
@@ -14139,455 +13527,230 @@ impl ::core::fmt::Debug for _AM_ASFWRITERCONFIG_PARAM {
         f.debug_tuple("_AM_ASFWRITERCONFIG_PARAM").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_dwWMContentAttributes: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_dwWMNSCAttributes: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_dwWMSpecialAttributes: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszASFLeakyBucketPairs: &str = "ASFLeakyBucketPairs";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszAllowInterlacedOutput: &str = "AllowInterlacedOutput";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszAverageLevel: &str = "AverageLevel";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszBufferAverage: &str = "Buffer Average";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszComplexity: &str = "_COMPLEXITYEX";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszComplexityLive: &str = "_COMPLEXITYEXLIVE";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszComplexityMax: &str = "_COMPLEXITYEXMAX";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszComplexityOffline: &str = "_COMPLEXITYEXOFFLINE";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszDecoderComplexityRequested: &str = "_DECODERCOMPLEXITYPROFILE";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszDedicatedDeliveryThread: &str = "DedicatedDeliveryThread";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszDeinterlaceMode: &str = "DeinterlaceMode";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszDeliverOnReceive: &str = "DeliverOnReceive";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszDeviceConformanceTemplate: &str = "DeviceConformanceTemplate";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszDynamicRangeControl: &str = "DynamicRangeControl";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszEDL: &str = "_EDL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszEarlyDataDelivery: &str = "EarlyDataDelivery";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszEnableDiscreteOutput: &str = "EnableDiscreteOutput";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszEnableFrameInterpolation: &str = "EnableFrameInterpolation";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszEnableWMAProSPDIFOutput: &str = "EnableWMAProSPDIFOutput";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszFailSeekOnError: &str = "FailSeekOnError";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszFixedFrameRate: &str = "FixedFrameRate";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszFold6To2Channels3: &str = "Fold6To2Channels3";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszFoldToChannelsTemplate: &str = "Fold%luTo%luChannels%lu";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszInitialPatternForInverseTelecine: &str = "InitialPatternForInverseTelecine";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszInterlacedCoding: &str = "InterlacedCoding";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszIsVBRSupported: &str = "_ISVBRSUPPORTED";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszJPEGCompressionQuality: &str = "JPEGCompressionQuality";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszJustInTimeDecode: &str = "JustInTimeDecode";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszMixedClassMode: &str = "MixedClassMode";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszMusicClassMode: &str = "MusicClassMode";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszMusicSpeechClassMode: &str = "MusicSpeechClassMode";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszNeedsPreviousSample: &str = "NeedsPreviousSample";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszNumPasses: &str = "_PASSESUSED";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszOriginalSourceFormatTag: &str = "_SOURCEFORMATTAG";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszOriginalWaveFormat: &str = "_ORIGINALWAVEFORMAT";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszPeakValue: &str = "PeakValue";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszPermitSeeksBeyondEndOfStream: &str = "PermitSeeksBeyondEndOfStream";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszReloadIndexOnSeek: &str = "ReloadIndexOnSeek";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszScrambledAudio: &str = "ScrambledAudio";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszSingleOutputBuffer: &str = "SingleOutputBuffer";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszSoftwareScaling: &str = "SoftwareScaling";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszSourceBufferTime: &str = "SourceBufferTime";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszSourceMaxBytesAtOnce: &str = "SourceMaxBytesAtOnce";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszSpeakerConfig: &str = "SpeakerConfig";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszSpeechCaps: &str = "SpeechFormatCap";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszSpeechClassMode: &str = "SpeechClassMode";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszStreamLanguage: &str = "StreamLanguage";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszStreamNumIndexObjects: &str = "StreamNumIndexObjects";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszUsePacketAtSeekPoint: &str = "UsePacketAtSeekPoint";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszVBRBitrateMax: &str = "_RMAX";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszVBRBufferWindowMax: &str = "_BMAX";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszVBREnabled: &str = "_VBRENABLED";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszVBRPeak: &str = "VBR Peak";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszVBRQuality: &str = "_VBRQUALITY";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszVideoSampleDurations: &str = "VideoSampleDurations";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMADID: &str = "WM/ADID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMASFPacketCount: &str = "WM/ASFPacketCount";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMASFSecurityObjectsSize: &str = "WM/ASFSecurityObjectsSize";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAlbumArtist: &str = "WM/AlbumArtist";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAlbumArtistSort: &str = "WM/AlbumArtistSort";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAlbumCoverURL: &str = "WM/AlbumCoverURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAlbumTitle: &str = "WM/AlbumTitle";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAlbumTitleSort: &str = "WM/AlbumTitleSort";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAspectRatioX: &str = "AspectRatioX";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAspectRatioY: &str = "AspectRatioY";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAudioFileURL: &str = "WM/AudioFileURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAudioSourceURL: &str = "WM/AudioSourceURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAuthor: &str = "Author";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAuthorSort: &str = "AuthorSort";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMAuthorURL: &str = "WM/AuthorURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMBannerImageData: &str = "BannerImageData";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMBannerImageType: &str = "BannerImageType";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMBannerImageURL: &str = "BannerImageURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMBeatsPerMinute: &str = "WM/BeatsPerMinute";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMBitrate: &str = "Bitrate";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMBroadcast: &str = "Broadcast";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMCategory: &str = "WM/Category";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMCodec: &str = "WM/Codec";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMComposer: &str = "WM/Composer";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMComposerSort: &str = "WM/ComposerSort";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMConductor: &str = "WM/Conductor";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMContainerFormat: &str = "WM/ContainerFormat";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMContentDistributor: &str = "WM/ContentDistributor";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMContentGroupDescription: &str = "WM/ContentGroupDescription";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMCopyright: &str = "Copyright";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMCopyrightURL: &str = "CopyrightURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMCurrentBitrate: &str = "CurrentBitrate";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM: &str = "WM/DRM";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_ContentID: &str = "DRM_ContentID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_Flags: &str = "DRM_Flags";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_HeaderSignPrivKey: &str = "DRM_HeaderSignPrivKey";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_IndividualizedVersion: &str = "DRM_IndividualizedVersion";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_KeyID: &str = "DRM_KeyID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_KeySeed: &str = "DRM_KeySeed";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_LASignatureCert: &str = "DRM_LASignatureCert";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_LASignatureLicSrvCert: &str = "DRM_LASignatureLicSrvCert";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_LASignaturePrivKey: &str = "DRM_LASignaturePrivKey";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_LASignatureRootCert: &str = "DRM_LASignatureRootCert";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_Level: &str = "DRM_Level";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_LicenseAcqURL: &str = "DRM_LicenseAcqURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_SourceID: &str = "DRM_SourceID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDRM_V1LicenseAcqURL: &str = "DRM_V1LicenseAcqURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDVDID: &str = "WM/DVDID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDescription: &str = "Description";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDirector: &str = "WM/Director";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMDuration: &str = "Duration";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMEncodedBy: &str = "WM/EncodedBy";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMEncodingSettings: &str = "WM/EncodingSettings";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMEncodingTime: &str = "WM/EncodingTime";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMEpisodeNumber: &str = "WM/EpisodeNumber";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMFileSize: &str = "FileSize";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMGenre: &str = "WM/Genre";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMGenreID: &str = "WM/GenreID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMHasArbitraryDataStream: &str = "HasArbitraryDataStream";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMHasAttachedImages: &str = "HasAttachedImages";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMHasAudio: &str = "HasAudio";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMHasFileTransferStream: &str = "HasFileTransferStream";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMHasImage: &str = "HasImage";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMHasScript: &str = "HasScript";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMHasVideo: &str = "HasVideo";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMISAN: &str = "WM/ISAN";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMISRC: &str = "WM/ISRC";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMInitialKey: &str = "WM/InitialKey";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMIsCompilation: &str = "WM/IsCompilation";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMIsVBR: &str = "IsVBR";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMLanguage: &str = "WM/Language";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMLyrics: &str = "WM/Lyrics";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMLyrics_Synchronised: &str = "WM/Lyrics_Synchronised";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMCDI: &str = "WM/MCDI";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaClassPrimaryID: &str = "WM/MediaClassPrimaryID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaClassSecondaryID: &str = "WM/MediaClassSecondaryID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaCredits: &str = "WM/MediaCredits";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsDelay: &str = "WM/MediaIsDelay";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsFinale: &str = "WM/MediaIsFinale";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsLive: &str = "WM/MediaIsLive";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsPremiere: &str = "WM/MediaIsPremiere";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsRepeat: &str = "WM/MediaIsRepeat";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsSAP: &str = "WM/MediaIsSAP";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsStereo: &str = "WM/MediaIsStereo";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsSubtitled: &str = "WM/MediaIsSubtitled";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaIsTape: &str = "WM/MediaIsTape";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaNetworkAffiliation: &str = "WM/MediaNetworkAffiliation";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaOriginalBroadcastDateTime: &str = "WM/MediaOriginalBroadcastDateTime";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaOriginalChannel: &str = "WM/MediaOriginalChannel";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaStationCallSign: &str = "WM/MediaStationCallSign";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMediaStationName: &str = "WM/MediaStationName";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMModifiedBy: &str = "WM/ModifiedBy";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMMood: &str = "WM/Mood";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMNSCAddress: &str = "NSC_Address";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMNSCDescription: &str = "NSC_Description";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMNSCEmail: &str = "NSC_Email";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMNSCName: &str = "NSC_Name";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMNSCPhone: &str = "NSC_Phone";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMNumberOfFrames: &str = "NumberOfFrames";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMOptimalBitrate: &str = "OptimalBitrate";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMOriginalAlbumTitle: &str = "WM/OriginalAlbumTitle";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMOriginalArtist: &str = "WM/OriginalArtist";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMOriginalFilename: &str = "WM/OriginalFilename";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMOriginalLyricist: &str = "WM/OriginalLyricist";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMOriginalReleaseTime: &str = "WM/OriginalReleaseTime";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMOriginalReleaseYear: &str = "WM/OriginalReleaseYear";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMParentalRating: &str = "WM/ParentalRating";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMParentalRatingReason: &str = "WM/ParentalRatingReason";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMPartOfSet: &str = "WM/PartOfSet";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMPeakBitrate: &str = "WM/PeakBitrate";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMPeriod: &str = "WM/Period";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMPicture: &str = "WM/Picture";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMPlaylistDelay: &str = "WM/PlaylistDelay";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMProducer: &str = "WM/Producer";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMPromotionURL: &str = "WM/PromotionURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMProtected: &str = "Is_Protected";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMProtectionType: &str = "WM/ProtectionType";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMProvider: &str = "WM/Provider";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMProviderCopyright: &str = "WM/ProviderCopyright";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMProviderRating: &str = "WM/ProviderRating";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMProviderStyle: &str = "WM/ProviderStyle";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMPublisher: &str = "WM/Publisher";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMRadioStationName: &str = "WM/RadioStationName";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMRadioStationOwner: &str = "WM/RadioStationOwner";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMRating: &str = "Rating";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSeasonNumber: &str = "WM/SeasonNumber";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSeekable: &str = "Seekable";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSharedUserRating: &str = "WM/SharedUserRating";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSignature_Name: &str = "Signature_Name";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSkipBackward: &str = "Can_Skip_Backward";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSkipForward: &str = "Can_Skip_Forward";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMStreamTypeInfo: &str = "WM/StreamTypeInfo";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMStridable: &str = "Stridable";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSubTitle: &str = "WM/SubTitle";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSubTitleDescription: &str = "WM/SubTitleDescription";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMSubscriptionContentID: &str = "WM/SubscriptionContentID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMText: &str = "WM/Text";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMTitle: &str = "Title";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMTitleSort: &str = "TitleSort";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMToolName: &str = "WM/ToolName";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMToolVersion: &str = "WM/ToolVersion";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMTrack: &str = "WM/Track";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMTrackNumber: &str = "WM/TrackNumber";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMTrusted: &str = "Is_Trusted";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMUniqueFileIdentifier: &str = "WM/UniqueFileIdentifier";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMUse_Advanced_DRM: &str = "Use_Advanced_DRM";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMUse_DRM: &str = "Use_DRM";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMUserWebURL: &str = "WM/UserWebURL";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMVideoClosedCaptioning: &str = "WM/VideoClosedCaptioning";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMVideoFrameRate: &str = "WM/VideoFrameRate";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMVideoHeight: &str = "WM/VideoHeight";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMVideoWidth: &str = "WM/VideoWidth";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMADRCAverageReference: &str = "WM/WMADRCAverageReference";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMADRCAverageTarget: &str = "WM/WMADRCAverageTarget";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMADRCPeakReference: &str = "WM/WMADRCPeakReference";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMADRCPeakTarget: &str = "WM/WMADRCPeakTarget";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMCPDistributor: &str = "WM/WMCPDistributor";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMCPDistributorID: &str = "WM/WMCPDistributorID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMCollectionGroupID: &str = "WM/WMCollectionGroupID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMCollectionID: &str = "WM/WMCollectionID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMContentID: &str = "WM/WMContentID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMShadowFileSourceDRMType: &str = "WM/WMShadowFileSourceDRMType";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWMShadowFileSourceFileType: &str = "WM/WMShadowFileSourceFileType";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMWriter: &str = "WM/Writer";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWMYear: &str = "WM/Year";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWatermarkCLSID: &str = "WatermarkCLSID";
-#[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
 pub const g_wszWatermarkConfig: &str = "WatermarkConfig";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

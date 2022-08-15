@@ -204,17 +204,14 @@ pub struct IRfcommServiceProviderStatics_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     CreateAsync: usize,
 }
-#[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
 #[repr(transparent)]
 pub struct RfcommDeviceService(::windows::core::IUnknown);
 impl RfcommDeviceService {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Networking\"`*"]
     #[cfg(feature = "Networking")]
     pub fn ConnectionHostName(&self) -> ::windows::core::Result<super::super::super::Networking::HostName> {
         let this = self;
@@ -237,7 +234,6 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<RfcommServiceId>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn ProtectionLevel(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
         let this = self;
@@ -246,7 +242,6 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).ProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::SocketProtectionLevel>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn MaxProtectionLevel(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
         let this = self;
@@ -255,7 +250,6 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).MaxProtectionLevel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Networking::Sockets::SocketProtectionLevel>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
@@ -264,7 +258,6 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).GetSdpRawAttributesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
@@ -280,7 +273,6 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).Device)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothDevice>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation> {
         let this = &::windows::core::Interface::cast::<IRfcommDeviceService3>(self)?;
@@ -289,7 +281,6 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).DeviceAccessInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Enumeration::DeviceAccessInformation>(result__)
         }
     }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows::core::Interface::cast::<IRfcommDeviceService3>(self)?;
@@ -298,7 +289,6 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommDeviceService>> {
         Self::IRfcommDeviceServiceStatics(|this| unsafe {
@@ -448,7 +438,6 @@ impl<'a> ::core::convert::TryFrom<&RfcommDeviceService> for ::windows::core::InP
 }
 unsafe impl ::core::marker::Send for RfcommDeviceService {}
 unsafe impl ::core::marker::Sync for RfcommDeviceService {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
 #[repr(transparent)]
 pub struct RfcommDeviceServicesResult(::windows::core::IUnknown);
 impl RfcommDeviceServicesResult {
@@ -459,7 +448,6 @@ impl RfcommDeviceServicesResult {
             (::windows::core::Interface::vtable(this).Error)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::BluetoothError>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Services(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<RfcommDeviceService>> {
         let this = self;
@@ -531,7 +519,6 @@ impl ::core::convert::From<&RfcommDeviceServicesResult> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for RfcommDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for RfcommDeviceServicesResult {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
 #[repr(transparent)]
 pub struct RfcommServiceId(::windows::core::IUnknown);
 impl RfcommServiceId {
@@ -672,7 +659,6 @@ impl ::core::convert::From<&RfcommServiceId> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for RfcommServiceId {}
 unsafe impl ::core::marker::Sync for RfcommServiceId {}
-#[doc = "*Required features: `\"Devices_Bluetooth_Rfcomm\"`*"]
 #[repr(transparent)]
 pub struct RfcommServiceProvider(::windows::core::IUnknown);
 impl RfcommServiceProvider {
@@ -683,7 +669,6 @@ impl RfcommServiceProvider {
             (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<RfcommServiceId>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn SdpRawAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -692,7 +677,6 @@ impl RfcommServiceProvider {
             (::windows::core::Interface::vtable(this).SdpRawAttributes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn StartAdvertising<'a, P0>(&self, listener: P0) -> ::windows::core::Result<()>
     where
@@ -705,7 +689,6 @@ impl RfcommServiceProvider {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).StopAdvertising)(::windows::core::Interface::as_raw(this)).ok() }
     }
-    #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn StartAdvertisingWithRadioDiscoverability<'a, P0>(&self, listener: P0, radiodiscoverable: bool) -> ::windows::core::Result<()>
     where
@@ -714,7 +697,6 @@ impl RfcommServiceProvider {
         let this = &::windows::core::Interface::cast::<IRfcommServiceProvider2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).StartAdvertisingWithRadioDiscoverability)(::windows::core::Interface::as_raw(this), listener.into().abi(), radiodiscoverable).ok() }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync<'a, P0>(serviceid: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>>
     where

@@ -43,11 +43,9 @@ pub struct IUserNotificationListenerStatics_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
 #[repr(transparent)]
 pub struct UserNotificationListener(::windows::core::IUnknown);
 impl UserNotificationListener {
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>> {
         let this = self;
@@ -63,7 +61,6 @@ impl UserNotificationListener {
             (::windows::core::Interface::vtable(this).GetAccessStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserNotificationListenerAccessStatus>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn NotificationChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken>
     where
@@ -75,13 +72,11 @@ impl UserNotificationListener {
             (::windows::core::Interface::vtable(this).NotificationChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[doc = "*Required features: `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNotificationChanged(&self, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).RemoveNotificationChanged)(::windows::core::Interface::as_raw(this), token).ok() }
     }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetNotificationsAsync(&self, kinds: super::NotificationKinds) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>> {
         let this = self;
@@ -179,7 +174,6 @@ impl ::core::convert::From<&UserNotificationListener> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
-#[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UserNotificationListenerAccessStatus(pub i32);

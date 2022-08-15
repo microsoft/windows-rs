@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AcquireDeveloperLicense<'a, P0>(hwndparent: P0) -> ::windows::core::Result<super::super::Foundation::FILETIME>
@@ -12,7 +11,6 @@ where
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     AcquireDeveloperLicense(hwndparent.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::Foundation::FILETIME> {
@@ -23,7 +21,6 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::F
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CheckDeveloperLicense(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::FILETIME>(result__)
 }
-#[doc = "*Required features: `\"Win32_System_DeveloperLicensing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDeveloperLicense<'a, P0>(hwndparent: P0) -> ::windows::core::Result<()>

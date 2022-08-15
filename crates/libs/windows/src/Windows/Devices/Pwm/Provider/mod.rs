@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
 #[repr(transparent)]
 pub struct IPwmControllerProvider(::windows::core::IUnknown);
 impl IPwmControllerProvider {
@@ -130,11 +129,9 @@ pub struct IPwmControllerProvider_Vtbl {
     pub DisablePin: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32) -> ::windows::core::HRESULT,
     pub SetPulseParameters: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pin: i32, dutycycle: f64, invertpolarity: bool) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Devices_Pwm_Provider\"`*"]
 #[repr(transparent)]
 pub struct IPwmProvider(::windows::core::IUnknown);
 impl IPwmProvider {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetControllers(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IPwmControllerProvider>> {
         let this = self;

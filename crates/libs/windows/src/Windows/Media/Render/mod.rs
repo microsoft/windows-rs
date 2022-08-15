@@ -1,4 +1,3 @@
-#[doc = "*Required features: `\"Media_Render\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct AudioRenderCategory(pub i32);
