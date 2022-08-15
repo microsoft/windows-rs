@@ -84,6 +84,15 @@ EXPORTS
     cmd.arg(format!("lib{}.a", library));
     cmd.output().unwrap();
 
+    // Work around lack of determinism in dlltool output.
+    std::fs::rename(output.join(format!("lib{}.a", library)), output.join("tmp.a")).unwrap();
+    let mut cmd = std::process::Command::new("objcopy");
+    cmd.current_dir(&output);
+    cmd.arg("tmp.a");
+    cmd.arg(format!("lib{}.a", library));
+    cmd.output().unwrap();
+
+    std::fs::remove_file(output.join("tmp.a")).unwrap();
     std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
 }
 
