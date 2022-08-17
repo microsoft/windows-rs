@@ -82,6 +82,13 @@ EXPORTS
     cmd.arg(format!("{}.def", library));
     cmd.arg("-l");
     cmd.arg(format!("lib{}.a", library));
+    // Ensure consistency in the prefixes used by dlltool.
+    cmd.arg("-t");
+    if library.contains('.') {
+        cmd.arg(format!("{}_", library).replace('.', "_").replace('-', "_"));
+    } else {
+        cmd.arg(format!("{}_dll_", library).replace('-', "_"));
+    }
     cmd.output().unwrap();
 
     // Work around lack of determinism in dlltool output.
