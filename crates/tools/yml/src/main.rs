@@ -294,5 +294,6 @@ fn dirs(path: &str) -> Vec<String> {
         }
     }
 
+    dirs.sort();
     dirs
 }
