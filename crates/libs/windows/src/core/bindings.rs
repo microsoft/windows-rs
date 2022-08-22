@@ -1363,17 +1363,6 @@ unsafe impl ::windows::core::Abi for HINSTANCE {
 }
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 #[inline]
-pub unsafe fn SysAllocStringByteLen<'a, P0>(psz: P0, len: u32) -> BSTR
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
-    }
-    SysAllocStringByteLen(psz.into(), len)
-}
-#[inline]
 pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
