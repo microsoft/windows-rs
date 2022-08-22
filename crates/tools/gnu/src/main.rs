@@ -91,10 +91,22 @@ EXPORTS
     }
     cmd.output().unwrap();
 
-    // Work around lack of determinism in dlltool output.
+    // Work around lack of determinism in dlltool output, and at the same time remove
+    // unnecessary sections and symbols.
     std::fs::rename(output.join(format!("lib{}.a", library)), output.join("tmp.a")).unwrap();
     let mut cmd = std::process::Command::new("objcopy");
     cmd.current_dir(&output);
+    cmd.arg("--remove-section=.bss");
+    cmd.arg("--remove-section=.data");
+    cmd.arg("--strip-unneeded-symbol=fthunk");
+    cmd.arg("--strip-unneeded-symbol=hname");
+    cmd.arg("--strip-unneeded-symbol=.file");
+    cmd.arg("--strip-unneeded-symbol=.text");
+    cmd.arg("--strip-unneeded-symbol=.data");
+    cmd.arg("--strip-unneeded-symbol=.bss");
+    cmd.arg("--strip-unneeded-symbol=.idata$7");
+    cmd.arg("--strip-unneeded-symbol=.idata$5");
+    cmd.arg("--strip-unneeded-symbol=.idata$4");
     cmd.arg("tmp.a");
     cmd.arg(format!("lib{}.a", library));
     cmd.output().unwrap();
