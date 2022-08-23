@@ -70,7 +70,7 @@ EXPORTS
     for (function, params) in functions {
         let mut buffer = format!("void __stdcall {}(", function);
 
-        for param in 0..*params {
+        for param in 0..(*params / 4) {
             use std::fmt::Write;
             write!(&mut buffer, "int p{}, ", param).unwrap();
         }
