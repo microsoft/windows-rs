@@ -7,6 +7,7 @@ fn size() {
     assert_eq!(function_size("Windows.Win32.UI.Accessibility", "UiaRaiseAutomationPropertyChangedEvent"), 40);
     assert_eq!(function_size("Windows.Win32.Graphics.Gdi", "AlphaBlend"), 44);
     assert_eq!(function_size("Windows.Win32.UI.Accessibility", "TextRange_FindAttribute"), 32);
+    assert_eq!(function_size("Windows.Win32.System.Com", "GetErrorInfo"), 8);
 }
 
 fn function_size(namespace: &str, name: &str) -> usize {
