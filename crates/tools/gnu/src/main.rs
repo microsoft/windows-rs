@@ -63,8 +63,8 @@ EXPORTS
 
     for (function, calling_convention) in functions {
         match calling_convention {
-            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def.write_all(format!("{}@{}\n", function, params).as_bytes()).unwrap(),
-            _ => def.write_all(format!("{}\n", function).as_bytes()).unwrap(),
+            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def.write_all(format!("{}@{} @ 0\n", function, params).as_bytes()).unwrap(),
+            _ => def.write_all(format!("{} @ 0\n", function).as_bytes()).unwrap(),
         }
     }
 
