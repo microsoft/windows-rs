@@ -19,6 +19,8 @@ fn agile_send() -> Result<()> {
 #[test]
 fn agile_debug() -> Result<()> {
     let uri = Uri::CreateUri(w!("http://kennykerr.ca"))?;
+    assert!(format!("{:?}", uri).starts_with("Uri(IUnknown(0x"));
+
     let reference = AgileReference::new(&uri)?;
     assert!(format!("{:?}", reference).starts_with("AgileReference(IUnknown(0x"));
     Ok(())
