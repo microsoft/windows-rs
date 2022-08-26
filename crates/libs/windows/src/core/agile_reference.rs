@@ -22,3 +22,9 @@ impl<T: Interface> AgileReference<T> {
 
 unsafe impl<T: Interface> Send for AgileReference<T> {}
 unsafe impl<T: Interface> Sync for AgileReference<T> {}
+
+impl<T> std::fmt::Debug for AgileReference<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "AgileReference({:?})", <&IAgileReference as Into<&IUnknown>>::into(&self.0))
+    }
+}

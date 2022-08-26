@@ -1,8 +1,9 @@
-use windows::core::{AgileReference, Result};
+use windows::core::{w, AgileReference, Result};
+use windows::Foundation::Uri;
 use windows::Media::Control::GlobalSystemMediaTransportControlsSessionManager;
 
 #[test]
-fn test() -> Result<()> {
+fn agile_send() -> Result<()> {
     let manager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync()?.get()?;
     let reference = AgileReference::new(&manager)?;
 
@@ -13,4 +14,14 @@ fn test() -> Result<()> {
         Ok(())
     });
     handle.join().unwrap()
+}
+
+#[test]
+fn agile_debug() -> Result<()> {
+    let uri = Uri::CreateUri(w!("http://kennykerr.ca"))?;
+    assert!(format!("{:?}", uri).starts_with("Uri(IUnknown(0x"));
+
+    let reference = AgileReference::new(&uri)?;
+    assert!(format!("{:?}", reference).starts_with("AgileReference(IUnknown(0x"));
+    Ok(())
 }
