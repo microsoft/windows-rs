@@ -7,6 +7,7 @@
 | Reason | `windows` | `windows-sys`|
 | --- | --- | --- |
 | Fast compile times are one of your top concerns | | ✅ |
+| You need `no_std` support | | ✅ |
 | You need COM or WinRT support | ✅ | |
 | You would prefer to use APIs that feel idiomatic to Rust | ✅ | |
 
