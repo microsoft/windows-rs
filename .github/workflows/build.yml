@@ -47,7 +47,7 @@ jobs:
     name: Check windows-sys
     strategy:
       matrix:
-        rust: [1.46.0, stable, nightly]
+        rust: [1.49.0, stable, nightly]
         runs-on:
           - windows-2019
           - ubuntu-latest
