@@ -8,13 +8,20 @@ use bindings::*;
 /// # Safety
 ///
 /// * Both the library and function names must be valid PCSTR representations
-pub unsafe fn delay_load(library: PCSTR, function: PCSTR) -> Result<*mut core::ffi::c_void> {
-    let library = LoadLibraryA(library)?;
+pub unsafe fn delay_load(library: PCSTR, function: PCSTR) -> Result<*const core::ffi::c_void> {
+    let library = LoadLibraryA(library);
 
-    if let Some(address) = GetProcAddress(library, function) {
-        Ok(address as _)
-    } else {
-        FreeLibrary(library);
-        Err(Error::from_win32())
+    if library == 0 {
+        return Err(Error::from_win32());
     }
+
+    let address = GetProcAddress(library, function);
+
+    if !address.is_null() {
+        return Ok(address);
+    }
+
+    let result = Err(Error::from_win32());
+    FreeLibrary(library);
+    result
 }

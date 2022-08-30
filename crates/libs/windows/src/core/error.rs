@@ -20,13 +20,13 @@ impl Error {
                 let function: RoOriginateError = core::mem::transmute(function);
                 function(code, core::mem::transmute_copy(&message));
             }
-            let info = GetErrorInfo(0).and_then(|e| e.cast()).ok();
+            let info = GetErrorInfo().and_then(|e| e.cast()).ok();
             Self { code, info }
         }
     }
 
     pub fn from_win32() -> Self {
-        unsafe { Self { code: GetLastError().into(), info: None } }
+        unsafe { Self { code: HRESULT::from_win32(GetLastError()), info: None } }
     }
 
     /// The error code describing the error.
@@ -65,10 +65,10 @@ impl Error {
 impl core::convert::From<Error> for HRESULT {
     fn from(error: Error) -> Self {
         let code = error.code;
-        let info = error.info.and_then(|info| info.cast().ok());
+        let info: Option<IErrorInfo> = error.info.and_then(|info| info.cast().ok());
 
         unsafe {
-            let _ = SetErrorInfo(0, info.as_ref());
+            let _ = SetErrorInfo(0, info.abi());
         }
 
         code
@@ -93,7 +93,7 @@ impl core::convert::From<core::convert::Infallible> for Error {
 
 impl core::convert::From<HRESULT> for Error {
     fn from(code: HRESULT) -> Self {
-        let info: Option<IRestrictedErrorInfo> = unsafe { GetErrorInfo(0).and_then(|e| e.cast()).ok() };
+        let info: Option<IRestrictedErrorInfo> = GetErrorInfo().and_then(|e| e.cast()).ok();
 
         if let Some(info) = info {
             // If it does (and therefore running on a recent version of Windows)
@@ -108,7 +108,7 @@ impl core::convert::From<HRESULT> for Error {
             return Self { code, info: Some(info) };
         }
 
-        if let Ok(info) = unsafe { GetErrorInfo(0) } {
+        if let Ok(info) = GetErrorInfo() {
             let message = unsafe { info.GetDescription().unwrap_or_default() };
             Self::new(code, HSTRING::from_wide(message.as_wide()))
         } else {
@@ -132,4 +132,9 @@ impl core::fmt::Display for Error {
 
 impl std::error::Error for Error {}
 
-type RoOriginateError = extern "system" fn(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> BOOL;
+type RoOriginateError = extern "system" fn(code: HRESULT, message: core::mem::ManuallyDrop<HSTRING>) -> i32;
+
+fn GetErrorInfo() -> Result<IErrorInfo> {
+    let mut result = std::mem::MaybeUninit::zeroed();
+    unsafe { bindings::GetErrorInfo(0, result.as_mut_ptr()).from_abi(result) }
+}

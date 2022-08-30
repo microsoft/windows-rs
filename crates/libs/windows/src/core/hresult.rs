@@ -86,10 +86,15 @@ impl HRESULT {
         let mut message = HeapString(core::ptr::null_mut());
 
         unsafe {
-            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, core::ptr::null(), self.0 as _, 0, PWSTR(core::mem::transmute(&mut message.0)), 0, None);
+            let size = FormatMessageW(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, std::ptr::null(), self.0 as _, 0, PWSTR(core::mem::transmute(&mut message.0)), 0, std::ptr::null());
 
             HSTRING::from_wide(wide_trim_end(core::slice::from_raw_parts(message.0 as *const u16, size as usize)))
         }
+    }
+
+    /// Maps a Win32 error code to an HRESULT value.
+    pub(crate) fn from_win32(error: u32) -> Self {
+        Self(if error == 0 { 0 } else { (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000 } as _)
     }
 }
 

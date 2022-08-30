@@ -17,7 +17,8 @@ pub struct GUID {
 impl GUID {
     /// Creates a unique `GUID` value.
     pub fn new() -> Result<Self> {
-        unsafe { CoCreateGuid() }
+        let mut result = Self::zeroed();
+        unsafe { CoCreateGuid(&mut result).and_then(|| result) }
     }
 
     /// Creates a `GUID` represented by the all-zero byte-pattern.

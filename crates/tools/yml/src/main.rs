@@ -173,7 +173,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        generator: [bindings, windows, sys, yml]
+        generator: [windows, sys, yml]
     steps:
       - name: Checkout
         uses: actions/checkout@v2

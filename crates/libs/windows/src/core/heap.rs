@@ -8,7 +8,7 @@ use bindings::*;
 /// This function will fail in OOM situations, if the heap is otherwise corrupt,
 /// or if getting a handle to the process heap fails.
 pub fn heap_alloc(bytes: usize) -> Result<*mut core::ffi::c_void> {
-    let ptr = unsafe { HeapAlloc(GetProcessHeap()?, HEAP_NONE, bytes) };
+    let ptr = unsafe { HeapAlloc(GetProcessHeap(), 0, bytes) };
 
     if ptr.is_null() {
         Err(E_OUTOFMEMORY.into())
@@ -26,14 +26,11 @@ pub fn heap_alloc(bytes: usize) -> Result<*mut core::ffi::c_void> {
 
 /// Free memory allocated by `HeapAlloc` or `HeapReAlloc`.
 ///
-/// The pointer is allowed to be null. If there is an error getting the process heap,
-/// the memory will be leaked.
+/// The pointer is allowed to be null.
 ///
 /// # Safety
 ///
 /// `ptr` must be a valid pointer to memory allocated by `HeapAlloc` or `HeapReAlloc`
 pub unsafe fn heap_free(ptr: *mut core::ffi::c_void) {
-    if let Ok(heap) = GetProcessHeap() {
-        HeapFree(heap, HEAP_NONE, ptr);
-    }
+    HeapFree(GetProcessHeap(), 0, ptr);
 }

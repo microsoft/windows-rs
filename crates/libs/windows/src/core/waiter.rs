@@ -2,14 +2,18 @@ use super::*;
 use bindings::*;
 
 #[doc(hidden)]
-pub struct Waiter(HANDLE);
-pub struct WaiterSignaler(HANDLE);
+pub struct Waiter(isize);
+pub struct WaiterSignaler(isize);
 
 impl Waiter {
     pub fn new() -> Result<(Waiter, WaiterSignaler)> {
         unsafe {
-            let handle = CreateEventA(None, true, false, None)?;
-            Ok((Waiter(handle), WaiterSignaler(handle)))
+            let handle = CreateEventW(std::ptr::null(), 1, 0, std::ptr::null());
+            if handle == 0 {
+                Err(Error::from_win32())
+            } else {
+                Ok((Waiter(handle), WaiterSignaler(handle)))
+            }
         }
     }
 }
