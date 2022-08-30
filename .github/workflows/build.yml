@@ -33,7 +33,7 @@ jobs:
     runs-on: windows-2019
     strategy:
       matrix:
-        generator: [bindings, windows, sys, yml]
+        generator: [windows, sys, yml]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -184,7 +184,6 @@ jobs:
           cargo clippy -p test_win32_arrays &&
           cargo clippy -p test_window_long &&
           cargo clippy -p test_winrt &&
-          cargo clippy -p tool_bindings &&
           cargo clippy -p tool_gnu &&
           cargo clippy -p tool_gnullvm &&
           cargo clippy -p tool_ilrs &&
