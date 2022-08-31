@@ -97,7 +97,32 @@ impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BOOL(pub i32);
+impl ::core::default::Default for BOOL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BOOL {}
+impl ::core::fmt::Debug for BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOL").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<BOOL>> for BOOL {
+    fn from(optional: ::core::option::Option<BOOL>) -> BOOL {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for BOOL {
+    type Abi = Self;
+}
 impl BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
@@ -120,28 +145,6 @@ impl BOOL {
     #[track_caller]
     pub fn expect(self, msg: &str) {
         self.ok().expect(msg);
-    }
-}
-impl ::core::default::Default for BOOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::core::clone::Clone for BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for BOOL {}
-impl ::core::cmp::PartialEq for BOOL {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BOOL {}
-impl ::core::fmt::Debug for BOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BOOL").field(&self.0).finish()
     }
 }
 impl ::core::convert::From<BOOL> for bool {
@@ -187,9 +190,6 @@ impl ::core::ops::Not for BOOL {
             BOOL(1)
         }
     }
-}
-unsafe impl ::windows::core::Abi for BOOL {
-    type Abi = Self;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
