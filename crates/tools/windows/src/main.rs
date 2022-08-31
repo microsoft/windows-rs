@@ -130,7 +130,6 @@ fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &
     gen.namespace = tree.namespace;
     gen.cfg = true;
     gen.doc = true;
-    gen.min_xaml = true;
     let mut tokens = bindgen::namespace(&gen, tree);
     tokens.push_str(r#"#[cfg(feature = "implement")] ::core::include!("impl.rs");"#);
     lib::format(tree.namespace, &mut tokens, rustfmt);

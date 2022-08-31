@@ -10,7 +10,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
-    let mut fields: Vec<(TokenStream, TokenStream)> = gen
+    let fields: Vec<(TokenStream, TokenStream)> = gen
         .reader
         .type_def_fields(def)
         .filter_map(|field| {
@@ -25,10 +25,6 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         })
         .collect();
-
-    if gen.min_enum && fields.len() > 100 {
-        fields.clear();
-    }
 
     let eq = if gen.sys {
         quote! {}

@@ -4,31 +4,14 @@ pub struct Gen<'a> {
     pub reader: &'a Reader<'a>,
     pub namespace: &'a str,
     pub sys: bool,
-    pub flatten: bool,
     pub cfg: bool,
     pub doc: bool,
-    pub min_enum: bool,
-    pub min_inherit: bool,
-    pub min_xaml: bool,
-    pub windows_extern: bool,
     pub component: bool,
 }
 
 impl<'a> Gen<'a> {
     pub fn new(reader: &'a Reader) -> Self {
-        Self {
-            reader,
-            namespace: "",
-            sys: false,
-            flatten: false,
-            cfg: false,
-            doc: false,
-            min_enum: false,
-            min_inherit: false,
-            min_xaml: false,
-            windows_extern: false,
-            component: false,
-        }
+        Self { reader, namespace: "", sys: false, cfg: false, doc: false, component: false }
     }
 
     //
@@ -349,10 +332,7 @@ impl<'a> Gen<'a> {
         } else {
             let mut tokens = format!(r#"`\"{}\"`"#, to_feature(self.namespace));
 
-            let mut features = cfg_features(cfg, self.namespace);
-            if self.windows_extern {
-                features.retain(|f| !f.starts_with("Windows."));
-            }
+            let features = cfg_features(cfg, self.namespace);
             for features in features {
                 write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
             }
@@ -367,13 +347,10 @@ impl<'a> Gen<'a> {
         if !self.doc {
             quote! {}
         } else {
-            let mut features = cfg_features(cfg, self.namespace);
+            let features = cfg_features(cfg, self.namespace);
             if features.is_empty() {
                 quote! {}
             } else {
-                if self.windows_extern {
-                    features.retain(|f| !f.starts_with("Windows."));
-                }
                 let mut tokens = String::new();
                 for features in features {
                     write!(tokens, r#"`\"{}\"`, "#, to_feature(features)).unwrap();
@@ -399,10 +376,7 @@ impl<'a> Gen<'a> {
                 }
             };
 
-            let mut features = cfg_features(cfg, self.namespace);
-            if self.windows_extern {
-                features.retain(|f| !f.starts_with("Windows."));
-            }
+            let features = cfg_features(cfg, self.namespace);
 
             let features = match features.len() {
                 0 => quote! {},
@@ -421,13 +395,10 @@ impl<'a> Gen<'a> {
     }
 
     fn cfg_not_features(&self, cfg: &Cfg) -> TokenStream {
-        let mut features = cfg_features(cfg, self.namespace);
+        let features = cfg_features(cfg, self.namespace);
         if !self.cfg || features.is_empty() {
             quote! {}
         } else {
-            if self.windows_extern {
-                features.retain(|f| !f.starts_with("Windows."));
-            }
             match features.len() {
                 0 => quote! {},
                 1 => {
@@ -447,7 +418,7 @@ impl<'a> Gen<'a> {
     //
 
     pub(crate) fn namespace(&self, namespace: &str) -> TokenStream {
-        if self.flatten || namespace == self.namespace {
+        if namespace == self.namespace {
             quote! {}
         } else {
             let is_external = namespace.starts_with("Windows.") && !self.namespace.starts_with("Windows");

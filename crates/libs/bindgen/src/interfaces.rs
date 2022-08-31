@@ -85,12 +85,10 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interfa
         for method in gen.reader.type_def_methods(def) {
             methods.combine(&winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
         }
-        if !gen.min_inherit {
-            for interface in interfaces {
-                if let Type::TypeDef((def, generics)) = &interface.ty {
-                    for method in gen.reader.type_def_methods(*def) {
-                        methods.combine(&winrt_methods::gen(gen, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
-                    }
+        for interface in interfaces {
+            if let Type::TypeDef((def, generics)) = &interface.ty {
+                for method in gen.reader.type_def_methods(*def) {
+                    methods.combine(&winrt_methods::gen(gen, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
                 }
             }
         }

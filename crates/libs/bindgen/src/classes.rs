@@ -32,10 +32,6 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 
     for interface in &interfaces {
         if let Type::TypeDef((def, generics)) = &interface.ty {
-            if gen.min_xaml && interface.kind == InterfaceKind::Base && gen.namespace.starts_with("Windows.UI.Xaml") && !gen.reader.type_def_namespace(*def).starts_with("Windows.Foundation") {
-                continue;
-            }
-
             let mut virtual_names = MethodNames::new();
 
             for method in gen.reader.type_def_methods(*def) {
