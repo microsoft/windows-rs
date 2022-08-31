@@ -2,9 +2,6 @@ use super::*;
 
 pub fn gen() -> TokenStream {
     quote! {
-        #[repr(transparent)]
-        #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-        pub struct NTSTATUS(pub i32);
         impl NTSTATUS {
             #[inline]
             pub const fn is_ok(self) -> bool {
@@ -36,25 +33,6 @@ pub fn gen() -> TokenStream {
             fn from(value: NTSTATUS) -> Self {
                 Self{ code: value.to_hresult(), info: None }
             }
-        }
-        impl ::core::default::Default for NTSTATUS {
-            fn default() -> Self {
-                Self(0)
-            }
-        }
-        impl ::core::clone::Clone for NTSTATUS {
-            fn clone(&self) -> Self {
-                *self
-            }
-        }
-        impl ::core::marker::Copy for NTSTATUS {}
-        impl ::core::fmt::Debug for NTSTATUS {
-            fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                f.write_fmt(format_args!("NTSTATUS(0x{:08X})", self.0))
-            }
-        }
-        unsafe impl ::windows::core::Abi for NTSTATUS {
-            type Abi = Self;
         }
     }
 }

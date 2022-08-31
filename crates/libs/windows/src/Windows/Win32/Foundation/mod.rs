@@ -97,7 +97,32 @@ impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BOOL(pub i32);
+impl ::core::default::Default for BOOL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BOOL {}
+impl ::core::fmt::Debug for BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOL").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<BOOL>> for BOOL {
+    fn from(optional: ::core::option::Option<BOOL>) -> BOOL {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for BOOL {
+    type Abi = Self;
+}
 impl BOOL {
     #[inline]
     pub fn as_bool(self) -> bool {
@@ -122,28 +147,6 @@ impl BOOL {
         self.ok().expect(msg);
     }
 }
-impl ::core::default::Default for BOOL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::core::clone::Clone for BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for BOOL {}
-impl ::core::cmp::PartialEq for BOOL {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BOOL {}
-impl ::core::fmt::Debug for BOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BOOL").field(&self.0).finish()
-    }
-}
 impl ::core::convert::From<BOOL> for bool {
     fn from(value: BOOL) -> Self {
         value.as_bool()
@@ -157,9 +160,9 @@ impl ::core::convert::From<&BOOL> for bool {
 impl ::core::convert::From<bool> for BOOL {
     fn from(value: bool) -> Self {
         if value {
-            BOOL(1)
+            Self(1)
         } else {
-            BOOL(0)
+            Self(0)
         }
     }
 }
@@ -182,14 +185,11 @@ impl ::core::ops::Not for BOOL {
     type Output = Self;
     fn not(self) -> Self::Output {
         if self.as_bool() {
-            BOOL(0)
+            Self(0)
         } else {
-            BOOL(1)
+            Self(1)
         }
     }
-}
-unsafe impl ::windows::core::Abi for BOOL {
-    type Abi = Self;
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -217,6 +217,74 @@ impl ::core::convert::From<::core::option::Option<BOOLEAN>> for BOOLEAN {
 }
 unsafe impl ::windows::core::Abi for BOOLEAN {
     type Abi = Self;
+}
+impl BOOLEAN {
+    #[inline]
+    pub fn as_bool(self) -> bool {
+        self.0 != 0
+    }
+    #[inline]
+    pub fn ok(self) -> ::windows::core::Result<()> {
+        if self.as_bool() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        self.ok().unwrap();
+    }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
+}
+impl ::core::convert::From<BOOLEAN> for bool {
+    fn from(value: BOOLEAN) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<&BOOLEAN> for bool {
+    fn from(value: &BOOLEAN) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<bool> for BOOLEAN {
+    fn from(value: bool) -> Self {
+        if value {
+            Self(1)
+        } else {
+            Self(0)
+        }
+    }
+}
+impl ::core::convert::From<&bool> for BOOLEAN {
+    fn from(value: &bool) -> Self {
+        (*value).into()
+    }
+}
+impl ::core::cmp::PartialEq<bool> for BOOLEAN {
+    fn eq(&self, other: &bool) -> bool {
+        self.as_bool() == *other
+    }
+}
+impl ::core::cmp::PartialEq<BOOLEAN> for bool {
+    fn eq(&self, other: &BOOLEAN) -> bool {
+        *self == other.as_bool()
+    }
+}
+impl ::core::ops::Not for BOOLEAN {
+    type Output = Self;
+    fn not(self) -> Self::Output {
+        if self.as_bool() {
+            Self(0)
+        } else {
+            Self(1)
+        }
+    }
 }
 #[repr(transparent)]
 pub struct BSTR(*const u16);
@@ -5027,6 +5095,30 @@ pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRE
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTSTATUS(pub i32);
+impl ::core::default::Default for NTSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for NTSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NTSTATUS {}
+impl ::core::fmt::Debug for NTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NTSTATUS").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<NTSTATUS>> for NTSTATUS {
+    fn from(optional: ::core::option::Option<NTSTATUS>) -> NTSTATUS {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for NTSTATUS {
+    type Abi = Self;
+}
 impl NTSTATUS {
     #[inline]
     pub const fn is_ok(self) -> bool {
@@ -5058,25 +5150,6 @@ impl ::core::convert::From<NTSTATUS> for ::windows::core::Error {
     fn from(value: NTSTATUS) -> Self {
         Self { code: value.to_hresult(), info: None }
     }
-}
-impl ::core::default::Default for NTSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::core::clone::Clone for NTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for NTSTATUS {}
-impl ::core::fmt::Debug for NTSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.write_fmt(format_args!("NTSTATUS(0x{:08X})", self.0))
-    }
-}
-unsafe impl ::windows::core::Abi for NTSTATUS {
-    type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
