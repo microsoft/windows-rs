@@ -155,6 +155,7 @@ jobs:
           cargo clippy -p test_enums &&
           cargo clippy -p test_error &&
           cargo clippy -p test_event &&
+          cargo clippy -p test_extensions &&
           cargo clippy -p test_handles &&
           cargo clippy -p test_helpers &&
           cargo clippy -p test_identity &&
@@ -169,7 +170,6 @@ jobs:
           cargo clippy -p test_metadata &&
           cargo clippy -p test_no_use &&
           cargo clippy -p test_not_dll &&
-          cargo clippy -p test_ntstatus &&
           cargo clippy -p test_properties &&
           cargo clippy -p test_query_signature &&
           cargo clippy -p test_return_struct &&
