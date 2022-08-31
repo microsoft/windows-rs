@@ -10,7 +10,9 @@ fn test() {
     assert_eq!(status.as_bool(), true);
     assert_eq!(status.ok().is_ok(), true);
 
-    unsafe { SetLastError(ERROR_ACCESS_DENIED); }
+    unsafe {
+        SetLastError(ERROR_ACCESS_DENIED);
+    }
     let status = BOOL(0);
     assert_eq!(status.0, 0);
     assert_eq!(status.as_bool(), false);
