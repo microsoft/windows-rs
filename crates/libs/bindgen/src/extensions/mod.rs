@@ -1,5 +1,6 @@
 use super::*;
 mod bool32;
+mod boolean;
 mod in6_addr;
 mod in_addr;
 mod matrix3x2;
@@ -17,6 +18,7 @@ mod win32_error;
 pub fn gen(type_name: TypeName) -> TokenStream {
     match type_name {
         TypeName::BOOL => bool32::gen(),
+        TypeName::BOOLEAN => boolean::gen(),
         TypeName::IN_ADDR => in_addr::gen(),
         TypeName::IN6_ADDR => in6_addr::gen(),
         TypeName::Matrix3x2 => matrix3x2::gen(),

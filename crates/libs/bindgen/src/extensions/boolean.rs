@@ -2,7 +2,7 @@ use super::*;
 
 pub fn gen() -> TokenStream {
     quote! {
-        impl BOOL {
+        impl BOOLEAN {
             #[inline]
             pub fn as_bool(self) -> bool {
                 self.0 != 0
@@ -26,17 +26,17 @@ pub fn gen() -> TokenStream {
                 self.ok().expect(msg);
             }
         }
-        impl ::core::convert::From<BOOL> for bool {
-            fn from(value: BOOL) -> Self {
+        impl ::core::convert::From<BOOLEAN> for bool {
+            fn from(value: BOOLEAN) -> Self {
                 value.as_bool()
             }
         }
-        impl ::core::convert::From<&BOOL> for bool {
-            fn from(value: &BOOL) -> Self {
+        impl ::core::convert::From<&BOOLEAN> for bool {
+            fn from(value: &BOOLEAN) -> Self {
                 value.as_bool()
             }
         }
-        impl ::core::convert::From<bool> for BOOL {
+        impl ::core::convert::From<bool> for BOOLEAN {
             fn from(value: bool) -> Self {
                 if value {
                     Self(1)
@@ -45,22 +45,22 @@ pub fn gen() -> TokenStream {
                 }
             }
         }
-        impl ::core::convert::From<&bool> for BOOL {
+        impl ::core::convert::From<&bool> for BOOLEAN {
             fn from(value: &bool) -> Self {
                 (*value).into()
             }
         }
-        impl ::core::cmp::PartialEq<bool> for BOOL {
+        impl ::core::cmp::PartialEq<bool> for BOOLEAN {
             fn eq(&self, other: &bool) -> bool {
                 self.as_bool() == *other
             }
         }
-        impl ::core::cmp::PartialEq<BOOL> for bool {
-            fn eq(&self, other: &BOOL) -> bool {
+        impl ::core::cmp::PartialEq<BOOLEAN> for bool {
+            fn eq(&self, other: &BOOLEAN) -> bool {
                 *self == other.as_bool()
             }
         }
-        impl ::core::ops::Not for BOOL {
+        impl ::core::ops::Not for BOOLEAN {
             type Output = Self;
             fn not(self) -> Self::Output {
                 if self.as_bool() {
