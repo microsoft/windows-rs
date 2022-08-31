@@ -5027,6 +5027,30 @@ pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRE
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NTSTATUS(pub i32);
+impl ::core::default::Default for NTSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for NTSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NTSTATUS {}
+impl ::core::fmt::Debug for NTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NTSTATUS").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<NTSTATUS>> for NTSTATUS {
+    fn from(optional: ::core::option::Option<NTSTATUS>) -> NTSTATUS {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for NTSTATUS {
+    type Abi = Self;
+}
 impl NTSTATUS {
     #[inline]
     pub const fn is_ok(self) -> bool {
@@ -5058,25 +5082,6 @@ impl ::core::convert::From<NTSTATUS> for ::windows::core::Error {
     fn from(value: NTSTATUS) -> Self {
         Self { code: value.to_hresult(), info: None }
     }
-}
-impl ::core::default::Default for NTSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-impl ::core::clone::Clone for NTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for NTSTATUS {}
-impl ::core::fmt::Debug for NTSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.write_fmt(format_args!("NTSTATUS(0x{:08X})", self.0))
-    }
-}
-unsafe impl ::windows::core::Abi for NTSTATUS {
-    type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
