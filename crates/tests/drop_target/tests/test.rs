@@ -10,7 +10,7 @@ impl IDataObject_Impl for DataObject {
     fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
         todo!()
     }
-    fn QueryGetData(&self, _: *const FORMATETC) -> Result<()> {
+    fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
         todo!()
     }
     fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {

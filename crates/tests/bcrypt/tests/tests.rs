@@ -12,18 +12,17 @@ fn test() -> Result<()> {
 
         let mut object_len = [0; 4];
         let mut bytes_copied = 0;
-        BCryptGetProperty(des.0 as _, w!("ObjectLength"), Some(&mut object_len), &mut bytes_copied, 0)?;
+        BCryptGetProperty(des, w!("ObjectLength"), Some(&mut object_len), &mut bytes_copied, 0)?;
         let object_len = u32::from_le_bytes(object_len);
 
         let mut shared_secret = vec![0; object_len as _];
         BCryptGenRandom(rng, &mut shared_secret, 0)?;
 
         let mut encrypt_key = Default::default();
-        // TODO: workaround for https://github.com/microsoft/win32metadata/issues/1010
-        BCryptGenerateSymmetricKey(des, &mut encrypt_key, None, 0, &shared_secret, 0)?;
+        BCryptGenerateSymmetricKey(des, &mut encrypt_key, None, &shared_secret, 0)?;
 
         let mut block_len = [0; 4];
-        BCryptGetProperty(des.0 as _, w!("BlockLength"), Some(&mut block_len), &mut bytes_copied, 0)?;
+        BCryptGetProperty(des, w!("BlockLength"), Some(&mut block_len), &mut bytes_copied, 0)?;
         let block_len = u32::from_le_bytes(block_len) as usize;
 
         let send_message = "I ❤️ Rust";
@@ -37,7 +36,7 @@ fn test() -> Result<()> {
         BCryptEncrypt(encrypt_key, Some(&send_buffer), std::ptr::null(), None, Some(&mut encrypted), &mut encrypted_len, Default::default())?;
 
         let mut decrypt_key = Default::default();
-        BCryptGenerateSymmetricKey(des, &mut decrypt_key, None, 0, &shared_secret, 0)?;
+        BCryptGenerateSymmetricKey(des, &mut decrypt_key, None, &shared_secret, 0)?;
 
         let mut decrypted_len = 0;
         BCryptDecrypt(decrypt_key, Some(&encrypted), std::ptr::null(), None, None, &mut decrypted_len, Default::default())?;
