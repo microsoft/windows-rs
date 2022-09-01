@@ -80,10 +80,7 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
             if !methods.is_empty() {
                 let methods = methods.values();
                 functions = vec![quote! {
-                    #[cfg_attr(windows, link(name = "windows"))]
-                    extern "system" {
-                        #(#methods)*
-                    }
+                    #(#methods)*
                 }];
             }
         }

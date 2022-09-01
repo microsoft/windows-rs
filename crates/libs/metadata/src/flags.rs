@@ -52,6 +52,21 @@ impl PInvokeAttributes {
     pub fn last_error(&self) -> bool {
         self.0 & 0x40 != 0
     }
+    pub fn conv_platform(&self) -> bool {
+        self.0 & 0x100 != 0
+    }
+    pub fn conv_cdecl(&self) -> bool {
+        self.0 & 0x200 != 0
+    }
+    pub fn conv_stdcall(&self) -> bool {
+        self.0 & 0x300 != 0
+    }
+    pub fn conv_thiscall(&self) -> bool {
+        self.0 & 0x400 != 0
+    }
+    pub fn conv_fastcall(&self) -> bool {
+        self.0 & 0x500 != 0
+    }
 }
 
 impl TypeAttributes {

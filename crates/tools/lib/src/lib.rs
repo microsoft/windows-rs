@@ -30,10 +30,10 @@ pub fn rustfmt(name: &str, tokens: &mut String) {
 }
 
 /// Returns the libraries and their function and stack sizes used by the gnu and msvc tools to build the umbrella libs.
-pub fn libraries() -> BTreeMap<String, BTreeMap<String, usize>> {
+pub fn libraries() -> BTreeMap<String, BTreeMap<String, CallingConvention>> {
     let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
     let reader = &metadata::reader::Reader::new(&files);
-    let mut libraries = BTreeMap::<String, BTreeMap<String, usize>>::new();
+    let mut libraries = BTreeMap::<String, BTreeMap<String, CallingConvention>>::new();
     let root = reader.tree("Windows.Win32", &[]).expect("`Windows` namespace not found");
 
     for tree in root.flatten() {
@@ -42,11 +42,23 @@ pub fn libraries() -> BTreeMap<String, BTreeMap<String, usize>> {
                 let impl_map = reader.method_def_impl_map(method).expect("ImplMap not found");
                 let scope = reader.impl_map_scope(impl_map);
                 let library = reader.module_ref_name(scope).to_lowercase();
-                let params = reader.method_def_size(method);
-                libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), params);
+                let flags = reader.impl_map_flags(impl_map);
+                if flags.conv_platform() {
+                    let params = reader.method_def_size(method);
+                    libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Stdcall(params));
+                } else if flags.conv_cdecl() {
+                    libraries.entry(library).or_default().insert(reader.method_def_name(method).to_string(), CallingConvention::Cdecl);
+                } else {
+                    unimplemented!();
+                }
             }
         }
     }
 
     libraries
+}
+
+pub enum CallingConvention {
+    Stdcall(usize),
+    Cdecl,
 }

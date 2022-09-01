@@ -26,10 +26,15 @@ fn gen_sys_function(gen: &Gen, def: MethodDef) -> TokenStream {
         quote! { #name: #tokens }
     });
 
+    let calling_convention = calling_convention(gen, def);
+
     quote! {
-        #doc
-        #features
-        pub fn #name(#(#params),*) #return_type;
+        #[cfg_attr(windows, link(name = "windows"))]
+        extern #calling_convention {
+            #doc
+            #features
+            pub fn #name(#(#params),*) #return_type;
+        }
     }
 }
 
@@ -64,6 +69,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
     let cfg = gen.reader.signature_cfg(&signature);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
+    let calling_convention = calling_convention(gen, def);
 
     let kind = gen.reader.signature_kind(&signature);
     match kind {
@@ -79,7 +85,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<T> #where_clause {
                     #link_attr
-                    extern "system" {
+                    extern #calling_convention {
                         fn #name(#(#abi_params),*) #abi_return_type;
                     }
                     let mut result__ = ::core::option::Option::None;
@@ -99,7 +105,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> #where_clause {
                     #link_attr
-                    extern "system" {
+                    extern #calling_convention {
                         fn #name(#(#abi_params),*) #abi_return_type;
                     }
                     #name(#args).ok()
@@ -119,7 +125,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type_tokens> #where_clause {
                     #link_attr
-                    extern "system" {
+                    extern #calling_convention {
                         fn #name(#(#abi_params),*) #abi_return_type;
                     }
                     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -137,7 +143,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<()> #where_clause {
                     #link_attr
-                    extern "system" {
+                    extern #calling_convention {
                         fn #name(#(#abi_params),*) #abi_return_type;
                     }
                     #name(#args).ok()
@@ -156,7 +162,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) -> ::windows::core::Result<#return_type> #where_clause {
                         #link_attr
-                        extern "system" {
+                        extern #calling_convention {
                             fn #name(#(#abi_params),*) -> #return_type;
                         }
                         let result__ = #name(#args);
@@ -173,7 +179,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                     #[inline]
                     pub unsafe fn #name<#generics>(#params) #abi_return_type #where_clause {
                         #link_attr
-                        extern "system" {
+                        extern #calling_convention {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
                         #name(#args)
@@ -192,7 +198,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #[inline]
                 pub unsafe fn #name<#generics>(#params) #does_not_return #where_clause {
                     #link_attr
-                    extern "system" {
+                    extern #calling_convention {
                         fn #name(#(#abi_params),*) #does_not_return;
                     }
                     #name(#args)
@@ -226,4 +232,17 @@ fn handle_last_error(gen: &Gen, def: MethodDef, signature: &Signature) -> bool {
         }
     }
     false
+}
+
+fn calling_convention(gen: &Gen, def: MethodDef) -> &'static str {
+    let impl_map = gen.reader.method_def_impl_map(def).expect("ImplMap not found");
+    let flags = gen.reader.impl_map_flags(impl_map);
+
+    if flags.conv_platform() {
+        "system"
+    } else if flags.conv_cdecl() {
+        "cdecl"
+    } else {
+        unimplemented!()
+    }
 }
