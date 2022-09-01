@@ -595,20 +595,46 @@ impl<'a> Reader<'a> {
                 if self.type_def_flags(def).explicit_layout() {
                     self.type_def_fields(def).map(|field| self.type_size(&self.field_type(field, Some(def)))).max().unwrap_or(1)
                 } else {
-                    self.type_def_fields(def).fold(0, |sum, field| sum + self.type_size(&self.field_type(field, Some(def))))
+                    let mut sum = 0;
+                    for field in self.type_def_fields(def) {
+                        let size = self.type_size(&self.field_type(field, Some(def)));
+                        let align = self.type_align(&self.field_type(field, Some(def)));
+                        sum = sum + (align - 1) & !(align - 1);
+                        sum += size;
+                    }
+                    sum
                 }
             }
             TypeKind::Enum => self.type_size(&self.type_def_underlying_type(def)),
             _ => 4,
         }
     }
-    pub fn type_size(&self, ty: &Type) -> usize {
+    fn type_size(&self, ty: &Type) -> usize {
         match ty {
             Type::I8 | Type::U8 => 1,
             Type::I16 | Type::U16 => 2,
             Type::I64 | Type::U64 | Type::F64 => 8,
             Type::GUID => 16,
             Type::TypeDef((def, _)) => self.type_def_size(*def),
+            Type::Win32Array((ty, len)) => self.type_size(ty) * len,
+            _ => 4,
+        }
+    }
+    fn type_def_align(&self, def: TypeDef) -> usize {
+        match self.type_def_kind(def) {
+            TypeKind::Struct => self.type_def_fields(def).map(|field| self.type_align(&self.field_type(field, Some(def)))).max().unwrap_or(1),
+            TypeKind::Enum => self.type_align(&self.type_def_underlying_type(def)),
+            _ => 4,
+        }
+    }
+    fn type_align(&self, ty: &Type) -> usize {
+        match ty {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 4,
+            Type::TypeDef((def, _)) => self.type_def_align(*def),
+            Type::Win32Array((ty, len)) => self.type_align(ty) * len,
             _ => 4,
         }
     }
