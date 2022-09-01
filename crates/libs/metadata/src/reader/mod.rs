@@ -599,7 +599,7 @@ impl<'a> Reader<'a> {
                     for field in self.type_def_fields(def) {
                         let size = self.type_size(&self.field_type(field, Some(def)));
                         let align = self.type_align(&self.field_type(field, Some(def)));
-                        sum = sum + (align - 1) & !(align - 1);
+                        sum = (sum + (align - 1)) & !(align - 1);
                         sum += size;
                     }
                     sum
