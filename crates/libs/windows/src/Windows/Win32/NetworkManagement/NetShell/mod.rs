@@ -555,7 +555,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
     }
     PrintError(hmodule.into(), dwerrid)
@@ -567,7 +567,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn PrintMessage(pwszformat: ::windows::core::PCWSTR) -> u32;
     }
     PrintMessage(pwszformat.into())
@@ -580,7 +580,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
     }
     PrintMessageFromModule(hmodule.into(), dwmsgid)

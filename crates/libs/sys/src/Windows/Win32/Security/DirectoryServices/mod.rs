@@ -3,12 +3,21 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization_UI\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
     pub fn DSCreateISecurityInfoObject(pwszobjectpath: ::windows_sys::core::PCWSTR, pwszobjectclass: ::windows_sys::core::PCWSTR, dwflags: u32, ppsi: *mut super::Authorization::UI::ISecurityInformation, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Authorization_UI\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization_UI"))]
     pub fn DSCreateISecurityInfoObjectEx(pwszobjectpath: ::windows_sys::core::PCWSTR, pwszobjectclass: ::windows_sys::core::PCWSTR, pwszserver: ::windows_sys::core::PCWSTR, pwszusername: ::windows_sys::core::PCWSTR, pwszpassword: ::windows_sys::core::PCWSTR, dwflags: u32, ppsi: *mut super::Authorization::UI::ISecurityInformation, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub fn DSCreateSecurityPage(pwszobjectpath: ::windows_sys::core::PCWSTR, pwszobjectclass: ::windows_sys::core::PCWSTR, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Security_DirectoryServices\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DSEditSecurity(hwndowner: super::super::Foundation::HWND, pwszobjectpath: ::windows_sys::core::PCWSTR, pwszobjectclass: ::windows_sys::core::PCWSTR, dwflags: u32, pwszcaption: ::windows_sys::core::PCWSTR, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> ::windows_sys::core::HRESULT;

@@ -3,29 +3,59 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DavAddConnection(connectionhandle: *mut super::super::Foundation::HANDLE, remotename: ::windows_sys::core::PCWSTR, username: ::windows_sys::core::PCWSTR, password: ::windows_sys::core::PCWSTR, clientcert: *const u8, certsize: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DavCancelConnectionsToServer(lpname: ::windows_sys::core::PCWSTR, fforce: super::super::Foundation::BOOL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DavDeleteConnection(connectionhandle: super::super::Foundation::HANDLE) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DavFlushFile(hfile: super::super::Foundation::HANDLE) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DavGetExtendedError(hfile: super::super::Foundation::HANDLE, exterror: *mut u32, exterrorstring: ::windows_sys::core::PWSTR, cchsize: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
     pub fn DavGetHTTPFromUNCPath(uncpath: ::windows_sys::core::PCWSTR, url: ::windows_sys::core::PWSTR, lpsize: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
     pub fn DavGetTheLockOwnerOfTheFile(filename: ::windows_sys::core::PCWSTR, lockownername: ::windows_sys::core::PWSTR, lockownernamelengthinbytes: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
     pub fn DavGetUNCFromHTTPPath(url: ::windows_sys::core::PCWSTR, uncpath: ::windows_sys::core::PWSTR, lpsize: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
     pub fn DavInvalidateCache(urlname: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_WebDav\"`*"]
     pub fn DavUnregisterAuthCallback(hcallback: u32);
 }

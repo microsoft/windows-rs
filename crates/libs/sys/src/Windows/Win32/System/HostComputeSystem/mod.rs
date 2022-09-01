@@ -2,138 +2,327 @@
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsAttachLayerStorageFilter(layerpath: ::windows_sys::core::PCWSTR, layerdata: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCancelOperation(operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCloseComputeSystem(computesystem: HCS_SYSTEM);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCloseOperation(operation: HCS_OPERATION);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCloseProcess(process: HCS_PROCESS);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCrashComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn HcsCreateComputeSystem(id: ::windows_sys::core::PCWSTR, configuration: ::windows_sys::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, computesystem: *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCreateComputeSystemInNamespace(idnamespace: ::windows_sys::core::PCWSTR, id: ::windows_sys::core::PCWSTR, configuration: ::windows_sys::core::PCWSTR, operation: HCS_OPERATION, options: *const HCS_CREATE_OPTIONS, computesystem: *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCreateEmptyGuestStateFile(gueststatefilepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCreateEmptyRuntimeStateFile(runtimestatefilepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsCreateOperation(context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> HCS_OPERATION;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
     pub fn HcsCreateProcess(computesystem: HCS_SYSTEM, processparameters: ::windows_sys::core::PCWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, process: *mut HCS_PROCESS) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsDestroyLayer(layerpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsDetachLayerStorageFilter(layerpath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsEnumerateComputeSystems(query: ::windows_sys::core::PCWSTR, operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsEnumerateComputeSystemsInNamespace(idnamespace: ::windows_sys::core::PCWSTR, query: ::windows_sys::core::PCWSTR, operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsExportLayer(layerpath: ::windows_sys::core::PCWSTR, exportfolderpath: ::windows_sys::core::PCWSTR, layerdata: ::windows_sys::core::PCWSTR, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsExportLegacyWritableLayer(writablelayermountpath: ::windows_sys::core::PCWSTR, writablelayerfolderpath: ::windows_sys::core::PCWSTR, exportfolderpath: ::windows_sys::core::PCWSTR, layerdata: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsFormatWritableLayerVhd(vhdhandle: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetComputeSystemFromOperation(operation: HCS_OPERATION) -> HCS_SYSTEM;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetComputeSystemProperties(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, propertyquery: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDLE, mountpath: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetOperationContext(operation: HCS_OPERATION) -> *mut ::core::ffi::c_void;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetOperationId(operation: HCS_OPERATION) -> u64;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetOperationResult(operation: HCS_OPERATION, resultdocument: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsGetOperationResultAndProcessInfo(operation: HCS_OPERATION, processinformation: *mut HCS_PROCESS_INFORMATION, resultdocument: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetOperationType(operation: HCS_OPERATION) -> HCS_OPERATION_TYPE;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetProcessFromOperation(operation: HCS_OPERATION) -> HCS_PROCESS;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetProcessInfo(process: HCS_PROCESS, operation: HCS_OPERATION) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetProcessProperties(process: HCS_PROCESS, operation: HCS_OPERATION, propertyquery: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename: ::windows_sys::core::PCWSTR, processorfeaturesstring: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGetServiceProperties(propertyquery: ::windows_sys::core::PCWSTR, result: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGrantVmAccess(vmid: ::windows_sys::core::PCWSTR, filepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsGrantVmGroupAccess(filepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsImportLayer(layerpath: ::windows_sys::core::PCWSTR, sourcefolderpath: ::windows_sys::core::PCWSTR, layerdata: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsInitializeLegacyWritableLayer(writablelayermountpath: ::windows_sys::core::PCWSTR, writablelayerfolderpath: ::windows_sys::core::PCWSTR, layerdata: ::windows_sys::core::PCWSTR, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsInitializeWritableLayer(writablelayerpath: ::windows_sys::core::PCWSTR, layerdata: ::windows_sys::core::PCWSTR, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsModifyComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, configuration: ::windows_sys::core::PCWSTR, identity: super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsModifyProcess(process: HCS_PROCESS, operation: HCS_OPERATION, settings: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsModifyServiceSettings(settings: ::windows_sys::core::PCWSTR, result: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsOpenComputeSystem(id: ::windows_sys::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsOpenComputeSystemInNamespace(idnamespace: ::windows_sys::core::PCWSTR, id: ::windows_sys::core::PCWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsOpenProcess(computesystem: HCS_SYSTEM, processid: u32, requestedaccess: u32, process: *mut HCS_PROCESS) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsPauseComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsResumeComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsRevokeVmAccess(vmid: ::windows_sys::core::PCWSTR, filepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsRevokeVmGroupAccess(filepath: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSaveComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSetComputeSystemCallback(computesystem: HCS_SYSTEM, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSetOperationCallback(operation: HCS_OPERATION, context: *const ::core::ffi::c_void, callback: HCS_OPERATION_COMPLETION) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSetOperationContext(operation: HCS_OPERATION, context: *const ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSetProcessCallback(process: HCS_PROCESS, callbackoptions: HCS_EVENT_OPTIONS, context: *const ::core::ffi::c_void, callback: HCS_EVENT_CALLBACK) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsSetupBaseOSLayer(layerpath: ::windows_sys::core::PCWSTR, vhdhandle: super::super::Foundation::HANDLE, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSetupBaseOSVolume(layerpath: ::windows_sys::core::PCWSTR, volumepath: ::windows_sys::core::PCWSTR, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsShutDownComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSignalProcess(process: HCS_PROCESS, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsStartComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsSubmitWerReport(settings: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsTerminateComputeSystem(computesystem: HCS_SYSTEM, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsTerminateProcess(process: HCS_PROCESS, operation: HCS_OPERATION, options: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsWaitForComputeSystemExit(computesystem: HCS_SYSTEM, timeoutms: u32, result: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsWaitForOperationResult(operation: HCS_OPERATION, timeoutms: u32, resultdocument: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn HcsWaitForOperationResultAndProcessInfo(operation: HCS_OPERATION, timeoutms: u32, processinformation: *mut HCS_PROCESS_INFORMATION, resultdocument: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_HostComputeSystem\"`*"]
     pub fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
 }

@@ -2,21 +2,45 @@
 extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn D3DPERF_BeginEvent(col: u32, wszname: ::windows_sys::core::PCWSTR) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn D3DPERF_EndEvent() -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn D3DPERF_GetStatus() -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn D3DPERF_QueryRepeatFrame() -> super::super::Foundation::BOOL;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn D3DPERF_SetMarker(col: u32, wszname: ::windows_sys::core::PCWSTR);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn D3DPERF_SetOptions(dwoptions: u32);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn D3DPERF_SetRegion(col: u32, wszname: ::windows_sys::core::PCWSTR);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn Direct3DCreate9(sdkversion: u32) -> IDirect3D9;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
     pub fn Direct3DCreate9Ex(sdkversion: u32, param1: *mut IDirect3D9Ex) -> ::windows_sys::core::HRESULT;
 }

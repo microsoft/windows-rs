@@ -50991,7 +50991,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Graphics::Direct3D12::ID3D12Device>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn MFCreateD3D12SynchronizationObject(pdevice: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvsyncobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     MFCreateD3D12SynchronizationObject(pdevice.into().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppvsyncobject)).ok()
@@ -62525,7 +62525,7 @@ where
 #[inline]
 pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
     }
     OPMXboxEnableHDCP(hdcptype).ok()
@@ -62534,7 +62534,7 @@ pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> ::windows::core::Res
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: &mut OPM_HDCP_STATUS) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> ::windows::core::HRESULT;
     }
     OPMXboxGetHDCPStatus(::core::mem::transmute(phdcpstatus)).ok()
@@ -62543,7 +62543,7 @@ pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: &mut OPM_HDCP_STATUS) -> ::windo
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: &mut OPM_HDCP_STATUS, phdcptype: &mut OPM_HDCP_TYPE) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> ::windows::core::HRESULT;
     }
     OPMXboxGetHDCPStatusAndType(::core::mem::transmute(phdcpstatus), ::core::mem::transmute(phdcptype)).ok()

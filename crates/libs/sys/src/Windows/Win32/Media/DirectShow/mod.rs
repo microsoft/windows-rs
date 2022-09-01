@@ -4,6 +4,9 @@ pub mod Xml;
 extern "system" {
     #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
     pub fn AMGetErrorTextA(hr: ::windows_sys::core::HRESULT, pbuffer: ::windows_sys::core::PSTR, maxlen: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
     pub fn AMGetErrorTextW(hr: ::windows_sys::core::HRESULT, pbuffer: ::windows_sys::core::PWSTR, maxlen: u32) -> u32;
 }
