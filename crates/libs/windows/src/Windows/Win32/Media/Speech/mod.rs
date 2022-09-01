@@ -10309,12 +10309,12 @@ impl ISpeechObjectToken {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RemoveStorageFileName<'a, P0, P1>(&self, objectstorageclsid: P0, keyname: P1, deletefilea: i16) -> ::windows::core::Result<()>
+    pub unsafe fn RemoveStorageFileName<'a, P0, P1>(&self, objectstorageclsid: P0, keyname: P1, deletefile: i16) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
     {
-        (::windows::core::Interface::vtable(self).RemoveStorageFileName)(::windows::core::Interface::as_raw(self), objectstorageclsid.into().abi(), keyname.into().abi(), deletefilea).ok()
+        (::windows::core::Interface::vtable(self).RemoveStorageFileName)(::windows::core::Interface::as_raw(self), objectstorageclsid.into().abi(), keyname.into().abi(), deletefile).ok()
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -10446,7 +10446,7 @@ pub struct ISpeechObjectToken_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetStorageFileName: usize,
     #[cfg(feature = "Win32_Foundation")]
-    pub RemoveStorageFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectstorageclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, deletefilea: i16) -> ::windows::core::HRESULT,
+    pub RemoveStorageFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectstorageclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, deletefile: i16) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     RemoveStorageFileName: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -16117,7 +16117,7 @@ impl ::core::fmt::Debug for SPPARTOFSPEECH {
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE {
-    pub __AnonymousBase_sapi53_L5821_C34: SPPHRASE_50,
+    pub Base: SPPHRASE_50,
     pub pSML: ::windows::core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }
@@ -16132,7 +16132,7 @@ impl ::core::clone::Clone for SPPHRASE {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::fmt::Debug for SPPHRASE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SPPHRASE").field("__AnonymousBase_sapi53_L5821_C34", &self.__AnonymousBase_sapi53_L5821_C34).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
+        f.debug_struct("SPPHRASE").field("Base", &self.Base).field("pSML", &self.pSML).field("pSemanticErrorInfo", &self.pSemanticErrorInfo).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]

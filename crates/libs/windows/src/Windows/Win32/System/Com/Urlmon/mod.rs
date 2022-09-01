@@ -2391,8 +2391,8 @@ impl IInternetHostSecurityManager {
     pub unsafe fn GetSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: &mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetSecurityId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), dwreserved).ok()
     }
-    pub unsafe fn ProcessUrlAction(&self, dwaction: u32, ppolicy: &mut u8, cbpolicy: u32, pcontext: ::core::option::Option<&[u8]>, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessUrlAction)(::windows::core::Interface::as_raw(self), dwaction, ::core::mem::transmute(ppolicy), cbpolicy, ::core::mem::transmute(pcontext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcontext.as_deref().map_or(0, |slice| slice.len() as _), dwflags, dwreserved).ok()
+    pub unsafe fn ProcessUrlAction(&self, dwaction: u32, ppolicy: &mut [u8], pcontext: ::core::option::Option<&[u8]>, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessUrlAction)(::windows::core::Interface::as_raw(self), dwaction, ::core::mem::transmute(ppolicy.as_ptr()), ppolicy.len() as _, ::core::mem::transmute(pcontext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pcontext.as_deref().map_or(0, |slice| slice.len() as _), dwflags, dwreserved).ok()
     }
     pub unsafe fn QueryCustomPolicy(&self, guidkey: &::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: &mut u32, pcontext: &[u8], dwreserved: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryCustomPolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext.as_ptr()), pcontext.len() as _, dwreserved).ok()

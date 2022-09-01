@@ -4602,7 +4602,7 @@ pub struct DBPROPINFO {
     pub pwszDescription: ::windows::core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
-    pub vtType: u16,
+    pub vtType: super::Com::VARENUM,
     pub vValues: super::Com::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4648,7 +4648,7 @@ pub struct DBPROPINFO {
     pub pwszDescription: ::windows::core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
-    pub vtType: u16,
+    pub vtType: super::Com::VARENUM,
     pub vValues: super::Com::VARIANT,
 }
 #[cfg(target_arch = "x86")]
@@ -16669,6 +16669,8 @@ pub struct ISQLGetDiagField_Vtbl {
 #[repr(transparent)]
 pub struct ISQLRequestDiagFields(::windows::core::IUnknown);
 impl ISQLRequestDiagFields {
+    #[doc = "*Required features: `\"Win32_System_Com\"`*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RequestDiagFields(&self, rgdiagfields: &[KAGREQDIAG]) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RequestDiagFields)(::windows::core::Interface::as_raw(self), rgdiagfields.len() as _, ::core::mem::transmute(rgdiagfields.as_ptr())).ok()
     }
@@ -16712,7 +16714,10 @@ unsafe impl ::windows::core::Interface for ISQLRequestDiagFields {
 #[doc(hidden)]
 pub struct ISQLRequestDiagFields_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_System_Com")]
     pub RequestDiagFields: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))]
+    RequestDiagFields: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 #[repr(transparent)]
@@ -22207,32 +22212,40 @@ pub const KAGPROP_SYSTEMFUNCTIONS: u32 = 21u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const KAGPROP_TIMEDATEFUNCTIONS: u32 = 22u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
-    pub vt: u16,
+    pub vt: super::Com::VARENUM,
     pub sDiagField: i16,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for KAGREQDIAG {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for KAGREQDIAG {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::fmt::Debug for KAGREQDIAG {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("KAGREQDIAG").field("ulDiagFlags", &self.ulDiagFlags).field("vt", &self.vt).field("sDiagField", &self.sDiagField).finish()
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for KAGREQDIAG {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for KAGREQDIAG {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KAGREQDIAG>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for KAGREQDIAG {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for KAGREQDIAG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

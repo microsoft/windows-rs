@@ -6541,12 +6541,18 @@ pub struct IInkGesture_Vtbl {
 #[repr(transparent)]
 pub struct IInkLineInfo(::windows::core::IUnknown);
 impl IInkLineInfo {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFormat(&self, pim: &INKMETRIC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pim)).ok()
     }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFormat(&self, pim: &INKMETRIC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pim)).ok()
     }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetInkExtent(&self, pim: &INKMETRIC, pnwidth: &u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetInkExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pim), ::core::mem::transmute(pnwidth)).ok()
     }
@@ -6605,9 +6611,18 @@ unsafe impl ::windows::core::Interface for IInkLineInfo {
 #[doc(hidden)]
 pub struct IInkLineInfo_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
     pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetFormat: usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub GetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetFormat: usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub GetInkExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC, pnwidth: *const u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetInkExtent: usize,
     pub GetCandidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncandidatenum: u32, pwcrecogword: ::windows::core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> ::windows::core::HRESULT,
     pub SetCandidate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ncandidatenum: u32, strrecogword: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Recognize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10901,34 +10916,42 @@ pub const INKEDIT_CLASS: &str = "INKEDIT";
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKEDIT_CLASSW: &str = "INKEDIT";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
     pub iFontDescent: i32,
     pub dwFlags: u32,
-    pub color: u32,
+    pub color: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INKMETRIC {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INKMETRIC {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for INKMETRIC {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("INKMETRIC").field("iHeight", &self.iHeight).field("iFontAscent", &self.iFontAscent).field("iFontDescent", &self.iFontDescent).field("dwFlags", &self.dwFlags).field("color", &self.color).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INKMETRIC {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INKMETRIC {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INKMETRIC>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INKMETRIC {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INKMETRIC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

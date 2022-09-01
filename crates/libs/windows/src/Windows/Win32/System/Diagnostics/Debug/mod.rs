@@ -29681,7 +29681,7 @@ impl IDebugFormatter {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetStringForVarType(&self, vt: u16, ptdescarraytype: &super::super::Com::TYPEDESC) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+    pub unsafe fn GetStringForVarType(&self, vt: super::super::Com::VARENUM, ptdescarraytype: &super::super::Com::TYPEDESC) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetStringForVarType)(::windows::core::Interface::as_raw(self), vt, ::core::mem::transmute(ptdescarraytype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
@@ -29734,7 +29734,7 @@ pub struct IDebugFormatter_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetVariantForString: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetStringForVarType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: u16, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
+    pub GetStringForVarType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetStringForVarType: usize,
 }
@@ -43918,7 +43918,7 @@ impl IModelObject {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetIntrinsicValueAs(&self, vt: u16) -> ::windows::core::Result<super::super::Com::VARIANT> {
+    pub unsafe fn GetIntrinsicValueAs(&self, vt: super::super::Com::VARENUM) -> ::windows::core::Result<super::super::Com::VARIANT> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetIntrinsicValueAs)(::windows::core::Interface::as_raw(self), vt, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Com::VARIANT>(result__)
     }
@@ -44119,7 +44119,7 @@ pub struct IModelObject_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetIntrinsicValue: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub GetIntrinsicValueAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: u16, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
+    pub GetIntrinsicValueAs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     GetIntrinsicValueAs: usize,
     pub GetKeyValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: ::windows::core::PCWSTR, object: *mut *mut ::core::ffi::c_void, metadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -56440,7 +56440,7 @@ impl ::core::default::Default for ScriptDebugEventInformation_0_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct ScriptDebugEventInformation_0_1 {
-    pub IsUncaught: bool,
+    pub IsUncaught: u8,
 }
 impl ::core::marker::Copy for ScriptDebugEventInformation_0_1 {}
 impl ::core::clone::Clone for ScriptDebugEventInformation_0_1 {

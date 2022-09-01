@@ -159,7 +159,7 @@ pub const EISA_NO_MAX_FUNCTION: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_System_Registry\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRegistryValueWithFallbackW<'a, P0, P1, P2, P3, P4>(hkeyprimary: P0, pwszprimarysubkey: P1, hkeyfallback: P2, pwszfallbacksubkey: P3, pwszvalue: P4, dwflags: u32, pdwtype: ::core::option::Option<&mut u32>, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: ::core::option::Option<&mut u32>) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn GetRegistryValueWithFallbackW<'a, P0, P1, P2, P3, P4>(hkeyprimary: P0, pwszprimarysubkey: P1, hkeyfallback: P2, pwszfallbacksubkey: P3, pwszvalue: P4, dwflags: u32, pdwtype: ::core::option::Option<&mut u32>, pvdata: ::core::option::Option<&mut [u8]>, pcbdataout: ::core::option::Option<&mut u32>) -> super::super::Foundation::WIN32_ERROR
 where
     P0: ::std::convert::Into<HKEY>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -171,7 +171,7 @@ where
     extern "system" {
         fn GetRegistryValueWithFallbackW(hkeyprimary: HKEY, pwszprimarysubkey: ::windows::core::PCWSTR, hkeyfallback: HKEY, pwszfallbacksubkey: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR, dwflags: u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, cbdatain: u32, pcbdataout: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     }
-    GetRegistryValueWithFallbackW(hkeyprimary.into(), pwszprimarysubkey.into(), hkeyfallback.into(), pwszfallbacksubkey.into(), pwszvalue.into(), dwflags, ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvdata), cbdatain, ::core::mem::transmute(pcbdataout))
+    GetRegistryValueWithFallbackW(hkeyprimary.into(), pwszprimarysubkey.into(), hkeyfallback.into(), pwszfallbacksubkey.into(), pwszvalue.into(), dwflags, ::core::mem::transmute(pdwtype), ::core::mem::transmute(pvdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pcbdataout))
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

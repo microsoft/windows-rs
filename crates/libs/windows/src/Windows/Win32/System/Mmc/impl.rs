@@ -1858,11 +1858,14 @@ impl IHeaderCtrl2_Vtbl {
         iid == &<IHeaderCtrl2 as ::windows::core::Interface>::IID || iid == &<IHeaderCtrl as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IImageList_Impl: Sized {
     fn ImageListSetIcon(&self, picon: *const isize, nloc: i32) -> ::windows::core::Result<()>;
-    fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::Result<()>;
+    fn ImageListSetStrip(&self, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IImageList {}
+#[cfg(feature = "Win32_Foundation")]
 impl IImageList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>() -> IImageList_Vtbl {
         unsafe extern "system" fn ImageListSetIcon<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, picon: *const isize, nloc: i32) -> ::windows::core::HRESULT {
@@ -1870,7 +1873,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             this.ImageListSetIcon(::core::mem::transmute_copy(&picon), ::core::mem::transmute_copy(&nloc)).into()
         }
-        unsafe extern "system" fn ImageListSetStrip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ImageListSetStrip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ImageListSetStrip(::core::mem::transmute_copy(&pbmapsm), ::core::mem::transmute_copy(&pbmaplg), ::core::mem::transmute_copy(&nstartloc), ::core::mem::transmute_copy(&cmask)).into()
@@ -2375,17 +2378,17 @@ impl IResultOwnerData_Vtbl {
         iid == &<IResultOwnerData as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait ISnapinAbout_Impl: Sized {
     fn GetSnapinDescription(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetProvider(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetSnapinVersion(&self) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetSnapinImage(&self) -> ::windows::core::Result<super::super::UI::WindowsAndMessaging::HICON>;
-    fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut u32) -> ::windows::core::Result<()>;
+    fn GetStaticFolderImage(&self, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::windows::core::RuntimeName for ISnapinAbout {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ISnapinAbout_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISnapinAbout_Impl, const OFFSET: isize>() -> ISnapinAbout_Vtbl {
         unsafe extern "system" fn GetSnapinDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
@@ -2432,7 +2435,7 @@ impl ISnapinAbout_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStaticFolderImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStaticFolderImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISnapinAbout_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetStaticFolderImage(::core::mem::transmute_copy(&hsmallimage), ::core::mem::transmute_copy(&hsmallimageopen), ::core::mem::transmute_copy(&hlargeimage), ::core::mem::transmute_copy(&cmask)).into()
@@ -2641,7 +2644,7 @@ impl IStringTable_Vtbl {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IToolbar_Impl: Sized {
-    fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: u32) -> ::windows::core::Result<()>;
+    fn AddBitmap(&self, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
     fn AddButtons(&self, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> ::windows::core::Result<()>;
     fn InsertButton(&self, nindex: i32, lpbutton: *const MMCBUTTON) -> ::windows::core::Result<()>;
     fn DeleteButton(&self, nindex: i32) -> ::windows::core::Result<()>;
@@ -2653,7 +2656,7 @@ impl ::windows::core::RuntimeName for IToolbar {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IToolbar_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IToolbar_Impl, const OFFSET: isize>() -> IToolbar_Vtbl {
-        unsafe extern "system" fn AddBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IToolbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddBitmap<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IToolbar_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddBitmap(::core::mem::transmute_copy(&nimages), ::core::mem::transmute_copy(&hbmp), ::core::mem::transmute_copy(&cxsize), ::core::mem::transmute_copy(&cysize), ::core::mem::transmute_copy(&crmask)).into()

@@ -60,7 +60,7 @@ impl ::core::ops::Not for ENTERPRISE_DATA_POLICIES {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_EnterpriseData\"`*"]
 pub struct FILE_UNPROTECT_OPTIONS {
-    pub audit: bool,
+    pub audit: u8,
 }
 impl ::core::marker::Copy for FILE_UNPROTECT_OPTIONS {}
 impl ::core::clone::Clone for FILE_UNPROTECT_OPTIONS {

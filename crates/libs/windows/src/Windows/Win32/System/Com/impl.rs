@@ -1484,7 +1484,7 @@ impl IDataAdviseHolder_Vtbl {
 pub trait IDataObject_Impl: Sized {
     fn GetData(&self, pformatetcin: *const FORMATETC) -> ::windows::core::Result<STGMEDIUM>;
     fn GetDataHere(&self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> ::windows::core::Result<()>;
-    fn QueryGetData(&self, pformatetc: *const FORMATETC) -> ::windows::core::Result<()>;
+    fn QueryGetData(&self, pformatetc: *const FORMATETC) -> ::windows::core::HRESULT;
     fn GetCanonicalFormatEtc(&self, pformatectin: *const FORMATETC, pformatetcout: *mut FORMATETC) -> ::windows::core::HRESULT;
     fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnumFormatEtc(&self, dwdirection: u32) -> ::windows::core::Result<IEnumFORMATETC>;
@@ -1516,7 +1516,7 @@ impl IDataObject_Vtbl {
         unsafe extern "system" fn QueryGetData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformatetc: *const FORMATETC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.QueryGetData(::core::mem::transmute_copy(&pformatetc)).into()
+            this.QueryGetData(::core::mem::transmute_copy(&pformatetc))
         }
         unsafe extern "system" fn GetCanonicalFormatEtc<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDataObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformatectin: *const FORMATETC, pformatetcout: *mut FORMATETC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;

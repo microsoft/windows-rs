@@ -6210,40 +6210,40 @@ impl ::core::default::Default for WIA_PROPERTY_CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO {
     pub lAccessFlags: u32,
-    pub vt: u16,
+    pub vt: super::super::System::Com::VARENUM,
     pub ValidVal: WIA_PROPERTY_INFO_0,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO {
     fn clone(&self) -> Self {
         Self { lAccessFlags: self.lAccessFlags, vt: self.vt, ValidVal: self.ValidVal.clone() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO {
     fn eq(&self, other: &Self) -> bool {
         self.lAccessFlags == other.lAccessFlags && self.vt == other.vt && self.ValidVal == other.ValidVal
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union WIA_PROPERTY_INFO_0 {
     pub Range: WIA_PROPERTY_INFO_0_7,
     pub RangeFloat: WIA_PROPERTY_INFO_0_6,
@@ -6254,342 +6254,342 @@ pub union WIA_PROPERTY_INFO_0 {
     pub Flag: WIA_PROPERTY_INFO_0_0,
     pub None: WIA_PROPERTY_INFO_0_5,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0 {
     fn clone(&self) -> Self {
         unsafe { ::core::mem::transmute_copy(self) }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_0 {
     pub Nom: i32,
     pub ValidBits: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_0 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_0").field("Nom", &self.Nom).field("ValidBits", &self.ValidBits).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_1 {
     pub cNumList: i32,
     pub Nom: super::super::Foundation::BSTR,
     pub pList: *mut super::super::Foundation::BSTR,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { cNumList: self.cNumList, Nom: self.Nom.clone(), pList: self.pList }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_1").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.cNumList == other.cNumList && self.Nom == other.Nom && self.pList == other.pList
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_2 {
     pub cNumList: i32,
     pub Nom: f64,
     pub pList: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_2").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_3 {
     pub cNumList: i32,
     pub Nom: ::windows::core::GUID,
     pub pList: *mut ::windows::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_3").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_3 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_3>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_4 {
     pub cNumList: i32,
     pub Nom: i32,
     pub pList: *mut u8,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_4 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_4").field("cNumList", &self.cNumList).field("Nom", &self.Nom).field("pList", &self.pList).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_4 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_4 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_4>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_5 {
     pub Dummy: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_5 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_5").field("Dummy", &self.Dummy).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_5 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_5>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_6 {
     pub Min: f64,
     pub Nom: f64,
     pub Max: f64,
     pub Inc: f64,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_6 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_6").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_6 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_6>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Devices_ImageAcquisition\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct WIA_PROPERTY_INFO_0_7 {
     pub Min: i32,
     pub Nom: i32,
     pub Max: i32,
     pub Inc: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for WIA_PROPERTY_INFO_0_7 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for WIA_PROPERTY_INFO_0_7 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::fmt::Debug for WIA_PROPERTY_INFO_0_7 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("WIA_PROPERTY_INFO_0_7").field("Min", &self.Min).field("Nom", &self.Nom).field("Max", &self.Max).field("Inc", &self.Inc).finish()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for WIA_PROPERTY_INFO_0_7 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for WIA_PROPERTY_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WIA_PROPERTY_INFO_0_7>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::Eq for WIA_PROPERTY_INFO_0_7 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::default::Default for WIA_PROPERTY_INFO_0_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

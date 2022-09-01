@@ -454,7 +454,7 @@ impl IDXGIDevice1_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice2_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl {
     fn OfferResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()>;
-    fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL>;
+    fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, pdiscarded: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn EnqueueSetEvent(&self, hevent: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -470,13 +470,7 @@ impl IDXGIDevice2_Vtbl {
         unsafe extern "system" fn ReclaimResources<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numresources: u32, ppresources: *const *mut ::core::ffi::c_void, pdiscarded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReclaimResources(::core::mem::transmute_copy(&numresources), ::core::mem::transmute_copy(&ppresources)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(pdiscarded, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.ReclaimResources(::core::mem::transmute_copy(&numresources), ::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&pdiscarded)).into()
         }
         unsafe extern "system" fn EnqueueSetEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIDevice2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -517,7 +511,7 @@ impl IDXGIDevice3_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IDXGIDevice4_Impl: Sized + IDXGIObject_Impl + IDXGIDevice_Impl + IDXGIDevice1_Impl + IDXGIDevice2_Impl + IDXGIDevice3_Impl {
     fn OfferResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()>;
-    fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS>;
+    fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::windows::core::RuntimeName for IDXGIDevice4 {}
@@ -532,13 +526,7 @@ impl IDXGIDevice4_Vtbl {
         unsafe extern "system" fn ReclaimResources1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXGIDevice4_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numresources: u32, ppresources: *const *mut ::core::ffi::c_void, presults: *mut DXGI_RECLAIM_RESOURCE_RESULTS) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.ReclaimResources1(::core::mem::transmute_copy(&numresources), ::core::mem::transmute_copy(&ppresources)) {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(presults, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.ReclaimResources1(::core::mem::transmute_copy(&numresources), ::core::mem::transmute_copy(&ppresources), ::core::mem::transmute_copy(&presults)).into()
         }
         Self {
             base__: IDXGIDevice3_Vtbl::new::<Identity, Impl, OFFSET>(),

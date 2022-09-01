@@ -226,6 +226,510 @@ impl ::core::default::Default for ADDRINFOA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEX2A {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEX2A,
+    pub ai_version: i32,
+    pub ai_fqdn: ::windows::core::PSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEX2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEX2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEX2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEX2A")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEX2A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEX2A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEX2A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEX2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEX2A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEX2W {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEX2W,
+    pub ai_version: i32,
+    pub ai_fqdn: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEX2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEX2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEX2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEX2W")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEX2W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEX2W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEX2W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEX2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEX2W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEX3 {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEX3,
+    pub ai_version: i32,
+    pub ai_fqdn: ::windows::core::PWSTR,
+    pub ai_interfaceindex: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEX3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEX3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEX3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEX3")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEX3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEX3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEX3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEX3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEX3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEX4 {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEX4,
+    pub ai_version: i32,
+    pub ai_fqdn: ::windows::core::PWSTR,
+    pub ai_interfaceindex: i32,
+    pub ai_resolutionhandle: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEX4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEX4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEX4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEX4")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEX4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEX4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEX4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEX4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEX4 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEX5 {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEX5,
+    pub ai_version: i32,
+    pub ai_fqdn: ::windows::core::PWSTR,
+    pub ai_interfaceindex: i32,
+    pub ai_resolutionhandle: super::super::Foundation::HANDLE,
+    pub ai_ttl: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEX5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEX5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEX5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEX5")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
+            .field("ai_ttl", &self.ai_ttl)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEX5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEX5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEX5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEX5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEX5 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEX6 {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEX5,
+    pub ai_version: i32,
+    pub ai_fqdn: ::windows::core::PWSTR,
+    pub ai_interfaceindex: i32,
+    pub ai_resolutionhandle: super::super::Foundation::HANDLE,
+    pub ai_ttl: u32,
+    pub ai_numservers: u32,
+    pub ai_servers: *mut addrinfo_dns_server,
+    pub ai_responseflags: u64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEX6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEX6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEX6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEX6")
+            .field("ai_flags", &self.ai_flags)
+            .field("ai_family", &self.ai_family)
+            .field("ai_socktype", &self.ai_socktype)
+            .field("ai_protocol", &self.ai_protocol)
+            .field("ai_addrlen", &self.ai_addrlen)
+            .field("ai_canonname", &self.ai_canonname)
+            .field("ai_addr", &self.ai_addr)
+            .field("ai_blob", &self.ai_blob)
+            .field("ai_bloblen", &self.ai_bloblen)
+            .field("ai_provider", &self.ai_provider)
+            .field("ai_next", &self.ai_next)
+            .field("ai_version", &self.ai_version)
+            .field("ai_fqdn", &self.ai_fqdn)
+            .field("ai_interfaceindex", &self.ai_interfaceindex)
+            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
+            .field("ai_ttl", &self.ai_ttl)
+            .field("ai_numservers", &self.ai_numservers)
+            .field("ai_servers", &self.ai_servers)
+            .field("ai_responseflags", &self.ai_responseflags)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEX6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEX6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEX6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEX6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEX6 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEXA {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEXA,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEXA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEXA").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEXA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEXA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEXA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEXA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOEXW {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_blob: *mut ::core::ffi::c_void,
+    pub ai_bloblen: usize,
+    pub ai_provider: *mut ::windows::core::GUID,
+    pub ai_next: *mut ADDRINFOEXW,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOEXW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOEXW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOEXW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOEXW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOEXW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOEXW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOEXW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOEXW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ADDRINFOEX_VERSION_2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -236,6 +740,51 @@ pub const ADDRINFOEX_VERSION_4: u32 = 4u32;
 pub const ADDRINFOEX_VERSION_5: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ADDRINFOEX_VERSION_6: u32 = 6u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADDRINFOW {
+    pub ai_flags: i32,
+    pub ai_family: i32,
+    pub ai_socktype: i32,
+    pub ai_protocol: i32,
+    pub ai_addrlen: usize,
+    pub ai_canonname: ::windows::core::PWSTR,
+    pub ai_addr: *mut SOCKADDR,
+    pub ai_next: *mut ADDRINFOW,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADDRINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADDRINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADDRINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADDRINFOW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_next", &self.ai_next).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADDRINFOW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADDRINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRINFOW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADDRINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADDRINFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub struct AFPROTOCOLS {
@@ -1966,30 +2515,30 @@ pub const FROM_PROTOCOL_INFO: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeAddrInfoEx(paddrinfoex: ::core::option::Option<&addrinfoexA>) {
+pub unsafe fn FreeAddrInfoEx(paddrinfoex: ::core::option::Option<&ADDRINFOEXA>) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FreeAddrInfoEx(paddrinfoex: *const addrinfoexA);
+        fn FreeAddrInfoEx(paddrinfoex: *const ADDRINFOEXA);
     }
     FreeAddrInfoEx(::core::mem::transmute(paddrinfoex))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeAddrInfoExW(paddrinfoex: ::core::option::Option<&addrinfoexW>) {
+pub unsafe fn FreeAddrInfoExW(paddrinfoex: ::core::option::Option<&ADDRINFOEXW>) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FreeAddrInfoExW(paddrinfoex: *const addrinfoexW);
+        fn FreeAddrInfoExW(paddrinfoex: *const ADDRINFOEXW);
     }
     FreeAddrInfoExW(::core::mem::transmute(paddrinfoex))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FreeAddrInfoW(paddrinfo: ::core::option::Option<&addrinfoW>) {
+pub unsafe fn FreeAddrInfoW(paddrinfo: ::core::option::Option<&ADDRINFOW>) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FreeAddrInfoW(paddrinfo: *const addrinfoW);
+        fn FreeAddrInfoW(paddrinfo: *const ADDRINFOW);
     }
     FreeAddrInfoW(::core::mem::transmute(paddrinfo))
 }
@@ -2129,14 +2678,14 @@ pub unsafe fn GetAcceptExSockaddrs(lpoutputbuffer: *const ::core::ffi::c_void, d
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetAddrInfoExA<'a, P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: ::core::option::Option<&::windows::core::GUID>, hints: ::core::option::Option<&addrinfoexA>, ppresult: &mut *mut addrinfoexA, timeout: ::core::option::Option<&timeval>, lpoverlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: ::core::option::Option<&mut super::super::Foundation::HANDLE>) -> i32
+pub unsafe fn GetAddrInfoExA<'a, P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: ::core::option::Option<&::windows::core::GUID>, hints: ::core::option::Option<&ADDRINFOEXA>, ppresult: &mut *mut ADDRINFOEXA, timeout: ::core::option::Option<&timeval>, lpoverlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lpnamehandle: ::core::option::Option<&mut super::super::Foundation::HANDLE>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetAddrInfoExA(pname: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexA, ppresult: *mut *mut addrinfoexA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
+        fn GetAddrInfoExA(pname: ::windows::core::PCSTR, pservicename: ::windows::core::PCSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const ADDRINFOEXA, ppresult: *mut *mut ADDRINFOEXA, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lpnamehandle: *mut super::super::Foundation::HANDLE) -> i32;
     }
     GetAddrInfoExA(pname.into(), pservicename.into(), dwnamespace, ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lpnamehandle))
 }
@@ -2163,28 +2712,28 @@ pub unsafe fn GetAddrInfoExOverlappedResult(lpoverlapped: &super::super::System:
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn GetAddrInfoExW<'a, P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: ::core::option::Option<&::windows::core::GUID>, hints: ::core::option::Option<&addrinfoexW>, ppresult: &mut *mut addrinfoexW, timeout: ::core::option::Option<&timeval>, lpoverlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: ::core::option::Option<&mut super::super::Foundation::HANDLE>) -> i32
+pub unsafe fn GetAddrInfoExW<'a, P0, P1>(pname: P0, pservicename: P1, dwnamespace: u32, lpnspid: ::core::option::Option<&::windows::core::GUID>, hints: ::core::option::Option<&ADDRINFOEXW>, ppresult: &mut *mut ADDRINFOEXW, timeout: ::core::option::Option<&timeval>, lpoverlapped: ::core::option::Option<&super::super::System::IO::OVERLAPPED>, lpcompletionroutine: LPLOOKUPSERVICE_COMPLETION_ROUTINE, lphandle: ::core::option::Option<&mut super::super::Foundation::HANDLE>) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetAddrInfoExW(pname: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const addrinfoexW, ppresult: *mut *mut addrinfoexW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lphandle: *mut super::super::Foundation::HANDLE) -> i32;
+        fn GetAddrInfoExW(pname: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, dwnamespace: u32, lpnspid: *const ::windows::core::GUID, hints: *const ADDRINFOEXW, ppresult: *mut *mut ADDRINFOEXW, timeout: *const timeval, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpcompletionroutine: *mut ::core::ffi::c_void, lphandle: *mut super::super::Foundation::HANDLE) -> i32;
     }
     GetAddrInfoExW(pname.into(), pservicename.into(), dwnamespace, ::core::mem::transmute(lpnspid), ::core::mem::transmute(hints), ::core::mem::transmute(ppresult), ::core::mem::transmute(timeout), ::core::mem::transmute(lpoverlapped), ::core::mem::transmute(lpcompletionroutine), ::core::mem::transmute(lphandle))
 }
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetAddrInfoW<'a, P0, P1>(pnodename: P0, pservicename: P1, phints: ::core::option::Option<&addrinfoW>, ppresult: &mut *mut addrinfoW) -> i32
+pub unsafe fn GetAddrInfoW<'a, P0, P1>(pnodename: P0, pservicename: P1, phints: ::core::option::Option<&ADDRINFOW>, ppresult: &mut *mut ADDRINFOW) -> i32
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetAddrInfoW(pnodename: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, phints: *const addrinfoW, ppresult: *mut *mut addrinfoW) -> i32;
+        fn GetAddrInfoW(pnodename: ::windows::core::PCWSTR, pservicename: ::windows::core::PCWSTR, phints: *const ADDRINFOW, ppresult: *mut *mut ADDRINFOW) -> i32;
     }
     GetAddrInfoW(pnodename.into(), pservicename.into(), ::core::mem::transmute(phints), ::core::mem::transmute(ppresult))
 }
@@ -3179,6 +3728,32 @@ impl ::core::cmp::PartialEq for IN6_PKTINFO {
 }
 impl ::core::cmp::Eq for IN6_PKTINFO {}
 impl ::core::default::Default for IN6_PKTINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct IN6_PKTINFO_EX {
+    pub pkt_info: IN6_PKTINFO,
+    pub scope_id: SCOPE_ID,
+}
+impl ::core::marker::Copy for IN6_PKTINFO_EX {}
+impl ::core::clone::Clone for IN6_PKTINFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IN6_PKTINFO_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IN6_PKTINFO_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IN6_PKTINFO_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IN6_PKTINFO_EX {}
+impl ::core::default::Default for IN6_PKTINFO_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -6303,6 +6878,452 @@ pub const ND_NA_FLAG_OVERRIDE: u32 = 536870912u32;
 pub const ND_NA_FLAG_ROUTER: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ND_NA_FLAG_SOLICITED: u32 = 1073741824u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_NEIGHBOR_ADVERT_HEADER {
+    pub nd_na_hdr: ICMP_MESSAGE,
+    pub nd_na_target: IN6_ADDR,
+}
+impl ::core::marker::Copy for ND_NEIGHBOR_ADVERT_HEADER {}
+impl ::core::clone::Clone for ND_NEIGHBOR_ADVERT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_NEIGHBOR_ADVERT_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_NEIGHBOR_ADVERT_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_NEIGHBOR_ADVERT_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_NEIGHBOR_ADVERT_HEADER {}
+impl ::core::default::Default for ND_NEIGHBOR_ADVERT_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_NEIGHBOR_SOLICIT_HEADER {
+    pub nd_ns_hdr: ICMP_MESSAGE,
+    pub nd_ns_target: IN6_ADDR,
+}
+impl ::core::marker::Copy for ND_NEIGHBOR_SOLICIT_HEADER {}
+impl ::core::clone::Clone for ND_NEIGHBOR_SOLICIT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_NEIGHBOR_SOLICIT_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_NEIGHBOR_SOLICIT_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_NEIGHBOR_SOLICIT_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_NEIGHBOR_SOLICIT_HEADER {}
+impl ::core::default::Default for ND_NEIGHBOR_SOLICIT_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_DNSSL {
+    pub nd_opt_dnssl_type: u8,
+    pub nd_opt_dnssl_len: u8,
+    pub nd_opt_dnssl_reserved: u16,
+    pub nd_opt_dnssl_lifetime: u32,
+}
+impl ::core::marker::Copy for ND_OPTION_DNSSL {}
+impl ::core::clone::Clone for ND_OPTION_DNSSL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_DNSSL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_DNSSL").field("nd_opt_dnssl_type", &self.nd_opt_dnssl_type).field("nd_opt_dnssl_len", &self.nd_opt_dnssl_len).field("nd_opt_dnssl_reserved", &self.nd_opt_dnssl_reserved).field("nd_opt_dnssl_lifetime", &self.nd_opt_dnssl_lifetime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_DNSSL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_DNSSL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_DNSSL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_DNSSL {}
+impl ::core::default::Default for ND_OPTION_DNSSL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_HDR {
+    pub nd_opt_type: u8,
+    pub nd_opt_len: u8,
+}
+impl ::core::marker::Copy for ND_OPTION_HDR {}
+impl ::core::clone::Clone for ND_OPTION_HDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_HDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_HDR").field("nd_opt_type", &self.nd_opt_type).field("nd_opt_len", &self.nd_opt_len).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_HDR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_HDR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_HDR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_HDR {}
+impl ::core::default::Default for ND_OPTION_HDR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_MTU {
+    pub nd_opt_mtu_type: u8,
+    pub nd_opt_mtu_len: u8,
+    pub nd_opt_mtu_reserved: u16,
+    pub nd_opt_mtu_mtu: u32,
+}
+impl ::core::marker::Copy for ND_OPTION_MTU {}
+impl ::core::clone::Clone for ND_OPTION_MTU {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_MTU {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_MTU").field("nd_opt_mtu_type", &self.nd_opt_mtu_type).field("nd_opt_mtu_len", &self.nd_opt_mtu_len).field("nd_opt_mtu_reserved", &self.nd_opt_mtu_reserved).field("nd_opt_mtu_mtu", &self.nd_opt_mtu_mtu).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_MTU {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_MTU {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_MTU>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_MTU {}
+impl ::core::default::Default for ND_OPTION_MTU {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_PREFIX_INFO {
+    pub nd_opt_pi_type: u8,
+    pub nd_opt_pi_len: u8,
+    pub nd_opt_pi_prefix_len: u8,
+    pub Anonymous1: ND_OPTION_PREFIX_INFO_0,
+    pub nd_opt_pi_valid_time: u32,
+    pub nd_opt_pi_preferred_time: u32,
+    pub Anonymous2: ND_OPTION_PREFIX_INFO_1,
+    pub nd_opt_pi_prefix: IN6_ADDR,
+}
+impl ::core::marker::Copy for ND_OPTION_PREFIX_INFO {}
+impl ::core::clone::Clone for ND_OPTION_PREFIX_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_PREFIX_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_PREFIX_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_PREFIX_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_PREFIX_INFO {}
+impl ::core::default::Default for ND_OPTION_PREFIX_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub union ND_OPTION_PREFIX_INFO_0 {
+    pub nd_opt_pi_flags_reserved: u8,
+    pub Flags: ND_OPTION_PREFIX_INFO_0_0,
+}
+impl ::core::marker::Copy for ND_OPTION_PREFIX_INFO_0 {}
+impl ::core::clone::Clone for ND_OPTION_PREFIX_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_PREFIX_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_PREFIX_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_PREFIX_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_PREFIX_INFO_0 {}
+impl ::core::default::Default for ND_OPTION_PREFIX_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_PREFIX_INFO_0_0 {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for ND_OPTION_PREFIX_INFO_0_0 {}
+impl ::core::clone::Clone for ND_OPTION_PREFIX_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_PREFIX_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_PREFIX_INFO_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_PREFIX_INFO_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_PREFIX_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_PREFIX_INFO_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_PREFIX_INFO_0_0 {}
+impl ::core::default::Default for ND_OPTION_PREFIX_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub union ND_OPTION_PREFIX_INFO_1 {
+    pub nd_opt_pi_reserved2: u32,
+    pub Anonymous: ND_OPTION_PREFIX_INFO_1_0,
+}
+impl ::core::marker::Copy for ND_OPTION_PREFIX_INFO_1 {}
+impl ::core::clone::Clone for ND_OPTION_PREFIX_INFO_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_PREFIX_INFO_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_PREFIX_INFO_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_PREFIX_INFO_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_PREFIX_INFO_1 {}
+impl ::core::default::Default for ND_OPTION_PREFIX_INFO_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_PREFIX_INFO_1_0 {
+    pub nd_opt_pi_reserved3: [u8; 3],
+    pub nd_opt_pi_site_prefix_len: u8,
+}
+impl ::core::marker::Copy for ND_OPTION_PREFIX_INFO_1_0 {}
+impl ::core::clone::Clone for ND_OPTION_PREFIX_INFO_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_PREFIX_INFO_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_PREFIX_INFO_1_0").field("nd_opt_pi_reserved3", &self.nd_opt_pi_reserved3).field("nd_opt_pi_site_prefix_len", &self.nd_opt_pi_site_prefix_len).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_PREFIX_INFO_1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_PREFIX_INFO_1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_PREFIX_INFO_1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_PREFIX_INFO_1_0 {}
+impl ::core::default::Default for ND_OPTION_PREFIX_INFO_1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_RDNSS {
+    pub nd_opt_rdnss_type: u8,
+    pub nd_opt_rdnss_len: u8,
+    pub nd_opt_rdnss_reserved: u16,
+    pub nd_opt_rdnss_lifetime: u32,
+}
+impl ::core::marker::Copy for ND_OPTION_RDNSS {}
+impl ::core::clone::Clone for ND_OPTION_RDNSS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_RDNSS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_RDNSS").field("nd_opt_rdnss_type", &self.nd_opt_rdnss_type).field("nd_opt_rdnss_len", &self.nd_opt_rdnss_len).field("nd_opt_rdnss_reserved", &self.nd_opt_rdnss_reserved).field("nd_opt_rdnss_lifetime", &self.nd_opt_rdnss_lifetime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_RDNSS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_RDNSS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_RDNSS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_RDNSS {}
+impl ::core::default::Default for ND_OPTION_RDNSS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_RD_HDR {
+    pub nd_opt_rh_type: u8,
+    pub nd_opt_rh_len: u8,
+    pub nd_opt_rh_reserved1: u16,
+    pub nd_opt_rh_reserved2: u32,
+}
+impl ::core::marker::Copy for ND_OPTION_RD_HDR {}
+impl ::core::clone::Clone for ND_OPTION_RD_HDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_RD_HDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_RD_HDR").field("nd_opt_rh_type", &self.nd_opt_rh_type).field("nd_opt_rh_len", &self.nd_opt_rh_len).field("nd_opt_rh_reserved1", &self.nd_opt_rh_reserved1).field("nd_opt_rh_reserved2", &self.nd_opt_rh_reserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_RD_HDR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_RD_HDR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_RD_HDR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_RD_HDR {}
+impl ::core::default::Default for ND_OPTION_RD_HDR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_ROUTE_INFO {
+    pub nd_opt_ri_type: u8,
+    pub nd_opt_ri_len: u8,
+    pub nd_opt_ri_prefix_len: u8,
+    pub Anonymous: ND_OPTION_ROUTE_INFO_0,
+    pub nd_opt_ri_route_lifetime: u32,
+    pub nd_opt_ri_prefix: IN6_ADDR,
+}
+impl ::core::marker::Copy for ND_OPTION_ROUTE_INFO {}
+impl ::core::clone::Clone for ND_OPTION_ROUTE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_ROUTE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_ROUTE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_ROUTE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_ROUTE_INFO {}
+impl ::core::default::Default for ND_OPTION_ROUTE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub union ND_OPTION_ROUTE_INFO_0 {
+    pub nd_opt_ri_flags_reserved: u8,
+    pub Flags: ND_OPTION_ROUTE_INFO_0_0,
+}
+impl ::core::marker::Copy for ND_OPTION_ROUTE_INFO_0 {}
+impl ::core::clone::Clone for ND_OPTION_ROUTE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_ROUTE_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_ROUTE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_ROUTE_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_ROUTE_INFO_0 {}
+impl ::core::default::Default for ND_OPTION_ROUTE_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_OPTION_ROUTE_INFO_0_0 {
+    pub _bitfield: u8,
+}
+impl ::core::marker::Copy for ND_OPTION_ROUTE_INFO_0_0 {}
+impl ::core::clone::Clone for ND_OPTION_ROUTE_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ND_OPTION_ROUTE_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ND_OPTION_ROUTE_INFO_0_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ND_OPTION_ROUTE_INFO_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_OPTION_ROUTE_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_OPTION_ROUTE_INFO_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_OPTION_ROUTE_INFO_0_0 {}
+impl ::core::default::Default for ND_OPTION_ROUTE_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6376,6 +7397,60 @@ pub const ND_RA_FLAG_MANAGED: u32 = 128u32;
 pub const ND_RA_FLAG_OTHER: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const ND_RA_FLAG_PREFERENCE: u32 = 24u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_REDIRECT_HEADER {
+    pub nd_rd_hdr: ICMP_MESSAGE,
+    pub nd_rd_target: IN6_ADDR,
+    pub nd_rd_dst: IN6_ADDR,
+}
+impl ::core::marker::Copy for ND_REDIRECT_HEADER {}
+impl ::core::clone::Clone for ND_REDIRECT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_REDIRECT_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_REDIRECT_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_REDIRECT_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_REDIRECT_HEADER {}
+impl ::core::default::Default for ND_REDIRECT_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
+pub struct ND_ROUTER_ADVERT_HEADER {
+    pub nd_ra_hdr: ICMP_MESSAGE,
+    pub nd_ra_reachable: u32,
+    pub nd_ra_retransmit: u32,
+}
+impl ::core::marker::Copy for ND_ROUTER_ADVERT_HEADER {}
+impl ::core::clone::Clone for ND_ROUTER_ADVERT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ND_ROUTER_ADVERT_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ND_ROUTER_ADVERT_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ND_ROUTER_ADVERT_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ND_ROUTER_ADVERT_HEADER {}
+impl ::core::default::Default for ND_ROUTER_ADVERT_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const NETBIOS_GROUP_NAME: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -15434,7 +16509,7 @@ pub const WSA_OPERATION_ABORTED: WSA_ERROR = WSA_ERROR(995i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSA_WAIT_EVENT_0: WSA_ERROR = WSA_ERROR(0i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub const WSA_WAIT_IO_COMPLETION: WSA_ERROR = WSA_ERROR(129i32);
+pub const WSA_WAIT_IO_COMPLETION: WSA_ERROR = WSA_ERROR(192i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 pub const WSABASEERR: WSA_ERROR = WSA_ERROR(10000i32);
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
@@ -16366,51 +17441,6 @@ where
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoW {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PWSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_next: *mut addrinfoW,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_next", &self.ai_next).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
 pub struct addrinfo_dns_server {
     pub ai_servertype: u32,
     pub ai_flags: u64,
@@ -16472,510 +17502,6 @@ impl ::core::cmp::PartialEq for addrinfo_dns_server_0 {
 impl ::core::cmp::Eq for addrinfo_dns_server_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for addrinfo_dns_server_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoex2A {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoex2A,
-    pub ai_version: i32,
-    pub ai_fqdn: ::windows::core::PSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoex2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoex2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoex2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoex2A")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .field("ai_version", &self.ai_version)
-            .field("ai_fqdn", &self.ai_fqdn)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoex2A {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoex2A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoex2A>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoex2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoex2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoex2W {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PWSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoex2W,
-    pub ai_version: i32,
-    pub ai_fqdn: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoex2W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoex2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoex2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoex2W")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .field("ai_version", &self.ai_version)
-            .field("ai_fqdn", &self.ai_fqdn)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoex2W {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoex2W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoex2W>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoex2W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoex2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoex3 {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PWSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoex3,
-    pub ai_version: i32,
-    pub ai_fqdn: ::windows::core::PWSTR,
-    pub ai_interfaceindex: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoex3 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoex3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoex3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoex3")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .field("ai_version", &self.ai_version)
-            .field("ai_fqdn", &self.ai_fqdn)
-            .field("ai_interfaceindex", &self.ai_interfaceindex)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoex3 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoex3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoex3>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoex3 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoex3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoex4 {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PWSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoex4,
-    pub ai_version: i32,
-    pub ai_fqdn: ::windows::core::PWSTR,
-    pub ai_interfaceindex: i32,
-    pub ai_resolutionhandle: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoex4 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoex4 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoex4 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoex4")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .field("ai_version", &self.ai_version)
-            .field("ai_fqdn", &self.ai_fqdn)
-            .field("ai_interfaceindex", &self.ai_interfaceindex)
-            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoex4 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoex4 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoex4>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoex4 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoex4 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoex5 {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PWSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoex5,
-    pub ai_version: i32,
-    pub ai_fqdn: ::windows::core::PWSTR,
-    pub ai_interfaceindex: i32,
-    pub ai_resolutionhandle: super::super::Foundation::HANDLE,
-    pub ai_ttl: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoex5 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoex5 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoex5 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoex5")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .field("ai_version", &self.ai_version)
-            .field("ai_fqdn", &self.ai_fqdn)
-            .field("ai_interfaceindex", &self.ai_interfaceindex)
-            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
-            .field("ai_ttl", &self.ai_ttl)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoex5 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoex5 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoex5>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoex5 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoex5 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoex6 {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PWSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoex5,
-    pub ai_version: i32,
-    pub ai_fqdn: ::windows::core::PWSTR,
-    pub ai_interfaceindex: i32,
-    pub ai_resolutionhandle: super::super::Foundation::HANDLE,
-    pub ai_ttl: u32,
-    pub ai_numservers: u32,
-    pub ai_servers: *mut addrinfo_dns_server,
-    pub ai_responseflags: u64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoex6 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoex6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoex6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoex6")
-            .field("ai_flags", &self.ai_flags)
-            .field("ai_family", &self.ai_family)
-            .field("ai_socktype", &self.ai_socktype)
-            .field("ai_protocol", &self.ai_protocol)
-            .field("ai_addrlen", &self.ai_addrlen)
-            .field("ai_canonname", &self.ai_canonname)
-            .field("ai_addr", &self.ai_addr)
-            .field("ai_blob", &self.ai_blob)
-            .field("ai_bloblen", &self.ai_bloblen)
-            .field("ai_provider", &self.ai_provider)
-            .field("ai_next", &self.ai_next)
-            .field("ai_version", &self.ai_version)
-            .field("ai_fqdn", &self.ai_fqdn)
-            .field("ai_interfaceindex", &self.ai_interfaceindex)
-            .field("ai_resolutionhandle", &self.ai_resolutionhandle)
-            .field("ai_ttl", &self.ai_ttl)
-            .field("ai_numservers", &self.ai_numservers)
-            .field("ai_servers", &self.ai_servers)
-            .field("ai_responseflags", &self.ai_responseflags)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoex6 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoex6 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoex6>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoex6 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoex6 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoexA {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoexA,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoexA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoexA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoexA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoexA").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoexA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoexA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoexA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoexA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoexA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct addrinfoexW {
-    pub ai_flags: i32,
-    pub ai_family: i32,
-    pub ai_socktype: i32,
-    pub ai_protocol: i32,
-    pub ai_addrlen: usize,
-    pub ai_canonname: ::windows::core::PWSTR,
-    pub ai_addr: *mut SOCKADDR,
-    pub ai_blob: *mut ::core::ffi::c_void,
-    pub ai_bloblen: usize,
-    pub ai_provider: *mut ::windows::core::GUID,
-    pub ai_next: *mut addrinfoexW,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for addrinfoexW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for addrinfoexW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for addrinfoexW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("addrinfoexW").field("ai_flags", &self.ai_flags).field("ai_family", &self.ai_family).field("ai_socktype", &self.ai_socktype).field("ai_protocol", &self.ai_protocol).field("ai_addrlen", &self.ai_addrlen).field("ai_canonname", &self.ai_canonname).field("ai_addr", &self.ai_addr).field("ai_blob", &self.ai_blob).field("ai_bloblen", &self.ai_bloblen).field("ai_provider", &self.ai_provider).field("ai_next", &self.ai_next).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for addrinfoexW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for addrinfoexW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<addrinfoexW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for addrinfoexW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for addrinfoexW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -17308,32 +17834,6 @@ pub unsafe fn htons(hostshort: u16) -> u16 {
     }
     htons(hostshort)
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct in6_pktinfo_ex {
-    pub pkt_info: IN6_PKTINFO,
-    pub scope_id: SCOPE_ID,
-}
-impl ::core::marker::Copy for in6_pktinfo_ex {}
-impl ::core::clone::Clone for in6_pktinfo_ex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for in6_pktinfo_ex {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for in6_pktinfo_ex {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<in6_pktinfo_ex>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for in6_pktinfo_ex {}
-impl ::core::default::Default for in6_pktinfo_ex {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
 #[inline]
 pub unsafe fn inet_addr<'a, P0>(cp: P0) -> u32
@@ -17430,506 +17930,6 @@ where
         fn listen(s: SOCKET, backlog: i32) -> i32;
     }
     listen(s.into(), backlog)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_neighbor_advert {
-    pub nd_na_hdr: ICMP_MESSAGE,
-    pub nd_na_target: IN6_ADDR,
-}
-impl ::core::marker::Copy for nd_neighbor_advert {}
-impl ::core::clone::Clone for nd_neighbor_advert {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_neighbor_advert {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_neighbor_advert {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_neighbor_advert>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_neighbor_advert {}
-impl ::core::default::Default for nd_neighbor_advert {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_neighbor_solicit {
-    pub nd_ns_hdr: ICMP_MESSAGE,
-    pub nd_ns_target: IN6_ADDR,
-}
-impl ::core::marker::Copy for nd_neighbor_solicit {}
-impl ::core::clone::Clone for nd_neighbor_solicit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_neighbor_solicit {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_neighbor_solicit {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_neighbor_solicit>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_neighbor_solicit {}
-impl ::core::default::Default for nd_neighbor_solicit {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_dnssl {
-    pub nd_opt_dnssl_type: u8,
-    pub nd_opt_dnssl_len: u8,
-    pub nd_opt_dnssl_reserved: u16,
-    pub nd_opt_dnssl_lifetime: u32,
-}
-impl ::core::marker::Copy for nd_opt_dnssl {}
-impl ::core::clone::Clone for nd_opt_dnssl {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_dnssl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_dnssl").field("nd_opt_dnssl_type", &self.nd_opt_dnssl_type).field("nd_opt_dnssl_len", &self.nd_opt_dnssl_len).field("nd_opt_dnssl_reserved", &self.nd_opt_dnssl_reserved).field("nd_opt_dnssl_lifetime", &self.nd_opt_dnssl_lifetime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_dnssl {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_dnssl {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_dnssl>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_dnssl {}
-impl ::core::default::Default for nd_opt_dnssl {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_hdr {
-    pub nd_opt_type: u8,
-    pub nd_opt_len: u8,
-}
-impl ::core::marker::Copy for nd_opt_hdr {}
-impl ::core::clone::Clone for nd_opt_hdr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_hdr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_hdr").field("nd_opt_type", &self.nd_opt_type).field("nd_opt_len", &self.nd_opt_len).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_hdr {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_hdr {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_hdr>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_hdr {}
-impl ::core::default::Default for nd_opt_hdr {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_mtu {
-    pub nd_opt_mtu_type: u8,
-    pub nd_opt_mtu_len: u8,
-    pub nd_opt_mtu_reserved: u16,
-    pub nd_opt_mtu_mtu: u32,
-}
-impl ::core::marker::Copy for nd_opt_mtu {}
-impl ::core::clone::Clone for nd_opt_mtu {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_mtu {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_mtu").field("nd_opt_mtu_type", &self.nd_opt_mtu_type).field("nd_opt_mtu_len", &self.nd_opt_mtu_len).field("nd_opt_mtu_reserved", &self.nd_opt_mtu_reserved).field("nd_opt_mtu_mtu", &self.nd_opt_mtu_mtu).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_mtu {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_mtu {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_mtu>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_mtu {}
-impl ::core::default::Default for nd_opt_mtu {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_prefix_info {
-    pub nd_opt_pi_type: u8,
-    pub nd_opt_pi_len: u8,
-    pub nd_opt_pi_prefix_len: u8,
-    pub Anonymous1: nd_opt_prefix_info_0,
-    pub nd_opt_pi_valid_time: u32,
-    pub nd_opt_pi_preferred_time: u32,
-    pub Anonymous2: nd_opt_prefix_info_1,
-    pub nd_opt_pi_prefix: IN6_ADDR,
-}
-impl ::core::marker::Copy for nd_opt_prefix_info {}
-impl ::core::clone::Clone for nd_opt_prefix_info {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_prefix_info {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_prefix_info {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_prefix_info>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_prefix_info {}
-impl ::core::default::Default for nd_opt_prefix_info {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub union nd_opt_prefix_info_0 {
-    pub nd_opt_pi_flags_reserved: u8,
-    pub Flags: nd_opt_prefix_info_0_0,
-}
-impl ::core::marker::Copy for nd_opt_prefix_info_0 {}
-impl ::core::clone::Clone for nd_opt_prefix_info_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_prefix_info_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_prefix_info_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_prefix_info_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_prefix_info_0 {}
-impl ::core::default::Default for nd_opt_prefix_info_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_prefix_info_0_0 {
-    pub _bitfield: u8,
-}
-impl ::core::marker::Copy for nd_opt_prefix_info_0_0 {}
-impl ::core::clone::Clone for nd_opt_prefix_info_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_prefix_info_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_prefix_info_0_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_prefix_info_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_prefix_info_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_prefix_info_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_prefix_info_0_0 {}
-impl ::core::default::Default for nd_opt_prefix_info_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub union nd_opt_prefix_info_1 {
-    pub nd_opt_pi_reserved2: u32,
-    pub Anonymous: nd_opt_prefix_info_1_0,
-}
-impl ::core::marker::Copy for nd_opt_prefix_info_1 {}
-impl ::core::clone::Clone for nd_opt_prefix_info_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_prefix_info_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_prefix_info_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_prefix_info_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_prefix_info_1 {}
-impl ::core::default::Default for nd_opt_prefix_info_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_prefix_info_1_0 {
-    pub nd_opt_pi_reserved3: [u8; 3],
-    pub nd_opt_pi_site_prefix_len: u8,
-}
-impl ::core::marker::Copy for nd_opt_prefix_info_1_0 {}
-impl ::core::clone::Clone for nd_opt_prefix_info_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_prefix_info_1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_prefix_info_1_0").field("nd_opt_pi_reserved3", &self.nd_opt_pi_reserved3).field("nd_opt_pi_site_prefix_len", &self.nd_opt_pi_site_prefix_len).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_prefix_info_1_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_prefix_info_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_prefix_info_1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_prefix_info_1_0 {}
-impl ::core::default::Default for nd_opt_prefix_info_1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_rd_hdr {
-    pub nd_opt_rh_type: u8,
-    pub nd_opt_rh_len: u8,
-    pub nd_opt_rh_reserved1: u16,
-    pub nd_opt_rh_reserved2: u32,
-}
-impl ::core::marker::Copy for nd_opt_rd_hdr {}
-impl ::core::clone::Clone for nd_opt_rd_hdr {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_rd_hdr {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_rd_hdr").field("nd_opt_rh_type", &self.nd_opt_rh_type).field("nd_opt_rh_len", &self.nd_opt_rh_len).field("nd_opt_rh_reserved1", &self.nd_opt_rh_reserved1).field("nd_opt_rh_reserved2", &self.nd_opt_rh_reserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_rd_hdr {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_rd_hdr {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_rd_hdr>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_rd_hdr {}
-impl ::core::default::Default for nd_opt_rd_hdr {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_rdnss {
-    pub nd_opt_rdnss_type: u8,
-    pub nd_opt_rdnss_len: u8,
-    pub nd_opt_rdnss_reserved: u16,
-    pub nd_opt_rdnss_lifetime: u32,
-}
-impl ::core::marker::Copy for nd_opt_rdnss {}
-impl ::core::clone::Clone for nd_opt_rdnss {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_rdnss {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_rdnss").field("nd_opt_rdnss_type", &self.nd_opt_rdnss_type).field("nd_opt_rdnss_len", &self.nd_opt_rdnss_len).field("nd_opt_rdnss_reserved", &self.nd_opt_rdnss_reserved).field("nd_opt_rdnss_lifetime", &self.nd_opt_rdnss_lifetime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_rdnss {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_rdnss {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_rdnss>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_rdnss {}
-impl ::core::default::Default for nd_opt_rdnss {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_route_info {
-    pub nd_opt_ri_type: u8,
-    pub nd_opt_ri_len: u8,
-    pub nd_opt_ri_prefix_len: u8,
-    pub Anonymous: nd_opt_route_info_0,
-    pub nd_opt_ri_route_lifetime: u32,
-    pub nd_opt_ri_prefix: IN6_ADDR,
-}
-impl ::core::marker::Copy for nd_opt_route_info {}
-impl ::core::clone::Clone for nd_opt_route_info {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_route_info {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_route_info {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_route_info>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_route_info {}
-impl ::core::default::Default for nd_opt_route_info {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub union nd_opt_route_info_0 {
-    pub nd_opt_ri_flags_reserved: u8,
-    pub Flags: nd_opt_route_info_0_0,
-}
-impl ::core::marker::Copy for nd_opt_route_info_0 {}
-impl ::core::clone::Clone for nd_opt_route_info_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_route_info_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_route_info_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_route_info_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_route_info_0 {}
-impl ::core::default::Default for nd_opt_route_info_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_opt_route_info_0_0 {
-    pub _bitfield: u8,
-}
-impl ::core::marker::Copy for nd_opt_route_info_0_0 {}
-impl ::core::clone::Clone for nd_opt_route_info_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for nd_opt_route_info_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("nd_opt_route_info_0_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for nd_opt_route_info_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_opt_route_info_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_opt_route_info_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_opt_route_info_0_0 {}
-impl ::core::default::Default for nd_opt_route_info_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_redirect {
-    pub nd_rd_hdr: ICMP_MESSAGE,
-    pub nd_rd_target: IN6_ADDR,
-    pub nd_rd_dst: IN6_ADDR,
-}
-impl ::core::marker::Copy for nd_redirect {}
-impl ::core::clone::Clone for nd_redirect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_redirect {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_redirect {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_redirect>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_redirect {}
-impl ::core::default::Default for nd_redirect {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]
-pub struct nd_router_advert {
-    pub nd_ra_hdr: ICMP_MESSAGE,
-    pub nd_ra_reachable: u32,
-    pub nd_ra_retransmit: u32,
-}
-impl ::core::marker::Copy for nd_router_advert {}
-impl ::core::clone::Clone for nd_router_advert {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for nd_router_advert {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for nd_router_advert {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<nd_router_advert>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for nd_router_advert {}
-impl ::core::default::Default for nd_router_advert {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_WinSock\"`*"]

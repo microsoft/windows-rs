@@ -461,7 +461,7 @@ impl ::core::clone::Clone for DWRITE_FONT_METRICS {
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_FONT_METRICS1 {
-    pub __AnonymousBase_DWrite_1_L627_C38: DWRITE_FONT_METRICS,
+    pub Base: DWRITE_FONT_METRICS,
     pub glyphBoxLeft: i16,
     pub glyphBoxTop: i16,
     pub glyphBoxRight: i16,

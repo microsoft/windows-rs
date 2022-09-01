@@ -20245,7 +20245,7 @@ impl IDebugDocumentHelper64_Vtbl {
 }
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDebugDocumentHost_Impl: Sized {
-    fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: ::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetDeferredText(&self, dwtextstartcookie: u32, pchartext: &::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::Result<()>;
     fn GetScriptTextAttributes(&self, pstrcode: &::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: &::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::Result<()>;
     fn OnCreateDocumentContext(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
     fn GetPathName(&self, pbstrlongname: *mut super::super::super::Foundation::BSTR, pfisoriginalfile: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -20260,7 +20260,7 @@ impl IDebugDocumentHost_Vtbl {
         unsafe extern "system" fn GetDeferredText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtextstartcookie: u32, pchartext: ::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetDeferredText(::core::mem::transmute_copy(&dwtextstartcookie), ::core::mem::transmute_copy(&pchartext), ::core::mem::transmute_copy(&pstatextattr), ::core::mem::transmute_copy(&pcnumchars), ::core::mem::transmute_copy(&cmaxchars)).into()
+            this.GetDeferredText(::core::mem::transmute_copy(&dwtextstartcookie), ::core::mem::transmute(&pchartext), ::core::mem::transmute_copy(&pstatextattr), ::core::mem::transmute_copy(&pcnumchars), ::core::mem::transmute_copy(&cmaxchars)).into()
         }
         unsafe extern "system" fn GetScriptTextAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrcode: ::windows::core::PCWSTR, unumcodechars: u32, pstrdelimiter: ::windows::core::PCWSTR, dwflags: u32, pattr: *mut u16) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -20387,7 +20387,7 @@ pub trait IDebugDocumentText_Impl: Sized + IDebugDocumentInfo_Impl + IDebugDocum
     fn GetSize(&self, pcnumlines: *mut u32, pcnumchars: *mut u32) -> ::windows::core::Result<()>;
     fn GetPositionOfLine(&self, clinenumber: u32) -> ::windows::core::Result<u32>;
     fn GetLineOfPosition(&self, ccharacterposition: u32, pclinenumber: *mut u32, pccharacteroffsetinline: *mut u32) -> ::windows::core::Result<()>;
-    fn GetText(&self, ccharacterposition: u32, pchartext: ::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::Result<()>;
+    fn GetText(&self, ccharacterposition: u32, pchartext: &::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::Result<()>;
     fn GetPositionOfContext(&self, psc: &::core::option::Option<IDebugDocumentContext>, pccharacterposition: *mut u32, cnumchars: *mut u32) -> ::windows::core::Result<()>;
     fn GetContextOfPosition(&self, ccharacterposition: u32, cnumchars: u32) -> ::windows::core::Result<IDebugDocumentContext>;
 }
@@ -20431,7 +20431,7 @@ impl IDebugDocumentText_Vtbl {
         unsafe extern "system" fn GetText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccharacterposition: u32, pchartext: ::windows::core::PWSTR, pstatextattr: *mut u16, pcnumchars: *mut u32, cmaxchars: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.GetText(::core::mem::transmute_copy(&ccharacterposition), ::core::mem::transmute_copy(&pchartext), ::core::mem::transmute_copy(&pstatextattr), ::core::mem::transmute_copy(&pcnumchars), ::core::mem::transmute_copy(&cmaxchars)).into()
+            this.GetText(::core::mem::transmute_copy(&ccharacterposition), ::core::mem::transmute(&pchartext), ::core::mem::transmute_copy(&pstatextattr), ::core::mem::transmute_copy(&pcnumchars), ::core::mem::transmute_copy(&cmaxchars)).into()
         }
         unsafe extern "system" fn GetPositionOfContext<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugDocumentText_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psc: *mut ::core::ffi::c_void, pccharacterposition: *mut u32, cnumchars: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
@@ -21126,7 +21126,7 @@ impl IDebugExtendedProperty_Vtbl {
 pub trait IDebugFormatter_Impl: Sized {
     fn GetStringForVariant(&self, pvar: *const super::super::Com::VARIANT, nradix: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
     fn GetVariantForString(&self, pwstrvalue: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Com::VARIANT>;
-    fn GetStringForVarType(&self, vt: u16, ptdescarraytype: *const super::super::Com::TYPEDESC) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
+    fn GetStringForVarType(&self, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC) -> ::windows::core::Result<super::super::super::Foundation::BSTR>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::windows::core::RuntimeName for IDebugFormatter {}
@@ -21155,7 +21155,7 @@ impl IDebugFormatter_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetStringForVarType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vt: u16, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetStringForVarType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDebugFormatter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetStringForVarType(::core::mem::transmute_copy(&vt), ::core::mem::transmute_copy(&ptdescarraytype)) {
@@ -31398,7 +31398,7 @@ pub trait IModelObject_Impl: Sized {
     fn GetContext(&self) -> ::windows::core::Result<IDebugHostContext>;
     fn GetKind(&self) -> ::windows::core::Result<ModelObjectKind>;
     fn GetIntrinsicValue(&self) -> ::windows::core::Result<super::super::Com::VARIANT>;
-    fn GetIntrinsicValueAs(&self, vt: u16) -> ::windows::core::Result<super::super::Com::VARIANT>;
+    fn GetIntrinsicValueAs(&self, vt: super::super::Com::VARENUM) -> ::windows::core::Result<super::super::Com::VARIANT>;
     fn GetKeyValue(&self, key: &::windows::core::PCWSTR, object: *mut ::core::option::Option<IModelObject>, metadata: *mut ::core::option::Option<IKeyStore>) -> ::windows::core::Result<()>;
     fn SetKeyValue(&self, key: &::windows::core::PCWSTR, object: &::core::option::Option<IModelObject>) -> ::windows::core::Result<()>;
     fn EnumerateKeyValues(&self) -> ::windows::core::Result<IKeyEnumerator>;
@@ -31467,7 +31467,7 @@ impl IModelObject_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetIntrinsicValueAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vt: u16, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIntrinsicValueAs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IModelObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vt: super::super::Com::VARENUM, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetIntrinsicValueAs(::core::mem::transmute_copy(&vt)) {

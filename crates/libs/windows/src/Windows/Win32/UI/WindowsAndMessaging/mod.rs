@@ -870,10 +870,6 @@ impl ::core::default::Default for CLIENTCREATESTRUCT {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BTNHIGHLIGHT: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const COLOR_BTNHILIGHT: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const CONSOLE_APPLICATION_16BIT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const CONSOLE_CARET_SELECTION: u32 = 1u32;
@@ -4235,13 +4231,13 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetLayeredWindowAttributes<'a, P0>(hwnd: P0, pcrkey: ::core::option::Option<&mut u32>, pbalpha: ::core::option::Option<&mut u8>, pdwflags: ::core::option::Option<&mut LAYERED_WINDOW_ATTRIBUTES_FLAGS>) -> super::super::Foundation::BOOL
+pub unsafe fn GetLayeredWindowAttributes<'a, P0>(hwnd: P0, pcrkey: ::core::option::Option<&mut super::super::Foundation::COLORREF>, pbalpha: ::core::option::Option<&mut u8>, pdwflags: ::core::option::Option<&mut LAYERED_WINDOW_ATTRIBUTES_FLAGS>) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, pcrkey: *mut u32, pbalpha: *mut u8, pdwflags: *mut LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
+        fn GetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, pcrkey: *mut super::super::Foundation::COLORREF, pbalpha: *mut u8, pdwflags: *mut LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
     }
     GetLayeredWindowAttributes(hwnd.into(), ::core::mem::transmute(pcrkey), ::core::mem::transmute(pbalpha), ::core::mem::transmute(pdwflags))
 }
@@ -8195,7 +8191,7 @@ impl ::core::default::Default for MOUSEHOOKSTRUCT {
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOUSEHOOKSTRUCTEX {
-    pub __AnonymousBase_winuser_L1166_C46: MOUSEHOOKSTRUCT,
+    pub Base: MOUSEHOOKSTRUCT,
     pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -8209,7 +8205,7 @@ impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for MOUSEHOOKSTRUCTEX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MOUSEHOOKSTRUCTEX").field("__AnonymousBase_winuser_L1166_C46", &self.__AnonymousBase_winuser_L1166_C46).field("mouseData", &self.mouseData).finish()
+        f.debug_struct("MOUSEHOOKSTRUCTEX").field("Base", &self.Base).field("mouseData", &self.mouseData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10887,8 +10883,6 @@ pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1u32);
 pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(4u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
 impl ::core::marker::Copy for SET_WINDOW_POS_FLAGS {}
 impl ::core::clone::Clone for SET_WINDOW_POS_FLAGS {
     fn clone(&self) -> Self {
@@ -12212,9 +12206,9 @@ pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const _COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
+pub const COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
-pub const _COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
+pub const COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
 pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`*"]
@@ -12656,15 +12650,16 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetLayeredWindowAttributes<'a, P0>(hwnd: P0, crkey: u32, balpha: u8, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn SetLayeredWindowAttributes<'a, P0, P1>(hwnd: P0, crkey: P1, balpha: u8, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, crkey: u32, balpha: u8, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
+        fn SetLayeredWindowAttributes(hwnd: super::super::Foundation::HWND, crkey: super::super::Foundation::COLORREF, balpha: u8, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS) -> super::super::Foundation::BOOL;
     }
-    SetLayeredWindowAttributes(hwnd.into(), crkey, balpha, dwflags)
+    SetLayeredWindowAttributes(hwnd.into(), crkey.into(), balpha, dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12849,10 +12844,10 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL {
+pub unsafe fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const u32) -> super::super::Foundation::BOOL;
+        fn SetSysColors(celements: i32, lpaelements: *const i32, lpargbvalues: *const super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL;
     }
     SetSysColors(::core::mem::transmute(celements), ::core::mem::transmute(lpaelements), ::core::mem::transmute(lpargbvalues))
 }
@@ -13623,7 +13618,7 @@ pub struct UPDATELAYEREDWINDOWINFO {
     pub psize: *const super::super::Foundation::SIZE,
     pub hdcSrc: super::super::Graphics::Gdi::HDC,
     pub pptSrc: *const super::super::Foundation::POINT,
-    pub crKey: u32,
+    pub crKey: super::super::Foundation::COLORREF,
     pub pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION,
     pub dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
     pub prcDirty: *const super::super::Foundation::RECT,
@@ -13751,17 +13746,18 @@ where
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn UpdateLayeredWindow<'a, P0, P1, P2>(hwnd: P0, hdcdst: P1, pptdst: ::core::option::Option<&super::super::Foundation::POINT>, psize: ::core::option::Option<&super::super::Foundation::SIZE>, hdcsrc: P2, pptsrc: ::core::option::Option<&super::super::Foundation::POINT>, crkey: u32, pblend: ::core::option::Option<&super::super::Graphics::Gdi::BLENDFUNCTION>, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL
+pub unsafe fn UpdateLayeredWindow<'a, P0, P1, P2, P3>(hwnd: P0, hdcdst: P1, pptdst: ::core::option::Option<&super::super::Foundation::POINT>, psize: ::core::option::Option<&super::super::Foundation::SIZE>, hdcsrc: P2, pptsrc: ::core::option::Option<&super::super::Foundation::POINT>, crkey: P3, pblend: ::core::option::Option<&super::super::Graphics::Gdi::BLENDFUNCTION>, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
     P1: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     P2: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
+    P3: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn UpdateLayeredWindow(hwnd: super::super::Foundation::HWND, hdcdst: super::super::Graphics::Gdi::HDC, pptdst: *const super::super::Foundation::POINT, psize: *const super::super::Foundation::SIZE, hdcsrc: super::super::Graphics::Gdi::HDC, pptsrc: *const super::super::Foundation::POINT, crkey: u32, pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
+        fn UpdateLayeredWindow(hwnd: super::super::Foundation::HWND, hdcdst: super::super::Graphics::Gdi::HDC, pptdst: *const super::super::Foundation::POINT, psize: *const super::super::Foundation::SIZE, hdcsrc: super::super::Graphics::Gdi::HDC, pptsrc: *const super::super::Foundation::POINT, crkey: super::super::Foundation::COLORREF, pblend: *const super::super::Graphics::Gdi::BLENDFUNCTION, dwflags: UPDATE_LAYERED_WINDOW_FLAGS) -> super::super::Foundation::BOOL;
     }
-    UpdateLayeredWindow(hwnd.into(), hdcdst.into(), ::core::mem::transmute(pptdst), ::core::mem::transmute(psize), hdcsrc.into(), ::core::mem::transmute(pptsrc), crkey, ::core::mem::transmute(pblend), dwflags)
+    UpdateLayeredWindow(hwnd.into(), hdcdst.into(), ::core::mem::transmute(pptdst), ::core::mem::transmute(psize), hdcsrc.into(), ::core::mem::transmute(pptsrc), crkey.into(), ::core::mem::transmute(pblend), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_WindowsAndMessaging\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

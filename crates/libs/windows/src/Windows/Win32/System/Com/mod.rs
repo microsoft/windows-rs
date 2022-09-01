@@ -897,7 +897,7 @@ impl ::core::default::Default for BIND_OPTS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub struct BIND_OPTS2 {
-    pub __AnonymousBase_objidl_L9017_C36: BIND_OPTS,
+    pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
     pub dwClassContext: u32,
     pub locale: u32,
@@ -911,7 +911,7 @@ impl ::core::clone::Clone for BIND_OPTS2 {
 }
 impl ::core::fmt::Debug for BIND_OPTS2 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIND_OPTS2").field("__AnonymousBase_objidl_L9017_C36", &self.__AnonymousBase_objidl_L9017_C36).field("dwTrackFlags", &self.dwTrackFlags).field("dwClassContext", &self.dwClassContext).field("locale", &self.locale).field("pServerInfo", &self.pServerInfo).finish()
+        f.debug_struct("BIND_OPTS2").field("Base", &self.Base).field("dwTrackFlags", &self.dwTrackFlags).field("dwClassContext", &self.dwClassContext).field("locale", &self.locale).field("pServerInfo", &self.pServerInfo).finish()
     }
 }
 unsafe impl ::windows::core::Abi for BIND_OPTS2 {
@@ -932,7 +932,7 @@ impl ::core::default::Default for BIND_OPTS2 {
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BIND_OPTS3 {
-    pub __AnonymousBase_objidl_L9041_C36: BIND_OPTS2,
+    pub Base: BIND_OPTS2,
     pub hwnd: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -946,7 +946,7 @@ impl ::core::clone::Clone for BIND_OPTS3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for BIND_OPTS3 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIND_OPTS3").field("__AnonymousBase_objidl_L9041_C36", &self.__AnonymousBase_objidl_L9041_C36).field("hwnd", &self.hwnd).finish()
+        f.debug_struct("BIND_OPTS3").field("Base", &self.Base).field("hwnd", &self.hwnd).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5983,8 +5983,8 @@ impl IDataObject {
     pub unsafe fn GetDataHere(&self, pformatetc: &FORMATETC, pmedium: &mut STGMEDIUM) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDataHere)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pmedium)).ok()
     }
-    pub unsafe fn QueryGetData(&self, pformatetc: &FORMATETC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryGetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatetc)).ok()
+    pub unsafe fn QueryGetData(&self, pformatetc: &FORMATETC) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).QueryGetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatetc))
     }
     pub unsafe fn GetCanonicalFormatEtc(&self, pformatectin: &FORMATETC, pformatetcout: &mut FORMATETC) -> ::windows::core::HRESULT {
         (::windows::core::Interface::vtable(self).GetCanonicalFormatEtc)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatectin), ::core::mem::transmute(pformatetcout))
@@ -13550,7 +13550,7 @@ impl ::core::default::Default for TYPEATTR {
 #[cfg(feature = "Win32_System_Ole")]
 pub struct TYPEDESC {
     pub Anonymous: TYPEDESC_0,
-    pub vt: u16,
+    pub vt: VARENUM,
 }
 #[cfg(feature = "Win32_System_Ole")]
 impl ::core::marker::Copy for TYPEDESC {}
@@ -13916,6 +13916,133 @@ impl ::core::default::Default for VARDESC_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VARENUM(pub u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_EMPTY: VARENUM = VARENUM(0u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_NULL: VARENUM = VARENUM(1u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_I2: VARENUM = VARENUM(2u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_I4: VARENUM = VARENUM(3u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_R4: VARENUM = VARENUM(4u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_R8: VARENUM = VARENUM(5u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_CY: VARENUM = VARENUM(6u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_DATE: VARENUM = VARENUM(7u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_BSTR: VARENUM = VARENUM(8u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_DISPATCH: VARENUM = VARENUM(9u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_ERROR: VARENUM = VARENUM(10u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_BOOL: VARENUM = VARENUM(11u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_VARIANT: VARENUM = VARENUM(12u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_UNKNOWN: VARENUM = VARENUM(13u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_DECIMAL: VARENUM = VARENUM(14u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_I1: VARENUM = VARENUM(16u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_UI1: VARENUM = VARENUM(17u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_UI2: VARENUM = VARENUM(18u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_UI4: VARENUM = VARENUM(19u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_I8: VARENUM = VARENUM(20u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_UI8: VARENUM = VARENUM(21u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_INT: VARENUM = VARENUM(22u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_UINT: VARENUM = VARENUM(23u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_VOID: VARENUM = VARENUM(24u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_HRESULT: VARENUM = VARENUM(25u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_PTR: VARENUM = VARENUM(26u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_SAFEARRAY: VARENUM = VARENUM(27u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_CARRAY: VARENUM = VARENUM(28u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_USERDEFINED: VARENUM = VARENUM(29u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_LPSTR: VARENUM = VARENUM(30u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_LPWSTR: VARENUM = VARENUM(31u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_RECORD: VARENUM = VARENUM(36u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_INT_PTR: VARENUM = VARENUM(37u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_UINT_PTR: VARENUM = VARENUM(38u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_FILETIME: VARENUM = VARENUM(64u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_BLOB: VARENUM = VARENUM(65u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_STREAM: VARENUM = VARENUM(66u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_STORAGE: VARENUM = VARENUM(67u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_STREAMED_OBJECT: VARENUM = VARENUM(68u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_STORED_OBJECT: VARENUM = VARENUM(69u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_BLOB_OBJECT: VARENUM = VARENUM(70u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_CF: VARENUM = VARENUM(71u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_CLSID: VARENUM = VARENUM(72u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_VERSIONED_STREAM: VARENUM = VARENUM(73u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_BSTR_BLOB: VARENUM = VARENUM(4095u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_VECTOR: VARENUM = VARENUM(4096u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_ARRAY: VARENUM = VARENUM(8192u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_BYREF: VARENUM = VARENUM(16384u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_RESERVED: VARENUM = VARENUM(32768u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_ILLEGAL: VARENUM = VARENUM(65535u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_ILLEGALMASKED: VARENUM = VARENUM(4095u16);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VT_TYPEMASK: VARENUM = VARENUM(4095u16);
+impl ::core::marker::Copy for VARENUM {}
+impl ::core::clone::Clone for VARENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VARENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VARENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VARENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VARENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
@@ -13981,7 +14108,7 @@ impl ::core::default::Default for VARIANT_0 {
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARIANT_0_0 {
-    pub vt: u16,
+    pub vt: VARENUM,
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,

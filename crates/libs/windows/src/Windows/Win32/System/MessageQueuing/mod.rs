@@ -9715,13 +9715,9 @@ impl ::core::fmt::Debug for MQPRIVLEVEL {
     }
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQSEC_DELETE_JOURNAL_MESSAGE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQSEC_DELETE_MESSAGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_DELETE_QUEUE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQSEC_GET_QUEUE_PROPERTIES: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -9730,8 +9726,6 @@ pub const MQSEC_PEEK_MESSAGE: u32 = 2u32;
 pub const MQSEC_QUEUE_GENERIC_EXECUTE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQSEC_SET_QUEUE_PROPERTIES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]

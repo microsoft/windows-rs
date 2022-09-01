@@ -1294,6 +1294,7 @@ pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = 16i32;
 pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = 17i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = 18i32;
+pub type ADS_SEARCH_HANDLE = isize;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub type ADS_SECURITY_INFO_ENUM = i32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]

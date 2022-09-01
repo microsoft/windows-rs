@@ -814,9 +814,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn wglGetCurrentDC() -> super::Gdi::HDC;
-    #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32;
+    #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut super::super::Foundation::COLORREF) -> i32;
     #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn wglGetProcAddress(param0: ::windows_sys::core::PCSTR) -> super::super::Foundation::PROC;
@@ -826,9 +826,9 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub fn wglRealizeLayerPalette(param0: super::Gdi::HDC, param1: i32, param2: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32;
+    #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const super::super::Foundation::COLORREF) -> i32;
     #[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn wglShareLists(param0: HGLRC, param1: HGLRC) -> super::super::Foundation::BOOL;
@@ -2320,7 +2320,8 @@ pub const GL_ZOOM_X: u32 = 3350u32;
 pub const GL_ZOOM_Y: u32 = 3351u32;
 pub type HGLRC = isize;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -2345,9 +2346,11 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub cAuxBuffers: u8,
     pub iLayerPlane: u8,
     pub bReserved: u8,
-    pub crTransparent: u32,
+    pub crTransparent: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LAYERPLANEDESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LAYERPLANEDESCRIPTOR {
     fn clone(&self) -> Self {
         *self

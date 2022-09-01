@@ -4059,7 +4059,13 @@ pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(128u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(256u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const DELETE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const READ_CONTROL: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const WRITE_DAC: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
+pub const WRITE_OWNER: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(524288u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
 pub const SYNCHRONIZE: FILE_ACCESS_FLAGS = FILE_ACCESS_FLAGS(1048576u32);
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`*"]
@@ -4390,7 +4396,7 @@ impl ::core::fmt::Debug for FILE_DEVICE_TYPE {
 #[doc = "*Required features: `\"Win32_Storage_FileSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_DISPOSITION_INFO {
-    pub DeleteFileA: super::super::Foundation::BOOLEAN,
+    pub DeleteFile: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FILE_DISPOSITION_INFO {}
@@ -4403,7 +4409,7 @@ impl ::core::clone::Clone for FILE_DISPOSITION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for FILE_DISPOSITION_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILE_DISPOSITION_INFO").field("DeleteFileA", &self.DeleteFileA).finish()
+        f.debug_struct("FILE_DISPOSITION_INFO").field("DeleteFile", &self.DeleteFile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6439,11 +6445,11 @@ where
 #[inline]
 pub unsafe fn FindNextFileW<'a, P0>(hfindfile: P0, lpfindfiledata: &mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL
 where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P0: ::std::convert::Into<FindFileHandle>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FindNextFileW(hfindfile: super::super::Foundation::HANDLE, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL;
+        fn FindNextFileW(hfindfile: FindFileHandle, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL;
     }
     FindNextFileW(hfindfile.into(), ::core::mem::transmute(lpfindfiledata))
 }

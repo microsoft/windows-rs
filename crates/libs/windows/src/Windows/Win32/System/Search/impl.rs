@@ -4218,10 +4218,13 @@ impl ISQLGetDiagField_Vtbl {
         iid == &<ISQLGetDiagField as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 pub trait ISQLRequestDiagFields_Impl: Sized {
     fn RequestDiagFields(&self, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::windows::core::RuntimeName for ISQLRequestDiagFields {}
+#[cfg(feature = "Win32_System_Com")]
 impl ISQLRequestDiagFields_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLRequestDiagFields_Impl, const OFFSET: isize>() -> ISQLRequestDiagFields_Vtbl {
         unsafe extern "system" fn RequestDiagFields<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISQLRequestDiagFields_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows::core::HRESULT {

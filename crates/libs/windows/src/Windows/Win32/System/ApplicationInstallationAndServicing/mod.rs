@@ -288,7 +288,7 @@ impl ::core::default::Default for ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATI
 #[doc = "*Required features: `\"Win32_System_ApplicationInstallationAndServicing\"`*"]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
-    pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 1],
+    pub Elements: *mut COMPATIBILITY_CONTEXT_ELEMENT,
 }
 impl ::core::marker::Copy for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {}
 impl ::core::clone::Clone for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {

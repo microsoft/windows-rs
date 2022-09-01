@@ -4726,14 +4726,14 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn PSPropertyBag_ReadType<'a, P0, P1>(propbag: P0, propname: P1, var: &mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::Result<()>
+pub unsafe fn PSPropertyBag_ReadType<'a, P0, P1>(propbag: P0, propname: P1, var: &mut super::super::super::System::Com::VARIANT, r#type: super::super::super::System::Com::VARENUM) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyBag>>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PSPropertyBag_ReadType(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: u16) -> ::windows::core::HRESULT;
+        fn PSPropertyBag_ReadType(propbag: *mut ::core::ffi::c_void, propname: ::windows::core::PCWSTR, var: *mut super::super::super::System::Com::VARIANT, r#type: super::super::super::System::Com::VARENUM) -> ::windows::core::HRESULT;
     }
     PSPropertyBag_ReadType(propbag.into().abi(), propname.into(), ::core::mem::transmute(var), r#type).ok()
 }
@@ -5163,10 +5163,10 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn PropVariantChangeType(ppropvardest: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::Result<()> {
+pub unsafe fn PropVariantChangeType(ppropvardest: &mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: &super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::super::System::Com::VARENUM) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: u16) -> ::windows::core::HRESULT;
+        fn PropVariantChangeType(ppropvardest: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT, propvarsrc: *const super::super::super::System::Com::StructuredStorage::PROPVARIANT, flags: PROPVAR_CHANGE_FLAGS, vt: super::super::super::System::Com::VARENUM) -> ::windows::core::HRESULT;
     }
     PropVariantChangeType(::core::mem::transmute(ppropvardest), ::core::mem::transmute(propvarsrc), flags, vt).ok()
 }
@@ -5852,7 +5852,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]
-pub unsafe fn SHPropStgReadMultiple<'a, P0>(pps: P0, ucodepage: u32, rgpspec: &[super::super::super::System::Com::StructuredStorage::PROPSPEC]) -> ::windows::core::Result<super::super::super::System::Com::StructuredStorage::PROPVARIANT>
+pub unsafe fn SHPropStgReadMultiple<'a, P0>(pps: P0, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::System::Com::StructuredStorage::IPropertyStorage>>,
 {
@@ -5860,8 +5860,7 @@ where
     extern "system" {
         fn SHPropStgReadMultiple(pps: *mut ::core::ffi::c_void, ucodepage: u32, cpspec: u32, rgpspec: *const super::super::super::System::Com::StructuredStorage::PROPSPEC, rgvar: *mut super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SHPropStgReadMultiple(pps.into().abi(), ucodepage, rgpspec.len() as _, ::core::mem::transmute(rgpspec.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    SHPropStgReadMultiple(pps.into().abi(), ucodepage, ::core::mem::transmute(cpspec), ::core::mem::transmute(rgpspec), ::core::mem::transmute(rgvar)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]

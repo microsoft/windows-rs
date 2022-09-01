@@ -3013,7 +3013,7 @@ pub type ID2D1VertexBuffer = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix4x3F {
-    pub __AnonymousBase_d2d1_1helper_L45_C31: Common::D2D_MATRIX_4X3_F,
+    pub Base: Common::D2D_MATRIX_4X3_F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::marker::Copy for Matrix4x3F {}
@@ -3027,7 +3027,7 @@ impl ::core::clone::Clone for Matrix4x3F {
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix4x4F {
-    pub __AnonymousBase_d2d1_1helper_L97_C31: Common::D2D_MATRIX_4X4_F,
+    pub Base: Common::D2D_MATRIX_4X4_F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::marker::Copy for Matrix4x4F {}
@@ -3041,7 +3041,7 @@ impl ::core::clone::Clone for Matrix4x4F {
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D\"`, `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub struct Matrix5x4F {
-    pub __AnonymousBase_d2d1_1helper_L472_C31: Common::D2D_MATRIX_5X4_F,
+    pub Base: Common::D2D_MATRIX_5X4_F,
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::marker::Copy for Matrix5x4F {}

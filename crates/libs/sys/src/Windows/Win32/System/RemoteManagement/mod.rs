@@ -1657,7 +1657,7 @@ impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V10 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
-    pub __AnonymousBase_wsman_L665_C48: WSMAN_SHELL_STARTUP_INFO_V10,
+    pub Base: WSMAN_SHELL_STARTUP_INFO_V10,
     pub name: ::windows_sys::core::PCWSTR,
 }
 impl ::core::marker::Copy for WSMAN_SHELL_STARTUP_INFO_V11 {}

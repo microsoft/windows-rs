@@ -1573,21 +1573,21 @@ where
 }
 pub const AttachmentServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4125dd96_e03a_4103_8f70_e0597d803b9c);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
     pub dwStateMask: u32,
     pub dwState: u32,
-    pub crBkgnd: u32,
-    pub crBtnLt: u32,
-    pub crBtnDk: u32,
+    pub crBkgnd: super::super::Foundation::COLORREF,
+    pub crBtnLt: super::super::Foundation::COLORREF,
+    pub crBtnDk: super::super::Foundation::COLORREF,
     pub wViewMode: u16,
     pub wAlign: u16,
     pub psf: ::core::option::Option<IShellFolder>,
     pub pidl: *mut Common::ITEMIDLIST,
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::clone::Clone for BANDINFOSFB {
     fn clone(&self) -> Self {
         Self {
@@ -1604,25 +1604,25 @@ impl ::core::clone::Clone for BANDINFOSFB {
         }
     }
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::fmt::Debug for BANDINFOSFB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("BANDINFOSFB").field("dwMask", &self.dwMask).field("dwStateMask", &self.dwStateMask).field("dwState", &self.dwState).field("crBkgnd", &self.crBkgnd).field("crBtnLt", &self.crBtnLt).field("crBtnDk", &self.crBtnDk).field("wViewMode", &self.wViewMode).field("wAlign", &self.wAlign).field("psf", &self.psf).field("pidl", &self.pidl).finish()
     }
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 unsafe impl ::windows::core::Abi for BANDINFOSFB {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::cmp::PartialEq for BANDINFOSFB {
     fn eq(&self, other: &Self) -> bool {
         self.dwMask == other.dwMask && self.dwStateMask == other.dwStateMask && self.dwState == other.dwState && self.crBkgnd == other.crBkgnd && self.crBtnLt == other.crBtnLt && self.crBtnDk == other.crBtnDk && self.wViewMode == other.wViewMode && self.wAlign == other.wAlign && self.psf == other.psf && self.pidl == other.pidl
     }
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::cmp::Eq for BANDINFOSFB {}
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::default::Default for BANDINFOSFB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4299,33 +4299,39 @@ pub unsafe fn ChrCmpIW(w1: u16, w2: u16) -> super::super::Foundation::BOOL {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorAdjustLuma<'a, P0>(clrrgb: u32, n: i32, fscale: P0) -> u32
+pub unsafe fn ColorAdjustLuma<'a, P0, P1>(clrrgb: P0, n: i32, fscale: P1) -> super::super::Foundation::COLORREF
 where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ColorAdjustLuma(clrrgb: u32, n: i32, fscale: super::super::Foundation::BOOL) -> u32;
+        fn ColorAdjustLuma(clrrgb: super::super::Foundation::COLORREF, n: i32, fscale: super::super::Foundation::BOOL) -> super::super::Foundation::COLORREF;
     }
-    ColorAdjustLuma(clrrgb, n, fscale.into())
+    ColorAdjustLuma(clrrgb.into(), n, fscale.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorHLSToRGB(whue: u16, wluminance: u16, wsaturation: u16) -> u32 {
+pub unsafe fn ColorHLSToRGB(whue: u16, wluminance: u16, wsaturation: u16) -> super::super::Foundation::COLORREF {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ColorHLSToRGB(whue: u16, wluminance: u16, wsaturation: u16) -> u32;
+        fn ColorHLSToRGB(whue: u16, wluminance: u16, wsaturation: u16) -> super::super::Foundation::COLORREF;
     }
     ColorHLSToRGB(whue, wluminance, wsaturation)
 }
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ColorRGBToHLS(clrrgb: u32, pwhue: &mut u16, pwluminance: &mut u16, pwsaturation: &mut u16) {
+pub unsafe fn ColorRGBToHLS<'a, P0>(clrrgb: P0, pwhue: &mut u16, pwluminance: &mut u16, pwsaturation: &mut u16)
+where
+    P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ColorRGBToHLS(clrrgb: u32, pwhue: *mut u16, pwluminance: *mut u16, pwsaturation: *mut u16);
+        fn ColorRGBToHLS(clrrgb: super::super::Foundation::COLORREF, pwhue: *mut u16, pwluminance: *mut u16, pwsaturation: *mut u16);
     }
-    ColorRGBToHLS(clrrgb, ::core::mem::transmute(pwhue), ::core::mem::transmute(pwluminance), ::core::mem::transmute(pwsaturation))
+    ColorRGBToHLS(clrrgb.into(), ::core::mem::transmute(pwhue), ::core::mem::transmute(pwluminance), ::core::mem::transmute(pwsaturation))
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
@@ -4849,7 +4855,7 @@ pub struct DESKBANDINFO {
     pub ptActual: super::super::Foundation::POINTL,
     pub wszTitle: [u16; 256],
     pub dwModeFlags: u32,
-    pub crBkgnd: u32,
+    pub crBkgnd: super::super::Foundation::COLORREF,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DESKBANDINFO {}
@@ -7231,6 +7237,34 @@ unsafe impl ::windows::core::Abi for FILEOPENDIALOGOPTIONS {
 impl ::core::fmt::Debug for FILEOPENDIALOGOPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FILEOPENDIALOGOPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FILEOPENDIALOGOPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FILEOPENDIALOGOPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FILEOPENDIALOGOPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FILEOPENDIALOGOPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FILEOPENDIALOGOPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -16086,8 +16120,8 @@ impl IColumnProvider {
     pub unsafe fn Initialize(&self, psci: &SHCOLUMNINIT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psci)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetColumnInfo(&self, dwindex: u32) -> ::windows::core::Result<SHCOLUMNINFO> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetColumnInfo)(::windows::core::Interface::as_raw(self), dwindex, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SHCOLUMNINFO>(result__)
@@ -16139,9 +16173,9 @@ unsafe impl ::windows::core::Interface for IColumnProvider {
 pub struct IColumnProvider_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psci: *const SHCOLUMNINIT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetColumnInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, psci: *mut SHCOLUMNINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_Shell_PropertiesSystem"))]
+    #[cfg(not(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem")))]
     GetColumnInfo: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub GetItemData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscid: *const PropertiesSystem::PROPERTYKEY, pscd: *const SHCOLUMNDATA, pvardata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
@@ -19865,12 +19899,19 @@ impl IDesktopWallpaper {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetMonitorRECT)(::windows::core::Interface::as_raw(self), monitorid.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
-    pub unsafe fn SetBackgroundColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::windows::core::Interface::as_raw(self), color).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetBackgroundColor<'a, P0>(&self, color: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::windows::core::Interface::as_raw(self), color.into()).ok()
     }
-    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBackgroundColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetBackgroundColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn SetPosition(&self, position: DESKTOP_WALLPAPER_POSITION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), position).ok()
@@ -19961,8 +20002,14 @@ pub struct IDesktopWallpaper_Vtbl {
     pub GetMonitorRECT: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, monitorid: ::windows::core::PCWSTR, displayrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetMonitorRECT: usize,
-    pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT,
-    pub GetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBackgroundColor: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetBackgroundColor: usize,
     pub SetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: DESKTOP_WALLPAPER_POSITION) -> ::windows::core::HRESULT,
     pub GetPosition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: *mut DESKTOP_WALLPAPER_POSITION) -> ::windows::core::HRESULT,
     pub SetSlideshow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, items: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -21307,18 +21354,17 @@ pub struct IEnumIDList(::windows::core::IUnknown);
 impl IEnumIDList {
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn Next(&self, rgelt: &mut [*mut Common::ITEMIDLIST], pceltfetched: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, rgelt: &mut [*mut Common::ITEMIDLIST], pceltfetched: ::core::option::Option<&mut u32>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(rgelt.as_ptr()), ::core::mem::transmute(pceltfetched))
     }
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), celt)
     }
-    pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
+    pub unsafe fn Reset(&self) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self))
     }
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumIDList> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IEnumIDList>(result__)
+    pub unsafe fn Clone(&self, ppenum: &mut ::core::option::Option<IEnumIDList>) -> ::windows::core::HRESULT {
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppenum))
     }
 }
 impl ::core::convert::From<IEnumIDList> for ::windows::core::IUnknown {
@@ -30061,7 +30107,7 @@ impl INameSpaceTreeControlCustomDraw {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
-    pub unsafe fn ItemPrePaint<'a, P0>(&self, hdc: P0, prc: &super::super::Foundation::RECT, pnstccditem: &NSTCCUSTOMDRAW, pclrtext: &mut u32, pclrtextbk: &mut u32, plres: &mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
+    pub unsafe fn ItemPrePaint<'a, P0>(&self, hdc: P0, prc: &super::super::Foundation::RECT, pnstccditem: &NSTCCUSTOMDRAW, pclrtext: &mut super::super::Foundation::COLORREF, pclrtextbk: &mut super::super::Foundation::COLORREF, plres: &mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
     {
@@ -30124,7 +30170,7 @@ pub struct INameSpaceTreeControlCustomDraw_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     PostPaint: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
-    pub ItemPrePaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut u32, pclrtextbk: *mut u32, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    pub ItemPrePaint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut super::super::Foundation::COLORREF, pclrtextbk: *mut super::super::Foundation::COLORREF, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls")))]
     ItemPrePaint: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
@@ -33119,16 +33165,26 @@ pub struct IPreviewHandlerFrame_Vtbl {
 #[repr(transparent)]
 pub struct IPreviewHandlerVisuals(::windows::core::IUnknown);
 impl IPreviewHandlerVisuals {
-    pub unsafe fn SetBackgroundColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::windows::core::Interface::as_raw(self), color).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetBackgroundColor<'a, P0>(&self, color: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::windows::core::Interface::as_raw(self), color.into()).ok()
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub unsafe fn SetFont(&self, plf: &super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFont)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plf)).ok()
     }
-    pub unsafe fn SetTextColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTextColor)(::windows::core::Interface::as_raw(self), color).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTextColor<'a, P0>(&self, color: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetTextColor)(::windows::core::Interface::as_raw(self), color.into()).ok()
     }
 }
 impl ::core::convert::From<IPreviewHandlerVisuals> for ::windows::core::IUnknown {
@@ -33170,12 +33226,18 @@ unsafe impl ::windows::core::Interface for IPreviewHandlerVisuals {
 #[doc(hidden)]
 pub struct IPreviewHandlerVisuals_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBackgroundColor: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub SetFont: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plf: *const super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetFont: usize,
-    pub SetTextColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetTextColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetTextColor: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
@@ -38057,13 +38119,13 @@ impl IShellFolder {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetDisplayNameOf(&self, pidl: &Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<Common::STRRET> {
+    pub unsafe fn GetDisplayNameOf(&self, pidl: &Common::ITEMIDLIST, uflags: SHGDNF) -> ::windows::core::Result<Common::STRRET> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetDisplayNameOf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidl), uflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Common::STRRET>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn SetNameOf<'a, P0, P1>(&self, hwnd: P0, pidl: &Common::ITEMIDLIST, pszname: P1, uflags: u32) -> ::windows::core::Result<*mut Common::ITEMIDLIST>
+    pub unsafe fn SetNameOf<'a, P0, P1>(&self, hwnd: P0, pidl: &Common::ITEMIDLIST, pszname: P1, uflags: SHGDNF) -> ::windows::core::Result<*mut Common::ITEMIDLIST>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -38144,11 +38206,11 @@ pub struct IShellFolder_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common")))]
     GetUIObjectOf: usize,
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub GetDisplayNameOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, uflags: u32, pname: *mut Common::STRRET) -> ::windows::core::HRESULT,
+    pub GetDisplayNameOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF, pname: *mut Common::STRRET) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_Common"))]
     GetDisplayNameOf: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub SetNameOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pidl: *const Common::ITEMIDLIST, pszname: ::windows::core::PCWSTR, uflags: u32, ppidlout: *mut *mut Common::ITEMIDLIST) -> ::windows::core::HRESULT,
+    pub SetNameOf: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pidl: *const Common::ITEMIDLIST, pszname: ::windows::core::PCWSTR, uflags: SHGDNF, ppidlout: *mut *mut Common::ITEMIDLIST) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common")))]
     SetNameOf: usize,
 }
@@ -38229,13 +38291,13 @@ impl IShellFolder2 {
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
-    pub unsafe fn GetDisplayNameOf(&self, pidl: &Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<Common::STRRET> {
+    pub unsafe fn GetDisplayNameOf(&self, pidl: &Common::ITEMIDLIST, uflags: SHGDNF) -> ::windows::core::Result<Common::STRRET> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).base__.GetDisplayNameOf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pidl), uflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<Common::STRRET>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
-    pub unsafe fn SetNameOf<'a, P0, P1>(&self, hwnd: P0, pidl: &Common::ITEMIDLIST, pszname: P1, uflags: u32) -> ::windows::core::Result<*mut Common::ITEMIDLIST>
+    pub unsafe fn SetNameOf<'a, P0, P1>(&self, hwnd: P0, pidl: &Common::ITEMIDLIST, pszname: P1, uflags: SHGDNF) -> ::windows::core::Result<*mut Common::ITEMIDLIST>
     where
         P0: ::std::convert::Into<super::super::Foundation::HWND>,
         P1: ::std::convert::Into<::windows::core::PCWSTR>,
@@ -38360,13 +38422,13 @@ impl IShellFolderBand {
     {
         (::windows::core::Interface::vtable(self).InitializeSFB)(::windows::core::Interface::as_raw(self), psf.into().abi(), ::core::mem::transmute(pidl)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-    #[cfg(feature = "Win32_UI_Shell_Common")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub unsafe fn SetBandInfoSFB(&self, pbi: &BANDINFOSFB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBandInfoSFB)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbi)).ok()
     }
-    #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
-    #[cfg(feature = "Win32_UI_Shell_Common")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub unsafe fn GetBandInfoSFB(&self, pbi: &mut BANDINFOSFB) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetBandInfoSFB)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbi)).ok()
     }
@@ -38414,13 +38476,13 @@ pub struct IShellFolderBand_Vtbl {
     pub InitializeSFB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psf: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_Shell_Common"))]
     InitializeSFB: usize,
-    #[cfg(feature = "Win32_UI_Shell_Common")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub SetBandInfoSFB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbi: *const BANDINFOSFB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_Shell_Common"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common")))]
     SetBandInfoSFB: usize,
-    #[cfg(feature = "Win32_UI_Shell_Common")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub GetBandInfoSFB: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbi: *mut BANDINFOSFB) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_UI_Shell_Common"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common")))]
     GetBandInfoSFB: usize,
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -48443,7 +48505,7 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn IStream_Read<'a, P0>(pstm: P0, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<()>
+pub unsafe fn IStream_Read<'a, P0>(pstm: P0, pv: &mut [u8]) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::IStream>>,
 {
@@ -48451,7 +48513,7 @@ where
     extern "system" {
         fn IStream_Read(pstm: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT;
     }
-    IStream_Read(pstm.into().abi(), ::core::mem::transmute(pv), cb).ok()
+    IStream_Read(pstm.into().abi(), ::core::mem::transmute(pv.as_ptr()), pv.len() as _).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_Common\"`*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
@@ -54033,12 +54095,19 @@ impl IVisualProperties {
     {
         (::windows::core::Interface::vtable(self).SetWatermark)(::windows::core::Interface::as_raw(self), hbmp.into(), vpwf).ok()
     }
-    pub unsafe fn SetColor(&self, vpcf: VPCOLORFLAGS, cr: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), vpcf, cr).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetColor<'a, P0>(&self, vpcf: VPCOLORFLAGS, cr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), vpcf, cr.into()).ok()
     }
-    pub unsafe fn GetColor(&self, vpcf: VPCOLORFLAGS) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetColor(&self, vpcf: VPCOLORFLAGS) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetColor)(::windows::core::Interface::as_raw(self), vpcf, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetColor)(::windows::core::Interface::as_raw(self), vpcf, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn SetItemHeight(&self, cyiteminpixels: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetItemHeight)(::windows::core::Interface::as_raw(self), cyiteminpixels).ok()
@@ -54112,8 +54181,14 @@ pub struct IVisualProperties_Vtbl {
     pub SetWatermark: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmp: super::super::Graphics::Gdi::HBITMAP, vpwf: VPWATERMARKFLAGS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     SetWatermark: usize,
-    pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, cr: u32) -> ::windows::core::HRESULT,
-    pub GetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, pcr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, cr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetColor: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, pcr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetColor: usize,
     pub SetItemHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cyiteminpixels: i32) -> ::windows::core::HRESULT,
     pub GetItemHeight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cyiteminpixels: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -57489,7 +57564,7 @@ pub struct NT_CONSOLE_PROPS {
     pub uHistoryBufferSize: u32,
     pub uNumberOfHistoryBuffers: u32,
     pub bHistoryNoDup: super::super::Foundation::BOOL,
-    pub ColorTable: [u32; 16],
+    pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::core::marker::Copy for NT_CONSOLE_PROPS {}
@@ -58212,23 +58287,23 @@ pub const PATHCCH_MAX_CCH: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PATHCCH_OPTIONS(pub i32);
+pub struct PATHCCH_OPTIONS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_NONE: PATHCCH_OPTIONS = PATHCCH_OPTIONS(0i32);
+pub const PATHCCH_NONE: PATHCCH_OPTIONS = PATHCCH_OPTIONS(0u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(1i32);
+pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(1u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(2i32);
+pub const PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(2u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(4i32);
+pub const PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(4u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(8i32);
+pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = PATHCCH_OPTIONS(8u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(16i32);
+pub const PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(16u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_ENSURE_TRAILING_SLASH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(32i32);
+pub const PATHCCH_ENSURE_TRAILING_SLASH: PATHCCH_OPTIONS = PATHCCH_OPTIONS(32u32);
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = PATHCCH_OPTIONS(64i32);
+pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = PATHCCH_OPTIONS(64u32);
 impl ::core::marker::Copy for PATHCCH_OPTIONS {}
 impl ::core::clone::Clone for PATHCCH_OPTIONS {
     fn clone(&self) -> Self {
@@ -58246,6 +58321,34 @@ unsafe impl ::windows::core::Abi for PATHCCH_OPTIONS {
 impl ::core::fmt::Debug for PATHCCH_OPTIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PATHCCH_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PATHCCH_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PATHCCH_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PATHCCH_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PATHCCH_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PATHCCH_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -59129,27 +59232,27 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathAllocCanonicalize<'a, P0>(pszpathin: P0, dwflags: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn PathAllocCanonicalize<'a, P0>(pszpathin: P0, dwflags: PATHCCH_OPTIONS) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PathAllocCanonicalize(pszpathin: ::windows::core::PCWSTR, dwflags: u32, ppszpathout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn PathAllocCanonicalize(pszpathin: ::windows::core::PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PathAllocCanonicalize(pszpathin.into(), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathAllocCombine<'a, P0, P1>(pszpathin: P0, pszmore: P1, dwflags: u32) -> ::windows::core::Result<::windows::core::PWSTR>
+pub unsafe fn PathAllocCombine<'a, P0, P1>(pszpathin: P0, pszmore: P1, dwflags: PATHCCH_OPTIONS) -> ::windows::core::Result<::windows::core::PWSTR>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PathAllocCombine(pszpathin: ::windows::core::PCWSTR, pszmore: ::windows::core::PCWSTR, dwflags: u32, ppszpathout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+        fn PathAllocCombine(pszpathin: ::windows::core::PCWSTR, pszmore: ::windows::core::PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     PathAllocCombine(pszpathin.into(), pszmore.into(), dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
@@ -59268,13 +59371,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathCchAppendEx<'a, P0>(pszpath: &mut [u16], pszmore: P0, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn PathCchAppendEx<'a, P0>(pszpath: &mut [u16], pszmore: P0, dwflags: PATHCCH_OPTIONS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PathCchAppendEx(pszpath: ::windows::core::PWSTR, cchpath: usize, pszmore: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
+        fn PathCchAppendEx(pszpath: ::windows::core::PWSTR, cchpath: usize, pszmore: ::windows::core::PCWSTR, dwflags: PATHCCH_OPTIONS) -> ::windows::core::HRESULT;
     }
     PathCchAppendEx(::core::mem::transmute(pszpath.as_ptr()), pszpath.len() as _, pszmore.into(), dwflags).ok()
 }
@@ -59292,13 +59395,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathCchCanonicalizeEx<'a, P0>(pszpathout: &mut [u16], pszpathin: P0, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn PathCchCanonicalizeEx<'a, P0>(pszpathout: &mut [u16], pszpathin: P0, dwflags: PATHCCH_OPTIONS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PathCchCanonicalizeEx(pszpathout: ::windows::core::PWSTR, cchpathout: usize, pszpathin: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
+        fn PathCchCanonicalizeEx(pszpathout: ::windows::core::PWSTR, cchpathout: usize, pszpathin: ::windows::core::PCWSTR, dwflags: PATHCCH_OPTIONS) -> ::windows::core::HRESULT;
     }
     PathCchCanonicalizeEx(::core::mem::transmute(pszpathout.as_ptr()), pszpathout.len() as _, pszpathin.into(), dwflags).ok()
 }
@@ -59317,14 +59420,14 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[inline]
-pub unsafe fn PathCchCombineEx<'a, P0, P1>(pszpathout: &mut [u16], pszpathin: P0, pszmore: P1, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn PathCchCombineEx<'a, P0, P1>(pszpathout: &mut [u16], pszpathin: P0, pszmore: P1, dwflags: PATHCCH_OPTIONS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PathCchCombineEx(pszpathout: ::windows::core::PWSTR, cchpathout: usize, pszpathin: ::windows::core::PCWSTR, pszmore: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
+        fn PathCchCombineEx(pszpathout: ::windows::core::PWSTR, cchpathout: usize, pszpathin: ::windows::core::PCWSTR, pszmore: ::windows::core::PCWSTR, dwflags: PATHCCH_OPTIONS) -> ::windows::core::HRESULT;
     }
     PathCchCombineEx(::core::mem::transmute(pszpathout.as_ptr()), pszpathout.len() as _, pszpathin.into(), pszmore.into(), dwflags).ok()
 }
@@ -62220,30 +62323,6 @@ impl ::core::default::Default for SFV_SETITEMPOS {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOAPPEND_FORCE_OFF: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOAPPEND_FORCE_ON: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOSUGGEST_FORCE_OFF: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOSUGGEST_FORCE_ON: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_FILESYSTEM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_FILESYS_DIRS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_FILESYS_ONLY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_URLHISTORY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_URLMRU: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_USETAB: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_VIRTUAL_NAMESPACE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SHARD(pub i32);
@@ -62496,13 +62575,13 @@ where
 #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SHAutoComplete<'a, P0>(hwndedit: P0, dwflags: u32) -> ::windows::core::Result<()>
+pub unsafe fn SHAutoComplete<'a, P0>(hwndedit: P0, dwflags: SHELL_AUTOCOMPLETE_FLAGS) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::super::Foundation::HWND>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SHAutoComplete(hwndedit: super::super::Foundation::HWND, dwflags: u32) -> ::windows::core::HRESULT;
+        fn SHAutoComplete(hwndedit: super::super::Foundation::HWND, dwflags: SHELL_AUTOCOMPLETE_FLAGS) -> ::windows::core::HRESULT;
     }
     SHAutoComplete(hwndedit.into(), dwflags).ok()
 }
@@ -62876,38 +62955,38 @@ impl ::core::default::Default for SHCOLUMNDATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct SHCOLUMNINFO {
     pub scid: PropertiesSystem::PROPERTYKEY,
-    pub vt: u16,
+    pub vt: super::super::System::Com::VARENUM,
     pub fmt: u32,
     pub cChars: u32,
     pub csFlags: u32,
     pub wszTitle: [u16; 80],
     pub wszDescription: [u16; 128],
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::marker::Copy for SHCOLUMNINFO {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for SHCOLUMNINFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 unsafe impl ::windows::core::Abi for SHCOLUMNINFO {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::PartialEq for SHCOLUMNINFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHCOLUMNINFO>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::cmp::Eq for SHCOLUMNINFO {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::default::Default for SHCOLUMNINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -63801,7 +63880,7 @@ pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::super::Foundation::SIZE,
     pub ptOffset: super::super::Foundation::POINT,
     pub hbmpDragImage: super::super::Graphics::Gdi::HBITMAP,
-    pub crColorKey: u32,
+    pub crColorKey: super::super::Foundation::COLORREF,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for SHDRAGIMAGE {}
@@ -64469,6 +64548,83 @@ impl ::core::cmp::Eq for SHELLSTATEW {}
 impl ::core::default::Default for SHELLSTATEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SHELL_AUTOCOMPLETE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_DEFAULT: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_FILESYSTEM: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_URLALL: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(6u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_URLHISTORY: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_URLMRU: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_USETAB: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_FILESYS_ONLY: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_FILESYS_DIRS: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_VIRTUAL_NAMESPACE: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOSUGGEST_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOSUGGEST_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOAPPEND_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOAPPEND_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = SHELL_AUTOCOMPLETE_FLAGS(2147483648u32);
+impl ::core::marker::Copy for SHELL_AUTOCOMPLETE_FLAGS {}
+impl ::core::clone::Clone for SHELL_AUTOCOMPLETE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SHELL_AUTOCOMPLETE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SHELL_AUTOCOMPLETE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHELL_AUTOCOMPLETE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHELL_AUTOCOMPLETE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SHELL_AUTOCOMPLETE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SHELL_AUTOCOMPLETE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SHELL_AUTOCOMPLETE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SHELL_AUTOCOMPLETE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SHELL_AUTOCOMPLETE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -65402,6 +65558,39 @@ unsafe impl ::windows::core::Abi for SHGDFIL_FORMAT {
 impl ::core::fmt::Debug for SHGDFIL_FORMAT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHGDFIL_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SHGDNF(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_NORMAL: SHGDNF = SHGDNF(0u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_INFOLDER: SHGDNF = SHGDNF(1u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_FOREDITING: SHGDNF = SHGDNF(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_FORADDRESSBAR: SHGDNF = SHGDNF(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_FORPARSING: SHGDNF = SHGDNF(32768u32);
+impl ::core::marker::Copy for SHGDNF {}
+impl ::core::clone::Clone for SHGDNF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SHGDNF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SHGDNF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHGDNF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHGDNF").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -74501,39 +74690,6 @@ unsafe impl ::windows::core::Abi for _SHCONTF {
 impl ::core::fmt::Debug for _SHCONTF {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_SHCONTF").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _SHGDNF(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_NORMAL: _SHGDNF = _SHGDNF(0i32);
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_INFOLDER: _SHGDNF = _SHGDNF(1i32);
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_FOREDITING: _SHGDNF = _SHGDNF(4096i32);
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_FORADDRESSBAR: _SHGDNF = _SHGDNF(16384i32);
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_FORPARSING: _SHGDNF = _SHGDNF(32768i32);
-impl ::core::marker::Copy for _SHGDNF {}
-impl ::core::clone::Clone for _SHGDNF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _SHGDNF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _SHGDNF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _SHGDNF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_SHGDNF").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]

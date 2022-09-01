@@ -53,14 +53,6 @@ pub unsafe fn AttachConsole(dwprocessid: u32) -> super::super::Foundation::BOOL 
     AttachConsole(dwprocessid)
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_BLUE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_GREEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_INTENSITY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_RED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const CAPSLOCK_ON: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
@@ -129,21 +121,88 @@ impl ::core::default::Default for CHAR_INFO_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONSOLE_CHARACTER_ATTRIBUTES(pub u16);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_GRID_LVERTICAL: u32 = 2048u32;
+pub const FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(1u16);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_GRID_RVERTICAL: u32 = 4096u32;
+pub const FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(2u16);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_LEADING_BYTE: u32 = 256u32;
+pub const FOREGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(4u16);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_REVERSE_VIDEO: u32 = 16384u32;
+pub const FOREGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(8u16);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_SBCSDBCS: u32 = 768u32;
+pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(16u16);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_TRAILING_BYTE: u32 = 512u32;
+pub const BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(32u16);
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_UNDERSCORE: u32 = 32768u32;
+pub const BACKGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(64u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const BACKGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(128u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_LEADING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(256u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_TRAILING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(512u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(1024u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(2048u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(4096u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_REVERSE_VIDEO: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(16384u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(32768u16);
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_SBCSDBCS: CONSOLE_CHARACTER_ATTRIBUTES = CONSOLE_CHARACTER_ATTRIBUTES(768u16);
+impl ::core::marker::Copy for CONSOLE_CHARACTER_ATTRIBUTES {}
+impl ::core::clone::Clone for CONSOLE_CHARACTER_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONSOLE_CHARACTER_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONSOLE_CHARACTER_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONSOLE_CHARACTER_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONSOLE_CHARACTER_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CONSOLE_CHARACTER_ATTRIBUTES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONSOLE_CHARACTER_ATTRIBUTES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONSOLE_CHARACTER_ATTRIBUTES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONSOLE_CHARACTER_ATTRIBUTES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONSOLE_CHARACTER_ATTRIBUTES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -413,7 +472,7 @@ impl ::core::default::Default for CONSOLE_READCONSOLE_CONTROL {
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
-    pub wAttributes: u16,
+    pub wAttributes: CONSOLE_CHARACTER_ATTRIBUTES,
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
 }
@@ -449,12 +508,12 @@ pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub cbSize: u32,
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
-    pub wAttributes: u16,
+    pub wAttributes: CONSOLE_CHARACTER_ATTRIBUTES,
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
     pub wPopupAttributes: u16,
     pub bFullscreenSupported: super::super::Foundation::BOOL,
-    pub ColorTable: [u32; 16],
+    pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONSOLE_SCREEN_BUFFER_INFOEX {}
@@ -675,14 +734,6 @@ impl ::core::default::Default for FOCUS_EVENT_RECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_BLUE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_GREEN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_INTENSITY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_RED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const FROM_LEFT_1ST_BUTTON_PRESSED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
@@ -1854,13 +1905,13 @@ where
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetConsoleTextAttribute<'a, P0>(hconsoleoutput: P0, wattributes: u16) -> super::super::Foundation::BOOL
+pub unsafe fn SetConsoleTextAttribute<'a, P0>(hconsoleoutput: P0, wattributes: CONSOLE_CHARACTER_ATTRIBUTES) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetConsoleTextAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattributes: u16) -> super::super::Foundation::BOOL;
+        fn SetConsoleTextAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattributes: CONSOLE_CHARACTER_ATTRIBUTES) -> super::super::Foundation::BOOL;
     }
     SetConsoleTextAttribute(hconsoleoutput.into(), wattributes)
 }

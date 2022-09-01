@@ -1596,7 +1596,8 @@ unsafe impl ::windows::core::Abi for HGLRC {
     type Abi = Self;
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct LAYERPLANEDESCRIPTOR {
     pub nSize: u16,
     pub nVersion: u16,
@@ -1621,14 +1622,17 @@ pub struct LAYERPLANEDESCRIPTOR {
     pub cAuxBuffers: u8,
     pub iLayerPlane: u8,
     pub bReserved: u8,
-    pub crTransparent: u32,
+    pub crTransparent: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LAYERPLANEDESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LAYERPLANEDESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LAYERPLANEDESCRIPTOR")
@@ -1659,15 +1663,19 @@ impl ::core::fmt::Debug for LAYERPLANEDESCRIPTOR {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LAYERPLANEDESCRIPTOR {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LAYERPLANEDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LAYERPLANEDESCRIPTOR>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LAYERPLANEDESCRIPTOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LAYERPLANEDESCRIPTOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5570,16 +5578,16 @@ pub unsafe fn wglGetCurrentDC() -> super::Gdi::HDC {
     }
     wglGetCurrentDC()
 }
-#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglGetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: &mut u32) -> i32
+pub unsafe fn wglGetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: &mut super::super::Foundation::COLORREF) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut u32) -> i32;
+        fn wglGetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *mut super::super::Foundation::COLORREF) -> i32;
     }
     wglGetLayerPaletteEntries(param0.into(), param1, param2, param3, ::core::mem::transmute(param4))
 }
@@ -5624,16 +5632,16 @@ where
     }
     wglRealizeLayerPalette(param0.into(), param1, param2.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `\"Win32_Graphics_OpenGL\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn wglSetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: &u32) -> i32
+pub unsafe fn wglSetLayerPaletteEntries<'a, P0>(param0: P0, param1: i32, param2: i32, param3: i32, param4: &super::super::Foundation::COLORREF) -> i32
 where
     P0: ::std::convert::Into<super::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const u32) -> i32;
+        fn wglSetLayerPaletteEntries(param0: super::Gdi::HDC, param1: i32, param2: i32, param3: i32, param4: *const super::super::Foundation::COLORREF) -> i32;
     }
     wglSetLayerPaletteEntries(param0.into(), param1, param2, param3, ::core::mem::transmute(param4))
 }

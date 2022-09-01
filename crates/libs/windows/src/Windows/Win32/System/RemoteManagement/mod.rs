@@ -4074,7 +4074,7 @@ impl ::core::default::Default for WSMAN_SHELL_STARTUP_INFO_V10 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteManagement\"`*"]
 pub struct WSMAN_SHELL_STARTUP_INFO_V11 {
-    pub __AnonymousBase_wsman_L665_C48: WSMAN_SHELL_STARTUP_INFO_V10,
+    pub Base: WSMAN_SHELL_STARTUP_INFO_V10,
     pub name: ::windows::core::PCWSTR,
 }
 impl ::core::marker::Copy for WSMAN_SHELL_STARTUP_INFO_V11 {}
@@ -4085,7 +4085,7 @@ impl ::core::clone::Clone for WSMAN_SHELL_STARTUP_INFO_V11 {
 }
 impl ::core::fmt::Debug for WSMAN_SHELL_STARTUP_INFO_V11 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("WSMAN_SHELL_STARTUP_INFO_V11").field("__AnonymousBase_wsman_L665_C48", &self.__AnonymousBase_wsman_L665_C48).field("name", &self.name).finish()
+        f.debug_struct("WSMAN_SHELL_STARTUP_INFO_V11").field("Base", &self.Base).field("name", &self.name).finish()
     }
 }
 unsafe impl ::windows::core::Abi for WSMAN_SHELL_STARTUP_INFO_V11 {

@@ -1357,7 +1357,7 @@ impl ::core::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CF_CONNECTION_KEY(pub isize);
+pub struct CF_CONNECTION_KEY(pub i64);
 impl CF_CONNECTION_KEY {
     pub fn is_invalid(&self) -> bool {
         self.0 == -1 || self.0 == 0

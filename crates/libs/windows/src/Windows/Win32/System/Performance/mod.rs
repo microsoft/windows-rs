@@ -10816,13 +10816,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfAddCounters<'a, P0>(hquery: P0, pcounters: &[u8]) -> u32
+pub unsafe fn PerfAddCounters<'a, P0>(hquery: P0, pcounters: &mut [u8]) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
+        fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     }
     PerfAddCounters(hquery.into(), ::core::mem::transmute(pcounters.as_ptr()), pcounters.len() as _)
 }
@@ -10913,13 +10913,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
 #[inline]
-pub unsafe fn PerfDeleteCounters<'a, P0>(hquery: P0, pcounters: &[u8]) -> u32
+pub unsafe fn PerfDeleteCounters<'a, P0>(hquery: P0, pcounters: &mut [u8]) -> u32
 where
     P0: ::std::convert::Into<PerfQueryHandle>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
+        fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     }
     PerfDeleteCounters(hquery.into(), ::core::mem::transmute(pcounters.as_ptr()), pcounters.len() as _)
 }

@@ -655,14 +655,15 @@ impl ::core::default::Default for CM_POWER_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+#[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>) -> i32 {
+pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: ::core::option::Option<&[u8]>, outputbuffer: ::core::option::Option<&mut [u8]>) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
+        fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> super::super::Foundation::NTSTATUS;
     }
-    CallNtPowerInformation(informationlevel, ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len() as _))
+    CallNtPowerInformation(informationlevel, ::core::mem::transmute(inputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), inputbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(outputbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), outputbuffer.as_deref().map_or(0, |slice| slice.len() as _)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1843,6 +1844,35 @@ pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POWER_COOLING_MODE(pub u16);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_ACTIVE: POWER_COOLING_MODE = POWER_COOLING_MODE(0u16);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_PASSIVE: POWER_COOLING_MODE = POWER_COOLING_MODE(1u16);
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_INVALID_MODE: POWER_COOLING_MODE = POWER_COOLING_MODE(2u16);
+impl ::core::marker::Copy for POWER_COOLING_MODE {}
+impl ::core::clone::Clone for POWER_COOLING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POWER_COOLING_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_COOLING_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_COOLING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_COOLING_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct POWER_DATA_ACCESSOR(pub i32);
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(0i32);
@@ -2371,6 +2401,41 @@ impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO_EX {
 }
 impl ::core::cmp::Eq for PROCESSOR_OBJECT_INFO_EX {}
 impl ::core::default::Default for PROCESSOR_OBJECT_INFO_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PROCESSOR_POWER_INFORMATION {
+    pub Number: u64,
+    pub MaxMhz: u64,
+    pub CurrentMhz: u64,
+    pub MhzLimit: u64,
+    pub MaxIdleState: u64,
+    pub CurrentIdleState: u64,
+}
+impl ::core::marker::Copy for PROCESSOR_POWER_INFORMATION {}
+impl ::core::clone::Clone for PROCESSOR_POWER_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PROCESSOR_POWER_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PROCESSOR_POWER_INFORMATION").field("Number", &self.Number).field("MaxMhz", &self.MaxMhz).field("CurrentMhz", &self.CurrentMhz).field("MhzLimit", &self.MhzLimit).field("MaxIdleState", &self.MaxIdleState).field("CurrentIdleState", &self.CurrentIdleState).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESSOR_POWER_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESSOR_POWER_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_POWER_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESSOR_POWER_INFORMATION {}
+impl ::core::default::Default for PROCESSOR_POWER_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -3494,6 +3559,39 @@ unsafe impl ::windows::core::Abi for SYSTEM_POWER_CONDITION {
 impl ::core::fmt::Debug for SYSTEM_POWER_CONDITION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SYSTEM_POWER_CONDITION").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct SYSTEM_POWER_INFORMATION {
+    pub MaxIdlenessAllowed: u64,
+    pub Idleness: u64,
+    pub TimeRemaining: u64,
+    pub CoolingMode: POWER_COOLING_MODE,
+}
+impl ::core::marker::Copy for SYSTEM_POWER_INFORMATION {}
+impl ::core::clone::Clone for SYSTEM_POWER_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SYSTEM_POWER_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEM_POWER_INFORMATION").field("MaxIdlenessAllowed", &self.MaxIdlenessAllowed).field("Idleness", &self.Idleness).field("TimeRemaining", &self.TimeRemaining).field("CoolingMode", &self.CoolingMode).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_POWER_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SYSTEM_POWER_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SYSTEM_POWER_INFORMATION {}
+impl ::core::default::Default for SYSTEM_POWER_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

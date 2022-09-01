@@ -347,7 +347,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_System_HostComputeNetwork\"`*"]
 #[inline]
-pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: &mut u32, portentries: &mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::core::Result<()> {
+pub unsafe fn HcnEnumerateGuestNetworkPortReservations(returncount: &mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn HcnEnumerateGuestNetworkPortReservations(returncount: *mut u32, portentries: *mut *mut HCN_PORT_RANGE_ENTRY) -> ::windows::core::HRESULT;

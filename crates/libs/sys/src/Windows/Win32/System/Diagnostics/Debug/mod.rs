@@ -13236,7 +13236,7 @@ impl ::core::clone::Clone for ScriptDebugEventInformation_0_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Diagnostics_Debug\"`*"]
 pub struct ScriptDebugEventInformation_0_1 {
-    pub IsUncaught: bool,
+    pub IsUncaught: u8,
 }
 impl ::core::marker::Copy for ScriptDebugEventInformation_0_1 {}
 impl ::core::clone::Clone for ScriptDebugEventInformation_0_1 {

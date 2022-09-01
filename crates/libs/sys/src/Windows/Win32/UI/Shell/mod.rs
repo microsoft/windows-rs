@@ -48,11 +48,13 @@ extern "system" {
     pub fn ChrCmpIW(w1: u16, w2: u16) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ColorAdjustLuma(clrrgb: u32, n: i32, fscale: super::super::Foundation::BOOL) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-    pub fn ColorHLSToRGB(whue: u16, wluminance: u16, wsaturation: u16) -> u32;
-    #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-    pub fn ColorRGBToHLS(clrrgb: u32, pwhue: *mut u16, pwluminance: *mut u16, pwsaturation: *mut u16);
+    pub fn ColorAdjustLuma(clrrgb: super::super::Foundation::COLORREF, n: i32, fscale: super::super::Foundation::BOOL) -> super::super::Foundation::COLORREF;
+    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ColorHLSToRGB(whue: u16, wluminance: u16, wsaturation: u16) -> super::super::Foundation::COLORREF;
+    #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn ColorRGBToHLS(clrrgb: super::super::Foundation::COLORREF, pwhue: *mut u16, pwluminance: *mut u16, pwsaturation: *mut u16);
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn CommandLineToArgvW(lpcmdline: ::windows_sys::core::PCWSTR, pnumargs: *mut i32) -> *mut ::windows_sys::core::PWSTR;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
@@ -442,9 +444,9 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PathAddExtensionW(pszpath: ::windows_sys::core::PWSTR, pszext: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-    pub fn PathAllocCanonicalize(pszpathin: ::windows_sys::core::PCWSTR, dwflags: u32, ppszpathout: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PathAllocCanonicalize(pszpathin: ::windows_sys::core::PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-    pub fn PathAllocCombine(pszpathin: ::windows_sys::core::PCWSTR, pszmore: ::windows_sys::core::PCWSTR, dwflags: u32, ppszpathout: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+    pub fn PathAllocCombine(pszpathin: ::windows_sys::core::PCWSTR, pszmore: ::windows_sys::core::PCWSTR, dwflags: PATHCCH_OPTIONS, ppszpathout: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PathAppendA(pszpath: ::windows_sys::core::PSTR, pszmore: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
@@ -470,15 +472,15 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn PathCchAppend(pszpath: ::windows_sys::core::PWSTR, cchpath: usize, pszmore: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-    pub fn PathCchAppendEx(pszpath: ::windows_sys::core::PWSTR, cchpath: usize, pszmore: ::windows_sys::core::PCWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn PathCchAppendEx(pszpath: ::windows_sys::core::PWSTR, cchpath: usize, pszmore: ::windows_sys::core::PCWSTR, dwflags: PATHCCH_OPTIONS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn PathCchCanonicalize(pszpathout: ::windows_sys::core::PWSTR, cchpathout: usize, pszpathin: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-    pub fn PathCchCanonicalizeEx(pszpathout: ::windows_sys::core::PWSTR, cchpathout: usize, pszpathin: ::windows_sys::core::PCWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn PathCchCanonicalizeEx(pszpathout: ::windows_sys::core::PWSTR, cchpathout: usize, pszpathin: ::windows_sys::core::PCWSTR, dwflags: PATHCCH_OPTIONS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn PathCchCombine(pszpathout: ::windows_sys::core::PWSTR, cchpathout: usize, pszpathin: ::windows_sys::core::PCWSTR, pszmore: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-    pub fn PathCchCombineEx(pszpathout: ::windows_sys::core::PWSTR, cchpathout: usize, pszpathin: ::windows_sys::core::PCWSTR, pszmore: ::windows_sys::core::PCWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn PathCchCombineEx(pszpathout: ::windows_sys::core::PWSTR, cchpathout: usize, pszpathin: ::windows_sys::core::PCWSTR, pszmore: ::windows_sys::core::PCWSTR, dwflags: PATHCCH_OPTIONS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
     pub fn PathCchFindExtension(pszpath: ::windows_sys::core::PCWSTR, cchpath: usize, ppszext: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
@@ -853,7 +855,7 @@ extern "system" {
     pub fn SHAssocEnumHandlersForProtocolByApplication(protocol: ::windows_sys::core::PCWSTR, riid: *const ::windows_sys::core::GUID, enumhandlers: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHAutoComplete(hwndedit: super::super::Foundation::HWND, dwflags: u32) -> ::windows_sys::core::HRESULT;
+    pub fn SHAutoComplete(hwndedit: super::super::Foundation::HWND, dwflags: SHELL_AUTOCOMPLETE_FLAGS) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
     #[cfg(feature = "Win32_UI_Shell_Common")]
     pub fn SHBindToFolderIDListParent(psfroot: IShellFolder, pidl: *const Common::ITEMIDLIST, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void, ppidllast: *mut *mut Common::ITEMIDLIST) -> ::windows_sys::core::HRESULT;
@@ -2511,23 +2513,23 @@ pub const ApplicationDestinations: ::windows_sys::core::GUID = ::windows_sys::co
 pub const ApplicationDocumentLists: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2260648482, data2: 12530, data3: 18400, data4: [159, 37, 96, 209, 28, 215, 92, 40] };
 pub const AttachmentServices: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1093000598, data2: 57402, data3: 16643, data4: [143, 112, 224, 89, 125, 128, 59, 156] };
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_Common\"`*"]
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_Common\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
     pub dwStateMask: u32,
     pub dwState: u32,
-    pub crBkgnd: u32,
-    pub crBtnLt: u32,
-    pub crBtnDk: u32,
+    pub crBkgnd: super::super::Foundation::COLORREF,
+    pub crBtnLt: super::super::Foundation::COLORREF,
+    pub crBtnDk: super::super::Foundation::COLORREF,
     pub wViewMode: u16,
     pub wAlign: u16,
     pub psf: IShellFolder,
     pub pidl: *mut Common::ITEMIDLIST,
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::marker::Copy for BANDINFOSFB {}
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::core::clone::Clone for BANDINFOSFB {
     fn clone(&self) -> Self {
         *self
@@ -4210,7 +4212,7 @@ pub struct DESKBANDINFO {
     pub ptActual: super::super::Foundation::POINTL,
     pub wszTitle: [u16; 256],
     pub dwModeFlags: u32,
-    pub crBkgnd: u32,
+    pub crBkgnd: super::super::Foundation::COLORREF,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DESKBANDINFO {}
@@ -7286,7 +7288,7 @@ pub struct NT_CONSOLE_PROPS {
     pub uHistoryBufferSize: u32,
     pub uNumberOfHistoryBuffers: u32,
     pub bHistoryNoDup: super::super::Foundation::BOOL,
-    pub ColorTable: [u32; 16],
+    pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Console"))]
 impl ::core::marker::Copy for NT_CONSOLE_PROPS {}
@@ -7646,23 +7648,23 @@ impl ::core::clone::Clone for PARSEDURLW {
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const PATHCCH_MAX_CCH: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub type PATHCCH_OPTIONS = i32;
+pub type PATHCCH_OPTIONS = u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_NONE: PATHCCH_OPTIONS = 0i32;
+pub const PATHCCH_NONE: PATHCCH_OPTIONS = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = 1i32;
+pub const PATHCCH_ALLOW_LONG_PATHS: PATHCCH_OPTIONS = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = 2i32;
+pub const PATHCCH_FORCE_ENABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = 4i32;
+pub const PATHCCH_FORCE_DISABLE_LONG_NAME_PROCESS: PATHCCH_OPTIONS = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = 8i32;
+pub const PATHCCH_DO_NOT_NORMALIZE_SEGMENTS: PATHCCH_OPTIONS = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH: PATHCCH_OPTIONS = 16i32;
+pub const PATHCCH_ENSURE_IS_EXTENDED_LENGTH_PATH: PATHCCH_OPTIONS = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_ENSURE_TRAILING_SLASH: PATHCCH_OPTIONS = 32i32;
+pub const PATHCCH_ENSURE_TRAILING_SLASH: PATHCCH_OPTIONS = 32u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = 64i32;
+pub const PATHCCH_CANONICALIZE_SLASHES: PATHCCH_OPTIONS = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type PCS_RET = u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -8951,30 +8953,6 @@ impl ::core::clone::Clone for SFV_SETITEMPOS {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOAPPEND_FORCE_OFF: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOAPPEND_FORCE_ON: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOSUGGEST_FORCE_OFF: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_AUTOSUGGEST_FORCE_ON: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_FILESYSTEM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_FILESYS_DIRS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_FILESYS_ONLY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_URLHISTORY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_URLMRU: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_USETAB: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHACF_VIRTUAL_NAMESPACE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type SHARD = i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHARD_PIDL: SHARD = 1i32;
@@ -9167,20 +9145,20 @@ impl ::core::clone::Clone for SHCOLUMNDATA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[doc = "*Required features: `\"Win32_UI_Shell\"`, `\"Win32_System_Com\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub struct SHCOLUMNINFO {
     pub scid: PropertiesSystem::PROPERTYKEY,
-    pub vt: u16,
+    pub vt: super::super::System::Com::VARENUM,
     pub fmt: u32,
     pub cChars: u32,
     pub csFlags: u32,
     pub wszTitle: [u16; 80],
     pub wszDescription: [u16; 128],
 }
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::marker::Copy for SHCOLUMNINFO {}
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+#[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl ::core::clone::Clone for SHCOLUMNINFO {
     fn clone(&self) -> Self {
         *self
@@ -9383,7 +9361,7 @@ pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::super::Foundation::SIZE,
     pub ptOffset: super::super::Foundation::POINT,
     pub hbmpDragImage: super::super::Graphics::Gdi::HBITMAP,
-    pub crColorKey: u32,
+    pub crColorKey: super::super::Foundation::COLORREF,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for SHDRAGIMAGE {}
@@ -9650,6 +9628,34 @@ impl ::core::clone::Clone for SHELLSTATEW {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub type SHELL_AUTOCOMPLETE_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_DEFAULT: SHELL_AUTOCOMPLETE_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_FILESYSTEM: SHELL_AUTOCOMPLETE_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_URLALL: SHELL_AUTOCOMPLETE_FLAGS = 6u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_URLHISTORY: SHELL_AUTOCOMPLETE_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_URLMRU: SHELL_AUTOCOMPLETE_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_USETAB: SHELL_AUTOCOMPLETE_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_FILESYS_ONLY: SHELL_AUTOCOMPLETE_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_FILESYS_DIRS: SHELL_AUTOCOMPLETE_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_VIRTUAL_NAMESPACE: SHELL_AUTOCOMPLETE_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOSUGGEST_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = 268435456u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOSUGGEST_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = 536870912u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOAPPEND_FORCE_ON: SHELL_AUTOCOMPLETE_FLAGS = 1073741824u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHACF_AUTOAPPEND_FORCE_OFF: SHELL_AUTOCOMPLETE_FLAGS = 2147483648u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHELL_E_WRONG_BITDEPTH: ::windows_sys::core::HRESULT = -2144927486i32;
 #[repr(C)]
@@ -9973,6 +9979,18 @@ pub const SHGDFIL_FINDDATA: SHGDFIL_FORMAT = 1i32;
 pub const SHGDFIL_NETRESOURCE: SHGDFIL_FORMAT = 2i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHGDFIL_DESCRIPTIONID: SHGDFIL_FORMAT = 3i32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub type SHGDNF = u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_NORMAL: SHGDNF = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_INFOLDER: SHGDNF = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_FOREDITING: SHGDNF = 4096u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_FORADDRESSBAR: SHGDNF = 16384u32;
+#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
+pub const SHGDN_FORPARSING: SHGDNF = 32768u32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type SHGFI_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
@@ -12823,18 +12841,6 @@ pub const SHCONTF_FLATLIST: _SHCONTF = 16384i32;
 pub const SHCONTF_ENABLE_ASYNC: _SHCONTF = 32768i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub const SHCONTF_INCLUDESUPERHIDDEN: _SHCONTF = 65536i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub type _SHGDNF = i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_NORMAL: _SHGDNF = 0i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_INFOLDER: _SHGDNF = 1i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_FOREDITING: _SHGDNF = 4096i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_FORADDRESSBAR: _SHGDNF = 16384i32;
-#[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
-pub const SHGDN_FORPARSING: _SHGDNF = 32768i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]
 pub type _SICHINTF = i32;
 #[doc = "*Required features: `\"Win32_UI_Shell\"`*"]

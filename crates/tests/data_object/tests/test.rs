@@ -34,10 +34,10 @@ impl IDataObject_Impl for Test {
         }
     }
 
-    fn QueryGetData(&self, _: *const FORMATETC) -> Result<()> {
+    fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
         unsafe {
             (*self.0.get()).QueryGetData = true;
-            Ok(())
+            S_OK
         }
     }
 
@@ -90,7 +90,7 @@ fn test() -> Result<()> {
         let d: IDataObject = Test::default().into();
         d.GetData(&Default::default())?;
         d.GetDataHere(&Default::default(), &mut Default::default())?;
-        d.QueryGetData(&Default::default())?;
+        d.QueryGetData(&Default::default()).ok()?;
         d.GetCanonicalFormatEtc(&Default::default(), &mut Default::default()).ok()?;
         d.SetData(&Default::default(), &Default::default(), false)?;
 

@@ -1,5 +1,7 @@
 #[test]
 fn size() {
+    assert_eq!(struct_size("Windows.Win32.System.Com", "VARIANT"), 16);
+
     assert_eq!(function_size("Windows.Win32.System.Console", "ReadConsoleOutputA"), 20);
     assert_eq!(function_size("Windows.Win32.System.Console", "ReadConsoleOutputAttribute"), 20);
     assert_eq!(function_size("Windows.Win32.UI.Accessibility", "ItemContainerPattern_FindItemByProperty"), 32);
@@ -19,6 +21,15 @@ fn function_size(namespace: &str, name: &str) -> usize {
                 return reader.method_def_size(method);
             }
         }
+    }
+    0
+}
+
+fn struct_size(namespace: &str, name: &str) -> usize {
+    let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.Win32.winmd").unwrap()];
+    let reader = &metadata::reader::Reader::new(&files);
+    if let Some(def) = reader.get(metadata::reader::TypeName::new(namespace, name)).next() {
+        return reader.type_def_size(def);
     }
     0
 }

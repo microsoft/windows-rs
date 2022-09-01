@@ -38162,6 +38162,7 @@ impl IVMRMixerBitmap9_Vtbl {
         iid == &<IVMRMixerBitmap9 as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IVMRMixerControl_Impl: Sized {
     fn SetAlpha(&self, dwstreamid: u32, alpha: f32) -> ::windows::core::Result<()>;
     fn GetAlpha(&self, dwstreamid: u32, palpha: *mut f32) -> ::windows::core::Result<()>;
@@ -38169,12 +38170,14 @@ pub trait IVMRMixerControl_Impl: Sized {
     fn GetZOrder(&self, dwstreamid: u32, pz: *mut u32) -> ::windows::core::Result<()>;
     fn SetOutputRect(&self, dwstreamid: u32, prect: *const NORMALIZEDRECT) -> ::windows::core::Result<()>;
     fn GetOutputRect(&self, dwstreamid: u32, prect: *mut NORMALIZEDRECT) -> ::windows::core::Result<()>;
-    fn SetBackgroundClr(&self, clrbkg: u32) -> ::windows::core::Result<()>;
-    fn GetBackgroundClr(&self, lpclrbkg: *mut u32) -> ::windows::core::Result<()>;
+    fn SetBackgroundClr(&self, clrbkg: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetBackgroundClr(&self, lpclrbkg: *mut super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
     fn SetMixingPrefs(&self, dwmixerprefs: u32) -> ::windows::core::Result<()>;
     fn GetMixingPrefs(&self, pdwmixerprefs: *mut u32) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVMRMixerControl {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVMRMixerControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl_Impl, const OFFSET: isize>() -> IVMRMixerControl_Vtbl {
         unsafe extern "system" fn SetAlpha<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamid: u32, alpha: f32) -> ::windows::core::HRESULT {
@@ -38207,12 +38210,12 @@ impl IVMRMixerControl_Vtbl {
             let this = (*this).get_impl();
             this.GetOutputRect(::core::mem::transmute_copy(&dwstreamid), ::core::mem::transmute_copy(&prect)).into()
         }
-        unsafe extern "system" fn SetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbkg: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbkg: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBackgroundClr(::core::mem::transmute_copy(&clrbkg)).into()
         }
-        unsafe extern "system" fn GetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclrbkg: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclrbkg: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBackgroundClr(::core::mem::transmute_copy(&lpclrbkg)).into()
@@ -38245,6 +38248,7 @@ impl IVMRMixerControl_Vtbl {
         iid == &<IVMRMixerControl as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IVMRMixerControl9_Impl: Sized {
     fn SetAlpha(&self, dwstreamid: u32, alpha: f32) -> ::windows::core::Result<()>;
     fn GetAlpha(&self, dwstreamid: u32) -> ::windows::core::Result<f32>;
@@ -38252,15 +38256,17 @@ pub trait IVMRMixerControl9_Impl: Sized {
     fn GetZOrder(&self, dwstreamid: u32) -> ::windows::core::Result<u32>;
     fn SetOutputRect(&self, dwstreamid: u32, prect: *const VMR9NormalizedRect) -> ::windows::core::Result<()>;
     fn GetOutputRect(&self, dwstreamid: u32) -> ::windows::core::Result<VMR9NormalizedRect>;
-    fn SetBackgroundClr(&self, clrbkg: u32) -> ::windows::core::Result<()>;
-    fn GetBackgroundClr(&self, lpclrbkg: *const u32) -> ::windows::core::Result<()>;
+    fn SetBackgroundClr(&self, clrbkg: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetBackgroundClr(&self, lpclrbkg: *const super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
     fn SetMixingPrefs(&self, dwmixerprefs: u32) -> ::windows::core::Result<()>;
     fn GetMixingPrefs(&self) -> ::windows::core::Result<u32>;
     fn SetProcAmpControl(&self, dwstreamid: u32, lpclrcontrol: *const VMR9ProcAmpControl) -> ::windows::core::Result<()>;
     fn GetProcAmpControl(&self, dwstreamid: u32, lpclrcontrol: *mut VMR9ProcAmpControl) -> ::windows::core::Result<()>;
     fn GetProcAmpControlRange(&self, dwstreamid: u32, lpclrcontrol: *mut VMR9ProcAmpControlRange) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IVMRMixerControl9 {}
+#[cfg(feature = "Win32_Foundation")]
 impl IVMRMixerControl9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl9_Impl, const OFFSET: isize>() -> IVMRMixerControl9_Vtbl {
         unsafe extern "system" fn SetAlpha<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwstreamid: u32, alpha: f32) -> ::windows::core::HRESULT {
@@ -38311,12 +38317,12 @@ impl IVMRMixerControl9_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbkg: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbkg: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBackgroundClr(::core::mem::transmute_copy(&clrbkg)).into()
         }
-        unsafe extern "system" fn GetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclrbkg: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackgroundClr<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRMixerControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclrbkg: *const super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBackgroundClr(::core::mem::transmute_copy(&lpclrbkg)).into()
@@ -38707,18 +38713,18 @@ impl IVMRSurfaceAllocatorEx9_Vtbl {
         iid == &<IVMRSurfaceAllocatorEx9 as ::windows::core::Interface>::IID || iid == &<IVMRSurfaceAllocator9 as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 pub trait IVMRSurfaceAllocatorNotify_Impl: Sized {
     fn AdviseSurfaceAllocator(&self, dwuserid: usize, lpivrmsurfaceallocator: &::core::option::Option<IVMRSurfaceAllocator>) -> ::windows::core::Result<()>;
     fn SetDDrawDevice(&self, lpddrawdevice: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
     fn ChangeDDrawDevice(&self, lpddrawdevice: &::core::option::Option<super::super::Graphics::DirectDraw::IDirectDraw7>, hmonitor: super::super::Graphics::Gdi::HMONITOR) -> ::windows::core::Result<()>;
     fn RestoreDDrawSurfaces(&self) -> ::windows::core::Result<()>;
     fn NotifyEvent(&self, eventcode: i32, param1: isize, param2: isize) -> ::windows::core::Result<()>;
-    fn SetBorderColor(&self, clrborder: u32) -> ::windows::core::Result<()>;
+    fn SetBorderColor(&self, clrborder: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
 }
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl ::windows::core::RuntimeName for IVMRSurfaceAllocatorNotify {}
-#[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi"))]
 impl IVMRSurfaceAllocatorNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRSurfaceAllocatorNotify_Impl, const OFFSET: isize>() -> IVMRSurfaceAllocatorNotify_Vtbl {
         unsafe extern "system" fn AdviseSurfaceAllocator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRSurfaceAllocatorNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwuserid: usize, lpivrmsurfaceallocator: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
@@ -38746,7 +38752,7 @@ impl IVMRSurfaceAllocatorNotify_Vtbl {
             let this = (*this).get_impl();
             this.NotifyEvent(::core::mem::transmute_copy(&eventcode), ::core::mem::transmute_copy(&param1), ::core::mem::transmute_copy(&param2)).into()
         }
-        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRSurfaceAllocatorNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrborder: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRSurfaceAllocatorNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrborder: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBorderColor(::core::mem::transmute_copy(&clrborder)).into()
@@ -38909,10 +38915,10 @@ pub trait IVMRWindowlessControl_Impl: Sized {
     fn RepaintVideo(&self, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::core::Result<()>;
     fn DisplayModeChanged(&self) -> ::windows::core::Result<()>;
     fn GetCurrentImage(&self, lpdib: *mut *mut u8) -> ::windows::core::Result<()>;
-    fn SetBorderColor(&self, clr: u32) -> ::windows::core::Result<()>;
-    fn GetBorderColor(&self, lpclr: *mut u32) -> ::windows::core::Result<()>;
-    fn SetColorKey(&self, clr: u32) -> ::windows::core::Result<()>;
-    fn GetColorKey(&self, lpclr: *mut u32) -> ::windows::core::Result<()>;
+    fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetBorderColor(&self, lpclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn SetColorKey(&self, clr: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetColorKey(&self, lpclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::windows::core::RuntimeName for IVMRWindowlessControl {}
@@ -38974,22 +38980,22 @@ impl IVMRWindowlessControl_Vtbl {
             let this = (*this).get_impl();
             this.GetCurrentImage(::core::mem::transmute_copy(&lpdib)).into()
         }
-        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBorderColor(::core::mem::transmute_copy(&clr)).into()
         }
-        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetBorderColor(::core::mem::transmute_copy(&lpclr)).into()
         }
-        unsafe extern "system" fn SetColorKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColorKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetColorKey(::core::mem::transmute_copy(&clr)).into()
         }
-        unsafe extern "system" fn GetColorKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColorKey<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetColorKey(::core::mem::transmute_copy(&lpclr)).into()
@@ -39030,8 +39036,8 @@ pub trait IVMRWindowlessControl9_Impl: Sized {
     fn RepaintVideo(&self, hwnd: super::super::Foundation::HWND, hdc: super::super::Graphics::Gdi::HDC) -> ::windows::core::Result<()>;
     fn DisplayModeChanged(&self) -> ::windows::core::Result<()>;
     fn GetCurrentImage(&self) -> ::windows::core::Result<*mut u8>;
-    fn SetBorderColor(&self, clr: u32) -> ::windows::core::Result<()>;
-    fn GetBorderColor(&self) -> ::windows::core::Result<u32>;
+    fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetBorderColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::windows::core::RuntimeName for IVMRWindowlessControl9 {}
@@ -39105,12 +39111,12 @@ impl IVMRWindowlessControl9_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBorderColor(::core::mem::transmute_copy(&clr)).into()
         }
-        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVMRWindowlessControl9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBorderColor() {

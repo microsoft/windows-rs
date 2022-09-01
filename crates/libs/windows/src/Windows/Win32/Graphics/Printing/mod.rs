@@ -23909,13 +23909,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetJobA<'a, P0>(hprinter: P0, jobid: u32, level: u32, pjob: ::core::option::Option<&mut u8>, command: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetJobA<'a, P0>(hprinter: P0, jobid: u32, level: u32, pjob: ::core::option::Option<&u8>, command: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
+        fn SetJobA(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *const u8, command: u32) -> super::super::Foundation::BOOL;
     }
     SetJobA(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), command)
 }
@@ -23935,13 +23935,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Printing\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetJobW<'a, P0>(hprinter: P0, jobid: u32, level: u32, pjob: ::core::option::Option<&mut u8>, command: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetJobW<'a, P0>(hprinter: P0, jobid: u32, level: u32, pjob: ::core::option::Option<&u8>, command: u32) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *mut u8, command: u32) -> super::super::Foundation::BOOL;
+        fn SetJobW(hprinter: super::super::Foundation::HANDLE, jobid: u32, level: u32, pjob: *const u8, command: u32) -> super::super::Foundation::BOOL;
     }
     SetJobW(hprinter.into(), jobid, level, ::core::mem::transmute(pjob), command)
 }

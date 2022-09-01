@@ -10307,33 +10307,114 @@ impl ::core::fmt::Debug for PartType {
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PlaySoundA<'a, P0, P1>(pszsound: P0, hmod: P1, fdwsound: u32) -> super::super::Foundation::BOOL
+pub unsafe fn PlaySoundA<'a, P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PlaySoundA(pszsound: ::windows::core::PCSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+        fn PlaySoundA(pszsound: ::windows::core::PCSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL;
     }
     PlaySoundA(pszsound.into(), hmod.into(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PlaySoundW<'a, P0, P1>(pszsound: P0, hmod: P1, fdwsound: u32) -> super::super::Foundation::BOOL
+pub unsafe fn PlaySoundW<'a, P0, P1>(pszsound: P0, hmod: P1, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
     P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn PlaySoundW(pszsound: ::windows::core::PCWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+        fn PlaySoundW(pszsound: ::windows::core::PCWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL;
     }
     PlaySoundW(pszsound.into(), hmod.into(), fdwsound)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_ALIAS_START: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SND_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_APPLICATION: SND_FLAGS = SND_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ALIAS: SND_FLAGS = SND_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ALIAS_ID: SND_FLAGS = SND_FLAGS(1114112u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_FILENAME: SND_FLAGS = SND_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_RESOURCE: SND_FLAGS = SND_FLAGS(262148u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ASYNC: SND_FLAGS = SND_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NODEFAULT: SND_FLAGS = SND_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_LOOP: SND_FLAGS = SND_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_MEMORY: SND_FLAGS = SND_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NOSTOP: SND_FLAGS = SND_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NOWAIT: SND_FLAGS = SND_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_PURGE: SND_FLAGS = SND_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SENTRY: SND_FLAGS = SND_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SYNC: SND_FLAGS = SND_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SYSTEM: SND_FLAGS = SND_FLAGS(2097152u32);
+impl ::core::marker::Copy for SND_FLAGS {}
+impl ::core::clone::Clone for SND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SND_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SND_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SND_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SND_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SND_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SND_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SND_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SND_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SND_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_RING: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]

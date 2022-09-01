@@ -26,7 +26,7 @@ pub type IWinMLRuntimeFactory = *mut ::core::ffi::c_void;
 pub struct MLOperatorAttribute {
     pub name: ::windows_sys::core::PCSTR,
     pub r#type: MLOperatorAttributeType,
-    pub required: bool,
+    pub required: u8,
 }
 impl ::core::marker::Copy for MLOperatorAttribute {}
 impl ::core::clone::Clone for MLOperatorAttribute {

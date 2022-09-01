@@ -2765,6 +2765,7 @@ impl IInkGesture_Vtbl {
         iid == &<IInkGesture as ::windows::core::Interface>::IID || iid == &<super::super::System::Com::IDispatch as ::windows::core::Interface>::IID
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 pub trait IInkLineInfo_Impl: Sized {
     fn SetFormat(&self, pim: *const INKMETRIC) -> ::windows::core::Result<()>;
     fn GetFormat(&self, pim: *const INKMETRIC) -> ::windows::core::Result<()>;
@@ -2773,7 +2774,9 @@ pub trait IInkLineInfo_Impl: Sized {
     fn SetCandidate(&self, ncandidatenum: u32, strrecogword: &::windows::core::PCWSTR) -> ::windows::core::Result<()>;
     fn Recognize(&self) -> ::windows::core::Result<()>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IInkLineInfo {}
+#[cfg(feature = "Win32_Foundation")]
 impl IInkLineInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkLineInfo_Impl, const OFFSET: isize>() -> IInkLineInfo_Vtbl {
         unsafe extern "system" fn SetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInkLineInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pim: *const INKMETRIC) -> ::windows::core::HRESULT {

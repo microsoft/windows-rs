@@ -586,29 +586,31 @@ impl<'a> Reader<'a> {
         Signature { def: row, params, return_type }
     }
     pub fn method_def_size(&self, method: MethodDef) -> usize {
-        fn type_size(reader: &Reader, ty: &Type) -> usize {
-            match ty {
-                Type::I8 | Type::U8 => 1,
-                Type::I16 | Type::U16 => 2,
-                Type::I64 | Type::U64 | Type::F64 => 8,
-                Type::GUID => 16,
-                Type::TypeDef((def, _)) => type_def_size(reader, *def),
-                _ => 4,
-            }
-        }
-        fn type_def_size(reader: &Reader, def: TypeDef) -> usize {
-            if reader.type_def_kind(def) == TypeKind::Struct {
-                if reader.type_def_flags(def).explicit_layout() {
-                    reader.type_def_fields(def).map(|field| type_size(reader, &reader.field_type(field, Some(def)))).max().unwrap_or(1)
-                } else {
-                    reader.type_def_fields(def).fold(0, |sum, field| sum + type_size(reader, &reader.field_type(field, Some(def))))
-                }
-            } else {
-                4
-            }
-        }
         let signature = self.method_def_signature(method, &[]);
-        signature.params.iter().fold(0, |sum, param| sum + std::cmp::max(4, type_size(self, &param.ty)))
+        signature.params.iter().fold(0, |sum, param| sum + std::cmp::max(4, self.type_size(&param.ty)))
+    }
+    pub fn type_def_size(&self, def: TypeDef) -> usize {
+        match self.type_def_kind(def) {
+            TypeKind::Struct => {
+                if self.type_def_flags(def).explicit_layout() {
+                    self.type_def_fields(def).map(|field| self.type_size(&self.field_type(field, Some(def)))).max().unwrap_or(1)
+                } else {
+                    self.type_def_fields(def).fold(0, |sum, field| sum + self.type_size(&self.field_type(field, Some(def))))
+                }
+            }
+            TypeKind::Enum => self.type_size(&self.type_def_underlying_type(def)),
+            _ => 4,
+        }
+    }
+    pub fn type_size(&self, ty: &Type) -> usize {
+        match ty {
+            Type::I8 | Type::U8 => 1,
+            Type::I16 | Type::U16 => 2,
+            Type::I64 | Type::U64 | Type::F64 => 8,
+            Type::GUID => 16,
+            Type::TypeDef((def, _)) => self.type_def_size(*def),
+            _ => 4,
+        }
     }
 
     //

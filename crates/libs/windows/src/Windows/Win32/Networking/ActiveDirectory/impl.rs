@@ -7056,15 +7056,15 @@ impl IDirectorySchemaMgmt_Vtbl {
 #[cfg(feature = "Win32_Foundation")]
 pub trait IDirectorySearch_Impl: Sized {
     fn SetSearchPreference(&self, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()>;
-    fn ExecuteSearch(&self, pszsearchfilter: &::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize>;
-    fn AbandonSearch(&self, phsearchresult: isize) -> ::windows::core::Result<()>;
-    fn GetFirstRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT;
-    fn GetNextRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT;
-    fn GetPreviousRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT;
-    fn GetNextColumnName(&self, hsearchhandle: isize, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    fn GetColumn(&self, hsearchresult: isize, szcolumnname: &::windows::core::PCWSTR) -> ::windows::core::Result<ads_search_column>;
+    fn ExecuteSearch(&self, pszsearchfilter: &::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<ADS_SEARCH_HANDLE>;
+    fn AbandonSearch(&self, phsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::Result<()>;
+    fn GetFirstRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
+    fn GetNextRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
+    fn GetPreviousRow(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT;
+    fn GetNextColumnName(&self, hsearchhandle: ADS_SEARCH_HANDLE, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    fn GetColumn(&self, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: &::windows::core::PCWSTR) -> ::windows::core::Result<ads_search_column>;
     fn FreeColumn(&self, psearchcolumn: *const ads_search_column) -> ::windows::core::Result<()>;
-    fn CloseSearchHandle(&self, hsearchresult: isize) -> ::windows::core::Result<()>;
+    fn CloseSearchHandle(&self, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::Result<()>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IDirectorySearch {}
@@ -7076,7 +7076,7 @@ impl IDirectorySearch_Vtbl {
             let this = (*this).get_impl();
             this.SetSearchPreference(::core::mem::transmute_copy(&psearchprefs), ::core::mem::transmute_copy(&dwnumprefs)).into()
         }
-        unsafe extern "system" fn ExecuteSearch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsearchfilter: ::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, phsearchresult: *mut isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ExecuteSearch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsearchfilter: ::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, phsearchresult: *mut ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ExecuteSearch(::core::mem::transmute(&pszsearchfilter), ::core::mem::transmute_copy(&pattributenames), ::core::mem::transmute_copy(&dwnumberattributes)) {
@@ -7087,32 +7087,32 @@ impl IDirectorySearch_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AbandonSearch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phsearchresult: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AbandonSearch<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AbandonSearch(::core::mem::transmute_copy(&phsearchresult)).into()
         }
-        unsafe extern "system" fn GetFirstRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetFirstRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetFirstRow(::core::mem::transmute_copy(&hsearchresult))
         }
-        unsafe extern "system" fn GetNextRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNextRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetNextRow(::core::mem::transmute_copy(&hsearchresult))
         }
-        unsafe extern "system" fn GetPreviousRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetPreviousRow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetPreviousRow(::core::mem::transmute_copy(&hsearchresult))
         }
-        unsafe extern "system" fn GetNextColumnName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchhandle: isize, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetNextColumnName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchhandle: ADS_SEARCH_HANDLE, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GetNextColumnName(::core::mem::transmute_copy(&hsearchhandle), ::core::mem::transmute_copy(&ppszcolumnname))
         }
-        unsafe extern "system" fn GetColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ads_search_column) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColumn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ads_search_column) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetColumn(::core::mem::transmute_copy(&hsearchresult), ::core::mem::transmute(&szcolumnname)) {
@@ -7128,7 +7128,7 @@ impl IDirectorySearch_Vtbl {
             let this = (*this).get_impl();
             this.FreeColumn(::core::mem::transmute_copy(&psearchcolumn)).into()
         }
-        unsafe extern "system" fn CloseSearchHandle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CloseSearchHandle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDirectorySearch_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.CloseSearchHandle(::core::mem::transmute_copy(&hsearchresult)).into()
