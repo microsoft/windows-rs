@@ -3625,7 +3625,6 @@ impl ::core::clone::Clone for HLSURF__ {
         *self
     }
 }
-pub type HRESULT = i32;
 pub type HRSRC = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3841,43 +3840,6 @@ pub const JSCRIPT_E_CANTEXECUTE: ::windows_sys::core::HRESULT = -1996357631i32;
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows_sys::core::HRESULT = -2147215484i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const LANGUAGE_S_LARGE_WORD: ::windows_sys::core::HRESULT = 268161i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub union LARGE_INTEGER {
-    pub Anonymous: LARGE_INTEGER_0,
-    pub u: LARGE_INTEGER_1,
-    pub QuadPart: i64,
-}
-impl ::core::marker::Copy for LARGE_INTEGER {}
-impl ::core::clone::Clone for LARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct LARGE_INTEGER_0 {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-impl ::core::marker::Copy for LARGE_INTEGER_0 {}
-impl ::core::clone::Clone for LARGE_INTEGER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct LARGE_INTEGER_1 {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-impl ::core::marker::Copy for LARGE_INTEGER_1 {}
-impl ::core::clone::Clone for LARGE_INTEGER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 pub type LPARAM = isize;
 pub type LRESULT = isize;
 #[repr(C)]
@@ -4928,8 +4890,6 @@ pub const PSINK_E_LARGE_ATTACHMENT: ::windows_sys::core::HRESULT = -2147215470i3
 pub const PSINK_E_QUERY_ONLY: ::windows_sys::core::HRESULT = -2147215472i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const PSINK_S_LARGE_WORD: ::windows_sys::core::HRESULT = 268179i32;
-pub type PSTR = *mut u8;
-pub type PWSTR = *mut u16;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const QPARSE_E_EXPECTING_BRACE: ::windows_sys::core::HRESULT = -2147215770i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12709,43 +12669,6 @@ pub const UI_E_VALUE_NOT_SET: ::windows_sys::core::HRESULT = -2144731131i32;
 pub const UI_E_WINDOW_CLOSED: ::windows_sys::core::HRESULT = -2144730623i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const UI_E_WRONG_THREAD: ::windows_sys::core::HRESULT = -2144731124i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub union ULARGE_INTEGER {
-    pub Anonymous: ULARGE_INTEGER_0,
-    pub u: ULARGE_INTEGER_1,
-    pub QuadPart: u64,
-}
-impl ::core::marker::Copy for ULARGE_INTEGER {}
-impl ::core::clone::Clone for ULARGE_INTEGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct ULARGE_INTEGER_0 {
-    pub LowPart: u32,
-    pub HighPart: u32,
-}
-impl ::core::marker::Copy for ULARGE_INTEGER_0 {}
-impl ::core::clone::Clone for ULARGE_INTEGER_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct ULARGE_INTEGER_1 {
-    pub LowPart: u32,
-    pub HighPart: u32,
-}
-impl ::core::marker::Copy for ULARGE_INTEGER_1 {}
-impl ::core::clone::Clone for ULARGE_INTEGER_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub struct UNICODE_STRING {

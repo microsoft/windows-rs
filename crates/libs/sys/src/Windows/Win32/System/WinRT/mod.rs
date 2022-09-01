@@ -488,7 +488,6 @@ impl ::core::clone::Clone for EventRegistrationToken {
         *self
     }
 }
-pub type HSTRING = isize;
 pub type HSTRING_BUFFER = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT\"`*"]
@@ -523,7 +522,6 @@ pub type ICorrelationVectorSource = *mut ::core::ffi::c_void;
 pub type IDragDropManagerInterop = *mut ::core::ffi::c_void;
 pub type IHolographicSpaceInterop = *mut ::core::ffi::c_void;
 pub type IInputPaneInterop = *mut ::core::ffi::c_void;
-pub type IInspectable = *mut ::core::ffi::c_void;
 pub type ILanguageExceptionErrorInfo = *mut ::core::ffi::c_void;
 pub type ILanguageExceptionErrorInfo2 = *mut ::core::ffi::c_void;
 pub type ILanguageExceptionStackBackTrace = *mut ::core::ffi::c_void;
