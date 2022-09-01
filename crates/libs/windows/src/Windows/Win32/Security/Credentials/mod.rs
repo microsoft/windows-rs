@@ -688,9 +688,13 @@ impl ::core::default::Default for CREDUI_INFOW {
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUI_MAX_CAPTION_LENGTH: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_MAX_DOMAIN_TARGET_LENGTH: u32 = 337u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUI_MAX_GENERIC_TARGET_LENGTH: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CREDUI_MAX_MESSAGE_LENGTH: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CREDUI_MAX_USERNAME_LENGTH: u32 = 513u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_ALLOW_NAME_RESOLUTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -857,6 +861,10 @@ impl ::core::fmt::Debug for CRED_MARSHAL_TYPE {
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_MAX_ATTRIBUTES: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_MAX_CREDENTIAL_BLOB_SIZE: u32 = 2560u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_MAX_DOMAIN_TARGET_NAME_LENGTH: u32 = 337u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_MAX_GENERIC_TARGET_NAME_LENGTH: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
@@ -864,6 +872,8 @@ pub const CRED_MAX_STRING_LENGTH: u32 = 256u32;
 pub const CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_MAX_TARGETNAME_NAMESPACE_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
+pub const CRED_MAX_USERNAME_LENGTH: u32 = 513u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 pub const CRED_MAX_VALUE_SIZE: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
@@ -3737,7 +3747,7 @@ pub unsafe fn SCardState(hcard: usize, pdwstate: &mut u32, pdwprotocol: &mut u32
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]
-pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: ::windows::core::PSTR, pcchreaderlen: ::core::option::Option<&mut u32>, pdwstate: ::core::option::Option<&mut u32>, pdwprotocol: ::core::option::Option<&mut u32>, pbatr: ::core::option::Option<&mut u8>, pcbatrlen: ::core::option::Option<&mut u32>) -> i32 {
+pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: ::windows::core::PSTR, pcchreaderlen: ::core::option::Option<&mut u32>, pdwstate: ::core::option::Option<&mut u32>, pdwprotocol: ::core::option::Option<&mut u32>, pbatr: *mut u8, pcbatrlen: ::core::option::Option<&mut u32>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SCardStatusA(hcard: usize, mszreadernames: ::windows::core::PSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;
@@ -3746,7 +3756,7 @@ pub unsafe fn SCardStatusA(hcard: usize, mszreadernames: ::windows::core::PSTR, 
 }
 #[doc = "*Required features: `\"Win32_Security_Credentials\"`*"]
 #[inline]
-pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: ::windows::core::PWSTR, pcchreaderlen: ::core::option::Option<&mut u32>, pdwstate: ::core::option::Option<&mut u32>, pdwprotocol: ::core::option::Option<&mut u32>, pbatr: ::core::option::Option<&mut u8>, pcbatrlen: ::core::option::Option<&mut u32>) -> i32 {
+pub unsafe fn SCardStatusW(hcard: usize, mszreadernames: ::windows::core::PWSTR, pcchreaderlen: ::core::option::Option<&mut u32>, pdwstate: ::core::option::Option<&mut u32>, pdwprotocol: ::core::option::Option<&mut u32>, pbatr: *mut u8, pcbatrlen: ::core::option::Option<&mut u32>) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SCardStatusW(hcard: usize, mszreadernames: ::windows::core::PWSTR, pcchreaderlen: *mut u32, pdwstate: *mut u32, pdwprotocol: *mut u32, pbatr: *mut u8, pcbatrlen: *mut u32) -> i32;

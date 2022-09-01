@@ -4,7 +4,7 @@ pub trait IImageList_Impl: Sized {
     fn ReplaceIcon(&self, i: i32, hicon: super::WindowsAndMessaging::HICON) -> ::windows::core::Result<i32>;
     fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()>;
     fn Replace(&self, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::Result<()>;
-    fn AddMasked(&self, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> ::windows::core::Result<i32>;
+    fn AddMasked(&self, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF) -> ::windows::core::Result<i32>;
     fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()>;
     fn Remove(&self, i: i32) -> ::windows::core::Result<()>;
     fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON>;
@@ -17,8 +17,8 @@ pub trait IImageList_Impl: Sized {
     fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()>;
     fn GetImageCount(&self) -> ::windows::core::Result<i32>;
     fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()>;
-    fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32>;
-    fn GetBkColor(&self) -> ::windows::core::Result<u32>;
+    fn SetBkColor(&self, clrbk: super::super::Foundation::COLORREF) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
+    fn GetBkColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
     fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()>;
     fn EndDrag(&self) -> ::windows::core::Result<()>;
     fn DragEnter(&self, hwndlock: super::super::Foundation::HWND, x: i32, y: i32) -> ::windows::core::Result<()>;
@@ -67,7 +67,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             this.Replace(::core::mem::transmute_copy(&i), ::core::mem::transmute_copy(&hbmimage), ::core::mem::transmute_copy(&hbmmask)).into()
         }
-        unsafe extern "system" fn AddMasked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32, pi: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddMasked<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF, pi: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddMasked(::core::mem::transmute_copy(&hbmimage), ::core::mem::transmute_copy(&crmask)) {
@@ -162,7 +162,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             this.SetImageCount(::core::mem::transmute_copy(&unewcount)).into()
         }
-        unsafe extern "system" fn SetBkColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbk: u32, pclr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBkColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbk: super::super::Foundation::COLORREF, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SetBkColor(::core::mem::transmute_copy(&clrbk)) {
@@ -173,7 +173,7 @@ impl IImageList_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GetBkColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBkColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IImageList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBkColor() {

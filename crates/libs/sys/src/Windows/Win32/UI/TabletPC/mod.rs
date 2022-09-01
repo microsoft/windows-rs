@@ -1714,15 +1714,18 @@ pub const INKEDIT_CLASS: &str = "INKEDIT";
 #[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
 pub const INKEDIT_CLASSW: &str = "INKEDIT";
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TabletPC\"`*"]
+#[doc = "*Required features: `\"Win32_UI_TabletPC\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
     pub iFontDescent: i32,
     pub dwFlags: u32,
-    pub color: u32,
+    pub color: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INKMETRIC {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INKMETRIC {
     fn clone(&self) -> Self {
         *self

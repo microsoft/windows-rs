@@ -2102,7 +2102,7 @@ impl ::core::default::Default for OLESTREAMVTBL {
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
-pub unsafe fn OleConvertIStorageToOLESTREAM<'a, P0>(pstg: P0, lpolestream: &mut OLESTREAM) -> ::windows::core::Result<()>
+pub unsafe fn OleConvertIStorageToOLESTREAM<'a, P0>(pstg: P0) -> ::windows::core::Result<OLESTREAM>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
 {
@@ -2110,43 +2110,45 @@ where
     extern "system" {
         fn OleConvertIStorageToOLESTREAM(pstg: *mut ::core::ffi::c_void, lpolestream: *mut OLESTREAM) -> ::windows::core::HRESULT;
     }
-    OleConvertIStorageToOLESTREAM(pstg.into().abi(), ::core::mem::transmute(lpolestream)).ok()
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    OleConvertIStorageToOLESTREAM(pstg.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLESTREAM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, P0>(pstg: P0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: &mut super::STGMEDIUM, polestm: &mut OLESTREAM) -> ::windows::core::Result<()>
+pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, P0>(pstg: P0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: &super::STGMEDIUM) -> ::windows::core::Result<OLESTREAM>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleConvertIStorageToOLESTREAMEx(pstg: *mut ::core::ffi::c_void, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::HRESULT;
+        fn OleConvertIStorageToOLESTREAMEx(pstg: *mut ::core::ffi::c_void, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::HRESULT;
     }
-    OleConvertIStorageToOLESTREAMEx(pstg.into().abi(), cfformat, lwidth, lheight, dwsize, ::core::mem::transmute(pmedium), ::core::mem::transmute(polestm)).ok()
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    OleConvertIStorageToOLESTREAMEx(pstg.into().abi(), cfformat, lwidth, lheight, dwsize, ::core::mem::transmute(pmedium), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLESTREAM>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorage<'a, P0>(lpolestream: &mut OLESTREAM, pstg: P0, ptd: &super::DVTARGETDEVICE) -> ::windows::core::Result<()>
+pub unsafe fn OleConvertOLESTREAMToIStorage<'a, P0>(lpolestream: &OLESTREAM, pstg: P0, ptd: &super::DVTARGETDEVICE) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleConvertOLESTREAMToIStorage(lpolestream: *mut OLESTREAM, pstg: *mut ::core::ffi::c_void, ptd: *const super::DVTARGETDEVICE) -> ::windows::core::HRESULT;
+        fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, ptd: *const super::DVTARGETDEVICE) -> ::windows::core::HRESULT;
     }
     OleConvertOLESTREAMToIStorage(::core::mem::transmute(lpolestream), pstg.into().abi(), ::core::mem::transmute(ptd)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorageEx<'a, P0>(polestm: &mut OLESTREAM, pstg: P0, pcfformat: &mut u16, plwwidth: &mut i32, plheight: &mut i32, pdwsize: &mut u32, pmedium: &mut super::STGMEDIUM) -> ::windows::core::Result<()>
+pub unsafe fn OleConvertOLESTREAMToIStorageEx<'a, P0>(polestm: &OLESTREAM, pstg: P0, pcfformat: &mut u16, plwwidth: &mut i32, plheight: &mut i32, pdwsize: &mut u32, pmedium: &mut super::STGMEDIUM) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OleConvertOLESTREAMToIStorageEx(polestm: *mut OLESTREAM, pstg: *mut ::core::ffi::c_void, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
+        fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
     }
     OleConvertOLESTREAMToIStorageEx(::core::mem::transmute(polestm), pstg.into().abi(), ::core::mem::transmute(pcfformat), ::core::mem::transmute(plwwidth), ::core::mem::transmute(plheight), ::core::mem::transmute(pdwsize), ::core::mem::transmute(pmedium)).ok()
 }
@@ -2309,7 +2311,7 @@ pub struct PMemoryAllocator(pub u8);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct PROPBAG2 {
     pub dwType: u32,
-    pub vt: u16,
+    pub vt: super::VARENUM,
     pub cfType: u16,
     pub dwHint: u32,
     pub pstrName: ::windows::core::PWSTR,
@@ -2498,7 +2500,7 @@ impl ::core::default::Default for PROPVARIANT_0 {
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT_0_0 {
-    pub vt: u16,
+    pub vt: super::VARENUM,
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
@@ -2844,7 +2846,7 @@ impl ::core::default::Default for STATPROPSETSTG {
 pub struct STATPROPSTG {
     pub lpwstrName: ::windows::core::PWSTR,
     pub propid: u32,
-    pub vt: u16,
+    pub vt: super::VARENUM,
 }
 impl ::core::marker::Copy for STATPROPSTG {}
 impl ::core::clone::Clone for STATPROPSTG {

@@ -95,9 +95,9 @@ pub struct CHOOSECOLORA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: u32,
-    pub lpCustColors: *mut u32,
-    pub Flags: u32,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCSTR,
@@ -120,9 +120,9 @@ pub struct CHOOSECOLORA {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: u32,
-    pub lpCustColors: *mut u32,
-    pub Flags: u32,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCSTR,
@@ -145,9 +145,9 @@ pub struct CHOOSECOLORW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: u32,
-    pub lpCustColors: *mut u32,
-    pub Flags: u32,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCWSTR,
@@ -170,9 +170,9 @@ pub struct CHOOSECOLORW {
     pub lStructSize: u32,
     pub hwndOwner: super::super::super::Foundation::HWND,
     pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: u32,
-    pub lpCustColors: *mut u32,
-    pub Flags: u32,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCWSTR,
@@ -187,6 +187,26 @@ impl ::core::clone::Clone for CHOOSECOLORW {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub type CHOOSECOLOR_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_RGBINIT: CHOOSECOLOR_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_FULLOPEN: CHOOSECOLOR_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_PREVENTFULLOPEN: CHOOSECOLOR_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_SHOWHELP: CHOOSECOLOR_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_ENABLEHOOK: CHOOSECOLOR_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_ENABLETEMPLATE: CHOOSECOLOR_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_ENABLETEMPLATEHANDLE: CHOOSECOLOR_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_SOLIDCOLOR: CHOOSECOLOR_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const CC_ANYCOLOR: CHOOSECOLOR_FLAGS = 256u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -198,7 +218,7 @@ pub struct CHOOSEFONTA {
     pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
     pub iPointSize: i32,
     pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: u32,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCSTR,
@@ -230,7 +250,7 @@ pub struct CHOOSEFONTA {
     pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
     pub iPointSize: i32,
     pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: u32,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCSTR,
@@ -262,7 +282,7 @@ pub struct CHOOSEFONTW {
     pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
     pub iPointSize: i32,
     pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: u32,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCWSTR,
@@ -294,7 +314,7 @@ pub struct CHOOSEFONTW {
     pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
     pub iPointSize: i32,
     pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: u32,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
     pub lCustData: super::super::super::Foundation::LPARAM,
     pub lpfnHook: LPCFHOOKPROC,
     pub lpTemplateName: ::windows_sys::core::PCWSTR,

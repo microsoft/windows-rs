@@ -1505,7 +1505,7 @@ pub const SPPS_SuppressWord: SPPARTOFSPEECH = 61440i32;
 #[doc = "*Required features: `\"Win32_Media_Speech\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASE {
-    pub __AnonymousBase_sapi53_L5821_C34: SPPHRASE_50,
+    pub Base: SPPHRASE_50,
     pub pSML: ::windows_sys::core::PWSTR,
     pub pSemanticErrorInfo: *mut SPSEMANTICERRORINFO,
 }

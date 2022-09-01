@@ -1,7 +1,8 @@
 #[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
-    #[doc = "*Required features: `\"Win32_System_Power\"`*"]
-    pub fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32;
+    #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CanUserWritePwrScheme() -> super::super::Foundation::BOOLEAN;
@@ -1042,6 +1043,14 @@ pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub type POWER_COOLING_MODE = u16;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_ACTIVE: POWER_COOLING_MODE = 0u16;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_PASSIVE: POWER_COOLING_MODE = 1u16;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub const PO_TZ_INVALID_MODE: POWER_COOLING_MODE = 2u16;
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub type POWER_DATA_ACCESSOR = i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = 0i32;
@@ -1390,6 +1399,22 @@ impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO_EX {
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct PROCESSOR_POWER_INFORMATION {
+    pub Number: u64,
+    pub MaxMhz: u64,
+    pub CurrentMhz: u64,
+    pub MhzLimit: u64,
+    pub MaxIdleState: u64,
+    pub CurrentIdleState: u64,
+}
+impl ::core::marker::Copy for PROCESSOR_POWER_INFORMATION {}
+impl ::core::clone::Clone for PROCESSOR_POWER_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub struct PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub DynamicThrottle: u8,
@@ -1523,6 +1548,20 @@ pub const PoDc: SYSTEM_POWER_CONDITION = 1i32;
 pub const PoHot: SYSTEM_POWER_CONDITION = 2i32;
 #[doc = "*Required features: `\"Win32_System_Power\"`*"]
 pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = 3i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Power\"`*"]
+pub struct SYSTEM_POWER_INFORMATION {
+    pub MaxIdlenessAllowed: u64,
+    pub Idleness: u64,
+    pub TimeRemaining: u64,
+    pub CoolingMode: POWER_COOLING_MODE,
+}
+impl ::core::marker::Copy for SYSTEM_POWER_INFORMATION {}
+impl ::core::clone::Clone for SYSTEM_POWER_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Power\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

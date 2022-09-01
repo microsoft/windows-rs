@@ -1570,8 +1570,6 @@ pub const IS_DIGITAL_CAMERA_STR: &str = "IsDigitalCamera";
 pub const IS_DIGITAL_CAMERA_VAL: u32 = 1u32;
 pub type IStiDevice = *mut ::core::ffi::c_void;
 pub type IStiDeviceControl = *mut ::core::ffi::c_void;
-#[repr(C)]
-pub struct IStiDeviceW(pub u8);
 pub type IStiUSD = *mut ::core::ffi::c_void;
 pub type IStillImageW = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]

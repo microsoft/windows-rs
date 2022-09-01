@@ -441,39 +441,51 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Create_DevNodeA(pdndevinst: &mut u32, pdeviceid: &i8, dnparent: u32, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Create_DevNodeA<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Create_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, dnparent: u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Create_DevNodeA(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCSTR, dnparent: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Create_DevNodeA(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), dnparent, ulflags)
+    CM_Create_DevNodeA(::core::mem::transmute(pdndevinst), pdeviceid.into(), dnparent, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Create_DevNodeW(pdndevinst: &mut u32, pdeviceid: &u16, dnparent: u32, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Create_DevNodeW<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Create_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, dnparent: u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Create_DevNodeW(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCWSTR, dnparent: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Create_DevNodeW(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), dnparent, ulflags)
+    CM_Create_DevNodeW(::core::mem::transmute(pdndevinst), pdeviceid.into(), dnparent, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Create_DevNode_ExA(pdndevinst: &mut u32, pdeviceid: &i8, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Create_DevNode_ExA<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Create_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Create_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCSTR, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Create_DevNode_ExA(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), dnparent, ulflags, hmachine)
+    CM_Create_DevNode_ExA(::core::mem::transmute(pdndevinst), pdeviceid.into(), dnparent, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Create_DevNode_ExW(pdndevinst: &mut u32, pdeviceid: &u16, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Create_DevNode_ExW<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Create_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Create_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCWSTR, dnparent: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Create_DevNode_ExW(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), dnparent, ulflags, hmachine)
+    CM_Create_DevNode_ExW(::core::mem::transmute(pdndevinst), pdeviceid.into(), dnparent, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -1525,75 +1537,99 @@ where
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&i8>, buffer: &mut [u8], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_ListA<'a, P0>(interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, buffer: &mut [u8], ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, buffer: ::windows::core::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCSTR, buffer: ::windows::core::PSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_ListA(::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags)
+    CM_Get_Device_Interface_ListA(::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_ListW(interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&u16>, buffer: &mut [u16], ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_ListW<'a, P0>(interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, buffer: &mut [u16], ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, buffer: ::windows::core::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Get_Device_Interface_ListW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCWSTR, buffer: ::windows::core::PWSTR, bufferlen: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_ListW(::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags)
+    CM_Get_Device_Interface_ListW(::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&i8>, buffer: &mut [u8], ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_ExA<'a, P0>(interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, buffer: &mut [u8], ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, buffer: ::windows::core::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Get_Device_Interface_List_ExA(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCSTR, buffer: ::windows::core::PSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_List_ExA(::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags, hmachine)
+    CM_Get_Device_Interface_List_ExA(::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&u16>, buffer: &mut [u16], ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_ExW<'a, P0>(interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, buffer: &mut [u16], ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, buffer: ::windows::core::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Get_Device_Interface_List_ExW(interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCWSTR, buffer: ::windows::core::PWSTR, bufferlen: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_List_ExW(::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags, hmachine)
+    CM_Get_Device_Interface_List_ExW(::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeA(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&i8>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_SizeA<'a, P0>(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_List_SizeA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, ulflags: u32) -> CONFIGRET;
+        fn CM_Get_Device_Interface_List_SizeA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCSTR, ulflags: u32) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_List_SizeA(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ulflags)
+    CM_Get_Device_Interface_List_SizeA(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_SizeW(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&u16>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_SizeW<'a, P0>(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_List_SizeW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, ulflags: u32) -> CONFIGRET;
+        fn CM_Get_Device_Interface_List_SizeW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCWSTR, ulflags: u32) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_List_SizeW(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ulflags)
+    CM_Get_Device_Interface_List_SizeW(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExA(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&i8>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExA<'a, P0>(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_List_Size_ExA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const i8, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Get_Device_Interface_List_Size_ExA(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_List_Size_ExA(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ulflags, hmachine)
+    CM_Get_Device_Interface_List_Size_ExA(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_Device_Interface_List_Size_ExW(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: ::core::option::Option<&u16>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_Device_Interface_List_Size_ExW<'a, P0>(pullen: &mut u32, interfaceclassguid: &::windows::core::GUID, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_Device_Interface_List_Size_ExW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: *const u16, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Get_Device_Interface_List_Size_ExW(pullen: *mut u32, interfaceclassguid: *const ::windows::core::GUID, pdeviceid: ::windows::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Get_Device_Interface_List_Size_ExW(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), ::core::mem::transmute(pdeviceid), ulflags, hmachine)
+    CM_Get_Device_Interface_List_Size_ExW(::core::mem::transmute(pullen), ::core::mem::transmute(interfaceclassguid), pdeviceid.into(), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Devices_Properties\"`*"]
 #[cfg(feature = "Win32_Devices_Properties")]
@@ -1685,39 +1721,51 @@ pub unsafe fn CM_Get_Global_State_Ex(pulstate: &mut u32, ulflags: u32, hmachine:
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_FlagsA(pdeviceid: &i8, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_HW_Prof_FlagsA<'a, P0>(pdeviceid: P0, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_HW_Prof_FlagsA(pdeviceid: *const i8, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Get_HW_Prof_FlagsA(pdeviceid: ::windows::core::PCSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Get_HW_Prof_FlagsA(::core::mem::transmute(pdeviceid), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags)
+    CM_Get_HW_Prof_FlagsA(pdeviceid.into(), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_FlagsW(pdeviceid: &u16, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Get_HW_Prof_FlagsW<'a, P0>(pdeviceid: P0, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_HW_Prof_FlagsW(pdeviceid: *const u16, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Get_HW_Prof_FlagsW(pdeviceid: ::windows::core::PCWSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Get_HW_Prof_FlagsW(::core::mem::transmute(pdeviceid), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags)
+    CM_Get_HW_Prof_FlagsW(pdeviceid.into(), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: &i8, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_HW_Prof_Flags_ExA<'a, P0>(pdeviceid: P0, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Get_HW_Prof_Flags_ExA(pdeviceid: ::windows::core::PCSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Get_HW_Prof_Flags_ExA(::core::mem::transmute(pdeviceid), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags, hmachine)
+    CM_Get_HW_Prof_Flags_ExA(pdeviceid.into(), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: &u16, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Get_HW_Prof_Flags_ExW<'a, P0>(pdeviceid: P0, ulhardwareprofile: u32, pulvalue: &mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Get_HW_Prof_Flags_ExW(pdeviceid: ::windows::core::PCWSTR, ulhardwareprofile: u32, pulvalue: *mut u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Get_HW_Prof_Flags_ExW(::core::mem::transmute(pdeviceid), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags, hmachine)
+    CM_Get_HW_Prof_Flags_ExW(pdeviceid.into(), ulhardwareprofile, ::core::mem::transmute(pulvalue), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2023,39 +2071,51 @@ pub const CM_LOCATE_DEVNODE_NOVALIDATION: u32 = 4u32;
 pub const CM_LOCATE_DEVNODE_PHANTOM: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Locate_DevNodeA(pdndevinst: &mut u32, pdeviceid: ::core::option::Option<&i8>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Locate_DevNodeA<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Locate_DevNodeA(pdndevinst: *mut u32, pdeviceid: *const i8, ulflags: u32) -> CONFIGRET;
+        fn CM_Locate_DevNodeA(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCSTR, ulflags: u32) -> CONFIGRET;
     }
-    CM_Locate_DevNodeA(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), ulflags)
+    CM_Locate_DevNodeA(::core::mem::transmute(pdndevinst), pdeviceid.into(), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Locate_DevNodeW(pdndevinst: &mut u32, pdeviceid: ::core::option::Option<&u16>, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Locate_DevNodeW<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Locate_DevNodeW(pdndevinst: *mut u32, pdeviceid: *const u16, ulflags: u32) -> CONFIGRET;
+        fn CM_Locate_DevNodeW(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCWSTR, ulflags: u32) -> CONFIGRET;
     }
-    CM_Locate_DevNodeW(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), ulflags)
+    CM_Locate_DevNodeW(::core::mem::transmute(pdndevinst), pdeviceid.into(), ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Locate_DevNode_ExA(pdndevinst: &mut u32, pdeviceid: ::core::option::Option<&i8>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Locate_DevNode_ExA<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Locate_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: *const i8, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Locate_DevNode_ExA(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Locate_DevNode_ExA(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), ulflags, hmachine)
+    CM_Locate_DevNode_ExA(::core::mem::transmute(pdndevinst), pdeviceid.into(), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Locate_DevNode_ExW(pdndevinst: &mut u32, pdeviceid: ::core::option::Option<&u16>, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Locate_DevNode_ExW<'a, P0>(pdndevinst: &mut u32, pdeviceid: P0, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Locate_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: *const u16, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Locate_DevNode_ExW(pdndevinst: *mut u32, pdeviceid: ::windows::core::PCWSTR, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Locate_DevNode_ExW(::core::mem::transmute(pdndevinst), ::core::mem::transmute(pdeviceid), ulflags, hmachine)
+    CM_Locate_DevNode_ExW(::core::mem::transmute(pdndevinst), pdeviceid.into(), ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
@@ -3331,39 +3391,51 @@ pub unsafe fn CM_Set_HW_Prof_Ex(ulhardwareprofile: u32, ulflags: u32, hmachine: 
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_FlagsA(pdeviceid: &i8, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Set_HW_Prof_FlagsA<'a, P0>(pdeviceid: P0, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Set_HW_Prof_FlagsA(pdeviceid: *const i8, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Set_HW_Prof_FlagsA(pdeviceid: ::windows::core::PCSTR, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Set_HW_Prof_FlagsA(::core::mem::transmute(pdeviceid), ulconfig, ulvalue, ulflags)
+    CM_Set_HW_Prof_FlagsA(pdeviceid.into(), ulconfig, ulvalue, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_FlagsW(pdeviceid: &u16, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET {
+pub unsafe fn CM_Set_HW_Prof_FlagsW<'a, P0>(pdeviceid: P0, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Set_HW_Prof_FlagsW(pdeviceid: *const u16, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
+        fn CM_Set_HW_Prof_FlagsW(pdeviceid: ::windows::core::PCWSTR, ulconfig: u32, ulvalue: u32, ulflags: u32) -> CONFIGRET;
     }
-    CM_Set_HW_Prof_FlagsW(::core::mem::transmute(pdeviceid), ulconfig, ulvalue, ulflags)
+    CM_Set_HW_Prof_FlagsW(pdeviceid.into(), ulconfig, ulvalue, ulflags)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: &i8, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Set_HW_Prof_Flags_ExA<'a, P0>(pdeviceid: P0, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: *const i8, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Set_HW_Prof_Flags_ExA(pdeviceid: ::windows::core::PCSTR, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Set_HW_Prof_Flags_ExA(::core::mem::transmute(pdeviceid), ulconfig, ulvalue, ulflags, hmachine)
+    CM_Set_HW_Prof_Flags_ExA(pdeviceid.into(), ulconfig, ulvalue, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]
-pub unsafe fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: &u16, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET {
+pub unsafe fn CM_Set_HW_Prof_Flags_ExW<'a, P0>(pdeviceid: P0, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: *const u16, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
+        fn CM_Set_HW_Prof_Flags_ExW(pdeviceid: ::windows::core::PCWSTR, ulconfig: u32, ulvalue: u32, ulflags: u32, hmachine: isize) -> CONFIGRET;
     }
-    CM_Set_HW_Prof_Flags_ExW(::core::mem::transmute(pdeviceid), ulconfig, ulvalue, ulflags, hmachine)
+    CM_Set_HW_Prof_Flags_ExW(pdeviceid.into(), ulconfig, ulvalue, ulflags, hmachine)
 }
 #[doc = "*Required features: `\"Win32_Devices_DeviceAndDriverInstallation\"`*"]
 #[inline]

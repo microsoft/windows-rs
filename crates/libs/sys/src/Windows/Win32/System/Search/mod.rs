@@ -2907,7 +2907,7 @@ pub struct DBPROPINFO {
     pub pwszDescription: ::windows_sys::core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
-    pub vtType: u16,
+    pub vtType: super::Com::VARENUM,
     pub vValues: super::Com::VARIANT,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2928,7 +2928,7 @@ pub struct DBPROPINFO {
     pub pwszDescription: ::windows_sys::core::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
-    pub vtType: u16,
+    pub vtType: super::Com::VARENUM,
     pub vValues: super::Com::VARIANT,
 }
 #[cfg(target_arch = "x86")]
@@ -5995,13 +5995,16 @@ pub const KAGPROP_SYSTEMFUNCTIONS: u32 = 21u32;
 #[doc = "*Required features: `\"Win32_System_Search\"`*"]
 pub const KAGPROP_TIMEDATEFUNCTIONS: u32 = 22u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Search\"`*"]
+#[doc = "*Required features: `\"Win32_System_Search\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct KAGREQDIAG {
     pub ulDiagFlags: u32,
-    pub vt: u16,
+    pub vt: super::Com::VARENUM,
     pub sDiagField: i16,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for KAGREQDIAG {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for KAGREQDIAG {
     fn clone(&self) -> Self {
         *self

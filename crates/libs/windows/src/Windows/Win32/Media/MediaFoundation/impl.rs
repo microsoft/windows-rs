@@ -4793,7 +4793,7 @@ impl IMFCapturePhotoSink_Vtbl {
 pub trait IMFCapturePreviewSink_Impl: Sized + IMFCaptureSink_Impl {
     fn SetRenderHandle(&self, handle: super::super::Foundation::HANDLE) -> ::windows::core::Result<()>;
     fn SetRenderSurface(&self, psurface: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn UpdateVideo(&self, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const u32) -> ::windows::core::Result<()>;
+    fn UpdateVideo(&self, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
     fn SetSampleCallback(&self, dwstreamsinkindex: u32, pcallback: &::core::option::Option<IMFCaptureEngineOnSampleCallback>) -> ::windows::core::Result<()>;
     fn GetMirrorState(&self) -> ::windows::core::Result<super::super::Foundation::BOOL>;
     fn SetMirrorState(&self, fmirrorstate: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -4816,7 +4816,7 @@ impl IMFCapturePreviewSink_Vtbl {
             let this = (*this).get_impl();
             this.SetRenderSurface(::core::mem::transmute(&psurface)).into()
         }
-        unsafe extern "system" fn UpdateVideo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCapturePreviewSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn UpdateVideo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFCapturePreviewSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.UpdateVideo(::core::mem::transmute_copy(&psrc), ::core::mem::transmute_copy(&pdst), ::core::mem::transmute_copy(&pborderclr)).into()
@@ -11352,8 +11352,8 @@ pub trait IMFPMediaPlayer_Impl: Sized {
     fn GetAspectRatioMode(&self) -> ::windows::core::Result<u32>;
     fn GetVideoWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn UpdateVideo(&self) -> ::windows::core::Result<()>;
-    fn SetBorderColor(&self, clr: u32) -> ::windows::core::Result<()>;
-    fn GetBorderColor(&self) -> ::windows::core::Result<u32>;
+    fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetBorderColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
     fn InsertEffect(&self, peffect: &::core::option::Option<::windows::core::IUnknown>, foptional: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
     fn RemoveEffect(&self, peffect: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
     fn RemoveAllEffects(&self) -> ::windows::core::Result<()>;
@@ -11592,12 +11592,12 @@ impl IMFPMediaPlayer_Vtbl {
             let this = (*this).get_impl();
             this.UpdateVideo().into()
         }
-        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBorderColor(::core::mem::transmute_copy(&clr)).into()
         }
-        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFPMediaPlayer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBorderColor() {
@@ -17063,8 +17063,8 @@ pub trait IMFVideoDisplayControl_Impl: Sized {
     fn GetVideoWindow(&self) -> ::windows::core::Result<super::super::Foundation::HWND>;
     fn RepaintVideo(&self) -> ::windows::core::Result<()>;
     fn GetCurrentImage(&self, pbih: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, pdib: *mut *mut u8, pcbdib: *mut u32, ptimestamp: *mut i64) -> ::windows::core::Result<()>;
-    fn SetBorderColor(&self, clr: u32) -> ::windows::core::Result<()>;
-    fn GetBorderColor(&self) -> ::windows::core::Result<u32>;
+    fn SetBorderColor(&self, clr: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetBorderColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
     fn SetRenderingPrefs(&self, dwrenderflags: u32) -> ::windows::core::Result<()>;
     fn GetRenderingPrefs(&self) -> ::windows::core::Result<u32>;
     fn SetFullscreen(&self, ffullscreen: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -17137,12 +17137,12 @@ impl IMFVideoDisplayControl_Vtbl {
             let this = (*this).get_impl();
             this.GetCurrentImage(::core::mem::transmute_copy(&pbih), ::core::mem::transmute_copy(&pdib), ::core::mem::transmute_copy(&pcbdib), ::core::mem::transmute_copy(&ptimestamp)).into()
         }
-        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBorderColor(::core::mem::transmute_copy(&clr)).into()
         }
-        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBorderColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoDisplayControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBorderColor() {
@@ -17428,7 +17428,7 @@ impl IMFVideoPresenter_Vtbl {
         iid == &<IMFVideoPresenter as ::windows::core::Interface>::IID || iid == &<IMFClockStateSink as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IMFVideoProcessor_Impl: Sized {
     fn GetAvailableVideoProcessorModes(&self, lpdwnumprocessingmodes: *mut u32, ppvideoprocessingmodes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
     fn GetVideoProcessorCaps(&self, lpvideoprocessormode: *const ::windows::core::GUID) -> ::windows::core::Result<DXVA2_VideoProcessorCaps>;
@@ -17440,12 +17440,12 @@ pub trait IMFVideoProcessor_Impl: Sized {
     fn GetFilteringRange(&self, dwproperty: u32) -> ::windows::core::Result<DXVA2_ValueRange>;
     fn GetFilteringValue(&self, dwproperty: u32) -> ::windows::core::Result<DXVA2_Fixed32>;
     fn SetFilteringValue(&self, dwproperty: u32, pvalue: *const DXVA2_Fixed32) -> ::windows::core::Result<()>;
-    fn GetBackgroundColor(&self) -> ::windows::core::Result<u32>;
-    fn SetBackgroundColor(&self, clrbkg: u32) -> ::windows::core::Result<()>;
+    fn GetBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
+    fn SetBackgroundColor(&self, clrbkg: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl ::windows::core::RuntimeName for IMFVideoProcessor {}
-#[cfg(feature = "Win32_Graphics_Direct3D9")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))]
 impl IMFVideoProcessor_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoProcessor_Impl, const OFFSET: isize>() -> IMFVideoProcessor_Vtbl {
         unsafe extern "system" fn GetAvailableVideoProcessorModes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdwnumprocessingmodes: *mut u32, ppvideoprocessingmodes: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
@@ -17534,7 +17534,7 @@ impl IMFVideoProcessor_Vtbl {
             let this = (*this).get_impl();
             this.SetFilteringValue(::core::mem::transmute_copy(&dwproperty), ::core::mem::transmute_copy(&pvalue)).into()
         }
-        unsafe extern "system" fn GetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclrbkg: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpclrbkg: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBackgroundColor() {
@@ -17545,7 +17545,7 @@ impl IMFVideoProcessor_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbkg: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFVideoProcessor_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clrbkg: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBackgroundColor(::core::mem::transmute_copy(&clrbkg)).into()

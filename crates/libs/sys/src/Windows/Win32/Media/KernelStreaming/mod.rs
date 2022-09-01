@@ -192,13 +192,6 @@ impl ::core::clone::Clone for CC_HW_FIELD {
 pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
 pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3120081982, data2: 3953, data3: 4562, data4: [183, 44, 0, 192, 79, 182, 189, 61] };
 pub const CLSID_Proxy: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 399288091, data2: 60631, data3: 4560, data4: [185, 8, 0, 160, 201, 34, 49, 150] };
-pub const CODECAPI_ALLSETTINGS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1784118930, data2: 33761, data3: 16659, data4: [173, 194, 79, 206, 195, 47, 131, 161] };
-pub const CODECAPI_AUDIO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3117521470, data2: 63639, data3: 17052, data4: [188, 70, 129, 56, 183, 39, 43, 45] };
-pub const CODECAPI_CHANGELISTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1655777999, data2: 63152, data3: 18393, data4: [148, 86, 150, 242, 44, 78, 11, 157] };
-pub const CODECAPI_CURRENTCHANGELIST: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 481382019, data2: 32114, data3: 18007, data4: [131, 253, 71, 162, 197, 185, 209, 61] };
-pub const CODECAPI_SETALLDEFAULTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1818126972, data2: 44280, data3: 20309, data4: [169, 153, 26, 98, 129, 9, 5, 27] };
-pub const CODECAPI_SUPPORTSEVENTS: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 92385175, data2: 30355, data3: 19901, data4: [157, 202, 63, 158, 189, 101, 133, 161] };
-pub const CODECAPI_VIDEO_ENCODER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1897064673, data2: 15619, data3: 18415, data4: [142, 96, 3, 241, 207, 83, 115, 1] };
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type CONSTRICTOR_OPTION = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
@@ -296,9 +289,6 @@ impl ::core::clone::Clone for DS3DVECTOR_2 {
         *self
     }
 }
-pub const ENCAPIPARAM_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1238125635, data2: 51843, data3: 19156, data4: [169, 175, 243, 105, 106, 246, 102, 223] };
-pub const ENCAPIPARAM_BITRATE_MODE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3999248988, data2: 50963, data3: 16593, data4: [157, 88, 192, 215, 36, 30, 37, 15] };
-pub const ENCAPIPARAM_PEAK_BITRATE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1883182761, data2: 15688, data3: 17569, data4: [176, 119, 1, 141, 255, 145, 93, 25] };
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub type EPcxConnectionType = i32;
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]

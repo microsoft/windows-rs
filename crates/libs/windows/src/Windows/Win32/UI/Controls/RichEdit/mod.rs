@@ -466,10 +466,10 @@ impl ::core::fmt::Debug for CHANGETYPE {
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2A {
-    pub __AnonymousBase_richedit_L736_C23: CHARFORMATA,
+    pub Base: CHARFORMATA,
     pub wWeight: u16,
     pub sSpacing: i16,
-    pub crBackColor: u32,
+    pub crBackColor: super::super::super::Foundation::COLORREF,
     pub lcid: u32,
     pub Anonymous: CHARFORMAT2A_0,
     pub sStyle: i16,
@@ -539,12 +539,13 @@ impl ::core::default::Default for CHARFORMAT2A_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2W {
-    pub __AnonymousBase_richedit_L711_C23: CHARFORMATW,
+    pub Base: CHARFORMATW,
     pub wWeight: u16,
     pub sSpacing: i16,
-    pub crBackColor: u32,
+    pub crBackColor: super::super::super::Foundation::COLORREF,
     pub lcid: u32,
     pub Anonymous: CHARFORMAT2W_0,
     pub sStyle: i16,
@@ -554,47 +555,60 @@ pub struct CHARFORMAT2W {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMAT2W {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMAT2W {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHARFORMAT2W {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHARFORMAT2W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMAT2W>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHARFORMAT2W {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHARFORMAT2W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMAT2W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMAT2W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHARFORMAT2W_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHARFORMAT2W_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMAT2W_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHARFORMAT2W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHARFORMAT2W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -609,7 +623,7 @@ pub struct CHARFORMATA {
     pub dwEffects: CFE_EFFECTS,
     pub yHeight: i32,
     pub yOffset: i32,
-    pub crTextColor: u32,
+    pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: u8,
     pub bPitchAndFamily: u8,
     pub szFaceName: [super::super::super::Foundation::CHAR; 32],
@@ -647,38 +661,46 @@ impl ::core::default::Default for CHARFORMATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMATW {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
     pub dwEffects: CFE_EFFECTS,
     pub yHeight: i32,
     pub yOffset: i32,
-    pub crTextColor: u32,
+    pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: u8,
     pub bPitchAndFamily: u8,
     pub szFaceName: [u16; 32],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMATW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMATW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for CHARFORMATW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("CHARFORMATW").field("cbSize", &self.cbSize).field("dwMask", &self.dwMask).field("dwEffects", &self.dwEffects).field("yHeight", &self.yHeight).field("yOffset", &self.yOffset).field("crTextColor", &self.crTextColor).field("bCharSet", &self.bCharSet).field("bPitchAndFamily", &self.bPitchAndFamily).field("szFaceName", &self.szFaceName).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHARFORMATW {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHARFORMATW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMATW>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHARFORMATW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHARFORMATW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -749,32 +771,40 @@ impl ::core::default::Default for CLIPBOARDFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMPCOLOR {
-    pub crText: u32,
-    pub crBackground: u32,
+    pub crText: super::super::super::Foundation::COLORREF,
+    pub crBackground: super::super::super::Foundation::COLORREF,
     pub dwEffects: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMPCOLOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMPCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COMPCOLOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("COMPCOLOR").field("crText", &self.crText).field("crBackground", &self.crBackground).field("dwEffects", &self.dwEffects).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COMPCOLOR {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COMPCOLOR {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPCOLOR>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COMPCOLOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COMPCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3220,12 +3250,19 @@ impl ITextDocument2Old {
     {
         (::windows::core::Interface::vtable(self).AttachMsgFilter)(::windows::core::Interface::as_raw(self), pfilter.into().abi()).ok()
     }
-    pub unsafe fn SetEffectColor(&self, index: i32, cr: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEffectColor)(::windows::core::Interface::as_raw(self), index, cr).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetEffectColor<'a, P0>(&self, index: i32, cr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetEffectColor)(::windows::core::Interface::as_raw(self), index, cr.into()).ok()
     }
-    pub unsafe fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetEffectColor)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetEffectColor)(::windows::core::Interface::as_raw(self), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn GetCaretType(&self) -> ::windows::core::Result<i32> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -3396,8 +3433,14 @@ unsafe impl ::windows::core::Interface for ITextDocument2Old {
 pub struct ITextDocument2Old_Vtbl {
     pub base__: ITextDocument_Vtbl,
     pub AttachMsgFilter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, cr: u32) -> ::windows::core::HRESULT,
-    pub GetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pcr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, cr: super::super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetEffectColor: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetEffectColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: i32, pcr: *mut super::super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetEffectColor: usize,
     pub GetCaretType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcarettype: *mut i32) -> ::windows::core::HRESULT,
     pub SetCaretType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, carettype: i32) -> ::windows::core::HRESULT,
     pub GetImmContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcontext: *mut i64) -> ::windows::core::HRESULT,
@@ -4464,13 +4507,17 @@ impl ITextHost {
     pub unsafe fn TxGetViewInset(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetViewInset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
     }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetCharFormat(&self, ppcf: &*const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetCharFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppcf)).ok()
     }
     pub unsafe fn TxGetParaFormat(&self, pppf: &*const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetParaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppf)).ok()
     }
-    pub unsafe fn TxGetSysColor(&self, nindex: i32) -> u32 {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TxGetSysColor(&self, nindex: i32) -> super::super::super::Foundation::COLORREF {
         (::windows::core::Interface::vtable(self).TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: &mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
@@ -4494,6 +4541,8 @@ impl ITextHost {
     pub unsafe fn TxGetExtent(&self, lpextent: &mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).TxGetExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpextent)).ok()
     }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: &CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OnTxCharFormatChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcf)).ok()
     }
@@ -4642,9 +4691,15 @@ pub struct ITextHost_Vtbl {
     pub TxGetViewInset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     TxGetViewInset: usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub TxGetCharFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcf: *const *const CHARFORMATW) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    TxGetCharFormat: usize,
     pub TxGetParaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppf: *const *const PARAFORMAT) -> ::windows::core::HRESULT,
-    pub TxGetSysColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32) -> u32,
+    #[cfg(feature = "Win32_Foundation")]
+    pub TxGetSysColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32) -> super::super::super::Foundation::COLORREF,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    TxGetSysColor: usize,
     pub TxGetBackStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::HRESULT,
     pub TxGetMaxLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plength: *mut u32) -> ::windows::core::HRESULT,
     pub TxGetScrollBars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwscrollbar: *mut u32) -> ::windows::core::HRESULT,
@@ -4654,7 +4709,10 @@ pub struct ITextHost_Vtbl {
     pub TxGetExtent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpextent: *mut super::super::super::Foundation::SIZE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     TxGetExtent: usize,
+    #[cfg(feature = "Win32_Foundation")]
     pub OnTxCharFormatChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcf: *const CHARFORMATW) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    OnTxCharFormatChange: usize,
     pub OnTxParaFormatChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppf: *const PARAFORMAT) -> ::windows::core::HRESULT,
     pub TxGetPropertyBits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmask: u32, pdwbits: *mut u32) -> ::windows::core::HRESULT,
     pub TxNotify: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inotify: u32, pv: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -4813,13 +4871,17 @@ impl ITextHost2 {
     pub unsafe fn TxGetViewInset(&self, prc: &mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetViewInset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc)).ok()
     }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TxGetCharFormat(&self, ppcf: &*const CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetCharFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppcf)).ok()
     }
     pub unsafe fn TxGetParaFormat(&self, pppf: &*const PARAFORMAT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetParaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pppf)).ok()
     }
-    pub unsafe fn TxGetSysColor(&self, nindex: i32) -> u32 {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TxGetSysColor(&self, nindex: i32) -> super::super::super::Foundation::COLORREF {
         (::windows::core::Interface::vtable(self).base__.TxGetSysColor)(::windows::core::Interface::as_raw(self), nindex)
     }
     pub unsafe fn TxGetBackStyle(&self, pstyle: &mut TXTBACKSTYLE) -> ::windows::core::Result<()> {
@@ -4843,6 +4905,8 @@ impl ITextHost2 {
     pub unsafe fn TxGetExtent(&self, lpextent: &mut super::super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.TxGetExtent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpextent)).ok()
     }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnTxCharFormatChange(&self, pcf: &CHARFORMATW) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.OnTxCharFormatChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcf)).ok()
     }
@@ -9422,7 +9486,7 @@ impl ::core::default::Default for PARAFORMAT_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct PARAFORMAT2 {
-    pub __AnonymousBase_richedit_L1149_C22: PARAFORMAT,
+    pub Base: PARAFORMAT,
     pub dySpaceBefore: i32,
     pub dySpaceAfter: i32,
     pub dyLineSpacing: i32,
@@ -10421,7 +10485,8 @@ pub const ST_UNICODE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const S_MSG_KEY_IGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(262657i32);
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,
     pub _bitfield: u16,
@@ -10430,19 +10495,22 @@ pub struct TABLECELLPARMS {
     pub dyBrdrTop: i16,
     pub dxBrdrRight: i16,
     pub dyBrdrBottom: i16,
-    pub crBrdrLeft: u32,
-    pub crBrdrTop: u32,
-    pub crBrdrRight: u32,
-    pub crBrdrBottom: u32,
-    pub crBackPat: u32,
-    pub crForePat: u32,
+    pub crBrdrLeft: super::super::super::Foundation::COLORREF,
+    pub crBrdrTop: super::super::super::Foundation::COLORREF,
+    pub crBrdrRight: super::super::super::Foundation::COLORREF,
+    pub crBrdrBottom: super::super::super::Foundation::COLORREF,
+    pub crBackPat: super::super::super::Foundation::COLORREF,
+    pub crForePat: super::super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TABLECELLPARMS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TABLECELLPARMS {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for TABLECELLPARMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("TABLECELLPARMS")
@@ -10462,15 +10530,19 @@ impl ::core::fmt::Debug for TABLECELLPARMS {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for TABLECELLPARMS {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TABLECELLPARMS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TABLECELLPARMS>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TABLECELLPARMS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TABLECELLPARMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

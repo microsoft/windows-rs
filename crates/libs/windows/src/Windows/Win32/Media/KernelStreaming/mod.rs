@@ -331,13 +331,6 @@ impl ::core::default::Default for CC_HW_FIELD {
 pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
 pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
 pub const CLSID_Proxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
-pub const CODECAPI_ALLSETTINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a577e92_83e1_4113_adc2_4fcec32f83a1);
-pub const CODECAPI_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9d19a3e_f897_429c_bc46_8138b7272b2d);
-pub const CODECAPI_CHANGELISTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b12acf_f6b0_47d9_9456_96f22c4e0b9d);
-pub const CODECAPI_CURRENTCHANGELIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb14e83_7d72_4657_83fd_47a2c5b9d13d);
-pub const CODECAPI_SETALLDEFAULTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c5e6a7c_acf8_4f55_a999_1a628109051b);
-pub const CODECAPI_SUPPORTSEVENTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0581af97_7693_4dbd_9dca_3f9ebd6585a1);
-pub const CODECAPI_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7112e8e1_3d03_47ef_8e60_03f1cf537301);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -555,9 +548,6 @@ impl ::core::default::Default for DS3DVECTOR_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const ENCAPIPARAM_BITRATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49cc4c43_ca83_4ad4_a9af_f3696af666df);
-pub const ENCAPIPARAM_BITRATE_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5fb25c_c713_40d1_9d58_c0d7241e250f);
-pub const ENCAPIPARAM_PEAK_BITRATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x703f16a9_3d48_44a1_b077_018dff915d19);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

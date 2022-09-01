@@ -732,6 +732,33 @@ pub const CLIPBRD_E_LAST: i32 = -2147221025i32;
 pub const CLIPBRD_S_FIRST: i32 = 262608i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const CLIPBRD_S_LAST: i32 = 262623i32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COLORREF(pub u32);
+impl ::core::default::Default for COLORREF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for COLORREF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for COLORREF {}
+impl ::core::fmt::Debug for COLORREF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COLORREF").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<COLORREF>> for COLORREF {
+    fn from(optional: ::core::option::Option<COLORREF>) -> COLORREF {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for COLORREF {
+    type Abi = Self;
+}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const COMADMIN_E_ALREADYINSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146368508i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12934,15 +12961,12 @@ where
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
-pub unsafe fn SysAllocStringByteLen<'a, P0>(psz: P0, len: u32) -> BSTR
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
+pub unsafe fn SysAllocStringByteLen(psz: ::core::option::Option<&[u8]>) -> BSTR {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
     }
-    SysAllocStringByteLen(psz.into(), len)
+    SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _))
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[inline]
@@ -14280,7 +14304,7 @@ pub const WAIT_ABANDONED: WIN32_ERROR = WIN32_ERROR(128u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WAIT_ABANDONED_0: WIN32_ERROR = WIN32_ERROR(128u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WAIT_IO_COMPLETION: WIN32_ERROR = WIN32_ERROR(129u32);
+pub const WAIT_IO_COMPLETION: WIN32_ERROR = WIN32_ERROR(192u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WAIT_TIMEOUT: WIN32_ERROR = WIN32_ERROR(258u32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]

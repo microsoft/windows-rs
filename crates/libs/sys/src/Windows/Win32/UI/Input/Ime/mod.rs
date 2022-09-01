@@ -50,10 +50,10 @@ extern "system" {
     pub fn ImmEnumRegisterWordW(param0: super::super::TextServices::HKL, param1: REGISTERWORDENUMPROCW, lpszreading: ::windows_sys::core::PCWSTR, param3: u32, lpszregister: ::windows_sys::core::PCWSTR, param5: *mut ::core::ffi::c_void) -> u32;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEscapeA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
+    pub fn ImmEscapeA(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: IME_ESCAPE, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_UI_TextServices"))]
-    pub fn ImmEscapeW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: u32, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
+    pub fn ImmEscapeW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, param2: IME_ESCAPE, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::LRESULT;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub fn ImmGenerateMessage(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
@@ -80,10 +80,10 @@ extern "system" {
     pub fn ImmGetCompositionFontW(param0: super::super::super::Globalization::HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
+    pub fn ImmGetCompositionStringA(param0: super::super::super::Globalization::HIMC, param1: IME_COMPOSITION_STRING, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Globalization\"`*"]
     #[cfg(feature = "Win32_Globalization")]
-    pub fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: u32, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
+    pub fn ImmGetCompositionStringW(param0: super::super::super::Globalization::HIMC, param1: IME_COMPOSITION_STRING, lpbuf: *mut ::core::ffi::c_void, dwbuflen: u32) -> i32;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub fn ImmGetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *mut COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
@@ -98,7 +98,7 @@ extern "system" {
     pub fn ImmGetConversionListW(param0: super::super::TextServices::HKL, param1: super::super::super::Globalization::HIMC, lpsrc: ::windows_sys::core::PCWSTR, lpdst: *mut CANDIDATELIST, dwbuflen: u32, uflag: GET_CONVERSION_LIST_FLAG) -> u32;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmGetConversionStatus(param0: super::super::super::Globalization::HIMC, lpfdwconversion: *mut u32, lpfdwsentence: *mut u32) -> super::super::super::Foundation::BOOL;
+    pub fn ImmGetConversionStatus(param0: super::super::super::Globalization::HIMC, lpfdwconversion: *mut IME_CONVERSION_MODE, lpfdwsentence: *mut IME_SENTENCE_MODE) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND;
@@ -218,7 +218,7 @@ extern "system" {
     pub fn ImmSetCompositionWindow(param0: super::super::super::Globalization::HIMC, lpcompform: *const COMPOSITIONFORM) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub fn ImmSetConversionStatus(param0: super::super::super::Globalization::HIMC, param1: u32, param2: u32) -> super::super::super::Foundation::BOOL;
+    pub fn ImmSetConversionStatus(param0: super::super::super::Globalization::HIMC, param1: IME_CONVERSION_MODE, param2: IME_SENTENCE_MODE) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_UI_TextServices\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
     pub fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::super::TextServices::HKL) -> super::super::super::Foundation::BOOL;
@@ -233,7 +233,7 @@ extern "system" {
     pub fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: u32) -> super::super::super::Foundation::BOOL;
+    pub fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: IME_HOTKEY_IDENTIFIER) -> super::super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`, `\"Win32_Foundation\"`, `\"Win32_Globalization\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
     pub fn ImmUnlockIMC(param0: super::super::super::Globalization::HIMC) -> super::super::super::Foundation::BOOL;
@@ -538,30 +538,6 @@ pub const FID_MSIME_VERSION: u32 = 0u32;
 pub const FID_RECONVERT_VERSION: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const GCSEX_CANCELRECONVERT: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_COMPATTR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_COMPCLAUSE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_COMPREADATTR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_COMPREADCLAUSE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_COMPREADSTR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_COMPSTR: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_CURSORPOS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_DELTASTART: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_RESULTCLAUSE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_RESULTREADCLAUSE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_RESULTREADSTR: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const GCS_RESULTSTR: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub type GET_CONVERSION_LIST_FLAG = u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
@@ -1559,23 +1535,31 @@ pub const IME_CAND_STROKE: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_CAND_UNKNOWN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CHOTKEY_IME_NONIME_TOGGLE: u32 = 16u32;
+pub type IME_COMPOSITION_STRING = u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CHOTKEY_SHAPE_TOGGLE: u32 = 17u32;
+pub const GCS_COMPREADSTR: IME_COMPOSITION_STRING = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CHOTKEY_SYMBOL_TOGGLE: u32 = 18u32;
+pub const GCS_COMPREADATTR: IME_COMPOSITION_STRING = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CMODE_EUDC: u32 = 512u32;
+pub const GCS_COMPREADCLAUSE: IME_COMPOSITION_STRING = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CMODE_FIXED: u32 = 2048u32;
+pub const GCS_COMPSTR: IME_COMPOSITION_STRING = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CMODE_NOCONVERSION: u32 = 256u32;
+pub const GCS_COMPATTR: IME_COMPOSITION_STRING = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CMODE_RESERVED: u32 = 4026531840u32;
+pub const GCS_COMPCLAUSE: IME_COMPOSITION_STRING = 32u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CMODE_SOFTKBD: u32 = 128u32;
+pub const GCS_CURSORPOS: IME_COMPOSITION_STRING = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_CMODE_SYMBOL: u32 = 1024u32;
+pub const GCS_DELTASTART: IME_COMPOSITION_STRING = 256u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const GCS_RESULTREADSTR: IME_COMPOSITION_STRING = 512u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const GCS_RESULTREADCLAUSE: IME_COMPOSITION_STRING = 1024u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const GCS_RESULTSTR: IME_COMPOSITION_STRING = 2048u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const GCS_RESULTCLAUSE: IME_COMPOSITION_STRING = 4096u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_CONFIG_GENERAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
@@ -1583,61 +1567,117 @@ pub const IME_CONFIG_REGISTERWORD: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_CONFIG_SELECTDICTIONARY: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_AUTOMATA: u32 = 4105u32;
+pub type IME_CONVERSION_MODE = u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_GETHELPFILENAME: u32 = 4107u32;
+pub const IME_CMODE_ALPHANUMERIC: IME_CONVERSION_MODE = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_GET_EUDC_DICTIONARY: u32 = 4099u32;
+pub const IME_CMODE_NATIVE: IME_CONVERSION_MODE = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_HANJA_MODE: u32 = 4104u32;
+pub const IME_CMODE_CHINESE: IME_CONVERSION_MODE = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_IME_NAME: u32 = 4102u32;
+pub const IME_CMODE_HANGUL: IME_CONVERSION_MODE = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_MAX_KEY: u32 = 4101u32;
+pub const IME_CMODE_JAPANESE: IME_CONVERSION_MODE = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_PRIVATE_FIRST: u32 = 2048u32;
+pub const IME_CMODE_KATAKANA: IME_CONVERSION_MODE = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_PRIVATE_HOTKEY: u32 = 4106u32;
+pub const IME_CMODE_LANGUAGE: IME_CONVERSION_MODE = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_PRIVATE_LAST: u32 = 4095u32;
+pub const IME_CMODE_FULLSHAPE: IME_CONVERSION_MODE = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_QUERY_SUPPORT: u32 = 3u32;
+pub const IME_CMODE_ROMAN: IME_CONVERSION_MODE = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_RESERVED_FIRST: u32 = 4u32;
+pub const IME_CMODE_CHARCODE: IME_CONVERSION_MODE = 32u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_RESERVED_LAST: u32 = 2047u32;
+pub const IME_CMODE_HANJACONVERT: IME_CONVERSION_MODE = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_SEQUENCE_TO_INTERNAL: u32 = 4097u32;
+pub const IME_CMODE_NATIVESYMBOL: IME_CONVERSION_MODE = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_SET_EUDC_DICTIONARY: u32 = 4100u32;
+pub const IME_CMODE_HANGEUL: IME_CONVERSION_MODE = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CMODE_SOFTKBD: IME_CONVERSION_MODE = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CMODE_NOCONVERSION: IME_CONVERSION_MODE = 256u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CMODE_EUDC: IME_CONVERSION_MODE = 512u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CMODE_SYMBOL: IME_CONVERSION_MODE = 1024u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CMODE_FIXED: IME_CONVERSION_MODE = 2048u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CMODE_RESERVED: IME_CONVERSION_MODE = 4026531840u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub type IME_ESCAPE = u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_QUERY_SUPPORT: IME_ESCAPE = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_RESERVED_FIRST: IME_ESCAPE = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_RESERVED_LAST: IME_ESCAPE = 2047u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_PRIVATE_FIRST: IME_ESCAPE = 2048u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_PRIVATE_LAST: IME_ESCAPE = 4095u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_SEQUENCE_TO_INTERNAL: IME_ESCAPE = 4097u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_GET_EUDC_DICTIONARY: IME_ESCAPE = 4099u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_SET_EUDC_DICTIONARY: IME_ESCAPE = 4100u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_MAX_KEY: IME_ESCAPE = 4101u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_IME_NAME: IME_ESCAPE = 4102u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_SYNC_HOTKEY: IME_ESCAPE = 4103u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_HANJA_MODE: IME_ESCAPE = 4104u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_AUTOMATA: IME_ESCAPE = 4105u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_PRIVATE_HOTKEY: IME_ESCAPE = 4106u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ESC_GETHELPFILENAME: IME_ESCAPE = 4107u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_ESC_STRING_BUFFER_SIZE: u32 = 80u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ESC_SYNC_HOTKEY: u32 = 4103u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_HOTKEY_DSWITCH_FIRST: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_HOTKEY_DSWITCH_LAST: u32 = 287u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub type IME_HOTKEY_IDENTIFIER = u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CHOTKEY_IME_NONIME_TOGGLE: IME_HOTKEY_IDENTIFIER = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CHOTKEY_SHAPE_TOGGLE: IME_HOTKEY_IDENTIFIER = 17u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_CHOTKEY_SYMBOL_TOGGLE: IME_HOTKEY_IDENTIFIER = 18u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_JHOTKEY_CLOSE_OPEN: IME_HOTKEY_IDENTIFIER = 48u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_KHOTKEY_SHAPE_TOGGLE: IME_HOTKEY_IDENTIFIER = 80u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_KHOTKEY_HANJACONVERT: IME_HOTKEY_IDENTIFIER = 81u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_KHOTKEY_ENGLISH: IME_HOTKEY_IDENTIFIER = 82u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_THOTKEY_IME_NONIME_TOGGLE: IME_HOTKEY_IDENTIFIER = 112u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_THOTKEY_SHAPE_TOGGLE: IME_HOTKEY_IDENTIFIER = 113u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_THOTKEY_SYMBOL_TOGGLE: IME_HOTKEY_IDENTIFIER = 114u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ITHOTKEY_RESEND_RESULTSTR: IME_HOTKEY_IDENTIFIER = 512u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ITHOTKEY_PREVIOUS_COMPOSITION: IME_HOTKEY_IDENTIFIER = 513u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ITHOTKEY_UISTYLE_TOGGLE: IME_HOTKEY_IDENTIFIER = 514u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_ITHOTKEY_RECONVERTSTRING: IME_HOTKEY_IDENTIFIER = 515u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_HOTKEY_PRIVATE_FIRST: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_HOTKEY_PRIVATE_LAST: u32 = 543u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ITHOTKEY_PREVIOUS_COMPOSITION: u32 = 513u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ITHOTKEY_RECONVERTSTRING: u32 = 515u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ITHOTKEY_RESEND_RESULTSTR: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_ITHOTKEY_UISTYLE_TOGGLE: u32 = 514u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_JHOTKEY_CLOSE_OPEN: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_KHOTKEY_ENGLISH: u32 = 82u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_KHOTKEY_HANJACONVERT: u32 = 81u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub type IME_PAD_REQUEST_FLAGS = u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
@@ -1707,29 +1747,25 @@ pub const IME_REGWORD_STYLE_USER_FIRST: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_REGWORD_STYLE_USER_LAST: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_SMODE_AUTOMATIC: u32 = 4u32;
+pub type IME_SENTENCE_MODE = u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_SMODE_CONVERSATION: u32 = 16u32;
+pub const IME_SMODE_NONE: IME_SENTENCE_MODE = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_SMODE_NONE: u32 = 0u32;
+pub const IME_SMODE_PLAURALCLAUSE: IME_SENTENCE_MODE = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_SMODE_PHRASEPREDICT: u32 = 8u32;
+pub const IME_SMODE_SINGLECONVERT: IME_SENTENCE_MODE = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_SMODE_PLAURALCLAUSE: u32 = 1u32;
+pub const IME_SMODE_AUTOMATIC: IME_SENTENCE_MODE = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_SMODE_RESERVED: u32 = 61440u32;
+pub const IME_SMODE_PHRASEPREDICT: IME_SENTENCE_MODE = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_SMODE_SINGLECONVERT: u32 = 2u32;
+pub const IME_SMODE_CONVERSATION: IME_SENTENCE_MODE = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
+pub const IME_SMODE_RESERVED: IME_SENTENCE_MODE = 61440u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_SYSINFO_WINLOGON: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_SYSINFO_WOW16: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_THOTKEY_IME_NONIME_TOGGLE: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_THOTKEY_SHAPE_TOGGLE: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
-pub const IME_THOTKEY_SYMBOL_TOGGLE: u32 = 114u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]
 pub const IME_UI_CLASS_NAME_SIZE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Input_Ime\"`*"]

@@ -529,24 +529,30 @@ pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = 5i32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = -1i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct TF_DA_COLOR {
     pub r#type: TF_DA_COLORTYPE,
     pub Anonymous: TF_DA_COLOR_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TF_DA_COLOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_DA_COLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union TF_DA_COLOR_0 {
     pub nIndex: i32,
-    pub cr: u32,
+    pub cr: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TF_DA_COLOR_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_DA_COLOR_0 {
     fn clone(&self) -> Self {
         *self

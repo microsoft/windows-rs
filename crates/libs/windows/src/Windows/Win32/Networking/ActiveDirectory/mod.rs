@@ -1868,6 +1868,38 @@ impl ::core::fmt::Debug for ADS_SEARCHPREF_ENUM {
         f.debug_tuple("ADS_SEARCHPREF_ENUM").field(&self.0).finish()
     }
 }
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SEARCH_HANDLE(pub isize);
+impl ADS_SEARCH_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for ADS_SEARCH_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for ADS_SEARCH_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for ADS_SEARCH_HANDLE {}
+impl ::core::fmt::Debug for ADS_SEARCH_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SEARCH_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<ADS_SEARCH_HANDLE>> for ADS_SEARCH_HANDLE {
+    fn from(optional: ::core::option::Option<ADS_SEARCH_HANDLE>) -> ADS_SEARCH_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SEARCH_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -21293,44 +21325,63 @@ impl IDirectorySearch {
     pub unsafe fn SetSearchPreference(&self, psearchprefs: &ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchprefs), dwnumprefs).ok()
     }
-    pub unsafe fn ExecuteSearch<'a, P0>(&self, pszsearchfilter: P0, pattributenames: &::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize>
+    pub unsafe fn ExecuteSearch<'a, P0>(&self, pszsearchfilter: P0, pattributenames: &::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<ADS_SEARCH_HANDLE>
     where
         P0: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pszsearchfilter.into(), ::core::mem::transmute(pattributenames), dwnumberattributes, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pszsearchfilter.into(), ::core::mem::transmute(pattributenames), dwnumberattributes, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ADS_SEARCH_HANDLE>(result__)
     }
-    pub unsafe fn AbandonSearch(&self, phsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AbandonSearch)(::windows::core::Interface::as_raw(self), phsearchresult).ok()
+    pub unsafe fn AbandonSearch<'a, P0>(&self, phsearchresult: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
+    {
+        (::windows::core::Interface::vtable(self).AbandonSearch)(::windows::core::Interface::as_raw(self), phsearchresult.into()).ok()
     }
-    pub unsafe fn GetFirstRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).GetFirstRow)(::windows::core::Interface::as_raw(self), hsearchresult)
+    pub unsafe fn GetFirstRow<'a, P0>(&self, hsearchresult: P0) -> ::windows::core::HRESULT
+    where
+        P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
+    {
+        (::windows::core::Interface::vtable(self).GetFirstRow)(::windows::core::Interface::as_raw(self), hsearchresult.into())
     }
-    pub unsafe fn GetNextRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).GetNextRow)(::windows::core::Interface::as_raw(self), hsearchresult)
+    pub unsafe fn GetNextRow<'a, P0>(&self, hsearchresult: P0) -> ::windows::core::HRESULT
+    where
+        P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
+    {
+        (::windows::core::Interface::vtable(self).GetNextRow)(::windows::core::Interface::as_raw(self), hsearchresult.into())
     }
-    pub unsafe fn GetPreviousRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).GetPreviousRow)(::windows::core::Interface::as_raw(self), hsearchresult)
+    pub unsafe fn GetPreviousRow<'a, P0>(&self, hsearchresult: P0) -> ::windows::core::HRESULT
+    where
+        P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
+    {
+        (::windows::core::Interface::vtable(self).GetPreviousRow)(::windows::core::Interface::as_raw(self), hsearchresult.into())
     }
-    pub unsafe fn GetNextColumnName(&self, hsearchhandle: isize, ppszcolumnname: &mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
-        (::windows::core::Interface::vtable(self).GetNextColumnName)(::windows::core::Interface::as_raw(self), hsearchhandle, ::core::mem::transmute(ppszcolumnname))
+    pub unsafe fn GetNextColumnName<'a, P0>(&self, hsearchhandle: P0, ppszcolumnname: &mut ::windows::core::PWSTR) -> ::windows::core::HRESULT
+    where
+        P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
+    {
+        (::windows::core::Interface::vtable(self).GetNextColumnName)(::windows::core::Interface::as_raw(self), hsearchhandle.into(), ::core::mem::transmute(ppszcolumnname))
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetColumn<'a, P0>(&self, hsearchresult: isize, szcolumnname: P0) -> ::windows::core::Result<ads_search_column>
+    pub unsafe fn GetColumn<'a, P0, P1>(&self, hsearchresult: P0, szcolumnname: P1) -> ::windows::core::Result<ads_search_column>
     where
-        P0: ::std::convert::Into<::windows::core::PCWSTR>,
+        P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
+        P1: ::std::convert::Into<::windows::core::PCWSTR>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), hsearchresult, szcolumnname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ads_search_column>(result__)
+        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), hsearchresult.into(), szcolumnname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ads_search_column>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FreeColumn(&self, psearchcolumn: &ads_search_column) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FreeColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchcolumn)).ok()
     }
-    pub unsafe fn CloseSearchHandle(&self, hsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseSearchHandle)(::windows::core::Interface::as_raw(self), hsearchresult).ok()
+    pub unsafe fn CloseSearchHandle<'a, P0>(&self, hsearchresult: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<ADS_SEARCH_HANDLE>,
+    {
+        (::windows::core::Interface::vtable(self).CloseSearchHandle)(::windows::core::Interface::as_raw(self), hsearchresult.into()).ok()
     }
 }
 impl ::core::convert::From<IDirectorySearch> for ::windows::core::IUnknown {
@@ -21376,21 +21427,21 @@ pub struct IDirectorySearch_Vtbl {
     pub SetSearchPreference: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetSearchPreference: usize,
-    pub ExecuteSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsearchfilter: ::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, phsearchresult: *mut isize) -> ::windows::core::HRESULT,
-    pub AbandonSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phsearchresult: isize) -> ::windows::core::HRESULT,
-    pub GetFirstRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT,
-    pub GetNextRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT,
-    pub GetPreviousRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT,
-    pub GetNextColumnName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchhandle: isize, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
+    pub ExecuteSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszsearchfilter: ::windows::core::PCWSTR, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, phsearchresult: *mut ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
+    pub AbandonSearch: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
+    pub GetFirstRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
+    pub GetNextRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
+    pub GetPreviousRow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
+    pub GetNextColumnName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchhandle: ADS_SEARCH_HANDLE, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: isize, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ads_search_column) -> ::windows::core::HRESULT,
+    pub GetColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE, szcolumnname: ::windows::core::PCWSTR, psearchcolumn: *mut ads_search_column) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetColumn: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub FreeColumn: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psearchcolumn: *const ads_search_column) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     FreeColumn: usize,
-    pub CloseSearchHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: isize) -> ::windows::core::HRESULT,
+    pub CloseSearchHandle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsearchresult: ADS_SEARCH_HANDLE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[repr(transparent)]

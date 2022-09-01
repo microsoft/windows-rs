@@ -1681,9 +1681,9 @@ impl ::core::fmt::Debug for D3D11_BUFFEREX_SRV_FLAG {
 pub struct D3D11_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
     pub StructureByteStride: u32,
 }
 impl ::core::marker::Copy for D3D11_BUFFER_DESC {}
@@ -11830,9 +11830,9 @@ pub struct D3D11_TEXTURE1D_DESC {
     pub ArraySize: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_TEXTURE1D_DESC {}
@@ -11924,9 +11924,9 @@ pub struct D3D11_TEXTURE2D_DESC1 {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -11971,9 +11971,9 @@ pub struct D3D11_TEXTURE3D_DESC {
     pub MipLevels: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_TEXTURE3D_DESC {}
@@ -12017,9 +12017,9 @@ pub struct D3D11_TEXTURE3D_DESC1 {
     pub MipLevels: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -27628,7 +27628,7 @@ impl ID3D11VideoContext {
     {
         (::windows::core::Interface::vtable(self).NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
@@ -27636,7 +27636,7 @@ impl ID3D11VideoContext {
     {
         (::windows::core::Interface::vtable(self).EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
@@ -27889,8 +27889,8 @@ pub struct ID3D11VideoContext_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     VideoProcessorBlt: usize,
     pub NegotiateCryptoSessionKeyExchange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub EncryptionBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, psrcsurface: *mut ::core::ffi::c_void, pdstsurface: *mut ::core::ffi::c_void, ivsize: u32, piv: *const ::core::ffi::c_void),
-    pub DecryptionBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, psrcsurface: *mut ::core::ffi::c_void, pdstsurface: *mut ::core::ffi::c_void, pencryptedblockinfo: *const D3D11_ENCRYPTED_BLOCK_INFO, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, ivsize: u32, piv: *const ::core::ffi::c_void),
+    pub EncryptionBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, psrcsurface: *mut ::core::ffi::c_void, pdstsurface: *mut ::core::ffi::c_void, ivsize: u32, piv: *mut ::core::ffi::c_void),
+    pub DecryptionBlt: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, psrcsurface: *mut ::core::ffi::c_void, pdstsurface: *mut ::core::ffi::c_void, pencryptedblockinfo: *const D3D11_ENCRYPTED_BLOCK_INFO, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, ivsize: u32, piv: *mut ::core::ffi::c_void),
     pub StartSessionKeyRefresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, randomnumbersize: u32, prandomnumber: *mut ::core::ffi::c_void),
     pub FinishSessionKeyRefresh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void),
     pub GetEncryptionBltKey: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptosession: *mut ::core::ffi::c_void, keysize: u32, preadbackkey: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -28289,7 +28289,7 @@ impl ID3D11VideoContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
@@ -28297,7 +28297,7 @@ impl ID3D11VideoContext1 {
     {
         (::windows::core::Interface::vtable(self).base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
@@ -28974,7 +28974,7 @@ impl ID3D11VideoContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
@@ -28982,7 +28982,7 @@ impl ID3D11VideoContext2 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
@@ -29675,7 +29675,7 @@ impl ID3D11VideoContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.NegotiateCryptoSessionKeyExchange)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), pdata.len() as _, ::core::mem::transmute(pdata.as_ptr())).ok()
     }
-    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn EncryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,
@@ -29683,7 +29683,7 @@ impl ID3D11VideoContext3 {
     {
         (::windows::core::Interface::vtable(self).base__.base__.base__.EncryptionBlt)(::windows::core::Interface::as_raw(self), pcryptosession.into().abi(), psrcsurface.into().abi(), pdstsurface.into().abi(), piv.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(piv.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())))
     }
-    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&[u8]>)
+    pub unsafe fn DecryptionBlt<'a, P0, P1, P2>(&self, pcryptosession: P0, psrcsurface: P1, pdstsurface: P2, pencryptedblockinfo: ::core::option::Option<&D3D11_ENCRYPTED_BLOCK_INFO>, pcontentkey: ::core::option::Option<&[u8]>, piv: ::core::option::Option<&mut [u8]>)
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, ID3D11CryptoSession>>,
         P1: ::std::convert::Into<::windows::core::InParam<'a, ID3D11Texture2D>>,

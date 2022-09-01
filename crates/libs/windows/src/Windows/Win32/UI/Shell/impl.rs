@@ -5024,8 +5024,8 @@ pub trait IDesktopWallpaper_Impl: Sized {
     fn GetMonitorDevicePathAt(&self, monitorindex: u32) -> ::windows::core::Result<::windows::core::PWSTR>;
     fn GetMonitorDevicePathCount(&self) -> ::windows::core::Result<u32>;
     fn GetMonitorRECT(&self, monitorid: &::windows::core::PCWSTR) -> ::windows::core::Result<super::super::Foundation::RECT>;
-    fn SetBackgroundColor(&self, color: u32) -> ::windows::core::Result<()>;
-    fn GetBackgroundColor(&self) -> ::windows::core::Result<u32>;
+    fn SetBackgroundColor(&self, color: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
     fn SetPosition(&self, position: DESKTOP_WALLPAPER_POSITION) -> ::windows::core::Result<()>;
     fn GetPosition(&self) -> ::windows::core::Result<DESKTOP_WALLPAPER_POSITION>;
     fn SetSlideshow(&self, items: &::core::option::Option<IShellItemArray>) -> ::windows::core::Result<()>;
@@ -5090,12 +5090,12 @@ impl IDesktopWallpaper_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDesktopWallpaper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDesktopWallpaper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBackgroundColor(::core::mem::transmute_copy(&color)).into()
         }
-        unsafe extern "system" fn GetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDesktopWallpaper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDesktopWallpaper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetBackgroundColor() {
@@ -5746,10 +5746,10 @@ impl IEnumHLITEM_Vtbl {
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 pub trait IEnumIDList_Impl: Sized {
-    fn Next(&self, celt: u32, rgelt: *mut *mut Common::ITEMIDLIST, pceltfetched: *mut u32) -> ::windows::core::Result<()>;
-    fn Skip(&self, celt: u32) -> ::windows::core::Result<()>;
-    fn Reset(&self) -> ::windows::core::Result<()>;
-    fn Clone(&self) -> ::windows::core::Result<IEnumIDList>;
+    fn Next(&self, celt: u32, rgelt: *mut *mut Common::ITEMIDLIST, pceltfetched: *mut u32) -> ::windows::core::HRESULT;
+    fn Skip(&self, celt: u32) -> ::windows::core::HRESULT;
+    fn Reset(&self) -> ::windows::core::HRESULT;
+    fn Clone(&self, ppenum: *mut ::core::option::Option<IEnumIDList>) -> ::windows::core::HRESULT;
 }
 #[cfg(feature = "Win32_UI_Shell_Common")]
 impl ::windows::core::RuntimeName for IEnumIDList {}
@@ -5759,28 +5759,22 @@ impl IEnumIDList_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumIDList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut *mut Common::ITEMIDLIST, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched)).into()
+            this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&rgelt), ::core::mem::transmute_copy(&pceltfetched))
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumIDList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Skip(::core::mem::transmute_copy(&celt)).into()
+            this.Skip(::core::mem::transmute_copy(&celt))
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumIDList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            this.Reset().into()
+            this.Reset()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumIDList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
-            match this.Clone() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
+            this.Clone(::core::mem::transmute_copy(&ppenum))
         }
         Self {
             base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
@@ -10825,7 +10819,7 @@ impl INameSpaceTreeControl2_Vtbl {
 pub trait INameSpaceTreeControlCustomDraw_Impl: Sized {
     fn PrePaint(&self, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT) -> ::windows::core::Result<super::super::Foundation::LRESULT>;
     fn PostPaint(&self, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT) -> ::windows::core::Result<()>;
-    fn ItemPrePaint(&self, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut u32, pclrtextbk: *mut u32, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
+    fn ItemPrePaint(&self, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut super::super::Foundation::COLORREF, pclrtextbk: *mut super::super::Foundation::COLORREF, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()>;
     fn ItemPostPaint(&self, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW) -> ::windows::core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls"))]
@@ -10849,7 +10843,7 @@ impl INameSpaceTreeControlCustomDraw_Vtbl {
             let this = (*this).get_impl();
             this.PostPaint(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&prc)).into()
         }
-        unsafe extern "system" fn ItemPrePaint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeControlCustomDraw_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut u32, pclrtextbk: *mut u32, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ItemPrePaint<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INameSpaceTreeControlCustomDraw_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdc: super::super::Graphics::Gdi::HDC, prc: *const super::super::Foundation::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut super::super::Foundation::COLORREF, pclrtextbk: *mut super::super::Foundation::COLORREF, plres: *mut super::super::Foundation::LRESULT) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.ItemPrePaint(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&prc), ::core::mem::transmute_copy(&pnstccditem), ::core::mem::transmute_copy(&pclrtext), ::core::mem::transmute_copy(&pclrtextbk), ::core::mem::transmute_copy(&plres)).into()
@@ -12310,18 +12304,18 @@ impl IPreviewHandlerFrame_Vtbl {
         iid == &<IPreviewHandlerFrame as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IPreviewHandlerVisuals_Impl: Sized {
-    fn SetBackgroundColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn SetBackgroundColor(&self, color: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
     fn SetFont(&self, plf: *const super::super::Graphics::Gdi::LOGFONTW) -> ::windows::core::Result<()>;
-    fn SetTextColor(&self, color: u32) -> ::windows::core::Result<()>;
+    fn SetTextColor(&self, color: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::windows::core::RuntimeName for IPreviewHandlerVisuals {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl IPreviewHandlerVisuals_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPreviewHandlerVisuals_Impl, const OFFSET: isize>() -> IPreviewHandlerVisuals_Vtbl {
-        unsafe extern "system" fn SetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPreviewHandlerVisuals_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetBackgroundColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPreviewHandlerVisuals_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetBackgroundColor(::core::mem::transmute_copy(&color)).into()
@@ -12331,7 +12325,7 @@ impl IPreviewHandlerVisuals_Vtbl {
             let this = (*this).get_impl();
             this.SetFont(::core::mem::transmute_copy(&plf)).into()
         }
-        unsafe extern "system" fn SetTextColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPreviewHandlerVisuals_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetTextColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IPreviewHandlerVisuals_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetTextColor(::core::mem::transmute_copy(&color)).into()
@@ -14437,8 +14431,8 @@ pub trait IShellFolder_Impl: Sized {
     fn CreateViewObject(&self, hwndowner: super::super::Foundation::HWND, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
     fn GetAttributesOf(&self, cidl: u32, apidl: *const *const Common::ITEMIDLIST, rgfinout: *mut u32) -> ::windows::core::Result<()>;
     fn GetUIObjectOf(&self, hwndowner: super::super::Foundation::HWND, cidl: u32, apidl: *const *const Common::ITEMIDLIST, riid: *const ::windows::core::GUID, rgfreserved: *mut u32, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>;
-    fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: u32) -> ::windows::core::Result<Common::STRRET>;
-    fn SetNameOf(&self, hwnd: super::super::Foundation::HWND, pidl: *const Common::ITEMIDLIST, pszname: &::windows::core::PCWSTR, uflags: u32) -> ::windows::core::Result<*mut Common::ITEMIDLIST>;
+    fn GetDisplayNameOf(&self, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF) -> ::windows::core::Result<Common::STRRET>;
+    fn SetNameOf(&self, hwnd: super::super::Foundation::HWND, pidl: *const Common::ITEMIDLIST, pszname: &::windows::core::PCWSTR, uflags: SHGDNF) -> ::windows::core::Result<*mut Common::ITEMIDLIST>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_UI_Shell_Common"))]
 impl ::windows::core::RuntimeName for IShellFolder {}
@@ -14485,7 +14479,7 @@ impl IShellFolder_Vtbl {
             let this = (*this).get_impl();
             this.GetUIObjectOf(::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute_copy(&cidl), ::core::mem::transmute_copy(&apidl), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&rgfreserved), ::core::mem::transmute_copy(&ppv)).into()
         }
-        unsafe extern "system" fn GetDisplayNameOf<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, uflags: u32, pname: *mut Common::STRRET) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetDisplayNameOf<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST, uflags: SHGDNF, pname: *mut Common::STRRET) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetDisplayNameOf(::core::mem::transmute_copy(&pidl), ::core::mem::transmute_copy(&uflags)) {
@@ -14496,7 +14490,7 @@ impl IShellFolder_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn SetNameOf<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pidl: *const Common::ITEMIDLIST, pszname: ::windows::core::PCWSTR, uflags: u32, ppidlout: *mut *mut Common::ITEMIDLIST) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetNameOf<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pidl: *const Common::ITEMIDLIST, pszname: ::windows::core::PCWSTR, uflags: SHGDNF, ppidlout: *mut *mut Common::ITEMIDLIST) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.SetNameOf(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&pidl), ::core::mem::transmute(&pszname), ::core::mem::transmute_copy(&uflags)) {
@@ -14626,15 +14620,15 @@ impl IShellFolder2_Vtbl {
         iid == &<IShellFolder2 as ::windows::core::Interface>::IID || iid == &<IShellFolder as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 pub trait IShellFolderBand_Impl: Sized {
     fn InitializeSFB(&self, psf: &::core::option::Option<IShellFolder>, pidl: *const Common::ITEMIDLIST) -> ::windows::core::Result<()>;
     fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> ::windows::core::Result<()>;
     fn GetBandInfoSFB(&self, pbi: *mut BANDINFOSFB) -> ::windows::core::Result<()>;
 }
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl ::windows::core::RuntimeName for IShellFolderBand {}
-#[cfg(feature = "Win32_UI_Shell_Common")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
 impl IShellFolderBand_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderBand_Impl, const OFFSET: isize>() -> IShellFolderBand_Vtbl {
         unsafe extern "system" fn InitializeSFB<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IShellFolderBand_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psf: *mut ::core::ffi::c_void, pidl: *const Common::ITEMIDLIST) -> ::windows::core::HRESULT {
@@ -22096,8 +22090,8 @@ impl IVirtualDesktopManager_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub trait IVisualProperties_Impl: Sized {
     fn SetWatermark(&self, hbmp: super::super::Graphics::Gdi::HBITMAP, vpwf: VPWATERMARKFLAGS) -> ::windows::core::Result<()>;
-    fn SetColor(&self, vpcf: VPCOLORFLAGS, cr: u32) -> ::windows::core::Result<()>;
-    fn GetColor(&self, vpcf: VPCOLORFLAGS) -> ::windows::core::Result<u32>;
+    fn SetColor(&self, vpcf: VPCOLORFLAGS, cr: super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetColor(&self, vpcf: VPCOLORFLAGS) -> ::windows::core::Result<super::super::Foundation::COLORREF>;
     fn SetItemHeight(&self, cyiteminpixels: i32) -> ::windows::core::Result<()>;
     fn GetItemHeight(&self) -> ::windows::core::Result<i32>;
     fn SetFont(&self, plf: *const super::super::Graphics::Gdi::LOGFONTW, bredraw: super::super::Foundation::BOOL) -> ::windows::core::Result<()>;
@@ -22114,12 +22108,12 @@ impl IVisualProperties_Vtbl {
             let this = (*this).get_impl();
             this.SetWatermark(::core::mem::transmute_copy(&hbmp), ::core::mem::transmute_copy(&vpwf)).into()
         }
-        unsafe extern "system" fn SetColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, cr: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, cr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetColor(::core::mem::transmute_copy(&vpcf), ::core::mem::transmute_copy(&cr)).into()
         }
-        unsafe extern "system" fn GetColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, pcr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vpcf: VPCOLORFLAGS, pcr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetColor(::core::mem::transmute_copy(&vpcf)) {

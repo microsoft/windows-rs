@@ -101,10 +101,6 @@ pub const AC_SRC_ALPHA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const AC_SRC_OVER: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ANSI_CHARSET: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ARABIC_CHARSET: u32 = 178u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ARC_DIRECTION(pub u32);
@@ -426,8 +422,6 @@ impl ::core::fmt::Debug for BACKGROUND_MODE {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BALTIC_CHARSET: u32 = 186u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BANDINFO: u32 = 24u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BEGIN_PATH: u32 = 4096u32;
@@ -600,7 +594,7 @@ pub struct BITMAPINFOHEADER {
     pub biHeight: i32,
     pub biPlanes: u16,
     pub biBitCount: u16,
-    pub biCompression: u32,
+    pub biCompression: BI_COMPRESSION,
     pub biSizeImage: u32,
     pub biXPelsPerMeter: i32,
     pub biYPelsPerMeter: i32,
@@ -640,7 +634,7 @@ pub struct BITMAPV4HEADER {
     pub bV4Height: i32,
     pub bV4Planes: u16,
     pub bV4BitCount: u16,
-    pub bV4V4Compression: u32,
+    pub bV4V4Compression: BI_COMPRESSION,
     pub bV4SizeImage: u32,
     pub bV4XPelsPerMeter: i32,
     pub bV4YPelsPerMeter: i32,
@@ -710,7 +704,7 @@ pub struct BITMAPV5HEADER {
     pub bV5Height: i32,
     pub bV5Planes: u16,
     pub bV5BitCount: u16,
-    pub bV5Compression: u32,
+    pub bV5Compression: BI_COMPRESSION,
     pub bV5SizeImage: u32,
     pub bV5XPelsPerMeter: i32,
     pub bV5YPelsPerMeter: i32,
@@ -781,17 +775,40 @@ impl ::core::default::Default for BITMAPV5HEADER {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_BITFIELDS: i32 = 3i32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BI_COMPRESSION(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_JPEG: i32 = 4i32;
+pub const BI_RGB: BI_COMPRESSION = BI_COMPRESSION(0i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_PNG: i32 = 5i32;
+pub const BI_RLE8: BI_COMPRESSION = BI_COMPRESSION(1i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RGB: i32 = 0i32;
+pub const BI_RLE4: BI_COMPRESSION = BI_COMPRESSION(2i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RLE4: i32 = 2i32;
+pub const BI_BITFIELDS: BI_COMPRESSION = BI_COMPRESSION(3i32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BI_RLE8: i32 = 1i32;
+pub const BI_JPEG: BI_COMPRESSION = BI_COMPRESSION(4i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BI_PNG: BI_COMPRESSION = BI_COMPRESSION(5i32);
+impl ::core::marker::Copy for BI_COMPRESSION {}
+impl ::core::clone::Clone for BI_COMPRESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BI_COMPRESSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BI_COMPRESSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BI_COMPRESSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BI_COMPRESSION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const BKMODE_LAST: u32 = 2u32;
 #[repr(C)]
@@ -828,27 +845,50 @@ impl ::core::default::Default for BLENDFUNCTION {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_DIBPATTERN: u32 = 5u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BRUSH_STYLE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_DIBPATTERN8X8: u32 = 8u32;
+pub const BS_SOLID: BRUSH_STYLE = BRUSH_STYLE(0u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_DIBPATTERNPT: u32 = 6u32;
+pub const BS_NULL: BRUSH_STYLE = BRUSH_STYLE(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_HATCHED: u32 = 2u32;
+pub const BS_HOLLOW: BRUSH_STYLE = BRUSH_STYLE(1u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_HOLLOW: u32 = 1u32;
+pub const BS_HATCHED: BRUSH_STYLE = BRUSH_STYLE(2u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_INDEXED: u32 = 4u32;
+pub const BS_PATTERN: BRUSH_STYLE = BRUSH_STYLE(3u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_MONOPATTERN: u32 = 9u32;
+pub const BS_INDEXED: BRUSH_STYLE = BRUSH_STYLE(4u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_NULL: u32 = 1u32;
+pub const BS_DIBPATTERN: BRUSH_STYLE = BRUSH_STYLE(5u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_PATTERN: u32 = 3u32;
+pub const BS_DIBPATTERNPT: BRUSH_STYLE = BRUSH_STYLE(6u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_PATTERN8X8: u32 = 7u32;
+pub const BS_PATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(7u32);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const BS_SOLID: u32 = 0u32;
+pub const BS_DIBPATTERN8X8: BRUSH_STYLE = BRUSH_STYLE(8u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BS_MONOPATTERN: BRUSH_STYLE = BRUSH_STYLE(9u32);
+impl ::core::marker::Copy for BRUSH_STYLE {}
+impl ::core::clone::Clone for BRUSH_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BRUSH_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BRUSH_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BRUSH_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BRUSH_STYLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1004,8 +1044,6 @@ pub const CHARSET_GLYPHIDX: u32 = 3u32;
 pub const CHECKJPEGFORMAT: u32 = 4119u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CHECKPNGFORMAT: u32 = 4120u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const CHINESEBIG5_CHARSET: u32 = 136u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct CIEXYZ {
@@ -1215,8 +1253,6 @@ impl ::core::default::Default for COLORMATCHTOTARGET {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const COMPLEXREGION: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const CP_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -1434,7 +1470,7 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn CombineRgn<'a, P0, P1, P2>(hrgndst: P0, hrgnsrc1: P1, hrgnsrc2: P2, imode: RGN_COMBINE_MODE) -> i32
+pub unsafe fn CombineRgn<'a, P0, P1, P2>(hrgndst: P0, hrgnsrc1: P1, hrgnsrc2: P2, imode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HRGN>,
     P1: ::std::convert::Into<HRGN>,
@@ -1442,7 +1478,7 @@ where
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CombineRgn(hrgndst: HRGN, hrgnsrc1: HRGN, hrgnsrc2: HRGN, imode: RGN_COMBINE_MODE) -> i32;
+        fn CombineRgn(hrgndst: HRGN, hrgnsrc1: HRGN, hrgnsrc2: HRGN, imode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE;
     }
     CombineRgn(hrgndst.into(), hrgnsrc1.into(), hrgnsrc2.into(), imode)
 }
@@ -1536,7 +1572,8 @@ pub unsafe fn CreateBitmapIndirect(pbm: &BITMAP) -> HBITMAP {
     }
     CreateBitmapIndirect(::core::mem::transmute(pbm))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateBrushIndirect(plbrush: &LOGBRUSH) -> HBRUSH {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -1806,14 +1843,18 @@ where
     }
     CreateHalftonePalette(hdc.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH {
+pub unsafe fn CreateHatchBrush<'a, P0>(ihatch: HATCH_BRUSH_STYLE, color: P0) -> HBRUSH
+where
+    P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH;
+        fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: super::super::Foundation::COLORREF) -> HBRUSH;
     }
-    CreateHatchBrush(ihatch, color)
+    CreateHatchBrush(ihatch, color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1890,14 +1931,18 @@ where
     }
     CreatePatternBrush(hbm.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
+pub unsafe fn CreatePen<'a, P0>(istyle: PEN_STYLE, cwidth: i32, color: P0) -> HPEN
+where
+    P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN;
+        fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: super::super::Foundation::COLORREF) -> HPEN;
     }
-    CreatePen(istyle, cwidth, color)
+    CreatePen(istyle, cwidth, color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1987,14 +2032,18 @@ where
     }
     CreateScalableFontResourceW(fdwhidden, lpszfont.into(), lpszfile.into(), lpszpath.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
+pub unsafe fn CreateSolidBrush<'a, P0>(color: P0) -> HBRUSH
+where
+    P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CreateSolidBrush(color: u32) -> HBRUSH;
+        fn CreateSolidBrush(color: super::super::Foundation::COLORREF) -> HBRUSH;
     }
-    CreateSolidBrush(color)
+    CreateSolidBrush(color.into())
 }
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2122,8 +2171,6 @@ impl ::core::ops::Not for DC_LAYOUT {
 pub const DC_MANUFACTURER: u32 = 23u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DC_MODEL: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const DEFAULT_CHARSET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const DEFAULT_PITCH: u32 = 0u32;
 #[repr(C)]
@@ -4093,13 +4140,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawTextA<'a, P0>(hdc: P0, lpchtext: &[u8], lprc: &mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
+pub unsafe fn DrawTextA<'a, P0>(hdc: P0, lpchtext: &mut [u8], lprc: &mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DrawTextA(hdc: HDC, lpchtext: ::windows::core::PCSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
+        fn DrawTextA(hdc: HDC, lpchtext: ::windows::core::PSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     }
     DrawTextA(hdc.into(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, ::core::mem::transmute(lprc), format)
 }
@@ -4132,18 +4179,16 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DrawTextW<'a, P0>(hdc: P0, lpchtext: &[u16], lprc: &mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
+pub unsafe fn DrawTextW<'a, P0>(hdc: P0, lpchtext: &mut [u16], lprc: &mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DrawTextW(hdc: HDC, lpchtext: ::windows::core::PCWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
+        fn DrawTextW(hdc: HDC, lpchtext: ::windows::core::PWSTR, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32;
     }
     DrawTextW(hdc.into(), ::core::mem::transmute(lpchtext.as_ptr()), lpchtext.len() as _, ::core::mem::transmute(lprc), format)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const EASTEUROPE_CHARSET: u32 = 238u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ELF_CULTURE_LATIN: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -4253,7 +4298,7 @@ pub struct EMRALPHABLEND {
     pub xSrc: i32,
     pub ySrc: i32,
     pub xformSrc: XFORM,
-    pub crBkColorSrc: u32,
+    pub crBkColorSrc: super::super::Foundation::COLORREF,
     pub iUsageSrc: u32,
     pub offBmiSrc: u32,
     pub cbBmiSrc: u32,
@@ -4410,7 +4455,7 @@ pub struct EMRBITBLT {
     pub xSrc: i32,
     pub ySrc: i32,
     pub xformSrc: XFORM,
-    pub crBkColorSrc: u32,
+    pub crBkColorSrc: super::super::Foundation::COLORREF,
     pub iUsageSrc: u32,
     pub offBmiSrc: u32,
     pub cbBmiSrc: u32,
@@ -4467,32 +4512,40 @@ impl ::core::default::Default for EMRBITBLT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
     pub ihBrush: u32,
     pub lb: LOGBRUSH32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EMRCREATEBRUSHINDIRECT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EMRCREATEBRUSHINDIRECT {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EMRCREATEBRUSHINDIRECT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EMRCREATEBRUSHINDIRECT").field("emr", &self.emr).field("ihBrush", &self.ihBrush).field("lb", &self.lb).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRCREATEBRUSHINDIRECT {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRCREATEBRUSHINDIRECT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRCREATEBRUSHINDIRECT>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EMRCREATEBRUSHINDIRECT {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EMRCREATEBRUSHINDIRECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4786,7 +4839,8 @@ impl ::core::default::Default for EMREXTCREATEFONTINDIRECTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
@@ -4796,26 +4850,33 @@ pub struct EMREXTCREATEPEN {
     pub cbBits: u32,
     pub elp: EXTLOGPEN32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EMREXTCREATEPEN {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EMREXTCREATEPEN {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EMREXTCREATEPEN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EMREXTCREATEPEN").field("emr", &self.emr).field("ihPen", &self.ihPen).field("offBmi", &self.offBmi).field("cbBmi", &self.cbBmi).field("offBits", &self.offBits).field("cbBits", &self.cbBits).field("elp", &self.elp).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMREXTCREATEPEN {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMREXTCREATEPEN {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMREXTCREATEPEN>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EMREXTCREATEPEN {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EMREXTCREATEPEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4860,7 +4921,7 @@ impl ::core::default::Default for EMREXTESCAPE {
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
     pub ptlStart: super::super::Foundation::POINTL,
-    pub crColor: u32,
+    pub crColor: super::super::Foundation::COLORREF,
     pub iMode: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4900,7 +4961,7 @@ impl ::core::default::Default for EMREXTFLOODFILL {
 pub struct EMREXTSELECTCLIPRGN {
     pub emr: EMR,
     pub cbRgnData: u32,
-    pub iMode: u32,
+    pub iMode: RGN_COMBINE_MODE,
     pub RgnData: [u8; 1],
 }
 impl ::core::marker::Copy for EMREXTSELECTCLIPRGN {}
@@ -5370,7 +5431,7 @@ pub struct EMRMASKBLT {
     pub xSrc: i32,
     pub ySrc: i32,
     pub xformSrc: XFORM,
-    pub crBkColorSrc: u32,
+    pub crBkColorSrc: super::super::Foundation::COLORREF,
     pub iUsageSrc: u32,
     pub offBmiSrc: u32,
     pub cbBmiSrc: u32,
@@ -5445,7 +5506,7 @@ impl ::core::default::Default for EMRMASKBLT {
 pub struct EMRMODIFYWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
-    pub iMode: u32,
+    pub iMode: MODIFY_WORLD_TRANSFORM_MODE,
 }
 impl ::core::marker::Copy for EMRMODIFYWORLDTRANSFORM {}
 impl ::core::clone::Clone for EMRMODIFYWORLDTRANSFORM {
@@ -5557,7 +5618,7 @@ pub struct EMRPLGBLT {
     pub cxSrc: i32,
     pub cySrc: i32,
     pub xformSrc: XFORM,
-    pub crBkColorSrc: u32,
+    pub crBkColorSrc: super::super::Foundation::COLORREF,
     pub iUsageSrc: u32,
     pub offBmiSrc: u32,
     pub cbBmiSrc: u32,
@@ -6448,7 +6509,7 @@ impl ::core::default::Default for EMRSETPALETTEENTRIES {
 pub struct EMRSETPIXELV {
     pub emr: EMR,
     pub ptlPixel: super::super::Foundation::POINTL,
-    pub crColor: u32,
+    pub crColor: super::super::Foundation::COLORREF,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EMRSETPIXELV {}
@@ -6483,31 +6544,39 @@ impl ::core::default::Default for EMRSETPIXELV {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETTEXTCOLOR {
     pub emr: EMR,
-    pub crColor: u32,
+    pub crColor: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EMRSETTEXTCOLOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EMRSETTEXTCOLOR {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EMRSETTEXTCOLOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EMRSETTEXTCOLOR").field("emr", &self.emr).field("crColor", &self.crColor).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EMRSETTEXTCOLOR {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EMRSETTEXTCOLOR {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMRSETTEXTCOLOR>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EMRSETTEXTCOLOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EMRSETTEXTCOLOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6636,7 +6705,7 @@ pub struct EMRSTRETCHBLT {
     pub xSrc: i32,
     pub ySrc: i32,
     pub xformSrc: XFORM,
-    pub crBkColorSrc: u32,
+    pub crBkColorSrc: super::super::Foundation::COLORREF,
     pub iUsageSrc: u32,
     pub offBmiSrc: u32,
     pub cbBmiSrc: u32,
@@ -6823,7 +6892,7 @@ pub struct EMRTRANSPARENTBLT {
     pub xSrc: i32,
     pub ySrc: i32,
     pub xformSrc: XFORM,
-    pub crBkColorSrc: u32,
+    pub crBkColorSrc: super::super::Foundation::COLORREF,
     pub iUsageSrc: u32,
     pub offBmiSrc: u32,
     pub cbBmiSrc: u32,
@@ -7508,7 +7577,7 @@ pub const EPSPRINTING: u32 = 33u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const EPS_SIGNATURE: u32 = 1179865157u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const ERROR: u32 = 0u32;
+pub const ERROR: i32 = 0i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const ERR_FORMAT: u32 = 1006u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -7809,72 +7878,88 @@ impl ::core::default::Default for EXTLOGFONTW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGPEN {
-    pub elpPenStyle: u32,
+    pub elpPenStyle: PEN_STYLE,
     pub elpWidth: u32,
     pub elpBrushStyle: u32,
-    pub elpColor: u32,
+    pub elpColor: super::super::Foundation::COLORREF,
     pub elpHatch: usize,
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTLOGPEN {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXTLOGPEN {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EXTLOGPEN {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EXTLOGPEN").field("elpPenStyle", &self.elpPenStyle).field("elpWidth", &self.elpWidth).field("elpBrushStyle", &self.elpBrushStyle).field("elpColor", &self.elpColor).field("elpHatch", &self.elpHatch).field("elpNumEntries", &self.elpNumEntries).field("elpStyleEntry", &self.elpStyleEntry).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EXTLOGPEN {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXTLOGPEN {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXTLOGPEN>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EXTLOGPEN {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EXTLOGPEN {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGPEN32 {
-    pub elpPenStyle: u32,
+    pub elpPenStyle: PEN_STYLE,
     pub elpWidth: u32,
     pub elpBrushStyle: u32,
-    pub elpColor: u32,
+    pub elpColor: super::super::Foundation::COLORREF,
     pub elpHatch: u32,
     pub elpNumEntries: u32,
     pub elpStyleEntry: [u32; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTLOGPEN32 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXTLOGPEN32 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for EXTLOGPEN32 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("EXTLOGPEN32").field("elpPenStyle", &self.elpPenStyle).field("elpWidth", &self.elpWidth).field("elpBrushStyle", &self.elpBrushStyle).field("elpColor", &self.elpColor).field("elpHatch", &self.elpHatch).field("elpNumEntries", &self.elpNumEntries).field("elpStyleEntry", &self.elpStyleEntry).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for EXTLOGPEN32 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EXTLOGPEN32 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXTLOGPEN32>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EXTLOGPEN32 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for EXTLOGPEN32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8313,13 +8398,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn ExcludeClipRect<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> i32
+pub unsafe fn ExcludeClipRect<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ExcludeClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
+        fn ExcludeClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE;
     }
     ExcludeClipRect(hdc.into(), left, top, right, bottom)
 }
@@ -8337,7 +8422,8 @@ where
     }
     ExcludeUpdateRgn(hdc.into(), hwnd.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: &LOGBRUSH, pstyle: ::core::option::Option<&[u32]>) -> HPEN {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -8359,26 +8445,27 @@ pub unsafe fn ExtCreateRegion(lpx: ::core::option::Option<&XFORM>, lpdata: &[u8]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ExtFloodFill<'a, P0>(hdc: P0, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL
+pub unsafe fn ExtFloodFill<'a, P0, P1>(hdc: P0, x: i32, y: i32, color: P1, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ExtFloodFill(hdc: HDC, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL;
+        fn ExtFloodFill(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL;
     }
-    ExtFloodFill(hdc.into(), x, y, color, r#type)
+    ExtFloodFill(hdc.into(), x, y, color.into(), r#type)
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn ExtSelectClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1, mode: RGN_COMBINE_MODE) -> i32
+pub unsafe fn ExtSelectClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1, mode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HRGN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE) -> i32;
+        fn ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE) -> GDI_REGION_TYPE;
     }
     ExtSelectClipRgn(hdc.into(), hrgn.into(), mode)
 }
@@ -8473,6 +8560,69 @@ pub type FONTENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0
 pub type FONTENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FONTMAPPER_MAX: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FONT_CHARSET(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ANSI_CHARSET: FONT_CHARSET = FONT_CHARSET(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const DEFAULT_CHARSET: FONT_CHARSET = FONT_CHARSET(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SYMBOL_CHARSET: FONT_CHARSET = FONT_CHARSET(2u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SHIFTJIS_CHARSET: FONT_CHARSET = FONT_CHARSET(128u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HANGEUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HANGUL_CHARSET: FONT_CHARSET = FONT_CHARSET(129u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GB2312_CHARSET: FONT_CHARSET = FONT_CHARSET(134u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const CHINESEBIG5_CHARSET: FONT_CHARSET = FONT_CHARSET(136u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const OEM_CHARSET: FONT_CHARSET = FONT_CHARSET(255u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const JOHAB_CHARSET: FONT_CHARSET = FONT_CHARSET(130u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const HEBREW_CHARSET: FONT_CHARSET = FONT_CHARSET(177u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const ARABIC_CHARSET: FONT_CHARSET = FONT_CHARSET(178u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const GREEK_CHARSET: FONT_CHARSET = FONT_CHARSET(161u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const TURKISH_CHARSET: FONT_CHARSET = FONT_CHARSET(162u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const VIETNAMESE_CHARSET: FONT_CHARSET = FONT_CHARSET(163u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const THAI_CHARSET: FONT_CHARSET = FONT_CHARSET(222u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const EASTEUROPE_CHARSET: FONT_CHARSET = FONT_CHARSET(238u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RUSSIAN_CHARSET: FONT_CHARSET = FONT_CHARSET(204u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const MAC_CHARSET: FONT_CHARSET = FONT_CHARSET(77u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const BALTIC_CHARSET: FONT_CHARSET = FONT_CHARSET(186u32);
+impl ::core::marker::Copy for FONT_CHARSET {}
+impl ::core::clone::Clone for FONT_CHARSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_CHARSET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_CHARSET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_CHARSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_CHARSET").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8714,6 +8864,59 @@ impl ::core::fmt::Debug for FONT_RESOURCE_CHARACTERISTICS {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FONT_WEIGHT(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_DONTCARE: FONT_WEIGHT = FONT_WEIGHT(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_THIN: FONT_WEIGHT = FONT_WEIGHT(100u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_EXTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_LIGHT: FONT_WEIGHT = FONT_WEIGHT(300u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_NORMAL: FONT_WEIGHT = FONT_WEIGHT(400u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_MEDIUM: FONT_WEIGHT = FONT_WEIGHT(500u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_SEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_BOLD: FONT_WEIGHT = FONT_WEIGHT(700u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_EXTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_HEAVY: FONT_WEIGHT = FONT_WEIGHT(900u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_ULTRALIGHT: FONT_WEIGHT = FONT_WEIGHT(200u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_REGULAR: FONT_WEIGHT = FONT_WEIGHT(400u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_DEMIBOLD: FONT_WEIGHT = FONT_WEIGHT(600u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_ULTRABOLD: FONT_WEIGHT = FONT_WEIGHT(800u32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const FW_BLACK: FONT_WEIGHT = FONT_WEIGHT(900u32);
+impl ::core::marker::Copy for FONT_WEIGHT {}
+impl ::core::clone::Clone for FONT_WEIGHT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FONT_WEIGHT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FONT_WEIGHT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FONT_WEIGHT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FONT_WEIGHT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_ARABIC: i32 = 64i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_BALTIC: i32 = 128i32;
@@ -8745,36 +8948,6 @@ pub const FS_TURKISH: i32 = 16i32;
 pub const FS_VIETNAMESE: i32 = 256i32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const FS_WANSUNG: i32 = 524288i32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_BLACK: u32 = 900u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_BOLD: u32 = 700u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_DEMIBOLD: u32 = 600u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_DONTCARE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_EXTRABOLD: u32 = 800u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_EXTRALIGHT: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_HEAVY: u32 = 900u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_LIGHT: u32 = 300u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_MEDIUM: u32 = 500u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_NORMAL: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_REGULAR: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_SEMIBOLD: u32 = 600u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_THIN: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_ULTRABOLD: u32 = 800u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const FW_ULTRALIGHT: u32 = 200u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8846,15 +9019,16 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FloodFill<'a, P0>(hdc: P0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL
+pub unsafe fn FloodFill<'a, P0, P1>(hdc: P0, x: i32, y: i32, color: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn FloodFill(hdc: HDC, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL;
+        fn FloodFill(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL;
     }
-    FloodFill(hdc.into(), x, y, color)
+    FloodFill(hdc.into(), x, y, color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8885,8 +9059,6 @@ where
     }
     FrameRgn(hdc.into(), hrgn.into(), hbr.into(), w, h)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GB2312_CHARSET: u32 = 134u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GCPCLASS_ARABIC: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -9021,6 +9193,37 @@ pub const GDIPLUS_TS_RECORD: u32 = 4123u32;
 pub const GDIREGISTERDDRAWPACKETVERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GDI_ERROR: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GDI_REGION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const RGN_ERROR: GDI_REGION_TYPE = GDI_REGION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const NULLREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const SIMPLEREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+pub const COMPLEXREGION: GDI_REGION_TYPE = GDI_REGION_TYPE(3i32);
+impl ::core::marker::Copy for GDI_REGION_TYPE {}
+impl ::core::clone::Clone for GDI_REGION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GDI_REGION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GDI_REGION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GDI_REGION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GDI_REGION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GETCOLORTABLE: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -9630,8 +9833,6 @@ impl ::core::fmt::Debug for GRAPHICS_MODE {
 #[cfg(feature = "Win32_Foundation")]
 pub type GRAYSTRINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const GREEK_CHARSET: u32 = 161u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const GS_8BIT_INDICES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9765,27 +9966,28 @@ where
     }
     GetBitmapDimensionEx(hbit.into(), ::core::mem::transmute(lpsize))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetBkColor<'a, P0>(hdc: P0) -> u32
+pub unsafe fn GetBkColor<'a, P0>(hdc: P0) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetBkColor(hdc: HDC) -> u32;
+        fn GetBkColor(hdc: HDC) -> super::super::Foundation::COLORREF;
     }
     GetBkColor(hdc.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetBkMode<'a, P0>(hdc: P0) -> i32
+pub unsafe fn GetBkMode<'a, P0>(hdc: P0) -> BACKGROUND_MODE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetBkMode(hdc: HDC) -> i32;
+        fn GetBkMode(hdc: HDC) -> BACKGROUND_MODE;
     }
     GetBkMode(hdc.into())
 }
@@ -9998,13 +10200,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetClipBox<'a, P0>(hdc: P0, lprect: &mut super::super::Foundation::RECT) -> i32
+pub unsafe fn GetClipBox<'a, P0>(hdc: P0, lprect: &mut super::super::Foundation::RECT) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetClipBox(hdc: HDC, lprect: *mut super::super::Foundation::RECT) -> i32;
+        fn GetClipBox(hdc: HDC, lprect: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE;
     }
     GetClipBox(hdc.into(), ::core::mem::transmute(lprect))
 }
@@ -10072,15 +10274,16 @@ where
     }
     GetDC(hwnd.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDCBrushColor<'a, P0>(hdc: P0) -> u32
+pub unsafe fn GetDCBrushColor<'a, P0>(hdc: P0) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetDCBrushColor(hdc: HDC) -> u32;
+        fn GetDCBrushColor(hdc: HDC) -> super::super::Foundation::COLORREF;
     }
     GetDCBrushColor(hdc.into())
 }
@@ -10111,15 +10314,16 @@ where
     }
     GetDCOrgEx(hdc.into(), ::core::mem::transmute(lppt))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDCPenColor<'a, P0>(hdc: P0) -> u32
+pub unsafe fn GetDCPenColor<'a, P0>(hdc: P0) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetDCPenColor(hdc: HDC) -> u32;
+        fn GetDCPenColor(hdc: HDC) -> super::super::Foundation::COLORREF;
     }
     GetDCPenColor(hdc.into())
 }
@@ -10381,13 +10585,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetMapMode<'a, P0>(hdc: P0) -> i32
+pub unsafe fn GetMapMode<'a, P0>(hdc: P0) -> HDC_MAP_MODE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetMapMode(hdc: HDC) -> i32;
+        fn GetMapMode(hdc: HDC) -> HDC_MAP_MODE;
     }
     GetMapMode(hdc.into())
 }
@@ -10479,29 +10683,33 @@ where
     }
     GetMonitorInfoW(hmonitor.into(), ::core::mem::transmute(lpmi))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNearestColor<'a, P0>(hdc: P0, color: u32) -> u32
+pub unsafe fn GetNearestColor<'a, P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetNearestColor(hdc: HDC, color: u32) -> u32;
+        fn GetNearestColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF;
     }
-    GetNearestColor(hdc.into(), color)
+    GetNearestColor(hdc.into(), color.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetNearestPaletteIndex<'a, P0>(h: P0, color: u32) -> u32
+pub unsafe fn GetNearestPaletteIndex<'a, P0, P1>(h: P0, color: P1) -> u32
 where
     P0: ::std::convert::Into<HPALETTE>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetNearestPaletteIndex(h: HPALETTE, color: u32) -> u32;
+        fn GetNearestPaletteIndex(h: HPALETTE, color: super::super::Foundation::COLORREF) -> u32;
     }
-    GetNearestPaletteIndex(h.into(), color)
+    GetNearestPaletteIndex(h.into(), color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -10590,15 +10798,16 @@ where
     }
     GetPath(hdc.into(), ::core::mem::transmute(apt), ::core::mem::transmute(aj), ::core::mem::transmute(cpt))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetPixel<'a, P0>(hdc: P0, x: i32, y: i32) -> u32
+pub unsafe fn GetPixel<'a, P0>(hdc: P0, x: i32, y: i32) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetPixel(hdc: HDC, x: i32, y: i32) -> u32;
+        fn GetPixel(hdc: HDC, x: i32, y: i32) -> super::super::Foundation::COLORREF;
     }
     GetPixel(hdc.into(), x, y)
 }
@@ -10616,13 +10825,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetROP2<'a, P0>(hdc: P0) -> i32
+pub unsafe fn GetROP2<'a, P0>(hdc: P0) -> R2_MODE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetROP2(hdc: HDC) -> i32;
+        fn GetROP2(hdc: HDC) -> R2_MODE;
     }
     GetROP2(hdc.into())
 }
@@ -10665,13 +10874,13 @@ where
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRgnBox<'a, P0>(hrgn: P0, lprc: &mut super::super::Foundation::RECT) -> i32
+pub unsafe fn GetRgnBox<'a, P0>(hrgn: P0, lprc: &mut super::super::Foundation::RECT) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HRGN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetRgnBox(hrgn: HRGN, lprc: *mut super::super::Foundation::RECT) -> i32;
+        fn GetRgnBox(hrgn: HRGN, lprc: *mut super::super::Foundation::RECT) -> GDI_REGION_TYPE;
     }
     GetRgnBox(hrgn.into(), ::core::mem::transmute(lprc))
 }
@@ -10755,13 +10964,13 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn GetTextAlign<'a, P0>(hdc: P0) -> u32
+pub unsafe fn GetTextAlign<'a, P0>(hdc: P0) -> TEXT_ALIGN_OPTIONS
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetTextAlign(hdc: HDC) -> u32;
+        fn GetTextAlign(hdc: HDC) -> TEXT_ALIGN_OPTIONS;
     }
     GetTextAlign(hdc.into())
 }
@@ -10777,15 +10986,16 @@ where
     }
     GetTextCharacterExtra(hdc.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetTextColor<'a, P0>(hdc: P0) -> u32
+pub unsafe fn GetTextColor<'a, P0>(hdc: P0) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetTextColor(hdc: HDC) -> u32;
+        fn GetTextColor(hdc: HDC) -> super::super::Foundation::COLORREF;
     }
     GetTextColor(hdc.into())
 }
@@ -11164,10 +11374,6 @@ impl ::core::default::Default for HANDLETABLE {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HANGEUL_CHARSET: u32 = 129u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HANGUL_CHARSET: u32 = 129u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HATCH_BRUSH_STYLE(pub u32);
@@ -11347,8 +11553,6 @@ impl ::core::fmt::Debug for HDC_MAP_MODE {
         f.debug_tuple("HDC_MAP_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const HEBREW_CHARSET: u32 = 177u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HENHMETAFILE(pub isize);
@@ -11731,13 +11935,13 @@ pub unsafe fn InflateRect(lprc: &mut super::super::Foundation::RECT, dx: i32, dy
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn IntersectClipRect<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> i32
+pub unsafe fn IntersectClipRect<'a, P0>(hdc: P0, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> i32;
+        fn IntersectClipRect(hdc: HDC, left: i32, top: i32, right: i32, bottom: i32) -> GDI_REGION_TYPE;
     }
     IntersectClipRect(hdc.into(), left, top, right, bottom)
 }
@@ -11817,8 +12021,6 @@ pub unsafe fn IsRectEmpty(lprc: &super::super::Foundation::RECT) -> super::super
     }
     IsRectEmpty(::core::mem::transmute(lprc))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const JOHAB_CHARSET: u32 = 130u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct KERNINGPAIR {
@@ -11889,64 +12091,80 @@ pub const LF_FULLFACESIZE: u32 = 64u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type LINEDDAPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOGBRUSH {
-    pub lbStyle: u32,
-    pub lbColor: u32,
+    pub lbStyle: BRUSH_STYLE,
+    pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOGBRUSH {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOGBRUSH {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LOGBRUSH {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LOGBRUSH").field("lbStyle", &self.lbStyle).field("lbColor", &self.lbColor).field("lbHatch", &self.lbHatch).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LOGBRUSH {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOGBRUSH {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGBRUSH>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOGBRUSH {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LOGBRUSH {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct LOGBRUSH32 {
-    pub lbStyle: u32,
-    pub lbColor: u32,
+    pub lbStyle: BRUSH_STYLE,
+    pub lbColor: super::super::Foundation::COLORREF,
     pub lbHatch: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOGBRUSH32 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LOGBRUSH32 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LOGBRUSH32 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LOGBRUSH32").field("lbStyle", &self.lbStyle).field("lbColor", &self.lbColor).field("lbHatch", &self.lbHatch).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LOGBRUSH32 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LOGBRUSH32 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOGBRUSH32>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LOGBRUSH32 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LOGBRUSH32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -11960,15 +12178,15 @@ pub struct LOGFONTA {
     pub lfWidth: i32,
     pub lfEscapement: i32,
     pub lfOrientation: i32,
-    pub lfWeight: i32,
+    pub lfWeight: FONT_WEIGHT,
     pub lfItalic: u8,
     pub lfUnderline: u8,
     pub lfStrikeOut: u8,
     pub lfCharSet: u8,
-    pub lfOutPrecision: u8,
-    pub lfClipPrecision: u8,
-    pub lfQuality: u8,
-    pub lfPitchAndFamily: u8,
+    pub lfOutPrecision: FONT_OUTPUT_PRECISION,
+    pub lfClipPrecision: FONT_CLIP_PRECISION,
+    pub lfQuality: FONT_QUALITY,
+    pub lfPitchAndFamily: FONT_PITCH_AND_FAMILY,
     pub lfFaceName: [super::super::Foundation::CHAR; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12025,15 +12243,15 @@ pub struct LOGFONTW {
     pub lfWidth: i32,
     pub lfEscapement: i32,
     pub lfOrientation: i32,
-    pub lfWeight: i32,
+    pub lfWeight: FONT_WEIGHT,
     pub lfItalic: u8,
     pub lfUnderline: u8,
     pub lfStrikeOut: u8,
-    pub lfCharSet: u8,
-    pub lfOutPrecision: u8,
-    pub lfClipPrecision: u8,
-    pub lfQuality: u8,
-    pub lfPitchAndFamily: u8,
+    pub lfCharSet: FONT_CHARSET,
+    pub lfOutPrecision: FONT_OUTPUT_PRECISION,
+    pub lfClipPrecision: FONT_CLIP_PRECISION,
+    pub lfQuality: FONT_QUALITY,
+    pub lfPitchAndFamily: FONT_PITCH_AND_FAMILY,
     pub lfFaceName: [u16; 32],
 }
 impl ::core::marker::Copy for LOGFONTW {}
@@ -12112,9 +12330,9 @@ impl ::core::default::Default for LOGPALETTE {
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGPEN {
-    pub lopnStyle: u32,
+    pub lopnStyle: PEN_STYLE,
     pub lopnWidth: super::super::Foundation::POINT,
-    pub lopnColor: u32,
+    pub lopnColor: super::super::Foundation::COLORREF,
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LOGPEN {}
@@ -12258,8 +12476,6 @@ where
     }
     LockWindowUpdate(hwndlock.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const MAC_CHARSET: u32 = 77u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub struct MAT2 {
@@ -12815,7 +13031,7 @@ pub struct NEWTEXTMETRICA {
     pub tmItalic: u8,
     pub tmUnderlined: u8,
     pub tmStruckOut: u8,
-    pub tmPitchAndFamily: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
     pub ntmFlags: u32,
     pub ntmSizeEM: u32,
@@ -12893,7 +13109,7 @@ pub struct NEWTEXTMETRICW {
     pub tmItalic: u8,
     pub tmUnderlined: u8,
     pub tmStruckOut: u8,
-    pub tmPitchAndFamily: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
     pub ntmFlags: u32,
     pub ntmSizeEM: u32,
@@ -12973,8 +13189,6 @@ pub const NTM_TT_OPENTYPE: u32 = 262144u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const NTM_TYPE1: u32 = 1048576u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const NULLREGION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OBJ_TYPE(pub i32);
@@ -13025,8 +13239,6 @@ impl ::core::fmt::Debug for OBJ_TYPE {
         f.debug_tuple("OBJ_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const OEM_CHARSET: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const OPENCHANNEL: u32 = 4110u32;
 #[repr(C)]
@@ -13237,13 +13449,13 @@ impl ::core::default::Default for OUTLINETEXTMETRICW {
 pub const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn OffsetClipRgn<'a, P0>(hdc: P0, x: i32, y: i32) -> i32
+pub unsafe fn OffsetClipRgn<'a, P0>(hdc: P0, x: i32, y: i32) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OffsetClipRgn(hdc: HDC, x: i32, y: i32) -> i32;
+        fn OffsetClipRgn(hdc: HDC, x: i32, y: i32) -> GDI_REGION_TYPE;
     }
     OffsetClipRgn(hdc.into(), x, y)
 }
@@ -13259,13 +13471,13 @@ pub unsafe fn OffsetRect(lprc: &mut super::super::Foundation::RECT, dx: i32, dy:
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn OffsetRgn<'a, P0>(hrgn: P0, x: i32, y: i32) -> i32
+pub unsafe fn OffsetRgn<'a, P0>(hrgn: P0, x: i32, y: i32) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HRGN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> i32;
+        fn OffsetRgn(hrgn: HRGN, x: i32, y: i32) -> GDI_REGION_TYPE;
     }
     OffsetRgn(hrgn.into(), x, y)
 }
@@ -14662,8 +14874,6 @@ impl ::core::fmt::Debug for RGN_COMBINE_MODE {
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RGN_ERROR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ROP_CODE(pub u32);
@@ -14748,8 +14958,6 @@ impl ::core::ops::Not for ROP_CODE {
         Self(self.0.not())
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const RUSSIAN_CHARSET: u32 = 204u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn RealizePalette<'a, P0>(hdc: P0) -> u32
@@ -15081,10 +15289,6 @@ pub const SET_SCREEN_ANGLE: u32 = 4105u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SET_SPREAD: u32 = 4106u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SHIFTJIS_CHARSET: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SIMPLEREGION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SPCLPASSTHROUGH2: u32 = 4568u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SP_APPABORT: i32 = -2i32;
@@ -15143,8 +15347,6 @@ impl ::core::fmt::Debug for STRETCH_BLT_MODE {
         f.debug_tuple("STRETCH_BLT_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const SYMBOL_CHARSET: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const SYSPAL_ERROR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -15244,14 +15446,14 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SelectClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1) -> i32
+pub unsafe fn SelectClipRgn<'a, P0, P1>(hdc: P0, hrgn: P1) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HDC>,
     P1: ::std::convert::Into<HRGN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SelectClipRgn(hdc: HDC, hrgn: HRGN) -> i32;
+        fn SelectClipRgn(hdc: HDC, hrgn: HRGN) -> GDI_REGION_TYPE;
     }
     SelectClipRgn(hdc.into(), hrgn.into())
 }
@@ -15320,17 +15522,19 @@ where
     }
     SetBitmapDimensionEx(hbm.into(), w, h, ::core::mem::transmute(lpsz))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetBkColor<'a, P0>(hdc: P0, color: u32) -> u32
+pub unsafe fn SetBkColor<'a, P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetBkColor(hdc: HDC, color: u32) -> u32;
+        fn SetBkColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF;
     }
-    SetBkColor(hdc.into(), color)
+    SetBkColor(hdc.into(), color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15383,29 +15587,33 @@ where
     }
     SetColorAdjustment(hdc.into(), ::core::mem::transmute(lpca))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDCBrushColor<'a, P0>(hdc: P0, color: u32) -> u32
+pub unsafe fn SetDCBrushColor<'a, P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetDCBrushColor(hdc: HDC, color: u32) -> u32;
+        fn SetDCBrushColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF;
     }
-    SetDCBrushColor(hdc.into(), color)
+    SetDCBrushColor(hdc.into(), color.into())
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDCPenColor<'a, P0>(hdc: P0, color: u32) -> u32
+pub unsafe fn SetDCPenColor<'a, P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetDCPenColor(hdc: HDC, color: u32) -> u32;
+        fn SetDCPenColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF;
     }
-    SetDCPenColor(hdc.into(), color)
+    SetDCPenColor(hdc.into(), color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15512,13 +15720,13 @@ pub unsafe fn SetMetaFileBitsEx(lpdata: &[u8]) -> HMETAFILE {
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
-pub unsafe fn SetMetaRgn<'a, P0>(hdc: P0) -> i32
+pub unsafe fn SetMetaRgn<'a, P0>(hdc: P0) -> GDI_REGION_TYPE
 where
     P0: ::std::convert::Into<HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetMetaRgn(hdc: HDC) -> i32;
+        fn SetMetaRgn(hdc: HDC) -> GDI_REGION_TYPE;
     }
     SetMetaRgn(hdc.into())
 }
@@ -15547,30 +15755,33 @@ where
     }
     SetPaletteEntries(hpal.into(), istart, ppalentries.len() as _, ::core::mem::transmute(ppalentries.as_ptr()))
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPixel<'a, P0>(hdc: P0, x: i32, y: i32, color: u32) -> u32
+pub unsafe fn SetPixel<'a, P0, P1>(hdc: P0, x: i32, y: i32, color: P1) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetPixel(hdc: HDC, x: i32, y: i32, color: u32) -> u32;
+        fn SetPixel(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF;
     }
-    SetPixel(hdc.into(), x, y, color)
+    SetPixel(hdc.into(), x, y, color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetPixelV<'a, P0>(hdc: P0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL
+pub unsafe fn SetPixelV<'a, P0, P1>(hdc: P0, x: i32, y: i32, color: P1) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetPixelV(hdc: HDC, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL;
+        fn SetPixelV(hdc: HDC, x: i32, y: i32, color: super::super::Foundation::COLORREF) -> super::super::Foundation::BOOL;
     }
-    SetPixelV(hdc.into(), x, y, color)
+    SetPixelV(hdc.into(), x, y, color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
@@ -15677,17 +15888,19 @@ where
     }
     SetTextCharacterExtra(hdc.into(), extra)
 }
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
+#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetTextColor<'a, P0>(hdc: P0, color: u32) -> u32
+pub unsafe fn SetTextColor<'a, P0, P1>(hdc: P0, color: P1) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetTextColor(hdc: HDC, color: u32) -> u32;
+        fn SetTextColor(hdc: HDC, color: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF;
     }
-    SetTextColor(hdc.into(), color)
+    SetTextColor(hdc.into(), color.into())
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15899,7 +16112,7 @@ pub struct TEXTMETRICA {
     pub tmItalic: u8,
     pub tmUnderlined: u8,
     pub tmStruckOut: u8,
-    pub tmPitchAndFamily: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
 }
 impl ::core::marker::Copy for TEXTMETRICA {}
@@ -15969,7 +16182,7 @@ pub struct TEXTMETRICW {
     pub tmItalic: u8,
     pub tmUnderlined: u8,
     pub tmStruckOut: u8,
-    pub tmPitchAndFamily: u8,
+    pub tmPitchAndFamily: TMPF_FLAGS,
     pub tmCharSet: u8,
 }
 impl ::core::marker::Copy for TEXTMETRICW {}
@@ -16073,16 +16286,93 @@ impl ::core::fmt::Debug for TEXT_ALIGN_OPTIONS {
         f.debug_tuple("TEXT_ALIGN_OPTIONS").field(&self.0).finish()
     }
 }
+impl ::core::ops::BitOr for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TEXT_ALIGN_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TEXT_ALIGN_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TEXT_ALIGN_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const THAI_CHARSET: u32 = 222u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TMPF_FLAGS(pub u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_DEVICE: u32 = 8u32;
+pub const TMPF_FIXED_PITCH: TMPF_FLAGS = TMPF_FLAGS(1u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_FIXED_PITCH: u32 = 1u32;
+pub const TMPF_VECTOR: TMPF_FLAGS = TMPF_FLAGS(2u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_TRUETYPE: u32 = 4u32;
+pub const TMPF_DEVICE: TMPF_FLAGS = TMPF_FLAGS(8u8);
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TMPF_VECTOR: u32 = 2u32;
+pub const TMPF_TRUETYPE: TMPF_FLAGS = TMPF_FLAGS(4u8);
+impl ::core::marker::Copy for TMPF_FLAGS {}
+impl ::core::clone::Clone for TMPF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TMPF_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TMPF_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TMPF_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TMPF_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TMPF_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TMPF_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TMPF_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TMPF_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TMPF_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TRANSFORM_CTM: u32 = 4107u32;
 #[repr(C)]
@@ -16668,8 +16958,6 @@ pub const TT_PRIM_LINE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const TT_PRIM_QSPLINE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const TURKISH_CHARSET: u32 = 162u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 #[inline]
 pub unsafe fn TabbedTextOutA<'a, P0>(hdc: P0, x: i32, y: i32, lpstring: &[u8], lpntabstoppositions: ::core::option::Option<&[i32]>, ntaborigin: i32) -> i32
 where
@@ -16784,8 +17072,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
 pub const VARIABLE_PITCH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-pub const VIETNAMESE_CHARSET: u32 = 163u32;
 #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

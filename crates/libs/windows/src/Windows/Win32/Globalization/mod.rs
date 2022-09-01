@@ -2669,30 +2669,6 @@ pub struct IEnumSpellingError_Vtbl {
     pub Next: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_ALPHANUMERIC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_CHARCODE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_CHINESE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_FULLSHAPE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_HANGUL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_HANJACONVERT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_JAPANESE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_KATAKANA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_LANGUAGE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_NATIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_NATIVESYMBOL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
-pub const IME_CMODE_ROMAN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[repr(transparent)]
 pub struct IMLangCodePages(::windows::core::IUnknown);
 impl IMLangCodePages {
@@ -7554,7 +7530,7 @@ pub unsafe fn ScriptApplyDigitSubstitution(psds: &SCRIPT_DIGITSUBSTITUTE, psc: &
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &SCRIPT_ANALYSIS, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>, pijustify: &mut i32) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: &SCRIPT_ANALYSIS, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>, pijustify: *mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i32, pwlogclust: *const u16, psva: *const SCRIPT_VISATTR, piadvance: *const i32, psa: *const SCRIPT_ANALYSIS, pabc: *mut super::Graphics::Gdi::ABC, pijustify: *mut i32) -> ::windows::core::HRESULT;
@@ -7563,13 +7539,12 @@ pub unsafe fn ScriptApplyLogicalWidth(pidx: *const i32, cchars: i32, cglyphs: i3
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptBreak(pwcchars: &[u16], psa: &SCRIPT_ANALYSIS) -> ::windows::core::Result<SCRIPT_LOGATTR> {
+pub unsafe fn ScriptBreak(pwcchars: ::windows::core::PCWSTR, cchars: i32, psa: &SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptBreak(pwcchars: ::windows::core::PCWSTR, cchars: i32, psa: *const SCRIPT_ANALYSIS, psla: *mut SCRIPT_LOGATTR) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ScriptBreak(::core::mem::transmute(pwcchars.as_ptr()), pwcchars.len() as _, ::core::mem::transmute(psa), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SCRIPT_LOGATTR>(result__)
+    ScriptBreak(::core::mem::transmute(pwcchars), ::core::mem::transmute(cchars), ::core::mem::transmute(psa), ::core::mem::transmute(psla)).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7744,27 +7719,26 @@ pub unsafe fn ScriptItemizeOpenType(pwcinchars: &[u16], cmaxitems: i32, pscontro
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32) -> ::windows::core::Result<i32> {
+pub unsafe fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptJustify(psva: *const SCRIPT_VISATTR, piadvance: *const i32, cglyphs: i32, idx: i32, iminkashida: i32, pijustify: *mut i32) -> ::windows::core::HRESULT;
     }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ScriptJustify(::core::mem::transmute(psva), ::core::mem::transmute(piadvance), ::core::mem::transmute(cglyphs), idx, iminkashida, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+    ScriptJustify(::core::mem::transmute(psva), ::core::mem::transmute(piadvance), ::core::mem::transmute(cglyphs), idx, iminkashida, ::core::mem::transmute(pijustify)).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`*"]
 #[inline]
-pub unsafe fn ScriptLayout(pblevel: &[u8], pivisualtological: ::core::option::Option<&mut i32>, pilogicaltovisual: ::core::option::Option<&mut i32>) -> ::windows::core::Result<()> {
+pub unsafe fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
         fn ScriptLayout(cruns: i32, pblevel: *const u8, pivisualtological: *mut i32, pilogicaltovisual: *mut i32) -> ::windows::core::HRESULT;
     }
-    ScriptLayout(pblevel.len() as _, ::core::mem::transmute(pblevel.as_ptr()), ::core::mem::transmute(pivisualtological), ::core::mem::transmute(pilogicaltovisual)).ok()
+    ScriptLayout(::core::mem::transmute(cruns), ::core::mem::transmute(pblevel), ::core::mem::transmute(pivisualtological), ::core::mem::transmute(pilogicaltovisual)).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptPlace<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: &mut SCRIPT_ANALYSIS, piadvance: &mut i32, pgoffset: ::core::option::Option<&mut GOFFSET>, pabc: &mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()>
+pub unsafe fn ScriptPlace<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwglyphs: *const u16, cglyphs: i32, psva: *const SCRIPT_VISATTR, psa: &mut SCRIPT_ANALYSIS, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: &mut super::Graphics::Gdi::ABC) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7777,7 +7751,7 @@ where
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptPlaceOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: &mut i32, pgoffset: &mut GOFFSET, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>) -> ::windows::core::Result<()>
+pub unsafe fn ScriptPlaceOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, pwlogclust: *const u16, pcharprops: *const script_charprop, cchars: i32, pwglyphs: *const u16, pglyphprops: *const script_glyphprop, cglyphs: i32, piadvance: *mut i32, pgoffset: *mut GOFFSET, pabc: ::core::option::Option<&mut super::Graphics::Gdi::ABC>) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7833,7 +7807,7 @@ pub unsafe fn ScriptRecordDigitSubstitution(locale: u32) -> ::windows::core::Res
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptShape<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcchars: &[u16], cmaxglyphs: i32, psa: &mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: &mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: &mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptShape<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, psa: &mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7841,12 +7815,12 @@ where
     extern "system" {
         fn ScriptShape(hdc: super::Graphics::Gdi::HDC, psc: *mut *mut ::core::ffi::c_void, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, psa: *mut SCRIPT_ANALYSIS, pwoutglyphs: *mut u16, pwlogclust: *mut u16, psva: *mut SCRIPT_VISATTR, pcglyphs: *mut i32) -> ::windows::core::HRESULT;
     }
-    ScriptShape(hdc.into(), ::core::mem::transmute(psc), ::core::mem::transmute(pwcchars.as_ptr()), pwcchars.len() as _, ::core::mem::transmute(cmaxglyphs), ::core::mem::transmute(psa), ::core::mem::transmute(pwoutglyphs), ::core::mem::transmute(pwlogclust), ::core::mem::transmute(psva), ::core::mem::transmute(pcglyphs)).ok()
+    ScriptShape(hdc.into(), ::core::mem::transmute(psc), ::core::mem::transmute(pwcchars), ::core::mem::transmute(cchars), ::core::mem::transmute(cmaxglyphs), ::core::mem::transmute(psa), ::core::mem::transmute(pwoutglyphs), ::core::mem::transmute(pwlogclust), ::core::mem::transmute(psva), ::core::mem::transmute(pcglyphs)).ok()
 }
 #[doc = "*Required features: `\"Win32_Globalization\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn ScriptShapeOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: &[u16], cmaxglyphs: i32, pwlogclust: &mut u16, pcharprops: &mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: &mut i32) -> ::windows::core::Result<()>
+pub unsafe fn ScriptShapeOpenType<'a, P0>(hdc: P0, psc: *mut *mut ::core::ffi::c_void, psa: &mut SCRIPT_ANALYSIS, tagscript: u32, taglangsys: u32, rcrangechars: *const i32, rprangeproperties: *const *const textrange_properties, cranges: i32, pwcchars: ::windows::core::PCWSTR, cchars: i32, cmaxglyphs: i32, pwlogclust: *mut u16, pcharprops: *mut script_charprop, pwoutglyphs: *mut u16, poutglyphprops: *mut script_glyphprop, pcglyphs: &mut i32) -> ::windows::core::Result<()>
 where
     P0: ::std::convert::Into<super::Graphics::Gdi::HDC>,
 {
@@ -7863,8 +7837,8 @@ where
         ::core::mem::transmute(rcrangechars),
         ::core::mem::transmute(rprangeproperties),
         ::core::mem::transmute(cranges),
-        ::core::mem::transmute(pwcchars.as_ptr()),
-        pwcchars.len() as _,
+        ::core::mem::transmute(pwcchars),
+        ::core::mem::transmute(cchars),
         ::core::mem::transmute(cmaxglyphs),
         ::core::mem::transmute(pwlogclust),
         ::core::mem::transmute(pcharprops),

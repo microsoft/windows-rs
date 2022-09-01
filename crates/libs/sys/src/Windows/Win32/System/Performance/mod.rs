@@ -232,7 +232,7 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub fn PdhVerifySQLDBW(szdatasource: ::windows_sys::core::PCWSTR) -> i32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
+    pub fn PerfAddCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfCloseQueryHandle(hquery: super::super::Foundation::HANDLE) -> u32;
@@ -245,7 +245,7 @@ extern "system" {
     #[cfg(feature = "Win32_Foundation")]
     pub fn PerfDecrementULongLongCounterValue(provider: super::super::Foundation::HANDLE, instance: *mut PERF_COUNTERSET_INSTANCE, counterid: u32, value: u64) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
-    pub fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *const PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
+    pub fn PerfDeleteCounters(hquery: PerfQueryHandle, pcounters: *mut PERF_COUNTER_IDENTIFIER, cbcounters: u32) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub fn PerfDeleteInstance(provider: PerfProviderHandle, instanceblock: *const PERF_COUNTERSET_INSTANCE) -> u32;
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]

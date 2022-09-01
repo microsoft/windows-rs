@@ -27,11 +27,297 @@ pub const ACS_TIMER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ACS_TRANSPARENT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AEROWIZARDPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_TITLEBAR: AEROWIZARDPARTS = AEROWIZARDPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_HEADERAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_CONTENTAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_COMMANDAREA: AEROWIZARDPARTS = AEROWIZARDPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_BUTTON: AEROWIZARDPARTS = AEROWIZARDPARTS(5i32);
+impl ::core::marker::Copy for AEROWIZARDPARTS {}
+impl ::core::clone::Clone for AEROWIZARDPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AEROWIZARDPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AEROWIZARDPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AEROWIZARDPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AEROWIZARDPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ANIMATE_CLASS: &str = "SysAnimate32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ANIMATE_CLASSA: &str = "SysAnimate32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ANIMATE_CLASSW: &str = "SysAnimate32";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ARROWBTNSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPHOT: ARROWBTNSTATES = ARROWBTNSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNHOT: ARROWBTNSTATES = ARROWBTNSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTHOT: ARROWBTNSTATES = ARROWBTNSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTNORMAL: ARROWBTNSTATES = ARROWBTNSTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTHOT: ARROWBTNSTATES = ARROWBTNSTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTPRESSED: ARROWBTNSTATES = ARROWBTNSTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTDISABLED: ARROWBTNSTATES = ARROWBTNSTATES(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_UPHOVER: ARROWBTNSTATES = ARROWBTNSTATES(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_DOWNHOVER: ARROWBTNSTATES = ARROWBTNSTATES(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_LEFTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ABS_RIGHTHOVER: ARROWBTNSTATES = ARROWBTNSTATES(20i32);
+impl ::core::marker::Copy for ARROWBTNSTATES {}
+impl ::core::clone::Clone for ARROWBTNSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ARROWBTNSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ARROWBTNSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ARROWBTNSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ARROWBTNSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BACKGROUNDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_NORMAL: BACKGROUNDSTATES = BACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_HOT: BACKGROUNDSTATES = BACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_DISABLED: BACKGROUNDSTATES = BACKGROUNDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_FOCUSED: BACKGROUNDSTATES = BACKGROUNDSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_READONLY: BACKGROUNDSTATES = BACKGROUNDSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBS_ASSIST: BACKGROUNDSTATES = BACKGROUNDSTATES(6i32);
+impl ::core::marker::Copy for BACKGROUNDSTATES {}
+impl ::core::clone::Clone for BACKGROUNDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BACKGROUNDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BACKGROUNDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BACKGROUNDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BACKGROUNDSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BACKGROUNDWITHBORDERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_NORMAL: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_HOT: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_DISABLED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBWBS_FOCUSED: BACKGROUNDWITHBORDERSTATES = BACKGROUNDWITHBORDERSTATES(4i32);
+impl ::core::marker::Copy for BACKGROUNDWITHBORDERSTATES {}
+impl ::core::clone::Clone for BACKGROUNDWITHBORDERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BACKGROUNDWITHBORDERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BACKGROUNDWITHBORDERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BACKGROUNDWITHBORDERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BACKGROUNDWITHBORDERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BALLOONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBS_NORMAL: BALLOONSTATES = BALLOONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBS_LINK: BALLOONSTATES = BALLOONSTATES(2i32);
+impl ::core::marker::Copy for BALLOONSTATES {}
+impl ::core::clone::Clone for BALLOONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BALLOONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BALLOONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BALLOONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BALLOONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BALLOONSTEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGUPLEFTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGUPCENTERED: BALLOONSTEMSTATES = BALLOONSTEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGUPRIGHTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGDOWNRIGHTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGDOWNCENTERED: BALLOONSTEMSTATES = BALLOONSTEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTBSS_POINTINGDOWNLEFTWALL: BALLOONSTEMSTATES = BALLOONSTEMSTATES(6i32);
+impl ::core::marker::Copy for BALLOONSTEMSTATES {}
+impl ::core::clone::Clone for BALLOONSTEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BALLOONSTEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BALLOONSTEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BALLOONSTEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BALLOONSTEMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BARBACKGROUNDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MB_ACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MB_INACTIVE: BARBACKGROUNDSTATES = BARBACKGROUNDSTATES(2i32);
+impl ::core::marker::Copy for BARBACKGROUNDSTATES {}
+impl ::core::clone::Clone for BARBACKGROUNDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BARBACKGROUNDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BARBACKGROUNDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BARBACKGROUNDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BARBACKGROUNDSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BARITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_NORMAL: BARITEMSTATES = BARITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_HOT: BARITEMSTATES = BARITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_PUSHED: BARITEMSTATES = BARITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_DISABLED: BARITEMSTATES = BARITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_DISABLEDHOT: BARITEMSTATES = BARITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MBI_DISABLEDPUSHED: BARITEMSTATES = BARITEMSTATES(6i32);
+impl ::core::marker::Copy for BARITEMSTATES {}
+impl ::core::clone::Clone for BARITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BARITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BARITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BARITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BARITEMSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BCM_FIRST: u32 = 5632u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -112,6 +398,64 @@ impl ::core::fmt::Debug for BGTYPE {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BODYSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FBS_NORMAL: BODYSTATES = BODYSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FBS_EMPHASIZED: BODYSTATES = BODYSTATES(2i32);
+impl ::core::marker::Copy for BODYSTATES {}
+impl ::core::clone::Clone for BODYSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BODYSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BODYSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BODYSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BODYSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BORDERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_NORMAL: BORDERSTATES = BORDERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_HOT: BORDERSTATES = BORDERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_FOCUSED: BORDERSTATES = BORDERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBB_DISABLED: BORDERSTATES = BORDERSTATES(4i32);
+impl ::core::marker::Copy for BORDERSTATES {}
+impl ::core::clone::Clone for BORDERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BORDERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BORDERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BORDERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BORDERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct BORDERTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BT_RECT: BORDERTYPE = BORDERTYPE(0i32);
@@ -136,6 +480,130 @@ unsafe impl ::windows::core::Abi for BORDERTYPE {
 impl ::core::fmt::Debug for BORDERTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BORDERTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BORDER_HSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_NORMAL: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_FOCUSED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_HOT: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSH_DISABLED: BORDER_HSCROLLSTATES = BORDER_HSCROLLSTATES(4i32);
+impl ::core::marker::Copy for BORDER_HSCROLLSTATES {}
+impl ::core::clone::Clone for BORDER_HSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BORDER_HSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BORDER_HSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BORDER_HSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BORDER_HSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BORDER_HVSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_NORMAL: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_FOCUSED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_HOT: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSHV_DISABLED: BORDER_HVSCROLLSTATES = BORDER_HVSCROLLSTATES(4i32);
+impl ::core::marker::Copy for BORDER_HVSCROLLSTATES {}
+impl ::core::clone::Clone for BORDER_HVSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BORDER_HVSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BORDER_HVSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BORDER_HVSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BORDER_HVSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BORDER_NOSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_NORMAL: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_FOCUSED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_HOT: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSN_DISABLED: BORDER_NOSCROLLSTATES = BORDER_NOSCROLLSTATES(4i32);
+impl ::core::marker::Copy for BORDER_NOSCROLLSTATES {}
+impl ::core::clone::Clone for BORDER_NOSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BORDER_NOSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BORDER_NOSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BORDER_NOSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BORDER_NOSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BORDER_VSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_NORMAL: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_FOCUSED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_HOT: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSV_DISABLED: BORDER_VSCROLLSTATES = BORDER_VSCROLLSTATES(4i32);
+impl ::core::marker::Copy for BORDER_VSCROLLSTATES {}
+impl ::core::clone::Clone for BORDER_VSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BORDER_VSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BORDER_VSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BORDER_VSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BORDER_VSCROLLSTATES").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -361,6 +829,51 @@ pub const BTNS_SEP: u32 = 1u32;
 pub const BTNS_SHOWTEXT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const BTNS_WHOLEDROPDOWN: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BUTTONPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_PUSHBUTTON: BUTTONPARTS = BUTTONPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_RADIOBUTTON: BUTTONPARTS = BUTTONPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_CHECKBOX: BUTTONPARTS = BUTTONPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_GROUPBOX: BUTTONPARTS = BUTTONPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_USERBUTTON: BUTTONPARTS = BUTTONPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_COMMANDLINK: BUTTONPARTS = BUTTONPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_COMMANDLINKGLYPH: BUTTONPARTS = BUTTONPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_RADIOBUTTON_HCDISABLED: BUTTONPARTS = BUTTONPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_CHECKBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_GROUPBOX_HCDISABLED: BUTTONPARTS = BUTTONPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const BP_PUSHBUTTONDROPDOWN: BUTTONPARTS = BUTTONPARTS(11i32);
+impl ::core::marker::Copy for BUTTONPARTS {}
+impl ::core::clone::Clone for BUTTONPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BUTTONPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BUTTONPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BUTTONPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BUTTONPARTS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -579,6 +1092,35 @@ pub unsafe fn BufferedPaintUnInit() -> ::windows::core::Result<()> {
         fn BufferedPaintUnInit() -> ::windows::core::HRESULT;
     }
     BufferedPaintUnInit().ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CAPTIONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CS_ACTIVE: CAPTIONSTATES = CAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CS_INACTIVE: CAPTIONSTATES = CAPTIONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CS_DISABLED: CAPTIONSTATES = CAPTIONSTATES(3i32);
+impl ::core::marker::Copy for CAPTIONSTATES {}
+impl ::core::clone::Clone for CAPTIONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CAPTIONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CAPTIONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CAPTIONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CAPTIONSTATES").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBEMAXSTRLEN: u32 = 260u32;
@@ -1031,6 +1573,127 @@ pub const CDRF_SKIPPOSTPAINT: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CHECKBOXSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_UNCHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_CHECKEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_MIXEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITHOT: CHECKBOXSTATES = CHECKBOXSTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_IMPLICITDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDNORMAL: CHECKBOXSTATES = CHECKBOXSTATES(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDHOT: CHECKBOXSTATES = CHECKBOXSTATES(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDPRESSED: CHECKBOXSTATES = CHECKBOXSTATES(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_EXCLUDEDDISABLED: CHECKBOXSTATES = CHECKBOXSTATES(20i32);
+impl ::core::marker::Copy for CHECKBOXSTATES {}
+impl ::core::clone::Clone for CHECKBOXSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CHECKBOXSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CHECKBOXSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHECKBOXSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHECKBOXSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CHEVRONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVS_NORMAL: CHEVRONSTATES = CHEVRONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVS_HOT: CHEVRONSTATES = CHEVRONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVS_PRESSED: CHEVRONSTATES = CHEVRONSTATES(3i32);
+impl ::core::marker::Copy for CHEVRONSTATES {}
+impl ::core::clone::Clone for CHEVRONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CHEVRONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CHEVRONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHEVRONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHEVRONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CHEVRONVERTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVSV_NORMAL: CHEVRONVERTSTATES = CHEVRONVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVSV_HOT: CHEVRONVERTSTATES = CHEVRONVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CHEVSV_PRESSED: CHEVRONVERTSTATES = CHEVRONVERTSTATES(3i32);
+impl ::core::marker::Copy for CHEVRONVERTSTATES {}
+impl ::core::clone::Clone for CHEVRONVERTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CHEVRONVERTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CHEVRONVERTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHEVRONVERTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHEVRONVERTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct CLOCKPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLP_TIME: CLOCKPARTS = CLOCKPARTS(1i32);
@@ -1083,6 +1746,66 @@ impl ::core::fmt::Debug for CLOCKSTATES {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CLOSEBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_NORMAL: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_HOT: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_PUSHED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBS_DISABLED: CLOSEBUTTONSTATES = CLOSEBUTTONSTATES(4i32);
+impl ::core::marker::Copy for CLOSEBUTTONSTATES {}
+impl ::core::clone::Clone for CLOSEBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CLOSEBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CLOSEBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLOSEBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLOSEBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CLOSESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTCS_NORMAL: CLOSESTATES = CLOSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTCS_HOT: CLOSESTATES = CLOSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTCS_PRESSED: CLOSESTATES = CLOSESTATES(3i32);
+impl ::core::marker::Copy for CLOSESTATES {}
+impl ::core::clone::Clone for CLOSESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CLOSESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CLOSESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLOSESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLOSESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLR_DEFAULT: i32 = -16777216i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CLR_HILIGHT: i32 = -16777216i32;
@@ -1090,32 +1813,69 @@ pub const CLR_HILIGHT: i32 = -16777216i32;
 pub const CLR_NONE: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CMB_MASKED: u32 = 2u32;
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
-pub struct COLORMAP {
-    pub from: u32,
-    pub to: u32,
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COLLAPSEBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCB_NORMAL: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCB_HOVER: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVCB_PUSHED: COLLAPSEBUTTONSTATES = COLLAPSEBUTTONSTATES(3i32);
+impl ::core::marker::Copy for COLLAPSEBUTTONSTATES {}
+impl ::core::clone::Clone for COLLAPSEBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
+impl ::core::default::Default for COLLAPSEBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COLLAPSEBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COLLAPSEBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COLLAPSEBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct COLORMAP {
+    pub from: super::super::Foundation::COLORREF,
+    pub to: super::super::Foundation::COLORREF,
+}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COLORMAP {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COLORMAP {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COLORMAP {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("COLORMAP").field("from", &self.from).field("to", &self.to).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COLORMAP {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COLORMAP {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORMAP>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COLORMAP {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COLORMAP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1124,32 +1884,40 @@ impl ::core::default::Default for COLORMAP {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const COLORMGMTDLGORD: u32 = 1551u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COLORSCHEME {
     pub dwSize: u32,
-    pub clrBtnHighlight: u32,
-    pub clrBtnShadow: u32,
+    pub clrBtnHighlight: super::super::Foundation::COLORREF,
+    pub clrBtnShadow: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COLORSCHEME {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COLORSCHEME {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for COLORSCHEME {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("COLORSCHEME").field("dwSize", &self.dwSize).field("clrBtnHighlight", &self.clrBtnHighlight).field("clrBtnShadow", &self.clrBtnShadow).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for COLORSCHEME {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COLORSCHEME {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COLORSCHEME>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for COLORSCHEME {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COLORSCHEME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1327,6 +2095,78 @@ impl ::core::fmt::Debug for COMBOBOXINFO_BUTTON_STATE {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMBOBOXPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNBUTTON: COMBOBOXPARTS = COMBOBOXPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_BACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_TRANSPARENTBACKGROUND: COMBOBOXPARTS = COMBOBOXPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_BORDER: COMBOBOXPARTS = COMBOBOXPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_READONLY: COMBOBOXPARTS = COMBOBOXPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNBUTTONRIGHT: COMBOBOXPARTS = COMBOBOXPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNBUTTONLEFT: COMBOBOXPARTS = COMBOBOXPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_CUEBANNER: COMBOBOXPARTS = COMBOBOXPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CP_DROPDOWNITEM: COMBOBOXPARTS = COMBOBOXPARTS(9i32);
+impl ::core::marker::Copy for COMBOBOXPARTS {}
+impl ::core::clone::Clone for COMBOBOXPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMBOBOXPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMBOBOXPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMBOBOXPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMBOBOXPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMBOBOXSTYLESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_NORMAL: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_HOT: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_PRESSED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXS_DISABLED: COMBOBOXSTYLESTATES = COMBOBOXSTYLESTATES(4i32);
+impl ::core::marker::Copy for COMBOBOXSTYLESTATES {}
+impl ::core::clone::Clone for COMBOBOXSTYLESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMBOBOXSTYLESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMBOBOXSTYLESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMBOBOXSTYLESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMBOBOXSTYLESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMBOBOX_EX_ITEM_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = COMBOBOX_EX_ITEM_FLAGS(268435456u32);
@@ -1391,6 +2231,99 @@ impl ::core::ops::Not for COMBOBOX_EX_ITEM_FLAGS {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const COMCTL32_VERSION: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMMANDLINKGLYPHSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_NORMAL: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_HOT: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_PRESSED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_DISABLED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLGS_DEFAULTED: COMMANDLINKGLYPHSTATES = COMMANDLINKGLYPHSTATES(5i32);
+impl ::core::marker::Copy for COMMANDLINKGLYPHSTATES {}
+impl ::core::clone::Clone for COMMANDLINKGLYPHSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMMANDLINKGLYPHSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMMANDLINKGLYPHSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMMANDLINKGLYPHSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMMANDLINKGLYPHSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMMANDLINKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_NORMAL: COMMANDLINKSTATES = COMMANDLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_HOT: COMMANDLINKSTATES = COMMANDLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_PRESSED: COMMANDLINKSTATES = COMMANDLINKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_DISABLED: COMMANDLINKSTATES = COMMANDLINKSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_DEFAULTED: COMMANDLINKSTATES = COMMANDLINKSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CMDLS_DEFAULTED_ANIMATING: COMMANDLINKSTATES = COMMANDLINKSTATES(6i32);
+impl ::core::marker::Copy for COMMANDLINKSTATES {}
+impl ::core::clone::Clone for COMMANDLINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMMANDLINKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMMANDLINKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMMANDLINKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMMANDLINKSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMMUNICATIONSPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSST_TAB: COMMUNICATIONSPARTS = COMMUNICATIONSPARTS(1i32);
+impl ::core::marker::Copy for COMMUNICATIONSPARTS {}
+impl ::core::clone::Clone for COMMUNICATIONSPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMMUNICATIONSPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMMUNICATIONSPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMMUNICATIONSPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMMUNICATIONSPARTS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1463,6 +2396,260 @@ unsafe impl ::windows::core::Abi for CONTENTALIGNMENT {
 impl ::core::fmt::Debug for CONTENTALIGNMENT {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CONTENTALIGNMENT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONTENTAREASTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_CONTENTAREA_NOMARGIN: CONTENTAREASTATES = CONTENTAREASTATES(1i32);
+impl ::core::marker::Copy for CONTENTAREASTATES {}
+impl ::core::clone::Clone for CONTENTAREASTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONTENTAREASTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONTENTAREASTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONTENTAREASTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONTENTAREASTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONTENTLINKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_NORMAL: CONTENTLINKSTATES = CONTENTLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_HOT: CONTENTLINKSTATES = CONTENTLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_PRESSED: CONTENTLINKSTATES = CONTENTLINKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPCL_DISABLED: CONTENTLINKSTATES = CONTENTLINKSTATES(4i32);
+impl ::core::marker::Copy for CONTENTLINKSTATES {}
+impl ::core::clone::Clone for CONTENTLINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONTENTLINKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONTENTLINKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONTENTLINKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONTENTLINKSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONTENTPANESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGCPS_STANDALONE: CONTENTPANESTATES = CONTENTPANESTATES(1i32);
+impl ::core::marker::Copy for CONTENTPANESTATES {}
+impl ::core::clone::Clone for CONTENTPANESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONTENTPANESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONTENTPANESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONTENTPANESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONTENTPANESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONTROLLABELSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_CONTROLLABEL_NORMAL: CONTROLLABELSTATES = CONTROLLABELSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_CONTROLLABEL_DISABLED: CONTROLLABELSTATES = CONTROLLABELSTATES(2i32);
+impl ::core::marker::Copy for CONTROLLABELSTATES {}
+impl ::core::clone::Clone for CONTROLLABELSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONTROLLABELSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONTROLLABELSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONTROLLABELSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONTROLLABELSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONTROLPANELPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_NAVIGATIONPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTPANE: CONTROLPANELPARTS = CONTROLPANELPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_NAVIGATIONPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTPANELABEL: CONTROLPANELPARTS = CONTROLPANELPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_TITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BODYTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_HELPLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_TASKLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_GROUPTEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTLINK: CONTROLPANELPARTS = CONTROLPANELPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_SECTIONTITLELINK: CONTROLPANELPARTS = CONTROLPANELPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_LARGECOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_SMALLCOMMANDAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BUTTON: CONTROLPANELPARTS = CONTROLPANELPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_MESSAGETEXT: CONTROLPANELPARTS = CONTROLPANELPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_NAVIGATIONPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_CONTENTPANELINE: CONTROLPANELPARTS = CONTROLPANELPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BANNERAREA: CONTROLPANELPARTS = CONTROLPANELPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPANEL_BODYTITLE: CONTROLPANELPARTS = CONTROLPANELPARTS(19i32);
+impl ::core::marker::Copy for CONTROLPANELPARTS {}
+impl ::core::clone::Clone for CONTROLPANELPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONTROLPANELPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONTROLPANELPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONTROLPANELPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONTROLPANELPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COPYSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCOPY_HIGHLIGHT: COPYSTATES = COPYSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCOPY_NOHIGHLIGHT: COPYSTATES = COPYSTATES(2i32);
+impl ::core::marker::Copy for COPYSTATES {}
+impl ::core::clone::Clone for COPYSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COPYSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COPYSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COPYSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COPYSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CREATELINKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCREATELINK_HIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDCREATELINK_NOHIGHLIGHT: CREATELINKSTATES = CREATELINKSTATES(2i32);
+impl ::core::marker::Copy for CREATELINKSTATES {}
+impl ::core::clone::Clone for CREATELINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CREATELINKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CREATELINKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREATELINKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREATELINKSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CUEBANNERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_NORMAL: CUEBANNERSTATES = CUEBANNERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_HOT: CUEBANNERSTATES = CUEBANNERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_PRESSED: CUEBANNERSTATES = CUEBANNERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBCB_DISABLED: CUEBANNERSTATES = CUEBANNERSTATES(4i32);
+impl ::core::marker::Copy for CUEBANNERSTATES {}
+impl ::core::clone::Clone for CUEBANNERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CUEBANNERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CUEBANNERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CUEBANNERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CUEBANNERSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1601,6 +2788,95 @@ where
         fn CreateUpDownControl(dwstyle: u32, x: i32, y: i32, cx: i32, cy: i32, hparent: super::super::Foundation::HWND, nid: i32, hinst: super::super::Foundation::HINSTANCE, hbuddy: super::super::Foundation::HWND, nupper: i32, nlower: i32, npos: i32) -> super::super::Foundation::HWND;
     }
     CreateUpDownControl(dwstyle, x, y, cx, cy, hparent.into(), nid, hinst.into(), hbuddy.into(), nupper, nlower, npos)
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DATEBORDERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_NORMAL: DATEBORDERSTATES = DATEBORDERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_HOT: DATEBORDERSTATES = DATEBORDERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_FOCUSED: DATEBORDERSTATES = DATEBORDERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDB_DISABLED: DATEBORDERSTATES = DATEBORDERSTATES(4i32);
+impl ::core::marker::Copy for DATEBORDERSTATES {}
+impl ::core::clone::Clone for DATEBORDERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DATEBORDERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DATEBORDERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DATEBORDERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DATEBORDERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DATEPICKERPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DP_DATETEXT: DATEPICKERPARTS = DATEPICKERPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DP_DATEBORDER: DATEPICKERPARTS = DATEPICKERPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = DATEPICKERPARTS(3i32);
+impl ::core::marker::Copy for DATEPICKERPARTS {}
+impl ::core::clone::Clone for DATEPICKERPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DATEPICKERPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DATEPICKERPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DATEPICKERPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DATEPICKERPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DATETEXTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDT_NORMAL: DATETEXTSTATES = DATETEXTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDT_DISABLED: DATETEXTSTATES = DATETEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPDT_SELECTED: DATETEXTSTATES = DATETEXTSTATES(3i32);
+impl ::core::marker::Copy for DATETEXTSTATES {}
+impl ::core::clone::Clone for DATETEXTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DATETEXTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DATETEXTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DATETEXTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DATETEXTSTATES").field(&self.0).finish()
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -1805,6 +3081,68 @@ pub const DL_CURSORSET: u32 = 0u32;
 pub const DL_MOVECURSOR: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const DL_STOPCURSOR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DOWNHORZSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_NORMAL: DOWNHORZSTATES = DOWNHORZSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_HOT: DOWNHORZSTATES = DOWNHORZSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_PRESSED: DOWNHORZSTATES = DOWNHORZSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNHZS_DISABLED: DOWNHORZSTATES = DOWNHORZSTATES(4i32);
+impl ::core::marker::Copy for DOWNHORZSTATES {}
+impl ::core::clone::Clone for DOWNHORZSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DOWNHORZSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DOWNHORZSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DOWNHORZSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DOWNHORZSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DOWNSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_NORMAL: DOWNSTATES = DOWNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_HOT: DOWNSTATES = DOWNSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_PRESSED: DOWNSTATES = DOWNSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DNS_DISABLED: DOWNSTATES = DOWNSTATES(4i32);
+impl ::core::marker::Copy for DOWNSTATES {}
+impl ::core::clone::Clone for DOWNSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DOWNSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DOWNSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DOWNSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DOWNSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2124,6 +3462,45 @@ where
     }
     DPA_Sort(hdpa.into(), ::core::mem::transmute(pfncompare), lparam.into())
 }
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DRAGDROPPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_COPY: DRAGDROPPARTS = DRAGDROPPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_MOVE: DRAGDROPPARTS = DRAGDROPPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_UPDATEMETADATA: DRAGDROPPARTS = DRAGDROPPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_CREATELINK: DRAGDROPPARTS = DRAGDROPPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_WARNING: DRAGDROPPARTS = DRAGDROPPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_NONE: DRAGDROPPARTS = DRAGDROPPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_IMAGEBG: DRAGDROPPARTS = DRAGDROPPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DD_TEXTBG: DRAGDROPPARTS = DRAGDROPPARTS(8i32);
+impl ::core::marker::Copy for DRAGDROPPARTS {}
+impl ::core::clone::Clone for DRAGDROPPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DRAGDROPPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DRAGDROPPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DRAGDROPPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DRAGDROPPARTS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2335,6 +3712,95 @@ impl ::core::ops::Not for DRAW_THEME_PARENT_BACKGROUND_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DROPDOWNBUTTONLEFTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_NORMAL: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_HOT: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_PRESSED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSL_DISABLED: DROPDOWNBUTTONLEFTSTATES = DROPDOWNBUTTONLEFTSTATES(4i32);
+impl ::core::marker::Copy for DROPDOWNBUTTONLEFTSTATES {}
+impl ::core::clone::Clone for DROPDOWNBUTTONLEFTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DROPDOWNBUTTONLEFTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DROPDOWNBUTTONLEFTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DROPDOWNBUTTONLEFTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DROPDOWNBUTTONLEFTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DROPDOWNBUTTONRIGHTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_NORMAL: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_HOT: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_PRESSED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBXSR_DISABLED: DROPDOWNBUTTONRIGHTSTATES = DROPDOWNBUTTONRIGHTSTATES(4i32);
+impl ::core::marker::Copy for DROPDOWNBUTTONRIGHTSTATES {}
+impl ::core::clone::Clone for DROPDOWNBUTTONRIGHTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DROPDOWNBUTTONRIGHTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DROPDOWNBUTTONRIGHTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DROPDOWNBUTTONRIGHTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DROPDOWNBUTTONRIGHTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DROPDOWNITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBDI_NORMAL: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBDI_HIGHLIGHTED: DROPDOWNITEMSTATES = DROPDOWNITEMSTATES(2i32);
+impl ::core::marker::Copy for DROPDOWNITEMSTATES {}
+impl ::core::clone::Clone for DROPDOWNITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DROPDOWNITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DROPDOWNITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DROPDOWNITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DROPDOWNITEMSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -2612,10 +4078,10 @@ pub const DTS_UPDOWN: u32 = 1u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DTTOPTS {
     pub dwSize: u32,
-    pub dwFlags: u32,
-    pub crText: u32,
-    pub crBorder: u32,
-    pub crShadow: u32,
+    pub dwFlags: DTTOPTS_FLAGS,
+    pub crText: super::super::Foundation::COLORREF,
+    pub crBorder: super::super::Foundation::COLORREF,
+    pub crShadow: super::super::Foundation::COLORREF,
     pub iTextShadowType: i32,
     pub ptShadowOffset: super::super::Foundation::POINT,
     pub iBorderSize: i32,
@@ -2673,6 +4139,87 @@ impl ::core::cmp::Eq for DTTOPTS {}
 impl ::core::default::Default for DTTOPTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DTTOPTS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_TEXTCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_BORDERCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_SHADOWCOLOR: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_SHADOWTYPE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_SHADOWOFFSET: DTTOPTS_FLAGS = DTTOPTS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_BORDERSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_FONTPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_COLORPROP: DTTOPTS_FLAGS = DTTOPTS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_STATEID: DTTOPTS_FLAGS = DTTOPTS_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_CALCRECT: DTTOPTS_FLAGS = DTTOPTS_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_APPLYOVERLAY: DTTOPTS_FLAGS = DTTOPTS_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_GLOWSIZE: DTTOPTS_FLAGS = DTTOPTS_FLAGS(2048u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_CALLBACK: DTTOPTS_FLAGS = DTTOPTS_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_COMPOSITED: DTTOPTS_FLAGS = DTTOPTS_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DTT_VALIDBITS: DTTOPTS_FLAGS = DTTOPTS_FLAGS(12287u32);
+impl ::core::marker::Copy for DTTOPTS_FLAGS {}
+impl ::core::clone::Clone for DTTOPTS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DTTOPTS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DTTOPTS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTTOPTS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTTOPTS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DTTOPTS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DTTOPTS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DTTOPTS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DTTOPTS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DTTOPTS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
@@ -2828,15 +4375,17 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn DrawShadowText<'a, P0>(hdc: P0, psztext: &[u16], prc: &super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32
+pub unsafe fn DrawShadowText<'a, P0, P1, P2>(hdc: P0, psztext: &[u16], prc: &super::super::Foundation::RECT, dwflags: u32, crtext: P1, crshadow: P2, ixoffset: i32, iyoffset: i32) -> i32
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    P2: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows::core::PCWSTR, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: u32, crshadow: u32, ixoffset: i32, iyoffset: i32) -> i32;
+        fn DrawShadowText(hdc: super::super::Graphics::Gdi::HDC, psztext: ::windows::core::PCWSTR, cch: u32, prc: *const super::super::Foundation::RECT, dwflags: u32, crtext: super::super::Foundation::COLORREF, crshadow: super::super::Foundation::COLORREF, ixoffset: i32, iyoffset: i32) -> i32;
     }
-    DrawShadowText(hdc.into(), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(prc), dwflags, crtext, crshadow, ixoffset, iyoffset)
+    DrawShadowText(hdc.into(), ::core::mem::transmute(psztext.as_ptr()), psztext.len() as _, ::core::mem::transmute(prc), dwflags, crtext.into(), crshadow.into(), ixoffset, iyoffset)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -3105,6 +4654,210 @@ impl ::core::fmt::Debug for EDITBALLOONTIP_ICON {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDITBORDER_HSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_NORMAL: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_HOT: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_FOCUSED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSH_DISABLED: EDITBORDER_HSCROLLSTATES = EDITBORDER_HSCROLLSTATES(4i32);
+impl ::core::marker::Copy for EDITBORDER_HSCROLLSTATES {}
+impl ::core::clone::Clone for EDITBORDER_HSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDITBORDER_HSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EDITBORDER_HSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDITBORDER_HSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDITBORDER_HSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDITBORDER_HVSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_NORMAL: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_HOT: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_FOCUSED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSHV_DISABLED: EDITBORDER_HVSCROLLSTATES = EDITBORDER_HVSCROLLSTATES(4i32);
+impl ::core::marker::Copy for EDITBORDER_HVSCROLLSTATES {}
+impl ::core::clone::Clone for EDITBORDER_HVSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDITBORDER_HVSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EDITBORDER_HVSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDITBORDER_HVSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDITBORDER_HVSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDITBORDER_NOSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_NORMAL: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_HOT: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_FOCUSED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSN_DISABLED: EDITBORDER_NOSCROLLSTATES = EDITBORDER_NOSCROLLSTATES(4i32);
+impl ::core::marker::Copy for EDITBORDER_NOSCROLLSTATES {}
+impl ::core::clone::Clone for EDITBORDER_NOSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDITBORDER_NOSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EDITBORDER_NOSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDITBORDER_NOSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDITBORDER_NOSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDITBORDER_VSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_NORMAL: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_HOT: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_FOCUSED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EPSV_DISABLED: EDITBORDER_VSCROLLSTATES = EDITBORDER_VSCROLLSTATES(4i32);
+impl ::core::marker::Copy for EDITBORDER_VSCROLLSTATES {}
+impl ::core::clone::Clone for EDITBORDER_VSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDITBORDER_VSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EDITBORDER_VSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDITBORDER_VSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDITBORDER_VSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDITPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITTEXT: EDITPARTS = EDITPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_CARET: EDITPARTS = EDITPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_BACKGROUND: EDITPARTS = EDITPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_PASSWORD: EDITPARTS = EDITPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_BACKGROUNDWITHBORDER: EDITPARTS = EDITPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_NOSCROLL: EDITPARTS = EDITPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_HSCROLL: EDITPARTS = EDITPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_VSCROLL: EDITPARTS = EDITPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EP_EDITBORDER_HVSCROLL: EDITPARTS = EDITPARTS(9i32);
+impl ::core::marker::Copy for EDITPARTS {}
+impl ::core::clone::Clone for EDITPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDITPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EDITPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDITPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDITPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDITTEXTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_NORMAL: EDITTEXTSTATES = EDITTEXTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_HOT: EDITTEXTSTATES = EDITTEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_SELECTED: EDITTEXTSTATES = EDITTEXTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_DISABLED: EDITTEXTSTATES = EDITTEXTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_FOCUSED: EDITTEXTSTATES = EDITTEXTSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_READONLY: EDITTEXTSTATES = EDITTEXTSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_ASSIST: EDITTEXTSTATES = EDITTEXTSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ETS_CUEBANNER: EDITTEXTSTATES = EDITTEXTSTATES(8i32);
+impl ::core::marker::Copy for EDITTEXTSTATES {}
+impl ::core::clone::Clone for EDITTEXTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDITTEXTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EDITTEXTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDITTEXTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDITTEXTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type EDITWORDBREAKPROCA = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows::core::PCSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub type EDITWORDBREAKPROCW = ::core::option::Option<unsafe extern "system" fn(lpch: ::windows::core::PCWSTR, ichcurrent: i32, cch: i32, code: WORD_BREAK_ACTION) -> i32>;
@@ -3310,6 +5063,121 @@ pub const ETDT_ENABLE: u32 = 2u32;
 pub const ETDT_USEAEROWIZARDTABTEXTURE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ETDT_USETABTEXTURE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EXPANDBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVEB_NORMAL: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVEB_HOVER: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVEB_PUSHED: EXPANDBUTTONSTATES = EXPANDBUTTONSTATES(3i32);
+impl ::core::marker::Copy for EXPANDBUTTONSTATES {}
+impl ::core::clone::Clone for EXPANDBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EXPANDBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EXPANDBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXPANDBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXPANDBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EXPANDOBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_NORMAL: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_HOVER: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_PRESSED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDNORMAL: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDHOVER: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDPRESSED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_NORMALDISABLED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLGEBS_EXPANDEDDISABLED: EXPANDOBUTTONSTATES = EXPANDOBUTTONSTATES(8i32);
+impl ::core::marker::Copy for EXPANDOBUTTONSTATES {}
+impl ::core::clone::Clone for EXPANDOBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EXPANDOBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EXPANDOBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXPANDOBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXPANDOBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EXPLORERBARPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_HEADERBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_HEADERCLOSE: EXPLORERBARPARTS = EXPLORERBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_HEADERPIN: EXPLORERBARPARTS = EXPLORERBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_IEBARMENU: EXPLORERBARPARTS = EXPLORERBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_NORMALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPBACKGROUND: EXPLORERBARPARTS = EXPLORERBARPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPCOLLAPSE: EXPLORERBARPARTS = EXPLORERBARPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPEXPAND: EXPLORERBARPARTS = EXPLORERBARPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBP_SPECIALGROUPHEAD: EXPLORERBARPARTS = EXPLORERBARPARTS(12i32);
+impl ::core::marker::Copy for EXPLORERBARPARTS {}
+impl ::core::clone::Clone for EXPLORERBARPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EXPLORERBARPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EXPLORERBARPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXPLORERBARPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXPLORERBARPARTS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
@@ -3461,6 +5329,37 @@ pub const FILEOPENORD: u32 = 1536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_NORMAL: FILLSTATES = FILLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_ERROR: FILLSTATES = FILLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_PAUSED: FILLSTATES = FILLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFS_PARTIAL: FILLSTATES = FILLSTATES(4i32);
+impl ::core::marker::Copy for FILLSTATES {}
+impl ::core::clone::Clone for FILLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FILLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct FILLTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FT_SOLID: FILLTYPE = FILLTYPE(0i32);
@@ -3492,13 +5391,191 @@ impl ::core::fmt::Debug for FILLTYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILLVERTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_NORMAL: FILLVERTSTATES = FILLVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_ERROR: FILLVERTSTATES = FILLVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_PAUSED: FILLVERTSTATES = FILLVERTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBFVS_PARTIAL: FILLVERTSTATES = FILLVERTSTATES(4i32);
+impl ::core::marker::Copy for FILLVERTSTATES {}
+impl ::core::clone::Clone for FILLVERTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILLVERTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FILLVERTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILLVERTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILLVERTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FINDDLGORD: u32 = 1540u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FLYOUTPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_HEADER: FLYOUTPARTS = FLYOUTPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_BODY: FLYOUTPARTS = FLYOUTPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LABEL: FLYOUTPARTS = FLYOUTPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LINK: FLYOUTPARTS = FLYOUTPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_DIVIDER: FLYOUTPARTS = FLYOUTPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_WINDOW: FLYOUTPARTS = FLYOUTPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LINKAREA: FLYOUTPARTS = FLYOUTPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUT_LINKHEADER: FLYOUTPARTS = FLYOUTPARTS(8i32);
+impl ::core::marker::Copy for FLYOUTPARTS {}
+impl ::core::clone::Clone for FLYOUTPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FLYOUTPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FLYOUTPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FLYOUTPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FLYOUTPARTS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FONTDLGORD: u32 = 1542u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FORMATDLGORD30: u32 = 1544u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FORMATDLGORD31: u32 = 1543u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FRAMEBOTTOMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRB_ACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRB_INACTIVE: FRAMEBOTTOMSTATES = FRAMEBOTTOMSTATES(2i32);
+impl ::core::marker::Copy for FRAMEBOTTOMSTATES {}
+impl ::core::clone::Clone for FRAMEBOTTOMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FRAMEBOTTOMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FRAMEBOTTOMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FRAMEBOTTOMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FRAMEBOTTOMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FRAMELEFTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRL_ACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRL_INACTIVE: FRAMELEFTSTATES = FRAMELEFTSTATES(2i32);
+impl ::core::marker::Copy for FRAMELEFTSTATES {}
+impl ::core::clone::Clone for FRAMELEFTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FRAMELEFTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FRAMELEFTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FRAMELEFTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FRAMELEFTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FRAMERIGHTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRR_ACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FRR_INACTIVE: FRAMERIGHTSTATES = FRAMERIGHTSTATES(2i32);
+impl ::core::marker::Copy for FRAMERIGHTSTATES {}
+impl ::core::clone::Clone for FRAMERIGHTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FRAMERIGHTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FRAMERIGHTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FRAMERIGHTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FRAMERIGHTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FRAMESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FS_ACTIVE: FRAMESTATES = FRAMESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FS_INACTIVE: FRAMESTATES = FRAMESTATES(2i32);
+impl ::core::marker::Copy for FRAMESTATES {}
+impl ::core::clone::Clone for FRAMESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FRAMESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FRAMESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FRAMESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FRAMESTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const FSB_ENCARTA_MODE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -3711,6 +5788,33 @@ impl ::core::fmt::Debug for GLYPHFONTSIZINGTYPE {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLYPHSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GLPS_CLOSED: GLYPHSTATES = GLYPHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GLPS_OPENED: GLYPHSTATES = GLYPHSTATES(2i32);
+impl ::core::marker::Copy for GLYPHSTATES {}
+impl ::core::clone::Clone for GLYPHSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLYPHSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLYPHSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLYPHSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLYPHSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GLYPHTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const GT_NONE: GLYPHTYPE = GLYPHTYPE(0i32);
@@ -3846,6 +5950,170 @@ impl ::core::fmt::Debug for GRIDCELLUPPERSTATES {
         f.debug_tuple("GRIDCELLUPPERSTATES").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GRIPPERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSGS_NORMAL: GRIPPERSTATES = GRIPPERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSGS_CENTERED: GRIPPERSTATES = GRIPPERSTATES(2i32);
+impl ::core::marker::Copy for GRIPPERSTATES {}
+impl ::core::clone::Clone for GRIPPERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GRIPPERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GRIPPERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GRIPPERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GRIPPERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GROUPBOXSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GBS_NORMAL: GROUPBOXSTATES = GROUPBOXSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const GBS_DISABLED: GROUPBOXSTATES = GROUPBOXSTATES(2i32);
+impl ::core::marker::Copy for GROUPBOXSTATES {}
+impl ::core::clone::Clone for GROUPBOXSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GROUPBOXSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GROUPBOXSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GROUPBOXSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GROUPBOXSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GROUPHEADERLINESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPEN: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_OPENMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSE: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSEHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSEMIXEDSELECTION: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGHL_CLOSEMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = GROUPHEADERLINESTATES(16i32);
+impl ::core::marker::Copy for GROUPHEADERLINESTATES {}
+impl ::core::clone::Clone for GROUPHEADERLINESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GROUPHEADERLINESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GROUPHEADERLINESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GROUPHEADERLINESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GROUPHEADERLINESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GROUPHEADERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPEN: GROUPHEADERSTATES = GROUPHEADERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_OPENMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSE: GROUPHEADERSTATES = GROUPHEADERSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSEHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTED: GROUPHEADERSTATES = GROUPHEADERSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTEDNOTFOCUSED: GROUPHEADERSTATES = GROUPHEADERSTATES(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSEMIXEDSELECTION: GROUPHEADERSTATES = GROUPHEADERSTATES(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVGH_CLOSEMIXEDSELECTIONHOT: GROUPHEADERSTATES = GROUPHEADERSTATES(16i32);
+impl ::core::marker::Copy for GROUPHEADERSTATES {}
+impl ::core::clone::Clone for GROUPHEADERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GROUPHEADERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GROUPHEADERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GROUPHEADERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GROUPHEADERSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -3964,10 +6232,10 @@ pub unsafe fn GetThemeAnimationTransform(htheme: isize, istoryboardid: i32, itar
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeAppProperties() -> u32 {
+pub unsafe fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeAppProperties() -> u32;
+        fn GetThemeAppProperties() -> SET_THEME_APP_PROPERTIES_FLAGS;
     }
     GetThemeAppProperties()
 }
@@ -4035,15 +6303,16 @@ pub unsafe fn GetThemeBool(htheme: isize, ipartid: i32, istateid: i32, ipropid: 
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemeBool(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
 }
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<u32> {
+pub unsafe fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pcolor: *mut u32) -> ::windows::core::HRESULT;
+        fn GetThemeColor(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pcolor: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetThemeColor(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+    GetThemeColor(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -4060,20 +6329,20 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<i32> {
+pub unsafe fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows::core::HRESULT;
+        fn GetThemeEnumValue(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pival: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemeEnumValue(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: &mut [u16]) -> ::windows::core::Result<()> {
+pub unsafe fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pszthemefilename: &mut [u16]) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
+        fn GetThemeFilename(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pszthemefilename: ::windows::core::PWSTR, cchmaxbuffchars: i32) -> ::windows::core::HRESULT;
     }
     GetThemeFilename(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len() as _).ok()
 }
@@ -4093,20 +6362,20 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<i32> {
+pub unsafe fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pival: *mut i32) -> ::windows::core::HRESULT;
+        fn GetThemeInt(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pival: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemeInt(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<INTLIST> {
+pub unsafe fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<INTLIST> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, pintlist: *mut INTLIST) -> ::windows::core::HRESULT;
+        fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, pintlist: *mut INTLIST) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemeIntList(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTLIST>(result__)
@@ -4114,13 +6383,13 @@ pub unsafe fn GetThemeIntList(htheme: isize, ipartid: i32, istateid: i32, ipropi
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn GetThemeMargins<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, ipropid: i32, prc: ::core::option::Option<&super::super::Foundation::RECT>) -> ::windows::core::Result<MARGINS>
+pub unsafe fn GetThemeMargins<'a, P0>(htheme: isize, hdc: P0, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, prc: ::core::option::Option<&super::super::Foundation::RECT>) -> ::windows::core::Result<MARGINS>
 where
     P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeMargins(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: i32, prc: *const super::super::Foundation::RECT, pmargins: *mut MARGINS) -> ::windows::core::HRESULT;
+        fn GetThemeMargins(htheme: isize, hdc: super::super::Graphics::Gdi::HDC, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, prc: *const super::super::Foundation::RECT, pmargins: *mut MARGINS) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemeMargins(htheme, hdc.into(), ipartid, istateid, ipropid, ::core::mem::transmute(prc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MARGINS>(result__)
@@ -4156,10 +6425,10 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32) -> ::windows::core::Result<super::super::Foundation::POINT> {
+pub unsafe fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<super::super::Foundation::POINT> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: i32, ppoint: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT;
+        fn GetThemePosition(htheme: isize, ipartid: i32, istateid: i32, ipropid: THEME_PROPERTY_SYMBOL_ID, ppoint: *mut super::super::Foundation::POINT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemePosition(htheme, ipartid, istateid, ipropid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::POINT>(result__)
@@ -4210,19 +6479,20 @@ pub unsafe fn GetThemeString(htheme: isize, ipartid: i32, istateid: i32, ipropid
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL {
+pub unsafe fn GetThemeSysBool(htheme: isize, iboolid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeSysBool(htheme: isize, iboolid: i32) -> super::super::Foundation::BOOL;
+        fn GetThemeSysBool(htheme: isize, iboolid: THEME_PROPERTY_SYMBOL_ID) -> super::super::Foundation::BOOL;
     }
     GetThemeSysBool(htheme, iboolid)
 }
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32 {
+pub unsafe fn GetThemeSysColor(htheme: isize, icolorid: i32) -> super::super::Foundation::COLORREF {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeSysColor(htheme: isize, icolorid: i32) -> u32;
+        fn GetThemeSysColor(htheme: isize, icolorid: i32) -> super::super::Foundation::COLORREF;
     }
     GetThemeSysColor(htheme, icolorid)
 }
@@ -4249,10 +6519,10 @@ pub unsafe fn GetThemeSysFont(htheme: isize, ifontid: THEME_PROPERTY_SYMBOL_ID) 
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn GetThemeSysInt(htheme: isize, iintid: i32) -> ::windows::core::Result<i32> {
+pub unsafe fn GetThemeSysInt(htheme: isize, iintid: THEME_PROPERTY_SYMBOL_ID) -> ::windows::core::Result<i32> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn GetThemeSysInt(htheme: isize, iintid: i32, pivalue: *mut i32) -> ::windows::core::HRESULT;
+        fn GetThemeSysInt(htheme: isize, iintid: THEME_PROPERTY_SYMBOL_ID, pivalue: *mut i32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetThemeSysInt(htheme, iintid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
@@ -4890,6 +7160,376 @@ impl ::core::default::Default for HD_TEXTFILTERW {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERAREASTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_HEADERAREA_NOMARGIN: HEADERAREASTATES = HEADERAREASTATES(1i32);
+impl ::core::marker::Copy for HEADERAREASTATES {}
+impl ::core::clone::Clone for HEADERAREASTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERAREASTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERAREASTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERAREASTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERAREASTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERCLOSESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHC_NORMAL: HEADERCLOSESTATES = HEADERCLOSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHC_HOT: HEADERCLOSESTATES = HEADERCLOSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHC_PRESSED: HEADERCLOSESTATES = HEADERCLOSESTATES(3i32);
+impl ::core::marker::Copy for HEADERCLOSESTATES {}
+impl ::core::clone::Clone for HEADERCLOSESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERCLOSESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERCLOSESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERCLOSESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERCLOSESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERDROPDOWNFILTERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDFS_NORMAL: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDFS_SOFTHOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDFS_HOT: HEADERDROPDOWNFILTERSTATES = HEADERDROPDOWNFILTERSTATES(3i32);
+impl ::core::marker::Copy for HEADERDROPDOWNFILTERSTATES {}
+impl ::core::clone::Clone for HEADERDROPDOWNFILTERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERDROPDOWNFILTERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERDROPDOWNFILTERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERDROPDOWNFILTERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERDROPDOWNFILTERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERDROPDOWNSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDS_NORMAL: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDS_SOFTHOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HDDS_HOT: HEADERDROPDOWNSTATES = HEADERDROPDOWNSTATES(3i32);
+impl ::core::marker::Copy for HEADERDROPDOWNSTATES {}
+impl ::core::clone::Clone for HEADERDROPDOWNSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERDROPDOWNSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERDROPDOWNSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERDROPDOWNSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERDROPDOWNSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERITEMLEFTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HILS_NORMAL: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HILS_HOT: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HILS_PRESSED: HEADERITEMLEFTSTATES = HEADERITEMLEFTSTATES(3i32);
+impl ::core::marker::Copy for HEADERITEMLEFTSTATES {}
+impl ::core::clone::Clone for HEADERITEMLEFTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERITEMLEFTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERITEMLEFTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERITEMLEFTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERITEMLEFTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERITEMRIGHTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIRS_NORMAL: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIRS_HOT: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIRS_PRESSED: HEADERITEMRIGHTSTATES = HEADERITEMRIGHTSTATES(3i32);
+impl ::core::marker::Copy for HEADERITEMRIGHTSTATES {}
+impl ::core::clone::Clone for HEADERITEMRIGHTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERITEMRIGHTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERITEMRIGHTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERITEMRIGHTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERITEMRIGHTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_NORMAL: HEADERITEMSTATES = HEADERITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_HOT: HEADERITEMSTATES = HEADERITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_PRESSED: HEADERITEMSTATES = HEADERITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_SORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_SORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_SORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONHOT: HEADERITEMSTATES = HEADERITEMSTATES(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONSORTEDNORMAL: HEADERITEMSTATES = HEADERITEMSTATES(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONSORTEDHOT: HEADERITEMSTATES = HEADERITEMSTATES(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HIS_ICONSORTEDPRESSED: HEADERITEMSTATES = HEADERITEMSTATES(12i32);
+impl ::core::marker::Copy for HEADERITEMSTATES {}
+impl ::core::clone::Clone for HEADERITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERITEMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADEROVERFLOWSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HOFS_NORMAL: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HOFS_HOT: HEADEROVERFLOWSTATES = HEADEROVERFLOWSTATES(2i32);
+impl ::core::marker::Copy for HEADEROVERFLOWSTATES {}
+impl ::core::clone::Clone for HEADEROVERFLOWSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADEROVERFLOWSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADEROVERFLOWSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADEROVERFLOWSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADEROVERFLOWSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERITEM: HEADERPARTS = HEADERPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERITEMLEFT: HEADERPARTS = HEADERPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERITEMRIGHT: HEADERPARTS = HEADERPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERSORTARROW: HEADERPARTS = HEADERPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERDROPDOWN: HEADERPARTS = HEADERPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADERDROPDOWNFILTER: HEADERPARTS = HEADERPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HP_HEADEROVERFLOW: HEADERPARTS = HEADERPARTS(7i32);
+impl ::core::marker::Copy for HEADERPARTS {}
+impl ::core::clone::Clone for HEADERPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERPINSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_NORMAL: HEADERPINSTATES = HEADERPINSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_HOT: HEADERPINSTATES = HEADERPINSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_PRESSED: HEADERPINSTATES = HEADERPINSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_SELECTEDNORMAL: HEADERPINSTATES = HEADERPINSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_SELECTEDHOT: HEADERPINSTATES = HEADERPINSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBHP_SELECTEDPRESSED: HEADERPINSTATES = HEADERPINSTATES(6i32);
+impl ::core::marker::Copy for HEADERPINSTATES {}
+impl ::core::clone::Clone for HEADERPINSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERPINSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERPINSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERPINSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERPINSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERSORTARROWSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSAS_SORTEDUP: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSAS_SORTEDDOWN: HEADERSORTARROWSTATES = HEADERSORTARROWSTATES(2i32);
+impl ::core::marker::Copy for HEADERSORTARROWSTATES {}
+impl ::core::clone::Clone for HEADERSORTARROWSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERSORTARROWSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERSORTARROWSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERSORTARROWSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERSORTARROWSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HEADERSTYLESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBG_DETAILS: HEADERSTYLESTATES = HEADERSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBG_ICON: HEADERSTYLESTATES = HEADERSTYLESTATES(2i32);
+impl ::core::marker::Copy for HEADERSTYLESTATES {}
+impl ::core::clone::Clone for HEADERSTYLESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HEADERSTYLESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HEADERSTYLESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HEADERSTYLESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HEADERSTYLESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HEADER_CONTROL_NOTIFICATION_BUTTON(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = HEADER_CONTROL_NOTIFICATION_BUTTON(0u32);
@@ -4914,6 +7554,68 @@ unsafe impl ::windows::core::Abi for HEADER_CONTROL_NOTIFICATION_BUTTON {
 impl ::core::fmt::Debug for HEADER_CONTROL_NOTIFICATION_BUTTON {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HEADER_CONTROL_NOTIFICATION_BUTTON").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HELPBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_NORMAL: HELPBUTTONSTATES = HELPBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_HOT: HELPBUTTONSTATES = HELPBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_PUSHED: HELPBUTTONSTATES = HELPBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HBS_DISABLED: HELPBUTTONSTATES = HELPBUTTONSTATES(4i32);
+impl ::core::marker::Copy for HELPBUTTONSTATES {}
+impl ::core::clone::Clone for HELPBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HELPBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HELPBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HELPBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HELPBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HELPLINKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_NORMAL: HELPLINKSTATES = HELPLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_HOT: HELPLINKSTATES = HELPLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_PRESSED: HELPLINKSTATES = HELPLINKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPHL_DISABLED: HELPLINKSTATES = HELPLINKSTATES(4i32);
+impl ::core::marker::Copy for HELPLINKSTATES {}
+impl ::core::clone::Clone for HELPLINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HELPLINKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HELPLINKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HELPLINKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HELPLINKSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -5019,6 +7721,95 @@ pub const HKM_SETHOTKEY: u32 = 1025u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HKM_SETRULES: u32 = 1027u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HORZSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_NORMAL: HORZSCROLLSTATES = HORZSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_HOT: HORZSCROLLSTATES = HORZSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_PUSHED: HORZSCROLLSTATES = HORZSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HSS_DISABLED: HORZSCROLLSTATES = HORZSCROLLSTATES(4i32);
+impl ::core::marker::Copy for HORZSCROLLSTATES {}
+impl ::core::clone::Clone for HORZSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HORZSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HORZSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HORZSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HORZSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HORZTHUMBSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_NORMAL: HORZTHUMBSTATES = HORZTHUMBSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_HOT: HORZTHUMBSTATES = HORZTHUMBSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_PUSHED: HORZTHUMBSTATES = HORZTHUMBSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HTS_DISABLED: HORZTHUMBSTATES = HORZTHUMBSTATES(4i32);
+impl ::core::marker::Copy for HORZTHUMBSTATES {}
+impl ::core::clone::Clone for HORZTHUMBSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HORZTHUMBSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HORZTHUMBSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HORZTHUMBSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HORZTHUMBSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HOTGLYPHSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HGLPS_CLOSED: HOTGLYPHSTATES = HOTGLYPHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const HGLPS_OPENED: HOTGLYPHSTATES = HOTGLYPHSTATES(2i32);
+impl ::core::marker::Copy for HOTGLYPHSTATES {}
+impl ::core::clone::Clone for HOTGLYPHSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HOTGLYPHSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HOTGLYPHSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HOTGLYPHSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HOTGLYPHSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOTKEYF_ALT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOTKEYF_CONTROL: u32 = 2u32;
@@ -5032,6 +7823,35 @@ pub const HOTKEY_CLASS: &str = "msctls_hotkey32";
 pub const HOTKEY_CLASSA: &str = "msctls_hotkey32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOTKEY_CLASSW: &str = "msctls_hotkey32";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HOVERBACKGROUNDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTS_NORMAL: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTS_HOT: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTS_PRESSED: HOVERBACKGROUNDSTATES = HOVERBACKGROUNDSTATES(3i32);
+impl ::core::marker::Copy for HOVERBACKGROUNDSTATES {}
+impl ::core::clone::Clone for HOVERBACKGROUNDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HOVERBACKGROUNDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HOVERBACKGROUNDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HOVERBACKGROUNDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HOVERBACKGROUNDSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const HOVER_DEFAULT: u32 = 4294967295u32;
 #[repr(transparent)]
@@ -5170,6 +7990,37 @@ impl ::core::fmt::Debug for HYPERLINKSTATES {
         f.debug_tuple("HYPERLINKSTATES").field(&self.0).finish()
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HYPERLINKTEXTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_NORMAL: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_HOT: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_PRESSED: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HYPERLINK_DISABLED: HYPERLINKTEXTSTATES = HYPERLINKTEXTSTATES(4i32);
+impl ::core::marker::Copy for HYPERLINKTEXTSTATES {}
+impl ::core::clone::Clone for HYPERLINKTEXTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HYPERLINKTEXTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HYPERLINKTEXTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HYPERLINKTEXTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HYPERLINKTEXTSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
@@ -5244,6 +8095,35 @@ pub const IDC_MANAGE_LINK: u32 = 1592u32;
 pub const ID_PSRESTARTWINDOWS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IEBARMENUSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBM_NORMAL: IEBARMENUSTATES = IEBARMENUSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBM_HOT: IEBARMENUSTATES = IEBARMENUSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBM_PRESSED: IEBARMENUSTATES = IEBARMENUSTATES(3i32);
+impl ::core::marker::Copy for IEBARMENUSTATES {}
+impl ::core::clone::Clone for IEBARMENUSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IEBARMENUSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IEBARMENUSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IEBARMENUSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEBARMENUSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
 pub struct IImageList(::windows::core::IUnknown);
 impl IImageList {
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
@@ -5277,17 +8157,18 @@ impl IImageList {
     {
         (::windows::core::Interface::vtable(self).Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddMasked<'a, P0>(&self, hbmimage: P0, crmask: u32) -> ::windows::core::Result<i32>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn AddMasked<'a, P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Draw(&self, pimldp: &IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Draw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimldp)).ok()
     }
@@ -5340,13 +8221,20 @@ impl IImageList {
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
     }
-    pub unsafe fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetBkColor<'a, P0>(&self, clrbk: P0) -> ::windows::core::Result<super::super::Foundation::COLORREF>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).SetBkColor)(::windows::core::Interface::as_raw(self), clrbk, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetBkColor)(::windows::core::Interface::as_raw(self), clrbk.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
-    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
@@ -5453,13 +8341,13 @@ pub struct IImageList_Vtbl {
     pub Replace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32, hbmimage: super::super::Graphics::Gdi::HBITMAP, hbmmask: super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     Replace: usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub AddMasked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32, pi: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub AddMasked: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF, pi: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     AddMasked: usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub Draw: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     Draw: usize,
     pub Remove: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, i: i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -5481,8 +8369,14 @@ pub struct IImageList_Vtbl {
     pub SetIconSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32) -> ::windows::core::HRESULT,
     pub GetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pi: *mut i32) -> ::windows::core::HRESULT,
     pub SetImageCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unewcount: u32) -> ::windows::core::HRESULT,
-    pub SetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbk: u32, pclr: *mut u32) -> ::windows::core::HRESULT,
-    pub GetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbk: super::super::Foundation::COLORREF, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBkColor: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetBkColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetBkColor: usize,
     pub BeginDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::HRESULT,
     pub EndDrag: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -5541,17 +8435,18 @@ impl IImageList2 {
     {
         (::windows::core::Interface::vtable(self).base__.Replace)(::windows::core::Interface::as_raw(self), i, hbmimage.into(), hbmmask.into()).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddMasked<'a, P0>(&self, hbmimage: P0, crmask: u32) -> ::windows::core::Result<i32>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn AddMasked<'a, P0, P1>(&self, hbmimage: P0, crmask: P1) -> ::windows::core::Result<i32>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddMasked)(::windows::core::Interface::as_raw(self), hbmimage.into(), crmask.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Draw(&self, pimldp: &IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.Draw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimldp)).ok()
     }
@@ -5604,13 +8499,20 @@ impl IImageList2 {
     pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.SetImageCount)(::windows::core::Interface::as_raw(self), unewcount).ok()
     }
-    pub unsafe fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetBkColor<'a, P0>(&self, clrbk: P0) -> ::windows::core::Result<super::super::Foundation::COLORREF>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetBkColor)(::windows::core::Interface::as_raw(self), clrbk, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetBkColor)(::windows::core::Interface::as_raw(self), clrbk.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
-    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetBkColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base__.BeginDrag)(::windows::core::Interface::as_raw(self), itrack, dxhotspot, dyhotspot).ok()
@@ -5688,8 +8590,8 @@ impl IImageList2 {
     pub unsafe fn DiscardImages(&self, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DiscardImages)(::windows::core::Interface::as_raw(self), ifirstimage, ilastimage, dwflags).ok()
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn PreloadImages(&self, pimldp: &IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).PreloadImages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pimldp)).ok()
     }
@@ -5778,9 +8680,9 @@ pub struct IImageList2_Vtbl {
     pub GetCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub ForceImagePresent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iimage: i32, dwflags: u32) -> ::windows::core::HRESULT,
     pub DiscardImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ifirstimage: i32, ilastimage: i32, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub PreloadImages: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     PreloadImages: usize,
     pub GetStatistics: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pils: *mut IMAGELISTSTATS) -> ::windows::core::HRESULT,
     pub Initialize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cx: i32, cy: i32, flags: IMAGELIST_CREATION_FLAGS, cinitial: i32, cgrow: i32) -> ::windows::core::HRESULT,
@@ -5934,8 +8836,8 @@ impl ::core::fmt::Debug for IMAGELAYOUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct IMAGELISTDRAWPARAMS {
     pub cbSize: u32,
     pub himl: HIMAGELIST,
@@ -5947,23 +8849,23 @@ pub struct IMAGELISTDRAWPARAMS {
     pub cy: i32,
     pub xBitmap: i32,
     pub yBitmap: i32,
-    pub rgbBk: u32,
-    pub rgbFg: u32,
+    pub rgbBk: super::super::Foundation::COLORREF,
+    pub rgbFg: super::super::Foundation::COLORREF,
     pub fStyle: u32,
     pub dwRop: u32,
     pub fState: u32,
     pub Frame: u32,
-    pub crEffect: u32,
+    pub crEffect: super::super::Foundation::COLORREF,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for IMAGELISTDRAWPARAMS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for IMAGELISTDRAWPARAMS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::fmt::Debug for IMAGELISTDRAWPARAMS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("IMAGELISTDRAWPARAMS")
@@ -5987,19 +8889,19 @@ impl ::core::fmt::Debug for IMAGELISTDRAWPARAMS {
             .finish()
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for IMAGELISTDRAWPARAMS {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IMAGELISTDRAWPARAMS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGELISTDRAWPARAMS>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for IMAGELISTDRAWPARAMS {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for IMAGELISTDRAWPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6425,6 +9327,37 @@ pub const IPM_SETFOCUS: u32 = 1128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const IPM_SETRANGE: u32 = 1127u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_HOT: ITEMSTATES = ITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_HOTSELECTED: ITEMSTATES = ITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_SELECTED: ITEMSTATES = ITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBPSI_SELECTEDNOTFOCUS: ITEMSTATES = ITEMSTATES(4i32);
+impl ::core::marker::Copy for ITEMSTATES {}
+impl ::core::clone::Clone for ITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITEMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_IMAGECALLBACK: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const I_IMAGENONE: i32 = -2i32;
@@ -6446,19 +9379,20 @@ where
     }
     ImageList_Add(himl.into(), hbmimage.into(), hbmmask.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ImageList_AddMasked<'a, P0, P1>(himl: P0, hbmimage: P1, crmask: u32) -> i32
+pub unsafe fn ImageList_AddMasked<'a, P0, P1, P2>(himl: P0, hbmimage: P1, crmask: P2) -> i32
 where
     P0: ::std::convert::Into<HIMAGELIST>,
     P1: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
+    P2: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ImageList_AddMasked(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: u32) -> i32;
+        fn ImageList_AddMasked(himl: HIMAGELIST, hbmimage: super::super::Graphics::Gdi::HBITMAP, crmask: super::super::Foundation::COLORREF) -> i32;
     }
-    ImageList_AddMasked(himl.into(), hbmimage.into(), crmask)
+    ImageList_AddMasked(himl.into(), hbmimage.into(), crmask.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6589,16 +9523,18 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn ImageList_DrawEx<'a, P0, P1>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, dx: i32, dy: i32, rgbbk: u32, rgbfg: u32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
+pub unsafe fn ImageList_DrawEx<'a, P0, P1, P2, P3>(himl: P0, i: i32, hdcdst: P1, x: i32, y: i32, dx: i32, dy: i32, rgbbk: P2, rgbfg: P3, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<HIMAGELIST>,
     P1: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
+    P2: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    P3: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ImageList_DrawEx(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, dx: i32, dy: i32, rgbbk: u32, rgbfg: u32, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
+        fn ImageList_DrawEx(himl: HIMAGELIST, i: i32, hdcdst: super::super::Graphics::Gdi::HDC, x: i32, y: i32, dx: i32, dy: i32, rgbbk: super::super::Foundation::COLORREF, rgbfg: super::super::Foundation::COLORREF, fstyle: IMAGE_LIST_DRAW_STYLE) -> super::super::Foundation::BOOL;
     }
-    ImageList_DrawEx(himl.into(), i, hdcdst.into(), x, y, dx, dy, rgbbk, rgbfg, fstyle)
+    ImageList_DrawEx(himl.into(), i, hdcdst.into(), x, y, dx, dy, rgbbk.into(), rgbfg.into(), fstyle)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -6631,15 +9567,16 @@ pub unsafe fn ImageList_EndDrag() {
     }
     ImageList_EndDrag()
 }
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImageList_GetBkColor<'a, P0>(himl: P0) -> u32
+pub unsafe fn ImageList_GetBkColor<'a, P0>(himl: P0) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HIMAGELIST>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ImageList_GetBkColor(himl: HIMAGELIST) -> u32;
+        fn ImageList_GetBkColor(himl: HIMAGELIST) -> super::super::Foundation::COLORREF;
     }
     ImageList_GetBkColor(himl.into())
 }
@@ -6707,30 +9644,32 @@ where
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ImageList_LoadImageA<'a, P0, P1>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
+pub unsafe fn ImageList_LoadImageA<'a, P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ImageList_LoadImageA(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
+        fn ImageList_LoadImageA(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCSTR, cx: i32, cgrow: i32, crmask: super::super::Foundation::COLORREF, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
     }
-    ImageList_LoadImageA(hi.into(), lpbmp.into(), cx, cgrow, crmask, utype, uflags)
+    ImageList_LoadImageA(hi.into(), lpbmp.into(), cx, cgrow, crmask.into(), utype, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn ImageList_LoadImageW<'a, P0, P1>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
+pub unsafe fn ImageList_LoadImageW<'a, P0, P1, P2>(hi: P0, lpbmp: P1, cx: i32, cgrow: i32, crmask: P2, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST
 where
     P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ImageList_LoadImageW(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCWSTR, cx: i32, cgrow: i32, crmask: u32, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
+        fn ImageList_LoadImageW(hi: super::super::Foundation::HINSTANCE, lpbmp: ::windows::core::PCWSTR, cx: i32, cgrow: i32, crmask: super::super::Foundation::COLORREF, utype: u32, uflags: super::WindowsAndMessaging::IMAGE_FLAGS) -> HIMAGELIST;
     }
-    ImageList_LoadImageW(hi.into(), lpbmp.into(), cx, cgrow, crmask, utype, uflags)
+    ImageList_LoadImageW(hi.into(), lpbmp.into(), cx, cgrow, crmask.into(), utype, uflags)
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
@@ -6813,17 +9752,19 @@ where
     }
     ImageList_ReplaceIcon(himl.into(), i, hicon.into())
 }
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ImageList_SetBkColor<'a, P0>(himl: P0, clrbk: u32) -> u32
+pub unsafe fn ImageList_SetBkColor<'a, P0, P1>(himl: P0, clrbk: P1) -> super::super::Foundation::COLORREF
 where
     P0: ::std::convert::Into<HIMAGELIST>,
+    P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn ImageList_SetBkColor(himl: HIMAGELIST, clrbk: u32) -> u32;
+        fn ImageList_SetBkColor(himl: HIMAGELIST, clrbk: super::super::Foundation::COLORREF) -> super::super::Foundation::COLORREF;
     }
-    ImageList_SetBkColor(himl.into(), clrbk)
+    ImageList_SetBkColor(himl.into(), clrbk.into())
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7032,6 +9973,37 @@ pub unsafe fn IsThemePartDefined(htheme: isize, ipartid: i32, istateid: i32) -> 
     }
     IsThemePartDefined(htheme, ipartid, istateid)
 }
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LABELSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_NORMAL: LABELSTATES = LABELSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_SELECTED: LABELSTATES = LABELSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_EMPHASIZED: LABELSTATES = LABELSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLS_DISABLED: LABELSTATES = LABELSTATES(4i32);
+impl ::core::marker::Copy for LABELSTATES {}
+impl ::core::clone::Clone for LABELSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LABELSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LABELSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LABELSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LABELSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -7096,6 +10068,33 @@ pub const LIF_URL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LINKHEADERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLH_NORMAL: LINKHEADERSTATES = LINKHEADERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLH_HOVER: LINKHEADERSTATES = LINKHEADERSTATES(2i32);
+impl ::core::marker::Copy for LINKHEADERSTATES {}
+impl ::core::clone::Clone for LINKHEADERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LINKHEADERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LINKHEADERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LINKHEADERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LINKHEADERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LINKPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const LP_HYPERLINK: LINKPARTS = LINKPARTS(1i32);
@@ -7116,6 +10115,144 @@ unsafe impl ::windows::core::Abi for LINKPARTS {
 impl ::core::fmt::Debug for LINKPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LINKPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LINKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUTLINK_NORMAL: LINKSTATES = LINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const FLYOUTLINK_HOVER: LINKSTATES = LINKSTATES(2i32);
+impl ::core::marker::Copy for LINKSTATES {}
+impl ::core::clone::Clone for LINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LINKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LINKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LINKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LINKSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LISTBOXPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_HSCROLL: LISTBOXPARTS = LISTBOXPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_HVSCROLL: LISTBOXPARTS = LISTBOXPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_NOSCROLL: LISTBOXPARTS = LISTBOXPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_BORDER_VSCROLL: LISTBOXPARTS = LISTBOXPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LBCP_ITEM: LISTBOXPARTS = LISTBOXPARTS(5i32);
+impl ::core::marker::Copy for LISTBOXPARTS {}
+impl ::core::clone::Clone for LISTBOXPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LISTBOXPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LISTBOXPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LISTBOXPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LISTBOXPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LISTITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_NORMAL: LISTITEMSTATES = LISTITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_HOT: LISTITEMSTATES = LISTITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_SELECTED: LISTITEMSTATES = LISTITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_DISABLED: LISTITEMSTATES = LISTITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_SELECTEDNOTFOCUS: LISTITEMSTATES = LISTITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LISS_HOTSELECTED: LISTITEMSTATES = LISTITEMSTATES(6i32);
+impl ::core::marker::Copy for LISTITEMSTATES {}
+impl ::core::clone::Clone for LISTITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LISTITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LISTITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LISTITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LISTITEMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LISTVIEWPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTITEM: LISTVIEWPARTS = LISTVIEWPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTGROUP: LISTVIEWPARTS = LISTVIEWPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_LISTSORTEDDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_EMPTYTEXT: LISTVIEWPARTS = LISTVIEWPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_GROUPHEADER: LISTVIEWPARTS = LISTVIEWPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_GROUPHEADERLINE: LISTVIEWPARTS = LISTVIEWPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_EXPANDBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_COLLAPSEBUTTON: LISTVIEWPARTS = LISTVIEWPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const LVP_COLUMNDETAIL: LISTVIEWPARTS = LISTVIEWPARTS(10i32);
+impl ::core::marker::Copy for LISTVIEWPARTS {}
+impl ::core::clone::Clone for LISTVIEWPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LISTVIEWPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LISTVIEWPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LISTVIEWPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LISTVIEWPARTS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -7951,7 +11088,8 @@ impl ::core::default::Default for LVGROUP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct LVGROUPMETRICS {
     pub cbSize: u32,
     pub mask: u32,
@@ -7959,33 +11097,40 @@ pub struct LVGROUPMETRICS {
     pub Top: u32,
     pub Right: u32,
     pub Bottom: u32,
-    pub crLeft: u32,
-    pub crTop: u32,
-    pub crRight: u32,
-    pub crBottom: u32,
-    pub crHeader: u32,
-    pub crFooter: u32,
+    pub crLeft: super::super::Foundation::COLORREF,
+    pub crTop: super::super::Foundation::COLORREF,
+    pub crRight: super::super::Foundation::COLORREF,
+    pub crBottom: super::super::Foundation::COLORREF,
+    pub crHeader: super::super::Foundation::COLORREF,
+    pub crFooter: super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for LVGROUPMETRICS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for LVGROUPMETRICS {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::fmt::Debug for LVGROUPMETRICS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("LVGROUPMETRICS").field("cbSize", &self.cbSize).field("mask", &self.mask).field("Left", &self.Left).field("Top", &self.Top).field("Right", &self.Right).field("Bottom", &self.Bottom).field("crLeft", &self.crLeft).field("crTop", &self.crTop).field("crRight", &self.crRight).field("crBottom", &self.crBottom).field("crHeader", &self.crHeader).field("crFooter", &self.crFooter).finish()
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for LVGROUPMETRICS {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LVGROUPMETRICS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LVGROUPMETRICS>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LVGROUPMETRICS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LVGROUPMETRICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9235,6 +12380,66 @@ impl ::core::fmt::Debug for MARKUPTEXTSTATES {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MAXBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_NORMAL: MAXBUTTONSTATES = MAXBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_HOT: MAXBUTTONSTATES = MAXBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_PUSHED: MAXBUTTONSTATES = MAXBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MAXBS_DISABLED: MAXBUTTONSTATES = MAXBUTTONSTATES(4i32);
+impl ::core::marker::Copy for MAXBUTTONSTATES {}
+impl ::core::clone::Clone for MAXBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MAXBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MAXBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MAXBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MAXBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MAXCAPTIONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MXCS_ACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MXCS_INACTIVE: MAXCAPTIONSTATES = MAXCAPTIONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MXCS_DISABLED: MAXCAPTIONSTATES = MAXCAPTIONSTATES(3i32);
+impl ::core::marker::Copy for MAXCAPTIONSTATES {}
+impl ::core::clone::Clone for MAXCAPTIONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MAXCAPTIONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MAXCAPTIONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MAXCAPTIONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MAXCAPTIONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MAXPROPPAGES: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MAX_INTLIST_COUNT: u32 = 402u32;
@@ -9558,6 +12763,99 @@ pub const MCS_NOTRAILINGDATES: u32 = 64u32;
 pub const MCS_SHORTDAYSOFWEEK: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MCS_WEEKNUMBERS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MDICLOSEBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_NORMAL: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_HOT: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_PUSHED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDCL_DISABLED: MDICLOSEBUTTONSTATES = MDICLOSEBUTTONSTATES(4i32);
+impl ::core::marker::Copy for MDICLOSEBUTTONSTATES {}
+impl ::core::clone::Clone for MDICLOSEBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MDICLOSEBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MDICLOSEBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MDICLOSEBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MDICLOSEBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MDIMINBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_NORMAL: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_HOT: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_PUSHED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDMI_DISABLED: MDIMINBUTTONSTATES = MDIMINBUTTONSTATES(4i32);
+impl ::core::marker::Copy for MDIMINBUTTONSTATES {}
+impl ::core::clone::Clone for MDIMINBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MDIMINBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MDIMINBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MDIMINBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MDIMINBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MDIRESTOREBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_NORMAL: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_HOT: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_PUSHED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MDRE_DISABLED: MDIRESTOREBUTTONSTATES = MDIRESTOREBUTTONSTATES(4i32);
+impl ::core::marker::Copy for MDIRESTOREBUTTONSTATES {}
+impl ::core::clone::Clone for MDIRESTOREBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MDIRESTOREBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MDIRESTOREBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MDIRESTOREBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MDIRESTOREBUTTONSTATES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct MEASUREITEMSTRUCT {
@@ -9653,6 +12951,129 @@ unsafe impl ::windows::core::Abi for MENUBANDSTATES {
 impl ::core::fmt::Debug for MENUBANDSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MENUBANDSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MENUPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUITEM_TMSCHEMA: MENUPARTS = MENUPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUBARITEM_TMSCHEMA: MENUPARTS = MENUPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_MENUBARDROPDOWN_TMSCHEMA: MENUPARTS = MENUPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_CHEVRON_TMSCHEMA: MENUPARTS = MENUPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SEPARATOR_TMSCHEMA: MENUPARTS = MENUPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_BARBACKGROUND: MENUPARTS = MENUPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_BARITEM: MENUPARTS = MENUPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPBACKGROUND: MENUPARTS = MENUPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPBORDERS: MENUPARTS = MENUPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPCHECK: MENUPARTS = MENUPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPCHECKBACKGROUND: MENUPARTS = MENUPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPGUTTER: MENUPARTS = MENUPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPITEM: MENUPARTS = MENUPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPSEPARATOR: MENUPARTS = MENUPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_POPUPSUBMENU: MENUPARTS = MENUPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMCLOSE: MENUPARTS = MENUPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMAXIMIZE: MENUPARTS = MENUPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMMINIMIZE: MENUPARTS = MENUPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MENU_SYSTEMRESTORE: MENUPARTS = MENUPARTS(20i32);
+impl ::core::marker::Copy for MENUPARTS {}
+impl ::core::clone::Clone for MENUPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MENUPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MENUPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENUPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENUPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MINBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_NORMAL: MINBUTTONSTATES = MINBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_HOT: MINBUTTONSTATES = MINBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_PUSHED: MINBUTTONSTATES = MINBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MINBS_DISABLED: MINBUTTONSTATES = MINBUTTONSTATES(4i32);
+impl ::core::marker::Copy for MINBUTTONSTATES {}
+impl ::core::clone::Clone for MINBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MINBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MINBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MINBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MINBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MINCAPTIONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MNCS_ACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MNCS_INACTIVE: MINCAPTIONSTATES = MINCAPTIONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MNCS_DISABLED: MINCAPTIONSTATES = MINCAPTIONSTATES(3i32);
+impl ::core::marker::Copy for MINCAPTIONSTATES {}
+impl ::core::clone::Clone for MINCAPTIONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MINCAPTIONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MINCAPTIONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MINCAPTIONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MINCAPTIONSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -9798,6 +13219,33 @@ impl ::core::fmt::Debug for MOREPROGRAMSTABSTATES {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MOVESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDMOVE_HIGHLIGHT: MOVESTATES = MOVESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDMOVE_NOHIGHLIGHT: MOVESTATES = MOVESTATES(2i32);
+impl ::core::marker::Copy for MOVESTATES {}
+impl ::core::clone::Clone for MOVESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MOVESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MOVESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MOVESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MOVESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSGF_COMMCTRL_BEGINDRAG: u32 = 16896u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const MSGF_COMMCTRL_DRAGSELECT: u32 = 16898u32;
@@ -9836,6 +13284,35 @@ where
         fn MenuHelp(umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, hmainmenu: super::WindowsAndMessaging::HMENU, hinst: super::super::Foundation::HINSTANCE, hwndstatus: super::super::Foundation::HWND, lpwids: *const u32);
     }
     MenuHelp(umsg, wparam.into(), lparam.into(), hmainmenu.into(), hinst.into(), hwndstatus.into(), ::core::mem::transmute(lpwids))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NAVIGATIONPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BACKBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FORWARDBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MENUBUTTON: NAVIGATIONPARTS = NAVIGATIONPARTS(3i32);
+impl ::core::marker::Copy for NAVIGATIONPARTS {}
+impl ::core::clone::Clone for NAVIGATIONPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NAVIGATIONPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NAVIGATIONPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAVIGATIONPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAVIGATIONPARTS").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
@@ -9897,6 +13374,99 @@ unsafe impl ::windows::core::Abi for NAVPREVSTATES {
 impl ::core::fmt::Debug for NAVPREVSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NAVPREVSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NAV_BACKBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_NORMAL: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_HOT: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_PRESSED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_BB_DISABLED: NAV_BACKBUTTONSTATES = NAV_BACKBUTTONSTATES(4i32);
+impl ::core::marker::Copy for NAV_BACKBUTTONSTATES {}
+impl ::core::clone::Clone for NAV_BACKBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NAV_BACKBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NAV_BACKBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAV_BACKBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAV_BACKBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NAV_FORWARDBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_NORMAL: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_HOT: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_PRESSED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_FB_DISABLED: NAV_FORWARDBUTTONSTATES = NAV_FORWARDBUTTONSTATES(4i32);
+impl ::core::marker::Copy for NAV_FORWARDBUTTONSTATES {}
+impl ::core::clone::Clone for NAV_FORWARDBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NAV_FORWARDBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NAV_FORWARDBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAV_FORWARDBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAV_FORWARDBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NAV_MENUBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_NORMAL: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_HOT: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_PRESSED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const NAV_MB_DISABLED: NAV_MENUBUTTONSTATES = NAV_MENUBUTTONSTATES(4i32);
+impl ::core::marker::Copy for NAV_MENUBUTTONSTATES {}
+impl ::core::clone::Clone for NAV_MENUBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NAV_MENUBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NAV_MENUBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAV_MENUBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAV_MENUBUTTONSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -11362,11 +14932,11 @@ impl ::core::default::Default for NMLVCACHEHINT {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMLVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
-    pub clrText: u32,
-    pub clrTextBk: u32,
+    pub clrText: super::super::Foundation::COLORREF,
+    pub clrTextBk: super::super::Foundation::COLORREF,
     pub iSubItem: i32,
     pub dwItemType: NMLVCUSTOMDRAW_ITEM_TYPE,
-    pub clrFace: u32,
+    pub clrFace: super::super::Foundation::COLORREF,
     pub iIconEffect: i32,
     pub iIconPhase: i32,
     pub iPartId: i32,
@@ -12652,12 +16222,12 @@ pub struct NMTBCUSTOMDRAW {
     pub hbrMonoDither: super::super::Graphics::Gdi::HBRUSH,
     pub hbrLines: super::super::Graphics::Gdi::HBRUSH,
     pub hpenLines: super::super::Graphics::Gdi::HPEN,
-    pub clrText: u32,
-    pub clrMark: u32,
-    pub clrTextHighlight: u32,
-    pub clrBtnFace: u32,
-    pub clrBtnHighlight: u32,
-    pub clrHighlightHotTrack: u32,
+    pub clrText: super::super::Foundation::COLORREF,
+    pub clrMark: super::super::Foundation::COLORREF,
+    pub clrTextHighlight: super::super::Foundation::COLORREF,
+    pub clrBtnFace: super::super::Foundation::COLORREF,
+    pub clrBtnHighlight: super::super::Foundation::COLORREF,
+    pub clrHighlightHotTrack: super::super::Foundation::COLORREF,
     pub rcText: super::super::Foundation::RECT,
     pub nStringBkMode: i32,
     pub nHLStringBkMode: i32,
@@ -13597,8 +17167,8 @@ impl ::core::default::Default for NMTVASYNCDRAW {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NMTVCUSTOMDRAW {
     pub nmcd: NMCUSTOMDRAW,
-    pub clrText: u32,
-    pub clrTextBk: u32,
+    pub clrText: super::super::Foundation::COLORREF,
+    pub clrTextBk: super::super::Foundation::COLORREF,
     pub iLevel: i32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -14073,6 +17643,91 @@ impl ::core::default::Default for NMVIEWCHANGE {
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const NM_GETCUSTOMSPLITRECT: u32 = 4294966049u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NONESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDNONE_HIGHLIGHT: NONESTATES = NONESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDNONE_NOHIGHLIGHT: NONESTATES = NONESTATES(2i32);
+impl ::core::marker::Copy for NONESTATES {}
+impl ::core::clone::Clone for NONESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NONESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NONESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NONESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NONESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NORMALGROUPCOLLAPSESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGC_NORMAL: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGC_HOT: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGC_PRESSED: NORMALGROUPCOLLAPSESTATES = NORMALGROUPCOLLAPSESTATES(3i32);
+impl ::core::marker::Copy for NORMALGROUPCOLLAPSESTATES {}
+impl ::core::clone::Clone for NORMALGROUPCOLLAPSESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NORMALGROUPCOLLAPSESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NORMALGROUPCOLLAPSESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NORMALGROUPCOLLAPSESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NORMALGROUPCOLLAPSESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NORMALGROUPEXPANDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGE_NORMAL: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGE_HOT: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBNGE_PRESSED: NORMALGROUPEXPANDSTATES = NORMALGROUPEXPANDSTATES(3i32);
+impl ::core::marker::Copy for NORMALGROUPEXPANDSTATES {}
+impl ::core::clone::Clone for NORMALGROUPEXPANDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NORMALGROUPEXPANDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NORMALGROUPEXPANDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NORMALGROUPEXPANDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NORMALGROUPEXPANDSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ODT_HEADER: u32 = 100u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -14711,11 +18366,176 @@ impl ::core::default::Default for POINTER_TYPE_INFO_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POPUPCHECKBACKGROUNDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCB_DISABLED: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCB_NORMAL: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MCB_BITMAP: POPUPCHECKBACKGROUNDSTATES = POPUPCHECKBACKGROUNDSTATES(3i32);
+impl ::core::marker::Copy for POPUPCHECKBACKGROUNDSTATES {}
+impl ::core::clone::Clone for POPUPCHECKBACKGROUNDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POPUPCHECKBACKGROUNDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for POPUPCHECKBACKGROUNDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POPUPCHECKBACKGROUNDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POPUPCHECKBACKGROUNDSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POPUPCHECKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_CHECKMARKNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_CHECKMARKDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_BULLETNORMAL: POPUPCHECKSTATES = POPUPCHECKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MC_BULLETDISABLED: POPUPCHECKSTATES = POPUPCHECKSTATES(4i32);
+impl ::core::marker::Copy for POPUPCHECKSTATES {}
+impl ::core::clone::Clone for POPUPCHECKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POPUPCHECKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for POPUPCHECKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POPUPCHECKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POPUPCHECKSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POPUPITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_NORMAL: POPUPITEMSTATES = POPUPITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_HOT: POPUPITEMSTATES = POPUPITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_DISABLED: POPUPITEMSTATES = POPUPITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MPI_DISABLEDHOT: POPUPITEMSTATES = POPUPITEMSTATES(4i32);
+impl ::core::marker::Copy for POPUPITEMSTATES {}
+impl ::core::clone::Clone for POPUPITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POPUPITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for POPUPITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POPUPITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POPUPITEMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct POPUPSUBMENUSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSM_NORMAL: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSM_DISABLED: POPUPSUBMENUSTATES = POPUPSUBMENUSTATES(2i32);
+impl ::core::marker::Copy for POPUPSUBMENUSTATES {}
+impl ::core::clone::Clone for POPUPSUBMENUSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for POPUPSUBMENUSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for POPUPSUBMENUSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POPUPSUBMENUSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POPUPSUBMENUSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PRINTDLGEXORD: u32 = 1549u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PRINTDLGORD: u32 = 1538u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PRNSETUPDLGORD: u32 = 1539u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PROGRESSPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_BAR: PROGRESSPARTS = PROGRESSPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_BARVERT: PROGRESSPARTS = PROGRESSPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_CHUNK: PROGRESSPARTS = PROGRESSPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_CHUNKVERT: PROGRESSPARTS = PROGRESSPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_FILL: PROGRESSPARTS = PROGRESSPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_FILLVERT: PROGRESSPARTS = PROGRESSPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_PULSEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_MOVEOVERLAY: PROGRESSPARTS = PROGRESSPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_PULSEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_MOVEOVERLAYVERT: PROGRESSPARTS = PROGRESSPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_TRANSPARENTBAR: PROGRESSPARTS = PROGRESSPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PP_TRANSPARENTBARVERT: PROGRESSPARTS = PROGRESSPARTS(12i32);
+impl ::core::marker::Copy for PROGRESSPARTS {}
+impl ::core::clone::Clone for PROGRESSPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROGRESSPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROGRESSPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROGRESSPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROGRESSPARTS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PROGRESS_CLASS: &str = "msctls_progress32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -16691,6 +20511,68 @@ pub const PSWIZB_NEXT: u32 = 2u32;
 pub const PSWIZB_RESTORE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const PSWIZB_SHOW: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PUSHBUTTONDROPDOWNSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBDDS_NORMAL: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBDDS_DISABLED: PUSHBUTTONDROPDOWNSTATES = PUSHBUTTONDROPDOWNSTATES(2i32);
+impl ::core::marker::Copy for PUSHBUTTONDROPDOWNSTATES {}
+impl ::core::clone::Clone for PUSHBUTTONDROPDOWNSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PUSHBUTTONDROPDOWNSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PUSHBUTTONDROPDOWNSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PUSHBUTTONDROPDOWNSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PUSHBUTTONDROPDOWNSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PUSHBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_NORMAL: PUSHBUTTONSTATES = PUSHBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_HOT: PUSHBUTTONSTATES = PUSHBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_PRESSED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_DISABLED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_DEFAULTED: PUSHBUTTONSTATES = PUSHBUTTONSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBS_DEFAULTED_ANIMATING: PUSHBUTTONSTATES = PUSHBUTTONSTATES(6i32);
+impl ::core::marker::Copy for PUSHBUTTONSTATES {}
+impl ::core::clone::Clone for PUSHBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PUSHBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PUSHBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PUSHBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PUSHBUTTONSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -16720,6 +20602,45 @@ pub unsafe fn PropertySheetW(param0: &mut PROPSHEETHEADERW_V2) -> isize {
         fn PropertySheetW(param0: *mut PROPSHEETHEADERW_V2) -> isize;
     }
     PropertySheetW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RADIOBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDNORMAL: RADIOBUTTONSTATES = RADIOBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDHOT: RADIOBUTTONSTATES = RADIOBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDPRESSED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_UNCHECKEDDISABLED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDNORMAL: RADIOBUTTONSTATES = RADIOBUTTONSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDHOT: RADIOBUTTONSTATES = RADIOBUTTONSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDPRESSED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_CHECKEDDISABLED: RADIOBUTTONSTATES = RADIOBUTTONSTATES(8i32);
+impl ::core::marker::Copy for RADIOBUTTONSTATES {}
+impl ::core::clone::Clone for RADIOBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RADIOBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RADIOBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RADIOBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RADIOBUTTONSTATES").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RBAB_ADDBAND: u32 = 2u32;
@@ -16945,6 +20866,37 @@ pub const RB_SETWINDOWTHEME: u32 = 8203u32;
 pub const RB_SHOWBAND: u32 = 1059u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RB_SIZETORECT: u32 = 1047u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct READONLYSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_NORMAL: READONLYSTATES = READONLYSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_HOT: READONLYSTATES = READONLYSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_PRESSED: READONLYSTATES = READONLYSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBRO_DISABLED: READONLYSTATES = READONLYSTATES(4i32);
+impl ::core::marker::Copy for READONLYSTATES {}
+impl ::core::clone::Clone for READONLYSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for READONLYSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for READONLYSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for READONLYSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("READONLYSTATES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -16952,8 +20904,8 @@ pub struct REBARBANDINFOA {
     pub cbSize: u32,
     pub fMask: u32,
     pub fStyle: u32,
-    pub clrFore: u32,
-    pub clrBack: u32,
+    pub clrFore: super::super::Foundation::COLORREF,
+    pub clrBack: super::super::Foundation::COLORREF,
     pub lpText: ::windows::core::PSTR,
     pub cch: u32,
     pub iImage: i32,
@@ -17034,8 +20986,8 @@ pub struct REBARBANDINFOW {
     pub cbSize: u32,
     pub fMask: u32,
     pub fStyle: u32,
-    pub clrFore: u32,
-    pub clrBack: u32,
+    pub clrFore: super::super::Foundation::COLORREF,
+    pub clrBack: super::super::Foundation::COLORREF,
     pub lpText: ::windows::core::PWSTR,
     pub cch: u32,
     pub iImage: i32,
@@ -17148,7 +21100,77 @@ impl ::core::default::Default for REBARINFO {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct REBARPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_GRIPPER: REBARPARTS = REBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_GRIPPERVERT: REBARPARTS = REBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_BAND: REBARPARTS = REBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_CHEVRON: REBARPARTS = REBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_CHEVRONVERT: REBARPARTS = REBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_BACKGROUND: REBARPARTS = REBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_SPLITTER: REBARPARTS = REBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RP_SPLITTERVERT: REBARPARTS = REBARPARTS(8i32);
+impl ::core::marker::Copy for REBARPARTS {}
+impl ::core::clone::Clone for REBARPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for REBARPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for REBARPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REBARPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REBARPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const REPLACEDLGORD: u32 = 1541u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RESTOREBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_NORMAL: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_HOT: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_PUSHED: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const RBS_DISABLED: RESTOREBUTTONSTATES = RESTOREBUTTONSTATES(4i32);
+impl ::core::marker::Copy for RESTOREBUTTONSTATES {}
+impl ::core::clone::Clone for RESTOREBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RESTOREBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RESTOREBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESTOREBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESTOREBUTTONSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const RUNDLGORD: u32 = 1545u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -17249,6 +21271,240 @@ pub const SB_SIMPLEID: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SCROLLBARPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_ARROWBTN: SCROLLBARPARTS = SCROLLBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_THUMBBTNHORZ: SCROLLBARPARTS = SCROLLBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_THUMBBTNVERT: SCROLLBARPARTS = SCROLLBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_LOWERTRACKHORZ: SCROLLBARPARTS = SCROLLBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_UPPERTRACKHORZ: SCROLLBARPARTS = SCROLLBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_LOWERTRACKVERT: SCROLLBARPARTS = SCROLLBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_UPPERTRACKVERT: SCROLLBARPARTS = SCROLLBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_GRIPPERHORZ: SCROLLBARPARTS = SCROLLBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_GRIPPERVERT: SCROLLBARPARTS = SCROLLBARPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_SIZEBOX: SCROLLBARPARTS = SCROLLBARPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBP_SIZEBOXBKGND: SCROLLBARPARTS = SCROLLBARPARTS(11i32);
+impl ::core::marker::Copy for SCROLLBARPARTS {}
+impl ::core::clone::Clone for SCROLLBARPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SCROLLBARPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SCROLLBARPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCROLLBARPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCROLLBARPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SCROLLBARSTYLESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_NORMAL: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_HOT: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_PRESSED: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_DISABLED: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCRBS_HOVER: SCROLLBARSTYLESTATES = SCROLLBARSTYLESTATES(5i32);
+impl ::core::marker::Copy for SCROLLBARSTYLESTATES {}
+impl ::core::clone::Clone for SCROLLBARSTYLESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SCROLLBARSTYLESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SCROLLBARSTYLESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCROLLBARSTYLESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCROLLBARSTYLESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SECTIONTITLELINKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPSTL_NORMAL: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPSTL_HOT: SECTIONTITLELINKSTATES = SECTIONTITLELINKSTATES(2i32);
+impl ::core::marker::Copy for SECTIONTITLELINKSTATES {}
+impl ::core::clone::Clone for SECTIONTITLELINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SECTIONTITLELINKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SECTIONTITLELINKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECTIONTITLELINKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECTIONTITLELINKSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SET_THEME_APP_PROPERTIES_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VALIDBITS: SET_THEME_APP_PROPERTIES_FLAGS = SET_THEME_APP_PROPERTIES_FLAGS(7u32);
+impl ::core::marker::Copy for SET_THEME_APP_PROPERTIES_FLAGS {}
+impl ::core::clone::Clone for SET_THEME_APP_PROPERTIES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SET_THEME_APP_PROPERTIES_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SET_THEME_APP_PROPERTIES_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SET_THEME_APP_PROPERTIES_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SET_THEME_APP_PROPERTIES_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SET_THEME_APP_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SET_THEME_APP_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SET_THEME_APP_PROPERTIES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SET_THEME_APP_PROPERTIES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SET_THEME_APP_PROPERTIES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SHOWCALENDARBUTTONRIGHTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_NORMAL: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_HOT: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DPSCBR_DISABLED: SHOWCALENDARBUTTONRIGHTSTATES = SHOWCALENDARBUTTONRIGHTSTATES(4i32);
+impl ::core::marker::Copy for SHOWCALENDARBUTTONRIGHTSTATES {}
+impl ::core::clone::Clone for SHOWCALENDARBUTTONRIGHTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SHOWCALENDARBUTTONRIGHTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SHOWCALENDARBUTTONRIGHTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHOWCALENDARBUTTONRIGHTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHOWCALENDARBUTTONRIGHTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SIZEBOXSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_RIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_LEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_TOPRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_TOPLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFBOTTOMRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFBOTTOMLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFTOPRIGHTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SZB_HALFTOPLEFTALIGN: SIZEBOXSTATES = SIZEBOXSTATES(8i32);
+impl ::core::marker::Copy for SIZEBOXSTATES {}
+impl ::core::clone::Clone for SIZEBOXSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SIZEBOXSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SIZEBOXSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SIZEBOXSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SIZEBOXSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SIZINGTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const ST_TRUESIZE: SIZINGTYPE = SIZINGTYPE(0i32);
@@ -17273,6 +21529,147 @@ unsafe impl ::windows::core::Abi for SIZINGTYPE {
 impl ::core::fmt::Debug for SIZINGTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SIZINGTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SMALLCAPTIONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCS_ACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCS_INACTIVE: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCS_DISABLED: SMALLCAPTIONSTATES = SMALLCAPTIONSTATES(3i32);
+impl ::core::marker::Copy for SMALLCAPTIONSTATES {}
+impl ::core::clone::Clone for SMALLCAPTIONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SMALLCAPTIONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SMALLCAPTIONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SMALLCAPTIONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SMALLCAPTIONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SMALLCLOSEBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_NORMAL: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_HOT: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_PUSHED: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SCBS_DISABLED: SMALLCLOSEBUTTONSTATES = SMALLCLOSEBUTTONSTATES(4i32);
+impl ::core::marker::Copy for SMALLCLOSEBUTTONSTATES {}
+impl ::core::clone::Clone for SMALLCLOSEBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SMALLCLOSEBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SMALLCLOSEBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SMALLCLOSEBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SMALLCLOSEBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SMALLFRAMEBOTTOMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRB_ACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRB_INACTIVE: SMALLFRAMEBOTTOMSTATES = SMALLFRAMEBOTTOMSTATES(2i32);
+impl ::core::marker::Copy for SMALLFRAMEBOTTOMSTATES {}
+impl ::core::clone::Clone for SMALLFRAMEBOTTOMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SMALLFRAMEBOTTOMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SMALLFRAMEBOTTOMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SMALLFRAMEBOTTOMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SMALLFRAMEBOTTOMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SMALLFRAMELEFTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRL_ACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRL_INACTIVE: SMALLFRAMELEFTSTATES = SMALLFRAMELEFTSTATES(2i32);
+impl ::core::marker::Copy for SMALLFRAMELEFTSTATES {}
+impl ::core::clone::Clone for SMALLFRAMELEFTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SMALLFRAMELEFTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SMALLFRAMELEFTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SMALLFRAMELEFTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SMALLFRAMELEFTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SMALLFRAMERIGHTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRR_ACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SFRR_INACTIVE: SMALLFRAMERIGHTSTATES = SMALLFRAMERIGHTSTATES(2i32);
+impl ::core::marker::Copy for SMALLFRAMERIGHTSTATES {}
+impl ::core::clone::Clone for SMALLFRAMERIGHTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SMALLFRAMERIGHTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SMALLFRAMERIGHTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SMALLFRAMERIGHTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SMALLFRAMERIGHTSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -17306,6 +21703,180 @@ unsafe impl ::windows::core::Abi for SOFTWAREEXPLORERSTATES {
 impl ::core::fmt::Debug for SOFTWAREEXPLORERSTATES {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SOFTWAREEXPLORERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SPECIALGROUPCOLLAPSESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGC_NORMAL: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGC_HOT: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGC_PRESSED: SPECIALGROUPCOLLAPSESTATES = SPECIALGROUPCOLLAPSESTATES(3i32);
+impl ::core::marker::Copy for SPECIALGROUPCOLLAPSESTATES {}
+impl ::core::clone::Clone for SPECIALGROUPCOLLAPSESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SPECIALGROUPCOLLAPSESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SPECIALGROUPCOLLAPSESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SPECIALGROUPCOLLAPSESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPECIALGROUPCOLLAPSESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SPECIALGROUPEXPANDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGE_NORMAL: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGE_HOT: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const EBSGE_PRESSED: SPECIALGROUPEXPANDSTATES = SPECIALGROUPEXPANDSTATES(3i32);
+impl ::core::marker::Copy for SPECIALGROUPEXPANDSTATES {}
+impl ::core::clone::Clone for SPECIALGROUPEXPANDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SPECIALGROUPEXPANDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SPECIALGROUPEXPANDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SPECIALGROUPEXPANDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPECIALGROUPEXPANDSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SPINPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_UP: SPINPARTS = SPINPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_DOWN: SPINPARTS = SPINPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_UPHORZ: SPINPARTS = SPINPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPNP_DOWNHORZ: SPINPARTS = SPINPARTS(4i32);
+impl ::core::marker::Copy for SPINPARTS {}
+impl ::core::clone::Clone for SPINPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SPINPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SPINPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SPINPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPINPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SPLITTERSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITS_NORMAL: SPLITTERSTATES = SPLITTERSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITS_HOT: SPLITTERSTATES = SPLITTERSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITS_PRESSED: SPLITTERSTATES = SPLITTERSTATES(3i32);
+impl ::core::marker::Copy for SPLITTERSTATES {}
+impl ::core::clone::Clone for SPLITTERSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SPLITTERSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SPLITTERSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SPLITTERSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPLITTERSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SPLITTERVERTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITSV_NORMAL: SPLITTERVERTSTATES = SPLITTERVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITSV_HOT: SPLITTERVERTSTATES = SPLITTERVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SPLITSV_PRESSED: SPLITTERVERTSTATES = SPLITTERVERTSTATES(3i32);
+impl ::core::marker::Copy for SPLITTERVERTSTATES {}
+impl ::core::clone::Clone for SPLITTERVERTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SPLITTERVERTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SPLITTERVERTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SPLITTERVERTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPLITTERVERTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STANDARDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTSS_NORMAL: STANDARDSTATES = STANDARDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTSS_LINK: STANDARDSTATES = STANDARDSTATES(2i32);
+impl ::core::marker::Copy for STANDARDSTATES {}
+impl ::core::clone::Clone for STANDARDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STANDARDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STANDARDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STANDARDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STANDARDSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -17401,6 +21972,35 @@ pub const STATUSCLASSNAMEA: &str = "msctls_statusbar32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STATUSCLASSNAMEW: &str = "msctls_statusbar32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STATUSPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SP_PANE: STATUSPARTS = STATUSPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SP_GRIPPERPANE: STATUSPARTS = STATUSPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SP_GRIPPER: STATUSPARTS = STATUSPARTS(3i32);
+impl ::core::marker::Copy for STATUSPARTS {}
+impl ::core::clone::Clone for STATUSPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STATUSPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STATUSPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STATUSPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STATUSPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_COPY: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_CUT: u32 = 0u32;
@@ -17430,6 +22030,145 @@ pub const STD_REDOW: u32 = 4u32;
 pub const STD_REPLACE: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const STD_UNDO: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSBUTTONSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_NORMAL: SYSBUTTONSTATES = SYSBUTTONSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_HOT: SYSBUTTONSTATES = SYSBUTTONSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_PUSHED: SYSBUTTONSTATES = SYSBUTTONSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const SBS_DISABLED: SYSBUTTONSTATES = SYSBUTTONSTATES(4i32);
+impl ::core::marker::Copy for SYSBUTTONSTATES {}
+impl ::core::clone::Clone for SYSBUTTONSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSBUTTONSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYSBUTTONSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSBUTTONSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSBUTTONSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMCLOSESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSC_NORMAL: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSC_DISABLED: SYSTEMCLOSESTATES = SYSTEMCLOSESTATES(2i32);
+impl ::core::marker::Copy for SYSTEMCLOSESTATES {}
+impl ::core::clone::Clone for SYSTEMCLOSESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMCLOSESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEMCLOSESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEMCLOSESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMCLOSESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMMAXIMIZESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMX_NORMAL: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMX_DISABLED: SYSTEMMAXIMIZESTATES = SYSTEMMAXIMIZESTATES(2i32);
+impl ::core::marker::Copy for SYSTEMMAXIMIZESTATES {}
+impl ::core::clone::Clone for SYSTEMMAXIMIZESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMMAXIMIZESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEMMAXIMIZESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEMMAXIMIZESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMMAXIMIZESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMMINIMIZESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMN_NORMAL: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSMN_DISABLED: SYSTEMMINIMIZESTATES = SYSTEMMINIMIZESTATES(2i32);
+impl ::core::marker::Copy for SYSTEMMINIMIZESTATES {}
+impl ::core::clone::Clone for SYSTEMMINIMIZESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMMINIMIZESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEMMINIMIZESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEMMINIMIZESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMMINIMIZESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEMRESTORESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSR_NORMAL: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const MSYSR_DISABLED: SYSTEMRESTORESTATES = SYSTEMRESTORESTATES(2i32);
+impl ::core::marker::Copy for SYSTEMRESTORESTATES {}
+impl ::core::clone::Clone for SYSTEMRESTORESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEMRESTORESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEMRESTORESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEMRESTORESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEMRESTORESTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const SZ_THDOCPROP_AUTHOR: &str = "author";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -17482,10 +22221,10 @@ where
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[inline]
-pub unsafe fn SetThemeAppProperties(dwflags: u32) {
+pub unsafe fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS) {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn SetThemeAppProperties(dwflags: u32);
+        fn SetThemeAppProperties(dwflags: SET_THEME_APP_PROPERTIES_FLAGS);
     }
     SetThemeAppProperties(dwflags)
 }
@@ -17569,6 +22308,212 @@ where
         fn Str_SetPtrW(ppsz: *mut ::windows::core::PWSTR, psz: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
     Str_SetPtrW(::core::mem::transmute(ppsz), psz.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TABITEMBOTHEDGESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_NORMAL: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_HOT: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_SELECTED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_DISABLED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIBES_FOCUSED: TABITEMBOTHEDGESTATES = TABITEMBOTHEDGESTATES(5i32);
+impl ::core::marker::Copy for TABITEMBOTHEDGESTATES {}
+impl ::core::clone::Clone for TABITEMBOTHEDGESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TABITEMBOTHEDGESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TABITEMBOTHEDGESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TABITEMBOTHEDGESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TABITEMBOTHEDGESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TABITEMLEFTEDGESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_NORMAL: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_HOT: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_SELECTED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_DISABLED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TILES_FOCUSED: TABITEMLEFTEDGESTATES = TABITEMLEFTEDGESTATES(5i32);
+impl ::core::marker::Copy for TABITEMLEFTEDGESTATES {}
+impl ::core::clone::Clone for TABITEMLEFTEDGESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TABITEMLEFTEDGESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TABITEMLEFTEDGESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TABITEMLEFTEDGESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TABITEMLEFTEDGESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TABITEMRIGHTEDGESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_NORMAL: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_HOT: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_SELECTED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_DISABLED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIRES_FOCUSED: TABITEMRIGHTEDGESTATES = TABITEMRIGHTEDGESTATES(5i32);
+impl ::core::marker::Copy for TABITEMRIGHTEDGESTATES {}
+impl ::core::clone::Clone for TABITEMRIGHTEDGESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TABITEMRIGHTEDGESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TABITEMRIGHTEDGESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TABITEMRIGHTEDGESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TABITEMRIGHTEDGESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TABITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_NORMAL: TABITEMSTATES = TABITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_HOT: TABITEMSTATES = TABITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_SELECTED: TABITEMSTATES = TABITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_DISABLED: TABITEMSTATES = TABITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TIS_FOCUSED: TABITEMSTATES = TABITEMSTATES(5i32);
+impl ::core::marker::Copy for TABITEMSTATES {}
+impl ::core::clone::Clone for TABITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TABITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TABITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TABITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TABITEMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TABPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEM: TABPARTS = TABPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEMLEFTEDGE: TABPARTS = TABPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEMRIGHTEDGE: TABPARTS = TABPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TABITEMBOTHEDGE: TABPARTS = TABPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEM: TABPARTS = TABPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEMLEFTEDGE: TABPARTS = TABPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEMRIGHTEDGE: TABPARTS = TABPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_TOPTABITEMBOTHEDGE: TABPARTS = TABPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_PANE: TABPARTS = TABPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_BODY: TABPARTS = TABPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TABP_AEROWIZARDBODY: TABPARTS = TABPARTS(11i32);
+impl ::core::marker::Copy for TABPARTS {}
+impl ::core::clone::Clone for TABPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TABPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TABPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TABPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TABPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TABSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSTB_NORMAL: TABSTATES = TABSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSTB_HOT: TABSTATES = TABSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CSTB_SELECTED: TABSTATES = TABSTATES(3i32);
+impl ::core::marker::Copy for TABSTATES {}
+impl ::core::clone::Clone for TABSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TABSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TABSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TABSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TABSTATES").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
@@ -17757,6 +22702,71 @@ impl ::core::cmp::Eq for TASKDIALOGCONFIG_1 {}
 impl ::core::default::Default for TASKDIALOGCONFIG_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TASKDIALOGPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_PRIMARYPANEL: TASKDIALOGPARTS = TASKDIALOGPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_MAININSTRUCTIONPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_MAINICON: TASKDIALOGPARTS = TASKDIALOGPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_CONTENTPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_CONTENTICON: TASKDIALOGPARTS = TASKDIALOGPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDEDCONTENT: TASKDIALOGPARTS = TASKDIALOGPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_COMMANDLINKPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_SECONDARYPANEL: TASKDIALOGPARTS = TASKDIALOGPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_CONTROLPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_BUTTONSECTION: TASKDIALOGPARTS = TASKDIALOGPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_BUTTONWRAPPER: TASKDIALOGPARTS = TASKDIALOGPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDOTEXT: TASKDIALOGPARTS = TASKDIALOGPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDOBUTTON: TASKDIALOGPARTS = TASKDIALOGPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_VERIFICATIONTEXT: TASKDIALOGPARTS = TASKDIALOGPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_FOOTNOTEPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_FOOTNOTEAREA: TASKDIALOGPARTS = TASKDIALOGPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_FOOTNOTESEPARATOR: TASKDIALOGPARTS = TASKDIALOGPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_EXPANDEDFOOTERAREA: TASKDIALOGPARTS = TASKDIALOGPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_PROGRESSBAR: TASKDIALOGPARTS = TASKDIALOGPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_IMAGEALIGNMENT: TASKDIALOGPARTS = TASKDIALOGPARTS(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TDLG_RADIOBUTTONPANE: TASKDIALOGPARTS = TASKDIALOGPARTS(21i32);
+impl ::core::marker::Copy for TASKDIALOGPARTS {}
+impl ::core::clone::Clone for TASKDIALOGPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TASKDIALOGPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TASKDIALOGPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASKDIALOGPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASKDIALOGPARTS").field(&self.0).finish()
     }
 }
 #[repr(C, packed(1))]
@@ -18033,6 +23043,39 @@ unsafe impl ::windows::core::Abi for TASKDIALOG_NOTIFICATIONS {
 impl ::core::fmt::Debug for TASKDIALOG_NOTIFICATIONS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TASKDIALOG_NOTIFICATIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TASKLINKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_NORMAL: TASKLINKSTATES = TASKLINKSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_HOT: TASKLINKSTATES = TASKLINKSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_PRESSED: TASKLINKSTATES = TASKLINKSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_DISABLED: TASKLINKSTATES = TASKLINKSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CPTL_PAGE: TASKLINKSTATES = TASKLINKSTATES(5i32);
+impl ::core::marker::Copy for TASKLINKSTATES {}
+impl ::core::clone::Clone for TASKLINKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TASKLINKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TASKLINKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASKLINKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASKLINKSTATES").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -19787,6 +24830,31 @@ pub const TD_WARNING_ICON: ::windows::core::PCWSTR = ::windows::core::PCWSTR(-1i
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TEXTSELECTIONGRIPPERPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSGP_GRIPPER: TEXTSELECTIONGRIPPERPARTS = TEXTSELECTIONGRIPPERPARTS(1i32);
+impl ::core::marker::Copy for TEXTSELECTIONGRIPPERPARTS {}
+impl ::core::clone::Clone for TEXTSELECTIONGRIPPERPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TEXTSELECTIONGRIPPERPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TEXTSELECTIONGRIPPERPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TEXTSELECTIONGRIPPERPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TEXTSELECTIONGRIPPERPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TEXTSHADOWTYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TST_NONE: TEXTSHADOWTYPE = TEXTSHADOWTYPE(0i32);
@@ -19811,6 +24879,47 @@ unsafe impl ::windows::core::Abi for TEXTSHADOWTYPE {
 impl ::core::fmt::Debug for TEXTSHADOWTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TEXTSHADOWTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TEXTSTYLEPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_MAININSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_INSTRUCTION: TEXTSTYLEPARTS = TEXTSTYLEPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_BODYTITLE: TEXTSTYLEPARTS = TEXTSTYLEPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_BODYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_SECONDARYTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_HYPERLINKTEXT: TEXTSTYLEPARTS = TEXTSTYLEPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_EXPANDED: TEXTSTYLEPARTS = TEXTSTYLEPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_LABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TEXT_CONTROLLABEL: TEXTSTYLEPARTS = TEXTSTYLEPARTS(9i32);
+impl ::core::marker::Copy for TEXTSTYLEPARTS {}
+impl ::core::clone::Clone for TEXTSTYLEPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TEXTSTYLEPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TEXTSTYLEPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TEXTSTYLEPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TEXTSTYLEPARTS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -20380,17 +25489,541 @@ impl ::core::fmt::Debug for THEME_PROPERTY_SYMBOL_ID {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct THUMBBOTTOMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_NORMAL: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_HOT: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_PRESSED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_FOCUSED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUBS_DISABLED: THUMBBOTTOMSTATES = THUMBBOTTOMSTATES(5i32);
+impl ::core::marker::Copy for THUMBBOTTOMSTATES {}
+impl ::core::clone::Clone for THUMBBOTTOMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for THUMBBOTTOMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for THUMBBOTTOMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for THUMBBOTTOMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("THUMBBOTTOMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct THUMBLEFTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_NORMAL: THUMBLEFTSTATES = THUMBLEFTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_HOT: THUMBLEFTSTATES = THUMBLEFTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_PRESSED: THUMBLEFTSTATES = THUMBLEFTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_FOCUSED: THUMBLEFTSTATES = THUMBLEFTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVLS_DISABLED: THUMBLEFTSTATES = THUMBLEFTSTATES(5i32);
+impl ::core::marker::Copy for THUMBLEFTSTATES {}
+impl ::core::clone::Clone for THUMBLEFTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for THUMBLEFTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for THUMBLEFTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for THUMBLEFTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("THUMBLEFTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct THUMBRIGHTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_NORMAL: THUMBRIGHTSTATES = THUMBRIGHTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_HOT: THUMBRIGHTSTATES = THUMBRIGHTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_PRESSED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_FOCUSED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVRS_DISABLED: THUMBRIGHTSTATES = THUMBRIGHTSTATES(5i32);
+impl ::core::marker::Copy for THUMBRIGHTSTATES {}
+impl ::core::clone::Clone for THUMBRIGHTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for THUMBRIGHTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for THUMBRIGHTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for THUMBRIGHTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("THUMBRIGHTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct THUMBSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_NORMAL: THUMBSTATES = THUMBSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_HOT: THUMBSTATES = THUMBSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_PRESSED: THUMBSTATES = THUMBSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_FOCUSED: THUMBSTATES = THUMBSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUS_DISABLED: THUMBSTATES = THUMBSTATES(5i32);
+impl ::core::marker::Copy for THUMBSTATES {}
+impl ::core::clone::Clone for THUMBSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for THUMBSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for THUMBSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for THUMBSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("THUMBSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct THUMBTOPSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_NORMAL: THUMBTOPSTATES = THUMBTOPSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_HOT: THUMBTOPSTATES = THUMBTOPSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_PRESSED: THUMBTOPSTATES = THUMBTOPSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_FOCUSED: THUMBTOPSTATES = THUMBTOPSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUTS_DISABLED: THUMBTOPSTATES = THUMBTOPSTATES(5i32);
+impl ::core::marker::Copy for THUMBTOPSTATES {}
+impl ::core::clone::Clone for THUMBTOPSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for THUMBTOPSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for THUMBTOPSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for THUMBTOPSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("THUMBTOPSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct THUMBVERTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_NORMAL: THUMBVERTSTATES = THUMBVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_HOT: THUMBVERTSTATES = THUMBVERTSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_PRESSED: THUMBVERTSTATES = THUMBVERTSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_FOCUSED: THUMBVERTSTATES = THUMBVERTSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TUVS_DISABLED: THUMBVERTSTATES = THUMBVERTSTATES(5i32);
+impl ::core::marker::Copy for THUMBVERTSTATES {}
+impl ::core::clone::Clone for THUMBVERTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for THUMBVERTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for THUMBVERTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for THUMBVERTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("THUMBVERTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TICSSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSS_NORMAL: TICSSTATES = TICSSTATES(1i32);
+impl ::core::marker::Copy for TICSSTATES {}
+impl ::core::clone::Clone for TICSSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TICSSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TICSSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TICSSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TICSSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TICSVERTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TSVS_NORMAL: TICSVERTSTATES = TICSVERTSTATES(1i32);
+impl ::core::marker::Copy for TICSVERTSTATES {}
+impl ::core::clone::Clone for TICSVERTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TICSVERTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TICSVERTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TICSVERTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TICSVERTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TITLEBARSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_TITLEBAR_ACTIVE: TITLEBARSTATES = TITLEBARSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const AW_S_TITLEBAR_INACTIVE: TITLEBARSTATES = TITLEBARSTATES(2i32);
+impl ::core::marker::Copy for TITLEBARSTATES {}
+impl ::core::clone::Clone for TITLEBARSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TITLEBARSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TITLEBARSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TITLEBARSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TITLEBARSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMTVS_RESERVEDHIGH: u32 = 19999u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TMTVS_RESERVEDLOW: u32 = 100000u32;
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLBARCLASSNAME: &str = "ToolbarWindow32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLBARCLASSNAMEA: &str = "ToolbarWindow32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLBARCLASSNAMEW: &str = "ToolbarWindow32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOOLBARPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_BUTTON: TOOLBARPARTS = TOOLBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_DROPDOWNBUTTON: TOOLBARPARTS = TOOLBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SPLITBUTTON: TOOLBARPARTS = TOOLBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SPLITBUTTONDROPDOWN: TOOLBARPARTS = TOOLBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SEPARATOR: TOOLBARPARTS = TOOLBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_SEPARATORVERT: TOOLBARPARTS = TOOLBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TP_DROPDOWNBUTTONGLYPH: TOOLBARPARTS = TOOLBARPARTS(7i32);
+impl ::core::marker::Copy for TOOLBARPARTS {}
+impl ::core::clone::Clone for TOOLBARPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOOLBARPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOOLBARPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOOLBARPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOOLBARPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOOLBARSTYLESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_NORMAL: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_PRESSED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_DISABLED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_CHECKED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_HOTCHECKED: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_NEARHOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TS_OTHERSIDEHOT: TOOLBARSTYLESTATES = TOOLBARSTYLESTATES(8i32);
+impl ::core::marker::Copy for TOOLBARSTYLESTATES {}
+impl ::core::clone::Clone for TOOLBARSTYLESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOOLBARSTYLESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOOLBARSTYLESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOOLBARSTYLESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOOLBARSTYLESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOOLTIPPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_STANDARD: TOOLTIPPARTS = TOOLTIPPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_STANDARDTITLE: TOOLTIPPARTS = TOOLTIPPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_BALLOON: TOOLTIPPARTS = TOOLTIPPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_BALLOONTITLE: TOOLTIPPARTS = TOOLTIPPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_CLOSE: TOOLTIPPARTS = TOOLTIPPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_BALLOONSTEM: TOOLTIPPARTS = TOOLTIPPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTP_WRENCH: TOOLTIPPARTS = TOOLTIPPARTS(7i32);
+impl ::core::marker::Copy for TOOLTIPPARTS {}
+impl ::core::clone::Clone for TOOLTIPPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOOLTIPPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOOLTIPPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOOLTIPPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOOLTIPPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLTIPS_CLASS: &str = "tooltips_class32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLTIPS_CLASSA: &str = "tooltips_class32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TOOLTIPS_CLASSW: &str = "tooltips_class32";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOPTABITEMBOTHEDGESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_NORMAL: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_HOT: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_SELECTED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_DISABLED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIBES_FOCUSED: TOPTABITEMBOTHEDGESTATES = TOPTABITEMBOTHEDGESTATES(5i32);
+impl ::core::marker::Copy for TOPTABITEMBOTHEDGESTATES {}
+impl ::core::clone::Clone for TOPTABITEMBOTHEDGESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOPTABITEMBOTHEDGESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOPTABITEMBOTHEDGESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOPTABITEMBOTHEDGESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOPTABITEMBOTHEDGESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOPTABITEMLEFTEDGESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_NORMAL: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_HOT: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_SELECTED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_DISABLED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTILES_FOCUSED: TOPTABITEMLEFTEDGESTATES = TOPTABITEMLEFTEDGESTATES(5i32);
+impl ::core::marker::Copy for TOPTABITEMLEFTEDGESTATES {}
+impl ::core::clone::Clone for TOPTABITEMLEFTEDGESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOPTABITEMLEFTEDGESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOPTABITEMLEFTEDGESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOPTABITEMLEFTEDGESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOPTABITEMLEFTEDGESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOPTABITEMRIGHTEDGESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_NORMAL: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_HOT: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_SELECTED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_DISABLED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIRES_FOCUSED: TOPTABITEMRIGHTEDGESTATES = TOPTABITEMRIGHTEDGESTATES(5i32);
+impl ::core::marker::Copy for TOPTABITEMRIGHTEDGESTATES {}
+impl ::core::clone::Clone for TOPTABITEMRIGHTEDGESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOPTABITEMRIGHTEDGESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOPTABITEMRIGHTEDGESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOPTABITEMRIGHTEDGESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOPTABITEMRIGHTEDGESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TOPTABITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_NORMAL: TOPTABITEMSTATES = TOPTABITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_HOT: TOPTABITEMSTATES = TOPTABITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_SELECTED: TOPTABITEMSTATES = TOPTABITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_DISABLED: TOPTABITEMSTATES = TOPTABITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTIS_FOCUSED: TOPTABITEMSTATES = TOPTABITEMSTATES(5i32);
+impl ::core::marker::Copy for TOPTABITEMSTATES {}
+impl ::core::clone::Clone for TOPTABITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TOPTABITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TOPTABITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOPTABITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOPTABITEMSTATES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20473,11 +26106,129 @@ impl ::core::default::Default for TOUCH_HIT_TESTING_PROXIMITY_EVALUATION {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRACKBARPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TRACK: TRACKBARPARTS = TRACKBARPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TRACKVERT: TRACKBARPARTS = TRACKBARPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMB: TRACKBARPARTS = TRACKBARPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBBOTTOM: TRACKBARPARTS = TRACKBARPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBTOP: TRACKBARPARTS = TRACKBARPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBVERT: TRACKBARPARTS = TRACKBARPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBLEFT: TRACKBARPARTS = TRACKBARPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_THUMBRIGHT: TRACKBARPARTS = TRACKBARPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TICS: TRACKBARPARTS = TRACKBARPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKP_TICSVERT: TRACKBARPARTS = TRACKBARPARTS(10i32);
+impl ::core::marker::Copy for TRACKBARPARTS {}
+impl ::core::clone::Clone for TRACKBARPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRACKBARPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRACKBARPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRACKBARPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRACKBARPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRACKBARSTYLESTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TKS_NORMAL: TRACKBARSTYLESTATES = TRACKBARSTYLESTATES(1i32);
+impl ::core::marker::Copy for TRACKBARSTYLESTATES {}
+impl ::core::clone::Clone for TRACKBARSTYLESTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRACKBARSTYLESTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRACKBARSTYLESTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRACKBARSTYLESTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRACKBARSTYLESTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TRACKBAR_CLASS: &str = "msctls_trackbar32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TRACKBAR_CLASSA: &str = "msctls_trackbar32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TRACKBAR_CLASSW: &str = "msctls_trackbar32";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRACKSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TRS_NORMAL: TRACKSTATES = TRACKSTATES(1i32);
+impl ::core::marker::Copy for TRACKSTATES {}
+impl ::core::clone::Clone for TRACKSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRACKSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRACKSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRACKSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRACKSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRACKVERTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TRVS_NORMAL: TRACKVERTSTATES = TRACKVERTSTATES(1i32);
+impl ::core::marker::Copy for TRACKVERTSTATES {}
+impl ::core::clone::Clone for TRACKVERTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRACKVERTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRACKVERTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRACKVERTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRACKVERTSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20551,6 +26302,91 @@ impl ::core::fmt::Debug for TRAILINGGRIDCELLUPPERSTATES {
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRANSPARENTBACKGROUNDSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_NORMAL: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_HOT: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_DISABLED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const CBTBS_FOCUSED: TRANSPARENTBACKGROUNDSTATES = TRANSPARENTBACKGROUNDSTATES(4i32);
+impl ::core::marker::Copy for TRANSPARENTBACKGROUNDSTATES {}
+impl ::core::clone::Clone for TRANSPARENTBACKGROUNDSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRANSPARENTBACKGROUNDSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSPARENTBACKGROUNDSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRANSPARENTBACKGROUNDSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRANSPARENTBACKGROUNDSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRANSPARENTBARSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBS_NORMAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBS_PARTIAL: TRANSPARENTBARSTATES = TRANSPARENTBARSTATES(2i32);
+impl ::core::marker::Copy for TRANSPARENTBARSTATES {}
+impl ::core::clone::Clone for TRANSPARENTBARSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRANSPARENTBARSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSPARENTBARSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRANSPARENTBARSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRANSPARENTBARSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRANSPARENTBARVERTSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBVS_NORMAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const PBBVS_PARTIAL: TRANSPARENTBARVERTSTATES = TRANSPARENTBARVERTSTATES(2i32);
+impl ::core::marker::Copy for TRANSPARENTBARVERTSTATES {}
+impl ::core::clone::Clone for TRANSPARENTBARVERTSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRANSPARENTBARVERTSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSPARENTBARVERTSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRANSPARENTBARVERTSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRANSPARENTBARVERTSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TRAYNOTIFYPARTS(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const TNP_BACKGROUND: TRAYNOTIFYPARTS = TRAYNOTIFYPARTS(1i32);
@@ -20573,6 +26409,72 @@ unsafe impl ::windows::core::Abi for TRAYNOTIFYPARTS {
 impl ::core::fmt::Debug for TRAYNOTIFYPARTS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TRAYNOTIFYPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TREEITEMSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_NORMAL: TREEITEMSTATES = TREEITEMSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_HOT: TREEITEMSTATES = TREEITEMSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_SELECTED: TREEITEMSTATES = TREEITEMSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_DISABLED: TREEITEMSTATES = TREEITEMSTATES(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_SELECTEDNOTFOCUS: TREEITEMSTATES = TREEITEMSTATES(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TREIS_HOTSELECTED: TREEITEMSTATES = TREEITEMSTATES(6i32);
+impl ::core::marker::Copy for TREEITEMSTATES {}
+impl ::core::clone::Clone for TREEITEMSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TREEITEMSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TREEITEMSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TREEITEMSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TREEITEMSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TREEVIEWPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_TREEITEM: TREEVIEWPARTS = TREEVIEWPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_GLYPH: TREEVIEWPARTS = TREEVIEWPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_BRANCH: TREEVIEWPARTS = TREEVIEWPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TVP_HOTGLYPH: TREEVIEWPARTS = TREEVIEWPARTS(4i32);
+impl ::core::marker::Copy for TREEVIEWPARTS {}
+impl ::core::clone::Clone for TREEVIEWPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TREEVIEWPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TREEVIEWPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TREEVIEWPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TREEVIEWPARTS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -22083,11 +27985,100 @@ pub const UDS_WRAP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UD_MAXVAL: u32 = 32767u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UPDATEMETADATASTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDUPDATEMETADATA_HIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDUPDATEMETADATA_NOHIGHLIGHT: UPDATEMETADATASTATES = UPDATEMETADATASTATES(2i32);
+impl ::core::marker::Copy for UPDATEMETADATASTATES {}
+impl ::core::clone::Clone for UPDATEMETADATASTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UPDATEMETADATASTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UPDATEMETADATASTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UPDATEMETADATASTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UPDATEMETADATASTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UPDOWN_CLASS: &str = "msctls_updown32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UPDOWN_CLASSA: &str = "msctls_updown32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const UPDOWN_CLASSW: &str = "msctls_updown32";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UPHORZSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_NORMAL: UPHORZSTATES = UPHORZSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_HOT: UPHORZSTATES = UPHORZSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_PRESSED: UPHORZSTATES = UPHORZSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPHZS_DISABLED: UPHORZSTATES = UPHORZSTATES(4i32);
+impl ::core::marker::Copy for UPHORZSTATES {}
+impl ::core::clone::Clone for UPHORZSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UPHORZSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UPHORZSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UPHORZSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UPHORZSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UPSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_NORMAL: UPSTATES = UPSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_HOT: UPSTATES = UPSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_PRESSED: UPSTATES = UPSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UPS_DISABLED: UPSTATES = UPSTATES(4i32);
+impl ::core::marker::Copy for UPSTATES {}
+impl ::core::clone::Clone for UPSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UPSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UPSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UPSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UPSTATES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub struct USAGE_PROPERTIES {
@@ -22125,6 +28116,33 @@ impl ::core::cmp::Eq for USAGE_PROPERTIES {}
 impl ::core::default::Default for USAGE_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USERTILEPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTP_STROKEBACKGROUND: USERTILEPARTS = USERTILEPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const UTP_HOVERBACKGROUND: USERTILEPARTS = USERTILEPARTS(2i32);
+impl ::core::marker::Copy for USERTILEPARTS {}
+impl ::core::clone::Clone for USERTILEPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USERTILEPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for USERTILEPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USERTILEPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USERTILEPARTS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`, `\"Win32_Foundation\"`*"]
@@ -22184,6 +28202,68 @@ impl ::core::fmt::Debug for VALIGN {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VERTSCROLLSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_NORMAL: VERTSCROLLSTATES = VERTSCROLLSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_HOT: VERTSCROLLSTATES = VERTSCROLLSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_PUSHED: VERTSCROLLSTATES = VERTSCROLLSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSS_DISABLED: VERTSCROLLSTATES = VERTSCROLLSTATES(4i32);
+impl ::core::marker::Copy for VERTSCROLLSTATES {}
+impl ::core::clone::Clone for VERTSCROLLSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VERTSCROLLSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VERTSCROLLSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VERTSCROLLSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VERTSCROLLSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VERTTHUMBSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_NORMAL: VERTTHUMBSTATES = VERTTHUMBSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_HOT: VERTTHUMBSTATES = VERTTHUMBSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_PUSHED: VERTTHUMBSTATES = VERTTHUMBSTATES(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VTS_DISABLED: VERTTHUMBSTATES = VERTTHUMBSTATES(4i32);
+impl ::core::marker::Copy for VERTTHUMBSTATES {}
+impl ::core::clone::Clone for VERTTHUMBSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VERTTHUMBSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VERTTHUMBSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VERTTHUMBSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VERTTHUMBSTATES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_DETAILS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_LARGEICONS: u32 = 0u32;
@@ -22210,27 +28290,166 @@ pub const VIEW_SORTTYPE: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VIEW_VIEWMENU: u32 = 12u32;
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_AEROWIZARD: &str = "AEROWIZARD";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_AEROWIZARDSTYLE: &str = "AEROWIZARDSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_BUTTON: &str = "BUTTON";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_BUTTONSTYLE: &str = "BUTTONSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_CLOCK: &str = "CLOCK";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_COMBOBOX: &str = "COMBOBOX";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_COMBOBOXSTYLE: &str = "COMBOBOXSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_COMMUNICATIONS: &str = "COMMUNICATIONS";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_COMMUNICATIONSSTYLE: &str = "COMMUNICATIONSSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_CONTROLPANEL: &str = "CONTROLPANEL";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_CONTROLPANELSTYLE: &str = "CONTROLPANELSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_DATEPICKER: &str = "DATEPICKER";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_DATEPICKERSTYLE: &str = "DATEPICKERSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_DRAGDROP: &str = "DRAGDROP";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_DRAGDROPSTYLE: &str = "DRAGDROPSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_EDIT: &str = "EDIT";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_EDITSTYLE: &str = "EDITSTYLE";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_EMPTYMARKUP: &str = "EMPTYMARKUP";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_EXPLORERBAR: &str = "EXPLORERBAR";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_EXPLORERBARSTYLE: &str = "EXPLORERBARSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_FLYOUT: &str = "FLYOUT";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_FLYOUTSTYLE: &str = "FLYOUTSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_HEADER: &str = "HEADER";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_HEADERSTYLE: &str = "HEADERSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_LINK: &str = "LINK";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_LISTBOX: &str = "LISTBOX";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_LISTBOXSTYLE: &str = "LISTBOXSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_LISTVIEW: &str = "LISTVIEW";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_LISTVIEWSTYLE: &str = "LISTVIEWSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_MENU: &str = "MENU";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_MENUBAND: &str = "MENUBAND";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_MENUSTYLE: &str = "MENUSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_MONTHCAL: &str = "MONTHCAL";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_NAVIGATION: &str = "NAVIGATION";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_PAGE: &str = "PAGE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_PROGRESS: &str = "PROGRESS";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_PROGRESSSTYLE: &str = "PROGRESSSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_REBAR: &str = "REBAR";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_REBARSTYLE: &str = "REBARSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_SCROLLBAR: &str = "SCROLLBAR";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_SCROLLBARSTYLE: &str = "SCROLLBARSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_SPIN: &str = "SPIN";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_SPINSTYLE: &str = "SPINSTYLE";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_STARTPANEL: &str = "STARTPANEL";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_STATIC: &str = "STATIC";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_STATUS: &str = "STATUS";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_STATUSSTYLE: &str = "STATUSSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TAB: &str = "TAB";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TABSTYLE: &str = "TABSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_TASKBAND: &str = "TASKBAND";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_TASKBAR: &str = "TASKBAR";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TASKDIALOG: &str = "TASKDIALOG";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TASKDIALOGSTYLE: &str = "TASKDIALOGSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TEXTSELECTIONGRIPPER: &str = "TEXTSELECTIONGRIPPER";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TEXTSTYLE: &str = "TEXTSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TOOLBAR: &str = "TOOLBAR";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TOOLBARSTYLE: &str = "TOOLBARSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TOOLTIP: &str = "TOOLTIP";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TOOLTIPSTYLE: &str = "TOOLTIPSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TRACKBAR: &str = "TRACKBAR";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TRACKBARSTYLE: &str = "TRACKBARSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const VSCLASS_TRAYNOTIFY: &str = "TRAYNOTIFY";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TREEVIEW: &str = "TREEVIEW";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_TREEVIEWSTYLE: &str = "TREEVIEWSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_USERTILE: &str = "USERTILE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_WINDOW: &str = "WINDOW";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const VSCLASS_WINDOWSTYLE: &str = "WINDOWSTYLE";
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WARNINGSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDWARNING_HIGHLIGHT: WARNINGSTATES = WARNINGSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const DDWARNING_NOHIGHLIGHT: WARNINGSTATES = WARNINGSTATES(2i32);
+impl ::core::marker::Copy for WARNINGSTATES {}
+impl ::core::clone::Clone for WARNINGSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WARNINGSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WARNINGSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WARNINGSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WARNINGSTATES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WC_BUTTON: &str = "Button";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
@@ -22320,6 +28539,107 @@ pub const WC_TREEVIEWW: &str = "SysTreeView32";
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINDOWPARTS(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_CAPTION: WINDOWPARTS = WINDOWPARTS(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLCAPTION: WINDOWPARTS = WINDOWPARTS(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MINCAPTION: WINDOWPARTS = WINDOWPARTS(3i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLMINCAPTION: WINDOWPARTS = WINDOWPARTS(4i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MAXCAPTION: WINDOWPARTS = WINDOWPARTS(5i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLMAXCAPTION: WINDOWPARTS = WINDOWPARTS(6i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMELEFT: WINDOWPARTS = WINDOWPARTS(7i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMERIGHT: WINDOWPARTS = WINDOWPARTS(8i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMEBOTTOM: WINDOWPARTS = WINDOWPARTS(9i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMELEFT: WINDOWPARTS = WINDOWPARTS(10i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMERIGHT: WINDOWPARTS = WINDOWPARTS(11i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMEBOTTOM: WINDOWPARTS = WINDOWPARTS(12i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SYSBUTTON: WINDOWPARTS = WINDOWPARTS(13i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDISYSBUTTON: WINDOWPARTS = WINDOWPARTS(14i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MINBUTTON: WINDOWPARTS = WINDOWPARTS(15i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDIMINBUTTON: WINDOWPARTS = WINDOWPARTS(16i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MAXBUTTON: WINDOWPARTS = WINDOWPARTS(17i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_CLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(18i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLCLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(19i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDICLOSEBUTTON: WINDOWPARTS = WINDOWPARTS(20i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_RESTOREBUTTON: WINDOWPARTS = WINDOWPARTS(21i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDIRESTOREBUTTON: WINDOWPARTS = WINDOWPARTS(22i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_HELPBUTTON: WINDOWPARTS = WINDOWPARTS(23i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_MDIHELPBUTTON: WINDOWPARTS = WINDOWPARTS(24i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_HORZSCROLL: WINDOWPARTS = WINDOWPARTS(25i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_HORZTHUMB: WINDOWPARTS = WINDOWPARTS(26i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_VERTSCROLL: WINDOWPARTS = WINDOWPARTS(27i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_VERTTHUMB: WINDOWPARTS = WINDOWPARTS(28i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_DIALOG: WINDOWPARTS = WINDOWPARTS(29i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_CAPTIONSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(30i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLCAPTIONSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(31i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(32i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMELEFTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(33i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(34i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMERIGHTSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(35i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(36i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_SMALLFRAMEBOTTOMSIZINGTEMPLATE: WINDOWPARTS = WINDOWPARTS(37i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_FRAME: WINDOWPARTS = WINDOWPARTS(38i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const WP_BORDER: WINDOWPARTS = WINDOWPARTS(39i32);
+impl ::core::marker::Copy for WINDOWPARTS {}
+impl ::core::clone::Clone for WINDOWPARTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINDOWPARTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOWPARTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOWPARTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOWPARTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WINDOWTHEMEATTRIBUTETYPE(pub i32);
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = WINDOWTHEMEATTRIBUTETYPE(1i32);
@@ -22395,6 +28715,35 @@ unsafe impl ::windows::core::Abi for WORD_BREAK_ACTION {
 impl ::core::fmt::Debug for WORD_BREAK_ACTION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WORD_BREAK_ACTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WRENCHSTATES(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTWS_NORMAL: WRENCHSTATES = WRENCHSTATES(1i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTWS_HOT: WRENCHSTATES = WRENCHSTATES(2i32);
+#[doc = "*Required features: `\"Win32_UI_Controls\"`*"]
+pub const TTWS_PRESSED: WRENCHSTATES = WRENCHSTATES(3i32);
+impl ::core::marker::Copy for WRENCHSTATES {}
+impl ::core::clone::Clone for WRENCHSTATES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WRENCHSTATES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WRENCHSTATES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WRENCHSTATES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WRENCHSTATES").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls\"`*"]

@@ -949,8 +949,8 @@ impl ITextDocument2_Vtbl {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ITextDocument2Old_Impl: Sized + super::super::super::System::Com::IDispatch_Impl + ITextDocument_Impl {
     fn AttachMsgFilter(&self, pfilter: &::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()>;
-    fn SetEffectColor(&self, index: i32, cr: u32) -> ::windows::core::Result<()>;
-    fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<u32>;
+    fn SetEffectColor(&self, index: i32, cr: super::super::super::Foundation::COLORREF) -> ::windows::core::Result<()>;
+    fn GetEffectColor(&self, index: i32) -> ::windows::core::Result<super::super::super::Foundation::COLORREF>;
     fn GetCaretType(&self) -> ::windows::core::Result<i32>;
     fn SetCaretType(&self, carettype: i32) -> ::windows::core::Result<()>;
     fn GetImmContext(&self) -> ::windows::core::Result<i64>;
@@ -983,12 +983,12 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             this.AttachMsgFilter(::core::mem::transmute(&pfilter)).into()
         }
-        unsafe extern "system" fn SetEffectColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, cr: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetEffectColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, cr: super::super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetEffectColor(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&cr)).into()
         }
-        unsafe extern "system" fn GetEffectColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pcr: *mut u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetEffectColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextDocument2Old_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pcr: *mut super::super::super::Foundation::COLORREF) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetEffectColor(::core::mem::transmute_copy(&index)) {
@@ -2256,7 +2256,7 @@ pub trait ITextHost_Impl: Sized {
     fn TxGetViewInset(&self, prc: *mut super::super::super::Foundation::RECT) -> ::windows::core::Result<()>;
     fn TxGetCharFormat(&self, ppcf: *const *const CHARFORMATW) -> ::windows::core::Result<()>;
     fn TxGetParaFormat(&self, pppf: *const *const PARAFORMAT) -> ::windows::core::Result<()>;
-    fn TxGetSysColor(&self, nindex: i32) -> u32;
+    fn TxGetSysColor(&self, nindex: i32) -> super::super::super::Foundation::COLORREF;
     fn TxGetBackStyle(&self, pstyle: *mut TXTBACKSTYLE) -> ::windows::core::Result<()>;
     fn TxGetMaxLength(&self, plength: *mut u32) -> ::windows::core::Result<()>;
     fn TxGetScrollBars(&self, pdwscrollbar: *mut u32) -> ::windows::core::Result<()>;
@@ -2401,7 +2401,7 @@ impl ITextHost_Vtbl {
             let this = (*this).get_impl();
             this.TxGetParaFormat(::core::mem::transmute_copy(&pppf)).into()
         }
-        unsafe extern "system" fn TxGetSysColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32) -> u32 {
+        unsafe extern "system" fn TxGetSysColor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITextHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: i32) -> super::super::super::Foundation::COLORREF {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.TxGetSysColor(::core::mem::transmute_copy(&nindex))

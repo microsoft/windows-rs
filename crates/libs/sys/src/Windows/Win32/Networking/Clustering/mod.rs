@@ -2299,7 +2299,7 @@ pub const CLUSGRP_STATUS_WAITING_TO_START: u64 = 16u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_BINARY {
-    pub __AnonymousBase_clusapi_L5129_C41: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub rgb: [u8; 1],
 }
 impl ::core::marker::Copy for CLUSPROP_BINARY {}
@@ -2352,7 +2352,7 @@ impl ::core::clone::Clone for CLUSPROP_BUFFER_HELPER {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_DWORD {
-    pub __AnonymousBase_clusapi_L5149_C40: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub dw: u32,
 }
 impl ::core::marker::Copy for CLUSPROP_DWORD {}
@@ -2365,7 +2365,7 @@ impl ::core::clone::Clone for CLUSPROP_DWORD {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLUSPROP_FILETIME {
-    pub __AnonymousBase_clusapi_L5225_C14: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub ft: super::super::Foundation::FILETIME,
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2379,8 +2379,8 @@ impl ::core::clone::Clone for CLUSPROP_FILETIME {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_FTSET_INFO {
-    pub __AnonymousBase_clusapi_L5555_C14: CLUSPROP_VALUE,
-    pub __AnonymousBase_clusapi_L5556_C14: CLUS_FTSET_INFO,
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_FTSET_INFO,
 }
 impl ::core::marker::Copy for CLUSPROP_FTSET_INFO {}
 impl ::core::clone::Clone for CLUSPROP_FTSET_INFO {
@@ -2399,7 +2399,7 @@ pub const CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC: CLUSPROP_IPADDR_ENABLENETBIOS
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_LARGE_INTEGER {
-    pub __AnonymousBase_clusapi_L5199_C14: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub li: i64,
 }
 impl ::core::marker::Copy for CLUSPROP_LARGE_INTEGER {}
@@ -2423,7 +2423,7 @@ impl ::core::clone::Clone for CLUSPROP_LIST {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_LONG {
-    pub __AnonymousBase_clusapi_L5159_C39: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub l: i32,
 }
 impl ::core::marker::Copy for CLUSPROP_LONG {}
@@ -2435,8 +2435,8 @@ impl ::core::clone::Clone for CLUSPROP_LONG {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_PARTITION_INFO {
-    pub __AnonymousBase_clusapi_L5507_C14: CLUSPROP_VALUE,
-    pub __AnonymousBase_clusapi_L5508_C14: CLUS_PARTITION_INFO,
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_PARTITION_INFO,
 }
 impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO {
@@ -2447,8 +2447,8 @@ impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_PARTITION_INFO_EX {
-    pub __AnonymousBase_clusapi_L5519_C14: CLUSPROP_VALUE,
-    pub __AnonymousBase_clusapi_L5520_C14: CLUS_PARTITION_INFO_EX,
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_PARTITION_INFO_EX,
 }
 impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO_EX {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX {
@@ -2459,8 +2459,8 @@ impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_PARTITION_INFO_EX2 {
-    pub __AnonymousBase_clusapi_L5533_C14: CLUSPROP_PARTITION_INFO_EX,
-    pub __AnonymousBase_clusapi_L5534_C14: CLUS_PARTITION_INFO_EX2,
+    pub Base: CLUSPROP_PARTITION_INFO_EX,
+    pub Base2: CLUS_PARTITION_INFO_EX2,
 }
 impl ::core::marker::Copy for CLUSPROP_PARTITION_INFO_EX2 {}
 impl ::core::clone::Clone for CLUSPROP_PARTITION_INFO_EX2 {
@@ -2502,7 +2502,7 @@ impl ::core::clone::Clone for CLUSPROP_REQUIRED_DEPENDENCY {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_RESOURCE_CLASS {
-    pub __AnonymousBase_clusapi_L5250_C14: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub rc: CLUSTER_RESOURCE_CLASS,
 }
 impl ::core::marker::Copy for CLUSPROP_RESOURCE_CLASS {}
@@ -2514,8 +2514,8 @@ impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_RESOURCE_CLASS_INFO {
-    pub __AnonymousBase_clusapi_L5261_C14: CLUSPROP_VALUE,
-    pub __AnonymousBase_clusapi_L5262_C14: CLUS_RESOURCE_CLASS_INFO,
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_RESOURCE_CLASS_INFO,
 }
 impl ::core::marker::Copy for CLUSPROP_RESOURCE_CLASS_INFO {}
 impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS_INFO {
@@ -2526,8 +2526,8 @@ impl ::core::clone::Clone for CLUSPROP_RESOURCE_CLASS_INFO {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_SCSI_ADDRESS {
-    pub __AnonymousBase_clusapi_L5583_C14: CLUSPROP_VALUE,
-    pub __AnonymousBase_clusapi_L5584_C14: CLUS_SCSI_ADDRESS,
+    pub Base: CLUSPROP_VALUE,
+    pub Base2: CLUS_SCSI_ADDRESS,
 }
 impl ::core::marker::Copy for CLUSPROP_SCSI_ADDRESS {}
 impl ::core::clone::Clone for CLUSPROP_SCSI_ADDRESS {
@@ -2539,7 +2539,7 @@ impl ::core::clone::Clone for CLUSPROP_SCSI_ADDRESS {
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`, `\"Win32_System_SystemServices\"`*"]
 #[cfg(feature = "Win32_System_SystemServices")]
 pub struct CLUSPROP_SECURITY_DESCRIPTOR {
-    pub __AnonymousBase_clusapi_L5211_C54: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0,
 }
 #[cfg(feature = "Win32_System_SystemServices")]
@@ -2592,7 +2592,7 @@ impl ::core::clone::Clone for CLUSPROP_SYNTAX_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_SZ {
-    pub __AnonymousBase_clusapi_L5169_C37: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub sz: [u16; 1],
 }
 impl ::core::marker::Copy for CLUSPROP_SZ {}
@@ -2604,7 +2604,7 @@ impl ::core::clone::Clone for CLUSPROP_SZ {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_ULARGE_INTEGER {
-    pub __AnonymousBase_clusapi_L5186_C14: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub li: u64,
 }
 impl ::core::marker::Copy for CLUSPROP_ULARGE_INTEGER {}
@@ -2628,7 +2628,7 @@ impl ::core::clone::Clone for CLUSPROP_VALUE {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSPROP_WORD {
-    pub __AnonymousBase_clusapi_L5139_C39: CLUSPROP_VALUE,
+    pub Base: CLUSPROP_VALUE,
     pub w: u16,
 }
 impl ::core::marker::Copy for CLUSPROP_WORD {}
@@ -4581,8 +4581,8 @@ pub const VolumeBackupInProgress: CLUSTER_SHARED_VOLUME_BACKUP_STATE = 1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
-    pub __AnonymousBase_clusapi_L5475_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    pub __AnonymousBase_clusapi_L5476_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
+    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
 }
 impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
@@ -4593,8 +4593,8 @@ impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Networking_Clustering\"`*"]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT {
-    pub __AnonymousBase_clusapi_L5464_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    pub __AnonymousBase_clusapi_L5465_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
+    pub Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    pub Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
 }
 impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT {}
 impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT {

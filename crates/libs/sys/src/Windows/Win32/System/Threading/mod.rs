@@ -516,13 +516,13 @@ extern "system" {
     pub fn NtSetInformationThread(threadhandle: super::super::Foundation::HANDLE, threadinformationclass: THREADINFOCLASS, threadinformation: *const ::core::ffi::c_void, threadinformationlength: u32) -> super::super::Foundation::NTSTATUS;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenEventA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenEventA(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenEventW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenEventW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenMutexW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenMutexW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
     pub fn OpenPrivateNamespaceA(lpboundarydescriptor: *const ::core::ffi::c_void, lpaliasprefix: ::windows_sys::core::PCSTR) -> NamespaceHandle;
     #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
@@ -535,7 +535,7 @@ extern "system" {
     pub fn OpenProcessToken(processhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenSemaphoreW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenSemaphoreW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, lpname: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, dwthreadid: u32) -> super::super::Foundation::HANDLE;
@@ -544,7 +544,7 @@ extern "system" {
     pub fn OpenThreadToken(threadhandle: super::super::Foundation::HANDLE, desiredaccess: super::super::Security::TOKEN_ACCESS_MASK, openasself: super::super::Foundation::BOOL, tokenhandle: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn OpenWaitableTimerW(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    pub fn OpenWaitableTimerW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows_sys::core::PCWSTR) -> super::super::Foundation::HANDLE;
     #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PulseEvent(hevent: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
@@ -951,8 +951,6 @@ impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
-pub const MUTEX_MODIFY_STATE: u32 = 1u32;
 pub type NamespaceHandle = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Threading\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
@@ -1875,6 +1873,36 @@ pub const STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = 1u32;
 pub const STARTF_USESIZE: STARTUPINFOW_FLAGS = 2u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub type SYNCHRONIZATION_ACCESS_RIGHTS = u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const EVENT_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const EVENT_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const MUTEX_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031617u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const SEMAPHORE_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const SEMAPHORE_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const TIMER_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031619u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const TIMER_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 2u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const TIMER_QUERY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const SYNCHRONIZATION_DELETE: SYNCHRONIZATION_ACCESS_RIGHTS = 65536u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const SYNCHRONIZATION_READ_CONTROL: SYNCHRONIZATION_ACCESS_RIGHTS = 131072u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const SYNCHRONIZATION_WRITE_DAC: SYNCHRONIZATION_ACCESS_RIGHTS = 262144u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const SYNCHRONIZATION_WRITE_OWNER: SYNCHRONIZATION_ACCESS_RIGHTS = 524288u32;
+#[doc = "*Required features: `\"Win32_System_Threading\"`*"]
+pub const SYNCHRONIZATION_SYNCHRONIZE: SYNCHRONIZATION_ACCESS_RIGHTS = 1048576u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]
 pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_Threading\"`*"]

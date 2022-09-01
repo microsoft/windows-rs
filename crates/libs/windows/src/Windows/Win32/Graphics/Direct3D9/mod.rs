@@ -5811,6 +5811,14 @@ pub const D3DTS_TEXTURE6: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(22i32);
 pub const D3DTS_TEXTURE7: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(23i32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
 pub const D3DTS_FORCE_DWORD: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(2147483647i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
+pub const D3DTS_WORLD: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(256i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
+pub const D3DTS_WORLD1: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(257i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
+pub const D3DTS_WORLD2: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(258i32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct3D9\"`*"]
+pub const D3DTS_WORLD3: D3DTRANSFORMSTATETYPE = D3DTRANSFORMSTATETYPE(259i32);
 impl ::core::marker::Copy for D3DTRANSFORMSTATETYPE {}
 impl ::core::clone::Clone for D3DTRANSFORMSTATETYPE {
     fn clone(&self) -> Self {

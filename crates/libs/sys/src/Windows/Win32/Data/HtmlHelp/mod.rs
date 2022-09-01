@@ -554,8 +554,8 @@ pub struct HH_POPUP {
     pub idString: u32,
     pub pszText: *mut i8,
     pub pt: super::super::Foundation::POINT,
-    pub clrForeground: u32,
-    pub clrBackground: u32,
+    pub clrForeground: super::super::Foundation::COLORREF,
+    pub clrBackground: super::super::Foundation::COLORREF,
     pub rcMargins: super::super::Foundation::RECT,
     pub pszFont: *mut i8,
 }

@@ -211,7 +211,7 @@ extern "system" {
     pub fn SetConsoleScreenBufferSize(hconsoleoutput: super::super::Foundation::HANDLE, dwsize: COORD) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SetConsoleTextAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattributes: u16) -> super::super::Foundation::BOOL;
+    pub fn SetConsoleTextAttribute(hconsoleoutput: super::super::Foundation::HANDLE, wattributes: CONSOLE_CHARACTER_ATTRIBUTES) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetConsoleTitleA(lpconsoletitle: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
@@ -263,14 +263,6 @@ pub const ALTNUMPAD_BIT: u32 = 67108864u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_BLUE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_GREEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_INTENSITY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const BACKGROUND_RED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const CAPSLOCK_ON: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
@@ -303,21 +295,39 @@ impl ::core::clone::Clone for CHAR_INFO_0 {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_GRID_HORIZONTAL: u32 = 1024u32;
+pub type CONSOLE_CHARACTER_ATTRIBUTES = u16;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_GRID_LVERTICAL: u32 = 2048u32;
+pub const FOREGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 1u16;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_GRID_RVERTICAL: u32 = 4096u32;
+pub const FOREGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 2u16;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_LEADING_BYTE: u32 = 256u32;
+pub const FOREGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 4u16;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_REVERSE_VIDEO: u32 = 16384u32;
+pub const FOREGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 8u16;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_SBCSDBCS: u32 = 768u32;
+pub const BACKGROUND_BLUE: CONSOLE_CHARACTER_ATTRIBUTES = 16u16;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_TRAILING_BYTE: u32 = 512u32;
+pub const BACKGROUND_GREEN: CONSOLE_CHARACTER_ATTRIBUTES = 32u16;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const COMMON_LVB_UNDERSCORE: u32 = 32768u32;
+pub const BACKGROUND_RED: CONSOLE_CHARACTER_ATTRIBUTES = 64u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const BACKGROUND_INTENSITY: CONSOLE_CHARACTER_ATTRIBUTES = 128u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_LEADING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 256u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_TRAILING_BYTE: CONSOLE_CHARACTER_ATTRIBUTES = 512u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_GRID_HORIZONTAL: CONSOLE_CHARACTER_ATTRIBUTES = 1024u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_GRID_LVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 2048u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_GRID_RVERTICAL: CONSOLE_CHARACTER_ATTRIBUTES = 4096u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_REVERSE_VIDEO: CONSOLE_CHARACTER_ATTRIBUTES = 16384u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_UNDERSCORE: CONSOLE_CHARACTER_ATTRIBUTES = 32768u16;
+#[doc = "*Required features: `\"Win32_System_Console\"`*"]
+pub const COMMON_LVB_SBCSDBCS: CONSOLE_CHARACTER_ATTRIBUTES = 768u16;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Console\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -438,7 +448,7 @@ impl ::core::clone::Clone for CONSOLE_READCONSOLE_CONTROL {
 pub struct CONSOLE_SCREEN_BUFFER_INFO {
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
-    pub wAttributes: u16,
+    pub wAttributes: CONSOLE_CHARACTER_ATTRIBUTES,
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
 }
@@ -455,12 +465,12 @@ pub struct CONSOLE_SCREEN_BUFFER_INFOEX {
     pub cbSize: u32,
     pub dwSize: COORD,
     pub dwCursorPosition: COORD,
-    pub wAttributes: u16,
+    pub wAttributes: CONSOLE_CHARACTER_ATTRIBUTES,
     pub srWindow: SMALL_RECT,
     pub dwMaximumWindowSize: COORD,
     pub wPopupAttributes: u16,
     pub bFullscreenSupported: super::super::Foundation::BOOL,
-    pub ColorTable: [u32; 16],
+    pub ColorTable: [super::super::Foundation::COLORREF; 16],
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONSOLE_SCREEN_BUFFER_INFOEX {}
@@ -533,14 +543,6 @@ impl ::core::clone::Clone for FOCUS_EVENT_RECORD {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_BLUE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_GREEN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_INTENSITY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Console\"`*"]
-pub const FOREGROUND_RED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]
 pub const FROM_LEFT_1ST_BUTTON_PRESSED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Console\"`*"]

@@ -33,10 +33,10 @@ extern "system" {
     pub fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: *mut IAudioStateMonitor) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PlaySoundA(pszsound: ::windows_sys::core::PCSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+    pub fn PlaySoundA(pszsound: ::windows_sys::core::PCSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn PlaySoundW(pszsound: ::windows_sys::core::PCWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: u32) -> super::super::Foundation::BOOL;
+    pub fn PlaySoundW(pszsound: ::windows_sys::core::PCWSTR, hmod: super::super::Foundation::HINSTANCE, fdwsound: SND_FLAGS) -> super::super::Foundation::BOOL;
     #[doc = "*Required features: `\"Win32_Media_Audio\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn acmDriverAddA(phadid: *mut isize, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32;
@@ -2966,6 +2966,38 @@ pub const Connector: PartType = 0i32;
 pub const Subunit: PartType = 1i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_ALIAS_START: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub type SND_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_APPLICATION: SND_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ALIAS: SND_FLAGS = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ALIAS_ID: SND_FLAGS = 1114112u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_FILENAME: SND_FLAGS = 131072u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_RESOURCE: SND_FLAGS = 262148u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_ASYNC: SND_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NODEFAULT: SND_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_LOOP: SND_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_MEMORY: SND_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NOSTOP: SND_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_NOWAIT: SND_FLAGS = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_PURGE: SND_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SENTRY: SND_FLAGS = 524288u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SYNC: SND_FLAGS = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
+pub const SND_SYSTEM: SND_FLAGS = 2097152u32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]
 pub const SND_RING: i32 = 1048576i32;
 #[doc = "*Required features: `\"Win32_Media_Audio\"`*"]

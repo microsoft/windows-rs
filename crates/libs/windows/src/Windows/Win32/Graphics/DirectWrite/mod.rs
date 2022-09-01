@@ -999,7 +999,7 @@ impl ::core::default::Default for DWRITE_FONT_METRICS {
 #[doc = "*Required features: `\"Win32_Graphics_DirectWrite\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DWRITE_FONT_METRICS1 {
-    pub __AnonymousBase_DWrite_1_L627_C38: DWRITE_FONT_METRICS,
+    pub Base: DWRITE_FONT_METRICS,
     pub glyphBoxLeft: i16,
     pub glyphBoxTop: i16,
     pub glyphBoxRight: i16,
@@ -1026,7 +1026,7 @@ impl ::core::clone::Clone for DWRITE_FONT_METRICS1 {
 impl ::core::fmt::Debug for DWRITE_FONT_METRICS1 {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("DWRITE_FONT_METRICS1")
-            .field("__AnonymousBase_DWrite_1_L627_C38", &self.__AnonymousBase_DWrite_1_L627_C38)
+            .field("Base", &self.Base)
             .field("glyphBoxLeft", &self.glyphBoxLeft)
             .field("glyphBoxTop", &self.glyphBoxTop)
             .field("glyphBoxRight", &self.glyphBoxRight)
@@ -4486,12 +4486,13 @@ pub struct IDWriteBitmapRenderTarget(::windows::core::IUnknown);
 impl IDWriteBitmapRenderTarget {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrawGlyphRun<'a, P0>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: &DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: u32) -> ::windows::core::Result<super::super::Foundation::RECT>
+    pub unsafe fn DrawGlyphRun<'a, P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: &DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1) -> ::windows::core::Result<super::super::Foundation::RECT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteRenderingParams>>,
+        P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).DrawGlyphRun)(::windows::core::Interface::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, ::core::mem::transmute(glyphrun), renderingparams.into().abi(), textcolor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Interface::vtable(self).DrawGlyphRun)(::windows::core::Interface::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, ::core::mem::transmute(glyphrun), renderingparams.into().abi(), textcolor.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4561,7 +4562,7 @@ unsafe impl ::windows::core::Interface for IDWriteBitmapRenderTarget {
 pub struct IDWriteBitmapRenderTarget_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     #[cfg(feature = "Win32_Foundation")]
-    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut ::core::ffi::c_void, textcolor: u32, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
+    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: *mut ::core::ffi::c_void, textcolor: super::super::Foundation::COLORREF, blackboxrect: *mut super::super::Foundation::RECT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     DrawGlyphRun: usize,
     #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -4584,12 +4585,13 @@ pub struct IDWriteBitmapRenderTarget1(::windows::core::IUnknown);
 impl IDWriteBitmapRenderTarget1 {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DrawGlyphRun<'a, P0>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: &DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: u32) -> ::windows::core::Result<super::super::Foundation::RECT>
+    pub unsafe fn DrawGlyphRun<'a, P0, P1>(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: &DWRITE_GLYPH_RUN, renderingparams: P0, textcolor: P1) -> ::windows::core::Result<super::super::Foundation::RECT>
     where
         P0: ::std::convert::Into<::windows::core::InParam<'a, IDWriteRenderingParams>>,
+        P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DrawGlyphRun)(::windows::core::Interface::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, ::core::mem::transmute(glyphrun), renderingparams.into().abi(), textcolor, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
+        (::windows::core::Interface::vtable(self).base__.DrawGlyphRun)(::windows::core::Interface::as_raw(self), baselineoriginx, baselineoriginy, measuringmode, ::core::mem::transmute(glyphrun), renderingparams.into().abi(), textcolor.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::RECT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]

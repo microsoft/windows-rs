@@ -3522,8 +3522,13 @@ impl IImageList {
     pub unsafe fn ImageListSetIcon(&self, picon: &isize, nloc: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ImageListSetIcon)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(picon), nloc).ok()
     }
-    pub unsafe fn ImageListSetStrip(&self, pbmapsm: &isize, pbmaplg: &isize, nstartloc: i32, cmask: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ImageListSetStrip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbmapsm), ::core::mem::transmute(pbmaplg), nstartloc, cmask).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ImageListSetStrip<'a, P0>(&self, pbmapsm: &isize, pbmaplg: &isize, nstartloc: i32, cmask: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).ImageListSetStrip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbmapsm), ::core::mem::transmute(pbmaplg), nstartloc, cmask.into()).ok()
     }
 }
 impl ::core::convert::From<IImageList> for ::windows::core::IUnknown {
@@ -3566,7 +3571,10 @@ unsafe impl ::windows::core::Interface for IImageList {
 pub struct IImageList_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ImageListSetIcon: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picon: *const isize, nloc: i32) -> ::windows::core::HRESULT,
-    pub ImageListSetStrip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub ImageListSetStrip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmapsm: *const isize, pbmaplg: *const isize, nstartloc: i32, cmask: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    ImageListSetStrip: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 pub const ILSIF_LEAVE_LARGE_ICON: u32 = 1073741824u32;
@@ -4520,9 +4528,9 @@ impl ISnapinAbout {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
         (::windows::core::Interface::vtable(self).GetSnapinImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::UI::WindowsAndMessaging::HICON>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetStaticFolderImage(&self, hsmallimage: &mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: &mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: &mut super::super::Graphics::Gdi::HBITMAP, cmask: &mut u32) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetStaticFolderImage(&self, hsmallimage: &mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: &mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: &mut super::super::Graphics::Gdi::HBITMAP, cmask: &mut super::super::Foundation::COLORREF) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetStaticFolderImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsmallimage), ::core::mem::transmute(hsmallimageopen), ::core::mem::transmute(hlargeimage), ::core::mem::transmute(cmask)).ok()
     }
 }
@@ -4572,9 +4580,9 @@ pub struct ISnapinAbout_Vtbl {
     pub GetSnapinImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, happicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_UI_WindowsAndMessaging"))]
     GetSnapinImage: usize,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub GetStaticFolderImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub GetStaticFolderImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hsmallimage: *mut super::super::Graphics::Gdi::HBITMAP, hsmallimageopen: *mut super::super::Graphics::Gdi::HBITMAP, hlargeimage: *mut super::super::Graphics::Gdi::HBITMAP, cmask: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     GetStaticFolderImage: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
@@ -4913,13 +4921,14 @@ pub struct IStringTable_Vtbl {
 #[repr(transparent)]
 pub struct IToolbar(::windows::core::IUnknown);
 impl IToolbar {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddBitmap<'a, P0>(&self, nimages: i32, hbmp: P0, cxsize: i32, cysize: i32, crmask: u32) -> ::windows::core::Result<()>
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn AddBitmap<'a, P0, P1>(&self, nimages: i32, hbmp: P0, cxsize: i32, cysize: i32, crmask: P1) -> ::windows::core::Result<()>
     where
         P0: ::std::convert::Into<super::super::Graphics::Gdi::HBITMAP>,
+        P1: ::std::convert::Into<super::super::Foundation::COLORREF>,
     {
-        (::windows::core::Interface::vtable(self).AddBitmap)(::windows::core::Interface::as_raw(self), nimages, hbmp.into(), cxsize, cysize, crmask).ok()
+        (::windows::core::Interface::vtable(self).AddBitmap)(::windows::core::Interface::as_raw(self), nimages, hbmp.into(), cxsize, cysize, crmask.into()).ok()
     }
     pub unsafe fn AddButtons(&self, nbuttons: i32, lpbuttons: &MMCBUTTON) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AddButtons)(::windows::core::Interface::as_raw(self), nbuttons, ::core::mem::transmute(lpbuttons)).ok()
@@ -4984,9 +4993,9 @@ unsafe impl ::windows::core::Interface for IToolbar {
 #[doc(hidden)]
 pub struct IToolbar_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub AddBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Graphics_Gdi"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub AddBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nimages: i32, hbmp: super::super::Graphics::Gdi::HBITMAP, cxsize: i32, cysize: i32, crmask: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
     AddBitmap: usize,
     pub AddButtons: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nbuttons: i32, lpbuttons: *const MMCBUTTON) -> ::windows::core::HRESULT,
     pub InsertButton: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nindex: i32, lpbutton: *const MMCBUTTON) -> ::windows::core::HRESULT,

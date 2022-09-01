@@ -12902,8 +12902,6 @@ pub struct IStiDeviceControl_Vtbl {
     pub GetMyDeviceOpenMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwopenmode: *mut u32) -> ::windows::core::HRESULT,
     pub WriteToErrorLog: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: ::windows::core::PCWSTR, dwerrorcode: u32) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-pub struct IStiDeviceW(pub u8);
 #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
 #[repr(transparent)]
 pub struct IStiUSD(::windows::core::IUnknown);

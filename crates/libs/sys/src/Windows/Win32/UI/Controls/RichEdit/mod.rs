@@ -270,10 +270,10 @@ pub const CN_NEWREDO: CHANGETYPE = 4i32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2A {
-    pub __AnonymousBase_richedit_L736_C23: CHARFORMATA,
+    pub Base: CHARFORMATA,
     pub wWeight: u16,
     pub sSpacing: i16,
-    pub crBackColor: u32,
+    pub crBackColor: super::super::super::Foundation::COLORREF,
     pub lcid: u32,
     pub Anonymous: CHARFORMAT2A_0,
     pub sStyle: i16,
@@ -307,12 +307,13 @@ impl ::core::clone::Clone for CHARFORMAT2A_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMAT2W {
-    pub __AnonymousBase_richedit_L711_C23: CHARFORMATW,
+    pub Base: CHARFORMATW,
     pub wWeight: u16,
     pub sSpacing: i16,
-    pub crBackColor: u32,
+    pub crBackColor: super::super::super::Foundation::COLORREF,
     pub lcid: u32,
     pub Anonymous: CHARFORMAT2W_0,
     pub sStyle: i16,
@@ -322,19 +323,24 @@ pub struct CHARFORMAT2W {
     pub bRevAuthor: u8,
     pub bUnderlineColor: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMAT2W {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMAT2W {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CHARFORMAT2W_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMAT2W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMAT2W_0 {
     fn clone(&self) -> Self {
         *self
@@ -349,7 +355,7 @@ pub struct CHARFORMATA {
     pub dwEffects: CFE_EFFECTS,
     pub yHeight: i32,
     pub yOffset: i32,
-    pub crTextColor: u32,
+    pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: u8,
     pub bPitchAndFamily: u8,
     pub szFaceName: [super::super::super::Foundation::CHAR; 32],
@@ -363,19 +369,22 @@ impl ::core::clone::Clone for CHARFORMATA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CHARFORMATW {
     pub cbSize: u32,
     pub dwMask: CFM_MASK,
     pub dwEffects: CFE_EFFECTS,
     pub yHeight: i32,
     pub yOffset: i32,
-    pub crTextColor: u32,
+    pub crTextColor: super::super::super::Foundation::COLORREF,
     pub bCharSet: u8,
     pub bPitchAndFamily: u8,
     pub szFaceName: [u16; 32],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMATW {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMATW {
     fn clone(&self) -> Self {
         *self
@@ -409,13 +418,16 @@ impl ::core::clone::Clone for CLIPBOARDFORMAT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMPCOLOR {
-    pub crText: u32,
-    pub crBackground: u32,
+    pub crText: super::super::super::Foundation::COLORREF,
+    pub crBackground: super::super::super::Foundation::COLORREF,
     pub dwEffects: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COMPCOLOR {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COMPCOLOR {
     fn clone(&self) -> Self {
         *self
@@ -1451,7 +1463,7 @@ impl ::core::clone::Clone for PARAFORMAT_0 {
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub struct PARAFORMAT2 {
-    pub __AnonymousBase_richedit_L1149_C22: PARAFORMAT,
+    pub Base: PARAFORMAT,
     pub dySpaceBefore: i32,
     pub dySpaceAfter: i32,
     pub dyLineSpacing: i32,
@@ -1998,7 +2010,8 @@ pub const ST_UNICODE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
 pub const S_MSG_KEY_IGNORED: ::windows_sys::core::HRESULT = 262657i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`*"]
+#[doc = "*Required features: `\"Win32_UI_Controls_RichEdit\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct TABLECELLPARMS {
     pub dxWidth: i32,
     pub _bitfield: u16,
@@ -2007,14 +2020,16 @@ pub struct TABLECELLPARMS {
     pub dyBrdrTop: i16,
     pub dxBrdrRight: i16,
     pub dyBrdrBottom: i16,
-    pub crBrdrLeft: u32,
-    pub crBrdrTop: u32,
-    pub crBrdrRight: u32,
-    pub crBrdrBottom: u32,
-    pub crBackPat: u32,
-    pub crForePat: u32,
+    pub crBrdrLeft: super::super::super::Foundation::COLORREF,
+    pub crBrdrTop: super::super::super::Foundation::COLORREF,
+    pub crBrdrRight: super::super::super::Foundation::COLORREF,
+    pub crBrdrBottom: super::super::super::Foundation::COLORREF,
+    pub crBackPat: super::super::super::Foundation::COLORREF,
+    pub crForePat: super::super::super::Foundation::COLORREF,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TABLECELLPARMS {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TABLECELLPARMS {
     fn clone(&self) -> Self {
         *self

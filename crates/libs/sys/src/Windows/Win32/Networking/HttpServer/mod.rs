@@ -1358,7 +1358,7 @@ impl ::core::clone::Clone for HTTP_REQUEST_V1 {
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_REQUEST_V2 {
-    pub __AnonymousBase_http_L1861_C35: HTTP_REQUEST_V1,
+    pub Base: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
     pub pRequestInfo: *mut HTTP_REQUEST_INFO,
 }
@@ -1439,7 +1439,7 @@ impl ::core::clone::Clone for HTTP_RESPONSE_V1 {
 #[doc = "*Required features: `\"Win32_Networking_HttpServer\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_RESPONSE_V2 {
-    pub __AnonymousBase_http_L2050_C36: HTTP_RESPONSE_V1,
+    pub Base: HTTP_RESPONSE_V1,
     pub ResponseInfoCount: u16,
     pub pResponseInfo: *mut HTTP_RESPONSE_INFO,
 }

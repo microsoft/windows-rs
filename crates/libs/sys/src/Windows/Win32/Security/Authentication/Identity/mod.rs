@@ -4,7 +4,7 @@ pub mod Provider;
 extern "system" {
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
-    pub fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
+    pub fn AcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ASC_REQ_FLAGS, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
     pub fn AcquireCredentialsHandleA(pszprincipal: ::windows_sys::core::PCSTR, pszpackage: ::windows_sys::core::PCSTR, fcredentialuse: SECPKG_CRED, pvlogonid: *const ::core::ffi::c_void, pauthdata: *const ::core::ffi::c_void, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: *const ::core::ffi::c_void, phcredential: *mut super::super::Credentials::SecHandle, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
@@ -158,10 +158,10 @@ extern "system" {
     pub fn InitSecurityInterfaceW() -> *mut SecurityFunctionTableW;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
-    pub fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
+    pub fn InitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const i8, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
-    pub fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
+    pub fn InitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: *const u16, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn LsaAddAccountRights(policyhandle: *const ::core::ffi::c_void, accountsid: super::super::super::Foundation::PSID, userrights: *const super::super::super::Foundation::UNICODE_STRING, countofrights: u32) -> super::super::super::Foundation::NTSTATUS;
@@ -408,7 +408,7 @@ extern "system" {
     pub fn SLUnregisterEvent(hslc: *const ::core::ffi::c_void, pwszeventid: ::windows_sys::core::PCWSTR, papplicationid: *const ::windows_sys::core::GUID, hevent: super::super::super::Foundation::HANDLE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
-    pub fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: u32, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
+    pub fn SaslAcceptSecurityContext(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, pinput: *const SecBufferDesc, fcontextreq: ASC_REQ_FLAGS, targetdatarep: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
     pub fn SaslEnumerateProfilesA(profilelist: *mut ::windows_sys::core::PSTR, profilecount: *mut u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -426,10 +426,10 @@ extern "system" {
     pub fn SaslIdentifyPackageW(pinput: *const SecBufferDesc, packageinfo: *mut *mut SecPkgInfoW) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
-    pub fn SaslInitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows_sys::core::PCSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
+    pub fn SaslInitializeSecurityContextA(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows_sys::core::PCSTR, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
-    pub fn SaslInitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows_sys::core::PCWSTR, fcontextreq: u32, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
+    pub fn SaslInitializeSecurityContextW(phcredential: *const super::super::Credentials::SecHandle, phcontext: *const super::super::Credentials::SecHandle, psztargetname: ::windows_sys::core::PCWSTR, fcontextreq: ISC_REQ_FLAGS, reserved1: u32, targetdatarep: u32, pinput: *const SecBufferDesc, reserved2: u32, phnewcontext: *mut super::super::Credentials::SecHandle, poutput: *mut SecBufferDesc, pfcontextattr: *mut u32, ptsexpiry: *mut i64) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
     #[cfg(feature = "Win32_Security_Credentials")]
     pub fn SaslSetContextOption(contexthandle: *const super::super::Credentials::SecHandle, option: u32, value: *const ::core::ffi::c_void, size: u32) -> ::windows_sys::core::HRESULT;
@@ -551,22 +551,6 @@ extern "system" {
     #[cfg(feature = "Win32_Security_Credentials")]
     pub fn VerifySignature(phcontext: *const super::super::Credentials::SecHandle, pmessage: *const SecBufferDesc, messageseqno: u32, pfqop: *mut u32) -> ::windows_sys::core::HRESULT;
 }
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub type ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = u32;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOCATE_MEMORY: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_CONNECTION: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_DELEGATE: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_EXTENDED_ERROR: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 32768u32;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_REPLAY_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_SEQUENCE_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_STREAM: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 65536u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`, `\"Win32_Security_Credentials\"`*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> ::windows_sys::core::HRESULT>;
@@ -594,43 +578,59 @@ pub type ADD_CREDENTIALS_FN_W = ::core::option::Option<unsafe extern "system" fn
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type APPLY_CONTROL_TOKEN_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut SecBufferDesc) -> ::windows_sys::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: u32 = 4194304u32;
+pub type ASC_REQ_FLAGS = u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_MISSING_BINDINGS: u32 = 268435456u32;
+pub const ASC_REQ_DELEGATE: ASC_REQ_FLAGS = 1u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_NON_USER_LOGONS: u32 = 2097152u32;
+pub const ASC_REQ_MUTUAL_AUTH: ASC_REQ_FLAGS = 2u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_ALLOW_NULL_SESSION: u32 = 1048576u32;
+pub const ASC_REQ_REPLAY_DETECT: ASC_REQ_FLAGS = 4u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_CALL_LEVEL: u32 = 4096u32;
+pub const ASC_REQ_SEQUENCE_DETECT: ASC_REQ_FLAGS = 8u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_CONFIDENTIALITY: u32 = 16u32;
+pub const ASC_REQ_CONFIDENTIALITY: ASC_REQ_FLAGS = 16u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_DATAGRAM: u32 = 1024u32;
+pub const ASC_REQ_USE_SESSION_KEY: ASC_REQ_FLAGS = 32u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_FRAGMENT_SUPPLIED: u32 = 8192u32;
+pub const ASC_REQ_SESSION_TICKET: ASC_REQ_FLAGS = 64u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_FRAGMENT_TO_FIT: u32 = 8388608u32;
+pub const ASC_REQ_ALLOCATE_MEMORY: ASC_REQ_FLAGS = 256u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_IDENTIFY: u32 = 524288u32;
+pub const ASC_REQ_USE_DCE_STYLE: ASC_REQ_FLAGS = 512u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_INTEGRITY: u32 = 131072u32;
+pub const ASC_REQ_DATAGRAM: ASC_REQ_FLAGS = 1024u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_LICENSING: u32 = 262144u32;
+pub const ASC_REQ_CONNECTION: ASC_REQ_FLAGS = 2048u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_MESSAGES: u64 = 4294967296u64;
+pub const ASC_REQ_CALL_LEVEL: ASC_REQ_FLAGS = 4096u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_MUTUAL_AUTH: u32 = 2u32;
+pub const ASC_REQ_FRAGMENT_SUPPLIED: ASC_REQ_FLAGS = 8192u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_NO_TOKEN: u32 = 16777216u32;
+pub const ASC_REQ_EXTENDED_ERROR: ASC_REQ_FLAGS = 32768u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_PROXY_BINDINGS: u32 = 67108864u32;
+pub const ASC_REQ_STREAM: ASC_REQ_FLAGS = 65536u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_SESSION_TICKET: u32 = 64u32;
+pub const ASC_REQ_INTEGRITY: ASC_REQ_FLAGS = 131072u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_USE_DCE_STYLE: u32 = 512u32;
+pub const ASC_REQ_LICENSING: ASC_REQ_FLAGS = 262144u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ASC_REQ_USE_SESSION_KEY: u32 = 32u32;
+pub const ASC_REQ_IDENTIFY: ASC_REQ_FLAGS = 524288u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_ALLOW_NULL_SESSION: ASC_REQ_FLAGS = 1048576u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_ALLOW_NON_USER_LOGONS: ASC_REQ_FLAGS = 2097152u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_ALLOW_CONTEXT_REPLAY: ASC_REQ_FLAGS = 4194304u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_FRAGMENT_TO_FIT: ASC_REQ_FLAGS = 8388608u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_NO_TOKEN: ASC_REQ_FLAGS = 16777216u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_PROXY_BINDINGS: ASC_REQ_FLAGS = 67108864u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_ALLOW_MISSING_BINDINGS: ASC_REQ_FLAGS = 268435456u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ASC_REQ_MESSAGES: ASC_REQ_FLAGS = 4294967296u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ASC_RET_ALLOCATED_MEMORY: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
@@ -1061,63 +1061,65 @@ pub type INIT_SECURITY_INTERFACE_A = ::core::option::Option<unsafe extern "syste
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Credentials"))]
 pub type INIT_SECURITY_INTERFACE_W = ::core::option::Option<unsafe extern "system" fn() -> *mut SecurityFunctionTableW>;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_ALLOCATE_MEMORY: u32 = 256u32;
+pub type ISC_REQ_FLAGS = u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CALL_LEVEL: u32 = 4096u32;
+pub const ISC_REQ_DELEGATE: ISC_REQ_FLAGS = 1u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CONFIDENTIALITY: u32 = 16u32;
+pub const ISC_REQ_MUTUAL_AUTH: ISC_REQ_FLAGS = 2u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CONFIDENTIALITY_ONLY: u32 = 1073741824u32;
+pub const ISC_REQ_REPLAY_DETECT: ISC_REQ_FLAGS = 4u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_CONNECTION: u32 = 2048u32;
+pub const ISC_REQ_SEQUENCE_DETECT: ISC_REQ_FLAGS = 8u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_DATAGRAM: u32 = 1024u32;
+pub const ISC_REQ_CONFIDENTIALITY: ISC_REQ_FLAGS = 16u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_DEFERRED_CRED_VALIDATION: u64 = 8589934592u64;
+pub const ISC_REQ_USE_SESSION_KEY: ISC_REQ_FLAGS = 32u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_DELEGATE: u32 = 1u32;
+pub const ISC_REQ_PROMPT_FOR_CREDS: ISC_REQ_FLAGS = 64u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_EXTENDED_ERROR: u32 = 16384u32;
+pub const ISC_REQ_USE_SUPPLIED_CREDS: ISC_REQ_FLAGS = 128u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_FORWARD_CREDENTIALS: u32 = 4194304u32;
+pub const ISC_REQ_ALLOCATE_MEMORY: ISC_REQ_FLAGS = 256u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_FRAGMENT_SUPPLIED: u32 = 8192u32;
+pub const ISC_REQ_USE_DCE_STYLE: ISC_REQ_FLAGS = 512u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_FRAGMENT_TO_FIT: u32 = 2097152u32;
+pub const ISC_REQ_DATAGRAM: ISC_REQ_FLAGS = 1024u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_IDENTIFY: u32 = 131072u32;
+pub const ISC_REQ_CONNECTION: ISC_REQ_FLAGS = 2048u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_INTEGRITY: u32 = 65536u32;
+pub const ISC_REQ_CALL_LEVEL: ISC_REQ_FLAGS = 4096u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_MANUAL_CRED_VALIDATION: u32 = 524288u32;
+pub const ISC_REQ_FRAGMENT_SUPPLIED: ISC_REQ_FLAGS = 8192u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_MESSAGES: u64 = 4294967296u64;
+pub const ISC_REQ_EXTENDED_ERROR: ISC_REQ_FLAGS = 16384u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_MUTUAL_AUTH: u32 = 2u32;
+pub const ISC_REQ_STREAM: ISC_REQ_FLAGS = 32768u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_NO_INTEGRITY: u32 = 8388608u32;
+pub const ISC_REQ_INTEGRITY: ISC_REQ_FLAGS = 65536u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_NULL_SESSION: u32 = 262144u32;
+pub const ISC_REQ_IDENTIFY: ISC_REQ_FLAGS = 131072u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_PROMPT_FOR_CREDS: u32 = 64u32;
+pub const ISC_REQ_NULL_SESSION: ISC_REQ_FLAGS = 262144u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_REPLAY_DETECT: u32 = 4u32;
+pub const ISC_REQ_MANUAL_CRED_VALIDATION: ISC_REQ_FLAGS = 524288u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_RESERVED1: u32 = 1048576u32;
+pub const ISC_REQ_RESERVED1: ISC_REQ_FLAGS = 1048576u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_SEQUENCE_DETECT: u32 = 8u32;
+pub const ISC_REQ_FRAGMENT_TO_FIT: ISC_REQ_FLAGS = 2097152u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_STREAM: u32 = 32768u32;
+pub const ISC_REQ_FORWARD_CREDENTIALS: ISC_REQ_FLAGS = 4194304u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_UNVERIFIED_TARGET_NAME: u32 = 536870912u32;
+pub const ISC_REQ_NO_INTEGRITY: ISC_REQ_FLAGS = 8388608u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_DCE_STYLE: u32 = 512u32;
+pub const ISC_REQ_USE_HTTP_STYLE: ISC_REQ_FLAGS = 16777216u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_HTTP_STYLE: u32 = 16777216u32;
+pub const ISC_REQ_UNVERIFIED_TARGET_NAME: ISC_REQ_FLAGS = 536870912u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_SESSION_KEY: u32 = 32u32;
+pub const ISC_REQ_CONFIDENTIALITY_ONLY: ISC_REQ_FLAGS = 1073741824u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
-pub const ISC_REQ_USE_SUPPLIED_CREDS: u32 = 128u32;
+pub const ISC_REQ_MESSAGES: ISC_REQ_FLAGS = 4294967296u64;
+#[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
+pub const ISC_REQ_DEFERRED_CRED_VALIDATION: ISC_REQ_FLAGS = 8589934592u64;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]
 pub const ISC_RET_ALLOCATED_MEMORY: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Authentication_Identity\"`*"]

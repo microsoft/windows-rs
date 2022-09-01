@@ -27,12 +27,12 @@ extern "system" {
     pub fn OleConvertIStorageToOLESTREAM(pstg: IStorage, lpolestream: *mut OLESTREAM) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn OleConvertIStorageToOLESTREAMEx(pstg: IStorage, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *mut super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows_sys::core::HRESULT;
+    pub fn OleConvertIStorageToOLESTREAMEx(pstg: IStorage, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-    pub fn OleConvertOLESTREAMToIStorage(lpolestream: *mut OLESTREAM, pstg: IStorage, ptd: *const super::DVTARGETDEVICE) -> ::windows_sys::core::HRESULT;
+    pub fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, pstg: IStorage, ptd: *const super::DVTARGETDEVICE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub fn OleConvertOLESTREAMToIStorageEx(polestm: *mut OLESTREAM, pstg: IStorage, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows_sys::core::HRESULT;
+    pub fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: IStorage, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn PropStgNameToFmtId(oszname: ::windows_sys::core::PCWSTR, pfmtid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
@@ -591,7 +591,7 @@ pub struct PMemoryAllocator(pub u8);
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct PROPBAG2 {
     pub dwType: u32,
-    pub vt: u16,
+    pub vt: super::VARENUM,
     pub cfType: u16,
     pub dwHint: u32,
     pub pstrName: ::windows_sys::core::PWSTR,
@@ -680,7 +680,7 @@ impl ::core::clone::Clone for PROPVARIANT_0 {
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROPVARIANT_0_0 {
-    pub vt: u16,
+    pub vt: super::VARENUM,
     pub wReserved1: u16,
     pub wReserved2: u16,
     pub wReserved3: u16,
@@ -840,7 +840,7 @@ impl ::core::clone::Clone for STATPROPSETSTG {
 pub struct STATPROPSTG {
     pub lpwstrName: ::windows_sys::core::PWSTR,
     pub propid: u32,
-    pub vt: u16,
+    pub vt: super::VARENUM,
 }
 impl ::core::marker::Copy for STATPROPSTG {}
 impl ::core::clone::Clone for STATPROPSTG {

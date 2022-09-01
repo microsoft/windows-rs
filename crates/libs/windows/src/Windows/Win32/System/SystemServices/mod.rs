@@ -809,75 +809,6 @@ pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CHOOSECOLOR_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_RGBINIT: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_FULLOPEN: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_PREVENTFULLOPEN: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_SHOWHELP: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_ENABLEHOOK: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_ENABLETEMPLATE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_ENABLETEMPLATEHANDLE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_SOLIDCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const CC_ANYCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(256u32);
-impl ::core::marker::Copy for CHOOSECOLOR_FLAGS {}
-impl ::core::clone::Clone for CHOOSECOLOR_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CHOOSECOLOR_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CHOOSECOLOR_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CHOOSECOLOR_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHOOSECOLOR_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CHOOSECOLOR_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CHOOSECOLOR_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CHOOSECOLOR_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CHOOSECOLOR_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CHOOSECOLOR_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
@@ -2154,8 +2085,6 @@ pub const DDBLT_EXTENDED_PRESENTATION_STRETCHFACTOR: i32 = 16i32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DEDICATED_MEMORY_CACHE_ELIGIBLE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const DELETE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DEVICEFAMILYDEVICEFORM_KEY: &str = "\\Registry\\Machine\\Software\\Microsoft\\Windows NT\\CurrentVersion\\OEM";
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const DEVICEFAMILYDEVICEFORM_VALUE: &str = "DeviceForm";
@@ -3261,8 +3190,6 @@ pub const EVENTLOG_PAIRED_EVENT_ACTIVE: u32 = 8u32;
 pub const EVENTLOG_PAIRED_EVENT_INACTIVE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const EVENTLOG_START_PAIRED_EVENT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const EVENT_MODIFY_STATE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const EXCEPTION_COLLIDED_UNWIND: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -14243,8 +14170,6 @@ pub const SEC_HUGE_PAGES: u32 = 131072u32;
 pub const SEF_AI_USE_EXTRA_PARAMS: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SEF_FORCE_USER_MODE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SEMAPHORE_MODIFY_STATE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14801,87 +14726,6 @@ pub const SIZEOF_RFPO_DATA: u32 = 16u32;
 pub const SIZE_OF_80387_REGISTERS: u32 = 80u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SMB_CCF_APP_INSTANCE_EA_NAME: &str = "ClusteredApplicationInstance";
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SND_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_APPLICATION: SND_FLAGS = SND_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_ALIAS: SND_FLAGS = SND_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_ALIAS_ID: SND_FLAGS = SND_FLAGS(1114112u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_FILENAME: SND_FLAGS = SND_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_RESOURCE: SND_FLAGS = SND_FLAGS(262148u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_ASYNC: SND_FLAGS = SND_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_NODEFAULT: SND_FLAGS = SND_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_LOOP: SND_FLAGS = SND_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_MEMORY: SND_FLAGS = SND_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_NOSTOP: SND_FLAGS = SND_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_NOWAIT: SND_FLAGS = SND_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_PURGE: SND_FLAGS = SND_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_SENTRY: SND_FLAGS = SND_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_SYNC: SND_FLAGS = SND_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const SND_SYSTEM: SND_FLAGS = SND_FLAGS(2097152u32);
-impl ::core::marker::Copy for SND_FLAGS {}
-impl ::core::clone::Clone for SND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SND_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SND_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SND_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SND_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SND_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SND_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SND_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SND_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SND_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const SORT_CHINESE_BIG5: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
@@ -16020,10 +15864,6 @@ pub const THREAD_DYNAMIC_CODE_ALLOW: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const THREAD_PROFILING_FLAG_DISPATCH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TIMER_MODIFY_STATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const TIMER_QUERY_STATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TIME_ZONE_ID_DAYLIGHT: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const TIME_ZONE_ID_STANDARD: u32 = 1u32;
@@ -16883,15 +16723,11 @@ pub const WDT_REMOTE_CALL: u32 = 1383359575u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub type WORKERCALLBACKFUNC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const WRITE_DAC: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const WRITE_NV_MEMORY_FLAG_FLUSH: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const WRITE_NV_MEMORY_FLAG_NON_TEMPORAL: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const WRITE_NV_MEMORY_FLAG_NO_DRAIN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
-pub const WRITE_OWNER: u32 = 524288u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]
 pub const WRITE_WATCH_FLAG_RESET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_SystemServices\"`*"]

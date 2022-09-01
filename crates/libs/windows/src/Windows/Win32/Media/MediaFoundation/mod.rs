@@ -97,6 +97,7 @@ impl ::core::fmt::Debug for AEC_VAD_MODE {
     }
 }
 pub const ALawCodecWrapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
+pub const AMPROPSETID_Pin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b00f101_1567_11d1_b3f1_00aa003761c5);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -431,6 +432,10 @@ impl ::core::default::Default for AecQualityMetrics_Struct {
     }
 }
 pub const CAC3DecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03d7c802_ecfa_47d9_b268_5fb3e310dee4);
+pub const CAPTION_FORMAT_ATSC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed9cb31_fd10_4ade_bccc_fb9105d2f3ef);
+pub const CAPTION_FORMAT_DIRECTV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ca1ce7_915e_47be_9bb9_bf1d8a13a5ec);
+pub const CAPTION_FORMAT_DVB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12230db4_ff2a_447e_bb88_6841c416d068);
+pub const CAPTION_FORMAT_ECHOSTAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebb1a262_1158_4b99_ae80_92ac776952c4);
 pub const CClusterDetectorDmo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36e820c4_165a_4521_863c_619e1160d4d4);
 pub const CColorControlDmo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x798059f0_89ca_4160_b325_aeb48efe4f9a);
 pub const CColorConvertDMO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98230571_0087_4204_b020_3282538e57d3);
@@ -443,20 +448,103 @@ pub const CDeColorConvMediaObject: ::windows::core::GUID = ::windows::core::GUID
 pub const CFrameInterpDMO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a7cfe1b_6ab5_4334_9ed8_3f97cb37daa1);
 pub const CFrameRateConvertDmo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01f36ce2_0907_4d8b_979d_f151be91c883);
 pub const CInterlaceMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5a89c80_4901_407b_9abc_90d9a644bb46);
+pub const CLSID_ACMWrapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a08cf80_0e18_11cf_a24d_0020afd79767);
+pub const CLSID_ATSCNetworkPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3444d16_5ac4_4386_88df_13fd230e1dda);
+pub const CLSID_ATSCNetworkProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dad2fdd_5fd7_11d3_8f50_00c04f7971e2);
+pub const CLSID_AVICo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd76e2820_1563_11cf_ac98_00aa004c0fa9);
+pub const CLSID_AVIDec: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf49d4e0_1115_11ce_b03a_0020af0ba770);
+pub const CLSID_AVIDoc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3588ab0_0781_11ce_b03a_0020af0ba770);
+pub const CLSID_AVIDraw: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa888df60_1e90_11cf_ac98_00aa004c0fa9);
+pub const CLSID_AVIMIDIRender: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07b65360_c445_11ce_afde_00aa006c14f4);
+pub const CLSID_ActiveMovieCategories: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda4e3da0_d07d_11d0_bd50_00a0c911ce86);
+pub const CLSID_AllocPresenter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d54f63_1a69_41ae_aa4d_c976eb3f0713);
+pub const CLSID_AllocPresenterDDXclMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4444ac9e_242e_471b_a3c7_45dcd46352bc);
+pub const CLSID_AnalogVideoDecoderPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71f96466_78f3_11d0_a18c_00a0c9118956);
+pub const CLSID_AsyncReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb5_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_AudioCompressorCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a761_90c8_11d0_bd43_00a0c911ce86);
+pub const CLSID_AudioInputDeviceCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a762_90c8_11d0_bd43_00a0c911ce86);
+pub const CLSID_AudioInputMixerProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca8ca52_3c3f_11d2_b73d_00c04fb6bd3d);
+pub const CLSID_AudioProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589faf_c356_11ce_bf01_00aa0055595a);
+pub const CLSID_AudioRecord: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30629d2_27e5_11ce_875d_00608cb78066);
+pub const CLSID_AudioRender: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30629d1_27e5_11ce_875d_00608cb78066);
+pub const CLSID_AudioRendererAdvancedProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37e92a92_d9aa_11d2_bf84_8ef2b1555aed);
+pub const CLSID_AudioRendererCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f158e1_cb04_11d0_bd4e_00a0c911ce86);
 pub const CLSID_AudioResamplerMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf447b69e_1884_4a7e_8055_346f74d6edb3);
+pub const CLSID_AviDest: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2510970_f137_11ce_8b67_00aa00a3f1a6);
+pub const CLSID_AviMuxProptyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc647b5c0_157c_11d0_bd23_00a0c911ce86);
+pub const CLSID_AviMuxProptyPage1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a9ae910_85c0_11d0_bd42_00a0c911ce86);
+pub const CLSID_AviReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b544c21_fd0b_11ce_8c63_00aa0044b51e);
+pub const CLSID_AviSplitter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b544c20_fd0b_11ce_8c63_00aa0044b51e);
+pub const CLSID_CAcmCoClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a761_90c8_11d0_bd43_00a0c911ce86);
 pub const CLSID_CAsfTocParser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b77c0f2_8735_46c5_b90f_5f0b303ef6ab);
 pub const CLSID_CAviTocParser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3adce5cc_13c8_4573_b328_ed438eb694f9);
+pub const CLSID_CCAFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d07a539_35ca_447c_9b05_8d85ce924f9e);
 pub const CLSID_CClusterDetectorEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47354492_827e_4b8a_b318_c80eba1381f0);
+pub const CLSID_CDeviceMoniker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4315d437_5b8c_11d0_bd3b_00a0c911ce86);
 pub const CLSID_CFileClient: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfccd195_1244_4840_ab44_480975c4ffe4);
 pub const CLSID_CFileIo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11993195_1244_4840_ab44_480975c4ffe4);
+pub const CLSID_CIcmCoClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86);
+pub const CLSID_CMidiOutClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efe2452_168a_11d1_bc76_00c04fb9453b);
+pub const CLSID_CMpegAudioCodec: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a2286e0_7bef_11ce_9bd9_0000e202599c);
+pub const CLSID_CMpegVideoCodec: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeb50740_7bef_11ce_9bd9_0000e202599c);
+pub const CLSID_CQzFilterClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x083863f1_70de_11d0_bd40_00a0c911ce86);
 pub const CLSID_CToc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fe24495_28ce_4920_a4c4_e556e1f0df2a);
 pub const CLSID_CTocCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5058292d_a244_4840_ab44_480975c4ffe4);
 pub const CLSID_CTocEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf22f5e05_585c_4def_8523_6555cfbc0cb3);
 pub const CLSID_CTocEntryList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a8cccbc_0efd_43a3_b838_f38a552ba237);
 pub const CLSID_CTocParser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x499eaeea_2737_4849_8bb6_47f107eaf358);
+pub const CLSID_CVidCapClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x860bb310_5d01_11d0_bd3b_00a0c911ce86);
+pub const CLSID_CWaveOutClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f158e1_cb04_11d0_bd4e_00a0c911ce86);
+pub const CLSID_CWaveinClassManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a762_90c8_11d0_bd43_00a0c911ce86);
+pub const CLSID_CameraControlPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71f96465_78f3_11d0_a18c_00a0c9118956);
+pub const CLSID_CaptionsFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f7ee4b6_6ff5_4eb4_b24a_2bfc41117171);
+pub const CLSID_CaptureGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf87b6e0_8c27_11d0_b3f0_00aa003761c5);
+pub const CLSID_CaptureGraphBuilder2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf87b6e1_8c27_11d0_b3f0_00aa003761c5);
+pub const CLSID_CaptureProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b544c22_fd0b_11ce_8c63_00aa0044b51f);
+pub const CLSID_Colour: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1643e180_90f5_11ce_97d5_00aa0055595a);
 pub const CLSID_CreateMediaExtensionObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef65a54d_0788_45b8_8b14_bc0f6a6b5137);
+pub const CLSID_CrossbarFilterPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71f96461_78f3_11d0_a18c_00a0c9118956);
+pub const CLSID_DShowTVEFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05500280_faa5_4df9_8246_bfc23ac5cea8);
+pub const CLSID_DSoundRender: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79376820_07d0_11cf_a24d_0020afd79767);
+pub const CLSID_DVBCNetworkProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc0c0fe7_0485_4266_b93f_68fbf80ed834);
+pub const CLSID_DVBSNetworkProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4b375a_45b4_4d45_8440_263957b11623);
+pub const CLSID_DVBTNetworkProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x216c62df_6d7f_4e9a_8571_05f14edb766a);
+pub const CLSID_DVDHWDecodersCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
+pub const CLSID_DVDNavigator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8c4620_2c1a_11d0_8493_00a02438ad48);
+pub const CLSID_DVDState: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf963c5cf_a659_4a93_9638_caf3cd277d13);
+pub const CLSID_DVDecPropertiesPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x101193c0_0bfe_11d0_af91_00aa00b67a42);
+pub const CLSID_DVEncPropertiesPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4150f050_bb6f_11d0_afb9_00aa00b67a42);
+pub const CLSID_DVMux: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x129d7e40_c10d_11d0_afb9_00aa00b67a42);
+pub const CLSID_DVMuxPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db880e0_c10d_11d0_afb9_00aa00b67a42);
+pub const CLSID_DVSplitter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4eb31670_9fc6_11cf_af6e_00aa00b67a42);
+pub const CLSID_DVVideoCodec: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1b77c00_c3e4_11cf_af79_00aa00b67a42);
+pub const CLSID_DVVideoEnc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13aa3650_bb6f_11d0_afb9_00aa00b67a42);
+pub const CLSID_DeviceControlCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc7bfb46_f175_11d1_a392_00e0291f3959);
+pub const CLSID_DirectDrawProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x944d4c00_dd52_11ce_bf0e_00aa0055595a);
+pub const CLSID_DirectShowPluginControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8670c736_f614_427b_8ada_bbadc587194b);
+pub const CLSID_Dither: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1da08500_9edc_11cf_bc10_00aa00ac74f6);
+pub const CLSID_DtvCcFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb056ba0_2502_45b9_8e86_2b40de84ad29);
+pub const CLSID_DvdGraphBuilder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc152b7_f372_11d0_8e00_00c04fd7c08b);
+pub const CLSID_EVRPlaybackPipelineOptimizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62079164_233b_41f8_a80f_f01705f514a8);
+pub const CLSID_EVRTearlessWindowPresenter9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a7a57b_59b2_4919_a694_add0a526c373);
+pub const CLSID_EnhancedVideoRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa10746c_9b63_4b6c_bc49_fc300ea5f256);
+pub const CLSID_FGControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb4_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_FileSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x701722e0_8ae3_11ce_a85c_00aa002feab5);
+pub const CLSID_FileWriter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8596e5f0_0da5_11d0_bd21_00a0c911ce86);
+pub const CLSID_FilterGraph: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb3_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_FilterGraphNoThread: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb8_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_FilterGraphPrivateThread: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3ecbc41_581a_4476_b693_a63340462d8b);
+pub const CLSID_FilterMapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb2_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_FilterMapper2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcda42200_bd88_11d0_bd4e_00a0c911ce86);
 pub const CLSID_FrameServerNetworkCameraSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a213aa7_866f_414a_8c1a_275c7283a395);
 pub const CLSID_HttpSchemePlugin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44cb442b_9da9_49df_b3fd_023777b16e50);
+pub const CLSID_ICodecAPIProxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ff0997a_1999_4286_a73c_622b8814e7eb);
+pub const CLSID_IVideoEncoderCodecAPIProxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb05dabd9_56e5_4fdc_afa4_8a47e91f1c9c);
+pub const CLSID_IVideoEncoderProxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb43c4eec_8c32_4791_9102_508ada5ee8e7);
+pub const CLSID_InfTee: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8388a40_d5bb_11d0_be5a_0080c706568e);
+pub const CLSID_LegacyAmFilterCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x083863f1_70de_11d0_bd40_00a0c911ce86);
+pub const CLSID_Line21Decoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a20_310c_11d0_b79a_00aa003767a7);
+pub const CLSID_Line21Decoder2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4206432_01a1_4bee_b3e1_3702c8edc574);
 pub const CLSID_MFByteStreamProxyClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x770e8e77_4916_441c_a9a7_b342d0eebc71);
 pub const CLSID_MFCaptureEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefce38d3_8914_4674_a7df_ae1b3d654b8a);
 pub const CLSID_MFCaptureEngineClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefce38d3_8914_4674_a7df_ae1b3d654b8a);
@@ -467,9 +555,19 @@ pub const CLSID_MFReadWriteClassFactory: ::windows::core::GUID = ::windows::core
 pub const CLSID_MFSinkWriter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3bbfb17_8273_4e52_9e0e_9739dc887990);
 pub const CLSID_MFSourceReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1777133c_0881_411b_a577_ad545f0714c4);
 pub const CLSID_MFSourceResolver: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90eab60f_e43a_4188_bcc4_e47fdf04868c);
+pub const CLSID_MFVideoMixer9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe474e05a_ab65_4f6a_827c_218b1baaf31f);
+pub const CLSID_MFVideoPresenter9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98455561_5136_4d28_ab08_4cee40ea2781);
+pub const CLSID_MJPGEnc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb80ab0a0_7416_11d2_9eeb_006008039e37);
+pub const CLSID_MMSPLITTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ae86b20_7be8_11d1_abe6_00a0c905f375);
+pub const CLSID_MOVReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44584800_f8ee_11ce_b2d4_00dd01101b85);
 pub const CLSID_MP3DecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbeea841_0a63_4f52_a7ab_a9b3a84ed38a);
+pub const CLSID_MPEG1Doc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4bbd160_4269_11ce_838d_00aa0055595a);
+pub const CLSID_MPEG1PacketPlayer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26c25940_4ca9_11ce_a828_00aa002feab5);
+pub const CLSID_MPEG1Splitter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x336475d0_942a_11ce_a870_00aa002feab5);
 pub const CLSID_MPEG2ByteStreamPlugin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40871c59_ab40_471f_8dc3_1f259d862479);
 pub const CLSID_MPEG2DLNASink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa5fe7c5_6a1d_4b11_b41f_f959d6c76500);
+pub const CLSID_MPEG2Demultiplexer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafb6c280_2c41_11d3_8a60_0000f81e0e4a);
+pub const CLSID_MPEG2Demultiplexer_NoClock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x687d3367_3644_467a_adfe_6cd7a85c4a2c);
 pub const CLSID_MSAACDecMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32d186a7_218f_4c75_8876_dd77273a8999);
 pub const CLSID_MSDDPlusDecMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x177c0afe_900b_48d4_9e4c_57add250b3d4);
 pub const CLSID_MSH264DecoderMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62ce7e72_4c71_4d20_b15d_452831a87d9d);
@@ -479,13 +577,70 @@ pub const CLSID_MSMPEGAudDecMFT: ::windows::core::GUID = ::windows::core::GUID::
 pub const CLSID_MSMPEGDecoderMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d709e52_123f_49b5_9cbc_9af5cde28fb9);
 pub const CLSID_MSOpusDecoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63e17c10_2d43_4c42_8fe3_8d8b63e46a6a);
 pub const CLSID_MSVPxDecoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3aaf548_c9a4_4c6e_234d_5ada374b0000);
+pub const CLSID_MediaEncoderCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d22e920_5ca9_4787_8c2b_a6779bd11781);
+pub const CLSID_MediaMultiplexerCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x236c9559_adce_4736_bf72_bab34e392196);
+pub const CLSID_MediaPropertyBag: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdbd8d00_c193_11d0_bd4e_00a0c911ce86);
+pub const CLSID_MemoryAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e651cc0_b199_11d0_8212_00c04fc32c45);
+pub const CLSID_MidiRendererCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efe2452_168a_11d1_bc76_00c04fb9453b);
+pub const CLSID_MjpegDec: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x301056d0_6dff_11d2_9eeb_006008039e37);
+pub const CLSID_ModexRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07167665_5011_11cf_bf33_00aa0055595a);
+pub const CLSID_Mpeg2VideoStreamAnalyzer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cfad761_735d_4aa5_8afc_af91a7d61eba);
 pub const CLSID_NetSchemePlugin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9f4ebab_d97b_463e_a2b1_c54ee3f9414d);
+pub const CLSID_NetworkProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f3a67c_29da_4c78_8831_091ed509a475);
+pub const CLSID_OverlayMixer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd8743a1_3736_11d0_9e69_00c04fd7c15b);
+pub const CLSID_PerformanceProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ce6880_acf8_11cf_b56e_0080c7c4b68a);
+pub const CLSID_PersistMonikerPID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb7_524f_11ce_9f53_0020af0ba770);
 pub const CLSID_PlayToSourceClassFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda17539a_3dc3_42c1_a749_a183b51f085e);
+pub const CLSID_ProtoFilterGraph: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb0_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_QTDec: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdfe9681_74a3_11d0_afa7_00aa00b67a42);
+pub const CLSID_QualityProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418afb70_f8b8_11ce_aac6_0020af0b99a3);
+pub const CLSID_QuickTimeParser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd51bd5a0_7548_11cf_a520_0080c77ef58a);
+pub const CLSID_SBE2File: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a094d7_51e8_485b_904a_8d6b97dc6b39);
+pub const CLSID_SBE2FileScan: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e458037_0ca6_41aa_a594_2aa6c02d709b);
+pub const CLSID_SBE2MediaTypeProfile: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f26a602_2b5c_4b63_b8e8_9ea5c1a7dc2e);
+pub const CLSID_SBE2Sink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2448508_95da_4205_9a27_7ec81e723b1a);
+pub const CLSID_SeekingPassThru: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060af76c_68dd_11d0_8fc1_00c04fd9189d);
+pub const CLSID_SmartTee: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc58e280_8aa1_11d1_b3f1_00aa003761c5);
+pub const CLSID_StreamBufferComposeRecording: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd682c4ba_a90a_42fe_b9e1_03109849c423);
+pub const CLSID_StreamBufferConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa8a68b2_c864_4ba2_ad53_d3876a87494b);
+pub const CLSID_StreamBufferPropertyHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe37a73f8_fb01_43dc_914e_aaee76095ab9);
+pub const CLSID_StreamBufferRecordingAttributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccaa63ac_1057_4778_ae92_1206ab9acee6);
+pub const CLSID_StreamBufferSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2db47ae5_cf39_43c2_b4d6_0cd8d90946f4);
+pub const CLSID_StreamBufferSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9f5fe02_f851_4eb5_99ee_ad602af1e619);
+pub const CLSID_StreamBufferThumbnailHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x713790ee_5ee1_45ba_8070_a1337d2762fa);
+pub const CLSID_SubtitlesFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f22cfea_ce07_41ab_8ba0_c7364af90af9);
+pub const CLSID_SystemClock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb1_524f_11ce_9f53_0020af0ba770);
+pub const CLSID_SystemDeviceEnum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62be5d10_60eb_11d0_bd3b_00a0c911ce86);
+pub const CLSID_TVAudioFilterPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71f96463_78f3_11d0_a18c_00a0c9118956);
+pub const CLSID_TVEFilterCCProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05500282_faa5_4df9_8246_bfc23ac5cea8);
+pub const CLSID_TVEFilterStatsProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05500283_faa5_4df9_8246_bfc23ac5cea8);
+pub const CLSID_TVEFilterTuneProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05500281_faa5_4df9_8246_bfc23ac5cea8);
+pub const CLSID_TVTunerFilterPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x266eee41_6c63_11cf_8a03_00aa006ecb65);
+pub const CLSID_TextRender: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30629d3_27e5_11ce_875d_00608cb78066);
+pub const CLSID_TransmitCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc7bfb41_f175_11d1_a392_00e0291f3959);
+pub const CLSID_URLReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436ebb6_524f_11ce_9f53_0020af0ba770);
 pub const CLSID_UrlmonSchemePlugin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec4b4f9_3029_45ad_947b_344de2a249e2);
+pub const CLSID_VBISurfaces: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814b9800_1c88_11d1_bad9_00609744111a);
+pub const CLSID_VPObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce292861_fc88_11d0_9e69_00c04fd7c15b);
+pub const CLSID_VPVBIObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814b9801_1c88_11d1_bad9_00609744111a);
+pub const CLSID_VfwCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b544c22_fd0b_11ce_8c63_00aa0044b51e);
+pub const CLSID_VideoCompressorCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d9a760_90c8_11d0_bd43_00a0c911ce86);
+pub const CLSID_VideoInputDeviceCategory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x860bb310_5d01_11d0_bd3b_00a0c911ce86);
+pub const CLSID_VideoMixingRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb87beb7b_8d29_423f_ae4d_6582c10175ac);
+pub const CLSID_VideoMixingRenderer9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51b4abf3_748f_4e3b_a276_c828330e926a);
+pub const CLSID_VideoPortManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f26a6cd_967b_47fd_874a_7aed2c9d25a2);
+pub const CLSID_VideoProcAmpPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71f96464_78f3_11d0_a18c_00a0c9118956);
 pub const CLSID_VideoProcessorMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88753b26_5b24_49bd_b2e7_0c445c78c982);
+pub const CLSID_VideoRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e102b0_5556_11ce_97c0_00aa0055595a);
+pub const CLSID_VideoRendererDefault: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bc1cffa_8fc1_4261_ac22_cfb4cc38db50);
+pub const CLSID_VideoStreamConfigPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71f96467_78f3_11d0_a18c_00a0c9118956);
 pub const CLSID_WMADecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2eeb4adf_4578_4d10_bca7_bb955f56320a);
+pub const CLSID_WMAsfReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x187463a0_5bb7_11d3_acbe_0080c75e246e);
+pub const CLSID_WMAsfWriter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c23220e_55bb_11d3_8b16_00c04fb6bd3d);
 pub const CLSID_WMDRMSystemID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8948bb22_11bd_4796_93e3_974d1b575678);
 pub const CLSID_WMVDecoderMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82d353df_90bd_4382_8bc2_3f6192b76e34);
+pub const CLSID_WSTDecoder: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70bc06e0_5666_11d3_a184_00105aef9f33);
+pub const CLSID_WstDecoderPropertyPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04e27f80_91e4_11d3_a184_00105aef9f33);
 pub const CMP3DecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbeea841_0a63_4f52_a7ab_a9b3a84ed38a);
 pub const CMPEG2AudDecoderDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f1a0b8_beee_490d_ba7c_066c40b5e2b9);
 pub const CMPEG2AudioEncoderMFT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a4dd5c_73f8_4304_94df_308f760974f4);
@@ -525,6 +680,8 @@ pub const CMpeg4sDecMediaObject: ::windows::core::GUID = ::windows::core::GUID::
 pub const CMpeg4sEncMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ec5a7be_d81e_4f9e_ada3_cd1bf262b6d8);
 pub const CNokiaAACCCDecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeabf7a6f_ccba_4d60_8620_b152cc977263);
 pub const CNokiaAACDecMediaObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb2bde4_4e29_4c44_a73e_2d7c2c46d6ec);
+pub const CODECAPI_ALLSETTINGS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a577e92_83e1_4113_adc2_4fcec32f83a1);
+pub const CODECAPI_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9d19a3e_f897_429c_bc46_8138b7272b2d);
 pub const CODECAPI_AVAudioChannelConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17f89cb3_c38d_4368_9ede_63b94d177f9f);
 pub const CODECAPI_AVAudioChannelCount: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d3583c4_1583_474e_b71a_5ee463c198e4);
 pub const CODECAPI_AVAudioSampleRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x971d2723_1acb_42e7_855c_520a4b70a5f2);
@@ -545,6 +702,7 @@ pub const CODECAPI_AVDecDDOperationalMode: ::windows::core::GUID = ::windows::co
 pub const CODECAPI_AVDecDDStereoDownMixMode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ce4122c_3ee9_4182_b4ae_c10fc088649d);
 pub const CODECAPI_AVDecDisableVideoPostProcessing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8749193_667a_4f2c_a9e8_5d4af924f08f);
 pub const CODECAPI_AVDecHEAACDynamicRangeControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x287c8abe_69a4_4d39_8080_d3d9712178a0);
+pub const CODECAPI_AVDecMmcssClass: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0ad4828_df66_4893_9f33_788aa4ec4082);
 pub const CODECAPI_AVDecNumWorkerThreads: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9561c3e8_ea9e_4435_9b1e_a93e691894d8);
 pub const CODECAPI_AVDecSoftwareDynamicFormatChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x862e2f0a_507b_47ff_af47_01e2624298b7);
 pub const CODECAPI_AVDecVideoAcceleration_H264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7db8a2f_4f48_4ee8_ae31_8b6ebe558ae2);
@@ -789,6 +947,8 @@ pub const CODECAPI_AVLowLatencyMode: ::windows::core::GUID = ::windows::core::GU
 pub const CODECAPI_AVPriorityControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ba3dc8_bdde_4329_b187_2018bc5c2ba1);
 pub const CODECAPI_AVRealtimeControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f440632_c4ad_4bf7_9e52_456942b454b0);
 pub const CODECAPI_AVScenarioInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb28a6e64_3ff9_446a_8a4b_0d7a53413236);
+pub const CODECAPI_CHANGELISTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b12acf_f6b0_47d9_9456_96f22c4e0b9d);
+pub const CODECAPI_CURRENTCHANGELIST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb14e83_7d72_4657_83fd_47a2c5b9d13d);
 pub const CODECAPI_GUID_AVDecAudioInputAAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97df7828_b94a_47e2_a4bc_51194db22a4d);
 pub const CODECAPI_GUID_AVDecAudioInputDTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x600bc0ca_6a1f_4e91_b241_1bbeb1cb19e0);
 pub const CODECAPI_GUID_AVDecAudioInputDolby: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e4228a0_f000_4e0b_8f54_ab8d24ad61a2);
@@ -835,7 +995,10 @@ pub const CODECAPI_GUID_AVEncWMAVoice: ::windows::core::GUID = ::windows::core::
 pub const CODECAPI_GUID_AVEncWMV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e0fef9b_1d43_41bd_b8bd_4d7bf7457a2a);
 pub const CODECAPI_GUID_AVEndMPEG4Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd37b12a_9503_4f8b_b8d0_324a00c0a1cf);
 pub const CODECAPI_GetOPMContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f036c05_4c14_4689_8839_294c6d73e053);
+pub const CODECAPI_SETALLDEFAULTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c5e6a7c_acf8_4f55_a999_1a628109051b);
+pub const CODECAPI_SUPPORTSEVENTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0581af97_7693_4dbd_9dca_3f9ebd6585a1);
 pub const CODECAPI_SetHDCPManagerContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d2d1fc8_3dc9_47eb_a1a2_471c80cd60d0);
+pub const CODECAPI_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7112e8e1_3d03_47ef_8e60_03f1cf537301);
 pub const CODECAPI_VideoEncoderDisplayContentType: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b90b27_f4b1_42dc_9dd7_cdaf8135c400);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const COPP_ProtectionType_ACP: i32 = 2i32;
@@ -9277,6 +9440,15 @@ impl ::core::default::Default for DIRTYRECT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+pub const DSATTRIB_CAPTURE_STREAMTIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c1a5614_30cd_4f40_bcbf_d03e52306207);
+pub const DSATTRIB_CC_CONTAINER_INFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e050fb_dd5d_40dd_9915_35dcb81bdc8a);
+pub const DSATTRIB_DSHOW_STREAM_DESC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fb5673b_0a2a_4565_827b_6853fd75e611);
+pub const DSATTRIB_OptionalVideoAttributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a5f08ca_55c2_4033_92ab_55db8f781226);
+pub const DSATTRIB_PBDATAG_ATTRIBUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b56679_12b9_43cc_b7df_578caa5a7b63);
+pub const DSATTRIB_PicSampleSeq: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f5bae02_7b8f_4f60_82d6_e4ea2f1f4c99);
+pub const DSATTRIB_SAMPLE_LIVE_STREAM_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x892cd111_72f3_411d_8b91_a9e9123ac29a);
+pub const DSATTRIB_TRANSPORT_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb622f612_47ad_4671_ad6c_05a98e65de3a);
+pub const DSATTRIB_UDCRTag: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb7836ca_14ff_4919_bce7_3af12319e50c);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[inline]
 pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: &mut u32, ppdevicemanager: &mut ::core::option::Option<IDirect3DDeviceManager9>) -> ::windows::core::Result<()> {
@@ -14531,6 +14703,15 @@ impl ::core::fmt::Debug for EAllocationType {
         f.debug_tuple("EAllocationType").field(&self.0).finish()
     }
 }
+pub const ENCAPIPARAM_BITRATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49cc4c43_ca83_4ad4_a9af_f3696af666df);
+pub const ENCAPIPARAM_BITRATE_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5fb25c_c713_40d1_9d58_c0d7241e250f);
+pub const ENCAPIPARAM_PEAK_BITRATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x703f16a9_3d48_44a1_b077_018dff915d19);
+pub const ENCAPIPARAM_SAP_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c0171db_fefc_4af7_9991_a5657c191cd1);
+pub const EVRConfig_ForceBatching: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe447df09_10ca_4d17_b17e_6a840f8a3a4c);
+pub const EVRConfig_ForceBob: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe447df01_10ca_4d17_b17e_6a840f8a3a4c);
+pub const EVRConfig_ForceHalfInterlace: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe447df05_10ca_4d17_b17e_6a840f8a3a4c);
+pub const EVRConfig_ForceScaling: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe447df07_10ca_4d17_b17e_6a840f8a3a4c);
+pub const EVRConfig_ForceThrottle: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe447df03_10ca_4d17_b17e_6a840f8a3a4c);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14630,7 +14811,19 @@ impl ::core::fmt::Debug for FILE_OPENMODE {
         f.debug_tuple("FILE_OPENMODE").field(&self.0).finish()
     }
 }
+pub const FORMAT_525WSS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7ecf04d_4582_4869_9abb_bfb523b62edf);
+pub const FORMAT_AnalogVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
+pub const FORMAT_CAPTIONED_H264VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4efc024_873e_4da3_898b_474ddbd79fd0);
+pub const FORMAT_CAPTIONED_MPEG2VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab2ada2_81b6_4f14_b3c8_d0c486393b67);
+pub const FORMAT_CC_CONTAINER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50997a4a_e508_4054_a2b2_10ff0ac1a69a);
+pub const FORMAT_DvInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f84_c356_11ce_bf01_00aa0055595a);
 pub const FORMAT_MFVideoFormat: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaed4ab2d_7326_43cb_9464_c879cab9c43d);
+pub const FORMAT_MPEGStreams: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f83_c356_11ce_bf01_00aa0055595a);
+pub const FORMAT_MPEGVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
+pub const FORMAT_None: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
+pub const FORMAT_VideoInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
+pub const FORMAT_VideoInfo2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const FORMAT_WaveFormatEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
 pub const GUID_NativeDeviceService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef71e53c_52f4_43c5_b86a_ad6cb216a61e);
 pub const GUID_PlayToService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a8ff9d_9e14_41c9_bf0f_120a2b3ce120);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -25398,7 +25591,7 @@ impl IMFCapturePreviewSink {
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateVideo(&self, psrc: ::core::option::Option<&MFVideoNormalizedRect>, pdst: ::core::option::Option<&super::super::Foundation::RECT>, pborderclr: ::core::option::Option<&u32>) -> ::windows::core::Result<()> {
+    pub unsafe fn UpdateVideo(&self, psrc: ::core::option::Option<&MFVideoNormalizedRect>, pdst: ::core::option::Option<&super::super::Foundation::RECT>, pborderclr: ::core::option::Option<&super::super::Foundation::COLORREF>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UpdateVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdst), ::core::mem::transmute(pborderclr)).ok()
     }
     pub unsafe fn SetSampleCallback<'a, P0>(&self, dwstreamsinkindex: u32, pcallback: P0) -> ::windows::core::Result<()>
@@ -25495,7 +25688,7 @@ pub struct IMFCapturePreviewSink_Vtbl {
     SetRenderHandle: usize,
     pub SetRenderSurface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psurface: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
-    pub UpdateVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const u32) -> ::windows::core::HRESULT,
+    pub UpdateVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     UpdateVideo: usize,
     pub SetSampleCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamsinkindex: u32, pcallback: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -36109,12 +36302,19 @@ impl IMFPMediaPlayer {
     pub unsafe fn UpdateVideo(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UpdateVideo)(::windows::core::Interface::as_raw(self)).ok()
     }
-    pub unsafe fn SetBorderColor(&self, clr: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBorderColor)(::windows::core::Interface::as_raw(self), clr).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetBorderColor<'a, P0>(&self, clr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetBorderColor)(::windows::core::Interface::as_raw(self), clr.into()).ok()
     }
-    pub unsafe fn GetBorderColor(&self) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetBorderColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBorderColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetBorderColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -36240,8 +36440,14 @@ pub struct IMFPMediaPlayer_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetVideoWindow: usize,
     pub UpdateVideo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows::core::HRESULT,
-    pub GetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBorderColor: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetBorderColor: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub InsertEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, peffect: *mut ::core::ffi::c_void, foptional: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -44930,12 +45136,19 @@ impl IMFVideoDisplayControl {
     pub unsafe fn GetCurrentImage(&self, pbih: &mut super::super::Graphics::Gdi::BITMAPINFOHEADER, pdib: *mut *mut u8, pcbdib: &mut u32, ptimestamp: &mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCurrentImage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbih), ::core::mem::transmute(pdib), ::core::mem::transmute(pcbdib), ::core::mem::transmute(ptimestamp)).ok()
     }
-    pub unsafe fn SetBorderColor(&self, clr: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBorderColor)(::windows::core::Interface::as_raw(self), clr).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetBorderColor<'a, P0>(&self, clr: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetBorderColor)(::windows::core::Interface::as_raw(self), clr.into()).ok()
     }
-    pub unsafe fn GetBorderColor(&self) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetBorderColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBorderColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetBorderColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
     pub unsafe fn SetRenderingPrefs(&self, dwrenderflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRenderingPrefs)(::windows::core::Interface::as_raw(self), dwrenderflags).ok()
@@ -45029,8 +45242,14 @@ pub struct IMFVideoDisplayControl_Vtbl {
     pub GetCurrentImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbih: *mut super::super::Graphics::Gdi::BITMAPINFOHEADER, pdib: *mut *mut u8, pcbdib: *mut u32, ptimestamp: *mut i64) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Gdi"))]
     GetCurrentImage: usize,
-    pub SetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clr: u32) -> ::windows::core::HRESULT,
-    pub GetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clr: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBorderColor: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetBorderColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pclr: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetBorderColor: usize,
     pub SetRenderingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwrenderflags: u32) -> ::windows::core::HRESULT,
     pub GetRenderingPrefs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwrenderflags: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
@@ -45677,12 +45896,19 @@ impl IMFVideoProcessor {
     pub unsafe fn SetFilteringValue(&self, dwproperty: u32, pvalue: &DXVA2_Fixed32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFilteringValue)(::windows::core::Interface::as_raw(self), dwproperty, ::core::mem::transmute(pvalue)).ok()
     }
-    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<u32> {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::COLORREF> {
         let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetBackgroundColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetBackgroundColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::COLORREF>(result__)
     }
-    pub unsafe fn SetBackgroundColor(&self, clrbkg: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::windows::core::Interface::as_raw(self), clrbkg).ok()
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetBackgroundColor<'a, P0>(&self, clrbkg: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+    {
+        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::windows::core::Interface::as_raw(self), clrbkg.into()).ok()
     }
 }
 impl ::core::convert::From<IMFVideoProcessor> for ::windows::core::IUnknown {
@@ -45737,8 +45963,14 @@ pub struct IMFVideoProcessor_Vtbl {
     pub GetFilteringRange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pproprange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
     pub GetFilteringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvalue: *mut DXVA2_Fixed32) -> ::windows::core::HRESULT,
     pub SetFilteringValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvalue: *const DXVA2_Fixed32) -> ::windows::core::HRESULT,
-    pub GetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpclrbkg: *mut u32) -> ::windows::core::HRESULT,
-    pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbkg: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lpclrbkg: *mut super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetBackgroundColor: usize,
+    #[cfg(feature = "Win32_Foundation")]
+    pub SetBackgroundColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clrbkg: super::super::Foundation::COLORREF) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    SetBackgroundColor: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -48704,6 +48936,8 @@ impl ::core::fmt::Debug for KSMETHOD_OPMVIDEOOUTPUT {
 pub const KSPROPSETID_OPMVideoOutput: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f414bb_f43a_4fe2_a566_774b4c81f0db);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const LOCAL_D3DFMT_DEFINES: u32 = 1u32;
+pub const LOOK_DOWNSTREAM_ONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac798be1_98e3_11d1_b3f1_00aa003761c5);
+pub const LOOK_UPSTREAM_ONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac798be0_98e3_11d1_b3f1_00aa003761c5);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub struct MACROBLOCK_DATA {
@@ -48763,18 +48997,90 @@ pub const MEDIASINK_FIXED_STREAMS: u32 = 1u32;
 pub const MEDIASINK_RATELESS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const MEDIASINK_REQUIRE_REFERENCE_MEDIATYPE: u32 = 32u32;
+pub const MEDIASUBTYPE_420O: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f303234_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_708_608Data: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0af414bc_4ed2_445e_9839_8f095568ab3c);
+pub const MEDIASUBTYPE_A2B10G10R10: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x576f7893_bdf6_48c4_875f_ae7b81834567);
+pub const MEDIASUBTYPE_A2R10G10B10: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f8bb76d_b644_4550_acf3_d30caa65d5c5);
+pub const MEDIASUBTYPE_AI44: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34344941_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_AIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8d_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_ARGB1555: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297c55af_e209_4cb3_b757_c76d6b9c88a8);
+pub const MEDIASUBTYPE_ARGB1555_D3D_DX7_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35314137_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_ARGB1555_D3D_DX9_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35314139_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_ARGB32: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x773c9ac0_3274_11d0_b724_00aa006c1a01);
+pub const MEDIASUBTYPE_ARGB32_D3D_DX7_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38384137_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_ARGB32_D3D_DX9_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38384139_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_ARGB4444: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e6415e6_5c24_425f_93cd_80102b3d1cca);
+pub const MEDIASUBTYPE_ARGB4444_D3D_DX7_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34344137_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_ARGB4444_D3D_DX9_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34344139_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_AU: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8c_524f_11ce_9f53_0020af0ba770);
 pub const MEDIASUBTYPE_AVC1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31435641_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_AYUV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56555941_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_AnalogVideo_NTSC_M: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde2_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_B: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde5_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde6_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_G: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde7_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_H: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde8_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_I: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde9_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_M: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddea_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_N: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddeb_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_PAL_N_COMBO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddec_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_SECAM_B: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddf0_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_SECAM_D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddf1_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_SECAM_G: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddf2_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_SECAM_H: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddf3_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_SECAM_K: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddf4_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_SECAM_K1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddf5_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_AnalogVideo_SECAM_L: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482ddf6_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIASUBTYPE_Asf: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3db80f90_9412_11d1_aded_0000f8754b99);
+pub const MEDIASUBTYPE_Avi: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb88_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_CC_CONTAINER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ea626db_54da_437b_be9f_f73073adfa3c);
+pub const MEDIASUBTYPE_CFCC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43434643_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_CLJR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524a4c43_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_CLPL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c504c43_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_CPLA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x414c5043_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_DOLBY_AC3_SPDIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_DOLBY_DDPLUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7fb87af_2d02_42fb_a4d4_05cd93843bdd);
 pub const MEDIASUBTYPE_DOLBY_TRUEHD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb27cec4_163e_4ca3_8b74_8e25f91b517e);
+pub const MEDIASUBTYPE_DRM_Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000009_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_DTS2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00002001_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_DTS_HD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2e58eb7_0fa9_48bb_a40c_fa0e156d0645);
 pub const MEDIASUBTYPE_DTS_HD_HRA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa61ac364_ad0e_4744_89ff_213ce0df8804);
+pub const MEDIASUBTYPE_DVB_SUBTITLES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34ffcbc3_d5b3_4171_9002_d4c60301697f);
+pub const MEDIASUBTYPE_DVCS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53435644_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_DVM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00002000_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_DVSD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44535644_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_DssAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
+pub const MEDIASUBTYPE_DssVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
+pub const MEDIASUBTYPE_DtvCcData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf52addaa_36f0_43f5_95ea_6d866484262a);
+pub const MEDIASUBTYPE_H264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363248_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_I420: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30323449_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IA44: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34344149_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IEEE_FLOAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IF09: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39304649_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IJPG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a49_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IMC1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31434d49_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IMC2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32434d49_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IMC3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33434d49_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_IMC4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34434d49_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_ISDB_CAPTIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x059dd67d_2e55_4d41_8d1b_01f5e4f50607);
+pub const MEDIASUBTYPE_ISDB_SUPERIMPOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36dc6d28_f1a6_4216_9048_9cfcefeb5eba);
+pub const MEDIASUBTYPE_IYUV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56555949_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_Line21_BytePair: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
+pub const MEDIASUBTYPE_Line21_GOPPacket: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
+pub const MEDIASUBTYPE_Line21_VBIRawData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a24_310c_11d0_b79a_00aa003767a7);
 pub const MEDIASUBTYPE_M4S2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3253344d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MDVF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4656444d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MJPG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_MP42: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3234504d_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_MP43: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3334504d_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_MP4S: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5334504d_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MPEG1Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb87_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_MPEG1AudioPayload: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000050_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_MPEG1Packet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_MPEG1Payload: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_MPEG1System: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb84_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_MPEG1Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_MPEG1VideoCD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb85_524f_11ce_9f53_0020af0ba770);
 pub const MEDIASUBTYPE_MPEG_ADTS_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001600_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_MPEG_HEAAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_MPEG_LOAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001602_0000_0010_8000_00aa00389b71);
@@ -48786,12 +49092,53 @@ pub const MEDIASUBTYPE_MSS2: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MEDIASUBTYPE_NOKIA_MPEG_ADTS_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001608_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_NOKIA_MPEG_RAW_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001609_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_NV11: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3131564e_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_NV12: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3231564e_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_NV24: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3432564e_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_None: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_Overlay: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_P010: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30313050_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_P016: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36313050_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_P208: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38303250_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_P210: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30313250_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_P216: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36313250_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_P408: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38303450_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_PCM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_PCMAudio_Obsolete: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8a_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_Plum: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d756c50_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_QTJpeg: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6765706a_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_QTMovie: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb89_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_QTRle: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20656c72_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_QTRpza: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x617a7072_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_QTSmc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20636d73_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_RAW_AAC1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000000ff_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_RAW_SPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000240_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_RGB1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb78_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_RGB16_D3D_DX7_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36315237_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_RGB16_D3D_DX9_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36315239_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_RGB24: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7d_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_RGB32: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7e_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_RGB32_D3D_DX7_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32335237_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_RGB32_D3D_DX9_RT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32335239_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_RGB4: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb79_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_RGB555: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7c_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_RGB565: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7b_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_RGB8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7a_524f_11ce_9f53_0020af0ba770);
+pub const MEDIASUBTYPE_S340: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30343353_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_S342: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32343353_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_SPDIF_TAG_241h: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000241_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
+pub const MEDIASUBTYPE_TVMJ: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a4d5654_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_UYVY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59565955_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_V216: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36313256_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_V410: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30313456_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x663da43c_03e8_4e9a_9cd5_bf11ed0def76);
 pub const MEDIASUBTYPE_VODAFONE_MPEG_ADTS_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000160a_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_VODAFONE_MPEG_RAW_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000160b_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_VPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1b3f620_9792_4d8d_81a4_86af25772090);
+pub const MEDIASUBTYPE_VPVBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
+pub const MEDIASUBTYPE_VPVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
+pub const MEDIASUBTYPE_WAKE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x454b4157_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
 pub const MEDIASUBTYPE_WMASPDIF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_WMAUDIO2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_WMAUDIO3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
@@ -48804,11 +49151,29 @@ pub const MEDIASUBTYPE_WMVA: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MEDIASUBTYPE_WMVB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42564d57_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_WMVP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50564d57_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_WMVR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52564d57_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_WSS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2791d576_8e7a_466f_9e90_5d3f3083738b);
 pub const MEDIASUBTYPE_WVC1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31435657_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_WVP2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32505657_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_X264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363258_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_XDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01ca73e3_dce6_4575_afe1_2bf1c902caf3);
+pub const MEDIASUBTYPE_Y210: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30313259_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_Y211: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31313259_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_Y216: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36313259_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_Y411: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31313459_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_Y41P: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50313459_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_Y41T: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54313459_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_Y42T: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54323459_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_YUY2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32595559_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_YUYV: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56595559_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_YV12: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32315659_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_YVU9: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39555659_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_YVYU: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55595659_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_dv25: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35327664_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_dv50: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30357664_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_dvh1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31687664_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_dvhd: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64687664_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_dvsd: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64737664_0000_0010_8000_00aa00389b71);
+pub const MEDIASUBTYPE_dvsl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c737664_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_h264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363268_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_m4s2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3273346d_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_mp42: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3234706d_0000_0010_8000_00aa00389b71);
@@ -48826,6 +49191,26 @@ pub const MEDIASUBTYPE_wmvr: ::windows::core::GUID = ::windows::core::GUID::from
 pub const MEDIASUBTYPE_wvc1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31637677_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_wvp2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32707677_0000_0010_8000_00aa00389b71);
 pub const MEDIASUBTYPE_x264: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34363278_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_AUXLine21Data: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
+pub const MEDIATYPE_AUXTeletextPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11264acb_37de_4eba_8c35_7f04a1a68332);
+pub const MEDIATYPE_AnalogAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIATYPE_AnalogVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIATYPE_Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_CC_CONTAINER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb312e9_3357_43ca_b701_97ec198e2b62);
+pub const MEDIATYPE_DTVCCData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb77e152_53b2_499c_b46b_509fc33edfd7);
+pub const MEDIATYPE_File: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x656c6966_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_Interleaved: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73766169_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_LMRT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74726c6d_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_MPEG1SystemStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb82_524f_11ce_9f53_0020af0ba770);
+pub const MEDIATYPE_MSTVCaption: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb88b8a89_b049_4c80_adcf_5898985e22c1);
+pub const MEDIATYPE_Midi: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_ScriptCommand: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73636d64_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_Stream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
+pub const MEDIATYPE_Text: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_Timecode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dee3_7817_11cf_8a03_00aa006ecb65);
+pub const MEDIATYPE_URL_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736c7275_0000_0010_8000_00aa00389b71);
+pub const MEDIATYPE_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
+pub const MEDIATYPE_Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -55825,7 +56210,7 @@ impl ::core::fmt::Debug for MFVideoAlphaBitmapFlags {
 #[cfg(feature = "Win32_Foundation")]
 pub struct MFVideoAlphaBitmapParams {
     pub dwFlags: u32,
-    pub clrSrcKey: u32,
+    pub clrSrcKey: super::super::Foundation::COLORREF,
     pub rcSrc: super::super::Foundation::RECT,
     pub nrcDest: MFVideoNormalizedRect,
     pub fAlpha: f32,
@@ -63440,6 +63825,18 @@ pub type PDXVAHDSW_VideoProcessBltHD = ::core::option::Option<unsafe extern "sys
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Graphics_Direct3D9\"`*"]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PDXVAHD_CreateDevice = ::core::option::Option<unsafe extern "system" fn(pd3ddevice: ::core::option::Option<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>, pcontentdesc: *const DXVAHD_CONTENT_DESC, usage: DXVAHD_DEVICE_USAGE, pplugin: PDXVAHDSW_Plugin, ppdevice: *mut ::core::option::Option<IDXVAHD_Device>) -> ::windows::core::HRESULT>;
+pub const PIN_CATEGORY_ANALOGVIDEOIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_CC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_EDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_PREVIEW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_STILL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_TIMECODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_VIDEOPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
+pub const PIN_CATEGORY_VIDEOPORT_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -63655,6 +64052,12 @@ pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2u32;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32u32;
+pub const TIME_FORMAT_BYTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
+pub const TIME_FORMAT_FIELD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
+pub const TIME_FORMAT_FRAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
+pub const TIME_FORMAT_MEDIA_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
+pub const TIME_FORMAT_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const TIME_FORMAT_SAMPLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub struct TOC_DESCRIPTOR {
@@ -63753,6 +64156,8 @@ impl ::core::fmt::Debug for TOC_POS_TYPE {
         f.debug_tuple("TOC_POS_TYPE").field(&self.0).finish()
     }
 }
+pub const UUID_UdriTagTables: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1b98d74_9778_4878_b664_eb2020364d88);
+pub const UUID_WMDRMTagTables: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dcd1101_9263_45bb_a4d5_c415ab8c589c);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]

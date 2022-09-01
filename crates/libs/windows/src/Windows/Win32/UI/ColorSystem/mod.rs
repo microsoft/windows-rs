@@ -413,12 +413,15 @@ pub unsafe fn CMTranslateColors(hcmtransform: isize, lpainputcolors: *const COLO
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CMTranslateRGB(hcmtransform: isize, colorref: u32, lpcolorref: &mut u32, dwflags: u32) -> super::super::Foundation::BOOL {
+pub unsafe fn CMTranslateRGB<'a, P0>(hcmtransform: isize, colorref: P0, lpcolorref: &mut u32, dwflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::COLORREF>,
+{
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
-        fn CMTranslateRGB(hcmtransform: isize, colorref: u32, lpcolorref: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
+        fn CMTranslateRGB(hcmtransform: isize, colorref: super::super::Foundation::COLORREF, lpcolorref: *mut u32, dwflags: u32) -> super::super::Foundation::BOOL;
     }
-    CMTranslateRGB(hcmtransform, colorref, ::core::mem::transmute(lpcolorref), dwflags)
+    CMTranslateRGB(hcmtransform, colorref.into(), ::core::mem::transmute(lpcolorref), dwflags)
 }
 #[doc = "*Required features: `\"Win32_UI_ColorSystem\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

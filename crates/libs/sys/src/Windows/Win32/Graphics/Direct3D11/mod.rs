@@ -713,9 +713,9 @@ pub const D3D11_BUFFEREX_SRV_FLAG_RAW: D3D11_BUFFEREX_SRV_FLAG = 1i32;
 pub struct D3D11_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
     pub StructureByteStride: u32,
 }
 impl ::core::marker::Copy for D3D11_BUFFER_DESC {}
@@ -6935,9 +6935,9 @@ pub struct D3D11_TEXTURE1D_DESC {
     pub ArraySize: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_TEXTURE1D_DESC {}
@@ -6981,9 +6981,9 @@ pub struct D3D11_TEXTURE2D_DESC1 {
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub SampleDesc: super::Dxgi::Common::DXGI_SAMPLE_DESC,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -7004,9 +7004,9 @@ pub struct D3D11_TEXTURE3D_DESC {
     pub MipLevels: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_TEXTURE3D_DESC {}
@@ -7026,9 +7026,9 @@ pub struct D3D11_TEXTURE3D_DESC1 {
     pub MipLevels: u32,
     pub Format: super::Dxgi::Common::DXGI_FORMAT,
     pub Usage: D3D11_USAGE,
-    pub BindFlags: u32,
-    pub CPUAccessFlags: u32,
-    pub MiscFlags: u32,
+    pub BindFlags: D3D11_BIND_FLAG,
+    pub CPUAccessFlags: D3D11_CPU_ACCESS_FLAG,
+    pub MiscFlags: D3D11_RESOURCE_MISC_FLAG,
     pub TextureLayout: D3D11_TEXTURE_LAYOUT,
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
