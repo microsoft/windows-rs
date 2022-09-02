@@ -665,7 +665,7 @@ pub unsafe fn SrpHostingInitialize(version: SRPHOSTING_VERSION, r#type: SRPHOSTI
 #[inline]
 pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE);
     }
     SrpHostingTerminate(r#type)
@@ -678,7 +678,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS;
     }
     SrpIsTokenService(tokenhandle.into(), ::core::mem::transmute(istokenservice)).ok()

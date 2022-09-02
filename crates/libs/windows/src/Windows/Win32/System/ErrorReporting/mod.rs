@@ -1501,7 +1501,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerFreeString(pwszstr: ::windows::core::PCWSTR);
     }
     WerFreeString(pwszstr.into())
@@ -1734,7 +1734,7 @@ where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreClose(hreportstore: HREPORTSTORE);
     }
     WerStoreClose(hreportstore.into())
@@ -1746,7 +1746,7 @@ where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1759,7 +1759,7 @@ where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1772,7 +1772,7 @@ where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1785,7 +1785,7 @@ where
     P0: ::std::convert::Into<HREPORTSTORE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1795,7 +1795,7 @@ where
 #[inline]
 pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core::Result<HREPORTSTORE> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1805,7 +1805,7 @@ pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core:
 #[inline]
 pub unsafe fn WerStorePurge() -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStorePurge() -> ::windows::core::HRESULT;
     }
     WerStorePurge().ok()
@@ -1819,7 +1819,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1834,7 +1834,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1849,7 +1849,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -1863,7 +1863,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();

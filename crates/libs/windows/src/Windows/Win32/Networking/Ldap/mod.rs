@@ -1026,7 +1026,7 @@ pub const LDAP_VLVINFO_VERSION: u32 = 1u32;
 #[inline]
 pub unsafe fn LdapGetLastError() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn LdapGetLastError() -> u32;
     }
     LdapGetLastError()
@@ -1035,7 +1035,7 @@ pub unsafe fn LdapGetLastError() -> u32 {
 #[inline]
 pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn LdapMapErrorToWin32(ldaperror: u32) -> u32;
     }
     LdapMapErrorToWin32(ldaperror)
@@ -1044,7 +1044,7 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
 #[inline]
 pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: &mut [u16]) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn LdapUTF8ToUnicode(lpsrcstr: ::windows::core::PCSTR, cchsrc: i32, lpdeststr: ::windows::core::PWSTR, cchdest: i32) -> i32;
     }
     LdapUTF8ToUnicode(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len() as _)
@@ -1053,7 +1053,7 @@ pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: &mut [u16]) -> i32 {
 #[inline]
 pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: &mut [u8]) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn LdapUnicodeToUTF8(lpsrcstr: ::windows::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows::core::PSTR, cchdest: i32) -> i32;
     }
     LdapUnicodeToUTF8(::core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len() as _, ::core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len() as _)
@@ -1077,7 +1077,7 @@ pub type VERIFYSERVERCERT = ::core::option::Option<unsafe extern "system" fn(con
 #[inline]
 pub unsafe fn ber_alloc_t(options: i32) -> *mut berelement {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_alloc_t(options: i32) -> *mut berelement;
     }
     ber_alloc_t(options)
@@ -1086,7 +1086,7 @@ pub unsafe fn ber_alloc_t(options: i32) -> *mut berelement {
 #[inline]
 pub unsafe fn ber_bvdup(pberval: &mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL;
     }
     ber_bvdup(::core::mem::transmute(pberval))
@@ -1095,7 +1095,7 @@ pub unsafe fn ber_bvdup(pberval: &mut LDAP_BERVAL) -> *mut LDAP_BERVAL {
 #[inline]
 pub unsafe fn ber_bvecfree(pberval: &mut *mut LDAP_BERVAL) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL);
     }
     ber_bvecfree(::core::mem::transmute(pberval))
@@ -1104,7 +1104,7 @@ pub unsafe fn ber_bvecfree(pberval: &mut *mut LDAP_BERVAL) {
 #[inline]
 pub unsafe fn ber_bvfree(bv: &mut LDAP_BERVAL) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_bvfree(bv: *mut LDAP_BERVAL);
     }
     ber_bvfree(::core::mem::transmute(bv))
@@ -1114,7 +1114,7 @@ pub unsafe fn ber_bvfree(bv: &mut LDAP_BERVAL) {
 #[inline]
 pub unsafe fn ber_first_element(pberelement: &mut berelement, plen: &mut u32, ppopaque: &mut *mut super::super::Foundation::CHAR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_first_element(pberelement: *mut berelement, plen: *mut u32, ppopaque: *mut *mut super::super::Foundation::CHAR) -> u32;
     }
     ber_first_element(::core::mem::transmute(pberelement), ::core::mem::transmute(plen), ::core::mem::transmute(ppopaque))
@@ -1123,7 +1123,7 @@ pub unsafe fn ber_first_element(pberelement: &mut berelement, plen: &mut u32, pp
 #[inline]
 pub unsafe fn ber_flatten(pberelement: &mut berelement, pberval: &mut *mut LDAP_BERVAL) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_BERVAL) -> i32;
     }
     ber_flatten(::core::mem::transmute(pberelement), ::core::mem::transmute(pberval))
@@ -1132,7 +1132,7 @@ pub unsafe fn ber_flatten(pberelement: &mut berelement, pberval: &mut *mut LDAP_
 #[inline]
 pub unsafe fn ber_free(pberelement: &mut berelement, fbuf: i32) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_free(pberelement: *mut berelement, fbuf: i32);
     }
     ber_free(::core::mem::transmute(pberelement), fbuf)
@@ -1141,7 +1141,7 @@ pub unsafe fn ber_free(pberelement: &mut berelement, fbuf: i32) {
 #[inline]
 pub unsafe fn ber_init(pberval: &mut LDAP_BERVAL) -> *mut berelement {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement;
     }
     ber_init(::core::mem::transmute(pberval))
@@ -1153,7 +1153,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_next_element(pberelement: *mut berelement, plen: *mut u32, opaque: ::windows::core::PCSTR) -> u32;
     }
     ber_next_element(::core::mem::transmute(pberelement), ::core::mem::transmute(plen), opaque.into())
@@ -1162,7 +1162,7 @@ where
 #[inline]
 pub unsafe fn ber_peek_tag(pberelement: &mut berelement, plen: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
     }
     ber_peek_tag(::core::mem::transmute(pberelement), ::core::mem::transmute(plen))
@@ -1174,7 +1174,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_printf(pberelement: *mut berelement, fmt: ::windows::core::PCSTR) -> i32;
     }
     ber_printf(::core::mem::transmute(pberelement), fmt.into())
@@ -1186,7 +1186,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_scanf(pberelement: *mut berelement, fmt: ::windows::core::PCSTR) -> u32;
     }
     ber_scanf(::core::mem::transmute(pberelement), fmt.into())
@@ -1195,7 +1195,7 @@ where
 #[inline]
 pub unsafe fn ber_skip_tag(pberelement: &mut berelement, plen: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
     }
     ber_skip_tag(::core::mem::transmute(pberelement), ::core::mem::transmute(plen))
@@ -1237,7 +1237,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn cldap_open(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
     }
     cldap_open(hostname.into(), portnumber)
@@ -1249,7 +1249,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn cldap_openA(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
     }
     cldap_openA(hostname.into(), portnumber)
@@ -1261,7 +1261,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn cldap_openW(hostname: ::windows::core::PCWSTR, portnumber: u32) -> *mut ldap;
     }
     cldap_openW(hostname.into(), portnumber)
@@ -1365,7 +1365,7 @@ impl ::core::default::Default for ldap_0 {
 #[inline]
 pub unsafe fn ldap_abandon(ld: &mut ldap, msgid: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32;
     }
     ldap_abandon(::core::mem::transmute(ld), msgid)
@@ -1377,7 +1377,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
     }
     ldap_add(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs))
@@ -1389,7 +1389,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_addA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
     }
     ldap_addA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs))
@@ -1401,7 +1401,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_addW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW) -> u32;
     }
     ldap_addW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs))
@@ -1414,7 +1414,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_add_ext(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -1427,7 +1427,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_add_extA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -1440,7 +1440,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
     }
     ldap_add_extW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -1453,7 +1453,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_add_ext_s(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -1466,7 +1466,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_add_ext_sA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -1479,7 +1479,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_add_ext_sW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -1491,7 +1491,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
     }
     ldap_add_s(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs))
@@ -1503,7 +1503,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
     }
     ldap_add_sA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs))
@@ -1515,7 +1515,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_add_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attrs: *mut *mut ldapmodW) -> u32;
     }
     ldap_add_sW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(attrs))
@@ -1528,7 +1528,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_bind(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
     }
     ldap_bind(::core::mem::transmute(ld), dn.into(), cred.into(), method)
@@ -1541,7 +1541,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_bindA(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
     }
     ldap_bindA(::core::mem::transmute(ld), dn.into(), cred.into(), method)
@@ -1554,7 +1554,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_bindW(ld: *mut ldap, dn: ::windows::core::PCWSTR, cred: ::windows::core::PCWSTR, method: u32) -> u32;
     }
     ldap_bindW(::core::mem::transmute(ld), dn.into(), cred.into(), method)
@@ -1567,7 +1567,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_bind_s(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
     }
     ldap_bind_s(::core::mem::transmute(ld), dn.into(), cred.into(), method)
@@ -1580,7 +1580,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_bind_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, cred: ::windows::core::PCSTR, method: u32) -> u32;
     }
     ldap_bind_sA(::core::mem::transmute(ld), dn.into(), cred.into(), method)
@@ -1593,7 +1593,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_bind_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, cred: ::windows::core::PCWSTR, method: u32) -> u32;
     }
     ldap_bind_sW(::core::mem::transmute(ld), dn.into(), cred.into(), method)
@@ -1605,7 +1605,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_check_filterA(ld: *mut ldap, searchfilter: ::windows::core::PCSTR) -> u32;
     }
     ldap_check_filterA(::core::mem::transmute(ld), searchfilter.into())
@@ -1617,7 +1617,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_check_filterW(ld: *mut ldap, searchfilter: ::windows::core::PCWSTR) -> u32;
     }
     ldap_check_filterW(::core::mem::transmute(ld), searchfilter.into())
@@ -1630,7 +1630,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_cleanup(hinstance: super::super::Foundation::HANDLE) -> u32;
     }
     ldap_cleanup(hinstance.into())
@@ -1639,7 +1639,7 @@ where
 #[inline]
 pub unsafe fn ldap_close_extended_op(ld: &mut ldap, messagenumber: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32;
     }
     ldap_close_extended_op(::core::mem::transmute(ld), messagenumber)
@@ -1653,7 +1653,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
     }
     ldap_compare(::core::mem::transmute(ld), dn.into(), attr.into(), value.into())
@@ -1667,7 +1667,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compareA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
     }
     ldap_compareA(::core::mem::transmute(ld), dn.into(), attr.into(), value.into())
@@ -1681,7 +1681,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compareW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> u32;
     }
     ldap_compareW(::core::mem::transmute(ld), dn.into(), attr.into(), value.into())
@@ -1696,7 +1696,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_compare_ext(::core::mem::transmute(ld), dn.into(), attr.into(), value.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -1711,7 +1711,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_compare_extA(::core::mem::transmute(ld), dn.into(), attr.into(), value.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -1726,7 +1726,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
     }
     ldap_compare_extW(::core::mem::transmute(ld), dn.into(), attr.into(), value.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -1741,7 +1741,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_compare_ext_s(::core::mem::transmute(ld), dn.into(), attr.into(), value.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -1756,7 +1756,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_compare_ext_sA(::core::mem::transmute(ld), dn.into(), attr.into(), value.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -1771,7 +1771,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_compare_ext_sW(::core::mem::transmute(ld), dn.into(), attr.into(), value.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -1785,7 +1785,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_s(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
     }
     ldap_compare_s(::core::mem::transmute(ld), dn.into(), attr.into(), value.into())
@@ -1799,7 +1799,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, attr: ::windows::core::PCSTR, value: ::windows::core::PCSTR) -> u32;
     }
     ldap_compare_sA(::core::mem::transmute(ld), dn.into(), attr.into(), value.into())
@@ -1813,7 +1813,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_compare_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, attr: ::windows::core::PCWSTR, value: ::windows::core::PCWSTR) -> u32;
     }
     ldap_compare_sW(::core::mem::transmute(ld), dn.into(), attr.into(), value.into())
@@ -1823,7 +1823,7 @@ where
 #[inline]
 pub unsafe fn ldap_conn_from_msg(primaryconn: &mut ldap, res: &mut LDAPMessage) -> *mut ldap {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) -> *mut ldap;
     }
     ldap_conn_from_msg(::core::mem::transmute(primaryconn), ::core::mem::transmute(res))
@@ -1832,7 +1832,7 @@ pub unsafe fn ldap_conn_from_msg(primaryconn: &mut ldap, res: &mut LDAPMessage) 
 #[inline]
 pub unsafe fn ldap_connect(ld: &mut ldap, timeout: &mut LDAP_TIMEVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32;
     }
     ldap_connect(::core::mem::transmute(ld), ::core::mem::transmute(timeout))
@@ -1842,7 +1842,7 @@ pub unsafe fn ldap_connect(ld: &mut ldap, timeout: &mut LDAP_TIMEVAL) -> u32 {
 #[inline]
 pub unsafe fn ldap_control_free(control: &mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_control_free(control: *mut ldapcontrolA) -> u32;
     }
     ldap_control_free(::core::mem::transmute(control))
@@ -1852,7 +1852,7 @@ pub unsafe fn ldap_control_free(control: &mut ldapcontrolA) -> u32 {
 #[inline]
 pub unsafe fn ldap_control_freeA(controls: &mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32;
     }
     ldap_control_freeA(::core::mem::transmute(controls))
@@ -1862,7 +1862,7 @@ pub unsafe fn ldap_control_freeA(controls: &mut ldapcontrolA) -> u32 {
 #[inline]
 pub unsafe fn ldap_control_freeW(control: &mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32;
     }
     ldap_control_freeW(::core::mem::transmute(control))
@@ -1872,7 +1872,7 @@ pub unsafe fn ldap_control_freeW(control: &mut ldapcontrolW) -> u32 {
 #[inline]
 pub unsafe fn ldap_controls_free(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_controls_free(::core::mem::transmute(controls))
@@ -1882,7 +1882,7 @@ pub unsafe fn ldap_controls_free(controls: &mut *mut ldapcontrolA) -> u32 {
 #[inline]
 pub unsafe fn ldap_controls_freeA(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_controls_freeA(::core::mem::transmute(controls))
@@ -1892,7 +1892,7 @@ pub unsafe fn ldap_controls_freeA(controls: &mut *mut ldapcontrolA) -> u32 {
 #[inline]
 pub unsafe fn ldap_controls_freeW(control: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_controls_freeW(::core::mem::transmute(control))
@@ -1902,7 +1902,7 @@ pub unsafe fn ldap_controls_freeW(control: &mut *mut ldapcontrolW) -> u32 {
 #[inline]
 pub unsafe fn ldap_count_entries(ld: &mut ldap, res: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
     }
     ldap_count_entries(::core::mem::transmute(ld), ::core::mem::transmute(res))
@@ -1912,7 +1912,7 @@ pub unsafe fn ldap_count_entries(ld: &mut ldap, res: &mut LDAPMessage) -> u32 {
 #[inline]
 pub unsafe fn ldap_count_references(ld: &mut ldap, res: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
     }
     ldap_count_references(::core::mem::transmute(ld), ::core::mem::transmute(res))
@@ -1921,7 +1921,7 @@ pub unsafe fn ldap_count_references(ld: &mut ldap, res: &mut LDAPMessage) -> u32
 #[inline]
 pub unsafe fn ldap_count_values(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_count_values(vals: *const ::windows::core::PSTR) -> u32;
     }
     ldap_count_values(::core::mem::transmute(vals))
@@ -1930,7 +1930,7 @@ pub unsafe fn ldap_count_values(vals: ::core::option::Option<&::windows::core::P
 #[inline]
 pub unsafe fn ldap_count_valuesA(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_count_valuesA(vals: *const ::windows::core::PSTR) -> u32;
     }
     ldap_count_valuesA(::core::mem::transmute(vals))
@@ -1939,7 +1939,7 @@ pub unsafe fn ldap_count_valuesA(vals: ::core::option::Option<&::windows::core::
 #[inline]
 pub unsafe fn ldap_count_valuesW(vals: ::core::option::Option<&::windows::core::PWSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_count_valuesW(vals: *const ::windows::core::PWSTR) -> u32;
     }
     ldap_count_valuesW(::core::mem::transmute(vals))
@@ -1948,7 +1948,7 @@ pub unsafe fn ldap_count_valuesW(vals: ::core::option::Option<&::windows::core::
 #[inline]
 pub unsafe fn ldap_count_values_len(vals: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32;
     }
     ldap_count_values_len(::core::mem::transmute(vals))
@@ -1958,7 +1958,7 @@ pub unsafe fn ldap_count_values_len(vals: &mut *mut LDAP_BERVAL) -> u32 {
 #[inline]
 pub unsafe fn ldap_create_page_control(externalhandle: &mut ldap, pagesize: u32, cookie: &mut LDAP_BERVAL, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_page_control(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_create_page_control(::core::mem::transmute(externalhandle), pagesize, ::core::mem::transmute(cookie), iscritical, ::core::mem::transmute(control))
@@ -1968,7 +1968,7 @@ pub unsafe fn ldap_create_page_control(externalhandle: &mut ldap, pagesize: u32,
 #[inline]
 pub unsafe fn ldap_create_page_controlA(externalhandle: &mut ldap, pagesize: u32, cookie: &mut LDAP_BERVAL, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_page_controlA(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_create_page_controlA(::core::mem::transmute(externalhandle), pagesize, ::core::mem::transmute(cookie), iscritical, ::core::mem::transmute(control))
@@ -1978,7 +1978,7 @@ pub unsafe fn ldap_create_page_controlA(externalhandle: &mut ldap, pagesize: u32
 #[inline]
 pub unsafe fn ldap_create_page_controlW(externalhandle: &mut ldap, pagesize: u32, cookie: &mut LDAP_BERVAL, iscritical: u8, control: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_page_controlW(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_create_page_controlW(::core::mem::transmute(externalhandle), pagesize, ::core::mem::transmute(cookie), iscritical, ::core::mem::transmute(control))
@@ -1988,7 +1988,7 @@ pub unsafe fn ldap_create_page_controlW(externalhandle: &mut ldap, pagesize: u32
 #[inline]
 pub unsafe fn ldap_create_sort_control(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyA, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_sort_control(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_create_sort_control(::core::mem::transmute(externalhandle), ::core::mem::transmute(sortkeys), iscritical, ::core::mem::transmute(control))
@@ -1998,7 +1998,7 @@ pub unsafe fn ldap_create_sort_control(externalhandle: &mut ldap, sortkeys: &mut
 #[inline]
 pub unsafe fn ldap_create_sort_controlA(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyA, iscritical: u8, control: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_sort_controlA(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_create_sort_controlA(::core::mem::transmute(externalhandle), ::core::mem::transmute(sortkeys), iscritical, ::core::mem::transmute(control))
@@ -2008,7 +2008,7 @@ pub unsafe fn ldap_create_sort_controlA(externalhandle: &mut ldap, sortkeys: &mu
 #[inline]
 pub unsafe fn ldap_create_sort_controlW(externalhandle: &mut ldap, sortkeys: &mut *mut ldapsortkeyW, iscritical: u8, control: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_sort_controlW(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyW, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_create_sort_controlW(::core::mem::transmute(externalhandle), ::core::mem::transmute(sortkeys), iscritical, ::core::mem::transmute(control))
@@ -2018,7 +2018,7 @@ pub unsafe fn ldap_create_sort_controlW(externalhandle: &mut ldap, sortkeys: &mu
 #[inline]
 pub unsafe fn ldap_create_vlv_controlA(externalhandle: &mut ldap, vlvinfo: &mut ldapvlvinfo, iscritical: u8, control: &mut *mut ldapcontrolA) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_vlv_controlA(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolA) -> i32;
     }
     ldap_create_vlv_controlA(::core::mem::transmute(externalhandle), ::core::mem::transmute(vlvinfo), iscritical, ::core::mem::transmute(control))
@@ -2028,7 +2028,7 @@ pub unsafe fn ldap_create_vlv_controlA(externalhandle: &mut ldap, vlvinfo: &mut 
 #[inline]
 pub unsafe fn ldap_create_vlv_controlW(externalhandle: &mut ldap, vlvinfo: &mut ldapvlvinfo, iscritical: u8, control: &mut *mut ldapcontrolW) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_create_vlv_controlW(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolW) -> i32;
     }
     ldap_create_vlv_controlW(::core::mem::transmute(externalhandle), ::core::mem::transmute(vlvinfo), iscritical, ::core::mem::transmute(control))
@@ -2040,7 +2040,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
     }
     ldap_delete(::core::mem::transmute(ld), dn.into())
@@ -2052,7 +2052,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_deleteA(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
     }
     ldap_deleteA(::core::mem::transmute(ld), dn.into())
@@ -2064,7 +2064,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_deleteW(ld: *mut ldap, dn: ::windows::core::PCWSTR) -> u32;
     }
     ldap_deleteW(::core::mem::transmute(ld), dn.into())
@@ -2077,7 +2077,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_delete_ext(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2090,7 +2090,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_delete_extA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2103,7 +2103,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
     }
     ldap_delete_extW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2116,7 +2116,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_delete_ext_s(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -2129,7 +2129,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_delete_ext_sA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -2142,7 +2142,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_delete_ext_sW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -2154,7 +2154,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_s(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
     }
     ldap_delete_s(::core::mem::transmute(ld), dn.into())
@@ -2166,7 +2166,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_sA(ld: *mut ldap, dn: ::windows::core::PCSTR) -> u32;
     }
     ldap_delete_sA(::core::mem::transmute(ld), dn.into())
@@ -2178,7 +2178,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_delete_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR) -> u32;
     }
     ldap_delete_sW(::core::mem::transmute(ld), dn.into())
@@ -2190,7 +2190,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_dn2ufn(dn: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
     ldap_dn2ufn(dn.into())
@@ -2202,7 +2202,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_dn2ufnA(dn: ::windows::core::PCSTR) -> ::windows::core::PSTR;
     }
     ldap_dn2ufnA(dn.into())
@@ -2214,7 +2214,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_dn2ufnW(dn: ::windows::core::PCWSTR) -> ::windows::core::PWSTR;
     }
     ldap_dn2ufnW(dn.into())
@@ -2227,7 +2227,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_encode_sort_controlA(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, control: *mut ldapcontrolA, criticality: super::super::Foundation::BOOLEAN) -> u32;
     }
     ldap_encode_sort_controlA(::core::mem::transmute(externalhandle), ::core::mem::transmute(sortkeys), ::core::mem::transmute(control), criticality.into())
@@ -2240,7 +2240,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_encode_sort_controlW(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyW, control: *mut ldapcontrolW, criticality: super::super::Foundation::BOOLEAN) -> u32;
     }
     ldap_encode_sort_controlW(::core::mem::transmute(externalhandle), ::core::mem::transmute(sortkeys), ::core::mem::transmute(control), criticality.into())
@@ -2249,7 +2249,7 @@ where
 #[inline]
 pub unsafe fn ldap_err2string(err: u32) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_err2string(err: u32) -> ::windows::core::PSTR;
     }
     ldap_err2string(err)
@@ -2258,7 +2258,7 @@ pub unsafe fn ldap_err2string(err: u32) -> ::windows::core::PSTR {
 #[inline]
 pub unsafe fn ldap_err2stringA(err: u32) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_err2stringA(err: u32) -> ::windows::core::PSTR;
     }
     ldap_err2stringA(err)
@@ -2267,7 +2267,7 @@ pub unsafe fn ldap_err2stringA(err: u32) -> ::windows::core::PSTR {
 #[inline]
 pub unsafe fn ldap_err2stringW(err: u32) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_err2stringW(err: u32) -> ::windows::core::PWSTR;
     }
     ldap_err2stringW(err)
@@ -2276,7 +2276,7 @@ pub unsafe fn ldap_err2stringW(err: u32) -> ::windows::core::PWSTR {
 #[inline]
 pub unsafe fn ldap_escape_filter_element(sourcefilterelement: &[u8], destfilterelement: ::core::option::Option<&mut [u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_escape_filter_element(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32;
     }
     ldap_escape_filter_element(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len() as _, ::core::mem::transmute(destfilterelement.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len() as _))
@@ -2285,7 +2285,7 @@ pub unsafe fn ldap_escape_filter_element(sourcefilterelement: &[u8], destfiltere
 #[inline]
 pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: &[u8], destfilterelement: ::core::option::Option<&mut [u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_escape_filter_elementA(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PSTR, destlength: u32) -> u32;
     }
     ldap_escape_filter_elementA(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len() as _, ::core::mem::transmute(destfilterelement.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len() as _))
@@ -2294,7 +2294,7 @@ pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: &[u8], destfilter
 #[inline]
 pub unsafe fn ldap_escape_filter_elementW(sourcefilterelement: &[u8], destfilterelement: ::core::option::Option<&mut [u8]>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_escape_filter_elementW(sourcefilterelement: ::windows::core::PCSTR, sourcelength: u32, destfilterelement: ::windows::core::PWSTR, destlength: u32) -> u32;
     }
     ldap_escape_filter_elementW(::core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len() as _, ::core::mem::transmute(destfilterelement.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len() as _))
@@ -2306,7 +2306,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_explode_dn(dn: ::windows::core::PCSTR, notypes: u32) -> *mut ::windows::core::PSTR;
     }
     ldap_explode_dn(dn.into(), notypes)
@@ -2318,7 +2318,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_explode_dnA(dn: ::windows::core::PCSTR, notypes: u32) -> *mut ::windows::core::PSTR;
     }
     ldap_explode_dnA(dn.into(), notypes)
@@ -2330,7 +2330,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_explode_dnW(dn: ::windows::core::PCWSTR, notypes: u32) -> *mut ::windows::core::PWSTR;
     }
     ldap_explode_dnW(dn.into(), notypes)
@@ -2343,7 +2343,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_extended_operation(ld: *mut ldap, oid: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_extended_operation(::core::mem::transmute(ld), oid.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2356,7 +2356,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_extended_operationA(ld: *mut ldap, oid: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_extended_operationA(::core::mem::transmute(ld), oid.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2369,7 +2369,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_extended_operationW(ld: *mut ldap, oid: ::windows::core::PCWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
     }
     ldap_extended_operationW(::core::mem::transmute(ld), oid.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2382,7 +2382,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_extended_operation_sA(externalhandle: *mut ldap, oid: ::windows::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, returnedoid: *mut ::windows::core::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
     }
     ldap_extended_operation_sA(::core::mem::transmute(externalhandle), oid.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(returnedoid), ::core::mem::transmute(returneddata))
@@ -2395,7 +2395,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_extended_operation_sW(externalhandle: *mut ldap, oid: ::windows::core::PCWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, returnedoid: *mut ::windows::core::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
     }
     ldap_extended_operation_sW(::core::mem::transmute(externalhandle), oid.into(), ::core::mem::transmute(data), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(returnedoid), ::core::mem::transmute(returneddata))
@@ -2405,7 +2405,7 @@ where
 #[inline]
 pub unsafe fn ldap_first_attribute(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut *mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR;
     }
     ldap_first_attribute(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr))
@@ -2415,7 +2415,7 @@ pub unsafe fn ldap_first_attribute(ld: &mut ldap, entry: &mut LDAPMessage, ptr: 
 #[inline]
 pub unsafe fn ldap_first_attributeA(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut *mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PSTR;
     }
     ldap_first_attributeA(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr))
@@ -2425,7 +2425,7 @@ pub unsafe fn ldap_first_attributeA(ld: &mut ldap, entry: &mut LDAPMessage, ptr:
 #[inline]
 pub unsafe fn ldap_first_attributeW(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut *mut berelement) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows::core::PWSTR;
     }
     ldap_first_attributeW(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr))
@@ -2435,7 +2435,7 @@ pub unsafe fn ldap_first_attributeW(ld: &mut ldap, entry: &mut LDAPMessage, ptr:
 #[inline]
 pub unsafe fn ldap_first_entry(ld: &mut ldap, res: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
     }
     ldap_first_entry(::core::mem::transmute(ld), ::core::mem::transmute(res))
@@ -2445,7 +2445,7 @@ pub unsafe fn ldap_first_entry(ld: &mut ldap, res: &mut LDAPMessage) -> *mut LDA
 #[inline]
 pub unsafe fn ldap_first_reference(ld: &mut ldap, res: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
     }
     ldap_first_reference(::core::mem::transmute(ld), ::core::mem::transmute(res))
@@ -2455,7 +2455,7 @@ pub unsafe fn ldap_first_reference(ld: &mut ldap, res: &mut LDAPMessage) -> *mut
 #[inline]
 pub unsafe fn ldap_free_controls(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_free_controls(::core::mem::transmute(controls))
@@ -2465,7 +2465,7 @@ pub unsafe fn ldap_free_controls(controls: &mut *mut ldapcontrolA) -> u32 {
 #[inline]
 pub unsafe fn ldap_free_controlsA(controls: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_free_controlsA(::core::mem::transmute(controls))
@@ -2475,7 +2475,7 @@ pub unsafe fn ldap_free_controlsA(controls: &mut *mut ldapcontrolA) -> u32 {
 #[inline]
 pub unsafe fn ldap_free_controlsW(controls: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_free_controlsW(::core::mem::transmute(controls))
@@ -2485,7 +2485,7 @@ pub unsafe fn ldap_free_controlsW(controls: &mut *mut ldapcontrolW) -> u32 {
 #[inline]
 pub unsafe fn ldap_get_dn(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR;
     }
     ldap_get_dn(::core::mem::transmute(ld), ::core::mem::transmute(entry))
@@ -2495,7 +2495,7 @@ pub unsafe fn ldap_get_dn(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows::
 #[inline]
 pub unsafe fn ldap_get_dnA(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PSTR;
     }
     ldap_get_dnA(::core::mem::transmute(ld), ::core::mem::transmute(entry))
@@ -2505,7 +2505,7 @@ pub unsafe fn ldap_get_dnA(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows:
 #[inline]
 pub unsafe fn ldap_get_dnW(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows::core::PWSTR;
     }
     ldap_get_dnW(::core::mem::transmute(ld), ::core::mem::transmute(entry))
@@ -2514,7 +2514,7 @@ pub unsafe fn ldap_get_dnW(ld: &mut ldap, entry: &mut LDAPMessage) -> ::windows:
 #[inline]
 pub unsafe fn ldap_get_next_page(externalhandle: &mut ldap, searchhandle: &mut ldapsearch, pagesize: u32, messagenumber: &mut u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_next_page(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, pagesize: u32, messagenumber: *mut u32) -> u32;
     }
     ldap_get_next_page(::core::mem::transmute(externalhandle), ::core::mem::transmute(searchhandle), pagesize, ::core::mem::transmute(messagenumber))
@@ -2524,7 +2524,7 @@ pub unsafe fn ldap_get_next_page(externalhandle: &mut ldap, searchhandle: &mut l
 #[inline]
 pub unsafe fn ldap_get_next_page_s(externalhandle: &mut ldap, searchhandle: &mut ldapsearch, timeout: &mut LDAP_TIMEVAL, pagesize: u32, totalcount: &mut u32, results: &mut *mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_next_page_s(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, timeout: *mut LDAP_TIMEVAL, pagesize: u32, totalcount: *mut u32, results: *mut *mut LDAPMessage) -> u32;
     }
     ldap_get_next_page_s(::core::mem::transmute(externalhandle), ::core::mem::transmute(searchhandle), ::core::mem::transmute(timeout), pagesize, ::core::mem::transmute(totalcount), ::core::mem::transmute(results))
@@ -2533,7 +2533,7 @@ pub unsafe fn ldap_get_next_page_s(externalhandle: &mut ldap, searchhandle: &mut
 #[inline]
 pub unsafe fn ldap_get_option(ld: &mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_option(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32;
     }
     ldap_get_option(::core::mem::transmute(ld), option, ::core::mem::transmute(outvalue))
@@ -2542,7 +2542,7 @@ pub unsafe fn ldap_get_option(ld: &mut ldap, option: i32, outvalue: *mut ::core:
 #[inline]
 pub unsafe fn ldap_get_optionW(ld: &mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_optionW(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32;
     }
     ldap_get_optionW(::core::mem::transmute(ld), option, ::core::mem::transmute(outvalue))
@@ -2552,7 +2552,7 @@ pub unsafe fn ldap_get_optionW(ld: &mut ldap, option: i32, outvalue: *mut ::core
 #[inline]
 pub unsafe fn ldap_get_paged_count(externalhandle: &mut ldap, searchblock: &mut ldapsearch, totalcount: &mut u32, results: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_paged_count(externalhandle: *mut ldap, searchblock: *mut ldapsearch, totalcount: *mut u32, results: *mut LDAPMessage) -> u32;
     }
     ldap_get_paged_count(::core::mem::transmute(externalhandle), ::core::mem::transmute(searchblock), ::core::mem::transmute(totalcount), ::core::mem::transmute(results))
@@ -2565,7 +2565,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_values(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut ::windows::core::PSTR;
     }
     ldap_get_values(::core::mem::transmute(ld), ::core::mem::transmute(entry), attr.into())
@@ -2578,7 +2578,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_valuesA(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut ::windows::core::PSTR;
     }
     ldap_get_valuesA(::core::mem::transmute(ld), ::core::mem::transmute(entry), attr.into())
@@ -2591,7 +2591,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_valuesW(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows::core::PCWSTR) -> *mut ::windows::core::PWSTR;
     }
     ldap_get_valuesW(::core::mem::transmute(ld), ::core::mem::transmute(entry), attr.into())
@@ -2604,7 +2604,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_values_len(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut *mut LDAP_BERVAL;
     }
     ldap_get_values_len(::core::mem::transmute(externalhandle), ::core::mem::transmute(message), attr.into())
@@ -2617,7 +2617,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_values_lenA(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows::core::PCSTR) -> *mut *mut LDAP_BERVAL;
     }
     ldap_get_values_lenA(::core::mem::transmute(externalhandle), ::core::mem::transmute(message), attr.into())
@@ -2630,7 +2630,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_get_values_lenW(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows::core::PCWSTR) -> *mut *mut LDAP_BERVAL;
     }
     ldap_get_values_lenW(::core::mem::transmute(externalhandle), ::core::mem::transmute(message), attr.into())
@@ -2642,7 +2642,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_init(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
     }
     ldap_init(hostname.into(), portnumber)
@@ -2654,7 +2654,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_initA(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
     }
     ldap_initA(hostname.into(), portnumber)
@@ -2666,7 +2666,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_initW(hostname: ::windows::core::PCWSTR, portnumber: u32) -> *mut ldap;
     }
     ldap_initW(hostname.into(), portnumber)
@@ -2678,7 +2678,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_memfree(block: ::windows::core::PCSTR);
     }
     ldap_memfree(block.into())
@@ -2690,7 +2690,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_memfreeA(block: ::windows::core::PCSTR);
     }
     ldap_memfreeA(block.into())
@@ -2702,7 +2702,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_memfreeW(block: ::windows::core::PCWSTR);
     }
     ldap_memfreeW(block.into())
@@ -2714,7 +2714,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
     }
     ldap_modify(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods))
@@ -2726,7 +2726,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modifyA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
     }
     ldap_modifyA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods))
@@ -2738,7 +2738,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modifyW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW) -> u32;
     }
     ldap_modifyW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods))
@@ -2751,7 +2751,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_modify_ext(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2764,7 +2764,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_modify_extA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2777,7 +2777,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
     }
     ldap_modify_extW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -2790,7 +2790,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_modify_ext_s(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -2803,7 +2803,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_modify_ext_sA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -2816,7 +2816,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_modify_ext_sW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -2828,7 +2828,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_s(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
     }
     ldap_modify_s(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods))
@@ -2840,7 +2840,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
     }
     ldap_modify_sA(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods))
@@ -2852,7 +2852,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modify_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, mods: *mut *mut ldapmodW) -> u32;
     }
     ldap_modify_sW(::core::mem::transmute(ld), dn.into(), ::core::mem::transmute(mods))
@@ -2865,7 +2865,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
     }
     ldap_modrdn(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into())
@@ -2878,7 +2878,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn2(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
     }
     ldap_modrdn2(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into(), deleteoldrdn)
@@ -2891,7 +2891,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn2A(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
     }
     ldap_modrdn2A(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into(), deleteoldrdn)
@@ -2904,7 +2904,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn2W(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR, deleteoldrdn: i32) -> u32;
     }
     ldap_modrdn2W(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into(), deleteoldrdn)
@@ -2917,7 +2917,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn2_s(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
     }
     ldap_modrdn2_s(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into(), deleteoldrdn)
@@ -2930,7 +2930,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn2_sA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR, deleteoldrdn: i32) -> u32;
     }
     ldap_modrdn2_sA(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into(), deleteoldrdn)
@@ -2943,7 +2943,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn2_sW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR, deleteoldrdn: i32) -> u32;
     }
     ldap_modrdn2_sW(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into(), deleteoldrdn)
@@ -2956,7 +2956,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdnA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
     }
     ldap_modrdnA(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into())
@@ -2969,7 +2969,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdnW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR) -> u32;
     }
     ldap_modrdnW(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into())
@@ -2982,7 +2982,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn_s(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
     }
     ldap_modrdn_s(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into())
@@ -2995,7 +2995,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn_sA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, newdistinguishedname: ::windows::core::PCSTR) -> u32;
     }
     ldap_modrdn_sA(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into())
@@ -3008,7 +3008,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_modrdn_sW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, newdistinguishedname: ::windows::core::PCWSTR) -> u32;
     }
     ldap_modrdn_sW(::core::mem::transmute(externalhandle), distinguishedname.into(), newdistinguishedname.into())
@@ -3018,7 +3018,7 @@ where
 #[inline]
 pub unsafe fn ldap_msgfree(res: &mut LDAPMessage) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_msgfree(res: *mut LDAPMessage) -> u32;
     }
     ldap_msgfree(::core::mem::transmute(res))
@@ -3028,7 +3028,7 @@ pub unsafe fn ldap_msgfree(res: &mut LDAPMessage) -> u32 {
 #[inline]
 pub unsafe fn ldap_next_attribute(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR;
     }
     ldap_next_attribute(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr))
@@ -3038,7 +3038,7 @@ pub unsafe fn ldap_next_attribute(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &
 #[inline]
 pub unsafe fn ldap_next_attributeA(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut berelement) -> ::windows::core::PSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PSTR;
     }
     ldap_next_attributeA(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr))
@@ -3048,7 +3048,7 @@ pub unsafe fn ldap_next_attributeA(ld: &mut ldap, entry: &mut LDAPMessage, ptr: 
 #[inline]
 pub unsafe fn ldap_next_attributeW(ld: &mut ldap, entry: &mut LDAPMessage, ptr: &mut berelement) -> ::windows::core::PWSTR {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows::core::PWSTR;
     }
     ldap_next_attributeW(::core::mem::transmute(ld), ::core::mem::transmute(entry), ::core::mem::transmute(ptr))
@@ -3058,7 +3058,7 @@ pub unsafe fn ldap_next_attributeW(ld: &mut ldap, entry: &mut LDAPMessage, ptr: 
 #[inline]
 pub unsafe fn ldap_next_entry(ld: &mut ldap, entry: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
     }
     ldap_next_entry(::core::mem::transmute(ld), ::core::mem::transmute(entry))
@@ -3068,7 +3068,7 @@ pub unsafe fn ldap_next_entry(ld: &mut ldap, entry: &mut LDAPMessage) -> *mut LD
 #[inline]
 pub unsafe fn ldap_next_reference(ld: &mut ldap, entry: &mut LDAPMessage) -> *mut LDAPMessage {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_next_reference(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
     }
     ldap_next_reference(::core::mem::transmute(ld), ::core::mem::transmute(entry))
@@ -3080,7 +3080,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_open(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
     }
     ldap_open(hostname.into(), portnumber)
@@ -3092,7 +3092,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_openA(hostname: ::windows::core::PCSTR, portnumber: u32) -> *mut ldap;
     }
     ldap_openA(hostname.into(), portnumber)
@@ -3104,7 +3104,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_openW(hostname: ::windows::core::PCWSTR, portnumber: u32) -> *mut ldap;
     }
     ldap_openW(hostname.into(), portnumber)
@@ -3117,7 +3117,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_extended_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
     }
     ldap_parse_extended_resultA(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(resultoid), ::core::mem::transmute(resultdata), freeit.into())
@@ -3130,7 +3130,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_extended_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows::core::PWSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
     }
     ldap_parse_extended_resultW(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(resultoid), ::core::mem::transmute(resultdata), freeit.into())
@@ -3140,7 +3140,7 @@ where
 #[inline]
 pub unsafe fn ldap_parse_page_control(externalhandle: &mut ldap, servercontrols: &mut *mut ldapcontrolA, totalcount: &mut u32, cookie: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_page_control(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
     }
     ldap_parse_page_control(::core::mem::transmute(externalhandle), ::core::mem::transmute(servercontrols), ::core::mem::transmute(totalcount), ::core::mem::transmute(cookie))
@@ -3150,7 +3150,7 @@ pub unsafe fn ldap_parse_page_control(externalhandle: &mut ldap, servercontrols:
 #[inline]
 pub unsafe fn ldap_parse_page_controlA(externalhandle: &mut ldap, servercontrols: &mut *mut ldapcontrolA, totalcount: &mut u32, cookie: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_page_controlA(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
     }
     ldap_parse_page_controlA(::core::mem::transmute(externalhandle), ::core::mem::transmute(servercontrols), ::core::mem::transmute(totalcount), ::core::mem::transmute(cookie))
@@ -3160,7 +3160,7 @@ pub unsafe fn ldap_parse_page_controlA(externalhandle: &mut ldap, servercontrols
 #[inline]
 pub unsafe fn ldap_parse_page_controlW(externalhandle: &mut ldap, servercontrols: &mut *mut ldapcontrolW, totalcount: &mut u32, cookie: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_page_controlW(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolW, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
     }
     ldap_parse_page_controlW(::core::mem::transmute(externalhandle), ::core::mem::transmute(servercontrols), ::core::mem::transmute(totalcount), ::core::mem::transmute(cookie))
@@ -3170,7 +3170,7 @@ pub unsafe fn ldap_parse_page_controlW(externalhandle: &mut ldap, servercontrols
 #[inline]
 pub unsafe fn ldap_parse_reference(connection: &mut ldap, resultmessage: &mut LDAPMessage, referrals: &mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32;
     }
     ldap_parse_reference(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(referrals))
@@ -3180,7 +3180,7 @@ pub unsafe fn ldap_parse_reference(connection: &mut ldap, resultmessage: &mut LD
 #[inline]
 pub unsafe fn ldap_parse_referenceA(connection: &mut ldap, resultmessage: &mut LDAPMessage, referrals: &mut *mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PSTR) -> u32;
     }
     ldap_parse_referenceA(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(referrals))
@@ -3190,7 +3190,7 @@ pub unsafe fn ldap_parse_referenceA(connection: &mut ldap, resultmessage: &mut L
 #[inline]
 pub unsafe fn ldap_parse_referenceW(connection: &mut ldap, resultmessage: &mut LDAPMessage, referrals: &mut *mut ::windows::core::PWSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows::core::PWSTR) -> u32;
     }
     ldap_parse_referenceW(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(referrals))
@@ -3203,7 +3203,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_result(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut ::windows::core::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
     }
     ldap_parse_result(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into())
@@ -3216,7 +3216,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PSTR, errormessage: *mut ::windows::core::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
     }
     ldap_parse_resultA(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into())
@@ -3229,7 +3229,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows::core::PWSTR, errormessage: *mut ::windows::core::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: super::super::Foundation::BOOLEAN) -> u32;
     }
     ldap_parse_resultW(::core::mem::transmute(connection), ::core::mem::transmute(resultmessage), ::core::mem::transmute(returncode), ::core::mem::transmute(matcheddns), ::core::mem::transmute(errormessage), ::core::mem::transmute(referrals), ::core::mem::transmute(servercontrols), freeit.into())
@@ -3239,7 +3239,7 @@ where
 #[inline]
 pub unsafe fn ldap_parse_sort_control(externalhandle: &mut ldap, control: &mut *mut ldapcontrolA, result: &mut u32, attribute: &mut ::windows::core::PSTR) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32;
     }
     ldap_parse_sort_control(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(result), ::core::mem::transmute(attribute))
@@ -3249,7 +3249,7 @@ pub unsafe fn ldap_parse_sort_control(externalhandle: &mut ldap, control: &mut *
 #[inline]
 pub unsafe fn ldap_parse_sort_controlA(externalhandle: &mut ldap, control: &mut *mut ldapcontrolA, result: &mut u32, attribute: ::core::option::Option<&mut ::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows::core::PSTR) -> u32;
     }
     ldap_parse_sort_controlA(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(result), ::core::mem::transmute(attribute))
@@ -3259,7 +3259,7 @@ pub unsafe fn ldap_parse_sort_controlA(externalhandle: &mut ldap, control: &mut 
 #[inline]
 pub unsafe fn ldap_parse_sort_controlW(externalhandle: &mut ldap, control: &mut *mut ldapcontrolW, result: &mut u32, attribute: ::core::option::Option<&mut ::windows::core::PWSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut ::windows::core::PWSTR) -> u32;
     }
     ldap_parse_sort_controlW(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(result), ::core::mem::transmute(attribute))
@@ -3269,7 +3269,7 @@ pub unsafe fn ldap_parse_sort_controlW(externalhandle: &mut ldap, control: &mut 
 #[inline]
 pub unsafe fn ldap_parse_vlv_controlA(externalhandle: &mut ldap, control: &mut *mut ldapcontrolA, targetpos: &mut u32, listcount: &mut u32, context: &mut *mut LDAP_BERVAL, errcode: &mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_vlv_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32;
     }
     ldap_parse_vlv_controlA(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(targetpos), ::core::mem::transmute(listcount), ::core::mem::transmute(context), ::core::mem::transmute(errcode))
@@ -3279,7 +3279,7 @@ pub unsafe fn ldap_parse_vlv_controlA(externalhandle: &mut ldap, control: &mut *
 #[inline]
 pub unsafe fn ldap_parse_vlv_controlW(externalhandle: &mut ldap, control: &mut *mut ldapcontrolW, targetpos: &mut u32, listcount: &mut u32, context: &mut *mut LDAP_BERVAL, errcode: &mut i32) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_parse_vlv_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32;
     }
     ldap_parse_vlv_controlW(::core::mem::transmute(externalhandle), ::core::mem::transmute(control), ::core::mem::transmute(targetpos), ::core::mem::transmute(listcount), ::core::mem::transmute(context), ::core::mem::transmute(errcode))
@@ -3291,7 +3291,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_perror(ld: *mut ldap, msg: ::windows::core::PCSTR);
     }
     ldap_perror(::core::mem::transmute(ld), msg.into())
@@ -3306,7 +3306,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_rename_ext(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_rename_ext(::core::mem::transmute(ld), dn.into(), newrdn.into(), newparent.into(), deleteoldrdn, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -3321,7 +3321,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_rename_extA(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
     }
     ldap_rename_extA(::core::mem::transmute(ld), dn.into(), newrdn.into(), newparent.into(), deleteoldrdn, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -3336,7 +3336,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_rename_extW(ld: *mut ldap, dn: ::windows::core::PCWSTR, newrdn: ::windows::core::PCWSTR, newparent: ::windows::core::PCWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
     }
     ldap_rename_extW(::core::mem::transmute(ld), dn.into(), newrdn.into(), newparent.into(), deleteoldrdn, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(messagenumber))
@@ -3351,7 +3351,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_rename_ext_s(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_rename_ext_s(::core::mem::transmute(ld), dn.into(), newrdn.into(), newparent.into(), deleteoldrdn, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -3366,7 +3366,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_rename_ext_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, newrdn: ::windows::core::PCSTR, newparent: ::windows::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_rename_ext_sA(::core::mem::transmute(ld), dn.into(), newrdn.into(), newparent.into(), deleteoldrdn, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -3381,7 +3381,7 @@ where
     P2: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_rename_ext_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, newrdn: ::windows::core::PCWSTR, newparent: ::windows::core::PCWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_rename_ext_sW(::core::mem::transmute(ld), dn.into(), newrdn.into(), newparent.into(), deleteoldrdn, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -3391,7 +3391,7 @@ where
 #[inline]
 pub unsafe fn ldap_result(ld: &mut ldap, msgid: u32, all: u32, timeout: ::core::option::Option<&LDAP_TIMEVAL>, res: ::core::option::Option<&mut *mut LDAPMessage>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_result(ld: *mut ldap, msgid: u32, all: u32, timeout: *const LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_result(::core::mem::transmute(ld), msgid, all, ::core::mem::transmute(timeout), ::core::mem::transmute(res))
@@ -3401,7 +3401,7 @@ pub unsafe fn ldap_result(ld: &mut ldap, msgid: u32, all: u32, timeout: ::core::
 #[inline]
 pub unsafe fn ldap_result2error(ld: &mut ldap, res: &mut LDAPMessage, freeit: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u32) -> u32;
     }
     ldap_result2error(::core::mem::transmute(ld), ::core::mem::transmute(res), freeit)
@@ -3415,7 +3415,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_sasl_bindA(externalhandle: *mut ldap, distname: ::windows::core::PCSTR, authmechanism: ::windows::core::PCSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, messagenumber: *mut i32) -> i32;
     }
     ldap_sasl_bindA(::core::mem::transmute(externalhandle), distname.into(), authmechanism.into(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(messagenumber))
@@ -3429,7 +3429,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_sasl_bindW(externalhandle: *mut ldap, distname: ::windows::core::PCWSTR, authmechanism: ::windows::core::PCWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, messagenumber: *mut i32) -> i32;
     }
     ldap_sasl_bindW(::core::mem::transmute(externalhandle), distname.into(), authmechanism.into(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(messagenumber))
@@ -3443,7 +3443,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_sasl_bind_sA(externalhandle: *mut ldap, distname: ::windows::core::PCSTR, authmechanism: ::windows::core::PCSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, serverdata: *mut *mut LDAP_BERVAL) -> i32;
     }
     ldap_sasl_bind_sA(::core::mem::transmute(externalhandle), distname.into(), authmechanism.into(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(serverdata))
@@ -3457,7 +3457,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_sasl_bind_sW(externalhandle: *mut ldap, distname: ::windows::core::PCWSTR, authmechanism: ::windows::core::PCWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, serverdata: *mut *mut LDAP_BERVAL) -> i32;
     }
     ldap_sasl_bind_sW(::core::mem::transmute(externalhandle), distname.into(), authmechanism.into(), ::core::mem::transmute(cred), ::core::mem::transmute(serverctrls), ::core::mem::transmute(clientctrls), ::core::mem::transmute(serverdata))
@@ -3470,7 +3470,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
     }
     ldap_search(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly)
@@ -3483,7 +3483,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_searchA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
     }
     ldap_searchA(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly)
@@ -3496,7 +3496,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_searchW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32) -> u32;
     }
     ldap_searchW(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly)
@@ -3505,7 +3505,7 @@ where
 #[inline]
 pub unsafe fn ldap_search_abandon_page(externalhandle: &mut ldap, searchblock: &mut ldapsearch) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_abandon_page(externalhandle: *mut ldap, searchblock: *mut ldapsearch) -> u32;
     }
     ldap_search_abandon_page(::core::mem::transmute(externalhandle), ::core::mem::transmute(searchblock))
@@ -3519,7 +3519,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_ext(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
     }
     ldap_search_ext(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), timelimit, sizelimit, ::core::mem::transmute(messagenumber))
@@ -3533,7 +3533,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_extA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
     }
     ldap_search_extA(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), timelimit, sizelimit, ::core::mem::transmute(messagenumber))
@@ -3547,7 +3547,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_extW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
     }
     ldap_search_extW(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), timelimit, sizelimit, ::core::mem::transmute(messagenumber))
@@ -3561,7 +3561,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_ext_s(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_ext_s(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), sizelimit, ::core::mem::transmute(res))
@@ -3575,7 +3575,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_ext_sA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_ext_sA(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), sizelimit, ::core::mem::transmute(res))
@@ -3589,7 +3589,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_ext_sW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_ext_sW(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), ::core::mem::transmute(timeout), sizelimit, ::core::mem::transmute(res))
@@ -3603,7 +3603,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_init_page(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, scopeofsearch: u32, searchfilter: ::windows::core::PCSTR, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
     }
     ldap_search_init_page(::core::mem::transmute(externalhandle), distinguishedname.into(), scopeofsearch, searchfilter.into(), ::core::mem::transmute(attributelist), attributesonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), pagetimelimit, totalsizelimit, ::core::mem::transmute(sortkeys))
@@ -3617,7 +3617,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_init_pageA(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCSTR, scopeofsearch: u32, searchfilter: ::windows::core::PCSTR, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
     }
     ldap_search_init_pageA(::core::mem::transmute(externalhandle), distinguishedname.into(), scopeofsearch, searchfilter.into(), ::core::mem::transmute(attributelist), attributesonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), pagetimelimit, totalsizelimit, ::core::mem::transmute(sortkeys))
@@ -3631,7 +3631,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_init_pageW(externalhandle: *mut ldap, distinguishedname: ::windows::core::PCWSTR, scopeofsearch: u32, searchfilter: ::windows::core::PCWSTR, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch;
     }
     ldap_search_init_pageW(::core::mem::transmute(externalhandle), distinguishedname.into(), scopeofsearch, searchfilter.into(), ::core::mem::transmute(attributelist), attributesonly, ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols), pagetimelimit, totalsizelimit, ::core::mem::transmute(sortkeys))
@@ -3645,7 +3645,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_s(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_s(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(res))
@@ -3659,7 +3659,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_sA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_sA(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(res))
@@ -3673,7 +3673,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_sW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_sW(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(res))
@@ -3687,7 +3687,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_st(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_st(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(timeout), ::core::mem::transmute(res))
@@ -3701,7 +3701,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_stA(ld: *mut ldap, base: ::windows::core::PCSTR, scope: u32, filter: ::windows::core::PCSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_stA(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(timeout), ::core::mem::transmute(res))
@@ -3715,7 +3715,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_search_stW(ld: *mut ldap, base: ::windows::core::PCWSTR, scope: u32, filter: ::windows::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
     }
     ldap_search_stW(::core::mem::transmute(ld), base.into(), scope, filter.into(), ::core::mem::transmute(attrs), attrsonly, ::core::mem::transmute(timeout), ::core::mem::transmute(res))
@@ -3724,7 +3724,7 @@ where
 #[inline]
 pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_set_dbg_flags(newflags: u32) -> u32;
     }
     ldap_set_dbg_flags(newflags)
@@ -3733,7 +3733,7 @@ pub unsafe fn ldap_set_dbg_flags(newflags: u32) -> u32 {
 #[inline]
 pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_set_dbg_routine(debugprintroutine: *mut ::core::ffi::c_void);
     }
     ldap_set_dbg_routine(::core::mem::transmute(debugprintroutine))
@@ -3742,7 +3742,7 @@ pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
 #[inline]
 pub unsafe fn ldap_set_option(ld: &mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32;
     }
     ldap_set_option(::core::mem::transmute(ld), option, ::core::mem::transmute(invalue))
@@ -3751,7 +3751,7 @@ pub unsafe fn ldap_set_option(ld: &mut ldap, option: i32, invalue: *const ::core
 #[inline]
 pub unsafe fn ldap_set_optionW(ld: &mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_set_optionW(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32;
     }
     ldap_set_optionW(::core::mem::transmute(ld), option, ::core::mem::transmute(invalue))
@@ -3764,7 +3764,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_simple_bind(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
     }
     ldap_simple_bind(::core::mem::transmute(ld), dn.into(), passwd.into())
@@ -3777,7 +3777,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_simple_bindA(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
     }
     ldap_simple_bindA(::core::mem::transmute(ld), dn.into(), passwd.into())
@@ -3790,7 +3790,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_simple_bindW(ld: *mut ldap, dn: ::windows::core::PCWSTR, passwd: ::windows::core::PCWSTR) -> u32;
     }
     ldap_simple_bindW(::core::mem::transmute(ld), dn.into(), passwd.into())
@@ -3803,7 +3803,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_simple_bind_s(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
     }
     ldap_simple_bind_s(::core::mem::transmute(ld), dn.into(), passwd.into())
@@ -3816,7 +3816,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_simple_bind_sA(ld: *mut ldap, dn: ::windows::core::PCSTR, passwd: ::windows::core::PCSTR) -> u32;
     }
     ldap_simple_bind_sA(::core::mem::transmute(ld), dn.into(), passwd.into())
@@ -3829,7 +3829,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_simple_bind_sW(ld: *mut ldap, dn: ::windows::core::PCWSTR, passwd: ::windows::core::PCWSTR) -> u32;
     }
     ldap_simple_bind_sW(::core::mem::transmute(ld), dn.into(), passwd.into())
@@ -3841,7 +3841,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_sslinit(hostname: ::windows::core::PCSTR, portnumber: u32, secure: i32) -> *mut ldap;
     }
     ldap_sslinit(hostname.into(), portnumber, secure)
@@ -3853,7 +3853,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_sslinitA(hostname: ::windows::core::PCSTR, portnumber: u32, secure: i32) -> *mut ldap;
     }
     ldap_sslinitA(hostname.into(), portnumber, secure)
@@ -3865,7 +3865,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_sslinitW(hostname: ::windows::core::PCWSTR, portnumber: u32, secure: i32) -> *mut ldap;
     }
     ldap_sslinitW(hostname.into(), portnumber, secure)
@@ -3875,7 +3875,7 @@ where
 #[inline]
 pub unsafe fn ldap_start_tls_sA(externalhandle: &mut ldap, serverreturnvalue: &mut u32, result: &mut *mut LDAPMessage, servercontrols: &mut *mut ldapcontrolA, clientcontrols: &mut *mut ldapcontrolA) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_start_tls_sA(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
     }
     ldap_start_tls_sA(::core::mem::transmute(externalhandle), ::core::mem::transmute(serverreturnvalue), ::core::mem::transmute(result), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -3885,7 +3885,7 @@ pub unsafe fn ldap_start_tls_sA(externalhandle: &mut ldap, serverreturnvalue: &m
 #[inline]
 pub unsafe fn ldap_start_tls_sW(externalhandle: &mut ldap, serverreturnvalue: &mut u32, result: &mut *mut LDAPMessage, servercontrols: &mut *mut ldapcontrolW, clientcontrols: &mut *mut ldapcontrolW) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_start_tls_sW(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
     }
     ldap_start_tls_sW(::core::mem::transmute(externalhandle), ::core::mem::transmute(serverreturnvalue), ::core::mem::transmute(result), ::core::mem::transmute(servercontrols), ::core::mem::transmute(clientcontrols))
@@ -3895,7 +3895,7 @@ pub unsafe fn ldap_start_tls_sW(externalhandle: &mut ldap, serverreturnvalue: &m
 #[inline]
 pub unsafe fn ldap_startup(version: &mut ldap_version_info, instance: &mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_startup(version: *mut ldap_version_info, instance: *mut super::super::Foundation::HANDLE) -> u32;
     }
     ldap_startup(::core::mem::transmute(version), ::core::mem::transmute(instance))
@@ -3905,7 +3905,7 @@ pub unsafe fn ldap_startup(version: &mut ldap_version_info, instance: &mut super
 #[inline]
 pub unsafe fn ldap_stop_tls_s(externalhandle: &mut ldap) -> super::super::Foundation::BOOLEAN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Foundation::BOOLEAN;
     }
     ldap_stop_tls_s(::core::mem::transmute(externalhandle))
@@ -3917,7 +3917,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_ufn2dn(ufn: ::windows::core::PCSTR, pdn: *mut ::windows::core::PSTR) -> u32;
     }
     ldap_ufn2dn(ufn.into(), ::core::mem::transmute(pdn))
@@ -3929,7 +3929,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_ufn2dnA(ufn: ::windows::core::PCSTR, pdn: *mut ::windows::core::PSTR) -> u32;
     }
     ldap_ufn2dnA(ufn.into(), ::core::mem::transmute(pdn))
@@ -3941,7 +3941,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_ufn2dnW(ufn: ::windows::core::PCWSTR, pdn: *mut ::windows::core::PWSTR) -> u32;
     }
     ldap_ufn2dnW(ufn.into(), ::core::mem::transmute(pdn))
@@ -3950,7 +3950,7 @@ where
 #[inline]
 pub unsafe fn ldap_unbind(ld: &mut ldap) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_unbind(ld: *mut ldap) -> u32;
     }
     ldap_unbind(::core::mem::transmute(ld))
@@ -3959,7 +3959,7 @@ pub unsafe fn ldap_unbind(ld: &mut ldap) -> u32 {
 #[inline]
 pub unsafe fn ldap_unbind_s(ld: &mut ldap) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_unbind_s(ld: *mut ldap) -> u32;
     }
     ldap_unbind_s(::core::mem::transmute(ld))
@@ -3968,7 +3968,7 @@ pub unsafe fn ldap_unbind_s(ld: &mut ldap) -> u32 {
 #[inline]
 pub unsafe fn ldap_value_free(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_value_free(vals: *const ::windows::core::PSTR) -> u32;
     }
     ldap_value_free(::core::mem::transmute(vals))
@@ -3977,7 +3977,7 @@ pub unsafe fn ldap_value_free(vals: ::core::option::Option<&::windows::core::PST
 #[inline]
 pub unsafe fn ldap_value_freeA(vals: ::core::option::Option<&::windows::core::PSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_value_freeA(vals: *const ::windows::core::PSTR) -> u32;
     }
     ldap_value_freeA(::core::mem::transmute(vals))
@@ -3986,7 +3986,7 @@ pub unsafe fn ldap_value_freeA(vals: ::core::option::Option<&::windows::core::PS
 #[inline]
 pub unsafe fn ldap_value_freeW(vals: ::core::option::Option<&::windows::core::PWSTR>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_value_freeW(vals: *const ::windows::core::PWSTR) -> u32;
     }
     ldap_value_freeW(::core::mem::transmute(vals))
@@ -3995,7 +3995,7 @@ pub unsafe fn ldap_value_freeW(vals: ::core::option::Option<&::windows::core::PW
 #[inline]
 pub unsafe fn ldap_value_free_len(vals: &mut *mut LDAP_BERVAL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32;
     }
     ldap_value_free_len(::core::mem::transmute(vals))

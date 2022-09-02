@@ -4444,7 +4444,7 @@ where
 #[inline]
 pub unsafe fn PxeProviderFreeInfo(pprovider: &PXE_PROVIDER) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn PxeProviderFreeInfo(pprovider: *const PXE_PROVIDER) -> u32;
     }
     PxeProviderFreeInfo(::core::mem::transmute(pprovider))
@@ -4536,7 +4536,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn PxeTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pszformat: ::windows::core::PCWSTR) -> u32;
     }
     PxeTrace(hprovider.into(), severity, pszformat.into())
@@ -6079,7 +6079,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WdsCliLog(hsession: super::super::Foundation::HANDLE, ulloglevel: u32, ulmessagecode: u32) -> ::windows::core::HRESULT;
     }
     WdsCliLog(hsession.into(), ulloglevel, ulmessagecode).ok()
@@ -6401,7 +6401,7 @@ where
     P1: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WdsTransportServerTrace(hprovider: super::super::Foundation::HANDLE, severity: u32, pwszformat: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
     }
     WdsTransportServerTrace(hprovider.into(), severity, pwszformat.into()).ok()

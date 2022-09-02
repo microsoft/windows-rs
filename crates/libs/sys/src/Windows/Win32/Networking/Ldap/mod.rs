@@ -1,611 +1,1337 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn LdapGetLastError() -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn LdapMapErrorToWin32(ldaperror: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn LdapUTF8ToUnicode(lpsrcstr: ::windows_sys::core::PCSTR, cchsrc: i32, lpdeststr: ::windows_sys::core::PWSTR, cchdest: i32) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn LdapUnicodeToUTF8(lpsrcstr: ::windows_sys::core::PCWSTR, cchsrc: i32, lpdeststr: ::windows_sys::core::PSTR, cchdest: i32) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_alloc_t(options: i32) -> *mut berelement;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_bvdup(pberval: *mut LDAP_BERVAL) -> *mut LDAP_BERVAL;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_bvfree(bv: *mut LDAP_BERVAL);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ber_first_element(pberelement: *mut berelement, plen: *mut u32, ppopaque: *mut *mut super::super::Foundation::CHAR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_flatten(pberelement: *mut berelement, pberval: *mut *mut LDAP_BERVAL) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_free(pberelement: *mut berelement, fbuf: i32);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_init(pberval: *mut LDAP_BERVAL) -> *mut berelement;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_next_element(pberelement: *mut berelement, plen: *mut u32, opaque: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_peek_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_printf(pberelement: *mut berelement, fmt: ::windows_sys::core::PCSTR) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_scanf(pberelement: *mut berelement, fmt: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn cldap_open(hostname: ::windows_sys::core::PCSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn cldap_openA(hostname: ::windows_sys::core::PCSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn cldap_openW(hostname: ::windows_sys::core::PCWSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_abandon(ld: *mut ldap, msgid: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_add(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_addA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_addW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attrs: *mut *mut ldapmodW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_add_ext(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_add_extA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_add_extW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_add_ext_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_add_ext_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_add_ext_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attrs: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_add_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_add_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attrs: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_add_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attrs: *mut *mut ldapmodW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_bind(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, cred: ::windows_sys::core::PCSTR, method: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_bindA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, cred: ::windows_sys::core::PCSTR, method: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_bindW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, cred: ::windows_sys::core::PCWSTR, method: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_bind_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, cred: ::windows_sys::core::PCSTR, method: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_bind_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, cred: ::windows_sys::core::PCSTR, method: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_bind_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, cred: ::windows_sys::core::PCWSTR, method: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_check_filterA(ld: *mut ldap, searchfilter: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_check_filterW(ld: *mut ldap, searchfilter: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_cleanup(hinstance: super::super::Foundation::HANDLE) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_close_extended_op(ld: *mut ldap, messagenumber: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_compare(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_compareA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_compareW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attr: ::windows_sys::core::PCWSTR, value: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_compare_ext(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_compare_extA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_compare_extW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attr: ::windows_sys::core::PCWSTR, value: ::windows_sys::core::PCWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_compare_ext_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_compare_ext_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_compare_ext_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attr: ::windows_sys::core::PCWSTR, value: ::windows_sys::core::PCWSTR, data: *const LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_compare_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_compare_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, attr: ::windows_sys::core::PCSTR, value: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_compare_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, attr: ::windows_sys::core::PCWSTR, value: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_conn_from_msg(primaryconn: *mut ldap, res: *mut LDAPMessage) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_connect(ld: *mut ldap, timeout: *mut LDAP_TIMEVAL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_control_free(control: *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_control_freeA(controls: *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_control_freeW(control: *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_controls_free(controls: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_controls_freeA(controls: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_controls_freeW(control: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_count_entries(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_count_references(ld: *mut ldap, res: *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_count_values(vals: *const ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_count_valuesA(vals: *const ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_count_valuesW(vals: *const ::windows_sys::core::PWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_count_values_len(vals: *mut *mut LDAP_BERVAL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_page_control(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_page_controlA(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_page_controlW(externalhandle: *mut ldap, pagesize: u32, cookie: *mut LDAP_BERVAL, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_sort_control(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_sort_controlA(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, iscritical: u8, control: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_sort_controlW(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyW, iscritical: u8, control: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_vlv_controlA(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolA) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_create_vlv_controlW(externalhandle: *mut ldap, vlvinfo: *mut ldapvlvinfo, iscritical: u8, control: *mut *mut ldapcontrolW) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_delete(ld: *mut ldap, dn: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_deleteA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_deleteW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_delete_ext(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_delete_extA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_delete_extW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_delete_ext_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_delete_ext_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_delete_ext_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_delete_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_delete_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_delete_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_dn2ufn(dn: ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_dn2ufnA(dn: ::windows_sys::core::PCSTR) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_dn2ufnW(dn: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::PWSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_encode_sort_controlA(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyA, control: *mut ldapcontrolA, criticality: super::super::Foundation::BOOLEAN) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_encode_sort_controlW(externalhandle: *mut ldap, sortkeys: *mut *mut ldapsortkeyW, control: *mut ldapcontrolW, criticality: super::super::Foundation::BOOLEAN) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_err2string(err: u32) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_err2stringA(err: u32) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_err2stringW(err: u32) -> ::windows_sys::core::PWSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_escape_filter_element(sourcefilterelement: ::windows_sys::core::PCSTR, sourcelength: u32, destfilterelement: ::windows_sys::core::PSTR, destlength: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_escape_filter_elementA(sourcefilterelement: ::windows_sys::core::PCSTR, sourcelength: u32, destfilterelement: ::windows_sys::core::PSTR, destlength: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_escape_filter_elementW(sourcefilterelement: ::windows_sys::core::PCSTR, sourcelength: u32, destfilterelement: ::windows_sys::core::PWSTR, destlength: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_explode_dn(dn: ::windows_sys::core::PCSTR, notypes: u32) -> *mut ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_explode_dnA(dn: ::windows_sys::core::PCSTR, notypes: u32) -> *mut ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_explode_dnW(dn: ::windows_sys::core::PCWSTR, notypes: u32) -> *mut ::windows_sys::core::PWSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_extended_operation(ld: *mut ldap, oid: ::windows_sys::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_extended_operationA(ld: *mut ldap, oid: ::windows_sys::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_extended_operationW(ld: *mut ldap, oid: ::windows_sys::core::PCWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_extended_operation_sA(externalhandle: *mut ldap, oid: ::windows_sys::core::PCSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, returnedoid: *mut ::windows_sys::core::PSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_extended_operation_sW(externalhandle: *mut ldap, oid: ::windows_sys::core::PCWSTR, data: *mut LDAP_BERVAL, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, returnedoid: *mut ::windows_sys::core::PWSTR, returneddata: *mut *mut LDAP_BERVAL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_first_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_first_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_first_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut *mut berelement) -> ::windows_sys::core::PWSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_first_entry(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_first_reference(ld: *mut ldap, res: *mut LDAPMessage) -> *mut LDAPMessage;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_free_controls(controls: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_free_controlsA(controls: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_free_controlsW(controls: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_dn(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_dnA(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_dnW(ld: *mut ldap, entry: *mut LDAPMessage) -> ::windows_sys::core::PWSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_get_next_page(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, pagesize: u32, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_next_page_s(externalhandle: *mut ldap, searchhandle: *mut ldapsearch, timeout: *mut LDAP_TIMEVAL, pagesize: u32, totalcount: *mut u32, results: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_get_option(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_get_optionW(ld: *mut ldap, option: i32, outvalue: *mut ::core::ffi::c_void) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_paged_count(externalhandle: *mut ldap, searchblock: *mut ldapsearch, totalcount: *mut u32, results: *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_values(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows_sys::core::PCSTR) -> *mut ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_valuesA(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows_sys::core::PCSTR) -> *mut ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_valuesW(ld: *mut ldap, entry: *mut LDAPMessage, attr: ::windows_sys::core::PCWSTR) -> *mut ::windows_sys::core::PWSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_values_len(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows_sys::core::PCSTR) -> *mut *mut LDAP_BERVAL;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_values_lenA(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows_sys::core::PCSTR) -> *mut *mut LDAP_BERVAL;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_get_values_lenW(externalhandle: *mut ldap, message: *mut LDAPMessage, attr: ::windows_sys::core::PCWSTR) -> *mut *mut LDAP_BERVAL;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_init(hostname: ::windows_sys::core::PCSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_initA(hostname: ::windows_sys::core::PCSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_initW(hostname: ::windows_sys::core::PCWSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_memfree(block: ::windows_sys::core::PCSTR);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_memfreeA(block: ::windows_sys::core::PCSTR);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_memfreeW(block: ::windows_sys::core::PCWSTR);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modify(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modifyA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modifyW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, mods: *mut *mut ldapmodW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_modify_ext(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_modify_extA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_modify_extW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_modify_ext_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_modify_ext_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_modify_ext_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, mods: *mut *mut ldapmodW, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modify_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modify_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, mods: *mut *mut ldapmodA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modify_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, mods: *mut *mut ldapmodW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn2(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR, deleteoldrdn: i32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn2A(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR, deleteoldrdn: i32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn2W(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCWSTR, newdistinguishedname: ::windows_sys::core::PCWSTR, deleteoldrdn: i32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn2_s(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR, deleteoldrdn: i32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn2_sA(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR, deleteoldrdn: i32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn2_sW(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCWSTR, newdistinguishedname: ::windows_sys::core::PCWSTR, deleteoldrdn: i32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdnA(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdnW(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCWSTR, newdistinguishedname: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn_s(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn_sA(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, newdistinguishedname: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_modrdn_sW(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCWSTR, newdistinguishedname: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_msgfree(res: *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_next_attribute(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_next_attributeA(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows_sys::core::PSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_next_attributeW(ld: *mut ldap, entry: *mut LDAPMessage, ptr: *mut berelement) -> ::windows_sys::core::PWSTR;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_next_entry(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_next_reference(ld: *mut ldap, entry: *mut LDAPMessage) -> *mut LDAPMessage;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_open(hostname: ::windows_sys::core::PCSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_openA(hostname: ::windows_sys::core::PCSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_openW(hostname: ::windows_sys::core::PCWSTR, portnumber: u32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_extended_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows_sys::core::PSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_extended_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, resultoid: *mut ::windows_sys::core::PWSTR, resultdata: *mut *mut LDAP_BERVAL, freeit: super::super::Foundation::BOOLEAN) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_page_control(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_page_controlA(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolA, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_page_controlW(externalhandle: *mut ldap, servercontrols: *mut *mut ldapcontrolW, totalcount: *mut u32, cookie: *mut *mut LDAP_BERVAL) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_reference(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_referenceA(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_referenceW(connection: *mut ldap, resultmessage: *mut LDAPMessage, referrals: *mut *mut ::windows_sys::core::PWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_result(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows_sys::core::PSTR, errormessage: *mut ::windows_sys::core::PSTR, referrals: *mut *mut ::windows_sys::core::PSTR, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_resultA(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows_sys::core::PSTR, errormessage: *mut ::windows_sys::core::PSTR, referrals: *mut *mut *mut i8, servercontrols: *mut *mut *mut ldapcontrolA, freeit: super::super::Foundation::BOOLEAN) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_resultW(connection: *mut ldap, resultmessage: *mut LDAPMessage, returncode: *mut u32, matcheddns: *mut ::windows_sys::core::PWSTR, errormessage: *mut ::windows_sys::core::PWSTR, referrals: *mut *mut *mut u16, servercontrols: *mut *mut *mut ldapcontrolW, freeit: super::super::Foundation::BOOLEAN) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_sort_control(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_sort_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, result: *mut u32, attribute: *mut ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_sort_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, result: *mut u32, attribute: *mut ::windows_sys::core::PWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_vlv_controlA(externalhandle: *mut ldap, control: *mut *mut ldapcontrolA, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_parse_vlv_controlW(externalhandle: *mut ldap, control: *mut *mut ldapcontrolW, targetpos: *mut u32, listcount: *mut u32, context: *mut *mut LDAP_BERVAL, errcode: *mut i32) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_perror(ld: *mut ldap, msg: ::windows_sys::core::PCSTR);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_rename_ext(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, newrdn: ::windows_sys::core::PCSTR, newparent: ::windows_sys::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_rename_extA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, newrdn: ::windows_sys::core::PCSTR, newparent: ::windows_sys::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_rename_extW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, newrdn: ::windows_sys::core::PCWSTR, newparent: ::windows_sys::core::PCWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_rename_ext_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, newrdn: ::windows_sys::core::PCSTR, newparent: ::windows_sys::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_rename_ext_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, newrdn: ::windows_sys::core::PCSTR, newparent: ::windows_sys::core::PCSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_rename_ext_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, newrdn: ::windows_sys::core::PCWSTR, newparent: ::windows_sys::core::PCWSTR, deleteoldrdn: i32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_result(ld: *mut ldap, msgid: u32, all: u32, timeout: *const LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_result2error(ld: *mut ldap, res: *mut LDAPMessage, freeit: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_sasl_bindA(externalhandle: *mut ldap, distname: ::windows_sys::core::PCSTR, authmechanism: ::windows_sys::core::PCSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, messagenumber: *mut i32) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_sasl_bindW(externalhandle: *mut ldap, distname: ::windows_sys::core::PCWSTR, authmechanism: ::windows_sys::core::PCWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, messagenumber: *mut i32) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_sasl_bind_sA(externalhandle: *mut ldap, distname: ::windows_sys::core::PCSTR, authmechanism: ::windows_sys::core::PCSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolA, clientctrls: *mut *mut ldapcontrolA, serverdata: *mut *mut LDAP_BERVAL) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_sasl_bind_sW(externalhandle: *mut ldap, distname: ::windows_sys::core::PCWSTR, authmechanism: ::windows_sys::core::PCWSTR, cred: *const LDAP_BERVAL, serverctrls: *mut *mut ldapcontrolW, clientctrls: *mut *mut ldapcontrolW, serverdata: *mut *mut LDAP_BERVAL) -> i32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_search(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_searchA(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_searchW(ld: *mut ldap, base: ::windows_sys::core::PCWSTR, scope: u32, filter: ::windows_sys::core::PCWSTR, attrs: *const *const u16, attrsonly: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_search_abandon_page(externalhandle: *mut ldap, searchblock: *mut ldapsearch) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_ext(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_extA(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_extW(ld: *mut ldap, base: ::windows_sys::core::PCWSTR, scope: u32, filter: ::windows_sys::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timelimit: u32, sizelimit: u32, messagenumber: *mut u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_ext_s(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_ext_sA(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, servercontrols: *const *const ldapcontrolA, clientcontrols: *const *const ldapcontrolA, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_ext_sW(ld: *mut ldap, base: ::windows_sys::core::PCWSTR, scope: u32, filter: ::windows_sys::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, servercontrols: *const *const ldapcontrolW, clientcontrols: *const *const ldapcontrolW, timeout: *mut LDAP_TIMEVAL, sizelimit: u32, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_init_page(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, scopeofsearch: u32, searchfilter: ::windows_sys::core::PCSTR, attributelist: *mut *mut i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_init_pageA(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCSTR, scopeofsearch: u32, searchfilter: ::windows_sys::core::PCSTR, attributelist: *const *const i8, attributesonly: u32, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyA) -> *mut ldapsearch;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_init_pageW(externalhandle: *mut ldap, distinguishedname: ::windows_sys::core::PCWSTR, scopeofsearch: u32, searchfilter: ::windows_sys::core::PCWSTR, attributelist: *const *const u16, attributesonly: u32, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW, pagetimelimit: u32, totalsizelimit: u32, sortkeys: *mut *mut ldapsortkeyW) -> *mut ldapsearch;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_s(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_sA(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_sW(ld: *mut ldap, base: ::windows_sys::core::PCWSTR, scope: u32, filter: ::windows_sys::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_st(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_stA(ld: *mut ldap, base: ::windows_sys::core::PCSTR, scope: u32, filter: ::windows_sys::core::PCSTR, attrs: *const *const i8, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_search_stW(ld: *mut ldap, base: ::windows_sys::core::PCWSTR, scope: u32, filter: ::windows_sys::core::PCWSTR, attrs: *const *const u16, attrsonly: u32, timeout: *mut LDAP_TIMEVAL, res: *mut *mut LDAPMessage) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_set_dbg_flags(newflags: u32) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT);
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_set_option(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_set_optionW(ld: *mut ldap, option: i32, invalue: *const ::core::ffi::c_void) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_simple_bind(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, passwd: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_simple_bindA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, passwd: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_simple_bindW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, passwd: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_simple_bind_s(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, passwd: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_simple_bind_sA(ld: *mut ldap, dn: ::windows_sys::core::PCSTR, passwd: ::windows_sys::core::PCSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_simple_bind_sW(ld: *mut ldap, dn: ::windows_sys::core::PCWSTR, passwd: ::windows_sys::core::PCWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_sslinit(hostname: ::windows_sys::core::PCSTR, portnumber: u32, secure: i32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_sslinitA(hostname: ::windows_sys::core::PCSTR, portnumber: u32, secure: i32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_sslinitW(hostname: ::windows_sys::core::PCWSTR, portnumber: u32, secure: i32) -> *mut ldap;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_start_tls_sA(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolA, clientcontrols: *mut *mut ldapcontrolA) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_start_tls_sW(externalhandle: *mut ldap, serverreturnvalue: *mut u32, result: *mut *mut LDAPMessage, servercontrols: *mut *mut ldapcontrolW, clientcontrols: *mut *mut ldapcontrolW) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_startup(version: *mut ldap_version_info, instance: *mut super::super::Foundation::HANDLE) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn ldap_stop_tls_s(externalhandle: *mut ldap) -> super::super::Foundation::BOOLEAN;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_ufn2dn(ufn: ::windows_sys::core::PCSTR, pdn: *mut ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_ufn2dnA(ufn: ::windows_sys::core::PCSTR, pdn: *mut ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_ufn2dnW(ufn: ::windows_sys::core::PCWSTR, pdn: *mut ::windows_sys::core::PWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_unbind(ld: *mut ldap) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_unbind_s(ld: *mut ldap) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_value_free(vals: *const ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_value_freeA(vals: *const ::windows_sys::core::PSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_value_freeW(vals: *const ::windows_sys::core::PWSTR) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_Networking_Ldap\"`*"]
     pub fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32;
 }

@@ -2,24 +2,54 @@
 extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateBackupRestorer(pcallback: ::windows_sys::core::IUnknown, ppbackup: *mut IWMLicenseBackup) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateEditor(ppeditor: *mut IWMMetadataEditor) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateIndexer(ppindexer: *mut IWMIndexer) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateProfileManager(ppprofilemanager: *mut IWMProfileManager) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppreader: *mut IWMReader) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateSyncReader(punkcert: ::windows_sys::core::IUnknown, dwrights: u32, ppsyncreader: *mut IWMSyncReader) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateWriter(punkcert: ::windows_sys::core::IUnknown, ppwriter: *mut IWMWriter) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateWriterFileSink(ppsink: *mut IWMWriterFileSink) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateWriterNetworkSink(ppsink: *mut IWMWriterNetworkSink) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`*"]
     pub fn WMCreateWriterPushSink(ppsink: *mut IWMWriterPushSink) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_Media_WindowsMediaFormat\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn WMIsContentProtected(pwszfilename: ::windows_sys::core::PCWSTR, pfisprotected: *mut super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;

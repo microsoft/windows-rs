@@ -2379,7 +2379,7 @@ where
 #[inline]
 pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
     }
     GetFeatureEnabledState(featureid, changetime)
@@ -2389,7 +2389,7 @@ pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_
 #[inline]
 pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: &mut u32, hasnotification: &mut super::super::Foundation::BOOL) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
     }
     GetFeatureVariant(featureid, changetime, ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification))
@@ -5363,7 +5363,7 @@ where
 #[inline]
 pub unsafe fn RecordFeatureError(featureid: u32, error: &FEATURE_ERROR) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
     }
     RecordFeatureError(featureid, ::core::mem::transmute(error))
@@ -5375,7 +5375,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: ::windows::core::PCSTR);
     }
     RecordFeatureUsage(featureid, kind, addend, originname.into())
@@ -6671,7 +6671,7 @@ where
 #[inline]
 pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: &mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void);
     }
     SubscribeFeatureStateChangeNotification(::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context))
@@ -7040,7 +7040,7 @@ where
     P0: ::std::convert::Into<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
     }
     UnsubscribeFeatureStateChangeNotification(subscription.into())
@@ -8113,7 +8113,7 @@ pub unsafe fn uaw_lstrlenW(string: &u16) -> i32 {
 #[inline]
 pub unsafe fn uaw_wcschr(string: &u16, character: u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
     }
     uaw_wcschr(::core::mem::transmute(string), character)
@@ -8123,7 +8123,7 @@ pub unsafe fn uaw_wcschr(string: &u16, character: u16) -> *mut u16 {
 #[inline]
 pub unsafe fn uaw_wcscpy(destination: &mut u16, source: &u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
     }
     uaw_wcscpy(::core::mem::transmute(destination), ::core::mem::transmute(source))
@@ -8133,7 +8133,7 @@ pub unsafe fn uaw_wcscpy(destination: &mut u16, source: &u16) -> *mut u16 {
 #[inline]
 pub unsafe fn uaw_wcsicmp(string1: &u16, string2: &u16) -> i32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
     }
     uaw_wcsicmp(::core::mem::transmute(string1), ::core::mem::transmute(string2))
@@ -8143,7 +8143,7 @@ pub unsafe fn uaw_wcsicmp(string1: &u16, string2: &u16) -> i32 {
 #[inline]
 pub unsafe fn uaw_wcslen(string: &u16) -> usize {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn uaw_wcslen(string: *const u16) -> usize;
     }
     uaw_wcslen(::core::mem::transmute(string))
@@ -8153,7 +8153,7 @@ pub unsafe fn uaw_wcslen(string: &u16) -> usize {
 #[inline]
 pub unsafe fn uaw_wcsrchr(string: &u16, character: u16) -> *mut u16 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
     }
     uaw_wcsrchr(::core::mem::transmute(string), character)

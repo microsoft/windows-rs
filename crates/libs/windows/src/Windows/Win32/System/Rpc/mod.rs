@@ -985,7 +985,7 @@ pub unsafe fn I_RpcServerGetAssociationID(binding: *const ::core::ffi::c_void, a
 #[inline]
 pub unsafe fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn I_RpcServerInqAddressChangeFn() -> *mut RPC_ADDRESS_CHANGE_FN;
     }
     I_RpcServerInqAddressChangeFn()
@@ -4534,7 +4534,7 @@ pub const NT351_INTERFACE_SIZE: u32 = 64u32;
 #[inline]
 pub unsafe fn Ndr64AsyncClientCall(pproxyinfo: &mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn Ndr64AsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
     Ndr64AsyncClientCall(::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue))
@@ -4562,7 +4562,7 @@ pub unsafe fn Ndr64AsyncServerCallAll(prpcmsg: &mut RPC_MESSAGE) {
 #[inline]
 pub unsafe fn Ndr64DcomAsyncClientCall(pproxyinfo: &mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn Ndr64DcomAsyncClientCall(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
     Ndr64DcomAsyncClientCall(::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue))
@@ -4596,7 +4596,7 @@ pub unsafe fn NdrAllocate(pstubmsg: &mut MIDL_STUB_MESSAGE, len: usize) -> *mut 
 #[inline]
 pub unsafe fn NdrAsyncClientCall(pstubdescriptor: &mut MIDL_STUB_DESC, pformat: &mut u8) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn NdrAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
     }
     NdrAsyncClientCall(::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(pformat))
@@ -4665,7 +4665,7 @@ pub unsafe fn NdrClearOutParameters(pstubmsg: &mut MIDL_STUB_MESSAGE, pformat: &
 #[inline]
 pub unsafe fn NdrClientCall2(pstubdescriptor: &mut MIDL_STUB_DESC, pformat: &mut u8) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn NdrClientCall2(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
     }
     NdrClientCall2(::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(pformat))
@@ -4675,7 +4675,7 @@ pub unsafe fn NdrClientCall2(pstubdescriptor: &mut MIDL_STUB_DESC, pformat: &mut
 #[inline]
 pub unsafe fn NdrClientCall3(pproxyinfo: &mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn NdrClientCall3(pproxyinfo: *mut MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
     NdrClientCall3(::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue))
@@ -5148,7 +5148,7 @@ where
 #[inline]
 pub unsafe fn NdrDcomAsyncClientCall(pstubdescriptor: &mut MIDL_STUB_DESC, pformat: &mut u8) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn NdrDcomAsyncClientCall(pstubdescriptor: *mut MIDL_STUB_DESC, pformat: *mut u8) -> CLIENT_CALL_RETURN;
     }
     NdrDcomAsyncClientCall(::core::mem::transmute(pstubdescriptor), ::core::mem::transmute(pformat))
@@ -5390,7 +5390,7 @@ pub unsafe fn NdrMapCommAndFaultStatus(pstubmsg: &mut MIDL_STUB_MESSAGE, pcommst
 #[inline]
 pub unsafe fn NdrMesProcEncodeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: &MIDL_STUB_DESC, pformatstring: &mut u8) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn NdrMesProcEncodeDecode(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8);
     }
     NdrMesProcEncodeDecode(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring))
@@ -5400,7 +5400,7 @@ pub unsafe fn NdrMesProcEncodeDecode(handle: *mut ::core::ffi::c_void, pstubdesc
 #[inline]
 pub unsafe fn NdrMesProcEncodeDecode2(handle: *mut ::core::ffi::c_void, pstubdesc: &MIDL_STUB_DESC, pformatstring: &mut u8) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn NdrMesProcEncodeDecode2(handle: *mut ::core::ffi::c_void, pstubdesc: *const MIDL_STUB_DESC, pformatstring: *mut u8) -> CLIENT_CALL_RETURN;
     }
     NdrMesProcEncodeDecode2(::core::mem::transmute(handle), ::core::mem::transmute(pstubdesc), ::core::mem::transmute(pformatstring))
@@ -5410,7 +5410,7 @@ pub unsafe fn NdrMesProcEncodeDecode2(handle: *mut ::core::ffi::c_void, pstubdes
 #[inline]
 pub unsafe fn NdrMesProcEncodeDecode3(handle: *mut ::core::ffi::c_void, pproxyinfo: &MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn NdrMesProcEncodeDecode3(handle: *mut ::core::ffi::c_void, pproxyinfo: *const MIDL_STUBLESS_PROXY_INFO, nprocnum: u32, preturnvalue: *mut ::core::ffi::c_void) -> CLIENT_CALL_RETURN;
     }
     NdrMesProcEncodeDecode3(::core::mem::transmute(handle), ::core::mem::transmute(pproxyinfo), nprocnum, ::core::mem::transmute(preturnvalue))

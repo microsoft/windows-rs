@@ -41,7 +41,7 @@ fn main() {
     }
 }
 
-fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, usize>, platform: &str) {
+fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>, platform: &str) {
     println!("{}", library);
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
@@ -61,11 +61,10 @@ EXPORTS
     )
     .unwrap();
 
-    for (function, params) in functions {
-        if platform.eq("i686_gnu") {
-            def.write_all(format!("{}@{}\n", function, params).as_bytes()).unwrap();
-        } else {
-            def.write_all(format!("{}\n", function).as_bytes()).unwrap();
+    for (function, calling_convention) in functions {
+        match calling_convention {
+            lib::CallingConvention::Stdcall(params) if platform.eq("i686_gnu") => def.write_all(format!("{}@{}\n", function, params).as_bytes()).unwrap(),
+            _ => def.write_all(format!("{}\n", function).as_bytes()).unwrap(),
         }
     }
 
@@ -115,7 +114,7 @@ EXPORTS
     std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
 }
 
-fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<String, usize>>) {
+fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<String, lib::CallingConvention>>) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();
     println!("Generating {}", mri_path.to_string_lossy());

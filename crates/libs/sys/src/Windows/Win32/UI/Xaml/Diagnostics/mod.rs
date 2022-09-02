@@ -1,7 +1,10 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub fn InitializeXamlDiagnostic(endpointname: ::windows_sys::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows_sys::core::PCWSTR, wsztapdllname: ::windows_sys::core::PCWSTR, tapclsid: ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "cdecl" {
     #[doc = "*Required features: `\"Win32_UI_Xaml_Diagnostics\"`*"]
     pub fn InitializeXamlDiagnosticsEx(endpointname: ::windows_sys::core::PCWSTR, pid: u32, wszdllxamldiagnostics: ::windows_sys::core::PCWSTR, wsztapdllname: ::windows_sys::core::PCWSTR, tapclsid: ::windows_sys::core::GUID, wszinitializationdata: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
 }

@@ -2,107 +2,239 @@
 extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn CoGetInstanceFromFile(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: ::windows_sys::core::PCWSTR, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn CoGetInstanceFromIStorage(pserverinfo: *const super::COSERVERINFO, pclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, dwclsctx: super::CLSCTX, pstg: IStorage, dwcount: u32, presults: *mut super::MULTI_QI) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn CoGetInterfaceAndReleaseStream(pstm: super::IStream, iid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateILockBytesOnHGlobal(hglobal: isize, fdeleteonrelease: super::super::super::Foundation::BOOL, pplkbyt: *mut ILockBytes) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn CreateStreamOnHGlobal(hglobal: isize, fdeleteonrelease: super::super::super::Foundation::BOOL, ppstm: *mut super::IStream) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn FmtIdToPropStgName(pfmtid: *const ::windows_sys::core::GUID, oszname: ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn FreePropVariantArray(cvariants: u32, rgvars: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn GetConvertStg(pstg: IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn GetHGlobalFromILockBytes(plkbyt: ILockBytes, phglobal: *mut isize) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn GetHGlobalFromStream(pstm: super::IStream, phglobal: *mut isize) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn OleConvertIStorageToOLESTREAM(pstg: IStorage, lpolestream: *mut OLESTREAM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn OleConvertIStorageToOLESTREAMEx(pstg: IStorage, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, pstg: IStorage, ptd: *const super::DVTARGETDEVICE) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(feature = "Win32_Graphics_Gdi")]
     pub fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: IStorage, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn PropStgNameToFmtId(oszname: ::windows_sys::core::PCWSTR, pfmtid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn ReadClassStg(pstg: IStorage, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn ReadClassStm(pstm: super::IStream, pclsid: *mut ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn ReadFmtUserTypeStg(pstg: IStorage, pcf: *mut u16, lplpszusertype: *mut ::windows_sys::core::PWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SetConvertStg(pstg: IStorage, fconvert: super::super::super::Foundation::BOOL) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgCreateDocfile(pwcsname: ::windows_sys::core::PCWSTR, grfmode: STGM, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgCreateDocfileOnILockBytes(plkbyt: ILockBytes, grfmode: STGM, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgCreatePropSetStg(pstorage: IStorage, dwreserved: u32, pppropsetstg: *mut IPropertySetStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgCreatePropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, pclsid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
     #[cfg(feature = "Win32_Security")]
     pub fn StgCreateStorageEx(pwcsname: ::windows_sys::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgGetIFillLockBytesOnFile(pwcsname: ::windows_sys::core::PCWSTR, ppflb: *mut IFillLockBytes) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgGetIFillLockBytesOnILockBytes(pilb: ILockBytes, ppflb: *mut IFillLockBytes) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgIsStorageFile(pwcsname: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgIsStorageILockBytes(plkbyt: ILockBytes) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: IFillLockBytes, grfmode: u32, asyncflags: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenLayoutDocfile(pwcsdfname: ::windows_sys::core::PCWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenPropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenStorage(pwcsname: ::windows_sys::core::PCWSTR, pstgpriority: IStorage, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
     #[cfg(feature = "Win32_Security")]
     pub fn StgOpenStorageEx(pwcsname: ::windows_sys::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgOpenStorageOnILockBytes(plkbyt: ILockBytes, pstgpriority: IStorage, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgSetTimes(lpszname: ::windows_sys::core::PCWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn WriteClassStg(pstg: IStorage, rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn WriteClassStm(pstm: super::IStream, rclsid: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+}
+#[cfg_attr(windows, link(name = "windows"))]
+extern "system" {
     #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
     pub fn WriteFmtUserTypeStg(pstg: IStorage, cf: u16, lpszusertype: ::windows_sys::core::PCWSTR) -> ::windows_sys::core::HRESULT;
 }

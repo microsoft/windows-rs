@@ -71185,7 +71185,7 @@ where
     P3: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ShellMessageBoxA(happinst: super::super::Foundation::HINSTANCE, hwnd: super::super::Foundation::HWND, lpctext: ::windows::core::PCSTR, lpctitle: ::windows::core::PCSTR, fustyle: u32) -> i32;
     }
     ShellMessageBoxA(happinst.into(), hwnd.into(), lpctext.into(), lpctitle.into(), fustyle)
@@ -71201,7 +71201,7 @@ where
     P3: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ShellMessageBoxW(happinst: super::super::Foundation::HINSTANCE, hwnd: super::super::Foundation::HWND, lpctext: ::windows::core::PCWSTR, lpctitle: ::windows::core::PCWSTR, fustyle: u32) -> i32;
     }
     ShellMessageBoxW(happinst.into(), hwnd.into(), lpctext.into(), lpctitle.into(), fustyle)
@@ -75232,7 +75232,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn wnsprintfA(pszdest: ::windows::core::PSTR, cchdest: i32, pszfmt: ::windows::core::PCSTR) -> i32;
     }
     wnsprintfA(::core::mem::transmute(pszdest.as_ptr()), pszdest.len() as _, pszfmt.into())
@@ -75244,7 +75244,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn wnsprintfW(pszdest: ::windows::core::PWSTR, cchdest: i32, pszfmt: ::windows::core::PCWSTR) -> i32;
     }
     wnsprintfW(::core::mem::transmute(pszdest.as_ptr()), pszdest.len() as _, pszfmt.into())

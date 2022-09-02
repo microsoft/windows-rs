@@ -8813,7 +8813,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ClusWorkersTerminate(clusworkers: *mut *mut CLUS_WORKER, clusworkerscount: usize, timeoutinmilliseconds: u32, waitonly: super::super::Foundation::BOOL) -> u32;
     }
     ClusWorkersTerminate(::core::mem::transmute(clusworkers.as_ptr()), clusworkers.len() as _, timeoutinmilliseconds, waitonly.into())
@@ -10274,7 +10274,7 @@ pub unsafe fn FreeClusterCrypt(pcryptinfo: *const ::core::ffi::c_void) -> u32 {
 #[inline]
 pub unsafe fn FreeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn FreeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
     }
     FreeClusterHealthFault(::core::mem::transmute(clusterhealthfault))
@@ -10283,7 +10283,7 @@ pub unsafe fn FreeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEALTH_FAU
 #[inline]
 pub unsafe fn FreeClusterHealthFaultArray(clusterhealthfaultarray: &mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn FreeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
     }
     FreeClusterHealthFaultArray(::core::mem::transmute(clusterhealthfaultarray))
@@ -17308,7 +17308,7 @@ pub struct IWEInvokeCommand_Vtbl {
 #[inline]
 pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEALTH_FAULT) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn InitializeClusterHealthFault(clusterhealthfault: *mut CLUSTER_HEALTH_FAULT) -> u32;
     }
     InitializeClusterHealthFault(::core::mem::transmute(clusterhealthfault))
@@ -17317,7 +17317,7 @@ pub unsafe fn InitializeClusterHealthFault(clusterhealthfault: &mut CLUSTER_HEAL
 #[inline]
 pub unsafe fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: &mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn InitializeClusterHealthFaultArray(clusterhealthfaultarray: *mut CLUSTER_HEALTH_FAULT_ARRAY) -> u32;
     }
     InitializeClusterHealthFaultArray(::core::mem::transmute(clusterhealthfaultarray))
@@ -20254,7 +20254,7 @@ pub unsafe fn ResUtilIsResourceClassEqual(prci: &mut CLUS_RESOURCE_CLASS_INFO, h
 #[inline]
 pub unsafe fn ResUtilLeftPaxosIsLessThanRight(left: &PaxosTagCStruct, right: &PaxosTagCStruct) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ResUtilLeftPaxosIsLessThanRight(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
     }
     ResUtilLeftPaxosIsLessThanRight(::core::mem::transmute(left), ::core::mem::transmute(right))
@@ -20273,7 +20273,7 @@ pub unsafe fn ResUtilNodeEnum(hcluster: &mut _HCLUSTER, pnodecallback: LPNODE_CA
 #[inline]
 pub unsafe fn ResUtilPaxosComparer(left: &PaxosTagCStruct, right: &PaxosTagCStruct) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ResUtilPaxosComparer(left: *const PaxosTagCStruct, right: *const PaxosTagCStruct) -> super::super::Foundation::BOOL;
     }
     ResUtilPaxosComparer(::core::mem::transmute(left), ::core::mem::transmute(right))
@@ -20670,7 +20670,7 @@ where
     P2: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn ResUtilsDeleteKeyTree(key: super::super::System::Registry::HKEY, keyname: ::windows::core::PCWSTR, treatnokeyaserror: super::super::Foundation::BOOL) -> u32;
     }
     ResUtilsDeleteKeyTree(key.into(), keyname.into(), treatnokeyaserror.into())

@@ -1746,7 +1746,7 @@ pub unsafe fn GetOpenCardNameW(param0: &mut OPENCARDNAMEW) -> i32 {
 #[inline]
 pub unsafe fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: &KeyCredentialManagerInfo) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn KeyCredentialManagerFreeInformation(keycredentialmanagerinfo: *const KeyCredentialManagerInfo);
     }
     KeyCredentialManagerFreeInformation(::core::mem::transmute(keycredentialmanagerinfo))

@@ -12199,7 +12199,7 @@ where
     P0: ::std::convert::Into<super::super::Foundation::BOOL>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
     WTSEnableChildSessions(benable.into())
@@ -12403,7 +12403,7 @@ pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
 #[inline]
 pub unsafe fn WTSGetChildSessionId(psessionid: &mut u32) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
     }
     WTSGetChildSessionId(::core::mem::transmute(psessionid))
@@ -12825,7 +12825,7 @@ impl ::core::default::Default for WTSINFOW {
 #[inline]
 pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
     WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled))

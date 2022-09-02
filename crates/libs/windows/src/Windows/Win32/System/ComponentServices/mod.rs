@@ -2354,7 +2354,7 @@ impl ::core::fmt::Debug for GetAppTrackerDataFlags {
 #[inline]
 pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn GetDispenserManager(param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
@@ -12596,7 +12596,7 @@ impl ::core::default::Default for RECYCLE_INFO {
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::HRESULT;
     }
     RecycleSurrogate(lreasoncode).ok()
@@ -12635,7 +12635,7 @@ where
     P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn SafeRef(rid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
     SafeRef(::core::mem::transmute(rid), punk.into().abi())

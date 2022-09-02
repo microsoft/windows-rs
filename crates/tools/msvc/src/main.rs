@@ -42,7 +42,7 @@ fn main() {
     }
 }
 
-fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, usize>) {
+fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>) {
     println!("{}", library);
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
@@ -67,19 +67,27 @@ EXPORTS
     )
     .unwrap();
 
-    for (function, params) in functions {
-        let mut buffer = format!("void __stdcall {}(", function);
+    for (function, calling_convention) in functions {
+        let buffer = match calling_convention {
+            lib::CallingConvention::Stdcall(size) => {
+                let mut buffer = format!("void __stdcall {}(", function);
 
-        for param in 0..(*params / 4) {
-            use std::fmt::Write;
-            write!(&mut buffer, "int p{}, ", param).unwrap();
-        }
+                for param in 0..(*size / 4) {
+                    use std::fmt::Write;
+                    write!(&mut buffer, "int p{}, ", param).unwrap();
+                }
 
-        if buffer.ends_with(' ') {
-            buffer.truncate(buffer.len() - 2);
-        }
+                if buffer.ends_with(' ') {
+                    buffer.truncate(buffer.len() - 2);
+                }
 
-        buffer.push_str(") {}\n");
+                buffer.push_str(") {}\n");
+                buffer
+            }
+            lib::CallingConvention::Cdecl => {
+                format!("void __cdecl {}() {{}}\n", function)
+            }
+        };
 
         c.write_all(buffer.as_bytes()).unwrap();
         def.write_all(format!("{}\n", function).as_bytes()).unwrap();

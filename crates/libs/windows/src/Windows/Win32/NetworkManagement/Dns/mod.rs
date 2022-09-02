@@ -4117,7 +4117,7 @@ pub unsafe fn DnsCancelQuery(pcancelhandle: &DNS_QUERY_CANCEL) -> i32 {
 #[inline]
 pub unsafe fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32;
     }
     DnsConnectionDeletePolicyEntries(policyentrytag)
@@ -4129,7 +4129,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionDeleteProxyInfo(pwszconnectionname: ::windows::core::PCWSTR, r#type: DNS_CONNECTION_PROXY_TYPE) -> u32;
     }
     DnsConnectionDeleteProxyInfo(pwszconnectionname.into(), r#type)
@@ -4138,7 +4138,7 @@ where
 #[inline]
 pub unsafe fn DnsConnectionFreeNameList(pnamelist: &mut DNS_CONNECTION_NAME_LIST) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST);
     }
     DnsConnectionFreeNameList(::core::mem::transmute(pnamelist))
@@ -4147,7 +4147,7 @@ pub unsafe fn DnsConnectionFreeNameList(pnamelist: &mut DNS_CONNECTION_NAME_LIST
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: &mut DNS_CONNECTION_PROXY_INFO) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO);
     }
     DnsConnectionFreeProxyInfo(::core::mem::transmute(pproxyinfo))
@@ -4157,7 +4157,7 @@ pub unsafe fn DnsConnectionFreeProxyInfo(pproxyinfo: &mut DNS_CONNECTION_PROXY_I
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: &mut DNS_CONNECTION_PROXY_INFO_EX) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX);
     }
     DnsConnectionFreeProxyInfoEx(::core::mem::transmute(pproxyinfoex))
@@ -4166,7 +4166,7 @@ pub unsafe fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: &mut DNS_CONNECTION_PRO
 #[inline]
 pub unsafe fn DnsConnectionFreeProxyList(pproxylist: &mut DNS_CONNECTION_PROXY_LIST) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST);
     }
     DnsConnectionFreeProxyList(::core::mem::transmute(pproxylist))
@@ -4175,7 +4175,7 @@ pub unsafe fn DnsConnectionFreeProxyList(pproxylist: &mut DNS_CONNECTION_PROXY_L
 #[inline]
 pub unsafe fn DnsConnectionGetNameList(pnamelist: &mut DNS_CONNECTION_NAME_LIST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32;
     }
     DnsConnectionGetNameList(::core::mem::transmute(pnamelist))
@@ -4187,7 +4187,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionGetProxyInfo(pwszconnectionname: ::windows::core::PCWSTR, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32;
     }
     DnsConnectionGetProxyInfo(pwszconnectionname.into(), r#type, ::core::mem::transmute(pproxyinfo))
@@ -4200,7 +4200,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl: ::windows::core::PCWSTR, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
     }
     DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.into(), ::core::mem::transmute(pselectioncontext.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.as_deref().map_or(0, |slice| slice.len() as _), dwexplicitinterfaceindex, ::core::mem::transmute(pproxyinfoex))
@@ -4212,7 +4212,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionGetProxyList(pwszconnectionname: ::windows::core::PCWSTR, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32;
     }
     DnsConnectionGetProxyList(pwszconnectionname.into(), ::core::mem::transmute(pproxylist))
@@ -4221,7 +4221,7 @@ where
 #[inline]
 pub unsafe fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: &DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32;
     }
     DnsConnectionSetPolicyEntries(policyentrytag, ::core::mem::transmute(ppolicyentrylist))
@@ -4233,7 +4233,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionSetProxyInfo(pwszconnectionname: ::windows::core::PCWSTR, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> u32;
     }
     DnsConnectionSetProxyInfo(pwszconnectionname.into(), r#type, ::core::mem::transmute(pproxyinfo))
@@ -4242,7 +4242,7 @@ where
 #[inline]
 pub unsafe fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: &DNS_CONNECTION_IFINDEX_LIST) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32;
     }
     DnsConnectionUpdateIfIndexTable(::core::mem::transmute(pconnectionifindexentries))
@@ -4313,7 +4313,7 @@ pub unsafe fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE
 #[inline]
 pub unsafe fn DnsFreeCustomServers(pcservers: &mut u32, ppservers: &mut *mut DNS_CUSTOM_SERVER) {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER);
     }
     DnsFreeCustomServers(::core::mem::transmute(pcservers), ::core::mem::transmute(ppservers))
@@ -4332,7 +4332,7 @@ pub unsafe fn DnsFreeProxyName(proxyname: ::windows::core::PCWSTR) {
 #[inline]
 pub unsafe fn DnsGetApplicationSettings(pcservers: &mut u32, ppdefaultservers: &mut *mut DNS_CUSTOM_SERVER, psettings: ::core::option::Option<&mut DNS_APPLICATION_SETTINGS>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: *mut DNS_APPLICATION_SETTINGS) -> u32;
     }
     DnsGetApplicationSettings(::core::mem::transmute(pcservers), ::core::mem::transmute(ppdefaultservers), ::core::mem::transmute(psettings))
@@ -4522,7 +4522,7 @@ pub unsafe fn DnsRecordSetCopyEx(precordset: &DNS_RECORDA, charsetin: DNS_CHARSE
 #[inline]
 pub unsafe fn DnsRecordSetDetach(precordlist: &mut DNS_RECORDA) -> *mut DNS_RECORDA {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA;
     }
     DnsRecordSetDetach(::core::mem::transmute(precordlist))
@@ -4681,7 +4681,7 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: &DNS_SERVICE_CANCEL) -> i32
 #[inline]
 pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psettings: ::core::option::Option<&DNS_APPLICATION_SETTINGS>) -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32;
     }
     DnsSetApplicationSettings(pservers.len() as _, ::core::mem::transmute(pservers.as_ptr()), ::core::mem::transmute(psettings))
@@ -4712,7 +4712,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsValidateName_A(pszname: ::windows::core::PCSTR, format: DNS_NAME_FORMAT) -> i32;
     }
     DnsValidateName_A(pszname.into(), format)
@@ -4724,7 +4724,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsValidateName_UTF8(pszname: ::windows::core::PCSTR, format: DNS_NAME_FORMAT) -> i32;
     }
     DnsValidateName_UTF8(pszname.into(), format)
@@ -4736,7 +4736,7 @@ where
     P0: ::std::convert::Into<::windows::core::PCWSTR>,
 {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn DnsValidateName_W(pszname: ::windows::core::PCWSTR, format: DNS_NAME_FORMAT) -> i32;
     }
     DnsValidateName_W(pszname.into(), format)

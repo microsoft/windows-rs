@@ -44,7 +44,7 @@ fn main() {
     }
 }
 
-fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, usize>, dlltool_target: &str) {
+fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<String, lib::CallingConvention>, dlltool_target: &str) {
     println!("{}", library);
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
@@ -83,7 +83,7 @@ EXPORTS
     std::fs::remove_file(output.join(format!("{}.def", library))).unwrap();
 }
 
-fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<String, usize>>) {
+fn build_mri(output: &std::path::Path, libraries: &BTreeMap<String, BTreeMap<String, lib::CallingConvention>>) {
     let mri_path = output.join("unified.mri");
     let mut mri = std::fs::File::create(&mri_path).unwrap();
     println!("Generating {}", mri_path.to_string_lossy());

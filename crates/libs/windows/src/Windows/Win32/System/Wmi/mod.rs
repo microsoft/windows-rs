@@ -8514,7 +8514,7 @@ impl ::core::default::Default for MI_ApplicationFT {
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: ::core::option::Option<&u16>, extendederror: ::core::option::Option<&mut *mut MI_Instance>, application: &mut MI_Application) -> MI_Result {
     #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
+    extern "cdecl" {
         fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result;
     }
     MI_Application_InitializeV1(flags, ::core::mem::transmute(applicationid), ::core::mem::transmute(extendederror), ::core::mem::transmute(application))
